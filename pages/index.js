@@ -8,7 +8,9 @@ export default function Home() {
 
   useEffect(() => {
     // 加载新闻数据
-    fetch('/data/news.json')
+    // 使用相对路径，兼容GitHub Pages的basePath设置
+    const basePath = process.env.NODE_ENV === 'production' ? '/ai-news-aggregator' : '';
+    fetch(`${basePath}/data/news.json`)
       .then(res => res.json())
       .then(data => {
         setNewsData(data);
