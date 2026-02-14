@@ -307,36 +307,20 @@ async function main() {
   // 按发布时间排序（从新到旧）
   aiRelatedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-  // 只保留过去24小时的新闻
-  const twentyFourHoursAgo = new Date();
-  twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+  // 严格限制：只保留过去48小时的新闻（硬性上限）
+  const fortyEightHoursAgo = new Date();
+  fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
 
-  const recentAIItems = aiRelatedItems.filter(item => {
+  const finalItems = aiRelatedItems.filter(item => {
     const itemDate = new Date(item.pubDate);
-    return itemDate > twentyFourHoursAgo;
+    return itemDate > fortyEightHoursAgo;
   });
 
-  console.log(`过滤24小时: 从 ${aiRelatedItems.length} 条筛选出 ${recentAIItems.length} 条最新内容`);
+  console.log(`过滤48小时: 从 ${aiRelatedItems.length} 条筛选出 ${finalItems.length} 条最新内容`);
 
-  // 如果24小时内的新闻不足15条，扩展到48小时
-  let finalItems = recentAIItems;
-  if (recentAIItems.length < 15) {
-    console.log(`24小时内新闻不足15条，扩展到48小时...`);
-    const fortyEightHoursAgo = new Date();
-    fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
-
-    finalItems = aiRelatedItems.filter(item => {
-      const itemDate = new Date(item.pubDate);
-      return itemDate > fortyEightHoursAgo;
-    });
-
-    console.log(`48小时内找到 ${finalItems.length} 条内容`);
-  }
-
-  // 如果48小时内仍不足，使用所有AI相关内容
+  // 注意：宁可显示少于15条，也不显示超过48小时的旧新闻
   if (finalItems.length < 15) {
-    console.log(`48小时内仍不足15条，使用所有 ${aiRelatedItems.length} 条AI相关内容`);
-    finalItems = aiRelatedItems;
+    console.log(`⚠️  48小时内只有 ${finalItems.length} 条新闻，将只显示这些新闻（不会补充旧新闻）`);
   }
 
   // 分类关键词
@@ -389,19 +373,21 @@ async function main() {
   console.log(`  AI硬件类: ${categorizedItems['ai-hardware'].length} 条`);
   console.log(`  其他AI类: ${categorizedItems['ai-other'].length} 条`);
 
-  // 按配额选取新闻（各类别取前N条）
+  // 按配额选取新闻（各类别尽量取5条，但不强求）
   const selectedItems = [
-    ...categorizedItems['ai-chip'].slice(0, 5),      // AI芯片：5条
-    ...categorizedItems['ai-hardware'].slice(0, 5),  // AI硬件：5条
-    ...categorizedItems['ai-other'].slice(0, 5)      // 其他AI：5条
+    ...categorizedItems['ai-chip'].slice(0, 5),      // AI芯片：最多5条
+    ...categorizedItems['ai-hardware'].slice(0, 5),  // AI硬件：最多5条
+    ...categorizedItems['ai-other'].slice(0, 5)      // 其他AI：最多5条
   ];
 
-  // 如果某个类别不足，从其他类别补充
+  // 如果某个类别不足，从其他类别补充（但只从48小时内的数据补充）
   const deficit = 15 - selectedItems.length;
-  if (deficit > 0) {
-    console.log(`总数不足15条，需要补充 ${deficit} 条`);
+  if (deficit > 0 && selectedItems.length > 0) {
+    console.log(`总数不足15条，尝试从48小时内其他新闻补充 ${deficit} 条`);
     const remainingItems = finalItems.filter(item => !selectedItems.includes(item));
-    selectedItems.push(...remainingItems.slice(0, deficit));
+    const supplementItems = remainingItems.slice(0, deficit);
+    selectedItems.push(...supplementItems);
+    console.log(`实际补充了 ${supplementItems.length} 条`);
   }
 
   // 按发布时间重新排序
