@@ -26,33 +26,39 @@ const RSS_FEEDS = [
   // { url: 'https://nitter.net/AndrewYNg/rss', name: 'Andrew Ng Twitter', type: 'twitter' },
 ];
 
-// HuggingFace API配置
+// HuggingFace API配置（注意：免费API端点已废弃，改用关键词匹配）
 // 清理API Key，移除空格、换行符等非法字符
 const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY
   ? process.env.HUGGINGFACE_API_KEY.trim().replace(/[\r\n\t]/g, '')
   : null;
-const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型
-const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型
+const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型（已停用）
+const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型（已停用）
 
-// 验证API Key格式
+// 由于HuggingFace免费Inference API已废弃（返回410错误），现在使用关键词匹配
 if (HUGGINGFACE_API_KEY) {
-  // HuggingFace API Key应该是hf_开头的字符串
-  if (!HUGGINGFACE_API_KEY.startsWith('hf_')) {
-    console.warn('警告: HuggingFace API Key格式可能不正确（应以hf_开头）');
-  }
-  console.log(`HuggingFace API Key已配置（长度: ${HUGGINGFACE_API_KEY.length}）`);
+  console.log('注意：HuggingFace免费API已废弃，将使用关键词匹配方案');
 } else {
-  console.log('未配置HuggingFace API Key，将使用关键词匹配作为备用方案');
+  console.log('未配置HuggingFace API Key，使用关键词匹配方案');
 }
 
-// AI相关关键词（备用方案）
+// AI相关关键词（主要分类方案）
 const AI_KEYWORDS = [
+  // 英文关键词
   'artificial intelligence', 'AI', 'machine learning', 'deep learning',
   'neural network', 'chatgpt', 'gpt', 'llm', 'large language model',
   'computer vision', 'natural language processing', 'nlp',
-  '人工智能', '机器学习', '深度学习', '神经网络', '大模型',
   'transformer', 'diffusion', 'stable diffusion', 'midjourney',
-  'anthropic', 'claude', 'openai', 'google ai', 'deepmind'
+  'anthropic', 'claude', 'openai', 'google ai', 'deepmind',
+  'generative ai', 'gen ai', 'ai model', 'ai training', 'ai inference',
+  'reinforcement learning', 'supervised learning', 'unsupervised learning',
+  'bert', 'gpt-4', 'gpt-3', 'dall-e', 'gemini', 'copilot',
+  'langchain', 'huggingface', 'tensorflow', 'pytorch', 'keras',
+
+  // 中文关键词
+  '人工智能', '机器学习', '深度学习', '神经网络', '大模型',
+  '大语言模型', '生成式AI', '通用人工智能', '强化学习',
+  '自然语言处理', '计算机视觉', '语音识别', '图像识别',
+  '智能对话', '智能助手', 'AI芯片', 'AI加速器'
 ];
 
 const parser = new Parser({
@@ -69,6 +75,10 @@ const parser = new Parser({
 
 // 使用HuggingFace API进行AI相关性分类
 async function classifyWithHuggingFace(text) {
+  // HuggingFace免费API已废弃，直接使用关键词匹配
+  return classifyWithKeywords(text);
+
+  /* 原HuggingFace API代码已废弃
   if (!HUGGINGFACE_API_KEY) {
     return classifyWithKeywords(text);
   }
@@ -116,6 +126,7 @@ async function classifyWithHuggingFace(text) {
     }
     return classifyWithKeywords(text);
   }
+  */
 }
 
 // 备用：使用关键词匹配
@@ -126,12 +137,17 @@ function classifyWithKeywords(text) {
 
 // 使用HuggingFace翻译文本（英文到中文）
 async function translateToZh(text) {
+  // HuggingFace免费翻译API已废弃，直接返回原文
   // 如果文本已经包含大量中文，不需要翻译
   const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
   if (chineseChars > text.length * 0.3) {
     return text;
   }
 
+  // 直接返回原文，不进行翻译
+  return text;
+
+  /* 原HuggingFace翻译API代码已废弃
   if (!HUGGINGFACE_API_KEY) {
     return text;
   }
@@ -175,6 +191,7 @@ async function translateToZh(text) {
     }
     return text; // 失败时返回原文
   }
+  */
 }
 
 // 检测文本语言（简单判断）
@@ -260,35 +277,29 @@ async function main() {
 
   console.log(`筛选出 ${aiRelatedItems.length} 条AI相关内容`);
 
-  // 翻译英文内容到中文
-  console.log('开始翻译英文内容到中文...');
+  // 翻译英文内容到中文（当前已禁用，直接使用原文）
+  console.log('处理内容翻译（当前使用原文，翻译功能已禁用）...');
   for (const item of aiRelatedItems) {
     // 翻译标题
     if (isEnglish(item.title)) {
-      console.log(`翻译标题: ${item.title.substring(0, 50)}...`);
       item.titleZh = await translateToZh(item.title);
-      await new Promise(resolve => setTimeout(resolve, 500)); // 翻译API需要更长延迟
     } else {
       item.titleZh = item.title;
     }
 
     // 翻译描述
     if (isEnglish(item.description)) {
-      console.log(`翻译描述: ${item.description.substring(0, 50)}...`);
       item.descriptionZh = await translateToZh(item.description.substring(0, 1000)); // 限制1000字符避免超时
-      await new Promise(resolve => setTimeout(resolve, 500));
     } else {
       item.descriptionZh = item.description;
     }
 
     // 翻译完整内容（如果有）
     if (item.content && isEnglish(item.content)) {
-      console.log(`翻译完整内容: ${item.content.substring(0, 50)}...`);
       // 移除HTML标签，只翻译文本内容
       const plainText = item.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
       if (plainText.length > 0) {
         item.contentZh = await translateToZh(plainText.substring(0, 2000)); // 限制2000字符
-        await new Promise(resolve => setTimeout(resolve, 500));
       } else {
         item.contentZh = item.descriptionZh; // fallback到描述
       }
@@ -297,7 +308,7 @@ async function main() {
     }
   }
 
-  console.log('翻译完成！');
+  console.log('内容处理完成！');
 
   // 按发布时间排序（从新到旧）
   aiRelatedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
