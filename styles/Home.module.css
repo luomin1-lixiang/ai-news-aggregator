@@ -132,6 +132,26 @@
   font-size: 0.95rem;
 }
 
+.newsContent {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  line-height: 1.8;
+  font-size: 0.95rem;
+  max-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.newsContent::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background: linear-gradient(to bottom, transparent, white);
+}
+
 .newsFooter {
   display: flex;
   justify-content: space-between;

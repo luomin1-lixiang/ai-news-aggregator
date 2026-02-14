@@ -131,7 +131,10 @@ export default function Home() {
                   </a>
                 </h2>
 
-                <p className={styles.newsDescription}>{item.descriptionZh || item.description}</p>
+                {/* 显示完整翻译内容 */}
+                <div className={styles.newsContent}>
+                  {item.contentZh || item.descriptionZh || item.description}
+                </div>
 
                 <div className={styles.newsFooter}>
                   <a

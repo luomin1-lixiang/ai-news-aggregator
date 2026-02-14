@@ -42,12 +42,13 @@ const AI_KEYWORDS = [
 ];
 
 const parser = new Parser({
-  timeout: 10000,
+  timeout: 30000, // 增加超时时间到30秒
   customFields: {
     item: [
       ['media:group', 'mediaGroup'],
       ['media:statistics', 'mediaStatistics'],
-      ['yt:videoId', 'videoId']
+      ['yt:videoId', 'videoId'],
+      ['content:encoded', 'contentEncoded']
     ]
   }
 });
@@ -189,12 +190,12 @@ async function fetchFeed(feedConfig) {
         title: item.title || '',
         link: item.link || '',
         description: item.contentSnippet || item.summary || '',
+        content: item.content || item.contentEncoded || item.contentSnippet || '', // 完整内容
         author: item.creator || item.author || feedConfig.name,
         source: feedConfig.name,
         sourceType: feedConfig.type,
         pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
-        popularity: popularity,
-        content: item.content || ''
+        popularity: popularity
       };
     });
 
@@ -246,14 +247,28 @@ async function main() {
       item.titleZh = item.title;
     }
 
-    // 翻译描述（限制长度避免超时）
+    // 翻译描述
     if (isEnglish(item.description)) {
-      const shortDesc = item.description.substring(0, 500); // 限制500字符
-      console.log(`翻译描述: ${shortDesc.substring(0, 50)}...`);
-      item.descriptionZh = await translateToZh(shortDesc);
-      await new Promise(resolve => setTimeout(resolve, 500)); // 翻译API需要更长延迟
+      console.log(`翻译描述: ${item.description.substring(0, 50)}...`);
+      item.descriptionZh = await translateToZh(item.description.substring(0, 1000)); // 限制1000字符避免超时
+      await new Promise(resolve => setTimeout(resolve, 500));
     } else {
       item.descriptionZh = item.description;
+    }
+
+    // 翻译完整内容（如果有）
+    if (item.content && isEnglish(item.content)) {
+      console.log(`翻译完整内容: ${item.content.substring(0, 50)}...`);
+      // 移除HTML标签，只翻译文本内容
+      const plainText = item.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+      if (plainText.length > 0) {
+        item.contentZh = await translateToZh(plainText.substring(0, 2000)); // 限制2000字符
+        await new Promise(resolve => setTimeout(resolve, 500));
+      } else {
+        item.contentZh = item.descriptionZh; // fallback到描述
+      }
+    } else {
+      item.contentZh = item.content || item.descriptionZh;
     }
   }
 
@@ -344,7 +359,7 @@ async function main() {
     existingData = JSON.parse(rawData);
   }
 
-  // 合并新旧数据，去重
+  // 合并新旧数据，去重（保留所有历史用于记录）
   const allHistoryItems = [...top15, ...existingData.items];
   const uniqueItems = [];
   const seenLinks = new Set();
@@ -365,10 +380,11 @@ async function main() {
     return itemDate > thirtyDaysAgo;
   });
 
-  // 保存数据
+  // 保存数据 - 前端只显示最新15条，但保留所有历史
   const newData = {
     lastUpdated: new Date().toISOString(),
-    items: recentItems.slice(0, 100) // 最多保留100条
+    items: recentItems.slice(0, 15), // 前端显示最新15条
+    history: recentItems.slice(0, 100) // 保留历史100条用于记录
   };
 
   fs.writeFileSync(dataPath, JSON.stringify(newData, null, 2), 'utf-8');
