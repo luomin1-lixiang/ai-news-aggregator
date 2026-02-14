@@ -26,19 +26,22 @@ const RSS_FEEDS = [
   // { url: 'https://nitter.net/AndrewYNg/rss', name: 'Andrew Ng Twitter', type: 'twitter' },
 ];
 
-// HuggingFace API配置（注意：免费API端点已废弃，改用关键词匹配）
+// HuggingFace API配置
 // 清理API Key，移除空格、换行符等非法字符
 const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY
   ? process.env.HUGGINGFACE_API_KEY.trim().replace(/[\r\n\t]/g, '')
   : null;
-const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型（已停用）
-const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型（已停用）
+const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型
+const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型
 
-// 由于HuggingFace免费Inference API已废弃（返回410错误），现在使用关键词匹配
+// 验证API Key配置
 if (HUGGINGFACE_API_KEY) {
-  console.log('注意：HuggingFace免费API已废弃，将使用关键词匹配方案');
+  if (!HUGGINGFACE_API_KEY.startsWith('hf_')) {
+    console.warn('警告: HuggingFace API Key格式可能不正确（应以hf_开头）');
+  }
+  console.log(`✅ HuggingFace API Key已配置，将尝试使用AI分类和翻译`);
 } else {
-  console.log('未配置HuggingFace API Key，使用关键词匹配方案');
+  console.log('⚠️  未配置HuggingFace API Key，将使用关键词匹配（无翻译功能）');
 }
 
 // AI相关关键词（主要分类方案）
@@ -75,10 +78,7 @@ const parser = new Parser({
 
 // 使用HuggingFace API进行AI相关性分类
 async function classifyWithHuggingFace(text) {
-  // HuggingFace免费API已废弃，直接使用关键词匹配
-  return classifyWithKeywords(text);
-
-  /* 原HuggingFace API代码已废弃
+  // 尝试使用HuggingFace API，失败则降级到关键词匹配
   if (!HUGGINGFACE_API_KEY) {
     return classifyWithKeywords(text);
   }
@@ -126,7 +126,6 @@ async function classifyWithHuggingFace(text) {
     }
     return classifyWithKeywords(text);
   }
-  */
 }
 
 // 备用：使用关键词匹配
@@ -137,17 +136,12 @@ function classifyWithKeywords(text) {
 
 // 使用HuggingFace翻译文本（英文到中文）
 async function translateToZh(text) {
-  // HuggingFace免费翻译API已废弃，直接返回原文
   // 如果文本已经包含大量中文，不需要翻译
   const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
   if (chineseChars > text.length * 0.3) {
     return text;
   }
 
-  // 直接返回原文，不进行翻译
-  return text;
-
-  /* 原HuggingFace翻译API代码已废弃
   if (!HUGGINGFACE_API_KEY) {
     return text;
   }
@@ -169,7 +163,7 @@ async function translateToZh(text) {
 
     if (!response.ok) {
       const errorText = await response.text();
-      console.log(`翻译API返回错误 (${response.status}): ${errorText.substring(0, 100)}`);
+      console.log(`翻译API返回错误 (${response.status}): ${errorText.substring(0, 200)}`);
       return text;
     }
 
@@ -185,13 +179,11 @@ async function translateToZh(text) {
     // 只在第一次错误时打印详细信息
     if (!translateToZh.errorLogged) {
       console.error('翻译API错误:', error.message);
-      console.error('错误详情:', error.stack);
       console.log('后续翻译失败将使用原文，不再重复显示此错误');
       translateToZh.errorLogged = true;
     }
     return text; // 失败时返回原文
   }
-  */
 }
 
 // 检测文本语言（简单判断）
@@ -277,38 +269,40 @@ async function main() {
 
   console.log(`筛选出 ${aiRelatedItems.length} 条AI相关内容`);
 
-  // 翻译英文内容到中文（当前已禁用，直接使用原文）
-  console.log('处理内容翻译（当前使用原文，翻译功能已禁用）...');
+  // 翻译英文内容到中文
+  console.log('开始翻译英文内容到中文...');
   for (const item of aiRelatedItems) {
     // 翻译标题
     if (isEnglish(item.title)) {
       item.titleZh = await translateToZh(item.title);
+      await new Promise(resolve => setTimeout(resolve, 100));
     } else {
       item.titleZh = item.title;
     }
 
     // 翻译描述
     if (isEnglish(item.description)) {
-      item.descriptionZh = await translateToZh(item.description.substring(0, 1000)); // 限制1000字符避免超时
+      item.descriptionZh = await translateToZh(item.description.substring(0, 1000));
+      await new Promise(resolve => setTimeout(resolve, 100));
     } else {
       item.descriptionZh = item.description;
     }
 
     // 翻译完整内容（如果有）
     if (item.content && isEnglish(item.content)) {
-      // 移除HTML标签，只翻译文本内容
       const plainText = item.content.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
       if (plainText.length > 0) {
-        item.contentZh = await translateToZh(plainText.substring(0, 2000)); // 限制2000字符
+        item.contentZh = await translateToZh(plainText.substring(0, 2000));
+        await new Promise(resolve => setTimeout(resolve, 100));
       } else {
-        item.contentZh = item.descriptionZh; // fallback到描述
+        item.contentZh = item.descriptionZh;
       }
     } else {
       item.contentZh = item.content || item.descriptionZh;
     }
   }
 
-  console.log('内容处理完成！');
+  console.log('翻译完成！');
 
   // 按发布时间排序（从新到旧）
   aiRelatedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
