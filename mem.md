@@ -5,10 +5,11 @@
 ### 基本信息
 - **项目名称**: AI新闻聚合器 (ai-news-aggregator)
 - **GitHub仓库**: https://github.com/luomin1-lixiang/ai-news-aggregator
+- **部署地址**: https://luomin1-lixiang.github.io/ai-news-aggregator/
 - **本地路径**: `C:\Users\luomin1\Claude\ai-news-aggregator`
 - **技术栈**: Next.js 14 + React 18 + Node.js
-- **部署平台**: Netlify (静态网站托管)
-- **自动化**: GitHub Actions (每天早上8点运行)
+- **部署平台**: GitHub Pages（静态网站托管）
+- **自动化**: GitHub Actions（每天早上8点抓取新闻，自动部署）
 
 ### 核心功能
 1. **自动抓取RSS源**: 从YouTube、TechCrunch、The Verge、机器之心、36氪等抓取AI相关新闻
@@ -52,6 +53,214 @@ HuggingFace API (Helsinki-NLP/opus-mt-en-zh)
 - 第76-126行: `classifyWithHuggingFace()` 函数
 - 第134-184行: `translateToZh()` 函数
 - 第44-62行: 扩展的AI关键词列表
+
+---
+
+### 问题2: 数据损失问题 - 15条新闻变成10条 (2026-02-14)
+
+**现象**:
+- GitHub Actions日志显示成功选取了15条新闻（AI芯片4条+AI硬件5条+其他AI6条）
+- 但保存的`news.json`只有10条
+- 网页上显示的新闻数量不足，且缺少AI芯片类新闻
+
+**原因分析**:
+原代码在保存数据时执行了以下操作：
+1. 将新抓取的15条与旧数据合并
+2. 去重（按link去重）
+3. 筛选30天内的数据
+4. 取前15条
+
+问题在于：旧数据中可能包含相似链接或过期数据，导致新数据在去重/筛选过程中丢失。
+
+**关键错误代码** (`scripts/fetch-rss.js` 第392-411行):
+```javascript
+// 旧代码 - 有BUG
+const allHistoryItems = [...top15, ...existingData.items];
+const uniqueItems = [];
+const seenLinks = new Set();
+
+for (const item of allHistoryItems) {
+  if (!seenLinks.has(item.link)) {
+    seenLinks.add(item.link);
+    uniqueItems.push(item);
+  }
+}
+
+const recentItems = uniqueItems.filter(item => {
+  const itemDate = new Date(item.pubDate);
+  return itemDate > thirtyDaysAgo;
+});
+
+const newData = {
+  items: recentItems.slice(0, 15), // ❌ 这里只得到了10条
+  history: recentItems.slice(0, 100)
+};
+```
+
+**解决方案**:
+直接保存新抓取的15条数据，不与旧数据合并
+
+```javascript
+// 新代码 - 已修复
+const dataPath = path.join(__dirname, '../data/news.json');
+const newData = {
+  lastUpdated: new Date().toISOString(),
+  items: top15, // ✅ 直接使用新抓取的15条
+  history: top15 // ✅ 历史记录也使用相同数据
+};
+
+fs.writeFileSync(dataPath, JSON.stringify(newData, null, 2), 'utf-8');
+```
+
+**修改位置**: `scripts/fetch-rss.js` 第417-424行
+
+---
+
+### 问题3: 出现旧新闻 - 1到8天前的内容 (2026-02-14)
+
+**现象**:
+- 网页上显示的新闻发布时间是1天前、3天前、甚至8天前
+- 不符合"每日AI热点"的定位
+
+**原因分析**:
+原代码只按发布时间排序，没有时间范围筛选，导致：
+- 如果某些RSS源更新慢，会拉取到旧新闻
+- 如果某天AI新闻较少，会保留旧数据
+
+**解决方案**:
+添加三级时间过滤机制
+
+```javascript
+// 1. 优先：过去24小时的新闻
+const twentyFourHoursAgo = new Date();
+twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+const recentAIItems = aiRelatedItems.filter(item =>
+  new Date(item.pubDate) > twentyFourHoursAgo
+);
+
+// 2. 如果不足15条，扩展到48小时
+if (recentAIItems.length < 15) {
+  const fortyEightHoursAgo = new Date();
+  fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
+  finalItems = aiRelatedItems.filter(item =>
+    new Date(item.pubDate) > fortyEightHoursAgo
+  );
+}
+
+// 3. 如果仍不足15条，使用所有AI相关内容
+if (finalItems.length < 15) {
+  finalItems = aiRelatedItems;
+}
+```
+
+**修改位置**: `scripts/fetch-rss.js` 第310-340行
+
+**效果**:
+- 优先显示24小时内新闻
+- 新闻不足时智能扩展到48小时
+- 确保始终有足够内容，但优先新鲜度
+
+---
+
+### 问题4: GitHub Pages部署 - 从Netlify迁移 (2026-02-14)
+
+**需求**:
+用户不想使用Netlify，希望直接在GitHub Pages上展示项目
+
+**实施步骤**:
+
+1. **修改Next.js配置** (`next.config.js`)
+   ```javascript
+   const nextConfig = {
+     output: 'export',
+     basePath: '/ai-news-aggregator', // ✅ 新增：GitHub Pages子路径
+     images: { unoptimized: true },
+     trailingSlash: true,
+     // ... 其他配置
+   }
+   ```
+
+2. **创建GitHub Pages部署workflow** (`.github/workflows/deploy-pages.yml`)
+   - 触发条件：当`data/news.json`或`public/data/news.json`更新时
+   - 也支持手动触发 (`workflow_dispatch`)
+   - 构建Next.js静态站点 (`npm run build`)
+   - 上传`out`目录到GitHub Pages
+   - 设置正确的权限 (`pages: write`, `id-token: write`)
+
+3. **添加.nojekyll文件** (`public/.nojekyll`)
+   - 空文件，禁用Jekyll处理
+   - 确保Next.js生成的文件（如`_next`目录）不被GitHub忽略
+
+4. **创建设置检查清单** (`GITHUB_PAGES_CHECKLIST.md`)
+   - 详细的GitHub网页界面设置步骤
+   - 包含所有需要勾选的选项
+   - 提供常见错误排查方法
+
+**GitHub网页端需要的设置**:
+1. Settings → Actions → General → Workflow permissions
+   - 选择 "Read and write permissions"
+   - 勾选 "Allow GitHub Actions to create and approve pull requests"
+
+2. Settings → Pages → Source
+   - 选择 "GitHub Actions"（不是"Deploy from a branch"）
+
+3. 确认仓库是Public（或有GitHub Pro账号）
+
+**部署URL**: https://luomin1-lixiang.github.io/ai-news-aggregator/
+
+---
+
+### 问题5: GitHub Pages网站无法显示新闻 (2026-02-14) ⚠️ **已修复**
+
+**现象**:
+- "Fetch AI News" workflow ✅ 成功（绿色勾号）
+- "Deploy to GitHub Pages" workflow ✅ 成功（绿色勾号）
+- 网站可以访问 ✅
+- 但网页上没有任何新闻数据 ❌
+
+**诊断过程**:
+
+1. **检查数据文件是否存在**
+   ```bash
+   curl -s "https://raw.githubusercontent.com/luomin1-lixiang/ai-news-aggregator/main/data/news.json"
+   ```
+   结果：✅ 文件存在，包含15条新闻，最后更新 2026-02-14T15:26:13.054Z
+
+2. **检查数据结构**
+   - ✅ JSON格式正确
+   - ✅ 包含所有必需字段（title, link, description等）
+   - ✅ 有分类标签（ai-chip, ai-hardware, ai-other）
+
+3. **检查前端代码加载路径** (`pages/index.js` 第11行)
+   ```javascript
+   fetch('/data/news.json')  // ❌ 问题在这里！
+   ```
+
+**根本原因**:
+前端使用绝对路径`/data/news.json`，但Next.js配置了`basePath: '/ai-news-aggregator'`
+
+实际效果：
+- 代码尝试加载：`https://luomin1-lixiang.github.io/data/news.json` ❌ 404错误
+- 正确路径应该是：`https://luomin1-lixiang.github.io/ai-news-aggregator/data/news.json` ✅
+
+**解决方案**:
+修改`pages/index.js`第11-13行，根据环境动态添加basePath
+
+```javascript
+// 修复前
+fetch('/data/news.json')
+
+// 修复后
+const basePath = process.env.NODE_ENV === 'production' ? '/ai-news-aggregator' : '';
+fetch(`${basePath}/data/news.json`)
+```
+
+**修改位置**: `pages/index.js` 第9-23行
+
+**状态**:
+- ✅ 代码已修复
+- ✅ 已提交到本地Git
+- ⏳ 等待推送到GitHub（网络连接问题）
 
 ---
 
@@ -124,7 +333,7 @@ HuggingFace API (Helsinki-NLP/opus-mt-en-zh)
 - 直接使用关键词匹配
 - 禁用翻译功能，使用原文
 
-### Commit 2: `56a3d1a` (2026-02-14) ⭐ 当前版本
+### Commit 2: `56a3d1a` (2026-02-14)
 **标题**: 测试恢复HuggingFace API - 验证免费层可用性
 
 **内容**:
@@ -134,29 +343,40 @@ HuggingFace API (Helsinki-NLP/opus-mt-en-zh)
 - 优化错误日志（显示200字符完整信息）
 - 减少API延迟（100ms）
 
-### 待推送状态
-- ✅ 本地代码已提交
-- ⏳ 由于网络不稳定，尚未推送到GitHub
-- 📝 用户需使用GitHub Desktop手动推送
+### Commit 3: `668e1ba` (2026-02-14) ⭐ **当前版本**
+**标题**: Fix data loading path for GitHub Pages basePath
+
+**内容**:
+- 修复GitHub Pages数据加载路径问题
+- 前端根据环境动态添加basePath前缀
+- 修复了网站无法显示新闻的关键bug
+- 修改文件：`pages/index.js`
+
+### 推送状态
+- ✅ 本地代码已提交（3个commits）
+- ⏳ 等待推送到GitHub（网络连接不稳定）
+- 📝 建议使用GitHub Desktop手动推送
 
 ---
 
 ## 待办事项
 
 ### 立即操作（高优先级）
-1. **推送代码到GitHub**
-   - 使用GitHub Desktop推送本地提交
-   - 或等网络稳定后命令行: `git push`
+1. **推送代码到GitHub** ⚠️ **紧急**
+   - 使用GitHub Desktop推送本地的3个commits
+   - 或等网络稳定后命令行: `git push origin main`
+   - 推送后会自动触发GitHub Pages重新部署
 
-2. **测试GitHub Actions**
-   - 进入仓库 → Actions → Fetch AI News
-   - 手动运行 workflow
-   - 查看日志验证API是否可用
+2. **验证修复效果**
+   - 推送成功后，等待"Deploy to GitHub Pages" workflow完成（约3-5分钟）
+   - 访问 https://luomin1-lixiang.github.io/ai-news-aggregator/
+   - 检查是否正确显示15条新闻
+   - 检查AI芯片、AI硬件、AI资讯三类新闻是否都存在
 
-3. **验证结果**
-   - 如果API可用：会看到AI分类和中文翻译
-   - 如果返回410错误：会自动降级到关键词匹配
-   - 两种情况都不影响功能运行
+3. **检查浏览器控制台**（如果仍有问题）
+   - 按F12打开开发者工具
+   - 查看Console标签是否有错误
+   - 查看Network标签，检查`/ai-news-aggregator/data/news.json`是否成功加载（状态200）
 
 ### 可选优化（低优先级）
 1. **添加更多数据源**
@@ -335,19 +555,39 @@ const isAIRelated = AI_KEYWORDS.some(keyword =>
 ## 总结
 
 ### 当前状态
-- ✅ 代码修复完成（智能降级机制）
-- ✅ 本地测试通过
-- ⏳ 等待推送到GitHub
-- ⏳ 需要在GitHub Actions中验证
+- ✅ 所有核心功能代码已完成
+- ✅ 关键bug已全部修复（5个问题）
+- ✅ 本地Git已提交（3个commits）
+- ⏳ 等待推送到GitHub（网络问题）
+- ⏳ 推送后需验证网站是否正常显示新闻
+
+### 已解决的关键问题
+1. ✅ HuggingFace API 410错误 - 智能降级策略
+2. ✅ 数据损失问题 - 15条变10条 bug已修复
+3. ✅ 旧新闻问题 - 添加24/48小时时间过滤
+4. ✅ GitHub Pages部署 - 从Netlify成功迁移
+5. ✅ 网站数据加载问题 - basePath路径bug已修复
 
 ### 核心优势
 - 🔄 **容错性强**: API失败自动降级，不中断服务
-- 🆓 **完全免费**: 无需付费API，关键词匹配足够使用
-- ⚡ **响应快速**: 关键词匹配比API调用更快
-- 🎯 **准确度高**: 40+精选关键词，涵盖主流AI术语
+- 🆓 **完全免费**: GitHub Pages托管，无需付费
+- ⚡ **响应快速**: 静态网站，加载速度快
+- 🎯 **准确度高**: 40+精选关键词，智能时间过滤
+- 🤖 **全自动**: 每天8点自动抓取并部署，无需人工干预
 
-### 关键成果
-项目已具备**生产级别的健壮性**，无论HuggingFace API是否可用，都能正常运行。
+### 下一步操作
+1. **立即**: 使用GitHub Desktop推送代码
+2. **5分钟后**: 检查GitHub Actions是否成功部署
+3. **验证**: 访问网站确认15条新闻正确显示
+
+### 项目成果
+在6小时内，完成了一个具有**生产级别健壮性**的自动化AI新闻聚合网站：
+- 多数据源整合（7个RSS源）
+- 智能内容分类（AI芯片/硬件/其他）
+- 自动翻译（英译中）
+- 时间智能过滤（24/48小时）
+- 全自动部署（GitHub Actions + GitHub Pages）
+- 完善的容错机制（降级策略）
 
 ---
 
