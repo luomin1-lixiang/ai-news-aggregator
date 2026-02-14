@@ -380,41 +380,13 @@ async function main() {
   // 使用selectedItems替代原来的top10
   const top15 = selectedItems;
 
-  // 读取现有数据
+  // 直接使用新抓取的15条数据，不与旧数据合并
+  // 这样可以确保每次都显示最新的15条新闻
   const dataPath = path.join(__dirname, '../data/news.json');
-  let existingData = { items: [] };
-
-  if (fs.existsSync(dataPath)) {
-    const rawData = fs.readFileSync(dataPath, 'utf-8');
-    existingData = JSON.parse(rawData);
-  }
-
-  // 合并新旧数据，去重（保留所有历史用于记录）
-  const allHistoryItems = [...top15, ...existingData.items];
-  const uniqueItems = [];
-  const seenLinks = new Set();
-
-  for (const item of allHistoryItems) {
-    if (!seenLinks.has(item.link)) {
-      seenLinks.add(item.link);
-      uniqueItems.push(item);
-    }
-  }
-
-  // 过滤掉30天以前的内容
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
-
-  const recentItems = uniqueItems.filter(item => {
-    const itemDate = new Date(item.pubDate);
-    return itemDate > thirtyDaysAgo;
-  });
-
-  // 保存数据 - 前端只显示最新15条，但保留所有历史
   const newData = {
     lastUpdated: new Date().toISOString(),
-    items: recentItems.slice(0, 15), // 前端显示最新15条
-    history: recentItems.slice(0, 100) // 保留历史100条用于记录
+    items: top15, // 直接使用新抓取的15条
+    history: top15 // 历史记录也使用相同数据
   };
 
   fs.writeFileSync(dataPath, JSON.stringify(newData, null, 2), 'utf-8');
@@ -427,7 +399,7 @@ async function main() {
   }
   fs.writeFileSync(publicDataPath, JSON.stringify(newData, null, 2), 'utf-8');
 
-  console.log('完成！保存了', recentItems.length, '条内容');
+  console.log('完成！保存了', top15.length, '条内容');
   console.log('\n最新的15条（按类别）:');
 
   // 按类别显示
