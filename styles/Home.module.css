@@ -1,0 +1,196 @@
+.container {
+  min-height: 100vh;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  margin: 0.5rem 0 0 0;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.updateTime {
+  margin: 1rem 0 0 0;
+  font-size: 0.9rem;
+  color: #868e96;
+}
+
+.loading,
+.empty {
+  text-align: center;
+  padding: 4rem 0;
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.newsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.newsItem {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.newsItem:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+.newsHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: #868e96;
+}
+
+.sourceIcon {
+  font-size: 1rem;
+}
+
+.source {
+  font-weight: 600;
+  color: #495057;
+}
+
+.author {
+  color: #6c757d;
+}
+
+.separator {
+  color: #dee2e6;
+}
+
+.date {
+  color: #868e96;
+}
+
+.categoryTag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid;
+  white-space: nowrap;
+}
+
+.newsTitle {
+  margin: 0 0 0.75rem 0;
+  font-size: 1.5rem;
+  line-height: 1.4;
+}
+
+.newsTitle a {
+  color: #212529;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.newsTitle a:hover {
+  color: #667eea;
+}
+
+.newsDescription {
+  margin: 0 0 1rem 0;
+  color: #495057;
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.newsFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.readMore {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.readMore:hover {
+  color: #764ba2;
+}
+
+.popularity {
+  color: #868e96;
+  font-size: 0.85rem;
+}
+
+.footer {
+  background: white;
+  border-top: 1px solid #e9ecef;
+  padding: 2rem;
+  text-align: center;
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+.footer p {
+  margin: 0.5rem 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .newsItem {
+    padding: 1rem;
+  }
+
+  .newsTitle {
+    font-size: 1.25rem;
+  }
+
+  .newsFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

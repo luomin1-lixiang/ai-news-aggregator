@@ -1,0 +1,412 @@
+// 加载环境变量
+require('dotenv').config();
+
+const Parser = require('rss-parser');
+const fs = require('fs');
+const path = require('path');
+const fetch = require('node-fetch');
+
+// RSS数据源配置
+const RSS_FEEDS = [
+  // YouTube AI相关频道
+  { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXZCJLdBC09xxGZ6gcdrc6A', name: 'Two Minute Papers', type: 'youtube' },
+  { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUHW94eEFW7hkUMVaZz4eDg', name: 'AI Explained', type: 'youtube' },
+  { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg', name: 'Lex Fridman', type: 'youtube' },
+
+  // 中文AI新闻网站
+  { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
+  { url: 'https://rsshub.app/36kr/newsflashes', name: '36氪AI快讯', type: 'news' },
+
+  // 英文AI新闻网站
+  { url: 'https://techcrunch.com/tag/artificial-intelligence/feed/', name: 'TechCrunch AI', type: 'news' },
+  { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', name: 'The Verge AI', type: 'news' },
+
+  // Nitter (Twitter替代) - 这些需要根据可用的Nitter实例调整
+  // { url: 'https://nitter.net/OpenAI/rss', name: 'OpenAI Twitter', type: 'twitter' },
+  // { url: 'https://nitter.net/AndrewYNg/rss', name: 'Andrew Ng Twitter', type: 'twitter' },
+];
+
+// HuggingFace API配置
+const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY;
+const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型
+const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型
+
+// AI相关关键词（备用方案）
+const AI_KEYWORDS = [
+  'artificial intelligence', 'AI', 'machine learning', 'deep learning',
+  'neural network', 'chatgpt', 'gpt', 'llm', 'large language model',
+  'computer vision', 'natural language processing', 'nlp',
+  '人工智能', '机器学习', '深度学习', '神经网络', '大模型',
+  'transformer', 'diffusion', 'stable diffusion', 'midjourney',
+  'anthropic', 'claude', 'openai', 'google ai', 'deepmind'
+];
+
+const parser = new Parser({
+  timeout: 10000,
+  customFields: {
+    item: [
+      ['media:group', 'mediaGroup'],
+      ['media:statistics', 'mediaStatistics'],
+      ['yt:videoId', 'videoId']
+    ]
+  }
+});
+
+// 使用HuggingFace API进行AI相关性分类
+async function classifyWithHuggingFace(text) {
+  if (!HUGGINGFACE_API_KEY) {
+    console.log('未配置HuggingFace API Key，使用关键词匹配');
+    return classifyWithKeywords(text);
+  }
+
+  try {
+    const response = await fetch(
+      `https://api-inference.huggingface.co/models/${HUGGINGFACE_MODEL}`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${HUGGINGFACE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          inputs: text,
+          parameters: {
+            candidate_labels: ['artificial intelligence', 'technology', 'general news'],
+            multi_label: false
+          }
+        })
+      }
+    );
+
+    if (!response.ok) {
+      console.log('HuggingFace API调用失败，使用关键词匹配');
+      return classifyWithKeywords(text);
+    }
+
+    const result = await response.json();
+
+    // 如果"artificial intelligence"标签得分最高且超过阈值，认为是AI相关
+    if (result.labels && result.labels[0] === 'artificial intelligence' && result.scores[0] > 0.5) {
+      return true;
+    }
+
+    return false;
+  } catch (error) {
+    console.error('HuggingFace分类出错:', error.message);
+    return classifyWithKeywords(text);
+  }
+}
+
+// 备用：使用关键词匹配
+function classifyWithKeywords(text) {
+  const lowerText = text.toLowerCase();
+  return AI_KEYWORDS.some(keyword => lowerText.includes(keyword.toLowerCase()));
+}
+
+// 使用HuggingFace翻译文本（英文到中文）
+async function translateToZh(text) {
+  // 如果文本已经包含大量中文，不需要翻译
+  const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+  if (chineseChars > text.length * 0.3) {
+    console.log('文本已包含中文，跳过翻译');
+    return text;
+  }
+
+  if (!HUGGINGFACE_API_KEY) {
+    console.log('未配置HuggingFace API Key，跳过翻译');
+    return text;
+  }
+
+  try {
+    const response = await fetch(
+      `https://api-inference.huggingface.co/models/${TRANSLATION_MODEL}`,
+      {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${HUGGINGFACE_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          inputs: text,
+        })
+      }
+    );
+
+    if (!response.ok) {
+      console.log('翻译API调用失败，使用原文');
+      return text;
+    }
+
+    const result = await response.json();
+
+    // HuggingFace翻译API返回格式: [{ "translation_text": "翻译结果" }]
+    if (result && result[0] && result[0].translation_text) {
+      return result[0].translation_text;
+    }
+
+    return text;
+  } catch (error) {
+    console.error('翻译出错:', error.message);
+    return text; // 失败时返回原文
+  }
+}
+
+// 检测文本语言（简单判断）
+function isEnglish(text) {
+  const englishChars = (text.match(/[a-zA-Z]/g) || []).length;
+  const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+  return englishChars > chineseChars;
+}
+
+// 从YouTube视频ID获取观看量
+function extractYoutubeViews(item) {
+  // YouTube RSS feed中可能包含媒体统计信息
+  if (item.mediaGroup && item.mediaGroup['media:community']) {
+    const stats = item.mediaGroup['media:community']['media:statistics'];
+    if (stats && stats['$'] && stats['$'].views) {
+      return parseInt(stats['$'].views) || 0;
+    }
+  }
+
+  // 如果无法获取，返回0（后续可以通过YouTube API获取）
+  return 0;
+}
+
+// 抓取单个RSS源
+async function fetchFeed(feedConfig) {
+  try {
+    console.log(`正在抓取: ${feedConfig.name}`);
+    const feed = await parser.parseURL(feedConfig.url);
+
+    const items = feed.items.map(item => {
+      // 提取热度指标
+      let popularity = 0;
+      if (feedConfig.type === 'youtube') {
+        popularity = extractYoutubeViews(item);
+      }
+
+      return {
+        title: item.title || '',
+        link: item.link || '',
+        description: item.contentSnippet || item.summary || '',
+        author: item.creator || item.author || feedConfig.name,
+        source: feedConfig.name,
+        sourceType: feedConfig.type,
+        pubDate: item.pubDate || item.isoDate || new Date().toISOString(),
+        popularity: popularity,
+        content: item.content || ''
+      };
+    });
+
+    console.log(`${feedConfig.name}: 获取到 ${items.length} 条内容`);
+    return items;
+  } catch (error) {
+    console.error(`抓取 ${feedConfig.name} 失败:`, error.message);
+    return [];
+  }
+}
+
+// 主函数
+async function main() {
+  console.log('开始抓取RSS feeds...');
+
+  // 抓取所有RSS源
+  const allFeeds = await Promise.all(RSS_FEEDS.map(feed => fetchFeed(feed)));
+  let allItems = allFeeds.flat();
+
+  console.log(`总共获取到 ${allItems.length} 条内容`);
+
+  // 过滤出AI相关的内容
+  console.log('开始AI相关性分类...');
+  const aiRelatedItems = [];
+
+  for (const item of allItems) {
+    const textToClassify = `${item.title} ${item.description}`;
+    const isAIRelated = await classifyWithHuggingFace(textToClassify);
+
+    if (isAIRelated) {
+      aiRelatedItems.push(item);
+    }
+
+    // 避免API调用过快
+    await new Promise(resolve => setTimeout(resolve, 100));
+  }
+
+  console.log(`筛选出 ${aiRelatedItems.length} 条AI相关内容`);
+
+  // 翻译英文内容到中文
+  console.log('开始翻译英文内容到中文...');
+  for (const item of aiRelatedItems) {
+    // 翻译标题
+    if (isEnglish(item.title)) {
+      console.log(`翻译标题: ${item.title.substring(0, 50)}...`);
+      item.titleZh = await translateToZh(item.title);
+      await new Promise(resolve => setTimeout(resolve, 500)); // 翻译API需要更长延迟
+    } else {
+      item.titleZh = item.title;
+    }
+
+    // 翻译描述（限制长度避免超时）
+    if (isEnglish(item.description)) {
+      const shortDesc = item.description.substring(0, 500); // 限制500字符
+      console.log(`翻译描述: ${shortDesc.substring(0, 50)}...`);
+      item.descriptionZh = await translateToZh(shortDesc);
+      await new Promise(resolve => setTimeout(resolve, 500)); // 翻译API需要更长延迟
+    } else {
+      item.descriptionZh = item.description;
+    }
+  }
+
+  console.log('翻译完成！');
+
+  // 按发布时间排序（从新到旧）
+  aiRelatedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+  // 分类关键词
+  const AI_CHIP_KEYWORDS = [
+    'nvidia', 'tpu', 'tensor processing unit', 'google tpu', 'tenstorrent',
+    'sambanova', 'groq', 'tesla', 'dojo', 'gpu', 'ai chip', 'ai accelerator',
+    'inference chip', 'training chip'
+  ];
+
+  const AI_HARDWARE_KEYWORDS = [
+    'hardware', 'server', 'data center', 'datacenter', 'power', 'energy',
+    'cooling', 'infrastructure', 'rack', 'processor', 'memory', 'storage',
+    'neural engine', 'edge device', 'robotics hardware', 'quantum computing'
+  ];
+
+  // 分类函数
+  function categorizeItem(item) {
+    const text = `${item.title} ${item.description}`.toLowerCase();
+
+    // 检查AI芯片相关
+    if (AI_CHIP_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+      return 'ai-chip';
+    }
+
+    // 检查AI硬件相关
+    if (AI_HARDWARE_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+      return 'ai-hardware';
+    }
+
+    // 其他AI相关
+    return 'ai-other';
+  }
+
+  // 对内容进行分类
+  console.log('开始按类别分类新闻...');
+  const categorizedItems = {
+    'ai-chip': [],
+    'ai-hardware': [],
+    'ai-other': []
+  };
+
+  for (const item of aiRelatedItems) {
+    const category = categorizeItem(item);
+    categorizedItems[category].push(item);
+    item.category = category; // 保存分类信息
+  }
+
+  console.log(`分类结果:`);
+  console.log(`  AI芯片类: ${categorizedItems['ai-chip'].length} 条`);
+  console.log(`  AI硬件类: ${categorizedItems['ai-hardware'].length} 条`);
+  console.log(`  其他AI类: ${categorizedItems['ai-other'].length} 条`);
+
+  // 按配额选取新闻（各类别取前N条）
+  const selectedItems = [
+    ...categorizedItems['ai-chip'].slice(0, 5),      // AI芯片：5条
+    ...categorizedItems['ai-hardware'].slice(0, 5),  // AI硬件：5条
+    ...categorizedItems['ai-other'].slice(0, 5)      // 其他AI：5条
+  ];
+
+  // 如果某个类别不足，从其他类别补充
+  const deficit = 15 - selectedItems.length;
+  if (deficit > 0) {
+    console.log(`总数不足15条，需要补充 ${deficit} 条`);
+    const remainingItems = aiRelatedItems.filter(item => !selectedItems.includes(item));
+    selectedItems.push(...remainingItems.slice(0, deficit));
+  }
+
+  // 按发布时间重新排序
+  selectedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+
+  console.log(`\n最终选取 ${selectedItems.length} 条新闻`);
+
+  // 使用selectedItems替代原来的top10
+  const top15 = selectedItems;
+
+  // 读取现有数据
+  const dataPath = path.join(__dirname, '../data/news.json');
+  let existingData = { items: [] };
+
+  if (fs.existsSync(dataPath)) {
+    const rawData = fs.readFileSync(dataPath, 'utf-8');
+    existingData = JSON.parse(rawData);
+  }
+
+  // 合并新旧数据，去重
+  const allHistoryItems = [...top15, ...existingData.items];
+  const uniqueItems = [];
+  const seenLinks = new Set();
+
+  for (const item of allHistoryItems) {
+    if (!seenLinks.has(item.link)) {
+      seenLinks.add(item.link);
+      uniqueItems.push(item);
+    }
+  }
+
+  // 过滤掉30天以前的内容
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const recentItems = uniqueItems.filter(item => {
+    const itemDate = new Date(item.pubDate);
+    return itemDate > thirtyDaysAgo;
+  });
+
+  // 保存数据
+  const newData = {
+    lastUpdated: new Date().toISOString(),
+    items: recentItems.slice(0, 100) // 最多保留100条
+  };
+
+  fs.writeFileSync(dataPath, JSON.stringify(newData, null, 2), 'utf-8');
+
+  // 同时复制到public目录供网页访问
+  const publicDataPath = path.join(__dirname, '../public/data/news.json');
+  const publicDir = path.dirname(publicDataPath);
+  if (!fs.existsSync(publicDir)) {
+    fs.mkdirSync(publicDir, { recursive: true });
+  }
+  fs.writeFileSync(publicDataPath, JSON.stringify(newData, null, 2), 'utf-8');
+
+  console.log('完成！保存了', recentItems.length, '条内容');
+  console.log('\n最新的15条（按类别）:');
+
+  // 按类别显示
+  const chipItems = top15.filter(item => item.category === 'ai-chip');
+  const hardwareItems = top15.filter(item => item.category === 'ai-hardware');
+  const otherItems = top15.filter(item => item.category === 'ai-other');
+
+  console.log('\n📊 AI芯片类 (' + chipItems.length + '条):');
+  chipItems.forEach((item, index) => {
+    console.log(`  ${index + 1}. ${item.title} (${item.source})`);
+  });
+
+  console.log('\n🔧 AI硬件类 (' + hardwareItems.length + '条):');
+  hardwareItems.forEach((item, index) => {
+    console.log(`  ${index + 1}. ${item.title} (${item.source})`);
+  });
+
+  console.log('\n🤖 其他AI类 (' + otherItems.length + '条):');
+  otherItems.forEach((item, index) => {
+    console.log(`  ${index + 1}. ${item.title} (${item.source})`);
+  });
+}
+
+// 运行
+main().catch(error => {
+  console.error('发生错误:', error);
+  process.exit(1);
+});
