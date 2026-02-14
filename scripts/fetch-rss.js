@@ -27,9 +27,23 @@ const RSS_FEEDS = [
 ];
 
 // HuggingFace API配置
-const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY;
+// 清理API Key，移除空格、换行符等非法字符
+const HUGGINGFACE_API_KEY = process.env.HUGGINGFACE_API_KEY
+  ? process.env.HUGGINGFACE_API_KEY.trim().replace(/[\r\n\t]/g, '')
+  : null;
 const HUGGINGFACE_MODEL = 'facebook/bart-large-mnli'; // 零样本分类模型
 const TRANSLATION_MODEL = 'Helsinki-NLP/opus-mt-en-zh'; // 英译中模型
+
+// 验证API Key格式
+if (HUGGINGFACE_API_KEY) {
+  // HuggingFace API Key应该是hf_开头的字符串
+  if (!HUGGINGFACE_API_KEY.startsWith('hf_')) {
+    console.warn('警告: HuggingFace API Key格式可能不正确（应以hf_开头）');
+  }
+  console.log(`HuggingFace API Key已配置（长度: ${HUGGINGFACE_API_KEY.length}）`);
+} else {
+  console.log('未配置HuggingFace API Key，将使用关键词匹配作为备用方案');
+}
 
 // AI相关关键词（备用方案）
 const AI_KEYWORDS = [
@@ -56,7 +70,6 @@ const parser = new Parser({
 // 使用HuggingFace API进行AI相关性分类
 async function classifyWithHuggingFace(text) {
   if (!HUGGINGFACE_API_KEY) {
-    console.log('未配置HuggingFace API Key，使用关键词匹配');
     return classifyWithKeywords(text);
   }
 
@@ -80,7 +93,8 @@ async function classifyWithHuggingFace(text) {
     );
 
     if (!response.ok) {
-      console.log('HuggingFace API调用失败，使用关键词匹配');
+      const errorText = await response.text();
+      console.log(`HuggingFace分类API返回错误 (${response.status}): ${errorText.substring(0, 100)}`);
       return classifyWithKeywords(text);
     }
 
@@ -93,7 +107,13 @@ async function classifyWithHuggingFace(text) {
 
     return false;
   } catch (error) {
-    console.error('HuggingFace分类出错:', error.message);
+    // 只在第一次错误时打印详细信息，避免日志刷屏
+    if (!classifyWithHuggingFace.errorLogged) {
+      console.error('HuggingFace分类API错误:', error.message);
+      console.error('错误详情:', error.stack);
+      console.log('后续将使用关键词匹配，不再重复显示此错误');
+      classifyWithHuggingFace.errorLogged = true;
+    }
     return classifyWithKeywords(text);
   }
 }
@@ -109,12 +129,10 @@ async function translateToZh(text) {
   // 如果文本已经包含大量中文，不需要翻译
   const chineseChars = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
   if (chineseChars > text.length * 0.3) {
-    console.log('文本已包含中文，跳过翻译');
     return text;
   }
 
   if (!HUGGINGFACE_API_KEY) {
-    console.log('未配置HuggingFace API Key，跳过翻译');
     return text;
   }
 
@@ -134,7 +152,8 @@ async function translateToZh(text) {
     );
 
     if (!response.ok) {
-      console.log('翻译API调用失败，使用原文');
+      const errorText = await response.text();
+      console.log(`翻译API返回错误 (${response.status}): ${errorText.substring(0, 100)}`);
       return text;
     }
 
@@ -147,7 +166,13 @@ async function translateToZh(text) {
 
     return text;
   } catch (error) {
-    console.error('翻译出错:', error.message);
+    // 只在第一次错误时打印详细信息
+    if (!translateToZh.errorLogged) {
+      console.error('翻译API错误:', error.message);
+      console.error('错误详情:', error.stack);
+      console.log('后续翻译失败将使用原文，不再重复显示此错误');
+      translateToZh.errorLogged = true;
+    }
     return text; // 失败时返回原文
   }
 }
