@@ -307,6 +307,38 @@ async function main() {
   // 按发布时间排序（从新到旧）
   aiRelatedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
+  // 只保留过去24小时的新闻
+  const twentyFourHoursAgo = new Date();
+  twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
+
+  const recentAIItems = aiRelatedItems.filter(item => {
+    const itemDate = new Date(item.pubDate);
+    return itemDate > twentyFourHoursAgo;
+  });
+
+  console.log(`过滤24小时: 从 ${aiRelatedItems.length} 条筛选出 ${recentAIItems.length} 条最新内容`);
+
+  // 如果24小时内的新闻不足15条，扩展到48小时
+  let finalItems = recentAIItems;
+  if (recentAIItems.length < 15) {
+    console.log(`24小时内新闻不足15条，扩展到48小时...`);
+    const fortyEightHoursAgo = new Date();
+    fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
+
+    finalItems = aiRelatedItems.filter(item => {
+      const itemDate = new Date(item.pubDate);
+      return itemDate > fortyEightHoursAgo;
+    });
+
+    console.log(`48小时内找到 ${finalItems.length} 条内容`);
+  }
+
+  // 如果48小时内仍不足，使用所有AI相关内容
+  if (finalItems.length < 15) {
+    console.log(`48小时内仍不足15条，使用所有 ${aiRelatedItems.length} 条AI相关内容`);
+    finalItems = aiRelatedItems;
+  }
+
   // 分类关键词
   const AI_CHIP_KEYWORDS = [
     'nvidia', 'tpu', 'tensor processing unit', 'google tpu', 'tenstorrent',
@@ -346,7 +378,7 @@ async function main() {
     'ai-other': []
   };
 
-  for (const item of aiRelatedItems) {
+  for (const item of finalItems) {
     const category = categorizeItem(item);
     categorizedItems[category].push(item);
     item.category = category; // 保存分类信息
@@ -368,7 +400,7 @@ async function main() {
   const deficit = 15 - selectedItems.length;
   if (deficit > 0) {
     console.log(`总数不足15条，需要补充 ${deficit} 条`);
-    const remainingItems = aiRelatedItems.filter(item => !selectedItems.includes(item));
+    const remainingItems = finalItems.filter(item => !selectedItems.includes(item));
     selectedItems.push(...remainingItems.slice(0, deficit));
   }
 
