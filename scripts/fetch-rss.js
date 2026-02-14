@@ -8,22 +8,46 @@ const fetch = require('node-fetch');
 
 // RSS数据源配置
 const RSS_FEEDS = [
-  // YouTube AI相关频道
+  // === YouTube AI相关频道 ===
   { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCXZCJLdBC09xxGZ6gcdrc6A', name: 'Two Minute Papers', type: 'youtube' },
   { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCUHW94eEFW7hkUMVaZz4eDg', name: 'AI Explained', type: 'youtube' },
   { url: 'https://www.youtube.com/feeds/videos.xml?channel_id=UCbfYPyITQ-7l4upoX8nvctg', name: 'Lex Fridman', type: 'youtube' },
 
-  // 中文AI新闻网站
-  { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
-  { url: 'https://rsshub.app/36kr/newsflashes', name: '36氪AI快讯', type: 'news' },
+  // === 国际主流权威媒体 ===
+  { url: 'https://www.reuters.com/technology/artificial-intelligence/rss', name: 'Reuters AI', type: 'news' },
+  { url: 'https://feeds.bbci.co.uk/news/technology/rss.xml', name: 'BBC Tech', type: 'news' },
+  { url: 'https://www.technologyreview.com/feed/', name: 'MIT Tech Review', type: 'news' },
+  { url: 'https://www.wired.com/feed/tag/ai/latest/rss', name: 'Wired AI', type: 'news' },
 
-  // 英文AI新闻网站
+  // === 科技专业媒体 ===
   { url: 'https://techcrunch.com/tag/artificial-intelligence/feed/', name: 'TechCrunch AI', type: 'news' },
   { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', name: 'The Verge AI', type: 'news' },
+  { url: 'https://venturebeat.com/category/ai/feed/', name: 'VentureBeat AI', type: 'news' },
+  { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', name: 'Ars Technica', type: 'news' },
+  { url: 'https://www.theinformation.com/articles/feed', name: 'The Information', type: 'news' },
 
-  // Nitter (Twitter替代) - 这些需要根据可用的Nitter实例调整
-  // { url: 'https://nitter.net/OpenAI/rss', name: 'OpenAI Twitter', type: 'twitter' },
-  // { url: 'https://nitter.net/AndrewYNg/rss', name: 'Andrew Ng Twitter', type: 'twitter' },
+  // === AI公司官方博客 ===
+  { url: 'https://openai.com/blog/rss.xml', name: 'OpenAI Blog', type: 'news' },
+  { url: 'https://blog.research.google/feeds/posts/default', name: 'Google AI Blog', type: 'news' },
+  { url: 'https://www.anthropic.com/news.rss', name: 'Anthropic News', type: 'news' },
+  { url: 'https://deepmind.google/blog/rss.xml', name: 'DeepMind Blog', type: 'news' },
+
+  // === AI硬件/芯片专业源 ===
+  { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news' },
+  { url: 'https://www.anandtech.com/rss/', name: 'AnandTech', type: 'news' },
+  { url: 'https://rsshub.app/semianalysis', name: 'SemiAnalysis', type: 'news' },
+
+  // === 学术/研究源 ===
+  { url: 'https://export.arxiv.org/rss/cs.AI', name: 'arXiv AI Papers', type: 'news' },
+  { url: 'https://paperswithcode.com/latest/rss', name: 'Papers With Code', type: 'news' },
+
+  // === 中文优质AI媒体 ===
+  { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
+  { url: 'https://rsshub.app/36kr/newsflashes', name: '36氪AI快讯', type: 'news' },
+  { url: 'https://rsshub.app/qbitai', name: '量子位', type: 'news' },
+  { url: 'https://rsshub.app/ai-era', name: '新智元', type: 'news' },
+  { url: 'https://rsshub.app/leiphone/category/ai', name: 'AI科技评论', type: 'news' },
+  { url: 'https://rsshub.app/huxiu/tag/AI', name: '虎嗅AI', type: 'news' },
 ];
 
 // HuggingFace API配置
