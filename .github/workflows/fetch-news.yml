@@ -1,11 +1,10 @@
 name: Fetch AI News
 
 on:
-  # 每天早上8点（北京时间）运行，即UTC时间0点
   schedule:
-    - cron: '0 0 * * *'  # 每天UTC 0:00 = 北京时间 08:00
+    # 每天早上8点（北京时间）运行，即UTC时间0点
+    - cron: '0 0 * * *'
 
-  # 允许手动触发
   workflow_dispatch:
 
 # 添加权限配置，允许GitHub Actions写入仓库
@@ -31,8 +30,6 @@ jobs:
         run: npm install
 
       - name: Fetch RSS feeds and classify
-        env:
-          HUGGINGFACE_API_KEY: ${{ secrets.HUGGINGFACE_API_KEY }}
         run: npm run fetch-news
 
       - name: Commit and push if changed
