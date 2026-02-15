@@ -129,13 +129,13 @@ export default function Home() {
 
                 <h2 className={styles.newsTitle}>
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {item.titleZh || item.title}
+                    {item.title}
                   </a>
                 </h2>
 
-                {/* 显示完整翻译内容 */}
+                {/* 显示新闻摘要 */}
                 <div className={styles.newsContent}>
-                  {item.contentZh || item.descriptionZh || item.description}
+                  {item.description}
                 </div>
 
                 <div className={styles.newsFooter}>
@@ -161,9 +161,9 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>
-          数据来源: YouTube, TechCrunch, The Verge, 机器之心, 36氪 等
+          数据来源: Reuters, BBC, MIT, TechCrunch, The Verge, OpenAI, Google AI, 机器之心, 量子位 等37个源
         </p>
-        <p>每天早上 8:00 自动更新 | 保留最近30天内容</p>
+        <p>每天早上 8:00 自动更新 | 只显示48小时内新闻</p>
       </footer>
     </div>
   );
