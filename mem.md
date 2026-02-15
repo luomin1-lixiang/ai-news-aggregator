@@ -359,24 +359,61 @@ fetch(`${basePath}/data/news.json`)
 
 ---
 
+## 问题6: Scheduled Workflow激活问题 (2026-02-15) ⚠️ **待验证**
+
+**现象**:
+- workflow文件配置正确：`cron: '0 0 * * *'`（每天UTC 0点 = 北京时间8点）
+- GitHub Actions UI只显示 "This workflow has a workflow_dispatch event trigger"
+- 预期应显示: "This workflow has a workflow_dispatch and schedule event triggers"
+
+**诊断过程**:
+1. ✅ 检查了cron语法 - 正确
+2. ✅ 尝试修改注释格式 - 无效
+3. ✅ 推送空commit触发 - 无效
+4. ✅ 用户在Settings中禁用/启用Actions - 无效
+5. ✅ 移除了不需要的`HUGGINGFACE_API_KEY`环境变量
+
+**可能原因**:
+1. GitHub的scheduled workflows识别需要时间（24-48小时）
+2. GitHub UI显示bug（实际上schedule可能已激活）
+3. 仓库需要更多的活跃推送历史
+
+**验证方案**:
+**重要**: 即使GitHub UI没有显示schedule trigger，workflow仍可能在指定时间自动运行。
+
+**明天早上8:00-8:10验证步骤**:
+1. 访问仓库 Actions 标签
+2. 检查是否有新的 "Fetch AI News" workflow自动运行
+3. 如果有，说明schedule已激活（只是UI没显示）
+4. 如果没有，可以使用以下备选方案：
+   - 手动点击 "Run workflow" 每天触发一次
+   - 等待GitHub识别（最多48小时）
+   - 联系GitHub Support
+
+**当前状态**: ⏳ 等待明天早上8点自动运行验证
+
+**修改位置**: `.github/workflows/fetch-news.yml` 已优化，移除了不需要的环境变量
+
+---
+
 ## 待办事项
 
 ### 立即操作（高优先级）
-1. **推送代码到GitHub** ⚠️ **紧急**
-   - 使用GitHub Desktop推送本地的3个commits
-   - 或等网络稳定后命令行: `git push origin main`
+1. **推送最新代码到GitHub** ⚠️ **立即执行**
+   - 本地有1个新commit: `95172f2` (移除HUGGINGFACE_API_KEY)
+   - 命令: `git push origin main`
    - 推送后会自动触发GitHub Pages重新部署
 
-2. **验证修复效果**
-   - 推送成功后，等待"Deploy to GitHub Pages" workflow完成（约3-5分钟）
-   - 访问 https://luomin1-lixiang.github.io/ai-news-aggregator/
-   - 检查是否正确显示15条新闻
-   - 检查AI芯片、AI硬件、AI资讯三类新闻是否都存在
+2. **明天早上8:00-8:10验证定时任务**
+   - 访问 https://github.com/luomin1-lixiang/ai-news-aggregator/actions
+   - 检查是否有自动运行的 "Fetch AI News" workflow
+   - 如果有，✅ scheduled workflow已激活
+   - 如果没有，需要考虑手动触发或等待更长时间
 
-3. **检查浏览器控制台**（如果仍有问题）
-   - 按F12打开开发者工具
-   - 查看Console标签是否有错误
-   - 查看Network标签，检查`/ai-news-aggregator/data/news.json`是否成功加载（状态200）
+3. **验证网站数据更新**
+   - 如果定时任务运行成功，访问 https://luomin1-lixiang.github.io/ai-news-aggregator/
+   - 检查 "最后更新" 时间是否是今天早上8点左右
+   - 检查新闻是否都在48小时内
 
 ### 可选优化（低优先级）
 1. **添加更多数据源**
