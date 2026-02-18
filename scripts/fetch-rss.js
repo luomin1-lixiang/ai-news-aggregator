@@ -176,6 +176,24 @@ function isChinese(text) {
   return /[\u4e00-\u9fa5]/.test(text);
 }
 
+// 列出可用的Gemini模型（调试用）
+async function listAvailableModels(apiKey) {
+  try {
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`);
+    const data = await response.json();
+    console.log('可用的Gemini模型:');
+    if (data.models) {
+      data.models.forEach(model => {
+        console.log(`  - ${model.name} (支持方法: ${model.supportedGenerationMethods?.join(', ')})`);
+      });
+    }
+    return data.models || [];
+  } catch (error) {
+    console.error('获取模型列表失败:', error.message);
+    return [];
+  }
+}
+
 // 使用Google Gemini API生成AI摘要（英译中）
 async function generateAISummary(text, isTitle = false) {
   if (!text || text.trim().length === 0) {
@@ -196,8 +214,8 @@ async function generateAISummary(text, isTitle = false) {
   }
 
   try {
-    // 使用稳定的gemini-pro模型
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+    // 尝试使用gemini-1.5-flash (不带-latest后缀)
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     // 根据是否是标题设置不同的prompt
     const prompt = isTitle
@@ -330,6 +348,14 @@ function categorizeItem(item) {
 async function main() {
   console.log('开始抓取RSS feeds - 聚焦AI推理芯片...');
   console.log('✅ 使用AI推理+芯片双关键词匹配（排除训练相关）');
+
+  // 调试：列出可用的Gemini模型
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (apiKey) {
+    console.log('\n检查可用的Gemini模型...');
+    await listAvailableModels(apiKey);
+    console.log('');
+  }
 
   // 抓取所有RSS源
   const allFeeds = await Promise.all(RSS_FEEDS.map(feed => fetchFeed(feed)));
