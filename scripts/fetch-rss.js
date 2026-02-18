@@ -214,8 +214,8 @@ async function generateAISummary(text, isTitle = false) {
   }
 
   try {
-    // 尝试使用gemini-1.5-flash (不带-latest后缀)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    // 使用 gemini-flash-latest (自动映射到最新的flash模型)
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
 
     // 根据是否是标题设置不同的prompt
     const prompt = isTitle
