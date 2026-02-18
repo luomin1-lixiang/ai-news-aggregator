@@ -15,6 +15,7 @@ const RSS_FEEDS = [
   { url: 'https://www.eetimes.com/feed/', name: 'EE Times', type: 'news' },
 
   // === 国际主流科技媒体（芯片报道）===
+  { url: 'https://www.bloomberg.com/technology/feed', name: 'Bloomberg Technology', type: 'news' },
   { url: 'https://www.reuters.com/technology/artificial-intelligence/rss', name: 'Reuters AI', type: 'news' },
   { url: 'https://www.technologyreview.com/feed/', name: 'MIT Tech Review', type: 'news' },
   { url: 'https://www.wired.com/feed/tag/ai/latest/rss', name: 'Wired AI', type: 'news' },
@@ -27,10 +28,6 @@ const RSS_FEEDS = [
   { url: 'https://blogs.nvidia.com/feed/', name: 'Nvidia Blog', type: 'news' },
   { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', type: 'news' },
   { url: 'https://community.amd.com/t5/blogs/rss', name: 'AMD Blog', type: 'news' },
-
-  // === 学术/研究源（芯片架构和硬件）===
-  { url: 'https://export.arxiv.org/rss/cs.AR', name: 'arXiv Hardware Architecture', type: 'news' },
-  { url: 'https://export.arxiv.org/rss/cs.PF', name: 'arXiv Performance', type: 'news' },
 
   // === 中文芯片媒体 ===
   { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
@@ -179,69 +176,74 @@ function isChinese(text) {
   return /[\u4e00-\u9fa5]/.test(text);
 }
 
-// 使用MyMemory API翻译文本（英译中）
-async function translateToZh(text) {
+// 使用Google Gemini API生成AI摘要（英译中）
+async function generateAISummary(text, isTitle = false) {
   if (!text || text.trim().length === 0) {
     return text;
   }
 
   // 如果已经是中文，直接返回
   if (isChinese(text)) {
-    console.log('检测到中文内容，跳过翻译');
+    console.log('检测到中文内容，跳过AI处理');
     return text;
   }
 
-  // 限制翻译长度，避免API超时
-  // 摘要翻译：前800字符，足够显示约10行中文
-  const maxLength = 800;
-  let textToTranslate = text;
-  let isTruncated = false;
-
-  if (text.length > maxLength) {
-    // 尝试在句子边界截断
-    const truncated = text.substring(0, maxLength);
-    const lastPeriod = truncated.lastIndexOf('.');
-    const lastSpace = truncated.lastIndexOf(' ');
-
-    if (lastPeriod > maxLength * 0.7) {
-      textToTranslate = text.substring(0, lastPeriod + 1);
-    } else if (lastSpace > maxLength * 0.7) {
-      textToTranslate = text.substring(0, lastSpace);
-    } else {
-      textToTranslate = truncated;
-    }
-    isTruncated = true;
+  // 获取Gemini API Key
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    console.error('未配置GEMINI_API_KEY，返回原文');
+    return text;
   }
 
   try {
-    const encodedText = encodeURIComponent(textToTranslate);
-    const url = `https://api.mymemory.translated.net/get?q=${encodedText}&langpair=en|zh-CN`;
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
-    const response = await fetch(url);
+    // 根据是否是标题设置不同的prompt
+    const prompt = isTitle
+      ? `请将以下英文标题翻译成中文，保持专业术语准确性：\n\n${text}`
+      : `请阅读以下英文新闻内容，生成一段200-300字的中文摘要。要求：
+1. 提炼核心技术信息、性能参数、创新点
+2. 保持专业术语准确（如芯片名称、技术指标）
+3. 语言简洁流畅，便于快速阅读
+4. 不要添加"摘要："等前缀
+
+新闻内容：
+${text.substring(0, 2000)}`;
+
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{ text: prompt }]
+        }],
+        generationConfig: {
+          temperature: 0.3,
+          maxOutputTokens: isTitle ? 100 : 500
+        }
+      })
+    });
+
     if (!response.ok) {
-      console.error(`MyMemory翻译API返回错误 (${response.status})`);
-      return text; // 失败时返回原文
+      console.error(`Gemini API返回错误 (${response.status})`);
+      return text;
     }
 
     const data = await response.json();
 
-    if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
-      let translated = data.responseData.translatedText;
-
-      // 如果原文被截断，添加省略号
-      if (isTruncated) {
-        translated += '...';
-      }
-
-      console.log(`✓ 翻译: ${textToTranslate.substring(0, 40)}... → ${translated.substring(0, 40)}...`);
-      return translated;
+    if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+      const summary = data.candidates[0].content.parts[0].text.trim();
+      console.log(`✓ AI${isTitle ? '翻译' : '摘要'}: ${text.substring(0, 40)}... → ${summary.substring(0, 40)}...`);
+      return summary;
     } else {
-      console.error('MyMemory翻译API返回格式错误:', data);
-      return text; // 失败时返回原文
+      console.error('Gemini API返回格式错误:', data);
+      return text;
     }
   } catch (error) {
-    console.error('翻译失败:', error.message);
-    return text; // 失败时返回原文
+    console.error('AI摘要生成失败:', error.message);
+    return text;
   }
 }
 
@@ -408,30 +410,31 @@ async function main() {
 
   console.log(`\n最终选取 ${selectedItems.length} 条AI推理芯片新闻`);
 
-  // 翻译所有选中的新闻
-  console.log('\n开始翻译新闻（英译中）...');
+  // 翻译所有选中的新闻（使用Gemini AI生成摘要）
+  console.log('\n开始生成AI摘要（英译中）...');
   for (let i = 0; i < selectedItems.length; i++) {
     const item = selectedItems[i];
-    console.log(`\n[${i + 1}/${selectedItems.length}] 翻译: ${item.title.substring(0, 60)}...`);
+    console.log(`\n[${i + 1}/${selectedItems.length}] 处理: ${item.title.substring(0, 60)}...`);
 
     // 翻译标题
     if (item.title && !isChinese(item.title)) {
-      item.titleZh = await translateToZh(item.title);
-      await delay(300); // 延迟300ms避免限流
+      item.titleZh = await generateAISummary(item.title, true);
+      await delay(1000); // Gemini免费层限流：每分钟15次，延迟1秒
     } else {
       item.titleZh = item.title; // 已是中文，保留原文
     }
 
-    // 翻译描述（摘要）
-    if (item.description && !isChinese(item.description)) {
-      item.descriptionZh = await translateToZh(item.description);
-      await delay(300); // 延迟300ms避免限流
+    // 生成中文摘要（使用description或content）
+    const sourceText = item.content || item.description || '';
+    if (sourceText && !isChinese(sourceText)) {
+      item.descriptionZh = await generateAISummary(sourceText, false);
+      await delay(1000); // 延迟1秒避免限流
     } else {
-      item.descriptionZh = item.description; // 已是中文，保留原文
+      item.descriptionZh = item.description || sourceText; // 已是中文，保留原文
     }
   }
 
-  console.log('\n✅ 翻译完成！');
+  console.log('\n✅ AI摘要生成完成！');
 
   // 直接使用新抓取的数据，不与旧数据合并
   const dataPath = path.join(__dirname, '../data/news.json');
