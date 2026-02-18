@@ -40,12 +40,30 @@ const RSS_FEEDS = [
   { url: 'https://rsshub.app/leiphone/category/ai', name: 'AI科技评论', type: 'news' },
 ];
 
-// AI芯片核心关键词 - 必须同时包含AI相关和芯片相关
+// AI推理核心关键词 - 聚焦推理，排除训练
 const AI_KEYWORDS = [
-  'artificial intelligence', 'AI', 'machine learning', 'deep learning',
-  'neural network', 'transformer', 'llm', 'large language model',
-  'ai training', 'ai inference', 'generative ai',
-  '人工智能', '机器学习', '深度学习', '神经网络', '大模型'
+  // 通用AI（基础）
+  'artificial intelligence', 'AI', 'neural network', 'neural',
+
+  // 推理相关（核心）
+  'inference', 'ai inference', 'model inference', 'neural inference',
+  'inferencing', 'inference engine', 'inference accelerator',
+  'serving', 'model serving', 'deployment', 'model deployment',
+  'edge ai', 'edge inference', 'real-time ai', 'real-time inference',
+
+  // 推理性能指标
+  'latency', 'throughput', 'inference speed', 'inference performance',
+  'tokens per second', 'inference optimization', 'low latency',
+
+  // 推理相关模型
+  'llm', 'large language model', 'transformer', 'transformer inference',
+  'generative ai', 'gen ai', 'chatgpt', 'llm serving', 'llm deployment',
+  'model quantization', 'quantized model', 'pruning', 'distillation',
+
+  // 中文推理关键词
+  '推理', 'AI推理', '模型推理', '推理加速', '推理性能', '推理优化',
+  '模型部署', '模型服务', '边缘推理', '边缘AI', '实时推理',
+  '推理延迟', '推理吞吐', '模型量化', '人工智能', '神经网络', '大模型'
 ];
 
 const CHIP_KEYWORDS = [
@@ -102,24 +120,36 @@ const CHIP_KEYWORDS = [
   '数据中心', '边缘计算', '云端训练', '推理加速'
 ];
 
-// 分类关键词
-const TRAINING_CHIP_KEYWORDS = [
-  'training', 'h100', 'h200', 'mi300x', 'tpu v5', 'gaudi3',
-  'dojo', 'distributed training', 'scale-out', 'multi-gpu',
-  '训练芯片', '训练加速', '分布式训练'
+// 分类关键词 - 聚焦推理场景
+const CLOUD_INFERENCE_KEYWORDS = [
+  'datacenter inference', 'cloud inference', 'server inference',
+  'h100', 'h200', 'l40', 'l4', 'a100', 'inferentia', 'trainium',
+  'gaudi', 'gaudi2', 'gaudi3', 'mi300', 'groq lpu',
+  'cloud ai', 'datacenter ai', '云端推理', '数据中心推理'
 ];
 
-const INFERENCE_CHIP_KEYWORDS = [
-  'inference', 'inferentia', 'groq', 'qualcomm cloud ai',
-  'edge inference', 'deployment', 'serving', 'low latency',
-  '推理芯片', '推理加速', '边缘推理'
+const EDGE_INFERENCE_KEYWORDS = [
+  'edge inference', 'edge ai', 'edge computing', 'edge device',
+  'mobile ai', 'on-device', 'embedded ai', 'iot ai',
+  'qualcomm', 'snapdragon', 'mediatek', 'apple neural engine',
+  'jetson', 'coral', 'movidius', 'hailo',
+  '边缘推理', '边缘AI', '端侧AI', '移动AI', '嵌入式AI'
+];
+
+const INFERENCE_OPTIMIZATION_KEYWORDS = [
+  'quantization', 'pruning', 'distillation', 'compression',
+  'optimization', 'acceleration', 'tensorrt', 'openvino',
+  'model optimization', 'inference optimization', 'int8', 'fp16',
+  'sparse', 'low-bit', 'efficient inference',
+  '量化', '剪枝', '压缩', '优化', '加速', '模型压缩'
 ];
 
 const ARCHITECTURE_INNOVATION_KEYWORDS = [
   'architecture', 'new design', 'innovation', 'breakthrough',
-  'chiplet', ' 3d stacking', 'heterogeneous', 'specialized',
-  'novel', 'next-gen', 'revolutionary',
-  '架构创新', '新架构', '突破', '创新设计'
+  'chiplet', '3d stacking', 'heterogeneous', 'specialized',
+  'novel', 'next-gen', 'revolutionary', 'systolic array',
+  'transformer engine', 'attention accelerator',
+  '架构创新', '新架构', '突破', '创新设计', '异构计算'
 ];
 
 const parser = new Parser({
@@ -186,33 +216,38 @@ async function fetchFeed(feedConfig) {
   }
 }
 
-// 分类函数 - AI芯片细分类别
+// 分类函数 - AI推理芯片细分类别
 function categorizeItem(item) {
   const text = `${item.title} ${item.description}`.toLowerCase();
 
-  // 检查训练芯片相关
-  if (TRAINING_CHIP_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
-    return 'training-chip';
+  // 检查云端推理芯片
+  if (CLOUD_INFERENCE_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+    return 'cloud-inference';
   }
 
-  // 检查推理芯片相关
-  if (INFERENCE_CHIP_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
-    return 'inference-chip';
+  // 检查边缘推理芯片
+  if (EDGE_INFERENCE_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+    return 'edge-inference';
   }
 
-  // 检查架构创新相关
+  // 检查推理优化技术
+  if (INFERENCE_OPTIMIZATION_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
+    return 'inference-optimization';
+  }
+
+  // 检查架构创新
   if (ARCHITECTURE_INNOVATION_KEYWORDS.some(keyword => text.includes(keyword.toLowerCase()))) {
     return 'architecture';
   }
 
-  // 其他AI芯片相关
-  return 'chip-other';
+  // 其他AI推理相关
+  return 'inference-other';
 }
 
 // 主函数
 async function main() {
-  console.log('开始抓取RSS feeds - 聚焦AI芯片...');
-  console.log('✅ 使用AI+芯片双关键词匹配（无翻译功能）');
+  console.log('开始抓取RSS feeds - 聚焦AI推理芯片...');
+  console.log('✅ 使用AI推理+芯片双关键词匹配（排除训练相关）');
 
   // 抓取所有RSS源
   const allFeeds = await Promise.all(RSS_FEEDS.map(feed => fetchFeed(feed)));
@@ -220,14 +255,14 @@ async function main() {
 
   console.log(`总共获取到 ${allItems.length} 条内容`);
 
-  // 过滤出AI芯片相关的内容（必须同时包含AI和芯片关键词）
-  console.log('开始AI芯片相关性过滤...');
+  // 过滤出AI推理芯片相关的内容（必须同时包含AI推理和芯片关键词）
+  console.log('开始AI推理芯片相关性过滤...');
   const aiChipItems = allItems.filter(item => {
     const textToClassify = `${item.title} ${item.description}`;
     return isAIChipRelated(textToClassify);
   });
 
-  console.log(`筛选出 ${aiChipItems.length} 条AI芯片相关内容`);
+  console.log(`筛选出 ${aiChipItems.length} 条AI推理芯片相关内容`);
 
   // 按发布时间排序（从新到旧）
   aiChipItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
@@ -245,16 +280,17 @@ async function main() {
 
   // 注意：宁可显示少于15条，也不显示超过48小时的旧新闻
   if (finalItems.length < 15) {
-    console.log(`⚠️  48小时内只有 ${finalItems.length} 条AI芯片新闻，将只显示这些新闻（不会补充旧新闻）`);
+    console.log(`⚠️  48小时内只有 ${finalItems.length} 条AI推理芯片新闻，将只显示这些新闻（不会补充旧新闻）`);
   }
 
   // 对内容进行分类
-  console.log('开始按类别分类新闻...');
+  console.log('开始按推理场景分类新闻...');
   const categorizedItems = {
-    'training-chip': [],
-    'inference-chip': [],
+    'cloud-inference': [],
+    'edge-inference': [],
+    'inference-optimization': [],
     'architecture': [],
-    'chip-other': []
+    'inference-other': []
   };
 
   for (const item of finalItems) {
@@ -264,23 +300,25 @@ async function main() {
   }
 
   console.log(`分类结果:`);
-  console.log(`  训练芯片: ${categorizedItems['training-chip'].length} 条`);
-  console.log(`  推理芯片: ${categorizedItems['inference-chip'].length} 条`);
+  console.log(`  云端推理: ${categorizedItems['cloud-inference'].length} 条`);
+  console.log(`  边缘推理: ${categorizedItems['edge-inference'].length} 条`);
+  console.log(`  推理优化: ${categorizedItems['inference-optimization'].length} 条`);
   console.log(`  架构创新: ${categorizedItems['architecture'].length} 条`);
-  console.log(`  其他芯片: ${categorizedItems['chip-other'].length} 条`);
+  console.log(`  其他推理: ${categorizedItems['inference-other'].length} 条`);
 
   // 按配额选取新闻（各类别尽量均衡，总计15条）
   const selectedItems = [
-    ...categorizedItems['training-chip'].slice(0, 5),   // 训练芯片：最多5条
-    ...categorizedItems['inference-chip'].slice(0, 5),  // 推理芯片：最多5条
-    ...categorizedItems['architecture'].slice(0, 5),    // 架构创新：最多5条
-    ...categorizedItems['chip-other'].slice(0, 5)       // 其他芯片：最多5条
+    ...categorizedItems['cloud-inference'].slice(0, 5),        // 云端推理：最多5条
+    ...categorizedItems['edge-inference'].slice(0, 4),         // 边缘推理：最多4条
+    ...categorizedItems['inference-optimization'].slice(0, 3), // 推理优化：最多3条
+    ...categorizedItems['architecture'].slice(0, 3),           // 架构创新：最多3条
+    ...categorizedItems['inference-other'].slice(0, 3)         // 其他推理：最多3条
   ];
 
   // 如果某个类别不足，从其他类别补充（但只从48小时内的数据补充）
   const deficit = 15 - selectedItems.length;
   if (deficit > 0 && selectedItems.length > 0) {
-    console.log(`总数不足15条，尝试从48小时内其他AI芯片新闻补充 ${deficit} 条`);
+    console.log(`总数不足15条，尝试从48小时内其他AI推理新闻补充 ${deficit} 条`);
     const remainingItems = finalItems.filter(item => !selectedItems.includes(item));
     const supplementItems = remainingItems.slice(0, deficit);
     selectedItems.push(...supplementItems);
@@ -290,7 +328,7 @@ async function main() {
   // 按发布时间重新排序
   selectedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-  console.log(`\n最终选取 ${selectedItems.length} 条AI芯片新闻`);
+  console.log(`\n最终选取 ${selectedItems.length} 条AI推理芯片新闻`);
 
   // 直接使用新抓取的数据，不与旧数据合并
   const dataPath = path.join(__dirname, '../data/news.json');
@@ -310,22 +348,28 @@ async function main() {
   }
   fs.writeFileSync(publicDataPath, JSON.stringify(newData, null, 2), 'utf-8');
 
-  console.log('完成！保存了', selectedItems.length, '条AI芯片新闻');
-  console.log('\n最新的AI芯片新闻（按类别）:');
+  console.log('完成！保存了', selectedItems.length, '条AI推理芯片新闻');
+  console.log('\n最新的AI推理芯片新闻（按场景）:');
 
   // 按类别显示
-  const trainingItems = selectedItems.filter(item => item.category === 'training-chip');
-  const inferenceItems = selectedItems.filter(item => item.category === 'inference-chip');
+  const cloudItems = selectedItems.filter(item => item.category === 'cloud-inference');
+  const edgeItems = selectedItems.filter(item => item.category === 'edge-inference');
+  const optimizationItems = selectedItems.filter(item => item.category === 'inference-optimization');
   const architectureItems = selectedItems.filter(item => item.category === 'architecture');
-  const otherChipItems = selectedItems.filter(item => item.category === 'chip-other');
+  const otherInferenceItems = selectedItems.filter(item => item.category === 'inference-other');
 
-  console.log('\n🎓 训练芯片 (' + trainingItems.length + '条):');
-  trainingItems.forEach((item, index) => {
+  console.log('\n☁️ 云端推理 (' + cloudItems.length + '条):');
+  cloudItems.forEach((item, index) => {
     console.log(`  ${index + 1}. ${item.title} (${item.source})`);
   });
 
-  console.log('\n⚡ 推理芯片 (' + inferenceItems.length + '条):');
-  inferenceItems.forEach((item, index) => {
+  console.log('\n📱 边缘推理 (' + edgeItems.length + '条):');
+  edgeItems.forEach((item, index) => {
+    console.log(`  ${index + 1}. ${item.title} (${item.source})`);
+  });
+
+  console.log('\n⚡ 推理优化 (' + optimizationItems.length + '条):');
+  optimizationItems.forEach((item, index) => {
     console.log(`  ${index + 1}. ${item.title} (${item.source})`);
   });
 
@@ -334,8 +378,8 @@ async function main() {
     console.log(`  ${index + 1}. ${item.title} (${item.source})`);
   });
 
-  console.log('\n💻 其他芯片 (' + otherChipItems.length + '条):');
-  otherChipItems.forEach((item, index) => {
+  console.log('\n💡 其他推理 (' + otherInferenceItems.length + '条):');
+  otherInferenceItems.forEach((item, index) => {
     console.log(`  ${index + 1}. ${item.title} (${item.source})`);
   });
 }
