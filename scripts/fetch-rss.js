@@ -220,14 +220,11 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
 
       // 根据是否是标题设置不同的prompt
       const prompt = isTitle
-        ? `Translate this English title to Chinese. Only output the translated title, no extra words:\n\n${text}`
-        : `阅读以下英文新闻内容，生成一段约500字的中文摘要。要求：
-1. 提炼核心技术信息、性能参数、创新点
-2. 保持专业术语准确（如芯片名称、技术指标）
-3. 语言简洁流畅，便于快速阅读
-4. 直接输出摘要内容，不要添加"摘要："等前缀
+        ? `请将以下英文标题翻译成中文。只需输出翻译后的标题，不要添加任何额外的说明或前缀：
 
-新闻内容：
+${text}`
+        : `请阅读以下英文新闻，生成一段500字的中文摘要。直接输出摘要正文，不要有任何前缀：
+
 ${text.substring(0, 3000)}`;
 
       const response = await fetch(url, {
@@ -240,8 +237,10 @@ ${text.substring(0, 3000)}`;
             parts: [{ text: prompt }]
           }],
           generationConfig: {
-            temperature: 0.3,
-            maxOutputTokens: isTitle ? 100 : 1000
+            temperature: 0.2,
+            maxOutputTokens: isTitle ? 150 : 1200,
+            topP: 0.8,
+            topK: 40
           }
         })
       });
@@ -265,11 +264,26 @@ ${text.substring(0, 3000)}`;
       const data = await response.json();
 
       if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-        const summary = data.candidates[0].content.parts[0].text.trim();
-        console.log(`✓ AI${isTitle ? '翻译' : '摘要'}: ${text.substring(0, 40)}... → ${summary.substring(0, 40)}...`);
+        const candidate = data.candidates[0];
+        const summary = candidate.content.parts[0].text.trim();
+        const charCount = summary.length;
+        const finishReason = candidate.finishReason;
+
+        console.log(`✓ AI${isTitle ? '翻译' : '摘要'}(${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
+
+        // 检查是否被截断
+        if (!isTitle && charCount < 300) {
+          console.warn(`⚠️  摘要过短(${charCount}字)，finishReason: ${finishReason}`);
+        }
+
+        // 如果因为长度限制被截断，警告但仍返回
+        if (finishReason === 'MAX_TOKENS' || finishReason === 'LENGTH') {
+          console.warn(`⚠️  输出达到长度限制 (${finishReason})，内容可能不完整`);
+        }
+
         return summary;
       } else {
-        console.error('Gemini API返回格式错误:', data);
+        console.error('Gemini API返回格式错误:', JSON.stringify(data).substring(0, 500));
         return text;
       }
     } catch (error) {
