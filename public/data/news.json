@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-18T09:42:09.034Z",
+  "lastUpdated": "2026-02-18T09:55:51.014Z",
   "items": [
     {
       "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
@@ -27,7 +27,7 @@
       "popularity": 0,
       "category": "inference-optimization",
       "titleZh": "最快最繁琐：用于加速器建模和评估的最佳融合感知映射器",
-      "descriptionZh": "arXiv: 2602.15166v1公告类型：新 \n摘要：张量代数加速器的延迟和能量取决于数据移动和操作的调度方式（即..."
+      "descriptionZh": "arXiv:2602.15166v1 Announce Type: new \nAbstract: The latency and energy of tensor algebra accelerators depend on how data movement and operations are scheduled (i.e., mapped) onto accelerators, so determining the potential of an accelerator architecture requires both a performance model and a mapper to search for the optimal mapping. A key optimization that the mapper must explore is fusion, meaning holding data on-chip between computation steps, which has been shown to reduce energy and latency by reducing DRAM accesses. However, prior mappers cannot find optimal mappings with fusion (i.e., fused mappings) in a feasible runtime because the number of fused mappings to search increases exponentially with the number of workload computation steps.\n  In this paper, we introduce the Fast and Fusiest Mapper (FFM), the first mapper to quickly find optimal mappings in a comprehensive fused mapspace for tensor algebra workloads. FFM shrinks the search space by pruning subsets of mappings (i.e., partial mappings) that are shown to never be a part of optimal mappings, quickly eliminating all suboptimal mappings with those partial mappings as subsets. Then FFM joins partial mappings to construct optimal fused mappings. We evaluate FFM and show that, although the mapspace size grows exponentially with the number of computation steps, FFM's runtime scales approximately linearly. FFM is orders of magnitude faster ($>1000\\times$) than prior state-of-the-art approaches at finding optimal mappings for Transformers."
     },
     {
       "title": "Online GPU Energy Optimization with Switching-Aware Bandits",
@@ -41,7 +41,7 @@
       "popularity": 0,
       "category": "inference-optimization",
       "titleZh": "使用切换感知强盗的在线GPU能量优化",
-      "descriptionZh": "arXiv: 2410.11855v2公告类型： replace-cross \n摘要：从可穿戴设备到领先级的超级计算机，能耗已成为未来计算架构的瓶颈。..."
+      "descriptionZh": "arXiv:2410.11855v2 Announce Type: replace-cross \nAbstract: Energy consumption has become a bottleneck for future computing architectures, from wearable devices to leadership-class supercomputers. Existing energy management techniques largely target CPUs, even though GPUs now dominate power draw in heterogeneous high performance computing (HPC) systems. Moreover, many prior methods rely on either purely offline or hybrid offline and online training, which is impractical and results in energy inefficiencies during data collection. In this paper, we introduce a practical online GPU energy optimization problem in a HPC scenarios. The problem is challenging because (1) GPU frequency scaling exhibits performance-energy trade-offs, (2) online control must balance exploration and exploitation, and (3) frequent frequency switching incurs non-trivial overhead and degrades quality of service (QoS). To address the challenges, we formulate online GPU energy optimization as a multi-armed bandit problem and propose EnergyUCB, a lightweight UCB-based controller that dynamically adjusts GPU core frequency in real time to save energy. Specifically, EnergyUCB (1) defines a reward that jointly captures energy and performance using a core-to-uncore utilization ratio as a proxy for GPU throughput, (2) employs optimistic initialization and UCB-style confidence bonuses to accelerate learning from scratch, and (3) incorporates a switching-aware UCB index and a QoS-constrained variant that enforce explicit slowdown budgets while discouraging unnecessary frequency oscillations. Extensive experiments on real-world workloads from the world's third fastest supercomputer Aurora show that EnergyUCB achieves substantial energy savings with modest slowdown and that the QoS-constrained variant reliably respects user-specified performance budgets."
     },
     {
       "title": "Decomposing Docker Container Startup Performance: A Three-Tier Measurement Study on Heterogeneous Infrastructure",
@@ -55,7 +55,7 @@
       "popularity": 0,
       "category": "architecture",
       "titleZh": "分解Docker容器启动性能：异构基础设施的三层测量研究",
-      "descriptionZh": "arXiv: 2602.15214v1公告类型：新 \n摘要：容器启动延迟是CI/CD管道、无服务器计算和自动扩展系统的关键性能指标，但从业人员缺乏..."
+      "descriptionZh": "arXiv:2602.15214v1 Announce Type: new \nAbstract: Container startup latency is a critical performance metric for CI/CD pipelines, serverless computing, and auto-scaling systems, yet practitioners lack empirical guidance on how infrastructure choices affect this latency. We present a systematic measurement study that decomposes Docker container startup into constituent operations across three heterogeneous infrastructure tiers: Azure Premium SSD (cloud SSD), Azure Standard HDD (cloud HDD), and macOS Docker Desktop (developer workstation with hypervisor-based virtualization). Using a reproducible benchmark suite that executes 50 iterations per test across 10 performance dimensions, we quantify previously under-characterized relationships between infrastructure configuration and container runtime behavior. Our key findings include: (1) container startup is dominated by runtime overhead rather than image size, with only 2.5% startup variation across images ranging from 5 MB to 155 MB on SSD; (2) storage tier selection imposes a 2.04x startup penalty (HDD 1157 ms vs. SSD 568 ms); (3) Docker Desktop's hypervisor layer introduces a 2.69x startup penalty and 9.5x higher CPU throttling variance compared to native Linux; (4) OverlayFS write performance collapses by up to two orders of magnitude compared to volume mounts on SSD-backed storage; and (5) Linux namespace creation contributes only 8-10 ms (<1.5%) of total startup time. All measurement scripts, raw data, and analysis tools are publicly available."
     },
     {
       "title": "The Turbo-Charged Mapper: Fast and Optimal Mapping for Accelerator Modeling and Evaluation",
@@ -69,7 +69,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "涡轮增压映射器：用于加速器建模和评估的快速和最佳映射",
-      "descriptionZh": "arXiv: 2602.15172v1公告类型：新 \n摘要：运行深度神经网络（ DNN ）的加速器的能量和延迟取决于..."
+      "descriptionZh": "arXiv:2602.15172v1 Announce Type: new \nAbstract: The energy and latency of an accelerator running a deep neural network (DNN) depend on how the computation and data movement are scheduled in the accelerator (i.e., mapping). Optimizing mappings is essential to evaluating and designing accelerators. However, the space of mappings is large, and prior works can not guarantee finding optimal mappings because they use heuristics or metaheuristics to narrow down the space. These limitations preclude proper hardware evaluation, since designers can not tell whether performance differences are due to changes in hardware or suboptimal mapping.\n  To address this challenge, we propose the Turbo-Charged Mapper (TCM), a fast mapper that is guaranteed to find optimal mappings. The key to our approach is that we define a new concept in mapping, called dataplacement, which, like the prior concept of dataflow, allows for clear analysis and comparison of mappings. Through it, we identify multiple opportunities to prune redundant and suboptimal mappings, reducing search space by up to 32 orders of magnitude.\n  Leveraging these insights, TCM can perform full mapspace searches, making it the first mapper that can find optimal mappings in feasible runtime. Compared to prior mappers, we show that TCM can find optimal mappings quickly (less than a minute), while prior works can not find optimal mappings (energy-delay-product $21\\%$ higher than optimal) even when given $1000\\times$ the runtime ($>10$ hours)."
     },
     {
       "title": "Human-AI Interaction: Evaluating LLM Reasoning on Digital Logic Circuit included Graph Problems, in terms of creativity in design and analysis",
@@ -83,7 +83,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "人机交互：评估数字逻辑电路上的LLM推理包括图形问题，在设计和分析的创造力方面",
-      "descriptionZh": "arXiv: 2602.15336v1公告类型：新 \n摘要：大型语言模型（ LLM ）越来越多地被本科生用作按需导师，但其基于电路和图表的可靠性..."
+      "descriptionZh": "arXiv:2602.15336v1 Announce Type: new \nAbstract: Large Language Models (LLMs) are increasingly used by undergraduate students as on-demand tutors, yet their reliability on circuit- and diagram-based digital logic problems remains unclear. We present a human- AI study evaluating three widely used LLMs (GPT, Gemini, and Claude) on 10 undergraduate-level digital logic questions spanning non-standard counters, JK-based state transitions, timing diagrams, frequency division, and finite-state machines. Twenty-four students performed pairwise model comparisons, providing per-question judgments on (i) preferred model, (ii) perceived correctness, (iii) consistency, (iv) verbosity, and (v) confidence, along with global ratings of overall model quality, satisfaction across multiple dimensions (e.g., accuracy and clarity), and perceived mental effort required to verify answers. To benchmark technical validity, we applied an independent judge-based evaluation against official solutions for all ten questions, using strict correctness criteria. Results reveal a consistent gap between perceived helpfulness and formal correctness: for the most sequentially demanding problems (Q1- Q7), none of the evaluated LLMs matched the official answers, despite producing confident, well-structured explanations that students often rated favorably. Error analysis indicates that models frequently default to canonical textbook templates (e.g., standard ripple counters) and struggle to translate circuit structure into exact state evolution and timing behavior. These findings suggest that, without verification scaffolds, LLMs may be unreliable for core digital logic topics and can inadvertently reinforce misconceptions in undergraduate instruction."
     },
     {
       "title": "Energy Concerns with HPC Systems and Applications",
@@ -97,7 +97,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "高性能计算系统和应用的能源问题",
-      "descriptionZh": "arXiv: 2309.08615v2公告类型： replace-cross \n摘要：由于各种原因，包括与气候变化有关的原因， {\\ em energy}已成为所有相关活动和..."
+      "descriptionZh": "arXiv:2309.08615v2 Announce Type: replace-cross \nAbstract: For various reasons including those related to climate changes, {\\em energy} has become a critical concern in all relevant activities and technical designs. For the specific case of computer activities, the problem is exacerbated with the emergence and pervasiveness of the so called {\\em intelligent devices}. From the application side, we point out the special topic of {\\em Artificial Intelligence}, who clearly needs an efficient computing support in order to succeed in its purpose of being a {\\em ubiquitous assistant}. There are mainly two contexts where {\\em energy} is one of the top priority concerns: {\\em embedded computing} and {\\em supercomputing}. For the former, power consumption is critical because the amount of energy that is available for the devices is limited. For the latter, the heat dissipated is a serious source of failure and the financial cost related to energy is likely to be a significant part of the maintenance budget. On a single computer, the problem is commonly considered through the electrical power consumption. This paper, written in the form of a survey, we depict the landscape of energy concerns in computer activities, both from the hardware and the software standpoints."
     },
     {
       "title": "TQml Simulator: optimized simulation of quantum machine learning",
@@ -111,7 +111,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "TQml模拟器：量子机器学习的优化模拟",
-      "descriptionZh": "arXiv: 2506.04891v3公告类型： replace-cross \n摘要：量子机器学习中使用的高硬件效率电路通常由均匀应用的门的交替层组成。..."
+      "descriptionZh": "arXiv:2506.04891v3 Announce Type: replace-cross \nAbstract: Hardware-efficient circuits employed in Quantum Machine Learning are typically composed of alternating layers of uniformly applied gates. High-speed numerical simulators for such circuits are crucial for advancing research in this field. In this work, we numerically benchmark universal and gate-specific techniques for simulating the action of layers of gates on quantum state vectors, aiming to accelerate the overall simulation of Quantum Machine Learning algorithms. Our analysis shows that the optimal simulation method for a given layer of gates depends on the number of qubits involved, and that a tailored combination of techniques can yield substantial performance gains in the forward and backward passes for a given circuit. Building on these insights, we developed a numerical simulator, named TQml Simulator, that employs the most efficient simulation method for each layer in a given circuit. We evaluated TQml Simulator on circuits constructed from standard gate sets, such as rotations and CNOTs, as well as on native gates from IonQ and IBM quantum processing units. In most cases, our simulator outperforms equivalent Pennylane's default.qubit simulator by up to a factor of 10, depending on the circuit, the number of qubits, the batch size of the input data, and the hardware used."
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -139,7 +139,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "印度全球系统集成商借助NVIDIA AI构建下一波企业代理，实现后台和客户支持转型",
-      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者..."
+      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。 利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者正在加快从呼叫中心到电信和医疗保健等各个行业的生产力和效率。 Infosys、Persistent、Tech Mahindra和Wipro正在引领业务转型，改善后台\t\n\t\t阅读文章"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -153,7 +153,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "英伟达和全球工业软件领导者与印度最大的制造商合作，推动人工智能热潮",
-      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。该国正在投资1340亿美元（ $ 1340亿美元）用于..."
+      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。 该国正在建筑、汽车、可再生能源和机器人领域投资1340亿美元($ 1340亿美元) ，从一开始就为建设软件定义工厂创造了巨大的挑战和机遇。\t\n\t\t阅读文章"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -167,7 +167,7 @@
       "popularity": 0,
       "category": "architecture",
       "titleZh": "Meta与英伟达达成新协议，收购数百万人工智能芯片",
-      "descriptionZh": "Meta已经达成了一项多年协议，通过数百万英伟达的Grace和Vera CPU以及Blackwell和Rubin GPU来扩展其数据中心。虽然Meta长期以来一直使用Nvidia的硬件进行人工智能..."
+      "descriptionZh": "Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which Nvidia says will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. \nMeta is also working on its own in-house chips for running AI models, but according to the Financial Times, it has run into \"technical challenges and rollout  …\nRead the full story at The Verge."
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -195,7 +195,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "AMD否认有关MI455X延误的报告，因为有传言称Nvidia VR200系统将提前到货—该公司表示Helios系统“有望在2026年下半年实现目标”",
-      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，该公司对人工智能市场的主要希望，可能会下滑到2027年，而Nvidia可能会加速推出Vera Rubin平台，如果..."
+      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，这是该公司对人工智能市场的主要希望，可能会滑落到2027年，而英伟达可能会加快推出Vera Rubin平台，如果最新的市场传闻是可信的。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -209,7 +209,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "英伟达中国赌博与华盛顿政权会面",
-      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。..."
+      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。\nNvidia China Gamble Meets Washington's Regime一文首次出现在EE Times上。"
     }
   ],
   "history": [
@@ -239,7 +239,7 @@
       "popularity": 0,
       "category": "inference-optimization",
       "titleZh": "最快最繁琐：用于加速器建模和评估的最佳融合感知映射器",
-      "descriptionZh": "arXiv: 2602.15166v1公告类型：新 \n摘要：张量代数加速器的延迟和能量取决于数据移动和操作的调度方式（即..."
+      "descriptionZh": "arXiv:2602.15166v1 Announce Type: new \nAbstract: The latency and energy of tensor algebra accelerators depend on how data movement and operations are scheduled (i.e., mapped) onto accelerators, so determining the potential of an accelerator architecture requires both a performance model and a mapper to search for the optimal mapping. A key optimization that the mapper must explore is fusion, meaning holding data on-chip between computation steps, which has been shown to reduce energy and latency by reducing DRAM accesses. However, prior mappers cannot find optimal mappings with fusion (i.e., fused mappings) in a feasible runtime because the number of fused mappings to search increases exponentially with the number of workload computation steps.\n  In this paper, we introduce the Fast and Fusiest Mapper (FFM), the first mapper to quickly find optimal mappings in a comprehensive fused mapspace for tensor algebra workloads. FFM shrinks the search space by pruning subsets of mappings (i.e., partial mappings) that are shown to never be a part of optimal mappings, quickly eliminating all suboptimal mappings with those partial mappings as subsets. Then FFM joins partial mappings to construct optimal fused mappings. We evaluate FFM and show that, although the mapspace size grows exponentially with the number of computation steps, FFM's runtime scales approximately linearly. FFM is orders of magnitude faster ($>1000\\times$) than prior state-of-the-art approaches at finding optimal mappings for Transformers."
     },
     {
       "title": "Online GPU Energy Optimization with Switching-Aware Bandits",
@@ -253,7 +253,7 @@
       "popularity": 0,
       "category": "inference-optimization",
       "titleZh": "使用切换感知强盗的在线GPU能量优化",
-      "descriptionZh": "arXiv: 2410.11855v2公告类型： replace-cross \n摘要：从可穿戴设备到领先级的超级计算机，能耗已成为未来计算架构的瓶颈。..."
+      "descriptionZh": "arXiv:2410.11855v2 Announce Type: replace-cross \nAbstract: Energy consumption has become a bottleneck for future computing architectures, from wearable devices to leadership-class supercomputers. Existing energy management techniques largely target CPUs, even though GPUs now dominate power draw in heterogeneous high performance computing (HPC) systems. Moreover, many prior methods rely on either purely offline or hybrid offline and online training, which is impractical and results in energy inefficiencies during data collection. In this paper, we introduce a practical online GPU energy optimization problem in a HPC scenarios. The problem is challenging because (1) GPU frequency scaling exhibits performance-energy trade-offs, (2) online control must balance exploration and exploitation, and (3) frequent frequency switching incurs non-trivial overhead and degrades quality of service (QoS). To address the challenges, we formulate online GPU energy optimization as a multi-armed bandit problem and propose EnergyUCB, a lightweight UCB-based controller that dynamically adjusts GPU core frequency in real time to save energy. Specifically, EnergyUCB (1) defines a reward that jointly captures energy and performance using a core-to-uncore utilization ratio as a proxy for GPU throughput, (2) employs optimistic initialization and UCB-style confidence bonuses to accelerate learning from scratch, and (3) incorporates a switching-aware UCB index and a QoS-constrained variant that enforce explicit slowdown budgets while discouraging unnecessary frequency oscillations. Extensive experiments on real-world workloads from the world's third fastest supercomputer Aurora show that EnergyUCB achieves substantial energy savings with modest slowdown and that the QoS-constrained variant reliably respects user-specified performance budgets."
     },
     {
       "title": "Decomposing Docker Container Startup Performance: A Three-Tier Measurement Study on Heterogeneous Infrastructure",
@@ -267,7 +267,7 @@
       "popularity": 0,
       "category": "architecture",
       "titleZh": "分解Docker容器启动性能：异构基础设施的三层测量研究",
-      "descriptionZh": "arXiv: 2602.15214v1公告类型：新 \n摘要：容器启动延迟是CI/CD管道、无服务器计算和自动扩展系统的关键性能指标，但从业人员缺乏..."
+      "descriptionZh": "arXiv:2602.15214v1 Announce Type: new \nAbstract: Container startup latency is a critical performance metric for CI/CD pipelines, serverless computing, and auto-scaling systems, yet practitioners lack empirical guidance on how infrastructure choices affect this latency. We present a systematic measurement study that decomposes Docker container startup into constituent operations across three heterogeneous infrastructure tiers: Azure Premium SSD (cloud SSD), Azure Standard HDD (cloud HDD), and macOS Docker Desktop (developer workstation with hypervisor-based virtualization). Using a reproducible benchmark suite that executes 50 iterations per test across 10 performance dimensions, we quantify previously under-characterized relationships between infrastructure configuration and container runtime behavior. Our key findings include: (1) container startup is dominated by runtime overhead rather than image size, with only 2.5% startup variation across images ranging from 5 MB to 155 MB on SSD; (2) storage tier selection imposes a 2.04x startup penalty (HDD 1157 ms vs. SSD 568 ms); (3) Docker Desktop's hypervisor layer introduces a 2.69x startup penalty and 9.5x higher CPU throttling variance compared to native Linux; (4) OverlayFS write performance collapses by up to two orders of magnitude compared to volume mounts on SSD-backed storage; and (5) Linux namespace creation contributes only 8-10 ms (<1.5%) of total startup time. All measurement scripts, raw data, and analysis tools are publicly available."
     },
     {
       "title": "The Turbo-Charged Mapper: Fast and Optimal Mapping for Accelerator Modeling and Evaluation",
@@ -281,7 +281,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "涡轮增压映射器：用于加速器建模和评估的快速和最佳映射",
-      "descriptionZh": "arXiv: 2602.15172v1公告类型：新 \n摘要：运行深度神经网络（ DNN ）的加速器的能量和延迟取决于..."
+      "descriptionZh": "arXiv:2602.15172v1 Announce Type: new \nAbstract: The energy and latency of an accelerator running a deep neural network (DNN) depend on how the computation and data movement are scheduled in the accelerator (i.e., mapping). Optimizing mappings is essential to evaluating and designing accelerators. However, the space of mappings is large, and prior works can not guarantee finding optimal mappings because they use heuristics or metaheuristics to narrow down the space. These limitations preclude proper hardware evaluation, since designers can not tell whether performance differences are due to changes in hardware or suboptimal mapping.\n  To address this challenge, we propose the Turbo-Charged Mapper (TCM), a fast mapper that is guaranteed to find optimal mappings. The key to our approach is that we define a new concept in mapping, called dataplacement, which, like the prior concept of dataflow, allows for clear analysis and comparison of mappings. Through it, we identify multiple opportunities to prune redundant and suboptimal mappings, reducing search space by up to 32 orders of magnitude.\n  Leveraging these insights, TCM can perform full mapspace searches, making it the first mapper that can find optimal mappings in feasible runtime. Compared to prior mappers, we show that TCM can find optimal mappings quickly (less than a minute), while prior works can not find optimal mappings (energy-delay-product $21\\%$ higher than optimal) even when given $1000\\times$ the runtime ($>10$ hours)."
     },
     {
       "title": "Human-AI Interaction: Evaluating LLM Reasoning on Digital Logic Circuit included Graph Problems, in terms of creativity in design and analysis",
@@ -295,7 +295,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "人机交互：评估数字逻辑电路上的LLM推理包括图形问题，在设计和分析的创造力方面",
-      "descriptionZh": "arXiv: 2602.15336v1公告类型：新 \n摘要：大型语言模型（ LLM ）越来越多地被本科生用作按需导师，但其基于电路和图表的可靠性..."
+      "descriptionZh": "arXiv:2602.15336v1 Announce Type: new \nAbstract: Large Language Models (LLMs) are increasingly used by undergraduate students as on-demand tutors, yet their reliability on circuit- and diagram-based digital logic problems remains unclear. We present a human- AI study evaluating three widely used LLMs (GPT, Gemini, and Claude) on 10 undergraduate-level digital logic questions spanning non-standard counters, JK-based state transitions, timing diagrams, frequency division, and finite-state machines. Twenty-four students performed pairwise model comparisons, providing per-question judgments on (i) preferred model, (ii) perceived correctness, (iii) consistency, (iv) verbosity, and (v) confidence, along with global ratings of overall model quality, satisfaction across multiple dimensions (e.g., accuracy and clarity), and perceived mental effort required to verify answers. To benchmark technical validity, we applied an independent judge-based evaluation against official solutions for all ten questions, using strict correctness criteria. Results reveal a consistent gap between perceived helpfulness and formal correctness: for the most sequentially demanding problems (Q1- Q7), none of the evaluated LLMs matched the official answers, despite producing confident, well-structured explanations that students often rated favorably. Error analysis indicates that models frequently default to canonical textbook templates (e.g., standard ripple counters) and struggle to translate circuit structure into exact state evolution and timing behavior. These findings suggest that, without verification scaffolds, LLMs may be unreliable for core digital logic topics and can inadvertently reinforce misconceptions in undergraduate instruction."
     },
     {
       "title": "Energy Concerns with HPC Systems and Applications",
@@ -309,7 +309,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "高性能计算系统和应用的能源问题",
-      "descriptionZh": "arXiv: 2309.08615v2公告类型： replace-cross \n摘要：由于各种原因，包括与气候变化有关的原因， {\\ em energy}已成为所有相关活动和..."
+      "descriptionZh": "arXiv:2309.08615v2 Announce Type: replace-cross \nAbstract: For various reasons including those related to climate changes, {\\em energy} has become a critical concern in all relevant activities and technical designs. For the specific case of computer activities, the problem is exacerbated with the emergence and pervasiveness of the so called {\\em intelligent devices}. From the application side, we point out the special topic of {\\em Artificial Intelligence}, who clearly needs an efficient computing support in order to succeed in its purpose of being a {\\em ubiquitous assistant}. There are mainly two contexts where {\\em energy} is one of the top priority concerns: {\\em embedded computing} and {\\em supercomputing}. For the former, power consumption is critical because the amount of energy that is available for the devices is limited. For the latter, the heat dissipated is a serious source of failure and the financial cost related to energy is likely to be a significant part of the maintenance budget. On a single computer, the problem is commonly considered through the electrical power consumption. This paper, written in the form of a survey, we depict the landscape of energy concerns in computer activities, both from the hardware and the software standpoints."
     },
     {
       "title": "TQml Simulator: optimized simulation of quantum machine learning",
@@ -323,7 +323,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "TQml模拟器：量子机器学习的优化模拟",
-      "descriptionZh": "arXiv: 2506.04891v3公告类型： replace-cross \n摘要：量子机器学习中使用的高硬件效率电路通常由均匀应用的门的交替层组成。..."
+      "descriptionZh": "arXiv:2506.04891v3 Announce Type: replace-cross \nAbstract: Hardware-efficient circuits employed in Quantum Machine Learning are typically composed of alternating layers of uniformly applied gates. High-speed numerical simulators for such circuits are crucial for advancing research in this field. In this work, we numerically benchmark universal and gate-specific techniques for simulating the action of layers of gates on quantum state vectors, aiming to accelerate the overall simulation of Quantum Machine Learning algorithms. Our analysis shows that the optimal simulation method for a given layer of gates depends on the number of qubits involved, and that a tailored combination of techniques can yield substantial performance gains in the forward and backward passes for a given circuit. Building on these insights, we developed a numerical simulator, named TQml Simulator, that employs the most efficient simulation method for each layer in a given circuit. We evaluated TQml Simulator on circuits constructed from standard gate sets, such as rotations and CNOTs, as well as on native gates from IonQ and IBM quantum processing units. In most cases, our simulator outperforms equivalent Pennylane's default.qubit simulator by up to a factor of 10, depending on the circuit, the number of qubits, the batch size of the input data, and the hardware used."
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -351,7 +351,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "印度全球系统集成商借助NVIDIA AI构建下一波企业代理，实现后台和客户支持转型",
-      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者..."
+      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。 利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者正在加快从呼叫中心到电信和医疗保健等各个行业的生产力和效率。 Infosys、Persistent、Tech Mahindra和Wipro正在引领业务转型，改善后台\t\n\t\t阅读文章"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -365,7 +365,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "英伟达和全球工业软件领导者与印度最大的制造商合作，推动人工智能热潮",
-      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。该国正在投资1340亿美元（ $ 1340亿美元）用于..."
+      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。 该国正在建筑、汽车、可再生能源和机器人领域投资1340亿美元($ 1340亿美元) ，从一开始就为建设软件定义工厂创造了巨大的挑战和机遇。\t\n\t\t阅读文章"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -379,7 +379,7 @@
       "popularity": 0,
       "category": "architecture",
       "titleZh": "Meta与英伟达达成新协议，收购数百万人工智能芯片",
-      "descriptionZh": "Meta已经达成了一项多年协议，通过数百万英伟达的Grace和Vera CPU以及Blackwell和Rubin GPU来扩展其数据中心。虽然Meta长期以来一直使用Nvidia的硬件进行人工智能..."
+      "descriptionZh": "Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which Nvidia says will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. \nMeta is also working on its own in-house chips for running AI models, but according to the Financial Times, it has run into \"technical challenges and rollout  …\nRead the full story at The Verge."
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -407,7 +407,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "AMD否认有关MI455X延误的报告，因为有传言称Nvidia VR200系统将提前到货—该公司表示Helios系统“有望在2026年下半年实现目标”",
-      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，该公司对人工智能市场的主要希望，可能会下滑到2027年，而Nvidia可能会加速推出Vera Rubin平台，如果..."
+      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，这是该公司对人工智能市场的主要希望，可能会滑落到2027年，而英伟达可能会加快推出Vera Rubin平台，如果最新的市场传闻是可信的。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -421,7 +421,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "英伟达中国赌博与华盛顿政权会面",
-      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。..."
+      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。\nNvidia China Gamble Meets Washington's Regime一文首次出现在EE Times上。"
     }
   ]
 }
