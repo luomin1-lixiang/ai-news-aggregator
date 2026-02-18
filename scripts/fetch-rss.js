@@ -172,6 +172,63 @@ function isAIChipRelated(text) {
   return hasAI && hasChip;
 }
 
+// 检测文本是否为中文
+function isChinese(text) {
+  if (!text) return false;
+  // 检测是否包含中文字符
+  return /[\u4e00-\u9fa5]/.test(text);
+}
+
+// 使用MyMemory API翻译文本（英译中）
+async function translateToZh(text) {
+  if (!text || text.trim().length === 0) {
+    return text;
+  }
+
+  // 如果已经是中文，直接返回
+  if (isChinese(text)) {
+    console.log('检测到中文内容，跳过翻译');
+    return text;
+  }
+
+  // 限制翻译长度，避免API超时
+  const maxLength = 500;
+  let textToTranslate = text;
+  if (text.length > maxLength) {
+    textToTranslate = text.substring(0, maxLength) + '...';
+  }
+
+  try {
+    const encodedText = encodeURIComponent(textToTranslate);
+    const url = `https://api.mymemory.translated.net/get?q=${encodedText}&langpair=en|zh-CN`;
+
+    const response = await fetch(url);
+    if (!response.ok) {
+      console.error(`MyMemory翻译API返回错误 (${response.status})`);
+      return text; // 失败时返回原文
+    }
+
+    const data = await response.json();
+
+    if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
+      const translated = data.responseData.translatedText;
+      console.log(`翻译成功: ${text.substring(0, 50)}... -> ${translated.substring(0, 50)}...`);
+      return translated;
+    } else {
+      console.error('MyMemory翻译API返回格式错误:', data);
+      return text; // 失败时返回原文
+    }
+  } catch (error) {
+    console.error('翻译失败:', error.message);
+    return text; // 失败时返回原文
+  }
+}
+
+// 延迟函数，避免API限流
+function delay(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 // 提取YouTube视频观看量
 function extractYoutubeViews(item) {
   if (item.mediaGroup && item.mediaGroup['media:community']) {
@@ -329,6 +386,31 @@ async function main() {
   selectedItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
   console.log(`\n最终选取 ${selectedItems.length} 条AI推理芯片新闻`);
+
+  // 翻译所有选中的新闻
+  console.log('\n开始翻译新闻（英译中）...');
+  for (let i = 0; i < selectedItems.length; i++) {
+    const item = selectedItems[i];
+    console.log(`\n[${i + 1}/${selectedItems.length}] 翻译: ${item.title.substring(0, 60)}...`);
+
+    // 翻译标题
+    if (item.title && !isChinese(item.title)) {
+      item.titleZh = await translateToZh(item.title);
+      await delay(300); // 延迟300ms避免限流
+    } else {
+      item.titleZh = item.title; // 已是中文，保留原文
+    }
+
+    // 翻译描述（摘要）
+    if (item.description && !isChinese(item.description)) {
+      item.descriptionZh = await translateToZh(item.description);
+      await delay(300); // 延迟300ms避免限流
+    } else {
+      item.descriptionZh = item.description; // 已是中文，保留原文
+    }
+  }
+
+  console.log('\n✅ 翻译完成！');
 
   // 直接使用新抓取的数据，不与旧数据合并
   const dataPath = path.join(__dirname, '../data/news.json');

@@ -67,6 +67,17 @@ export default function Home() {
 
   const getCategoryLabel = (category) => {
     switch (category) {
+      case 'cloud-inference':
+        return { text: '云端推理', icon: '☁️', color: '#667eea' };
+      case 'edge-inference':
+        return { text: '边缘推理', icon: '📱', color: '#f59e0b' };
+      case 'inference-optimization':
+        return { text: '推理优化', icon: '⚡', color: '#10b981' };
+      case 'architecture':
+        return { text: '架构创新', icon: '🏗️', color: '#8b5cf6' };
+      case 'inference-other':
+        return { text: '其他推理', icon: '💡', color: '#ec4899' };
+      // 兼容旧分类
       case 'ai-chip':
         return { text: 'AI芯片', icon: '💻', color: '#667eea' };
       case 'ai-hardware':
@@ -88,8 +99,8 @@ export default function Home() {
 
       <main className={styles.main}>
         <header className={styles.header}>
-          <h1 className={styles.title}>🤖 AI新闻聚合</h1>
-          <p className={styles.subtitle}>每日精选人工智能领域热门资讯</p>
+          <h1 className={styles.title}>🤖 AI推理芯片新闻聚合</h1>
+          <p className={styles.subtitle}>每日精选AI推理芯片研发、架构创新、性能对比资讯</p>
           {newsData.lastUpdated && (
             <p className={styles.updateTime}>
               最后更新: {new Date(newsData.lastUpdated).toLocaleString('zh-CN')}
@@ -133,13 +144,13 @@ export default function Home() {
 
                 <h2 className={styles.newsTitle}>
                   <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {item.title}
+                    {item.titleZh || item.title}
                   </a>
                 </h2>
 
-                {/* 显示新闻摘要 */}
+                {/* 显示新闻摘要（中文翻译优先） */}
                 <div className={styles.newsContent}>
-                  {item.description}
+                  {item.descriptionZh || item.description}
                 </div>
 
                 <div className={styles.newsFooter}>
