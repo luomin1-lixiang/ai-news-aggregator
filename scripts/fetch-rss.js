@@ -192,10 +192,25 @@ async function translateToZh(text) {
   }
 
   // 限制翻译长度，避免API超时
-  const maxLength = 500;
+  // 摘要较长，只翻译前200字符
+  const maxLength = 200;
   let textToTranslate = text;
+  let isTruncated = false;
+
   if (text.length > maxLength) {
-    textToTranslate = text.substring(0, maxLength) + '...';
+    // 尝试在句子边界截断
+    const truncated = text.substring(0, maxLength);
+    const lastPeriod = truncated.lastIndexOf('.');
+    const lastSpace = truncated.lastIndexOf(' ');
+
+    if (lastPeriod > maxLength * 0.7) {
+      textToTranslate = text.substring(0, lastPeriod + 1);
+    } else if (lastSpace > maxLength * 0.7) {
+      textToTranslate = text.substring(0, lastSpace);
+    } else {
+      textToTranslate = truncated;
+    }
+    isTruncated = true;
   }
 
   try {
@@ -211,8 +226,20 @@ async function translateToZh(text) {
     const data = await response.json();
 
     if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
-      const translated = data.responseData.translatedText;
-      console.log(`翻译成功: ${text.substring(0, 50)}... -> ${translated.substring(0, 50)}...`);
+      let translated = data.responseData.translatedText;
+
+      // 检查翻译结果是否与原文相同（API可能未翻译）
+      if (translated === textToTranslate) {
+        console.log('翻译API返回原文，可能未翻译');
+        return text;
+      }
+
+      // 如果原文被截断，添加省略号
+      if (isTruncated) {
+        translated += '...';
+      }
+
+      console.log(`✓ 翻译: ${textToTranslate.substring(0, 40)}... → ${translated.substring(0, 40)}...`);
       return translated;
     } else {
       console.error('MyMemory翻译API返回格式错误:', data);
