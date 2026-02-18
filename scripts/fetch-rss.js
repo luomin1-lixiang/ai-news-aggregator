@@ -196,7 +196,8 @@ async function generateAISummary(text, isTitle = false) {
   }
 
   try {
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+    // 使用v1 API版本和正确的模型名称
+    const url = `https://generativelanguage.googleapis.com/v1/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     // 根据是否是标题设置不同的prompt
     const prompt = isTitle
