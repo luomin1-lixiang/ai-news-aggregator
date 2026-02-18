@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-18T14:38:38.544Z",
+  "lastUpdated": "2026-02-18T14:59:53.617Z",
   "items": [
     {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
@@ -12,8 +12,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Meta 将在生产",
-      "descriptionZh": "英伟达（Nvidia）近日宣布与Meta达成深度战略合作，Meta将在其生产数据中心大规模部署基于Arm架构的Nvidia Grace服务器CPU。与以往将CPU"
+      "titleZh": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
+      "descriptionZh": "\n                             As part of a broad partnership announced today, Nvidia says Meta will deploy its Arm-powered Grace server CPUs as standalone platforms in production data centers to boost performance-per-watt in certain workloads. \n                                                                                                            "
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -82,7 +82,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达及",
+      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
       "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
@@ -224,8 +224,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Meta 将在生产",
-      "descriptionZh": "英伟达（Nvidia）近日宣布与Meta达成深度战略合作，Meta将在其生产数据中心大规模部署基于Arm架构的Nvidia Grace服务器CPU。与以往将CPU"
+      "titleZh": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
+      "descriptionZh": "\n                             As part of a broad partnership announced today, Nvidia says Meta will deploy its Arm-powered Grace server CPUs as standalone platforms in production data centers to boost performance-per-watt in certain workloads. \n                                                                                                            "
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -294,7 +294,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达及",
+      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
       "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
