@@ -139,14 +139,18 @@
   font-size: 0.95rem;
 
   /* 显示约10行文本 */
-  display: -webkit-box;
-  -webkit-line-clamp: 10;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 10 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
   text-overflow: ellipsis;
 
   /* 备用方案：如果浏览器不支持line-clamp */
   max-height: calc(1.8em * 10); /* line-height * 行数 */
+
+  /* 确保文本可以换行 */
+  word-wrap: break-word;
+  white-space: normal;
 }
 
 .newsFooter {
