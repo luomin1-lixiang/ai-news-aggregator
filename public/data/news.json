@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-18T03:34:06.548Z",
+  "lastUpdated": "2026-02-18T03:42:55.061Z",
   "items": [
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -11,7 +11,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "印度通过NVIDIA推动其人工智能使命",
+      "descriptionZh": "从人工智能基础设施领导者到前沿模型开发者，印度正在与英伟达合作，在全国范围内推动人工智能转型。"
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -23,7 +25,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:41 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "印度全球系统集成商借助NVIDIA AI构建下一波企业代理，实现后台和客户支持转型",
+      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。 利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者正在加快从呼叫中心到电信和医疗保健等各个行业的生产力和效率。 Infosys、Persistent、Tech Mahindra和Wipro正在引领业务转型，改善后台\t\n\t\t阅读文章"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -35,7 +39,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "英伟达和全球工业软件领导者与印度最大的制造商合作，推动人工智能热潮",
+      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。 该国正在建筑、汽车、可再生能源和机器人领域投资1340亿美元($ 1340亿美元) ，从一开始就为建设软件定义工厂创造了巨大的挑战和机遇。\t\n\t\t阅读文章"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -47,7 +53,9 @@
       "sourceType": "news",
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "Meta与英伟达达成新协议，收购数百万人工智能芯片",
+      "descriptionZh": "Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which Nvidia says will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. \nMeta is also working on its own in-house chips for running AI models, but according to the Financial Times, it has run into \"technical challenges and rollout  …\nRead the full story at The Verge."
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -59,7 +67,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "随着AI Mission 2.0扩展计算和芯片推送，印度将增加2万个GPU",
+      "descriptionZh": "印度在人工智能任务2.0下增加了20,000个GPU。\n随着AI Mission 2.0扩展计算和芯片推送，印度邮政将增加20,000个GPU首次出现在EE Times上。"
     },
     {
       "title": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
@@ -71,7 +81,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 20:56:10 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "AMD否认有关MI455X延误的报告，因为有传言称Nvidia VR200系统将提前到货—该公司表示Helios系统“有望在2026年下半年实现目标”",
+      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，这是该公司对人工智能市场的主要希望，可能会滑落到2027年，而英伟达可能会加快推出Vera Rubin平台，如果最新的市场传闻是可信的。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -83,7 +95,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "英伟达中国赌博与华盛顿政权会面",
+      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。\nNvidia China Gamble Meets Washington's Regime一文首次出现在EE Times上。"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -95,7 +109,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "这款Corsair RAM和Gigabyte AM5主板捆绑包仅比单独购买RAM多67 $ – 32GB RAM和B850 Aorus Elite Wifi 7可单独购买节省133 $",
+      "descriptionZh": "Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400捆绑包可享受Newegg八折优惠（ $ 505以下） ，适用于AMD AM5支持、Wi-Fi 7、PCIe 5.0 M.2/slot和引人注目的RGB。"
     },
     {
       "title": "Former Altera CEO Joins French AI Chip Startup",
@@ -107,7 +123,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 13:59:03 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "Altera前首席执行官加入法国AI芯片初创公司",
+      "descriptionZh": "Sandra Rivera加入Vsora ，提升其AI芯片游戏。\n前Altera首席执行官加入法国AI芯片创业公司的帖子首次出现在EE Times上。"
     },
     {
       "title": "ABI: A tightly integrated, unified, sparsity-aware, reconfigurable, compute near-register file/cache GPU architecture with light-weight softmax for deep learning, linear algebra, and Ising compute",
@@ -119,7 +137,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "cloud-inference"
+      "category": "cloud-inference",
+      "titleZh": "ABI ：紧密集成、统一、稀疏感知、可重配置的计算近寄存器文件/缓存GPU架构，具有轻量级softmax ，用于深度学习、线性代数和Ising计算",
+      "descriptionZh": "arXiv:2602.14262v1 Announce Type: new \nAbstract: We present a tightly integrated and unified near-memory GPU architecture that delivers 6 to 16 times speedup and 6 to 13 times energy savings across Convolutional Neural Networks, Graph Convolutional Networks, Linear Programming, Large Language Models, and Ising workloads compared to MIAOW GPU. The design includes a custom sparsity-aware near-memory circuit providing about 1.5 times energy savings, and a lightweight softmax circuit providing about 1.6 times energy savings. The architecture supports reconfigurable compute up to INT16 with dynamic resolution updates and scales efficiently across problem sizes. ABI-enabled MI300 and Blackwell systems achieve about 4.5 times speedup over baseline MI300 and Blackwell."
     },
     {
       "title": "Probabilistic approximate optimization using single-photon avalanche diode arrays",
@@ -131,7 +151,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "使用单光子雪崩二极管阵列的概率近似优化",
+      "descriptionZh": "arXiv:2602.13943v1 Announce Type: cross \nAbstract: Combinatorial optimization problems are central to science and engineering and specialized hardware from quantum annealers to classical Ising machines are being actively developed to address them. These systems typically sample from a fixed energy landscape defined by the problem Hamiltonian encoding the discrete optimization problem. The recently introduced Probabilistic Approximate Optimization Algorithm (PAOA) takes a different approach: it treats the optimization landscape itself as variational, iteratively learning circuit parameters from samples. Here, we demonstrate PAOA on a 64$\\times$64 perimeter-gated single-photon avalanche diode (pgSPAD) array fabricated in 0.35 $\\mu$m CMOS, the first realization of the algorithm using intrinsically stochastic nanodevices. Each p-bit exhibits a device-specific, asymmetric (Gompertz-type) activation function due to dark-count variability. Rather than calibrating devices to enforce a uniform symmetric (logistic/tanh) activation, PAOA learns around device variations, absorbing residual activation and other mismatches into the variational parameters. On canonical 26-spin Sherrington-Kirkpatrick instances, PAOA achieves high approximation ratios with $2p$ parameters ($p$ up to 17 layers), and pgSPAD-based inference closely tracks CPU simulations. These results show that variational learning can accommodate the non-idealities inherent to nanoscale devices, suggesting a practical path toward larger-scale, CMOS-compatible probabilistic computers."
     },
     {
       "title": "RNM-TD3: N:M Semi-structured Sparse Reinforcement Learning From Scratch",
@@ -143,7 +165,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "RNM-TD3: N: M从零开始的半结构化稀疏强化学习",
+      "descriptionZh": "arXiv:2602.14578v1 Announce Type: cross \nAbstract: Sparsity is a well-studied technique for compressing deep neural networks (DNNs) without compromising performance. In deep reinforcement learning (DRL), neural networks with up to 5% of their original weights can still be trained with minimal performance loss compared to their dense counterparts. However, most existing methods rely on unstructured fine-grained sparsity, which limits hardware acceleration opportunities due to irregular computation patterns. Structured coarse-grained sparsity enables hardware acceleration, yet typically degrades performance and increases pruning complexity. In this work, we present, to the best of our knowledge, the first study on N:M structured sparsity in RL, which balances compression, performance, and hardware efficiency. Our framework enforces row-wise N:M sparsity throughout training for all networks in off-policy RL (TD3), maintaining compatibility with accelerators that support N:M sparse matrix operations. Experiments on continuous-control benchmarks show that RNM-TD3, our N:M sparse agent, outperforms its dense counterpart at 50%-75% sparsity (e.g., 2:4 and 1:4), achieving up to a 14% increase in performance at 2:4 sparsity on the Ant environment. RNM-TD3 remains competitive even at 87.5% sparsity (1:8), while enabling potential training speedups."
     },
     {
       "title": "Optimizing Task Scheduling in Fog Computing with Deadline Awareness",
@@ -155,7 +179,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "利用截止日期感知优化雾计算中的任务调度",
+      "descriptionZh": "arXiv:2509.07378v5 Announce Type: replace-cross \nAbstract: The rise of Internet of Things (IoT) devices has led to the development of numerous time-sensitive applications that require quick responses and low latency. Fog computing has emerged as a solution for processing these IoT applications, but it faces challenges such as resource allocation and job scheduling. Therefore, it is crucial to determine how to assign and schedule tasks on Fog nodes. This work aims to schedule tasks in IoT while minimizing the total energy consumption of nodes and enhancing the Quality of Service (QoS) requirements of IoT tasks, taking into account task deadlines. This paper classifies Fog nodes into two categories based on their traffic level: low and high. It schedules short-deadline tasks on low-traffic nodes using an Improved Golden Eagle Optimization (IGEO) algorithm, an enhancement that utilizes genetic operators for discretization. Long-deadline tasks are processed on high-traffic nodes using reinforcement learning (RL). This combined approach is called the Reinforcement Improved Golden Eagle Optimization (RIGEO) algorithm. Experimental results demonstrate that RIGEO achieves up to a 29% reduction in energy consumption, up to an 86% improvement in response time, and up to a 19% reduction in deadline violations compared to state-of-the-art algorithms."
     },
     {
       "title": "Scope: A Scalable Merged Pipeline Framework for Multi-Chip-Module NN Accelerators",
@@ -167,7 +193,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "范围：用于多芯片模块NN加速器的可扩展合并管道框架",
+      "descriptionZh": "arXiv:2602.14393v1 Announce Type: new \nAbstract: Neural network (NN) accelerators with multi-chip-module (MCM) architectures enable integration of massive computation capability; however, they face challenges of computing resource underutilization and off-chip communication overheads. Traditional parallelization schemes for NN inference on MCM architectures, such as intra-layer parallelism and inter-layer pipelining, show incompetency in breaking through both challenges, limiting the scalability of MCM architectures.\n  We observed that existing works typically deploy layers separately rather than considering them jointly. This underexploited dimension leads to compromises between system computation and communication, thus hindering optimal utilization, especially as hardware/software scale. To address this limitation, we propose Scope, a merged pipeline framework incorporating this overlooked multi-layer dimension, thereby achieving improved throughput and scalability by relaxing tradeoffs between computation, communication and memory costs. This new dimension, however, adds to the complexity of design space exploration (DSE). To tackle this, we develop a series of search algorithms that achieves exponential-to-linear complexity reduction, while identifying solutions that rank in the top 0.05% of performance. Experiments show that Scope achieves up to 1.73x throughput improvement while maintaining similar energy consumption for ResNet-152 inference compared to state-of-the-art approaches."
     },
     {
       "title": "TrackCore-F: Deploying Transformer-Based Subatomic Particle Tracking on FPGAs",
@@ -179,7 +207,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "TrackCore-F ：在FPGA上部署基于变压器的亚原子粒子跟踪",
+      "descriptionZh": "arXiv:2509.26335v2 Announce Type: replace-cross \nAbstract: The Transformer Machine Learning (ML) architecture has been gaining considerable momentum in recent years. In particular, computational High-Energy Physics tasks such as jet tagging and particle track reconstruction (tracking), have either achieved proper solutions, or reached considerable milestones using Transformers. On the other hand, the use of specialised hardware accelerators, especially FPGAs, is an effective method to achieve online, or pseudo-online latencies. The development and integration of Transformer-based ML to FPGAs is still ongoing and the support from current tools is very limited or non-existent. Additionally, FPGA resources present a significant constraint. Considering the model size alone, while smaller models can be deployed directly, larger models are to be partitioned in a meaningful and ideally, automated way. We aim to develop methodologies and tools for monolithic, or partitioned Transformer synthesis, specifically targeting inference. Our primary use-case involves two machine learning model designs for tracking, derived from the TrackFormers project. We elaborate our development approach, present preliminary results, and provide comparisons."
     }
   ],
   "history": [
@@ -193,7 +223,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "印度通过NVIDIA推动其人工智能使命",
+      "descriptionZh": "从人工智能基础设施领导者到前沿模型开发者，印度正在与英伟达合作，在全国范围内推动人工智能转型。"
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -205,7 +237,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:41 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "印度全球系统集成商借助NVIDIA AI构建下一波企业代理，实现后台和客户支持转型",
+      "descriptionZh": "Agentic AI正在重塑印度的科技产业，在全球范围内实现服务的飞跃。 利用NVIDIA AI Enterprise软件和NVIDIA Nemotron机型，印度的技术领导者正在加快从呼叫中心到电信和医疗保健等各个行业的生产力和效率。 Infosys、Persistent、Tech Mahindra和Wipro正在引领业务转型，改善后台\t\n\t\t阅读文章"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -217,7 +251,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "英伟达和全球工业软件领导者与印度最大的制造商合作，推动人工智能热潮",
+      "descriptionZh": "印度正在进入一个工业化的新时代，因为人工智能改变了世界设计、构建和运行实物产品和系统的方式。 该国正在建筑、汽车、可再生能源和机器人领域投资1340亿美元($ 1340亿美元) ，从一开始就为建设软件定义工厂创造了巨大的挑战和机遇。\t\n\t\t阅读文章"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -229,7 +265,9 @@
       "sourceType": "news",
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "Meta与英伟达达成新协议，收购数百万人工智能芯片",
+      "descriptionZh": "Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which Nvidia says will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. \nMeta is also working on its own in-house chips for running AI models, but according to the Financial Times, it has run into \"technical challenges and rollout  …\nRead the full story at The Verge."
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -241,7 +279,9 @@
       "sourceType": "news",
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "随着AI Mission 2.0扩展计算和芯片推送，印度将增加2万个GPU",
+      "descriptionZh": "印度在人工智能任务2.0下增加了20,000个GPU。\n随着AI Mission 2.0扩展计算和芯片推送，印度邮政将增加20,000个GPU首次出现在EE Times上。"
     },
     {
       "title": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
@@ -253,7 +293,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 20:56:10 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "AMD否认有关MI455X延误的报告，因为有传言称Nvidia VR200系统将提前到货—该公司表示Helios系统“有望在2026年下半年实现目标”",
+      "descriptionZh": "AMD的Helios机架式解决方案基于MI455X加速器，这是该公司对人工智能市场的主要希望，可能会滑落到2027年，而英伟达可能会加快推出Vera Rubin平台，如果最新的市场传闻是可信的。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -265,7 +307,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "英伟达中国赌博与华盛顿政权会面",
+      "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。\nNvidia China Gamble Meets Washington's Regime一文首次出现在EE Times上。"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -277,7 +321,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "这款Corsair RAM和Gigabyte AM5主板捆绑包仅比单独购买RAM多67 $ – 32GB RAM和B850 Aorus Elite Wifi 7可单独购买节省133 $",
+      "descriptionZh": "Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400捆绑包可享受Newegg八折优惠（ $ 505以下） ，适用于AMD AM5支持、Wi-Fi 7、PCIe 5.0 M.2/slot和引人注目的RGB。"
     },
     {
       "title": "Former Altera CEO Joins French AI Chip Startup",
@@ -289,7 +335,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 13:59:03 +0000",
       "popularity": 0,
-      "category": "inference-other"
+      "category": "inference-other",
+      "titleZh": "Altera前首席执行官加入法国AI芯片初创公司",
+      "descriptionZh": "Sandra Rivera加入Vsora ，提升其AI芯片游戏。\n前Altera首席执行官加入法国AI芯片创业公司的帖子首次出现在EE Times上。"
     },
     {
       "title": "ABI: A tightly integrated, unified, sparsity-aware, reconfigurable, compute near-register file/cache GPU architecture with light-weight softmax for deep learning, linear algebra, and Ising compute",
@@ -301,7 +349,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "cloud-inference"
+      "category": "cloud-inference",
+      "titleZh": "ABI ：紧密集成、统一、稀疏感知、可重配置的计算近寄存器文件/缓存GPU架构，具有轻量级softmax ，用于深度学习、线性代数和Ising计算",
+      "descriptionZh": "arXiv:2602.14262v1 Announce Type: new \nAbstract: We present a tightly integrated and unified near-memory GPU architecture that delivers 6 to 16 times speedup and 6 to 13 times energy savings across Convolutional Neural Networks, Graph Convolutional Networks, Linear Programming, Large Language Models, and Ising workloads compared to MIAOW GPU. The design includes a custom sparsity-aware near-memory circuit providing about 1.5 times energy savings, and a lightweight softmax circuit providing about 1.6 times energy savings. The architecture supports reconfigurable compute up to INT16 with dynamic resolution updates and scales efficiently across problem sizes. ABI-enabled MI300 and Blackwell systems achieve about 4.5 times speedup over baseline MI300 and Blackwell."
     },
     {
       "title": "Probabilistic approximate optimization using single-photon avalanche diode arrays",
@@ -313,7 +363,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "使用单光子雪崩二极管阵列的概率近似优化",
+      "descriptionZh": "arXiv:2602.13943v1 Announce Type: cross \nAbstract: Combinatorial optimization problems are central to science and engineering and specialized hardware from quantum annealers to classical Ising machines are being actively developed to address them. These systems typically sample from a fixed energy landscape defined by the problem Hamiltonian encoding the discrete optimization problem. The recently introduced Probabilistic Approximate Optimization Algorithm (PAOA) takes a different approach: it treats the optimization landscape itself as variational, iteratively learning circuit parameters from samples. Here, we demonstrate PAOA on a 64$\\times$64 perimeter-gated single-photon avalanche diode (pgSPAD) array fabricated in 0.35 $\\mu$m CMOS, the first realization of the algorithm using intrinsically stochastic nanodevices. Each p-bit exhibits a device-specific, asymmetric (Gompertz-type) activation function due to dark-count variability. Rather than calibrating devices to enforce a uniform symmetric (logistic/tanh) activation, PAOA learns around device variations, absorbing residual activation and other mismatches into the variational parameters. On canonical 26-spin Sherrington-Kirkpatrick instances, PAOA achieves high approximation ratios with $2p$ parameters ($p$ up to 17 layers), and pgSPAD-based inference closely tracks CPU simulations. These results show that variational learning can accommodate the non-idealities inherent to nanoscale devices, suggesting a practical path toward larger-scale, CMOS-compatible probabilistic computers."
     },
     {
       "title": "RNM-TD3: N:M Semi-structured Sparse Reinforcement Learning From Scratch",
@@ -325,7 +377,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "RNM-TD3: N: M从零开始的半结构化稀疏强化学习",
+      "descriptionZh": "arXiv:2602.14578v1 Announce Type: cross \nAbstract: Sparsity is a well-studied technique for compressing deep neural networks (DNNs) without compromising performance. In deep reinforcement learning (DRL), neural networks with up to 5% of their original weights can still be trained with minimal performance loss compared to their dense counterparts. However, most existing methods rely on unstructured fine-grained sparsity, which limits hardware acceleration opportunities due to irregular computation patterns. Structured coarse-grained sparsity enables hardware acceleration, yet typically degrades performance and increases pruning complexity. In this work, we present, to the best of our knowledge, the first study on N:M structured sparsity in RL, which balances compression, performance, and hardware efficiency. Our framework enforces row-wise N:M sparsity throughout training for all networks in off-policy RL (TD3), maintaining compatibility with accelerators that support N:M sparse matrix operations. Experiments on continuous-control benchmarks show that RNM-TD3, our N:M sparse agent, outperforms its dense counterpart at 50%-75% sparsity (e.g., 2:4 and 1:4), achieving up to a 14% increase in performance at 2:4 sparsity on the Ant environment. RNM-TD3 remains competitive even at 87.5% sparsity (1:8), while enabling potential training speedups."
     },
     {
       "title": "Optimizing Task Scheduling in Fog Computing with Deadline Awareness",
@@ -337,7 +391,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "inference-optimization"
+      "category": "inference-optimization",
+      "titleZh": "利用截止日期感知优化雾计算中的任务调度",
+      "descriptionZh": "arXiv:2509.07378v5 Announce Type: replace-cross \nAbstract: The rise of Internet of Things (IoT) devices has led to the development of numerous time-sensitive applications that require quick responses and low latency. Fog computing has emerged as a solution for processing these IoT applications, but it faces challenges such as resource allocation and job scheduling. Therefore, it is crucial to determine how to assign and schedule tasks on Fog nodes. This work aims to schedule tasks in IoT while minimizing the total energy consumption of nodes and enhancing the Quality of Service (QoS) requirements of IoT tasks, taking into account task deadlines. This paper classifies Fog nodes into two categories based on their traffic level: low and high. It schedules short-deadline tasks on low-traffic nodes using an Improved Golden Eagle Optimization (IGEO) algorithm, an enhancement that utilizes genetic operators for discretization. Long-deadline tasks are processed on high-traffic nodes using reinforcement learning (RL). This combined approach is called the Reinforcement Improved Golden Eagle Optimization (RIGEO) algorithm. Experimental results demonstrate that RIGEO achieves up to a 29% reduction in energy consumption, up to an 86% improvement in response time, and up to a 19% reduction in deadline violations compared to state-of-the-art algorithms."
     },
     {
       "title": "Scope: A Scalable Merged Pipeline Framework for Multi-Chip-Module NN Accelerators",
@@ -349,7 +405,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "范围：用于多芯片模块NN加速器的可扩展合并管道框架",
+      "descriptionZh": "arXiv:2602.14393v1 Announce Type: new \nAbstract: Neural network (NN) accelerators with multi-chip-module (MCM) architectures enable integration of massive computation capability; however, they face challenges of computing resource underutilization and off-chip communication overheads. Traditional parallelization schemes for NN inference on MCM architectures, such as intra-layer parallelism and inter-layer pipelining, show incompetency in breaking through both challenges, limiting the scalability of MCM architectures.\n  We observed that existing works typically deploy layers separately rather than considering them jointly. This underexploited dimension leads to compromises between system computation and communication, thus hindering optimal utilization, especially as hardware/software scale. To address this limitation, we propose Scope, a merged pipeline framework incorporating this overlooked multi-layer dimension, thereby achieving improved throughput and scalability by relaxing tradeoffs between computation, communication and memory costs. This new dimension, however, adds to the complexity of design space exploration (DSE). To tackle this, we develop a series of search algorithms that achieves exponential-to-linear complexity reduction, while identifying solutions that rank in the top 0.05% of performance. Experiments show that Scope achieves up to 1.73x throughput improvement while maintaining similar energy consumption for ResNet-152 inference compared to state-of-the-art approaches."
     },
     {
       "title": "TrackCore-F: Deploying Transformer-Based Subatomic Particle Tracking on FPGAs",
@@ -361,7 +419,9 @@
       "sourceType": "news",
       "pubDate": "Tue, 17 Feb 2026 00:00:00 -0500",
       "popularity": 0,
-      "category": "architecture"
+      "category": "architecture",
+      "titleZh": "TrackCore-F ：在FPGA上部署基于变压器的亚原子粒子跟踪",
+      "descriptionZh": "arXiv:2509.26335v2 Announce Type: replace-cross \nAbstract: The Transformer Machine Learning (ML) architecture has been gaining considerable momentum in recent years. In particular, computational High-Energy Physics tasks such as jet tagging and particle track reconstruction (tracking), have either achieved proper solutions, or reached considerable milestones using Transformers. On the other hand, the use of specialised hardware accelerators, especially FPGAs, is an effective method to achieve online, or pseudo-online latencies. The development and integration of Transformer-based ML to FPGAs is still ongoing and the support from current tools is very limited or non-existent. Additionally, FPGA resources present a significant constraint. Considering the model size alone, while smaller models can be deployed directly, larger models are to be partitioned in a meaningful and ideally, automated way. We aim to develop methodologies and tools for monolithic, or partitioned Transformer synthesis, specifically targeting inference. Our primary use-case involves two machine learning model designs for tracking, derived from the TrackFormers project. We elaborate our development approach, present preliminary results, and provide comparisons."
     }
   ]
 }
