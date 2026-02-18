@@ -228,12 +228,6 @@ async function translateToZh(text) {
     if (data.responseStatus === 200 && data.responseData && data.responseData.translatedText) {
       let translated = data.responseData.translatedText;
 
-      // 检查翻译结果是否与原文相同（API可能未翻译）
-      if (translated === textToTranslate) {
-        console.log('翻译API返回原文，可能未翻译');
-        return text;
-      }
-
       // 如果原文被截断，添加省略号
       if (isTruncated) {
         translated += '...';
