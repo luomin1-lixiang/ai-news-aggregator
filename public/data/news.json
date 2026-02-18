@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-02-18T07:46:22.779Z",
+  "lastUpdated": "2026-02-18T09:42:09.034Z",
   "items": [
+    {
+      "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
+      "link": "https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/",
+      "description": "HyperAccel is also working with LG on an SoC version for edge appliances and robots.\nThe post Korean Startup Takes On Cost and Latency With LLM-Specific Chip appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tSally Ward-Foxton\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "韩国初创公司使用LLM专用芯片承担成本和延迟",
+      "descriptionZh": "HyperAccel还与LG合作开发用于边缘设备和机器人的SoC版本。\n《韩国创业公司采用LLM专用芯片的成本和延迟》（ Korean Startup Takes On Cost and Latency With LLM-Specific Chip ）一文首"
+    },
     {
       "title": "Fast and Fusiest: An Optimal Fusion-Aware Mapper for Accelerator Modeling and Evaluation",
       "link": "https://arxiv.org/abs/2602.15166",
@@ -196,24 +210,24 @@
       "category": "inference-other",
       "titleZh": "英伟达中国赌博与华盛顿政权会面",
       "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。..."
-    },
-    {
-      "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
-      "link": "https://www.tomshardware.com/pc-components/this-corsair-ram-and-gigabyte-am5-motherboard-bundle-is-just-usd67-more-than-buying-the-ram-alone-32gb-of-ram-and-b850-aorus-elite-wifi-7-shaves-usd133-off-buying-separately",
-      "description": "Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB.",
-      "content": "\n                             Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB. \n                                                                                                            ",
-      "author": " Joe Shields ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "这款Corsair RAM和Gigabyte AM5主板捆绑包仅比单独购买RAM多67 $ – 32GB RAM和B850 Aorus Elite Wifi 7可单独购买节省133 $",
-      "descriptionZh": "Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400捆绑包可享受Newegg八折优惠（ $ 505以下） ，适用于AMD AM5支持、Wi-Fi 7、PCIe 5.0 M.2/slot和引人注目的RGB。"
     }
   ],
   "history": [
     {
+      "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
+      "link": "https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/",
+      "description": "HyperAccel is also working with LG on an SoC version for edge appliances and robots.\nThe post Korean Startup Takes On Cost and Latency With LLM-Specific Chip appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tSally Ward-Foxton\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "韩国初创公司使用LLM专用芯片承担成本和延迟",
+      "descriptionZh": "HyperAccel还与LG合作开发用于边缘设备和机器人的SoC版本。\n《韩国创业公司采用LLM专用芯片的成本和延迟》（ Korean Startup Takes On Cost and Latency With LLM-Specific Chip ）一文首"
+    },
+    {
       "title": "Fast and Fusiest: An Optimal Fusion-Aware Mapper for Accelerator Modeling and Evaluation",
       "link": "https://arxiv.org/abs/2602.15166",
       "description": "arXiv:2602.15166v1 Announce Type: new \nAbstract: The latency and energy of tensor algebra accelerators depend on how data movement and operations are scheduled (i.e., mapped) onto accelerators, so determining the potential of an accelerator architecture requires both a performance model and a mapper to search for the optimal mapping. A key optimization that the mapper must explore is fusion, meaning holding data on-chip between computation steps, which has been shown to reduce energy and latency by reducing DRAM accesses. However, prior mappers cannot find optimal mappings with fusion (i.e., fused mappings) in a feasible runtime because the number of fused mappings to search increases exponentially with the number of workload computation steps.\n  In this paper, we introduce the Fast and Fusiest Mapper (FFM), the first mapper to quickly find optimal mappings in a comprehensive fused mapspace for tensor algebra workloads. FFM shrinks the search space by pruning subsets of mappings (i.e., partial mappings) that are shown to never be a part of optimal mappings, quickly eliminating all suboptimal mappings with those partial mappings as subsets. Then FFM joins partial mappings to construct optimal fused mappings. We evaluate FFM and show that, although the mapspace size grows exponentially with the number of computation steps, FFM's runtime scales approximately linearly. FFM is orders of magnitude faster ($>1000\\times$) than prior state-of-the-art approaches at finding optimal mappings for Transformers.",
@@ -408,20 +422,6 @@
       "category": "inference-other",
       "titleZh": "英伟达中国赌博与华盛顿政权会面",
       "descriptionZh": "英伟达和AMD面临着人工智能芯片对中国的关税和物流障碍的动荡贸易制度；美国国会威胁要吊销出口许可证。..."
-    },
-    {
-      "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
-      "link": "https://www.tomshardware.com/pc-components/this-corsair-ram-and-gigabyte-am5-motherboard-bundle-is-just-usd67-more-than-buying-the-ram-alone-32gb-of-ram-and-b850-aorus-elite-wifi-7-shaves-usd133-off-buying-separately",
-      "description": "Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB.",
-      "content": "\n                             Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB. \n                                                                                                            ",
-      "author": " Joe Shields ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "这款Corsair RAM和Gigabyte AM5主板捆绑包仅比单独购买RAM多67 $ – 32GB RAM和B850 Aorus Elite Wifi 7可单独购买节省133 $",
-      "descriptionZh": "Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400捆绑包可享受Newegg八折优惠（ $ 505以下） ，适用于AMD AM5支持、Wi-Fi 7、PCIe 5.0 M.2/slot和引人注目的RGB。"
     }
   ]
 }
