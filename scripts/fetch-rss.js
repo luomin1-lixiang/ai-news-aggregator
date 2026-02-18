@@ -228,7 +228,8 @@ ${text.substring(0, 2000)}`;
     });
 
     if (!response.ok) {
-      console.error(`Gemini API返回错误 (${response.status})`);
+      const errorText = await response.text();
+      console.error(`Gemini API返回错误 (${response.status}): ${errorText}`);
       return text;
     }
 
