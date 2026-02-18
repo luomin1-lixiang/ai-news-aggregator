@@ -10,7 +10,11 @@ export default function Home() {
     // 加载新闻数据
     // 使用相对路径，兼容GitHub Pages的basePath设置
     const basePath = process.env.NODE_ENV === 'production' ? '/ai-news-aggregator' : '';
-    fetch(`${basePath}/data/news.json`)
+    // 添加时间戳参数避免缓存
+    const timestamp = new Date().getTime();
+    fetch(`${basePath}/data/news.json?t=${timestamp}`, {
+      cache: 'no-cache'
+    })
       .then(res => res.json())
       .then(data => {
         setNewsData(data);
