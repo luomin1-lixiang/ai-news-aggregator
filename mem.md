@@ -628,6 +628,292 @@ const isAIRelated = AI_KEYWORDS.some(keyword =>
 
 ---
 
-*最后更新: 2026-02-14*
-*Session ID: ai-news-aggregator-troubleshooting*
+## 问题7: GitHub Actions自动部署未触发 (2026-02-18) ✅ **已解决**
+
+### 现象
+- `fetch-news.yml` workflow ✅ 定时运行正常（每天自动抓取数据）
+- `deploy-pages.yml` workflow ❌ 没有被自动触发
+- 网站数据停留在2/15，虽然数据文件已更新到2/17
+
+### 根本原因
+**GitHub Actions安全限制**：由 GitHub Actions 创建的提交（使用 `GITHUB_TOKEN`）默认不会触发其他 workflow，防止无限循环。
+
+### 解决方案 ⭐
+
+**方案1：添加API触发步骤**（已采用）
+在 `fetch-news.yml` 中添加步骤，主动触发 `deploy-pages.yml`：
+
+```yaml
+- name: Commit and push if changed
+  id: commit
+  run: |
+    # ... 提交逻辑 ...
+    echo "changed=true" >> $GITHUB_OUTPUT
+
+- name: Trigger deployment
+  if: steps.commit.outputs.changed == 'true'
+  run: |
+    curl -X POST \
+      -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+      https://api.github.com/repos/${{ github.repository }}/actions/workflows/deploy-pages.yml/dispatches \
+      -d '{"ref":"main"}'
+```
+
+**关键点**：
+1. ✅ 提交步骤输出 `changed` 标记
+2. ✅ 只在有变化时触发部署
+3. ⚠️ 需要 `actions: write` 权限
+
+**修改位置**：
+- `.github/workflows/fetch-news.yml` 第35-56行
+
+### 权限配置修复
+
+**问题**：初次尝试失败，因为 `GITHUB_TOKEN` 没有触发 workflow 的权限
+
+**解决**：添加 `actions: write` 权限
+```yaml
+permissions:
+  contents: write
+  actions: write  # ✅ 新增：允许触发其他workflows
+```
+
+**提交记录**：
+- Commit `360caf2`: 添加触发部署步骤
+- Commit `93e704e`: 添加 actions:write 权限
+
+### 验证结果
+✅ 测试运行成功：
+- fetch-news workflow 运行 → 提交数据 → 自动触发 deploy-pages
+- 网站数据从 2/15 更新到 2/18
+- 完整工作流程恢复正常
+
+---
+
+## 问题8: 浏览器缓存导致网站显示旧数据 (2026-02-18) ✅ **已解决**
+
+### 现象
+- GitHub 上的 `news.json` 已更新到 2/18
+- curl 查询确认数据最新：`lastUpdated: 2026-02-18T03:03:36.598Z`
+- 但浏览器访问网站仍显示 2/15 的数据
+
+### 根本原因
+1. **GitHub Pages CDN 缓存**：静态文件被 CDN 缓存
+2. **浏览器缓存**：浏览器缓存了 JSON 文件
+3. **前端代码未禁用缓存**：没有 cache-busting 机制
+
+### 解决方案
+
+修改前端代码 `pages/index.js`，添加两层防缓存机制：
+
+```javascript
+// 修复前
+fetch(`${basePath}/data/news.json`)
+
+// 修复后
+const timestamp = new Date().getTime();
+fetch(`${basePath}/data/news.json?t=${timestamp}`, {
+  cache: 'no-cache'
+})
+```
+
+**防缓存机制**：
+1. ✅ **时间戳参数**：每次请求 URL 不同 (`?t=1234567890`)
+2. ✅ **fetch选项**：`cache: 'no-cache'` 强制浏览器不使用缓存
+
+**修改位置**：`pages/index.js` 第9-27行
+
+**提交记录**：Commit `bdecf96`
+
+---
+
+## 重大调整：聚焦AI推理芯片 (2026-02-18) ⭐ **当前配置**
+
+### 调整背景
+原项目抓取所有AI新闻，范围过广。用户要求：
+1. ✅ 聚焦AI芯片（排除AI应用、软件）
+2. ✅ 聚焦推理（排除训练）
+3. ✅ 关注芯片研发、架构创新、参数对比
+
+### 核心变更
+
+#### 1. 双关键词筛选（AND逻辑）
+
+```javascript
+function isAIChipRelated(text) {
+  const hasAI = AI_KEYWORDS.some(keyword => ...);      // 必须有AI推理关键词
+  const hasChip = CHIP_KEYWORDS.some(keyword => ...);  // 必须有芯片关键词
+  return hasAI && hasChip;  // ✅ 两者必须同时满足
+}
+```
+
+**效果**：严格筛选，只保留AI推理芯片相关内容
+
+#### 2. AI推理关键词（45+）
+
+**推理核心（12个）**：
+```
+inference, ai inference, model inference, neural inference,
+inferencing, inference engine, inference accelerator,
+serving, model serving, deployment, model deployment,
+edge ai, edge inference
+```
+
+**推理性能（8个）**：
+```
+latency, throughput, inference speed, inference performance,
+tokens per second, inference optimization, low latency,
+real-time inference
+```
+
+**推理优化（8个）**：
+```
+model quantization, quantized model, quantization,
+pruning, distillation, compression, int8, fp16
+```
+
+**中文关键词（17个）**：
+```
+推理, AI推理, 模型推理, 推理加速, 推理性能, 推理优化,
+模型部署, 模型服务, 边缘推理, 边缘AI, 实时推理,
+推理延迟, 推理吞吐, 模型量化, 人工智能, 神经网络, 大模型
+```
+
+**移除的关键词（训练相关）**：
+```
+❌ machine learning, deep learning, ai training, training,
+❌ supervised learning, unsupervised learning, reinforcement learning
+```
+
+#### 3. 芯片关键词（150+）
+
+**厂商/产品（16个）**：
+```
+nvidia, amd, intel, google tpu, tesla dojo, groq, cerebras,
+graphcore, sambanova, tenstorrent, habana, inferentia,
+qualcomm, mediatek, apple neural engine
+```
+
+**架构/代号（12个）**：
+```
+hopper, ampere, blackwell, ada lovelace, grace, tensor core,
+mi300, cdna, cuda core, streaming multiprocessor, nvlink
+```
+
+**技术类型（14个）**：
+```
+gpu, tpu, npu, asic, fpga, ai chip, ai accelerator,
+neural processor, tensor processor, inference chip
+```
+
+**性能参数（14个）**：
+```
+benchmark, performance, tops, tflops, bandwidth,
+power efficiency, perf per watt, latency, throughput
+```
+
+**内存技术（7个）**：
+```
+hbm, hbm2, hbm3, gddr, vram, unified memory
+```
+
+**制造工艺（14个）**：
+```
+7nm, 5nm, 3nm, tsmc, samsung foundry, euv, lithography,
+gaafet, finfet, wafer, yield
+```
+
+**互连技术（9个）**：
+```
+pcie, cxl, ucie, chiplet, nvlink, infinity fabric
+```
+
+**软件生态（10个）**：
+```
+cuda, rocm, oneapi, triton, tensorrt, xla, mlir
+```
+
+#### 4. 数据源优化（26个 → 22个）
+
+**新增芯片专业源**：
+- ✅ Tom's Hardware - 硬件评测
+- ✅ EE Times - 电子工程专业
+- ✅ Nvidia/AMD/Google官方博客 - 一手资讯
+- ✅ arXiv cs.AR (Hardware Architecture) - 硬件架构论文
+- ✅ arXiv cs.PF (Performance) - 性能分析论文
+
+**移除非芯片源**：
+- ❌ YouTube频道（3个）- 视频内容不够聚焦
+- ❌ BBC Tech, The Information - 偏应用层
+- ❌ OpenAI/Anthropic/DeepMind博客 - 软件层
+- ❌ Papers With Code - 内容过于宽泛
+- ❌ arXiv cs.AI - AI论文太宽泛，不聚焦芯片
+
+#### 5. 新分类体系（推理场景）
+
+**旧分类**：AI芯片 / AI硬件 / 其他AI
+
+**新分类**：
+1. ☁️ **云端推理**（配额5条）
+   - 数据中心推理芯片
+   - 产品：H100, H200, L40, Inferentia, Trainium, Gaudi, MI300, Groq
+
+2. 📱 **边缘推理**（配额4条）
+   - 移动/嵌入式推理
+   - 产品：Qualcomm, Snapdragon, MediaTek, Apple Neural Engine, Jetson
+
+3. ⚡ **推理优化**（配额3条）
+   - 量化、剪枝、蒸馏、模型压缩
+   - 技术：TensorRT, OpenVINO, INT8, FP16
+
+4. 🏗️ **架构创新**（配额3条）
+   - 推理加速架构创新
+   - 技术：systolic array, transformer engine, attention accelerator
+
+5. 💡 **其他推理**（配额3条）
+   - 其他AI推理相关
+
+#### 6. 过滤效果
+
+**现在会保留**：
+- ✅ Groq LPU推理芯片发布
+- ✅ AWS Inferentia推理性能评测
+- ✅ 模型量化技术突破
+- ✅ 边缘AI芯片benchmark
+- ✅ Transformer推理加速架构
+- ✅ LLM推理优化论文
+- ✅ 低延迟推理方案
+
+**现在会过滤掉**：
+- ❌ 纯训练相关（H100训练、分布式训练）
+- ❌ AI应用新闻（ChatGPT功能更新）
+- ❌ AI软件/框架更新（PyTorch、TensorFlow）
+- ❌ 模型训练算法优化
+- ❌ 非芯片的AI硬件（服务器、散热）
+
+### 提交记录
+- Commit `efe63e7`: 重大调整 - 聚焦AI芯片新闻
+- Commit `47ab928`: 调整arXiv数据源 - 从AI论文改为硬件架构
+- Commit `eb3c778`: 严格聚焦AI推理 - 移除所有训练相关内容
+
+### 当前配置总结
+
+**项目定位**：AI推理芯片专业新闻聚合器
+
+**核心筛选**：
+- 必须同时包含：AI推理关键词 + 芯片关键词
+- 时间范围：48小时内
+- 显示数量：15条（按场景分类）
+
+**聚焦点**：
+1. ✅ 推理芯片研发动态
+2. ✅ 推理架构创新
+3. ✅ 推理性能benchmark
+4. ✅ 推理优化技术
+5. ✅ 边缘AI推理
+
+---
+
+*最后更新: 2026-02-18*
+*Session ID: ai-news-aggregator-inference-focus*
 *Claude版本: Opus 4.5*
