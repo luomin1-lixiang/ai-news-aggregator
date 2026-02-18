@@ -192,8 +192,8 @@ async function translateToZh(text) {
   }
 
   // 限制翻译长度，避免API超时
-  // 摘要较长，只翻译前200字符
-  const maxLength = 200;
+  // 摘要翻译：前800字符，足够显示约10行中文
+  const maxLength = 800;
   let textToTranslate = text;
   let isTruncated = false;
 
