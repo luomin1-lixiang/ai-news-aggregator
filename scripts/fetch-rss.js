@@ -28,9 +28,9 @@ const RSS_FEEDS = [
   { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', type: 'news' },
   { url: 'https://community.amd.com/t5/blogs/rss', name: 'AMD Blog', type: 'news' },
 
-  // === 学术/研究源（芯片架构）===
-  { url: 'https://export.arxiv.org/rss/cs.AR', name: 'arXiv Computer Architecture', type: 'news' },
-  { url: 'https://export.arxiv.org/rss/cs.AI', name: 'arXiv AI Papers', type: 'news' },
+  // === 学术/研究源（芯片架构和硬件）===
+  { url: 'https://export.arxiv.org/rss/cs.AR', name: 'arXiv Hardware Architecture', type: 'news' },
+  { url: 'https://export.arxiv.org/rss/cs.PF', name: 'arXiv Performance', type: 'news' },
 
   // === 中文芯片媒体 ===
   { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
