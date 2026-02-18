@@ -7,9 +7,10 @@ on:
 
   workflow_dispatch:
 
-# 添加权限配置，允许GitHub Actions写入仓库
+# 添加权限配置，允许GitHub Actions写入仓库和触发其他workflows
 permissions:
   contents: write
+  actions: write
 
 jobs:
   fetch-news:
