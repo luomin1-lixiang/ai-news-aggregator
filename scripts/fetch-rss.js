@@ -194,8 +194,8 @@ async function listAvailableModels(apiKey) {
   }
 }
 
-// 使用Google Gemini API生成AI摘要（英译中）
-async function generateAISummary(text, isTitle = false) {
+// 使用Google Gemini API生成AI摘要（英译中）- 带重试机制
+async function generateAISummary(text, isTitle = false, retries = 3) {
   if (!text || text.trim().length === 0) {
     return text;
   }
@@ -213,58 +213,78 @@ async function generateAISummary(text, isTitle = false) {
     return text;
   }
 
-  try {
-    // 使用 gemini-flash-latest (自动映射到最新的flash模型)
-    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      // 使用 gemini-flash-latest (自动映射到最新的flash模型)
+      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
 
-    // 根据是否是标题设置不同的prompt
-    const prompt = isTitle
-      ? `请将以下英文标题翻译成中文，保持专业术语准确性：\n\n${text}`
-      : `请阅读以下英文新闻内容，生成一段200-300字的中文摘要。要求：
+      // 根据是否是标题设置不同的prompt
+      const prompt = isTitle
+        ? `Translate this English title to Chinese. Only output the translated title, no extra words:\n\n${text}`
+        : `阅读以下英文新闻内容，生成一段约500字的中文摘要。要求：
 1. 提炼核心技术信息、性能参数、创新点
 2. 保持专业术语准确（如芯片名称、技术指标）
 3. 语言简洁流畅，便于快速阅读
-4. 不要添加"摘要："等前缀
+4. 直接输出摘要内容，不要添加"摘要："等前缀
 
 新闻内容：
-${text.substring(0, 2000)}`;
+${text.substring(0, 3000)}`;
 
-    const response = await fetch(url, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{ text: prompt }]
-        }],
-        generationConfig: {
-          temperature: 0.3,
-          maxOutputTokens: isTitle ? 100 : 500
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{ text: prompt }]
+          }],
+          generationConfig: {
+            temperature: 0.3,
+            maxOutputTokens: isTitle ? 100 : 1000
+          }
+        })
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        const status = response.status;
+
+        // 如果是429或503错误，尝试重试
+        if ((status === 429 || status === 503) && attempt < retries - 1) {
+          const waitTime = Math.pow(2, attempt) * 5000; // 指数退避：5s, 10s, 20s
+          console.log(`⚠️  API限流/繁忙 (${status})，${waitTime/1000}秒后重试 (第${attempt + 1}次)...`);
+          await delay(waitTime);
+          continue; // 继续下一次尝试
         }
-      })
-    });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error(`Gemini API返回错误 (${response.status}): ${errorText}`);
+        console.error(`Gemini API返回错误 (${status}): ${errorText}`);
+        return text;
+      }
+
+      const data = await response.json();
+
+      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+        const summary = data.candidates[0].content.parts[0].text.trim();
+        console.log(`✓ AI${isTitle ? '翻译' : '摘要'}: ${text.substring(0, 40)}... → ${summary.substring(0, 40)}...`);
+        return summary;
+      } else {
+        console.error('Gemini API返回格式错误:', data);
+        return text;
+      }
+    } catch (error) {
+      if (attempt < retries - 1) {
+        const waitTime = Math.pow(2, attempt) * 5000;
+        console.log(`⚠️  请求失败: ${error.message}，${waitTime/1000}秒后重试...`);
+        await delay(waitTime);
+        continue;
+      }
+      console.error('AI摘要生成失败:', error.message);
       return text;
     }
-
-    const data = await response.json();
-
-    if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-      const summary = data.candidates[0].content.parts[0].text.trim();
-      console.log(`✓ AI${isTitle ? '翻译' : '摘要'}: ${text.substring(0, 40)}... → ${summary.substring(0, 40)}...`);
-      return summary;
-    } else {
-      console.error('Gemini API返回格式错误:', data);
-      return text;
-    }
-  } catch (error) {
-    console.error('AI摘要生成失败:', error.message);
-    return text;
   }
+
+  return text; // 所有重试都失败，返回原文
 }
 
 // 延迟函数，避免API限流
@@ -447,7 +467,7 @@ async function main() {
     // 翻译标题
     if (item.title && !isChinese(item.title)) {
       item.titleZh = await generateAISummary(item.title, true);
-      await delay(1000); // Gemini免费层限流：每分钟15次，延迟1秒
+      await delay(4000); // Gemini限流：20次/分钟，延迟4秒确保不超限
     } else {
       item.titleZh = item.title; // 已是中文，保留原文
     }
@@ -456,7 +476,7 @@ async function main() {
     const sourceText = item.content || item.description || '';
     if (sourceText && !isChinese(sourceText)) {
       item.descriptionZh = await generateAISummary(sourceText, false);
-      await delay(1000); // 延迟1秒避免限流
+      await delay(4000); // 延迟4秒避免限流
     } else {
       item.descriptionZh = item.description || sourceText; // 已是中文，保留原文
     }
