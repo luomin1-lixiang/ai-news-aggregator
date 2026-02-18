@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-18T14:13:50.674Z",
+  "lastUpdated": "2026-02-18T14:38:38.544Z",
   "items": [
     {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
@@ -12,8 +12,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "以下是",
-      "descriptionZh": "Nvidia与Meta宣布达成深度战略合作，Meta将在其生产数据中心大规模部署基于"
+      "titleZh": "Meta 将在生产",
+      "descriptionZh": "英伟达（Nvidia）近日宣布与Meta达成深度战略合作，Meta将在其生产数据中心大规模部署基于Arm架构的Nvidia Grace服务器CPU。与以往将CPU"
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -26,8 +26,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "以下",
-      "descriptionZh": "荷兰国防部国务秘书吉斯·特因曼（Gijs Tuinman）"
+      "titleZh": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
+      "descriptionZh": "\n                             Is Dutch Sec. Gijs Tuinman alluding to a European effort to continue using their F-35 jets even if the U.S. stops supporting them? \n                                                                                                            "
     },
     {
       "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
@@ -40,8 +40,8 @@
       "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "为您提供以下几种",
-      "descriptionZh": "韩国初创公司HyperAccel近期推出了专为大语言模型（LLM）"
+      "titleZh": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
+      "descriptionZh": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -54,8 +54,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这句话可以根据侧",
-      "descriptionZh": "英伟达（NVIDIA）正深度参与印度AI生态建设，通过与"
+      "titleZh": "India Fuels Its AI Mission With NVIDIA",
+      "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -69,7 +69,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
-      "descriptionZh": "印度科技产业正通过智能体AI（Agentic AI）技术重塑全球服务格局。"
+      "descriptionZh": "Agentic AI is reshaping India’s tech industry, delivering leaps in services worldwide. Tapping into NVIDIA AI Enterprise software and NVIDIA Nemotron models, India’s technology leaders are accelerating productivity and efficiency across industries — from call centers to telecommunications and healthcare. Infosys, Persistent, Tech Mahindra and Wipro are leading the way for business transformation, improving back-office\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-enterprise-ai-agents/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -82,7 +82,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
+      "titleZh": "英伟达及",
       "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
@@ -96,8 +96,8 @@
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
       "category": "architecture",
-      "titleZh": "为您提供以下",
-      "descriptionZh": "Meta与英伟达（Nvidia）达成一项多年期深度合作协议，计划"
+      "titleZh": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
+      "descriptionZh": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An illustration of the Meta logo\" data-caption=\"\" data-portal-copyright=\"Illustration by Nick Barclay / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK043_VRG_Illo_N_Barclay_1_Meta-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which <a href=\"https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia\">Nvidia says</a> will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. </p>\n<p class=\"has-text-align-none\">Meta is also <a href=\"https://www.theverge.com/2024/2/1/24058179/meta-reportedly-working-on-a-new-ai-chip-it-plans-to-launch-this-year\">working on its own in-house chips</a> for running AI models, but according to the <a href=\"https://www.ft.com/content/d3b50dfc-31fa-45a8-9184-c5f0476f4504\"><em>Financial Times</em></a>, it has run into \"technical challenges and rollout  …</p>\n<p><a href=\"https://www.theverge.com/ai-artificial-intelligence/880513/nvidia-meta-ai-grace-vera-chips\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -110,7 +110,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这里有几种",
+      "titleZh": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
       "descriptionZh": "\n\t\t\t\t\t\t<p>India ramps up its AI arsenal with 20,000 more GPUs under AI Mission 2.0.</p>\n<p>The post <a href=\"https://www.eetimes.com/india-to-add-20000-gpus-as-ai-mission-2-0-expands-compute-and-chip-push/\">India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
@@ -138,8 +138,8 @@
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这句话可以根据侧",
-      "descriptionZh": "英伟达（Nvidia）与超威半导体（AMD）正面临美国对华"
+      "titleZh": "Nvidia China Gamble Meets Washington’s Regime",
+      "descriptionZh": "\n\t\t\t\t\t\t<p>Nvidia and AMD face a volatile trade regime of tariffs and logistics hurdles for AI chips to China; U.S. Congress threatens export license revocation.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-china-gamble-meets-washingtons-regime/\">Nvidia China Gamble Meets Washington’s Regime</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -167,7 +167,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "Former Altera CEO Joins French AI Chip Startup",
-      "descriptionZh": "前Altera（英特尔旗下FPGA业务）首席执行官Sandra Rivera正式加入"
+      "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
@@ -180,7 +180,7 @@
       "pubDate": "Tue, 17 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "为您提供以下几种",
+      "titleZh": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
       "descriptionZh": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices."
     },
     {
@@ -224,8 +224,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "以下是",
-      "descriptionZh": "Nvidia与Meta宣布达成深度战略合作，Meta将在其生产数据中心大规模部署基于"
+      "titleZh": "Meta 将在生产",
+      "descriptionZh": "英伟达（Nvidia）近日宣布与Meta达成深度战略合作，Meta将在其生产数据中心大规模部署基于Arm架构的Nvidia Grace服务器CPU。与以往将CPU"
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -238,8 +238,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "以下",
-      "descriptionZh": "荷兰国防部国务秘书吉斯·特因曼（Gijs Tuinman）"
+      "titleZh": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
+      "descriptionZh": "\n                             Is Dutch Sec. Gijs Tuinman alluding to a European effort to continue using their F-35 jets even if the U.S. stops supporting them? \n                                                                                                            "
     },
     {
       "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
@@ -252,8 +252,8 @@
       "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "为您提供以下几种",
-      "descriptionZh": "韩国初创公司HyperAccel近期推出了专为大语言模型（LLM）"
+      "titleZh": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
+      "descriptionZh": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -266,8 +266,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这句话可以根据侧",
-      "descriptionZh": "英伟达（NVIDIA）正深度参与印度AI生态建设，通过与"
+      "titleZh": "India Fuels Its AI Mission With NVIDIA",
+      "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -281,7 +281,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
-      "descriptionZh": "印度科技产业正通过智能体AI（Agentic AI）技术重塑全球服务格局。"
+      "descriptionZh": "Agentic AI is reshaping India’s tech industry, delivering leaps in services worldwide. Tapping into NVIDIA AI Enterprise software and NVIDIA Nemotron models, India’s technology leaders are accelerating productivity and efficiency across industries — from call centers to telecommunications and healthcare. Infosys, Persistent, Tech Mahindra and Wipro are leading the way for business transformation, improving back-office\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-enterprise-ai-agents/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -294,7 +294,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
+      "titleZh": "英伟达及",
       "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     },
     {
@@ -308,8 +308,8 @@
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
       "category": "architecture",
-      "titleZh": "为您提供以下",
-      "descriptionZh": "Meta与英伟达（Nvidia）达成一项多年期深度合作协议，计划"
+      "titleZh": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
+      "descriptionZh": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An illustration of the Meta logo\" data-caption=\"\" data-portal-copyright=\"Illustration by Nick Barclay / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK043_VRG_Illo_N_Barclay_1_Meta-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which <a href=\"https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia\">Nvidia says</a> will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. </p>\n<p class=\"has-text-align-none\">Meta is also <a href=\"https://www.theverge.com/2024/2/1/24058179/meta-reportedly-working-on-a-new-ai-chip-it-plans-to-launch-this-year\">working on its own in-house chips</a> for running AI models, but according to the <a href=\"https://www.ft.com/content/d3b50dfc-31fa-45a8-9184-c5f0476f4504\"><em>Financial Times</em></a>, it has run into \"technical challenges and rollout  …</p>\n<p><a href=\"https://www.theverge.com/ai-artificial-intelligence/880513/nvidia-meta-ai-grace-vera-chips\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -322,7 +322,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这里有几种",
+      "titleZh": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
       "descriptionZh": "\n\t\t\t\t\t\t<p>India ramps up its AI arsenal with 20,000 more GPUs under AI Mission 2.0.</p>\n<p>The post <a href=\"https://www.eetimes.com/india-to-add-20000-gpus-as-ai-mission-2-0-expands-compute-and-chip-push/\">India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
@@ -350,8 +350,8 @@
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "这句话可以根据侧",
-      "descriptionZh": "英伟达（Nvidia）与超威半导体（AMD）正面临美国对华"
+      "titleZh": "Nvidia China Gamble Meets Washington’s Regime",
+      "descriptionZh": "\n\t\t\t\t\t\t<p>Nvidia and AMD face a volatile trade regime of tariffs and logistics hurdles for AI chips to China; U.S. Congress threatens export license revocation.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-china-gamble-meets-washingtons-regime/\">Nvidia China Gamble Meets Washington’s Regime</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -379,7 +379,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "Former Altera CEO Joins French AI Chip Startup",
-      "descriptionZh": "前Altera（英特尔旗下FPGA业务）首席执行官Sandra Rivera正式加入"
+      "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
     },
     {
       "title": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
@@ -392,7 +392,7 @@
       "pubDate": "Tue, 17 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "为您提供以下几种",
+      "titleZh": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
       "descriptionZh": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices."
     },
     {
