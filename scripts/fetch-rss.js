@@ -473,28 +473,91 @@ async function main() {
   console.log(`\n最终选取 ${selectedItems.length} 条AI推理芯片新闻`);
 
   // 翻译所有选中的新闻（使用DeepSeek AI生成摘要）
+  // 付费用户优化：批量并发处理，控制并发数避免过载
   console.log('\n开始生成AI摘要（英译中）...');
-  for (let i = 0; i < selectedItems.length; i++) {
-    const item = selectedItems[i];
-    console.log(`\n[${i + 1}/${selectedItems.length}] 处理: ${item.title.substring(0, 60)}...`);
+  console.log('💎 检测到DeepSeek付费用户模式：使用批量并发处理');
 
-    // 翻译标题
-    if (item.title && !isChinese(item.title)) {
-      item.titleZh = await generateAISummary(item.title, true);
-      await delay(1500); // DeepSeek限流：50次/分钟，延迟1.5秒安全
-    } else {
-      item.titleZh = item.title; // 已是中文，保留原文
-    }
+  const CONCURRENT_BATCH_SIZE = 5; // 每批并发5个请求
 
-    // 生成中文摘要（使用description或content）
-    const sourceText = item.content || item.description || '';
-    if (sourceText && !isChinese(sourceText)) {
-      item.descriptionZh = await generateAISummary(sourceText, false);
-      await delay(1500); // 延迟1.5秒避免限流
-    } else {
-      item.descriptionZh = item.description || sourceText; // 已是中文，保留原文
+  // 批量处理函数：将数组分批并发处理
+  async function processBatch(items, processor, batchSize) {
+    const results = [];
+    for (let i = 0; i < items.length; i += batchSize) {
+      const batch = items.slice(i, i + batchSize);
+      console.log(`\n处理第 ${Math.floor(i / batchSize) + 1} 批 (${batch.length}条)...`);
+      const batchResults = await Promise.all(batch.map(processor));
+      results.push(...batchResults);
+      // 批次间短暂延迟，避免瞬时过载
+      if (i + batchSize < items.length) {
+        await delay(500);
+      }
     }
+    return results;
   }
+
+  // 第一阶段：批量翻译所有标题
+  console.log('\n📝 阶段1：批量翻译标题...');
+  const titleTasks = selectedItems
+    .filter(item => item.title && !isChinese(item.title))
+    .map((item, index) => ({
+      item,
+      index,
+      text: item.title
+    }));
+
+  if (titleTasks.length > 0) {
+    await processBatch(
+      titleTasks,
+      async (task) => {
+        const translated = await generateAISummary(task.text, true);
+        task.item.titleZh = translated;
+        console.log(`  ✓ [${task.index + 1}] ${task.text.substring(0, 40)}... → ${translated.substring(0, 30)}...`);
+        return translated;
+      },
+      CONCURRENT_BATCH_SIZE
+    );
+  }
+
+  // 为已是中文的标题设置titleZh
+  selectedItems.forEach(item => {
+    if (!item.titleZh) {
+      item.titleZh = item.title;
+    }
+  });
+
+  // 第二阶段：批量生成所有摘要
+  console.log('\n📄 阶段2：批量生成摘要...');
+  const summaryTasks = selectedItems
+    .map((item, index) => {
+      const sourceText = item.content || item.description || '';
+      return {
+        item,
+        index,
+        text: sourceText,
+        needsTranslation: sourceText && !isChinese(sourceText)
+      };
+    })
+    .filter(task => task.needsTranslation);
+
+  if (summaryTasks.length > 0) {
+    await processBatch(
+      summaryTasks,
+      async (task) => {
+        const summary = await generateAISummary(task.text, false);
+        task.item.descriptionZh = summary;
+        console.log(`  ✓ [${task.index + 1}] 摘要生成完成 (${summary.length}字)`);
+        return summary;
+      },
+      CONCURRENT_BATCH_SIZE
+    );
+  }
+
+  // 为已是中文的内容设置descriptionZh
+  selectedItems.forEach(item => {
+    if (!item.descriptionZh) {
+      item.descriptionZh = item.description || item.content || '';
+    }
+  });
 
   console.log('\n✅ AI摘要生成完成！');
 
