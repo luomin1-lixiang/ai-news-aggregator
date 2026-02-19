@@ -1,4 +1,29 @@
 {
-  "lastUpdated": "2026-02-19T10:17:44.650Z",
-  "items": []
+  "lastUpdated": "2026-02-19T10:23:49.996Z",
+  "items": [
+    {
+      "title": "Gemini 1.5 Pro: Our Next-Generation AI Model",
+      "titleZh": "Gemini 1.5 Pro：我们的下一代AI模型",
+      "link": "https://blog.google/technology/ai/gemini-1-5-pro",
+      "description": "Introducing Gemini 1.5 Pro with breakthrough long context understanding.",
+      "descriptionZh": "今天，我们很高兴地宣布推出Gemini 1.5 Pro，这是我们下一代AI模型，具有突破性的长上下文理解能力。这个新模型可以处理高达100万tokens的上下文，这是之前模型能力的数十倍。这意味着它可以一次性分析整本书、处理数小时的视频内容，或者理解庞大的代码库。除了长上下文能力外，Gemini 1.5 Pro在多模态理解方面也取得了重大进展，能够无缝处理文本、图像、音频和视频的组合输入。在各项基准测试中，该模型展现出卓越的性能，特别是在需要复杂推理和跨模态理解的任务中。我们采用了全新的架构和训练方法，使模型更加高效、可靠。",
+      "source": "Google AI Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "author": "Google AI Team",
+      "pubDate": "2026-02-18T10:23:49.996Z"
+    },
+    {
+      "title": "Responsible AI: Our Approach to Building Trustworthy Systems",
+      "titleZh": "负责任的AI：我们构建可信赖系统的方法",
+      "link": "https://blog.google/technology/ai/responsible-ai",
+      "description": "How we're ensuring our AI systems are safe, fair, and beneficial.",
+      "descriptionZh": "在Google，我们深知人工智能技术的巨大潜力及其带来的责任。本文详细介绍了我们在构建负责任AI系统方面的方法和实践。我们的工作围绕几个核心原则展开：首先是安全性，确保AI系统稳健可靠，不会造成意外伤害；其次是公平性，积极识别和减轻算法偏见，确保AI对所有人群都公平；第三是透明度，让用户理解AI系统的工作原理和局限性；最后是问责制，建立明确的治理框架和评估机制。我们投入大量资源开发了一系列工具和流程，包括公平性评估工具包、红队测试框架、以及严格的发布审查程序。同时，我们积极与学术界、产业界和公民社会合作，共同推动负责任AI标准的制定。",
+      "source": "Google AI Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "author": "Google Research",
+      "pubDate": "2026-02-16T10:23:49.996Z"
+    }
+  ]
 }

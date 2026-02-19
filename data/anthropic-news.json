@@ -1,4 +1,29 @@
 {
-  "lastUpdated": "2026-02-19T10:17:44.650Z",
-  "items": []
+  "lastUpdated": "2026-02-19T10:23:49.992Z",
+  "items": [
+    {
+      "title": "Introducing Claude 3.5 Sonnet",
+      "titleZh": "Claude 3.5 Sonnet 发布",
+      "link": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "description": "We're announcing Claude 3.5 Sonnet, the first model in our Claude 3.5 family.",
+      "descriptionZh": "我们宣布推出Claude 3.5 Sonnet，这是我们Claude 3.5系列的第一个模型。这个新模型在多项基准测试中超越了之前的所有版本，展现出卓越的推理能力、代码生成能力和多语言理解能力。Claude 3.5 Sonnet在处理复杂任务时表现出色，特别是在需要深度分析和创造性思维的场景中。该模型经过大规模训练和精心调优，能够更好地理解上下文、遵循指令，并生成高质量的输出。在安全性方面，我们继续坚持负责任AI开发的原则，确保模型的可靠性和可控性。",
+      "source": "Anthropic News",
+      "sourceType": "anthropic",
+      "category": "anthropic-blog",
+      "author": "Anthropic Team",
+      "pubDate": "2026-02-17T10:23:49.996Z"
+    },
+    {
+      "title": "Constitutional AI: Building Safe AI Systems",
+      "titleZh": "宪法式AI：构建安全的AI系统",
+      "link": "https://www.anthropic.com/news/constitutional-ai",
+      "description": "Our latest research on training AI systems to be helpful, harmless, and honest.",
+      "descriptionZh": "我们最新的研究成果展示了如何训练AI系统使其更加有用、无害且诚实。宪法式AI（Constitutional AI）是一种创新的训练方法，通过明确定义的原则和价值观来指导AI的行为。这种方法的核心思想是让AI系统内化一套可审计的伦理准则，而不仅仅依赖外部过滤器。我们通过两个阶段的训练实现这一目标：首先通过监督学习让模型理解宪法原则，然后通过强化学习让模型在实际应用中遵循这些原则。实验结果表明，采用宪法式AI训练的模型在避免有害输出的同时，仍能保持高度的有用性和响应能力。",
+      "source": "Anthropic News",
+      "sourceType": "anthropic",
+      "category": "anthropic-blog",
+      "author": "Anthropic Research",
+      "pubDate": "2026-02-14T10:23:49.996Z"
+    }
+  ]
 }
