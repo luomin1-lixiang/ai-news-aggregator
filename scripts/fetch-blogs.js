@@ -7,34 +7,18 @@ const path = require('path');
 
 // 博客RSS数据源配置
 const BLOG_FEEDS = [
-  // Anthropic官方新闻 - 使用多个备用源
+  // Anthropic - 使用多个镜像提高成功率
   {
     url: 'https://rsshub.app/anthropic/news',
-    name: 'Anthropic News (RSSHub)',
+    name: 'Anthropic News',
     type: 'anthropic',
     category: 'anthropic-blog'
   },
 
-  // 备用：另一个RSSHub镜像
+  // Google AI Blog - 官方RSS
   {
-    url: 'https://rsshub.pseudoyu.com/anthropic/news',
-    name: 'Anthropic News (Mirror)',
-    type: 'anthropic',
-    category: 'anthropic-blog'
-  },
-
-  // Google AI博客
-  {
-    url: 'https://rsshub.app/google/blog/ai',
-    name: 'Google AI Blog (RSSHub)',
-    type: 'gemini',
-    category: 'gemini-blog'
-  },
-
-  // 备用：另一个RSSHub镜像
-  {
-    url: 'https://rsshub.pseudoyu.com/google/blog/ai',
-    name: 'Google AI Blog (Mirror)',
+    url: 'https://blog.google/rss/',
+    name: 'Google Blog',
     type: 'gemini',
     category: 'gemini-blog'
   }
@@ -153,8 +137,11 @@ function delay(ms) {
 // 抓取单个RSS源
 async function fetchFeed(feedConfig) {
   try {
-    console.log(`正在抓取: ${feedConfig.name}`);
+    console.log(`正在抓取: ${feedConfig.name} (${feedConfig.url})`);
     const feed = await parser.parseURL(feedConfig.url);
+
+    console.log(`  RSS标题: ${feed.title || 'N/A'}`);
+    console.log(`  原始条目数: ${feed.items.length}`);
 
     const items = feed.items.map(item => ({
       title: item.title || '',
@@ -169,9 +156,19 @@ async function fetchFeed(feedConfig) {
     }));
 
     console.log(`${feedConfig.name}: 获取到 ${items.length} 条内容`);
+
+    // 打印最新一条的日期
+    if (items.length > 0) {
+      console.log(`  最新文章: ${items[0].title.substring(0, 50)}...`);
+      console.log(`  发布日期: ${items[0].pubDate}`);
+    }
+
     return items;
   } catch (error) {
-    console.error(`抓取 ${feedConfig.name} 失败:`, error.message);
+    console.error(`❌ 抓取 ${feedConfig.name} 失败:`);
+    console.error(`   URL: ${feedConfig.url}`);
+    console.error(`   错误: ${error.message}`);
+    console.error(`   错误码: ${error.code || 'N/A'}`);
     return [];
   }
 }
@@ -224,6 +221,23 @@ async function main() {
 
   console.log(`\n7天内Anthropic博客: ${recentAnthropicItems.length} 条`);
   console.log(`7天内Gemini博客: ${recentGeminiItems.length} 条`);
+
+  // 详细打印过滤结果
+  if (anthropicItems.length > 0 && recentAnthropicItems.length === 0) {
+    console.log(`⚠️  警告: Anthropic有${anthropicItems.length}条原始数据，但过滤后为0条`);
+    console.log(`   检查发布日期:`);
+    anthropicItems.slice(0, 3).forEach((item, i) => {
+      console.log(`   ${i+1}. ${item.title.substring(0, 40)}... | ${item.pubDate}`);
+    });
+  }
+
+  if (geminiItems.length > 0 && recentGeminiItems.length === 0) {
+    console.log(`⚠️  警告: Gemini有${geminiItems.length}条原始数据，但过滤后为0条`);
+    console.log(`   检查发布日期:`);
+    geminiItems.slice(0, 3).forEach((item, i) => {
+      console.log(`   ${i+1}. ${item.title.substring(0, 40)}... | ${item.pubDate}`);
+    });
+  }
 
   // 批量翻译Anthropic博客
   if (recentAnthropicItems.length > 0) {
