@@ -7,7 +7,7 @@ const path = require('path');
 
 // 博客RSS数据源配置
 const BLOG_FEEDS = [
-  // Anthropic官方博客（使用RSSHub代理）
+  // Anthropic官方新闻（使用RSSHub代理）
   {
     url: 'https://rsshub.app/anthropic/news',
     name: 'Anthropic News',
@@ -21,6 +21,14 @@ const BLOG_FEEDS = [
     name: 'Google AI Blog',
     type: 'gemini',
     category: 'gemini-blog'
+  },
+
+  // Anthropic备用源：直接从官网RSS
+  {
+    url: 'https://www.anthropic.com/news/rss.xml',
+    name: 'Anthropic RSS',
+    type: 'anthropic',
+    category: 'anthropic-blog'
   }
 ];
 

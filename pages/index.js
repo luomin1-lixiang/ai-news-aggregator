@@ -18,19 +18,34 @@ export default function Home() {
     fetch(`${basePath}/data/news.json?t=${timestamp}`, { cache: 'no-cache' })
       .then(res => res.json())
       .then(data => setNewsData(data))
-      .catch(error => console.error('加载AI新闻失败:', error));
+      .catch(error => {
+        console.error('加载AI新闻失败:', error);
+        setNewsData({ items: [], lastUpdated: null });
+      });
 
     // 加载Anthropic博客
     fetch(`${basePath}/data/anthropic-news.json?t=${timestamp}`, { cache: 'no-cache' })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Not found');
+        return res.json();
+      })
       .then(data => setAnthropicData(data))
-      .catch(error => console.error('加载Anthropic博客失败:', error));
+      .catch(error => {
+        console.error('加载Anthropic博客失败:', error);
+        setAnthropicData({ items: [], lastUpdated: null });
+      });
 
     // 加载Gemini博客
     fetch(`${basePath}/data/gemini-news.json?t=${timestamp}`, { cache: 'no-cache' })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Not found');
+        return res.json();
+      })
       .then(data => setGeminiData(data))
-      .catch(error => console.error('加载Gemini博客失败:', error))
+      .catch(error => {
+        console.error('加载Gemini博客失败:', error);
+        setGeminiData({ items: [], lastUpdated: null });
+      })
       .finally(() => setLoading(false));
   }, []);
 
