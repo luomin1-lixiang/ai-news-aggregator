@@ -1,6 +1,48 @@
 {
-  "lastUpdated": "2026-02-18T14:59:53.617Z",
+  "lastUpdated": "2026-02-19T01:54:21.033Z",
   "items": [
+    {
+      "title": "Nvidia’s Deal With Meta Signals a New Era in Computing Power",
+      "link": "https://www.wired.com/story/nvidias-deal-with-meta-signals-a-new-era-in-computing-power/",
+      "description": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between.",
+      "content": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between.",
+      "author": "Lauren Goode",
+      "source": "Wired AI",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 19:24:55 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "英伟达",
+      "descriptionZh": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between."
+    },
+    {
+      "title": " Nearly half of PC gamers prefer DLSS 4.5 over AMD's FSR and even native rendering — Nvidia scores clean sweep in blind test of six titles ",
+      "link": "https://www.tomshardware.com/pc-components/gpus/nearly-half-of-pc-gamers-prefer-dlss-4-5-over-amds-fsr-and-even-native-rendering-nvidia-scores-clean-sweep-in-blind-test-of-six-titles",
+      "description": "In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally.",
+      "content": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            ",
+      "author": " Hassam Nasir ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 16:41:11 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "近半数",
+      "descriptionZh": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            "
+    },
+    {
+      "title": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
+      "link": "https://www.tomshardware.com/tech-industry/ai-hyperscalers-move-to-secure-long-term-uranium-supply-from-mining-companies-fuel-required-for-nuclear-plants-to-power-future-data-centers",
+      "description": "This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers.",
+      "content": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            ",
+      "author": " Jowi Morales ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 16:20:29 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
+      "descriptionZh": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            "
+    },
     {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
       "link": "https://www.tomshardware.com/pc-components/cpus/meta-will-deploy-standalone-nvidia-grace-cpus-in-production-with-vera-to-follow-company-sees-perf-per-watt-improvements-of-up-to-2x-in-some-cpu-workloads",
@@ -54,7 +96,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India Fuels Its AI Mission With NVIDIA",
+      "titleZh": "印度借力英伟",
       "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
     },
     {
@@ -168,52 +210,52 @@
       "category": "inference-other",
       "titleZh": "Former Altera CEO Joins French AI Chip Startup",
       "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
-    },
-    {
-      "title": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
-      "link": "https://www.wired.com/story/ai-digital-twins-are-helping-people-manage-diabetes-and-obesity/",
-      "description": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices.",
-      "content": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices.",
-      "author": "Emily Mullin",
-      "source": "Wired AI",
-      "sourceType": "news",
-      "pubDate": "Tue, 17 Feb 2026 11:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
-      "descriptionZh": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices."
-    },
-    {
-      "title": "Chip Assembler ASE Sees Advanced Packaging Sales Doubling",
-      "link": "https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/",
-      "description": "ASE expects advanced packaging sales to double on AI chip demand.\nThe post Chip Assembler ASE Sees Advanced Packaging Sales Doubling appeared first on EE Times.",
-      "content": "\n\t\t\t\t\t\t<p>ASE expects advanced packaging sales to double on AI chip demand.</p>\n<p>The post <a href=\"https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/\">Chip Assembler ASE Sees Advanced Packaging Sales Doubling</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
-      "author": "\n\t\t\t\t\t\tAlan Patterson\n\t\t\t\t\t",
-      "source": "EE Times",
-      "sourceType": "news",
-      "pubDate": "Mon, 16 Feb 2026 23:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "Chip Assembler ASE Sees Advanced Packaging Sales Doubling",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>ASE expects advanced packaging sales to double on AI chip demand.</p>\n<p>The post <a href=\"https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/\">Chip Assembler ASE Sees Advanced Packaging Sales Doubling</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
-    },
-    {
-      "title": "New SemiAnalysis InferenceX Data Shows NVIDIA Blackwell Ultra Delivers up to 50x Better Performance and 35x Lower Costs for Agentic AI",
-      "link": "https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/",
-      "description": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t\n\t\tRead Article",
-      "content": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t",
-      "author": "Ashraf Eassa",
-      "source": "Nvidia Blog",
-      "sourceType": "news",
-      "pubDate": "Mon, 16 Feb 2026 17:00:40 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "New SemiAnalysis InferenceX Data Shows NVIDIA Blackwell Ultra Delivers up to 50x Better Performance and 35x Lower Costs for Agentic AI",
-      "descriptionZh": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     }
   ],
   "history": [
     {
+      "title": "Nvidia’s Deal With Meta Signals a New Era in Computing Power",
+      "link": "https://www.wired.com/story/nvidias-deal-with-meta-signals-a-new-era-in-computing-power/",
+      "description": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between.",
+      "content": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between.",
+      "author": "Lauren Goode",
+      "source": "Wired AI",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 19:24:55 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "英伟达",
+      "descriptionZh": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between."
+    },
+    {
+      "title": " Nearly half of PC gamers prefer DLSS 4.5 over AMD's FSR and even native rendering — Nvidia scores clean sweep in blind test of six titles ",
+      "link": "https://www.tomshardware.com/pc-components/gpus/nearly-half-of-pc-gamers-prefer-dlss-4-5-over-amds-fsr-and-even-native-rendering-nvidia-scores-clean-sweep-in-blind-test-of-six-titles",
+      "description": "In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally.",
+      "content": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            ",
+      "author": " Hassam Nasir ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 16:41:11 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "近半数",
+      "descriptionZh": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            "
+    },
+    {
+      "title": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
+      "link": "https://www.tomshardware.com/tech-industry/ai-hyperscalers-move-to-secure-long-term-uranium-supply-from-mining-companies-fuel-required-for-nuclear-plants-to-power-future-data-centers",
+      "description": "This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers.",
+      "content": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            ",
+      "author": " Jowi Morales ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Wed, 18 Feb 2026 16:20:29 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
+      "descriptionZh": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            "
+    },
+    {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
       "link": "https://www.tomshardware.com/pc-components/cpus/meta-will-deploy-standalone-nvidia-grace-cpus-in-production-with-vera-to-follow-company-sees-perf-per-watt-improvements-of-up-to-2x-in-some-cpu-workloads",
       "description": "As part of a broad partnership announced today, Nvidia says Meta will deploy its Arm-powered Grace server CPUs as standalone platforms in production data centers to boost performance-per-watt in certain workloads.",
@@ -266,7 +308,7 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India Fuels Its AI Mission With NVIDIA",
+      "titleZh": "印度借力英伟",
       "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
     },
     {
@@ -380,48 +422,6 @@
       "category": "inference-other",
       "titleZh": "Former Altera CEO Joins French AI Chip Startup",
       "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
-    },
-    {
-      "title": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
-      "link": "https://www.wired.com/story/ai-digital-twins-are-helping-people-manage-diabetes-and-obesity/",
-      "description": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices.",
-      "content": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices.",
-      "author": "Emily Mullin",
-      "source": "Wired AI",
-      "sourceType": "news",
-      "pubDate": "Tue, 17 Feb 2026 11:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "AI Digital Twins Are Helping People Manage Diabetes and Obesity",
-      "descriptionZh": "As patients and employers look for alternatives to pricey GLP-1 drugs, Silicon Valley startup Twin Health is using AI and wearable sensors to help people make healthier choices."
-    },
-    {
-      "title": "Chip Assembler ASE Sees Advanced Packaging Sales Doubling",
-      "link": "https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/",
-      "description": "ASE expects advanced packaging sales to double on AI chip demand.\nThe post Chip Assembler ASE Sees Advanced Packaging Sales Doubling appeared first on EE Times.",
-      "content": "\n\t\t\t\t\t\t<p>ASE expects advanced packaging sales to double on AI chip demand.</p>\n<p>The post <a href=\"https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/\">Chip Assembler ASE Sees Advanced Packaging Sales Doubling</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
-      "author": "\n\t\t\t\t\t\tAlan Patterson\n\t\t\t\t\t",
-      "source": "EE Times",
-      "sourceType": "news",
-      "pubDate": "Mon, 16 Feb 2026 23:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "Chip Assembler ASE Sees Advanced Packaging Sales Doubling",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>ASE expects advanced packaging sales to double on AI chip demand.</p>\n<p>The post <a href=\"https://www.eetimes.com/chip-assembler-ase-sees-advanced-packaging-sales-doubling/\">Chip Assembler ASE Sees Advanced Packaging Sales Doubling</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
-    },
-    {
-      "title": "New SemiAnalysis InferenceX Data Shows NVIDIA Blackwell Ultra Delivers up to 50x Better Performance and 35x Lower Costs for Agentic AI",
-      "link": "https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/",
-      "description": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t\n\t\tRead Article",
-      "content": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t",
-      "author": "Ashraf Eassa",
-      "source": "Nvidia Blog",
-      "sourceType": "news",
-      "pubDate": "Mon, 16 Feb 2026 17:00:40 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "New SemiAnalysis InferenceX Data Shows NVIDIA Blackwell Ultra Delivers up to 50x Better Performance and 35x Lower Costs for Agentic AI",
-      "descriptionZh": "The NVIDIA Blackwell platform has been widely adopted by leading inference providers such as Baseten, DeepInfra, Fireworks AI and Together AI to reduce cost per token by up to 10x. Now, the NVIDIA Blackwell Ultra platform is taking this momentum further for agentic AI. AI agents and coding assistants are driving explosive growth in software-programming-related\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/data-blackwell-ultra-performance-lower-cost-agentic-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
     }
   ]
 }
