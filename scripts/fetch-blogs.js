@@ -7,28 +7,36 @@ const path = require('path');
 
 // 博客RSS数据源配置
 const BLOG_FEEDS = [
-  // Anthropic官方新闻（使用RSSHub代理）
+  // Anthropic官方新闻 - 使用多个备用源
   {
     url: 'https://rsshub.app/anthropic/news',
-    name: 'Anthropic News',
+    name: 'Anthropic News (RSSHub)',
     type: 'anthropic',
     category: 'anthropic-blog'
   },
 
-  // Google AI博客（专注Gemini相关）
+  // 备用：另一个RSSHub镜像
   {
-    url: 'https://blog.google/technology/ai/rss/',
-    name: 'Google AI Blog',
+    url: 'https://rsshub.pseudoyu.com/anthropic/news',
+    name: 'Anthropic News (Mirror)',
+    type: 'anthropic',
+    category: 'anthropic-blog'
+  },
+
+  // Google AI博客
+  {
+    url: 'https://rsshub.app/google/blog/ai',
+    name: 'Google AI Blog (RSSHub)',
     type: 'gemini',
     category: 'gemini-blog'
   },
 
-  // Anthropic备用源：直接从官网RSS
+  // 备用：另一个RSSHub镜像
   {
-    url: 'https://www.anthropic.com/news/rss.xml',
-    name: 'Anthropic RSS',
-    type: 'anthropic',
-    category: 'anthropic-blog'
+    url: 'https://rsshub.pseudoyu.com/google/blog/ai',
+    name: 'Google AI Blog (Mirror)',
+    type: 'gemini',
+    category: 'gemini-blog'
   }
 ];
 
