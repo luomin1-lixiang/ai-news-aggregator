@@ -343,31 +343,39 @@ async function main() {
 
   console.log('\n✅ 博客翻译完成！');
 
-  // 保存Anthropic博客数据
+  // 保存Anthropic博客数据 - 如果没有新数据则保留旧数据
   const anthropicDataPath = path.join(__dirname, '../data/anthropic-news.json');
-  const anthropicData = {
-    lastUpdated: new Date().toISOString(),
-    items: recentAnthropicItems
-  };
-  fs.writeFileSync(anthropicDataPath, JSON.stringify(anthropicData, null, 2), 'utf-8');
-
   const publicAnthropicPath = path.join(__dirname, '../public/data/anthropic-news.json');
-  fs.writeFileSync(publicAnthropicPath, JSON.stringify(anthropicData, null, 2), 'utf-8');
 
-  // 保存Gemini博客数据
+  if (recentAnthropicItems.length > 0) {
+    const anthropicData = {
+      lastUpdated: new Date().toISOString(),
+      items: recentAnthropicItems
+    };
+    fs.writeFileSync(anthropicDataPath, JSON.stringify(anthropicData, null, 2), 'utf-8');
+    fs.writeFileSync(publicAnthropicPath, JSON.stringify(anthropicData, null, 2), 'utf-8');
+    console.log(`\n✓ 已更新Anthropic博客数据: ${recentAnthropicItems.length} 条`);
+  } else {
+    console.log(`\n⚠️  Anthropic无新数据，保留现有数据`);
+  }
+
+  // 保存Gemini博客数据 - 如果没有新数据则保留旧数据
   const geminiDataPath = path.join(__dirname, '../data/gemini-news.json');
-  const geminiData = {
-    lastUpdated: new Date().toISOString(),
-    items: recentGeminiItems
-  };
-  fs.writeFileSync(geminiDataPath, JSON.stringify(geminiData, null, 2), 'utf-8');
-
   const publicGeminiPath = path.join(__dirname, '../public/data/gemini-news.json');
-  fs.writeFileSync(publicGeminiPath, JSON.stringify(geminiData, null, 2), 'utf-8');
 
-  console.log(`\n保存完成:`);
-  console.log(`  Anthropic博客: ${recentAnthropicItems.length} 条`);
-  console.log(`  Gemini博客: ${recentGeminiItems.length} 条`);
+  if (recentGeminiItems.length > 0) {
+    const geminiData = {
+      lastUpdated: new Date().toISOString(),
+      items: recentGeminiItems
+    };
+    fs.writeFileSync(geminiDataPath, JSON.stringify(geminiData, null, 2), 'utf-8');
+    fs.writeFileSync(publicGeminiPath, JSON.stringify(geminiData, null, 2), 'utf-8');
+    console.log(`✓ 已更新Gemini博客数据: ${recentGeminiItems.length} 条`);
+  } else {
+    console.log(`⚠️  Gemini无新数据，保留现有数据`);
+  }
+
+  console.log(`\n保存完成！`);
 }
 
 // 运行
