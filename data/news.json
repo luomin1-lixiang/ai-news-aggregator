@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-02-19T01:54:21.033Z",
+  "lastUpdated": "2026-02-19T02:38:43.878Z",
   "items": [
     {
       "title": "Nvidia’s Deal With Meta Signals a New Era in Computing Power",
@@ -12,8 +12,8 @@
       "pubDate": "Wed, 18 Feb 2026 19:24:55 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达",
-      "descriptionZh": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between."
+      "titleZh": "英伟达与Meta达成协议，预示计算能力新时代来临",
+      "descriptionZh": "科技巨头大规模采购独立芯片的时代已经结束。当前，人工智能公司对计算硬件的需求正变得空前复杂和多样化，不再局限于单一的图形处理器（GPU）。为了高效运行和训练日益庞大的人工智能模型，企业需要构建异构计算架构，整合包括中央处理器（CPU）、GPU、张量处理单元（TPU）以及各类专用人工智能加速器在内的多种计算单元。\n\n这一转变的核心驱动力在于人工智能工作负载的演变。训练前沿的大语言模型需要GPU提供强大的并行浮点运算能力，而模型的推理部署、数据预处理、系统调度等任务则可能更依赖于CPU或其他定制化芯片。因此，企业必须根据特定的应用场景，精细地搭配不同类型的处理器，以在性能、能效和总拥有成本之间取得最佳平衡。\n\n此举标志着人工智能硬件战略从“通用化”向“专业化”与“协同化”的深刻转型。它要求企业具备更强的系统级整合能力，并推动了芯片定制、先进封装和高速互连技术的发展。未来，竞争的关键不仅在于单一芯片的峰值算力，更在于整个计算系统的综合效率与灵活性。"
     },
     {
       "title": " Nearly half of PC gamers prefer DLSS 4.5 over AMD's FSR and even native rendering — Nvidia scores clean sweep in blind test of six titles ",
@@ -26,8 +26,8 @@
       "pubDate": "Wed, 18 Feb 2026 16:41:11 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "近半数",
-      "descriptionZh": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            "
+      "titleZh": "近半数PC玩家更青睐DLSS 4.5，而非AMD FSR甚至原生渲染——英伟达在六款游戏盲测中完胜。",
+      "descriptionZh": "在一项包含六款游戏的盲测中，用户对DLSS 4.5的图像质量表现出强烈偏好，认为其优于FSR 4和原生渲染，并将其评为最佳技术。英伟达的DLSS 4.5获得了总计48.2%的投票，大幅领先；原生渲染以24%的得票率位居第二；而AMD的FSR技术则以15%的得票率排名第三。测试结果表明，DLSS 4.5在提升画面清晰度、细节保真度和抗锯齿效果方面获得了用户广泛认可，其基于AI的超分辨率技术继续展现出领先优势。"
     },
     {
       "title": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
@@ -40,8 +40,8 @@
       "pubDate": "Wed, 18 Feb 2026 16:20:29 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
-      "descriptionZh": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            "
+      "titleZh": "AI巨头与矿业公司签订长期铀供应协议——为核电站提供燃料，驱动未来数据中心",
+      "descriptionZh": "该协议将帮助AI超大规模运营商确保获得小型模块化反应堆所需燃料，避免因未来数据中心巨大电力需求导致需求激增而遭遇供应短缺。"
     },
     {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
@@ -54,8 +54,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
-      "descriptionZh": "\n                             As part of a broad partnership announced today, Nvidia says Meta will deploy its Arm-powered Grace server CPUs as standalone platforms in production data centers to boost performance-per-watt in certain workloads. \n                                                                                                            "
+      "titleZh": "Meta将在生产环境中部署独立Nvidia Grace CPU，Vera紧随其后——公司称部分CPU工作负载的每瓦性能提升高达2倍",
+      "descriptionZh": "英伟达今日宣布与Meta达成广泛合作，Meta将在其生产数据中心部署基于Arm架构的Grace服务器CPU作为独立平台，以提升特定工作负载下的能效表现。此次合作标志着英伟达的Grace CPU首次大规模应用于超大规模数据中心，旨在优化AI推理、视频处理等任务的每瓦性能。Grace CPU采用定制Arm Neoverse核心，通过高带宽内存和芯片间互连技术实现高吞吐量与能效。Meta计划利用该平台增强其数据密集型应用效率，同时降低能耗成本。此举也进一步推动了Arm架构在数据中心市场的渗透，挑战了传统x86主导地位。"
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -68,8 +68,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
-      "descriptionZh": "\n                             Is Dutch Sec. Gijs Tuinman alluding to a European effort to continue using their F-35 jets even if the U.S. stops supporting them? \n                                                                                                            "
+      "titleZh": "荷兰国防部长威胁\"越狱\"本国F-35战机——回应软件自主性质询时称此举如同破解iPhone",
+      "descriptionZh": "荷兰国防部长吉斯·图因曼近期暗示，欧洲国家正考虑在美国可能停止支持的情况下，继续维持其F-35战斗机的作战能力。这一表态指向欧洲为应对潜在的地缘政治变化，正着手探索确保F-35机队长期独立运行的技术与后勤方案。核心挑战在于维持飞机的软件更新、关键部件供应以及武器系统的持续认证，这些目前严重依赖美国制造商洛克希德·马丁及美国政府的授权。\n\n可能的路径包括在欧洲建立独立的维护、维修和大修（MRO）体系，甚至探索对飞机源代码和敏感技术的本地化控制。此举涉及复杂的法律、技术及政治谈判，旨在减少对单一非欧盟供应商的战略依赖。此举若得以推进，将标志着欧洲在国防自主和关键军事资产控制权上的重要一步，但也将面临成本高昂、技术壁垒及跨欧洲协调等重大挑战。"
     },
     {
       "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
@@ -82,8 +82,8 @@
       "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "韩国初创企业推出专为LLM设计的芯片，挑战成本与延迟难题",
+      "descriptionZh": "韩国初创公司HyperAccel推出了一款专为大型语言模型设计的AI芯片，旨在解决当前LLM部署中面临的高成本和高延迟问题。该芯片采用创新的“内存处理”架构，将计算单元直接嵌入SRAM存储器中，从而大幅减少数据在处理器和内存之间的移动，这是传统冯·诺依曼架构中的主要性能瓶颈。\n\n核心技术在于其“内存内计算”单元，该单元支持FP16和INT8数据格式，并配备了专用的硬件来高效处理LLM中的关键运算，如GELU激活函数和层归一化。公司声称，其芯片的能效比可达竞争对手产品的10倍。例如，在处理700亿参数模型时，其芯片功耗预计为500瓦，而使用同等数量的英伟达H100 GPU则需要5000瓦。\n\n该芯片主要面向数据中心推理市场，计划于2025年第一季度流片。HyperAccel正与LG合作开发面向边缘设备和机器人的SoC版本。公司创始人认为，随着LLM从训练转向大规模部署，市场对高能效推理专用硬件的需求将急剧增长。此举代表了AI芯片领域从通用GPU向更专业化、高效能架构发展的重要趋势。"
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -96,8 +96,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "印度借力英伟",
-      "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
+      "titleZh": "印度借助英伟达之力推进人工智能计划",
+      "descriptionZh": "印度正与英伟达携手，从AI基础设施领导者到前沿模型开发者，共同推动全国范围的人工智能转型。此次合作旨在通过英伟达的先进计算平台加速印度的AI生态系统建设，涵盖从云服务到边缘计算的全方位部署。核心举措包括在印度数据中心部署英伟达GH200 Grace Hopper超级芯片，以及利用英伟达AI Enterprise软件平台支持企业开发与部署AI应用。\n\n技术层面，合作重点聚焦三大方向：一是构建AI计算基础设施，计划通过印度本土数据中心提供商（如Yotta、Reliance、Tata）部署英伟达GPU集群，其中Yotta将投入近5,000块H100 GPU；二是推动生成式AI创新，基于英伟达CUDA平台为开发者提供全栈工具链；三是赋能本土AI模型开发，支持包括医疗、金融、农业在内的关键领域定制化解决方案。\n\n性能方面，英伟达GH200超级芯片凭借CPU与GPU的紧密集成，可显著提升大规模AI训练与推理效率。同时，英伟达AI Enterprise平台能帮助机构将AI工作负载从云端扩展至边缘设备，实现低延迟实时处理。\n\n创新点体现在合作模式上：英伟达不仅提供硬件，更通过技术转移和人才培养计划（如开发者培训项目）助力印度构建自主AI能力。印度政府将这一合作视为实现“AI for All”国家战略的关键步骤，预计将推动医疗诊断、多语言翻译、气候预测等领域的突破性应用。"
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -110,8 +110,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:41 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
-      "descriptionZh": "Agentic AI is reshaping India’s tech industry, delivering leaps in services worldwide. Tapping into NVIDIA AI Enterprise software and NVIDIA Nemotron models, India’s technology leaders are accelerating productivity and efficiency across industries — from call centers to telecommunications and healthcare. Infosys, Persistent, Tech Mahindra and Wipro are leading the way for business transformation, improving back-office\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-enterprise-ai-agents/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
+      "titleZh": "印度全球系统集成商借助NVIDIA AI打造新一代企业智能体，革新后台运营与客户支持",
+      "descriptionZh": "印度科技行业正通过智能体人工智能实现全球服务能力的飞跃。借助NVIDIA AI Enterprise软件平台和Nemotron模型，该国科技领军企业正在从呼叫中心、电信到医疗等多个行业加速提升生产力与运营效率。印孚瑟斯、Persistent、马恒达科技和威普罗等公司正引领企业转型，通过部署智能体AI优化后台运营流程。这些AI助手能够处理复杂任务，例如在电信领域自主解决客户问题，在医疗领域协助分析医学影像，从而显著缩短响应时间并提升服务质量。NVIDIA的微服务架构使企业能够灵活定制AI工作流，而Nemotron模型提供的多语言能力尤其契合印度多元语言环境的需求。目前印度已有超过15万开发者在使用NVIDIA的AI平台，这种技术扩散正在推动该国从传统IT服务向AI驱动解决方案的战略转型。"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -124,8 +124,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
-      "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
+      "titleZh": "英伟达与全球工业软件巨头携手印度最大制造商，共推人工智能热潮",
+      "descriptionZh": "印度正迈入工业化新时代，人工智能（AI）正在彻底改变全球设计、制造和运营实体产品与系统的方式。该国计划在建筑、汽车、可再生能源和机器人等领域投入1340亿美元建设新的制造产能，这既带来了巨大挑战，也创造了从零开始打造软件定义工厂的机遇。全球工业软件领导者和制造商正汇聚印度，共同探索如何利用AI和数字孪生技术，构建更智能、更高效、更灵活的下一代生产设施。这一转型的核心在于通过AI驱动的软件平台，实现工厂设计、仿真、自动化运营和持续优化的全流程数字化，从而提升生产力、减少浪费并加速创新。印度的这一大规模投资不仅将重塑其本土制造业，也可能为全球工业数字化进程树立新的标杆。"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -138,8 +138,8 @@
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
       "category": "architecture",
-      "titleZh": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
-      "descriptionZh": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An illustration of the Meta logo\" data-caption=\"\" data-portal-copyright=\"Illustration by Nick Barclay / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK043_VRG_Illo_N_Barclay_1_Meta-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which <a href=\"https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia\">Nvidia says</a> will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. </p>\n<p class=\"has-text-align-none\">Meta is also <a href=\"https://www.theverge.com/2024/2/1/24058179/meta-reportedly-working-on-a-new-ai-chip-it-plans-to-launch-this-year\">working on its own in-house chips</a> for running AI models, but according to the <a href=\"https://www.ft.com/content/d3b50dfc-31fa-45a8-9184-c5f0476f4504\"><em>Financial Times</em></a>, it has run into \"technical challenges and rollout  …</p>\n<p><a href=\"https://www.theverge.com/ai-artificial-intelligence/880513/nvidia-meta-ai-grace-vera-chips\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
+      "titleZh": "Meta与英伟达达成新协议，购入数百万AI芯片",
+      "descriptionZh": "Meta与英伟达达成一项多年期协议，将在其数据中心大规模部署数百万颗英伟达的Grace和Vera CPU，以及Blackwell和Rubin GPU。尽管Meta长期使用英伟达硬件支持其AI产品，但此次合作标志着“首个大规模纯英伟达Grace CPU的部署”。英伟达表示，这将为Meta的数据中心带来“显著的每瓦性能提升”。协议还计划于2027年将英伟达下一代Vera CPU纳入Meta数据中心。\n\n与此同时，Meta也在自主研发用于运行AI模型的内部芯片。但据《金融时报》报道，该项目遇到了“技术挑战和推广问题”，进展不及预期。这表明在短期内，Meta仍将依赖英伟达等外部供应商来构建其AI基础设施。此次大规模采购凸显了科技公司在AI算力竞赛中对高性能硬件的持续需求。"
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -152,8 +152,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>India ramps up its AI arsenal with 20,000 more GPUs under AI Mission 2.0.</p>\n<p>The post <a href=\"https://www.eetimes.com/india-to-add-20000-gpus-as-ai-mission-2-0-expands-compute-and-chip-push/\">India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "印度将新增2万块GPU，AI 2.0计划扩大计算与芯片布局",
+      "descriptionZh": "印度政府近日宣布，作为其“人工智能使命2.0”计划的一部分，将大幅扩充其人工智能计算基础设施，计划新增部署20,000个图形处理单元。此举旨在强化国家在人工智能领域的战略能力，并减少对外国技术的依赖。\n\n该计划的核心是构建一个大规模、可共享的GPU计算资源池，为国内学术界、初创企业、研究机构和行业提供强大的算力支持。此举直接回应了全球AI竞赛中对计算资源的迫切需求，并将为印度本土AI模型的训练与开发奠定关键基础。\n\n除了扩充算力，“人工智能使命2.0”还包含了对国内半导体产业的扶持。印度政府正积极推动本土芯片设计与制造能力的发展，旨在构建从底层硬件到上层应用的全栈AI生态系统。这一系列举措表明，印度正通过国家层面的战略投资，系统性地提升其在全球AI价值链中的地位，并寻求在关键技术上实现更大程度的自主可控。"
     },
     {
       "title": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
@@ -166,8 +166,8 @@
       "pubDate": "Tue, 17 Feb 2026 20:56:10 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
-      "descriptionZh": "\n                             AMD's Helios rack-scale solution based on the MI455X accelerators, the company's major hope for AI market, may slip to 2027, whereas Nvidia may speed up roll out of the Vera Rubin platform if the latest market rumors are to be believed. \n                                                                                                            "
+      "titleZh": "AMD否认MI455X延期传闻，英伟达VR200系统据传将提前上市——公司称Helios系统\"目标2026年下半年推出\"。",
+      "descriptionZh": "据最新市场传闻，AMD基于MI455X加速器的Helios机架级解决方案可能推迟至2027年推出，而英伟达则可能加快其Vera Rubin平台的发布进度。Helios系统被视为AMD在AI市场的关键布局，旨在通过集成多个MI455X芯片提供大规模算力支持。MI455X预计采用先进封装和内存技术，目标是在特定AI工作负载中提升能效和性能密度。相比之下，英伟达的Vera Rubin平台传闻将搭载新一代GPU架构，可能集成更高带宽内存和增强互连技术，以巩固其在AI训练和推理领域的主导地位。若消息属实，这一时间差可能进一步影响两家公司在高速增长的AI硬件市场的竞争格局，尤其考虑到当前客户对大规模AI基础设施的迫切需求。行业观察指出，技术复杂性、供应链准备及软件生态适配或是影响产品上市时间的主要因素。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -180,8 +180,8 @@
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Nvidia China Gamble Meets Washington’s Regime",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>Nvidia and AMD face a volatile trade regime of tariffs and logistics hurdles for AI chips to China; U.S. Congress threatens export license revocation.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-china-gamble-meets-washingtons-regime/\">Nvidia China Gamble Meets Washington’s Regime</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "英伟达在华豪赌遭遇华盛顿监管",
+      "descriptionZh": "英伟达与AMD向中国出口AI芯片正面临不稳定的贸易环境，包括关税波动与物流障碍，同时美国国会威胁撤销相关出口许可。这一局势源于美国持续收紧对华先进半导体技术的管制，企业需在遵守不断变化的法规与维持中国市场业务间寻求平衡。尽管企业已为中国市场开发符合当前出口限制的“降规版”芯片，但政策风险依然高企，任何许可证的撤销都可能对其营收与供应链规划造成重大冲击。此情况凸显了在地缘政治紧张背景下，全球科技产业在合规与商业拓展上面临的持续挑战。"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -194,8 +194,8 @@
       "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
-      "descriptionZh": "\n                             Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB. \n                                                                                                            "
+      "titleZh": "海盗船内存与技嘉AM5主板套装仅比单买内存贵67美元——32GB内存加B850 Aorus Elite Wifi 7主板组合购买比分开购买节省133美元",
+      "descriptionZh": "技嘉与Newegg推出限时优惠套装，包含B850 Aorus Elite Wifi 7主板和32GB Corsair Vengeance RGB DDR5-6400内存，组合价低于505美元，优惠幅度达20%。该套装专为AMD AM5平台设计，支持新一代Wi-Fi 7无线标准，提供更高的网络速度和更低的延迟。主板配备PCIe 5.0 M.2插槽和PCIe 5.0扩展槽，显著提升存储与显卡的数据传输带宽。DDR5-6400高频内存配合炫彩RGB光效，在优化系统性能的同时增强视觉体验。此捆绑销售为组建高性能AMD AM5平台提供了高性价比的解决方案。"
     },
     {
       "title": "Former Altera CEO Joins French AI Chip Startup",
@@ -208,8 +208,8 @@
       "pubDate": "Tue, 17 Feb 2026 13:59:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Former Altera CEO Joins French AI Chip Startup",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "前Altera首席执行官加入法国AI芯片初创公司",
+      "descriptionZh": "法国AI芯片初创公司Vsora宣布，前英特尔可编程解决方案事业部（PSG，前身为Altera）首席执行官Sandra Rivera已加入其董事会。此举旨在借助Rivera在半导体行业，特别是在FPGA和企业市场领域的深厚经验，加速Vsora基于其独特数据流和Tensilica DSP内核架构的AI芯片开发与商业化进程。\n\nVsora的核心技术是一种创新的多核数字信号处理器（DSP）架构，专为高效处理AI工作负载设计。其芯片结合了专有的数据流引擎与经过扩展的Cadence Tensilica DSP内核，能够动态分配计算资源，显著提升能效。该架构尤其针对生成式AI和高级驾驶辅助系统（ADAS）等边缘应用进行了优化，旨在以低功耗实现高吞吐量处理。\n\n公司计划利用Rivera在领导Altera（现英特尔PSG）期间积累的战略经验，特别是在将FPGA技术推向数据中心和通信等广阔市场方面的成功实践，来指导Vsora的产品路线图和市场进入策略。Rivera的加入被视为Vsora加强其领导团队、推动下一代AI加速器发展的关键一步，以期在竞争激烈的AI芯片市场中脱颖而出。"
     }
   ],
   "history": [
@@ -224,8 +224,8 @@
       "pubDate": "Wed, 18 Feb 2026 19:24:55 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达",
-      "descriptionZh": "The days of tech giants buying up discrete chips are over. AI companies now need GPUs, CPUs, and everything in between."
+      "titleZh": "英伟达与Meta达成协议，预示计算能力新时代来临",
+      "descriptionZh": "科技巨头大规模采购独立芯片的时代已经结束。当前，人工智能公司对计算硬件的需求正变得空前复杂和多样化，不再局限于单一的图形处理器（GPU）。为了高效运行和训练日益庞大的人工智能模型，企业需要构建异构计算架构，整合包括中央处理器（CPU）、GPU、张量处理单元（TPU）以及各类专用人工智能加速器在内的多种计算单元。\n\n这一转变的核心驱动力在于人工智能工作负载的演变。训练前沿的大语言模型需要GPU提供强大的并行浮点运算能力，而模型的推理部署、数据预处理、系统调度等任务则可能更依赖于CPU或其他定制化芯片。因此，企业必须根据特定的应用场景，精细地搭配不同类型的处理器，以在性能、能效和总拥有成本之间取得最佳平衡。\n\n此举标志着人工智能硬件战略从“通用化”向“专业化”与“协同化”的深刻转型。它要求企业具备更强的系统级整合能力，并推动了芯片定制、先进封装和高速互连技术的发展。未来，竞争的关键不仅在于单一芯片的峰值算力，更在于整个计算系统的综合效率与灵活性。"
     },
     {
       "title": " Nearly half of PC gamers prefer DLSS 4.5 over AMD's FSR and even native rendering — Nvidia scores clean sweep in blind test of six titles ",
@@ -238,8 +238,8 @@
       "pubDate": "Wed, 18 Feb 2026 16:41:11 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "近半数",
-      "descriptionZh": "\n                             In a new blind test featuring six different games, users heavily preferred the image quality of DLSS 4.5 and crowned it as the best against FSR 4 and native rendering. Nvidia walked away with 48.2% of all votes, with native rendering scoring 24% and FSR coming in third place with 15% of the tally. \n                                                                                                            "
+      "titleZh": "近半数PC玩家更青睐DLSS 4.5，而非AMD FSR甚至原生渲染——英伟达在六款游戏盲测中完胜。",
+      "descriptionZh": "在一项包含六款游戏的盲测中，用户对DLSS 4.5的图像质量表现出强烈偏好，认为其优于FSR 4和原生渲染，并将其评为最佳技术。英伟达的DLSS 4.5获得了总计48.2%的投票，大幅领先；原生渲染以24%的得票率位居第二；而AMD的FSR技术则以15%的得票率排名第三。测试结果表明，DLSS 4.5在提升画面清晰度、细节保真度和抗锯齿效果方面获得了用户广泛认可，其基于AI的超分辨率技术继续展现出领先优势。"
     },
     {
       "title": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
@@ -252,8 +252,8 @@
       "pubDate": "Wed, 18 Feb 2026 16:20:29 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AI hyperscalers move to secure long-term uranium supply from mining companies — fuel required for nuclear plants to power future data centers ",
-      "descriptionZh": "\n                             This deal will help AI hyperscalers secure the fuel they need for SMRs, avoiding getting hit by a shortage if demand spikes due to the massive power requirements of future data centers. \n                                                                                                            "
+      "titleZh": "AI巨头与矿业公司签订长期铀供应协议——为核电站提供燃料，驱动未来数据中心",
+      "descriptionZh": "该协议将帮助AI超大规模运营商确保获得小型模块化反应堆所需燃料，避免因未来数据中心巨大电力需求导致需求激增而遭遇供应短缺。"
     },
     {
       "title": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
@@ -266,8 +266,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:20:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " Meta will deploy standalone Nvidia Grace CPUs in production, with Vera to follow — company sees perf-per-watt improvements of up to 2X in some CPU workloads  ",
-      "descriptionZh": "\n                             As part of a broad partnership announced today, Nvidia says Meta will deploy its Arm-powered Grace server CPUs as standalone platforms in production data centers to boost performance-per-watt in certain workloads. \n                                                                                                            "
+      "titleZh": "Meta将在生产环境中部署独立Nvidia Grace CPU，Vera紧随其后——公司称部分CPU工作负载的每瓦性能提升高达2倍",
+      "descriptionZh": "英伟达今日宣布与Meta达成广泛合作，Meta将在其生产数据中心部署基于Arm架构的Grace服务器CPU作为独立平台，以提升特定工作负载下的能效表现。此次合作标志着英伟达的Grace CPU首次大规模应用于超大规模数据中心，旨在优化AI推理、视频处理等任务的每瓦性能。Grace CPU采用定制Arm Neoverse核心，通过高带宽内存和芯片间互连技术实现高吞吐量与能效。Meta计划利用该平台增强其数据密集型应用效率，同时降低能耗成本。此举也进一步推动了Arm架构在数据中心市场的渗透，挑战了传统x86主导地位。"
     },
     {
       "title": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
@@ -280,8 +280,8 @@
       "pubDate": "Wed, 18 Feb 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " Dutch Secretary of Defense threatens to 'jailbreak' nation's F-35 jet fighters — says it's just like jailbreaking an iPhone, in response to questions over software independence ",
-      "descriptionZh": "\n                             Is Dutch Sec. Gijs Tuinman alluding to a European effort to continue using their F-35 jets even if the U.S. stops supporting them? \n                                                                                                            "
+      "titleZh": "荷兰国防部长威胁\"越狱\"本国F-35战机——回应软件自主性质询时称此举如同破解iPhone",
+      "descriptionZh": "荷兰国防部长吉斯·图因曼近期暗示，欧洲国家正考虑在美国可能停止支持的情况下，继续维持其F-35战斗机的作战能力。这一表态指向欧洲为应对潜在的地缘政治变化，正着手探索确保F-35机队长期独立运行的技术与后勤方案。核心挑战在于维持飞机的软件更新、关键部件供应以及武器系统的持续认证，这些目前严重依赖美国制造商洛克希德·马丁及美国政府的授权。\n\n可能的路径包括在欧洲建立独立的维护、维修和大修（MRO）体系，甚至探索对飞机源代码和敏感技术的本地化控制。此举涉及复杂的法律、技术及政治谈判，旨在减少对单一非欧盟供应商的战略依赖。此举若得以推进，将标志着欧洲在国防自主和关键军事资产控制权上的重要一步，但也将面临成本高昂、技术壁垒及跨欧洲协调等重大挑战。"
     },
     {
       "title": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
@@ -294,8 +294,8 @@
       "pubDate": "Wed, 18 Feb 2026 09:05:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Korean Startup Takes On Cost and Latency With LLM-Specific Chip",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>HyperAccel is also working with LG on an SoC version for edge appliances and robots.</p>\n<p>The post <a href=\"https://www.eetimes.com/korean-startup-takes-on-cost-and-latency-with-llm-specific-chip/\">Korean Startup Takes On Cost and Latency With LLM-Specific Chip</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "韩国初创企业推出专为LLM设计的芯片，挑战成本与延迟难题",
+      "descriptionZh": "韩国初创公司HyperAccel推出了一款专为大型语言模型设计的AI芯片，旨在解决当前LLM部署中面临的高成本和高延迟问题。该芯片采用创新的“内存处理”架构，将计算单元直接嵌入SRAM存储器中，从而大幅减少数据在处理器和内存之间的移动，这是传统冯·诺依曼架构中的主要性能瓶颈。\n\n核心技术在于其“内存内计算”单元，该单元支持FP16和INT8数据格式，并配备了专用的硬件来高效处理LLM中的关键运算，如GELU激活函数和层归一化。公司声称，其芯片的能效比可达竞争对手产品的10倍。例如，在处理700亿参数模型时，其芯片功耗预计为500瓦，而使用同等数量的英伟达H100 GPU则需要5000瓦。\n\n该芯片主要面向数据中心推理市场，计划于2025年第一季度流片。HyperAccel正与LG合作开发面向边缘设备和机器人的SoC版本。公司创始人认为，随着LLM从训练转向大规模部署，市场对高能效推理专用硬件的需求将急剧增长。此举代表了AI芯片领域从通用GPU向更专业化、高效能架构发展的重要趋势。"
     },
     {
       "title": "India Fuels Its AI Mission With NVIDIA",
@@ -308,8 +308,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:49 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "印度借力英伟",
-      "descriptionZh": "From AI infrastructure leaders to frontier model developers, India is teaming with NVIDIA to drive AI transformation across the nation."
+      "titleZh": "印度借助英伟达之力推进人工智能计划",
+      "descriptionZh": "印度正与英伟达携手，从AI基础设施领导者到前沿模型开发者，共同推动全国范围的人工智能转型。此次合作旨在通过英伟达的先进计算平台加速印度的AI生态系统建设，涵盖从云服务到边缘计算的全方位部署。核心举措包括在印度数据中心部署英伟达GH200 Grace Hopper超级芯片，以及利用英伟达AI Enterprise软件平台支持企业开发与部署AI应用。\n\n技术层面，合作重点聚焦三大方向：一是构建AI计算基础设施，计划通过印度本土数据中心提供商（如Yotta、Reliance、Tata）部署英伟达GPU集群，其中Yotta将投入近5,000块H100 GPU；二是推动生成式AI创新，基于英伟达CUDA平台为开发者提供全栈工具链；三是赋能本土AI模型开发，支持包括医疗、金融、农业在内的关键领域定制化解决方案。\n\n性能方面，英伟达GH200超级芯片凭借CPU与GPU的紧密集成，可显著提升大规模AI训练与推理效率。同时，英伟达AI Enterprise平台能帮助机构将AI工作负载从云端扩展至边缘设备，实现低延迟实时处理。\n\n创新点体现在合作模式上：英伟达不仅提供硬件，更通过技术转移和人才培养计划（如开发者培训项目）助力印度构建自主AI能力。印度政府将这一合作视为实现“AI for All”国家战略的关键步骤，预计将推动医疗诊断、多语言翻译、气候预测等领域的突破性应用。"
     },
     {
       "title": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
@@ -322,8 +322,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:41 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India’s Global Systems Integrators Build Next Wave of Enterprise Agents With NVIDIA AI, Transforming Back Office and Customer Support",
-      "descriptionZh": "Agentic AI is reshaping India’s tech industry, delivering leaps in services worldwide. Tapping into NVIDIA AI Enterprise software and NVIDIA Nemotron models, India’s technology leaders are accelerating productivity and efficiency across industries — from call centers to telecommunications and healthcare. Infosys, Persistent, Tech Mahindra and Wipro are leading the way for business transformation, improving back-office\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-enterprise-ai-agents/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
+      "titleZh": "印度全球系统集成商借助NVIDIA AI打造新一代企业智能体，革新后台运营与客户支持",
+      "descriptionZh": "印度科技行业正通过智能体人工智能实现全球服务能力的飞跃。借助NVIDIA AI Enterprise软件平台和Nemotron模型，该国科技领军企业正在从呼叫中心、电信到医疗等多个行业加速提升生产力与运营效率。印孚瑟斯、Persistent、马恒达科技和威普罗等公司正引领企业转型，通过部署智能体AI优化后台运营流程。这些AI助手能够处理复杂任务，例如在电信领域自主解决客户问题，在医疗领域协助分析医学影像，从而显著缩短响应时间并提升服务质量。NVIDIA的微服务架构使企业能够灵活定制AI工作流，而Nemotron模型提供的多语言能力尤其契合印度多元语言环境的需求。目前印度已有超过15万开发者在使用NVIDIA的AI平台，这种技术扩散正在推动该国从传统IT服务向AI驱动解决方案的战略转型。"
     },
     {
       "title": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
@@ -336,8 +336,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:30:32 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA and Global Industrial Software Leaders Partner With India’s Largest Manufacturers to Drive AI Boom",
-      "descriptionZh": "India is entering a new age of industrialization, as AI transforms how the world designs, builds and runs physical products and systems. The country is investing $134 billion dollars in new manufacturing capacity across construction, automotive, renewable energy and robotics, creating both a massive challenge and opportunity to build software-defined factories from day one. At\t<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/india-global-industrial-software-leaders-manufacturers-ai/\">\n\t\tRead Article\t\t<span data-icon=\"y\"></span>\n\t</a>\n\t"
+      "titleZh": "英伟达与全球工业软件巨头携手印度最大制造商，共推人工智能热潮",
+      "descriptionZh": "印度正迈入工业化新时代，人工智能（AI）正在彻底改变全球设计、制造和运营实体产品与系统的方式。该国计划在建筑、汽车、可再生能源和机器人等领域投入1340亿美元建设新的制造产能，这既带来了巨大挑战，也创造了从零开始打造软件定义工厂的机遇。全球工业软件领导者和制造商正汇聚印度，共同探索如何利用AI和数字孪生技术，构建更智能、更高效、更灵活的下一代生产设施。这一转型的核心在于通过AI驱动的软件平台，实现工厂设计、仿真、自动化运营和持续优化的全流程数字化，从而提升生产力、减少浪费并加速创新。印度的这一大规模投资不仅将重塑其本土制造业，也可能为全球工业数字化进程树立新的标杆。"
     },
     {
       "title": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
@@ -350,8 +350,8 @@
       "pubDate": "2026-02-18T00:27:08.000Z",
       "popularity": 0,
       "category": "architecture",
-      "titleZh": "Meta&#8217;s new deal with Nvidia buys up millions of AI chips",
-      "descriptionZh": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An illustration of the Meta logo\" data-caption=\"\" data-portal-copyright=\"Illustration by Nick Barclay / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/10/STK043_VRG_Illo_N_Barclay_1_Meta-1.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Meta has struck a multiyear deal to expand its data centers with millions of Nvidia's Grace and Vera CPUs and Blackwell and Rubin GPUs. While Meta has long been using Nvidia's hardware for its AI products, this deal \"represents the first large-scale Nvidia Grace-only deployment,\" which <a href=\"https://nvidianews.nvidia.com/news/meta-builds-ai-infrastructure-with-nvidia\">Nvidia says</a> will deliver \"significant performance-per-watt improvements in [Meta's] data centers.\" The deal also includes plans to add Nvidia's next-generation Vera CPUs to Meta's data centers in 2027. </p>\n<p class=\"has-text-align-none\">Meta is also <a href=\"https://www.theverge.com/2024/2/1/24058179/meta-reportedly-working-on-a-new-ai-chip-it-plans-to-launch-this-year\">working on its own in-house chips</a> for running AI models, but according to the <a href=\"https://www.ft.com/content/d3b50dfc-31fa-45a8-9184-c5f0476f4504\"><em>Financial Times</em></a>, it has run into \"technical challenges and rollout  …</p>\n<p><a href=\"https://www.theverge.com/ai-artificial-intelligence/880513/nvidia-meta-ai-grace-vera-chips\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t"
+      "titleZh": "Meta与英伟达达成新协议，购入数百万AI芯片",
+      "descriptionZh": "Meta与英伟达达成一项多年期协议，将在其数据中心大规模部署数百万颗英伟达的Grace和Vera CPU，以及Blackwell和Rubin GPU。尽管Meta长期使用英伟达硬件支持其AI产品，但此次合作标志着“首个大规模纯英伟达Grace CPU的部署”。英伟达表示，这将为Meta的数据中心带来“显著的每瓦性能提升”。协议还计划于2027年将英伟达下一代Vera CPU纳入Meta数据中心。\n\n与此同时，Meta也在自主研发用于运行AI模型的内部芯片。但据《金融时报》报道，该项目遇到了“技术挑战和推广问题”，进展不及预期。这表明在短期内，Meta仍将依赖英伟达等外部供应商来构建其AI基础设施。此次大规模采购凸显了科技公司在AI算力竞赛中对高性能硬件的持续需求。"
     },
     {
       "title": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
@@ -364,8 +364,8 @@
       "pubDate": "Wed, 18 Feb 2026 00:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>India ramps up its AI arsenal with 20,000 more GPUs under AI Mission 2.0.</p>\n<p>The post <a href=\"https://www.eetimes.com/india-to-add-20000-gpus-as-ai-mission-2-0-expands-compute-and-chip-push/\">India to Add 20,000 GPUs as AI Mission 2.0 Expands Compute and Chip Push</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "印度将新增2万块GPU，AI 2.0计划扩大计算与芯片布局",
+      "descriptionZh": "印度政府近日宣布，作为其“人工智能使命2.0”计划的一部分，将大幅扩充其人工智能计算基础设施，计划新增部署20,000个图形处理单元。此举旨在强化国家在人工智能领域的战略能力，并减少对外国技术的依赖。\n\n该计划的核心是构建一个大规模、可共享的GPU计算资源池，为国内学术界、初创企业、研究机构和行业提供强大的算力支持。此举直接回应了全球AI竞赛中对计算资源的迫切需求，并将为印度本土AI模型的训练与开发奠定关键基础。\n\n除了扩充算力，“人工智能使命2.0”还包含了对国内半导体产业的扶持。印度政府正积极推动本土芯片设计与制造能力的发展，旨在构建从底层硬件到上层应用的全栈AI生态系统。这一系列举措表明，印度正通过国家层面的战略投资，系统性地提升其在全球AI价值链中的地位，并寻求在关键技术上实现更大程度的自主可控。"
     },
     {
       "title": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
@@ -378,8 +378,8 @@
       "pubDate": "Tue, 17 Feb 2026 20:56:10 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD denies report of MI455X delays as Nvidia VR200 systems are rumored to arrive early — company says Helios systems 'on target for 2H 2026' ",
-      "descriptionZh": "\n                             AMD's Helios rack-scale solution based on the MI455X accelerators, the company's major hope for AI market, may slip to 2027, whereas Nvidia may speed up roll out of the Vera Rubin platform if the latest market rumors are to be believed. \n                                                                                                            "
+      "titleZh": "AMD否认MI455X延期传闻，英伟达VR200系统据传将提前上市——公司称Helios系统\"目标2026年下半年推出\"。",
+      "descriptionZh": "据最新市场传闻，AMD基于MI455X加速器的Helios机架级解决方案可能推迟至2027年推出，而英伟达则可能加快其Vera Rubin平台的发布进度。Helios系统被视为AMD在AI市场的关键布局，旨在通过集成多个MI455X芯片提供大规模算力支持。MI455X预计采用先进封装和内存技术，目标是在特定AI工作负载中提升能效和性能密度。相比之下，英伟达的Vera Rubin平台传闻将搭载新一代GPU架构，可能集成更高带宽内存和增强互连技术，以巩固其在AI训练和推理领域的主导地位。若消息属实，这一时间差可能进一步影响两家公司在高速增长的AI硬件市场的竞争格局，尤其考虑到当前客户对大规模AI基础设施的迫切需求。行业观察指出，技术复杂性、供应链准备及软件生态适配或是影响产品上市时间的主要因素。"
     },
     {
       "title": "Nvidia China Gamble Meets Washington’s Regime",
@@ -392,8 +392,8 @@
       "pubDate": "Tue, 17 Feb 2026 19:10:06 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Nvidia China Gamble Meets Washington’s Regime",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>Nvidia and AMD face a volatile trade regime of tariffs and logistics hurdles for AI chips to China; U.S. Congress threatens export license revocation.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-china-gamble-meets-washingtons-regime/\">Nvidia China Gamble Meets Washington’s Regime</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "英伟达在华豪赌遭遇华盛顿监管",
+      "descriptionZh": "英伟达与AMD向中国出口AI芯片正面临不稳定的贸易环境，包括关税波动与物流障碍，同时美国国会威胁撤销相关出口许可。这一局势源于美国持续收紧对华先进半导体技术的管制，企业需在遵守不断变化的法规与维持中国市场业务间寻求平衡。尽管企业已为中国市场开发符合当前出口限制的“降规版”芯片，但政策风险依然高企，任何许可证的撤销都可能对其营收与供应链规划造成重大冲击。此情况凸显了在地缘政治紧张背景下，全球科技产业在合规与商业拓展上面临的持续挑战。"
     },
     {
       "title": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
@@ -406,8 +406,8 @@
       "pubDate": "Tue, 17 Feb 2026 14:20:07 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " This Corsair RAM and Gigabyte AM5 motherboard bundle is just $67 more than buying the RAM alone – 32GB of RAM and B850 Aorus Elite Wifi 7 shaves $133 off buying separately ",
-      "descriptionZh": "\n                             Score 20% off at Newegg on a Gigabyte B850 Aorus Elite Wifi 7 + 32GB Corsair Vengeance RGB DDR5-6400 bundle—under $505 for AMD AM5 support, Wi-Fi 7, PCIe 5.0 M.2/slot, and eye-catching RGB. \n                                                                                                            "
+      "titleZh": "海盗船内存与技嘉AM5主板套装仅比单买内存贵67美元——32GB内存加B850 Aorus Elite Wifi 7主板组合购买比分开购买节省133美元",
+      "descriptionZh": "技嘉与Newegg推出限时优惠套装，包含B850 Aorus Elite Wifi 7主板和32GB Corsair Vengeance RGB DDR5-6400内存，组合价低于505美元，优惠幅度达20%。该套装专为AMD AM5平台设计，支持新一代Wi-Fi 7无线标准，提供更高的网络速度和更低的延迟。主板配备PCIe 5.0 M.2插槽和PCIe 5.0扩展槽，显著提升存储与显卡的数据传输带宽。DDR5-6400高频内存配合炫彩RGB光效，在优化系统性能的同时增强视觉体验。此捆绑销售为组建高性能AMD AM5平台提供了高性价比的解决方案。"
     },
     {
       "title": "Former Altera CEO Joins French AI Chip Startup",
@@ -420,8 +420,8 @@
       "pubDate": "Tue, 17 Feb 2026 13:59:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Former Altera CEO Joins French AI Chip Startup",
-      "descriptionZh": "\n\t\t\t\t\t\t<p>Sandra Rivera joins Vsora to boost its AI chip game.</p>\n<p>The post <a href=\"https://www.eetimes.com/former-altera-ceo-rivera-joins-french-ai-chip-startup-vsora/\">Former Altera CEO Joins French AI Chip Startup</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t"
+      "titleZh": "前Altera首席执行官加入法国AI芯片初创公司",
+      "descriptionZh": "法国AI芯片初创公司Vsora宣布，前英特尔可编程解决方案事业部（PSG，前身为Altera）首席执行官Sandra Rivera已加入其董事会。此举旨在借助Rivera在半导体行业，特别是在FPGA和企业市场领域的深厚经验，加速Vsora基于其独特数据流和Tensilica DSP内核架构的AI芯片开发与商业化进程。\n\nVsora的核心技术是一种创新的多核数字信号处理器（DSP）架构，专为高效处理AI工作负载设计。其芯片结合了专有的数据流引擎与经过扩展的Cadence Tensilica DSP内核，能够动态分配计算资源，显著提升能效。该架构尤其针对生成式AI和高级驾驶辅助系统（ADAS）等边缘应用进行了优化，旨在以低功耗实现高吞吐量处理。\n\n公司计划利用Rivera在领导Altera（现英特尔PSG）期间积累的战略经验，特别是在将FPGA技术推向数据中心和通信等广阔市场方面的成功实践，来指导Vsora的产品路线图和市场进入策略。Rivera的加入被视为Vsora加强其领导团队、推动下一代AI加速器发展的关键一步，以期在竞争激烈的AI芯片市场中脱颖而出。"
     }
   ]
 }
