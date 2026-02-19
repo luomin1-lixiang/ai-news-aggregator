@@ -243,7 +243,7 @@ export default function Home() {
         <p>
           数据来源: Reuters, BBC, MIT, TechCrunch, The Verge, OpenAI, Google AI, 机器之心, 量子位 等37个源
         </p>
-        <p>每天早上 8:00 自动更新 | 只显示48小时内新闻</p>
+        <p>每天早上 8:00 自动更新 | AI芯片新闻显示48小时内 | 博客显示7天内</p>
       </footer>
     </div>
   );

@@ -208,22 +208,22 @@ async function main() {
   console.log(`Anthropic博客: ${anthropicItems.length} 条`);
   console.log(`Gemini博客: ${geminiItems.length} 条`);
 
-  // 只保留最近48小时的博客
-  const fortyEightHoursAgo = new Date();
-  fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
+  // 只保留最近7天的博客
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
   const recentAnthropicItems = anthropicItems
-    .filter(item => new Date(item.pubDate) > fortyEightHoursAgo)
+    .filter(item => new Date(item.pubDate) > sevenDaysAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
 
   const recentGeminiItems = geminiItems
-    .filter(item => new Date(item.pubDate) > fortyEightHoursAgo)
+    .filter(item => new Date(item.pubDate) > sevenDaysAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
 
-  console.log(`\n48小时内Anthropic博客: ${recentAnthropicItems.length} 条`);
-  console.log(`48小时内Gemini博客: ${recentGeminiItems.length} 条`);
+  console.log(`\n7天内Anthropic博客: ${recentAnthropicItems.length} 条`);
+  console.log(`7天内Gemini博客: ${recentGeminiItems.length} 条`);
 
   // 批量翻译Anthropic博客
   if (recentAnthropicItems.length > 0) {
