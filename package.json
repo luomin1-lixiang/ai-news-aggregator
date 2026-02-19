@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "export": "next build",
-    "fetch-news": "node scripts/fetch-rss.js"
+    "fetch-news": "node scripts/fetch-rss.js",
+    "fetch-blogs": "node scripts/fetch-blogs.js"
   },
   "dependencies": {
     "dotenv": "^17.3.1",

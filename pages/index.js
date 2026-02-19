@@ -3,28 +3,52 @@ import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
+  const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini'
   const [newsData, setNewsData] = useState({ items: [], lastUpdated: null });
+  const [anthropicData, setAnthropicData] = useState({ items: [], lastUpdated: null });
+  const [geminiData, setGeminiData] = useState({ items: [], lastUpdated: null });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // 加载新闻数据
-    // 使用相对路径，兼容GitHub Pages的basePath设置
+    // 加载所有数据
     const basePath = process.env.NODE_ENV === 'production' ? '/ai-news-aggregator' : '';
-    // 添加时间戳参数避免缓存
     const timestamp = new Date().getTime();
-    fetch(`${basePath}/data/news.json?t=${timestamp}`, {
-      cache: 'no-cache'
-    })
+
+    // 加载AI芯片新闻
+    fetch(`${basePath}/data/news.json?t=${timestamp}`, { cache: 'no-cache' })
       .then(res => res.json())
-      .then(data => {
-        setNewsData(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('加载数据失败:', error);
-        setLoading(false);
-      });
+      .then(data => setNewsData(data))
+      .catch(error => console.error('加载AI新闻失败:', error));
+
+    // 加载Anthropic博客
+    fetch(`${basePath}/data/anthropic-news.json?t=${timestamp}`, { cache: 'no-cache' })
+      .then(res => res.json())
+      .then(data => setAnthropicData(data))
+      .catch(error => console.error('加载Anthropic博客失败:', error));
+
+    // 加载Gemini博客
+    fetch(`${basePath}/data/gemini-news.json?t=${timestamp}`, { cache: 'no-cache' })
+      .then(res => res.json())
+      .then(data => setGeminiData(data))
+      .catch(error => console.error('加载Gemini博客失败:', error))
+      .finally(() => setLoading(false));
   }, []);
+
+  // 获取当前Tab的数据
+  const getCurrentData = () => {
+    switch (activeTab) {
+      case 'ai-news':
+        return newsData;
+      case 'anthropic':
+        return anthropicData;
+      case 'gemini':
+        return geminiData;
+      default:
+        return { items: [], lastUpdated: null };
+    }
+  };
+
+  const currentData = getCurrentData();
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -99,22 +123,48 @@ export default function Home() {
 
       <main className={styles.main}>
         <header className={styles.header}>
-          <h1 className={styles.title}>🤖 AI推理芯片新闻聚合</h1>
-          <p className={styles.subtitle}>每日精选AI推理芯片研发、架构创新、性能对比资讯</p>
-          {newsData.lastUpdated && (
+          <h1 className={styles.title}>🤖 AI技术资讯聚合</h1>
+          <p className={styles.subtitle}>每日精选AI推理芯片、Anthropic、Gemini技术资讯</p>
+
+          {/* Tab导航 */}
+          <div className={styles.tabNav}>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'ai-news' ? styles.tabButtonActive : ''}`}
+              onClick={() => setActiveTab('ai-news')}
+            >
+              🔧 AI芯片新闻
+              {newsData.items.length > 0 && <span className={styles.tabBadge}>{newsData.items.length}</span>}
+            </button>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'anthropic' ? styles.tabButtonActive : ''}`}
+              onClick={() => setActiveTab('anthropic')}
+            >
+              🧠 Anthropic博客
+              {anthropicData.items.length > 0 && <span className={styles.tabBadge}>{anthropicData.items.length}</span>}
+            </button>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'gemini' ? styles.tabButtonActive : ''}`}
+              onClick={() => setActiveTab('gemini')}
+            >
+              💎 Gemini博客
+              {geminiData.items.length > 0 && <span className={styles.tabBadge}>{geminiData.items.length}</span>}
+            </button>
+          </div>
+
+          {currentData.lastUpdated && (
             <p className={styles.updateTime}>
-              最后更新: {new Date(newsData.lastUpdated).toLocaleString('zh-CN')}
+              最后更新: {new Date(currentData.lastUpdated).toLocaleString('zh-CN')}
             </p>
           )}
         </header>
 
         {loading ? (
           <div className={styles.loading}>加载中...</div>
-        ) : newsData.items.length === 0 ? (
-          <div className={styles.empty}>暂无新闻数据</div>
+        ) : currentData.items.length === 0 ? (
+          <div className={styles.empty}>暂无内容</div>
         ) : (
           <div className={styles.newsList}>
-            {newsData.items.map((item, index) => (
+            {currentData.items.map((item, index) => (
               <article key={index} className={styles.newsItem}>
                 <div className={styles.newsHeader}>
                   <span className={styles.sourceIcon}>

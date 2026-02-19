@@ -42,6 +42,70 @@
   color: #868e96;
 }
 
+/* Tab导航样式 */
+.tabNav {
+  display: flex;
+  gap: 0.5rem;
+  margin: 2rem 0 1rem 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tabButton {
+  padding: 0.75rem 1.5rem;
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #495057;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  position: relative;
+}
+
+.tabButton:hover {
+  border-color: #667eea;
+  color: #667eea;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.tabButtonActive {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-color: #667eea;
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.tabButtonActive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+}
+
+.tabBadge {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  min-width: 20px;
+  text-align: center;
+}
+
+.tabButtonActive .tabBadge {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tabButton:not(.tabButtonActive) .tabBadge {
+  background: #667eea;
+  color: white;
+}
+
 .loading,
 .empty {
   text-align: center;
@@ -138,15 +202,15 @@
   line-height: 1.8;
   font-size: 0.95rem;
 
-  /* 显示约10行文本 */
+  /* 显示约20行文本（1000字摘要） */
   display: -webkit-box !important;
-  -webkit-line-clamp: 10 !important;
+  -webkit-line-clamp: 20 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis;
 
   /* 备用方案：如果浏览器不支持line-clamp */
-  max-height: calc(1.8em * 10); /* line-height * 行数 */
+  max-height: calc(1.8em * 20); /* line-height * 行数 */
 
   /* 确保文本可以换行 */
   word-wrap: break-word;
