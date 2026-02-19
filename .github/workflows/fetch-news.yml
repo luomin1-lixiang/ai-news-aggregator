@@ -32,7 +32,7 @@ jobs:
 
       - name: Fetch RSS feeds and classify
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
         run: npm run fetch-news
 
       - name: Commit and push if changed

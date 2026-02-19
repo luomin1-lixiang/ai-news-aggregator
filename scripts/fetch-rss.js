@@ -194,7 +194,7 @@ async function listAvailableModels(apiKey) {
   }
 }
 
-// 使用Google Gemini API生成AI摘要（英译中）- 带重试机制
+// 使用DeepSeek API生成AI摘要（英译中）- 带重试机制
 async function generateAISummary(text, isTitle = false, retries = 3) {
   if (!text || text.trim().length === 0) {
     return text;
@@ -206,42 +206,41 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
     return text;
   }
 
-  // 获取Gemini API Key
-  const apiKey = process.env.GEMINI_API_KEY;
+  // 获取DeepSeek API Key
+  const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
-    console.error('未配置GEMINI_API_KEY，返回原文');
+    console.error('未配置DEEPSEEK_API_KEY，返回原文');
     return text;
   }
 
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
-      // 使用 gemini-flash-latest (自动映射到最新的flash模型)
-      const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${apiKey}`;
+      // 使用 DeepSeek API (OpenAI兼容格式)
+      const url = 'https://api.deepseek.com/v1/chat/completions';
 
       // 根据是否是标题设置不同的prompt
-      const prompt = isTitle
-        ? `请将以下英文标题翻译成中文。只需输出翻译后的标题，不要添加任何额外的说明或前缀：
+      const systemPrompt = isTitle
+        ? '你是专业的英中翻译助手。只需翻译标题，不要添加任何说明或前缀。'
+        : '你是专业的AI芯片新闻编辑。阅读英文新闻后，生成约500字的中文摘要，提炼核心技术信息、性能参数和创新点。直接输出摘要，不要添加"摘要："等前缀。';
 
-${text}`
-        : `请阅读以下英文新闻，生成一段500字的中文摘要。直接输出摘要正文，不要有任何前缀：
-
-${text.substring(0, 3000)}`;
+      const userPrompt = isTitle
+        ? `翻译这个标题：${text}`
+        : `请为以下英文新闻生成中文摘要：\n\n${text.substring(0, 4000)}`;
 
       const response = await fetch(url, {
         method: 'POST',
         headers: {
+          'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          contents: [{
-            parts: [{ text: prompt }]
-          }],
-          generationConfig: {
-            temperature: 0.2,
-            maxOutputTokens: isTitle ? 150 : 1200,
-            topP: 0.8,
-            topK: 40
-          }
+          model: 'deepseek-chat',
+          messages: [
+            { role: 'system', content: systemPrompt },
+            { role: 'user', content: userPrompt }
+          ],
+          temperature: 0.3,
+          max_tokens: isTitle ? 150 : 1500
         })
       });
 
@@ -257,19 +256,20 @@ ${text.substring(0, 3000)}`;
           continue; // 继续下一次尝试
         }
 
-        console.error(`Gemini API返回错误 (${status}): ${errorText}`);
+        console.error(`DeepSeek API返回错误 (${status}): ${errorText}`);
         return text;
       }
 
       const data = await response.json();
 
-      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
-        const candidate = data.candidates[0];
-        const summary = candidate.content.parts[0].text.trim();
+      // DeepSeek API响应格式（OpenAI兼容）
+      if (data.choices && data.choices[0] && data.choices[0].message) {
+        const choice = data.choices[0];
+        const summary = choice.message.content.trim();
         const charCount = summary.length;
-        const finishReason = candidate.finishReason;
+        const finishReason = choice.finish_reason;
 
-        console.log(`✓ AI${isTitle ? '翻译' : '摘要'}(${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
+        console.log(`✓ DeepSeek${isTitle ? '翻译' : '摘要'}(${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
 
         // 检查是否被截断
         if (!isTitle && charCount < 300) {
@@ -277,13 +277,13 @@ ${text.substring(0, 3000)}`;
         }
 
         // 如果因为长度限制被截断，警告但仍返回
-        if (finishReason === 'MAX_TOKENS' || finishReason === 'LENGTH') {
-          console.warn(`⚠️  输出达到长度限制 (${finishReason})，内容可能不完整`);
+        if (finishReason === 'length') {
+          console.warn(`⚠️  输出达到长度限制，内容可能不完整`);
         }
 
         return summary;
       } else {
-        console.error('Gemini API返回格式错误:', JSON.stringify(data).substring(0, 500));
+        console.error('DeepSeek API返回格式错误:', JSON.stringify(data).substring(0, 500));
         return text;
       }
     } catch (error) {
@@ -472,7 +472,7 @@ async function main() {
 
   console.log(`\n最终选取 ${selectedItems.length} 条AI推理芯片新闻`);
 
-  // 翻译所有选中的新闻（使用Gemini AI生成摘要）
+  // 翻译所有选中的新闻（使用DeepSeek AI生成摘要）
   console.log('\n开始生成AI摘要（英译中）...');
   for (let i = 0; i < selectedItems.length; i++) {
     const item = selectedItems[i];
@@ -481,7 +481,7 @@ async function main() {
     // 翻译标题
     if (item.title && !isChinese(item.title)) {
       item.titleZh = await generateAISummary(item.title, true);
-      await delay(4000); // Gemini限流：20次/分钟，延迟4秒确保不超限
+      await delay(1500); // DeepSeek限流：50次/分钟，延迟1.5秒安全
     } else {
       item.titleZh = item.title; // 已是中文，保留原文
     }
@@ -490,7 +490,7 @@ async function main() {
     const sourceText = item.content || item.description || '';
     if (sourceText && !isChinese(sourceText)) {
       item.descriptionZh = await generateAISummary(sourceText, false);
-      await delay(4000); // 延迟4秒避免限流
+      await delay(1500); // 延迟1.5秒避免限流
     } else {
       item.descriptionZh = item.description || sourceText; // 已是中文，保留原文
     }
