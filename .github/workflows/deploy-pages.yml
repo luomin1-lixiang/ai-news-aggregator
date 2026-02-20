@@ -1,13 +1,17 @@
 name: Deploy to GitHub Pages
 
 on:
-  # 当news.json更新时触发
+  # 当任何数据文件更新时触发
   push:
     branches:
       - main
     paths:
       - 'data/news.json'
+      - 'data/anthropic-news.json'
+      - 'data/gemini-news.json'
       - 'public/data/news.json'
+      - 'public/data/anthropic-news.json'
+      - 'public/data/gemini-news.json'
 
   # 允许手动触发
   workflow_dispatch:
