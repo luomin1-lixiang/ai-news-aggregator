@@ -143,17 +143,34 @@ async function fetchFeed(feedConfig) {
     console.log(`  RSS标题: ${feed.title || 'N/A'}`);
     console.log(`  原始条目数: ${feed.items.length}`);
 
-    const items = feed.items.map(item => ({
-      title: item.title || '',
-      link: item.link || '',
-      description: item.contentSnippet || item.summary || '',
-      content: item.content || item.contentEncoded || item.contentSnippet || '',
-      author: item.creator || item.author || feedConfig.name,
-      source: feedConfig.name,
-      sourceType: feedConfig.type,
-      category: feedConfig.category,
-      pubDate: item.pubDate || item.isoDate || new Date().toISOString()
-    }));
+    const items = feed.items.map(item => {
+      // 处理author字段 - 确保是字符串
+      let authorName = feedConfig.name;
+      if (item.creator) {
+        authorName = item.creator;
+      } else if (item.author) {
+        // 如果author是对象，提取name字段
+        if (typeof item.author === 'object' && item.author !== null) {
+          if (item.author.name) {
+            authorName = Array.isArray(item.author.name) ? item.author.name[0] : item.author.name;
+          }
+        } else if (typeof item.author === 'string') {
+          authorName = item.author;
+        }
+      }
+
+      return {
+        title: item.title || '',
+        link: item.link || '',
+        description: item.contentSnippet || item.summary || '',
+        content: item.content || item.contentEncoded || item.contentSnippet || '',
+        author: authorName,
+        source: feedConfig.name,
+        sourceType: feedConfig.type,
+        category: feedConfig.category,
+        pubDate: item.pubDate || item.isoDate || new Date().toISOString()
+      };
+    });
 
     console.log(`${feedConfig.name}: 获取到 ${items.length} 条内容`);
 
