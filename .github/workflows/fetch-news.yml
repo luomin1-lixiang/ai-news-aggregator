@@ -37,6 +37,9 @@ jobs:
           npm run fetch-news
           npm run fetch-blogs
 
+      - name: Validate blog data format
+        run: node scripts/validate-blog-data.js
+
       - name: Commit and push if changed
         id: commit
         run: |
