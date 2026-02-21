@@ -29,7 +29,8 @@ const parser = new Parser({
   customFields: {
     item: [
       ['media:group', 'mediaGroup'],
-      ['content:encoded', 'contentEncoded']
+      ['content:encoded', 'contentEncoded'],
+      ['author', 'author']  // 确保author被当作原始字段处理
     ]
   }
 });
@@ -359,6 +360,24 @@ async function main() {
   }
 
   console.log('\n✅ 博客翻译完成！');
+
+  // 最终清理：确保所有author字段都是字符串
+  const cleanAuthorField = (items) => {
+    return items.map(item => {
+      if (typeof item.author === 'object' && item.author !== null) {
+        if (item.author.name) {
+          item.author = Array.isArray(item.author.name) ? item.author.name[0] : item.author.name;
+        } else {
+          item.author = item.source || 'Unknown';
+        }
+      }
+      return item;
+    });
+  };
+
+  // 清理数据
+  recentAnthropicItems = cleanAuthorField(recentAnthropicItems);
+  recentGeminiItems = cleanAuthorField(recentGeminiItems);
 
   // 保存Anthropic博客数据 - 如果没有新数据则保留旧数据
   const anthropicDataPath = path.join(__dirname, '../data/anthropic-news.json');
