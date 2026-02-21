@@ -6,23 +6,7 @@
       "link": "https://blog.google/products-and-platforms/products/chrome/chrome-productivity-improvements/",
       "description": "Three new Chrome features designed to give you a productivity boost: Split view, Save to Google Drive and PDF annotations.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Chrome-HERO.max-600x600.format-webp.webp\">Three new Chrome features designed to give you a productivity boost: Split view, Save to Google Drive and PDF annotations.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Alex Tsu"
-        ],
-        "title": [
-          "Product Manager, Chrome"
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Alex Tsu",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -35,23 +19,7 @@
       "link": "https://blog.google/innovation-and-ai/models-and-research/google-labs/pomelli-photoshoot/",
       "description": "Introducing Pomelli Photoshoot, turn product photos into professional studio shots instantly using Nano Banana.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/LabsPomelli_Photoshoot_YT_Thumb.max-600x600.format-webp.webp\">Introducing Pomelli Photoshoot, turn product photos into professional studio shots instantly using Nano Banana.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Daniel Adonai"
-        ],
-        "title": [
-          "Senior Product Manager"
-        ],
-        "department": [
-          "Google Labs"
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Daniel Adonai",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -77,23 +45,7 @@
       "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/",
       "description": "3.1 Pro is designed for tasks where a simple answer isn’t enough.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3.1_pro_keyword_header_d.max-600x600.format-webp.webp\">3.1 Pro is designed for tasks where a simple answer isn’t enough.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "The Gemini Team"
-        ],
-        "title": [
-          ""
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "The Gemini Team",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -106,23 +58,7 @@
       "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/google-ai-professional-certificate/",
       "description": "Get Google certified in the practical AI skills employers value most. Includes 3 months of Google AI Pro.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_AI_Cert_Trailer_thumbnai.max-600x600.format-webp.webp\">Get Google certified in the practical AI skills employers value most. Includes 3 months of Google AI Pro.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Lisa Gevelber"
-        ],
-        "title": [
-          "Founder, Grow with Google"
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Lisa Gevelber",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -135,23 +71,7 @@
       "link": "https://blog.google/products/ads-commerce/new-meridian-tool-puts-mmm-insights-directly-in-marketers-hands/",
       "description": "Scenario Planner makes MMM insights accessible to marketers. The no-code UI helps teams turn complex data into actionable plans.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/wagtailvideo-c695fm9y_thumb.jpg\">Scenario Planner makes MMM insights accessible to marketers. The no-code UI helps teams turn complex data into actionable plans.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Harikesh Nair"
-        ],
-        "title": [
-          "Senior Director"
-        ],
-        "department": [
-          "Data Science & Engineering"
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Harikesh Nair",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -164,23 +84,7 @@
       "link": "https://blog.google/company-news/inside-google/message-ceo/sundar-pichai-ai-impact-summit-2026/",
       "description": "CEO Sundar Pichai’s remarks at the opening ceremony of the AI Impact Summit 2026",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI-Google_2.max-600x600.format-webp.webp\">CEO Sundar Pichai’s remarks at the opening ceremony of the AI Impact Summit 2026",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Sundar Pichai"
-        ],
-        "title": [
-          "CEO"
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Sundar Pichai",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -206,23 +110,7 @@
       "link": "https://blog.google/innovation-and-ai/products/gemini-app/lyria-3/",
       "description": "Lyria 3 is now available in the Gemini app. Create custom, high-quality 30-second tracks from text and images.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/0217_KeywordHeaderFinalc.max-600x600.format-webp.webp\">Lyria 3 is now available in the Gemini app. Create custom, high-quality 30-second tracks from text and images.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Joël Yawili"
-        ],
-        "title": [
-          "Senior Product Manager"
-        ],
-        "department": [
-          "Gemini app"
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Joël Yawili",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
@@ -235,23 +123,7 @@
       "link": "https://blog.google/products-and-platforms/devices/pixel/google-pixel-10a/",
       "description": "Learn more about Google’s new Pixel 10a, its latest A-series Pixel phone.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GP10a_Thumbnail2_Blog_Hero.max-600x600.format-webp.webp\">Learn more about Google’s new Pixel 10a, its latest A-series Pixel phone.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Laura Kastilani"
-        ],
-        "title": [
-          "Product Manager"
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Laura Kastilani",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
