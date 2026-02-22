@@ -227,12 +227,12 @@ async function main() {
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-  const recentAnthropicItems = anthropicItems
+  let recentAnthropicItems = anthropicItems
     .filter(item => new Date(item.pubDate) > sevenDaysAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
 
-  const recentGeminiItems = geminiItems
+  let recentGeminiItems = geminiItems
     .filter(item => new Date(item.pubDate) > sevenDaysAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
