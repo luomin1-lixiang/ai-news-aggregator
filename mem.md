@@ -914,6 +914,246 @@ cuda, rocm, oneapi, triton, tensorrt, xla, mlir
 
 ---
 
-*最后更新: 2026-02-18*
-*Session ID: ai-news-aggregator-inference-focus*
+## 问题9: 博客功能实现与author对象错误 (2026-02-19~02-21) ✅ **已解决**
+
+### 背景需求
+用户请求添加三个Tab：
+1. AI芯片新闻（原有）
+2. Anthropic技术博客（新增）
+3. Gemini技术博客（新增）
+
+### 实施过程
+
+#### 阶段1: 基础架构搭建 (2026-02-19)
+
+**1. 从Gemini切换到DeepSeek API**
+- **原因**: Gemini API在GitHub Actions环境受限，改用DeepSeek（支持Alipay支付）
+- **配置**:
+  - API: `https://api.deepseek.com/v1/chat/completions`
+  - 模型: `deepseek-chat`
+  - 成本: ~¥3.20/月
+  - Secret: `DEEPSEEK_API_KEY`
+
+**2. 创建博客抓取脚本** (`scripts/fetch-blogs.js`)
+- RSS源配置:
+  - Anthropic: `https://rsshub.app/anthropic/news`
+  - Google Blog: `https://blog.google/rss/`
+- 时间窗口: 最近7天（从48小时扩展）
+- 批量处理: 每批5条并发，批次间延迟500ms
+- 翻译: 标题+1000字摘要
+
+**3. 多Tab前端实现** (`pages/index.js`)
+```javascript
+const [activeTab, setActiveTab] = useState('ai-news');
+const [anthropicData, setAnthropicData] = useState({ items: [], lastUpdated: null });
+const [geminiData, setGeminiData] = useState({ items: [], lastUpdated: null });
+```
+
+**4. 数据文件结构**
+- `data/anthropic-news.json` + `public/data/anthropic-news.json`
+- `data/gemini-news.json` + `public/data/gemini-news.json`
+
+#### 阶段2: 部署问题修复 (2026-02-19~20)
+
+**问题2.1: 部署workflow未触发**
+- **原因**: `deploy-pages.yml` 只监听 `news.json`，不监听博客数据文件
+- **修复**: 添加博客文件到 paths 配置
+```yaml
+paths:
+  - 'data/news.json'
+  - 'data/anthropic-news.json'
+  - 'data/gemini-news.json'
+  - 'public/data/news.json'
+  - 'public/data/anthropic-news.json'
+  - 'public/data/gemini-news.json'
+```
+
+**问题2.2: RSS源本地无法访问**
+- **现象**: 本地Windows环境所有RSS源超时
+- **结论**: 这是本地网络限制，不影响GitHub Actions
+- **策略**: 依赖GitHub Actions环境抓取
+
+#### 阶段3: Author对象错误 ⭐ **核心问题** (2026-02-20~21)
+
+**现象**:
+```
+Application error: a client-side exception has occurred
+```
+- Gemini博客tab点击后白屏报错
+- Anthropic博客正常（使用测试数据）
+
+**根本原因**:
+Google Blog RSS返回的author是**复杂对象**而不是字符串：
+```javascript
+{
+  "$": { "xmlns:author": "http://www.w3.org/2005/Atom" },
+  "name": ["Alex Tsu"],
+  "title": ["Product Manager"],
+  "department": [""],
+  "company": [""]
+}
+```
+
+React渲染期望字符串，遇到对象直接报错。
+
+**为什么会反复出现**:
+1. 修复代码推送后，GitHub Actions凌晨运行时仍使用旧代码
+2. 即使代码正确，rss-parser在某些情况下仍返回原始对象
+3. 缺少最终验证环节
+
+**三层防护解决方案**:
+
+**防护层1: fetchFeed中处理**
+```javascript
+const items = feed.items.map(item => {
+  let authorName = feedConfig.name;
+  if (item.creator) {
+    authorName = item.creator;
+  } else if (item.author) {
+    if (typeof item.author === 'object' && item.author !== null) {
+      if (item.author.name) {
+        authorName = Array.isArray(item.author.name)
+          ? item.author.name[0]
+          : item.author.name;
+      }
+    } else if (typeof item.author === 'string') {
+      authorName = item.author;
+    }
+  }
+  return { ...item, author: authorName };
+});
+```
+
+**防护层2: 保存前最终清理**
+```javascript
+const cleanAuthorField = (items) => {
+  return items.map(item => {
+    if (typeof item.author === 'object' && item.author !== null) {
+      if (item.author.name) {
+        item.author = Array.isArray(item.author.name)
+          ? item.author.name[0]
+          : item.author.name;
+      } else {
+        item.author = item.source || 'Unknown';
+      }
+    }
+    return item;
+  });
+};
+
+recentAnthropicItems = cleanAuthorField(recentAnthropicItems);
+recentGeminiItems = cleanAuthorField(recentGeminiItems);
+```
+
+**防护层3: 自动数据验证**
+- 创建 `scripts/validate-blog-data.js`
+- 检查所有必需字段
+- 验证author是字符串而非对象
+- 集成到GitHub Actions workflow
+
+```yaml
+- name: Validate blog data format
+  run: node scripts/validate-blog-data.js
+```
+
+**手动修复工具**: `scripts/fix-author-field.js`
+- 扫描并修复现有数据文件中的author对象
+- 可随时手动运行清理数据
+
+#### 阶段4: 测试数据与验证
+
+**测试数据生成** (`scripts/test-blog-data.js`)
+- Anthropic: 2条模拟文章（Claude 3.5, Constitutional AI）
+- Gemini: 2条模拟文章（Gemini 1.5 Pro, Responsible AI）
+- 确保前端在RSS失败时有内容显示
+
+**数据保护机制**:
+```javascript
+if (recentAnthropicItems.length > 0) {
+  // 保存新数据
+} else {
+  console.log('⚠️ Anthropic无新数据，保留现有数据');
+  // 不覆盖旧文件
+}
+```
+
+### 关键文件清单
+
+**新增文件**:
+- `scripts/fetch-blogs.js` - 博客RSS抓取与翻译
+- `scripts/fix-author-field.js` - 手动修复author字段
+- `scripts/validate-blog-data.js` - 自动数据验证
+- `scripts/test-blog-data.js` - 生成测试数据
+- `scripts/fetch-blogs-alternative.js` - RSS源测试工具
+- `BLOG_DEBUGGING.md` - 调试文档
+
+**修改文件**:
+- `pages/index.js` - 添加多Tab UI和三个数据源加载
+- `styles/Home.module.css` - Tab样式和长摘要支持
+- `.github/workflows/fetch-news.yml` - 添加fetch-blogs和验证步骤
+- `.github/workflows/deploy-pages.yml` - 添加博客数据文件监听
+- `package.json` - 添加 `fetch-blogs` script
+
+**数据文件**:
+- `data/anthropic-news.json` + `public/data/anthropic-news.json`
+- `data/gemini-news.json` + `public/data/gemini-news.json`
+
+### 当前配置
+
+**博客时间窗口**: 7天（vs 芯片新闻48小时）
+
+**RSS源**:
+- Anthropic: RSSHub代理
+- Google Blog: 官方RSS（包含所有Google博客）
+
+**翻译配置**:
+- 标题: 150 tokens
+- 摘要: 3000 tokens (约1000中文字)
+- 系统提示: 专业技术博客编辑风格
+
+**性能优化**:
+- 批量处理: 5条/批
+- 并发翻译: Promise.all
+- 重试机制: 3次，指数退避
+
+### 提交记录
+
+关键commits:
+- `215d513`: Major upgrade - 1000字摘要 + 多Tab + 博客源
+- `c015d71`: 修复部署workflow监听博客数据
+- `bcd6136`: 确保author字段始终为字符串
+- `acf17be`: 添加三层author保护机制
+- `35bf46d`: 添加自动数据验证防止格式问题
+
+### 经验教训
+
+1. **RSS解析不可靠**: 不同RSS feed返回的数据结构差异大，需要robust处理
+2. **多层防护必要**: 单层处理不够，需要在多个环节验证
+3. **自动化验证关键**: 手动修复治标不治本，必须在workflow中自动验证
+4. **本地测试局限**: 本地网络环境与GitHub Actions不同，不能仅依赖本地测试
+5. **前端容错重要**: 数据加载失败时应优雅降级，不应白屏
+
+### 最终效果
+
+✅ **功能完整**:
+- AI芯片新闻: 15条，48小时内
+- Anthropic博客: 2条测试数据（待RSS恢复）
+- Gemini博客: 10条真实数据，中文翻译
+
+✅ **稳定可靠**:
+- 三层author防护
+- 自动数据验证
+- RSS失败保留旧数据
+- 前端错误处理
+
+✅ **自动化部署**:
+- 每天早8点抓取
+- 自动翻译生成摘要
+- 验证通过后提交
+- 触发GitHub Pages部署
+
+---
+
+*最后更新: 2026-02-21*
+*Session ID: ai-news-aggregator-blog-implementation*
 *Claude版本: Opus 4.5*
