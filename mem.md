@@ -1154,6 +1154,40 @@ if (recentAnthropicItems.length > 0) {
 
 ---
 
-*最后更新: 2026-02-21*
-*Session ID: ai-news-aggregator-blog-implementation*
+## 问题10: 调整定时更新时间 (2026-02-23) ✅ **已完成**
+
+### 需求
+将每日自动更新时间从早上8:00改为凌晨2:00（北京时间）。
+
+### 修改内容
+
+**文件**: `.github/workflows/fetch-news.yml`
+
+```yaml
+# 修改前
+schedule:
+  - cron: '0 0 * * *'  # UTC 0点 = 北京时间8:00
+
+# 修改后
+schedule:
+  - cron: '0 18 * * *'  # UTC 18点 = 北京时间2:00
+```
+
+### 时区换算
+
+| 北京时间 | UTC时间 | Cron表达式 |
+|---------|--------|-----------|
+| 凌晨 2:00 | 18:00（前一天） | `0 18 * * *` |
+| 早上 8:00 | 0:00 | `0 0 * * *` |
+
+**示例**: 北京时间 2月24日 02:00 = UTC 2月23日 18:00
+
+### 提交记录
+
+- Commit `95a8016`: 调整定时更新时间为凌晨2点（北京时间）
+
+---
+
+*最后更新: 2026-02-23*
+*Session ID: ai-news-aggregator-schedule-adjustment*
 *Claude版本: Opus 4.5*
