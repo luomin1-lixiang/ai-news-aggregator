@@ -2,8 +2,8 @@ name: Fetch AI News
 
 on:
   schedule:
-    # 每天早上8点（北京时间）运行，即UTC时间0点
-    - cron: '0 0 * * *'
+    # 每天凌晨2点（北京时间）运行，即UTC时间18点
+    - cron: '0 18 * * *'
 
   workflow_dispatch:
 
