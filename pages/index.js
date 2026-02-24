@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import ReactMarkdown from 'react-markdown';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini'
@@ -213,9 +214,9 @@ export default function Home() {
                   </a>
                 </h2>
 
-                {/* 显示新闻摘要（中文翻译优先） */}
+                {/* 显示新闻摘要（中文翻译优先），支持Markdown格式 */}
                 <div className={styles.newsContent}>
-                  {item.descriptionZh || item.description}
+                  <ReactMarkdown>{item.descriptionZh || item.description}</ReactMarkdown>
                 </div>
 
                 <div className={styles.newsFooter}>

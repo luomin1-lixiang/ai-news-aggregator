@@ -217,6 +217,57 @@
   white-space: normal;
 }
 
+/* Markdown 内容样式 */
+.newsContent p {
+  margin: 0.5rem 0;
+}
+
+.newsContent strong {
+  font-weight: 700;
+  color: #212529;
+}
+
+.newsContent h1,
+.newsContent h2,
+.newsContent h3,
+.newsContent h4 {
+  margin: 1rem 0 0.5rem 0;
+  font-weight: 700;
+  color: #212529;
+}
+
+.newsContent h2 {
+  font-size: 1.1rem;
+}
+
+.newsContent h3 {
+  font-size: 1rem;
+}
+
+.newsContent ul,
+.newsContent ol {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.newsContent li {
+  margin: 0.25rem 0;
+}
+
+.newsContent code {
+  background: #f1f3f4;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.newsContent blockquote {
+  border-left: 3px solid #667eea;
+  margin: 0.5rem 0;
+  padding-left: 1rem;
+  color: #6c757d;
+}
+
 .newsFooter {
   display: flex;
   justify-content: space-between;
