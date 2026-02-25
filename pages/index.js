@@ -9,6 +9,7 @@ export default function Home() {
   const [anthropicData, setAnthropicData] = useState({ items: [], lastUpdated: null });
   const [geminiData, setGeminiData] = useState({ items: [], lastUpdated: null });
   const [loading, setLoading] = useState(true);
+  const [expandedItems, setExpandedItems] = useState({}); // 记录展开状态
 
   useEffect(() => {
     // 加载所有数据
@@ -129,6 +130,20 @@ export default function Home() {
     }
   };
 
+  // 切换展开/收起状态
+  const toggleExpand = (index) => {
+    setExpandedItems(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
+
+  // 检查内容是否足够长需要展开按钮（超过200个字符）
+  const needsExpandButton = (item) => {
+    const content = item.descriptionZh || item.description || '';
+    return content.length > 200;
+  };
+
   return (
     <div className={styles.container}>
       <Head>
@@ -215,9 +230,17 @@ export default function Home() {
                 </h2>
 
                 {/* 显示新闻摘要（中文翻译优先），支持Markdown格式 */}
-                <div className={styles.newsContent}>
+                <div className={`${styles.newsContent} ${expandedItems[index] ? styles.newsContentExpanded : styles.newsContentCollapsed}`}>
                   <ReactMarkdown>{item.descriptionZh || item.description}</ReactMarkdown>
                 </div>
+                {needsExpandButton(item) && (
+                  <button
+                    className={styles.expandButton}
+                    onClick={() => toggleExpand(index)}
+                  >
+                    {expandedItems[index] ? '收起内容 ▲' : '展开全文 ▼'}
+                  </button>
+                )}
 
                 <div className={styles.newsFooter}>
                   <a

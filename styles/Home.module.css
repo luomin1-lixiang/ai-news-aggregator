@@ -202,19 +202,46 @@
   line-height: 1.8;
   font-size: 0.95rem;
 
-  /* 显示约20行文本（1000字摘要） */
+  /* 确保文本可以换行 */
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.newsContentCollapsed {
+  /* 折叠状态：显示约15行文本 */
   display: -webkit-box !important;
-  -webkit-line-clamp: 20 !important;
+  -webkit-line-clamp: 15 !important;
   -webkit-box-orient: vertical !important;
   overflow: hidden !important;
   text-overflow: ellipsis;
 
   /* 备用方案：如果浏览器不支持line-clamp */
-  max-height: calc(1.8em * 20); /* line-height * 行数 */
+  max-height: calc(1.8em * 15); /* line-height * 行数 */
+}
 
-  /* 确保文本可以换行 */
-  word-wrap: break-word;
-  white-space: normal;
+.newsContentExpanded {
+  /* 展开状态：显示全部内容 */
+  display: block !important;
+  max-height: none !important;
+}
+
+.expandButton {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.4rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.expandButton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 /* Markdown 内容样式 */
