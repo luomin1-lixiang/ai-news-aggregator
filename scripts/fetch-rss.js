@@ -221,11 +221,11 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
       // 根据是否是标题设置不同的prompt
       const systemPrompt = isTitle
         ? '你是专业的英中翻译助手。只需翻译标题，不要添加任何说明或前缀。'
-        : '你是专业的AI芯片新闻编辑。阅读英文新闻后，生成约1000字的详细中文摘要。要求：1) 完整介绍背景和上下文 2) 详细解释核心技术原理和创新点 3) 分析性能参数、对比数据 4) 阐述技术影响和应用场景 5) 语言专业但易懂。直接输出摘要，不要添加"摘要："等前缀。';
+        : '你是专业的AI芯片新闻编辑。阅读英文新闻后，生成完整的中文摘要。要求：1) 完整介绍背景和上下文 2) 详细解释核心技术原理和创新点 3) 分析性能参数、对比数据 4) 阐述技术影响和应用场景 5) 语言专业但易懂。摘要长度根据原文内容自然确定，无需限制字数。直接输出摘要，不要添加"摘要："等前缀。';
 
       const userPrompt = isTitle
         ? `翻译这个标题：${text}`
-        : `请为以下英文新闻生成详细的中文摘要（约1000字）：\n\n${text.substring(0, 6000)}`;
+        : `请为以下英文新闻生成完整的中文摘要（长度根据原文内容自然确定）：\n\n${text}`;
 
       const response = await fetch(url, {
         method: 'POST',
@@ -240,7 +240,7 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
             { role: 'user', content: userPrompt }
           ],
           temperature: 0.3,
-          max_tokens: isTitle ? 150 : 3000
+          max_tokens: isTitle ? 150 : 8192  // 标题150，摘要无限制(使用模型最大值)
         })
       });
 
