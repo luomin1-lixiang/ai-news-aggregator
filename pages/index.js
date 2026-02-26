@@ -67,6 +67,19 @@ export default function Home() {
 
   const currentData = getCurrentData();
 
+  // 获取作者名称（处理author可能是对象的情况）
+  const getAuthorName = (author) => {
+    if (!author) return '';
+    if (typeof author === 'string') return author;
+    if (typeof author === 'object') {
+      if (author.name) {
+        return Array.isArray(author.name) ? author.name[0] : author.name;
+      }
+      return '';
+    }
+    return '';
+  };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
@@ -203,7 +216,7 @@ export default function Home() {
                   </span>
                   <span className={styles.source}>{item.source}</span>
                   <span className={styles.separator}>•</span>
-                  <span className={styles.author}>{item.author}</span>
+                  <span className={styles.author}>{getAuthorName(item.author)}</span>
                   <span className={styles.separator}>•</span>
                   <span className={styles.date}>{formatDate(item.pubDate)}</span>
                   {item.category && (

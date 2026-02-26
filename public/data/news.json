@@ -48,23 +48,7 @@
       "link": "https://blog.google/products-and-platforms/platforms/android/samsung-unpacked-2026/",
       "description": "At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
       "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_header_2096x1182_withoutte.max-600x600.format-webp.webp\">At Samsung Unpacked 2026, we showcased how Samsung Galaxy S26 devices are getting the latest in Android’s AI features.",
-      "author": {
-        "$": {
-          "xmlns:author": "http://www.w3.org/2005/Atom"
-        },
-        "name": [
-          "Mindy Brooks"
-        ],
-        "title": [
-          "VP of Product Management and User Experiences, Android Platform"
-        ],
-        "department": [
-          ""
-        ],
-        "company": [
-          ""
-        ]
-      },
+      "author": "Mindy Brooks",
       "source": "Google AI Blog",
       "sourceType": "news",
       "pubDate": "Wed, 25 Feb 2026 18:00:00 +0000",
