@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import dynamic from 'next/dynamic';
-
-// 动态导入 ReactMarkdown，禁用 SSR 以避免水合错误
-const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
+import ClientOnlyMarkdown from '../components/ClientOnlyMarkdown';
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini'
@@ -234,7 +231,7 @@ export default function Home() {
 
                 {/* 显示新闻摘要（中文翻译优先），支持Markdown格式 */}
                 <div className={`${styles.newsContent} ${expandedItems[index] ? styles.newsContentExpanded : styles.newsContentCollapsed}`}>
-                  <ReactMarkdown>{item.descriptionZh || item.description}</ReactMarkdown>
+                  <ClientOnlyMarkdown>{item.descriptionZh || item.description}</ClientOnlyMarkdown>
                 </div>
                 {needsExpandButton(item) && (
                   <button
