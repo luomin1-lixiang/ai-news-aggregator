@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import ReactMarkdown from 'react-markdown';
+import dynamic from 'next/dynamic';
+
+// 动态导入 ReactMarkdown，禁用 SSR 以避免水合错误
+const ReactMarkdown = dynamic(() => import('react-markdown'), { ssr: false });
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini'
