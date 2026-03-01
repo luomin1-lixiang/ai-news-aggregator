@@ -1188,6 +1188,218 @@ schedule:
 
 ---
 
-*最后更新: 2026-02-23*
-*Session ID: ai-news-aggregator-schedule-adjustment*
+## 问题11: React渲染错误 - Author对象问题复现 (2026-02-26) ✅ **已解决**
+
+### 现象
+网页加载报错: "Application error: a client-side exception has occurred"
+
+Chrome控制台错误:
+```
+Minified React error #31
+Text content does not match server-rendered HTML
+Hydration failed because the initial UI does not match what was rendered on the server
+```
+
+### 错误诊断过程
+
+**初步判断 ❌**: 误以为是 ReactMarkdown SSR hydration 问题
+
+**尝试修复1** (失败):
+- 添加 `'use client'` 指令
+- 使用 `next/dynamic` 的 `ssr: false`
+- 创建 `ClientOnlyMarkdown` 组件
+
+**用户反馈**: "还是同样的网页错误"
+
+**深入调查 ✅**:
+使用 Node.js 脚本检查数据文件:
+```javascript
+const news = require('./data/news.json');
+news.items.forEach((item, i) => {
+  if (typeof item.author === 'object') {
+    console.log('Item', i, 'author is object:', item.author);
+  }
+});
+```
+
+**发现根本原因**:
+`news.json` 中的 item 3 的 author 字段是**对象**而不是字符串：
+```json
+"author": {
+  "$": { "xmlns:author": "http://www.w3.org/2005/Atom" },
+  "name": ["Mindy Brooks"],
+  "title": ["VP of Product Management and User Experiences, Android Platform"],
+  "department": [""],
+  "company": [""]
+}
+```
+
+React 无法渲染对象作为 children，导致崩溃。
+
+### 解决方案
+
+**修复1: 前端代码防护** (`pages/index.js`)
+
+添加 `getAuthorName()` 辅助函数处理 author 可能是对象的情况:
+```javascript
+const getAuthorName = (author) => {
+  if (!author) return '';
+  if (typeof author === 'string') return author;
+  if (typeof author === 'object') {
+    if (author.name) {
+      return Array.isArray(author.name) ? author.name[0] : author.name;
+    }
+    return '';
+  }
+  return '';
+};
+```
+
+使用该函数渲染 author:
+```javascript
+<span className={styles.author}>{getAuthorName(item.author)}</span>
+```
+
+**修复2: 清理现有数据**
+
+使用 Node.js 脚本修复 `data/news.json` 和 `public/data/news.json`:
+```javascript
+function cleanAuthor(author) {
+  if (!author) return '';
+  if (typeof author === 'string') return author;
+  if (typeof author === 'object') {
+    if (author.name) {
+      return Array.isArray(author.name) ? author.name[0] : author.name;
+    }
+    return '';
+  }
+  return '';
+}
+
+news.items = news.items.map(item => ({
+  ...item,
+  author: cleanAuthor(item.author)
+}));
+```
+
+### 根源分析
+
+**为什么会出现对象author**:
+- Google Blog RSS feed 返回复杂的 author 结构
+- `rss-parser` 库有时会保留原始对象结构
+- 虽然 `fetch-blogs.js` 已有处理逻辑，但可能在某些边缘情况下失效
+
+**为什么React错误信息误导**:
+- React error #31 指向 hydration 问题
+- 错误堆栈指向 ReactMarkdown 组件
+- 但实际问题在数据本身（author字段）
+- **教训**: React错误指向的位置不一定是根本原因
+
+### 关键文件修改
+
+**修改位置**:
+- `pages/index.js` 第70-81行：添加 `getAuthorName()` 函数
+- `pages/index.js` 第219行：使用 `getAuthorName(item.author)`
+- `data/news.json`：手动清理 author 对象
+- `public/data/news.json`：同步清理
+
+### 提交记录
+- Commit `5c5c6e7`: 修复author对象导致的React渲染错误
+- Commit `a7b8d3f`: 清理数据文件中的author对象
+
+### 预防措施
+
+虽然此问题与问题9中的author错误原因相同，但这次出现在芯片新闻数据中。需要：
+
+1. ✅ 在 `fetch-rss.js` 中也添加 author 清理逻辑（类似 `fetch-blogs.js`）
+2. ✅ 前端 `getAuthorName()` 函数作为最后防线
+3. ✅ 考虑在数据验证脚本中添加芯片新闻验证
+
+---
+
+## 问题12: 切换DeepSeek模型为deepseek-reasoner (2026-02-26) ✅ **已完成**
+
+### 需求
+用户询问当前使用的是 deepseek-chat 还是 deepseek-reasoner，并要求切换到 deepseek-reasoner。
+
+### 当前配置检查
+
+**检查结果**:
+- `scripts/fetch-rss.js` 第237行: `model: 'deepseek-chat'`
+- `scripts/fetch-blogs.js` 第80行: `model: 'deepseek-chat'`
+
+### 修改内容
+
+**文件1**: `scripts/fetch-rss.js`
+```javascript
+// 修改前 (第237行)
+model: 'deepseek-chat',
+
+// 修改后
+model: 'deepseek-reasoner',
+```
+
+**文件2**: `scripts/fetch-blogs.js`
+```javascript
+// 修改前 (第80行)
+model: 'deepseek-chat',
+
+// 修改后
+model: 'deepseek-reasoner',
+```
+
+### DeepSeek模型对比
+
+| 特性 | deepseek-chat | deepseek-reasoner |
+|------|--------------|------------------|
+| **定位** | 通用对话模型 | 推理增强模型 |
+| **推理能力** | 一般 | 更强（类似 o1） |
+| **响应时间** | 快 | 稍慢（需要推理时间） |
+| **适用场景** | 简单翻译、摘要 | 复杂推理、深度分析 |
+| **成本** | 较低 | 稍高 |
+
+### 为什么切换
+
+**优势**:
+1. ✅ 更高质量的翻译 - 更好理解上下文
+2. ✅ 更准确的摘要 - 抓住核心要点
+3. ✅ 更好的技术术语处理 - 对AI芯片专业词汇更精准
+4. ✅ 更深度的内容提炼 - 1000字摘要质量更高
+
+**成本影响**:
+- deepseek-reasoner 价格略高于 deepseek-chat
+- 但对于每天处理约20-30篇文章的场景，成本增加可接受
+
+### 生效时间
+
+**下次生效**: 凌晨 2:00（北京时间）
+- GitHub Actions 定时任务运行时
+- 使用新模型进行翻译和摘要生成
+
+### 提交记录
+
+- Commit `7979177`: 切换DeepSeek模型为deepseek-reasoner
+
+```
+feat: 切换DeepSeek模型为deepseek-reasoner
+
+- 将翻译和摘要生成模型从deepseek-chat改为deepseek-reasoner
+- deepseek-reasoner提供更高质量的推理和翻译结果
+- 修改文件：
+  - scripts/fetch-rss.js (line 237)
+  - scripts/fetch-blogs.js (line 80)
+```
+
+### 验证方法
+
+**明天（2026-02-27）早上检查**:
+1. 访问网站查看新闻和博客内容
+2. 对比翻译质量是否提升
+3. 检查摘要是否更准确、更有深度
+4. 观察技术术语翻译是否更专业
+
+---
+
+*最后更新: 2026-02-26*
+*Session ID: ai-news-aggregator-react-error-model-switch*
 *Claude版本: Opus 4.5*
