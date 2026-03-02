@@ -1,6 +1,48 @@
 {
-  "lastUpdated": "2026-03-02T01:31:28.297Z",
+  "lastUpdated": "2026-03-02T12:07:27.566Z",
   "items": [
+    {
+      "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
+      "link": "https://www.wired.com/story/ai-supremacy-data-center-expansion-arctic-circle/",
+      "description": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "content": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "author": "Joel Khalili",
+      "source": "Wired AI",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 10:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "数据中心已抵达北极圈边缘",
+      "descriptionZh": "随着人工智能实验室对计算力的需求激增，数据中心运营商纷纷涌向北方，以寻求廉价且充足的能源供应。"
+    },
+    {
+      "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
+      "link": "https://www.tomshardware.com/pc-components/cpus/amd-details-ryzen-ai-400-desktop-with-up-to-8-cores-radeon-860m-graphics-apus-wont-be-available-as-boxed-units-only-in-oem-systems",
+      "description": "After announcing Ryzen AI 400 APUs earlier this year, AMD has finally revealed the specifications for the chips. However, they’re targeting OEM systems, and they top out lower than AMD’s Ryzen AI 400 mobile lineup.",
+      "content": "\n                             After announcing Ryzen AI 400 APUs earlier this year, AMD has finally revealed the specifications for the chips. However, they’re targeting OEM systems, and they top out lower than AMD’s Ryzen AI 400 mobile lineup. \n                                                                                                            ",
+      "author": " Jake Roach ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
+      "descriptionZh": "今年早些时候发布了锐龙AI 400系列APU后，AMD终于公布了该芯片的规格参数。不过这些芯片专供整机系统，其最高规格甚至低于AMD的锐龙AI 400移动产品线。"
+    },
+    {
+      "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
+      "link": "https://www.eetimes.com/nokia-bets-the-network-on-nvidia-in-ai-and-6g-pivot/",
+      "description": "At MWC 2026, Nokia outlines its strategic vision for AI-RAN, edge intelligence, and the global 6G horizon, emphasizing a shift from custom hardware to Nvidia GPUs.\nThe post Nokia Bets the Network on Nvidia in AI and 6G Pivot appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>At MWC 2026, Nokia outlines its strategic vision for AI-RAN, edge intelligence, and the global 6G horizon, emphasizing a shift from custom hardware to Nvidia GPUs.</p>\n<p>The post <a href=\"https://www.eetimes.com/nokia-bets-the-network-on-nvidia-in-ai-and-6g-pivot/\">Nokia Bets the Network on Nvidia in AI and 6G Pivot</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tPablo Valerio\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "诺基亚将网络未来",
+      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能及全球6G发展前景的战略愿景，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注网络：借力英伟达加速AI与6G战略转型》的报道由《EE Times》率先发布。"
+    },
     {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
       "link": "https://www.tomshardware.com/pc-components/cpus/amds-k6-iii-sharptooth-debuted-this-week-in-1999-with-on-die-l2-cache-to-savage-the-intel-pentium-ii-it-also-held-the-line-against-the-pentium-iii",
@@ -12,8 +54,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
-      "descriptionZh": "AMD于1999年的本周推出了首批集成片上二级缓存的处理器，标志着Super Socket 7时代的开端。"
+      "titleZh": "AMD K6-III \"利齿",
+      "descriptionZh": "1999年的这一周，AMD推出了首款集成二级缓存的处理器，由此拉开了Super Socket 7时代的序幕。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -26,8 +68,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:45 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达借助智能体AI蓝图与电信",
-      "descriptionZh": "电信行业的运营模式正经历一场由AI驱动的深刻变革。根据英伟达最新发布的《电信行业人工智能现状》报告，网络自动化不仅是运营商投资AI的首要领域，也带来了最高的投资回报。然而，当前的实践正从“自动化”向更高阶的“自主化”演进。自动化仅限于执行预设的工作流程，而真正的自主网络则具备理解、推理和主动决策的能力，能够应对前所未见的复杂场景。\n\n这一演进的核心技术驱动力是“智能体蓝图”和“领域推理模型”。英伟达推出的电信智能体蓝图，并非单一模型，而是一系列可重用、可组合的软件模块集合。这些模块封装了特定的功能（如检索增强生成RAG、工具调用等）和深厚的电信领域知识（例如网络配置标准、故障树分析），开发者可以像搭积木一样快速构建针对特定任务（如网络根因分析）的专属AI智能体。\n\n其创新之处在于“推理模型”的引入。它本质上是一个经过电信领域知识（如3GPP标准、运维文档）精调的大语言模型。这个模型充当智能体的“大脑”，使其能够理解专业的电信术语、上下文和逻辑关系，而不仅仅是进行通用的对话。智能体架构将基础大语言模型的通用能力与电信专业工具（如网络配置管理系统、工单系统）以及领域知识库相结合，形成了能看、能思考、能行动的闭环系统。\n\n在性能与效果上，这种架构已展现出显著优势。例如，在网络故障排查场景中，一个基于该蓝图构建的根因分析智能体，能够将传统上需要工程师数小时甚至数天的手动排查工作，缩短到几分钟内完成。它能够自动关联告警、查询网络拓扑、分析性能指标，并生成带有置信度的根本原因判断及修复建议。在实际部署中，此类系统每月可自动生成并验证数十万张工单，准确率极高，极大释放了人力。\n\n这项技术的深远影响在于，它为电信运营商构建面向未来的“自主网络”提供了可行的技术路径。其应用场景广泛，不仅限于故障管理，还可扩展至网络优化（自动调整参数以提升性能）、客户服务（智能处理投诉并联动网络修复）、流量工程等领域。最终目标是实现网络的自我配置、自我修复、自我优化和自我保护，从而在降低巨大运营成本的同时，提升网络可靠性与客户体验，为5G-Advanced及6G时代的海量连接与极致服务要求奠定基础。"
+      "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
+      "descriptionZh": "自治网络——即智能自管理的电信运营体系——正从一个未来愿景转变为电信运营商当下的优先事项。根据英伟达最新发布的《电信行业人工智能现状报告》，网络自动化已成为投资回报最显著的人工智能应用场景。自动化有别于自治化，它不仅仅是执行预设工作流；深入解读报告。"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -40,8 +82,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA与合作伙伴展示软件定义AI无线",
-      "descriptionZh": "AI-RAN技术正从实验室走向实际应用，证明软件定义是构建未来人工智能原生无线网络的唯一可行路径。在将于3月2日至5日于巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶级电信运营商展开全新AI-RAN合作，该合作由英伟达AI-RAN技术驱动<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/software-defined-ai-ran/\">阅读文章</a>。"
+      "titleZh": "NVIDIA与合作伙伴证明：软件定义AI-R",
+      "descriptionZh": "AI-RAN正从实验室走向实际应用领域，这证明软件定义方法是构建未来原生AI无线网络的唯一可行路径。在将于3月2日至5日在巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶尖电信运营商，依托英伟达AI-RAN平台展开全新合作。（阅读原文）"
     },
     {
       "title": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
@@ -55,39 +97,53 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "descriptionZh": "亚马逊投资500亿美元，英伟达300亿美元，软银300亿美元，预计后续将有更多投资者加入本轮融资。"
-    },
-    {
-      "title": " AMD Ryzen 7 9850X3D vs Intel Core i9-14900K faceoff — Intel’s Raptor Lake platform continues to be relevant in 2026 ",
-      "link": "https://www.tomshardware.com/pc-components/cpus/amd-ryzen-7-9850x3d-vs-intel-core-i9-14900k-faceoff",
-      "description": "The Ryzen 7 9850X3D now leads AMD’s gaming lineup, but Intel’s Core i9-14900K remains a powerful choice for productivity-focused users. We tested both in a head-to-head battle to see which CPU comes out on top.",
-      "content": "\n                             The Ryzen 7 9850X3D now leads AMD’s gaming lineup, but Intel’s Core i9-14900K remains a powerful choice for productivity-focused users. We tested both in a head-to-head battle to see which CPU comes out on top. \n                                                                                                            ",
-      "author": " Kunal Khullar ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 12:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": " AMD Ryzen 7 9850X3D vs Intel Core i9-14900K faceoff — Intel’s Raptor Lake platform continues to be relevant in 2026 ",
-      "descriptionZh": "锐龙7 9850X3D现已成为AMD游戏处理器阵容的领头羊，但对注重生产力的用户而言，英特尔酷睿i9-14900K仍是强劲选择。我们将这两款处理器置于正面交锋的测试中，以决出谁更胜一筹。"
-    },
-    {
-      "title": "Anthropic Hits Back After US Military Labels It a ‘Supply Chain Risk’",
-      "link": "https://www.wired.com/story/anthropic-supply-chain-risk-shockwaves-silicon-valley/",
-      "description": "Anthropic says it would be “legally unsound” for the Pentagon to blacklist its technology after talks over military use of its artificial intelligence models broke down.",
-      "content": "Anthropic says it would be “legally unsound” for the Pentagon to blacklist its technology after talks over military use of its artificial intelligence models broke down.",
-      "author": "Maxwell Zeff, Will Knight, Lauren Goode, Paresh Dave",
-      "source": "Wired AI",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 03:30:41 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "美国军方将其标记为\"供应链风险\"后，Anthropic公司发起回击",
-      "descriptionZh": "美国人工智能公司Anthropic表示，该公司与美国国防部就人工智能模型军事应用的谈判破裂后，五角大楼若将其技术列入黑名单将\"缺乏法律依据\"。"
+      "descriptionZh": "亚马逊出资500亿美元，英伟达与软银各投入300亿美元，随着本轮融资推进，预计将有更多投资者加入。"
     }
   ],
   "history": [
     {
+      "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
+      "link": "https://www.wired.com/story/ai-supremacy-data-center-expansion-arctic-circle/",
+      "description": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "content": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "author": "Joel Khalili",
+      "source": "Wired AI",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 10:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "数据中心已抵达北极圈边缘",
+      "descriptionZh": "随着人工智能实验室对计算力的需求激增，数据中心运营商纷纷涌向北方，以寻求廉价且充足的能源供应。"
+    },
+    {
+      "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
+      "link": "https://www.tomshardware.com/pc-components/cpus/amd-details-ryzen-ai-400-desktop-with-up-to-8-cores-radeon-860m-graphics-apus-wont-be-available-as-boxed-units-only-in-oem-systems",
+      "description": "After announcing Ryzen AI 400 APUs earlier this year, AMD has finally revealed the specifications for the chips. However, they’re targeting OEM systems, and they top out lower than AMD’s Ryzen AI 400 mobile lineup.",
+      "content": "\n                             After announcing Ryzen AI 400 APUs earlier this year, AMD has finally revealed the specifications for the chips. However, they’re targeting OEM systems, and they top out lower than AMD’s Ryzen AI 400 mobile lineup. \n                                                                                                            ",
+      "author": " Jake Roach ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
+      "descriptionZh": "今年早些时候发布了锐龙AI 400系列APU后，AMD终于公布了该芯片的规格参数。不过这些芯片专供整机系统，其最高规格甚至低于AMD的锐龙AI 400移动产品线。"
+    },
+    {
+      "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
+      "link": "https://www.eetimes.com/nokia-bets-the-network-on-nvidia-in-ai-and-6g-pivot/",
+      "description": "At MWC 2026, Nokia outlines its strategic vision for AI-RAN, edge intelligence, and the global 6G horizon, emphasizing a shift from custom hardware to Nvidia GPUs.\nThe post Nokia Bets the Network on Nvidia in AI and 6G Pivot appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>At MWC 2026, Nokia outlines its strategic vision for AI-RAN, edge intelligence, and the global 6G horizon, emphasizing a shift from custom hardware to Nvidia GPUs.</p>\n<p>The post <a href=\"https://www.eetimes.com/nokia-bets-the-network-on-nvidia-in-ai-and-6g-pivot/\">Nokia Bets the Network on Nvidia in AI and 6G Pivot</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tPablo Valerio\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "诺基亚将网络未来",
+      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能及全球6G发展前景的战略愿景，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注网络：借力英伟达加速AI与6G战略转型》的报道由《EE Times》率先发布。"
+    },
+    {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
       "link": "https://www.tomshardware.com/pc-components/cpus/amds-k6-iii-sharptooth-debuted-this-week-in-1999-with-on-die-l2-cache-to-savage-the-intel-pentium-ii-it-also-held-the-line-against-the-pentium-iii",
       "description": "AMD launched its first processors with on-die L2 cache this week in 1999, heralding the beginning of the Super Socket 7 era.",
@@ -98,8 +154,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
-      "descriptionZh": "AMD于1999年的本周推出了首批集成片上二级缓存的处理器，标志着Super Socket 7时代的开端。"
+      "titleZh": "AMD K6-III \"利齿",
+      "descriptionZh": "1999年的这一周，AMD推出了首款集成二级缓存的处理器，由此拉开了Super Socket 7时代的序幕。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -112,8 +168,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:45 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达借助智能体AI蓝图与电信",
-      "descriptionZh": "电信行业的运营模式正经历一场由AI驱动的深刻变革。根据英伟达最新发布的《电信行业人工智能现状》报告，网络自动化不仅是运营商投资AI的首要领域，也带来了最高的投资回报。然而，当前的实践正从“自动化”向更高阶的“自主化”演进。自动化仅限于执行预设的工作流程，而真正的自主网络则具备理解、推理和主动决策的能力，能够应对前所未见的复杂场景。\n\n这一演进的核心技术驱动力是“智能体蓝图”和“领域推理模型”。英伟达推出的电信智能体蓝图，并非单一模型，而是一系列可重用、可组合的软件模块集合。这些模块封装了特定的功能（如检索增强生成RAG、工具调用等）和深厚的电信领域知识（例如网络配置标准、故障树分析），开发者可以像搭积木一样快速构建针对特定任务（如网络根因分析）的专属AI智能体。\n\n其创新之处在于“推理模型”的引入。它本质上是一个经过电信领域知识（如3GPP标准、运维文档）精调的大语言模型。这个模型充当智能体的“大脑”，使其能够理解专业的电信术语、上下文和逻辑关系，而不仅仅是进行通用的对话。智能体架构将基础大语言模型的通用能力与电信专业工具（如网络配置管理系统、工单系统）以及领域知识库相结合，形成了能看、能思考、能行动的闭环系统。\n\n在性能与效果上，这种架构已展现出显著优势。例如，在网络故障排查场景中，一个基于该蓝图构建的根因分析智能体，能够将传统上需要工程师数小时甚至数天的手动排查工作，缩短到几分钟内完成。它能够自动关联告警、查询网络拓扑、分析性能指标，并生成带有置信度的根本原因判断及修复建议。在实际部署中，此类系统每月可自动生成并验证数十万张工单，准确率极高，极大释放了人力。\n\n这项技术的深远影响在于，它为电信运营商构建面向未来的“自主网络”提供了可行的技术路径。其应用场景广泛，不仅限于故障管理，还可扩展至网络优化（自动调整参数以提升性能）、客户服务（智能处理投诉并联动网络修复）、流量工程等领域。最终目标是实现网络的自我配置、自我修复、自我优化和自我保护，从而在降低巨大运营成本的同时，提升网络可靠性与客户体验，为5G-Advanced及6G时代的海量连接与极致服务要求奠定基础。"
+      "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
+      "descriptionZh": "自治网络——即智能自管理的电信运营体系——正从一个未来愿景转变为电信运营商当下的优先事项。根据英伟达最新发布的《电信行业人工智能现状报告》，网络自动化已成为投资回报最显著的人工智能应用场景。自动化有别于自治化，它不仅仅是执行预设工作流；深入解读报告。"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -126,8 +182,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA与合作伙伴展示软件定义AI无线",
-      "descriptionZh": "AI-RAN技术正从实验室走向实际应用，证明软件定义是构建未来人工智能原生无线网络的唯一可行路径。在将于3月2日至5日于巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶级电信运营商展开全新AI-RAN合作，该合作由英伟达AI-RAN技术驱动<a class=\"read-more\" href=\"https://blogs.nvidia.com/blog/software-defined-ai-ran/\">阅读文章</a>。"
+      "titleZh": "NVIDIA与合作伙伴证明：软件定义AI-R",
+      "descriptionZh": "AI-RAN正从实验室走向实际应用领域，这证明软件定义方法是构建未来原生AI无线网络的唯一可行路径。在将于3月2日至5日在巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶尖电信运营商，依托英伟达AI-RAN平台展开全新合作。（阅读原文）"
     },
     {
       "title": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
@@ -141,35 +197,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "descriptionZh": "亚马逊投资500亿美元，英伟达300亿美元，软银300亿美元，预计后续将有更多投资者加入本轮融资。"
-    },
-    {
-      "title": " AMD Ryzen 7 9850X3D vs Intel Core i9-14900K faceoff — Intel’s Raptor Lake platform continues to be relevant in 2026 ",
-      "link": "https://www.tomshardware.com/pc-components/cpus/amd-ryzen-7-9850x3d-vs-intel-core-i9-14900k-faceoff",
-      "description": "The Ryzen 7 9850X3D now leads AMD’s gaming lineup, but Intel’s Core i9-14900K remains a powerful choice for productivity-focused users. We tested both in a head-to-head battle to see which CPU comes out on top.",
-      "content": "\n                             The Ryzen 7 9850X3D now leads AMD’s gaming lineup, but Intel’s Core i9-14900K remains a powerful choice for productivity-focused users. We tested both in a head-to-head battle to see which CPU comes out on top. \n                                                                                                            ",
-      "author": " Kunal Khullar ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 12:00:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": " AMD Ryzen 7 9850X3D vs Intel Core i9-14900K faceoff — Intel’s Raptor Lake platform continues to be relevant in 2026 ",
-      "descriptionZh": "锐龙7 9850X3D现已成为AMD游戏处理器阵容的领头羊，但对注重生产力的用户而言，英特尔酷睿i9-14900K仍是强劲选择。我们将这两款处理器置于正面交锋的测试中，以决出谁更胜一筹。"
-    },
-    {
-      "title": "Anthropic Hits Back After US Military Labels It a ‘Supply Chain Risk’",
-      "link": "https://www.wired.com/story/anthropic-supply-chain-risk-shockwaves-silicon-valley/",
-      "description": "Anthropic says it would be “legally unsound” for the Pentagon to blacklist its technology after talks over military use of its artificial intelligence models broke down.",
-      "content": "Anthropic says it would be “legally unsound” for the Pentagon to blacklist its technology after talks over military use of its artificial intelligence models broke down.",
-      "author": "Maxwell Zeff, Will Knight, Lauren Goode, Paresh Dave",
-      "source": "Wired AI",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 03:30:41 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": "美国军方将其标记为\"供应链风险\"后，Anthropic公司发起回击",
-      "descriptionZh": "美国人工智能公司Anthropic表示，该公司与美国国防部就人工智能模型军事应用的谈判破裂后，五角大楼若将其技术列入黑名单将\"缺乏法律依据\"。"
+      "descriptionZh": "亚马逊出资500亿美元，英伟达与软银各投入300亿美元，随着本轮融资推进，预计将有更多投资者加入。"
     }
   ]
 }
