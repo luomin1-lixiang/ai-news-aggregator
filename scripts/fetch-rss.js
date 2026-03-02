@@ -176,6 +176,21 @@ function isChinese(text) {
   return /[\u4e00-\u9fa5]/.test(text);
 }
 
+// 清理HTML标签
+function stripHtml(text) {
+  if (!text) return '';
+  return text
+    .replace(/<[^>]*>/g, '')      // 去除所有HTML标签
+    .replace(/&nbsp;/g, ' ')      // 替换&nbsp;为空格
+    .replace(/&amp;/g, '&')       // 替换&amp;为&
+    .replace(/&lt;/g, '<')        // 替换&lt;为<
+    .replace(/&gt;/g, '>')        // 替换&gt;为>
+    .replace(/&quot;/g, '"')      // 替换&quot;为"
+    .replace(/&#39;/g, "'")       // 替换&#39;为'
+    .replace(/\s+/g, ' ')         // 合并多余空格
+    .trim();                      // 去除首尾空格
+}
+
 // 列出可用的Gemini模型（调试用）
 async function listAvailableModels(apiKey) {
   try {
@@ -545,7 +560,8 @@ async function main() {
   console.log('\n📄 阶段2：批量生成摘要...');
   const summaryTasks = selectedItems
     .map((item, index) => {
-      const sourceText = item.content || item.description || '';
+      // 清理HTML标签后再传递给翻译
+      const sourceText = stripHtml(item.content || item.description || '');
       return {
         item,
         index,
