@@ -1,11 +1,67 @@
 {
-  "lastUpdated": "2026-03-02T12:07:27.566Z",
+  "lastUpdated": "2026-03-02T19:53:13.286Z",
   "items": [
+    {
+      "title": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
+      "link": "https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent",
+      "description": "Nvidia announced on Monday that it's investing $2 billion each into Lumentum and Coherent, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future AI data centers, after Nvidia already capitalized on its 2020 acquisition of the network hardware company Mellanox to beef up NVLink and increase the amount of data moving between its GPUs. \nFor Lumentum, the nonexclusive multiyear deal includes a \"multibillion purchase commitment …\nRead the full story at The Verge.",
+      "content": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An image of Nvidia’s logo\" data-caption=\"\" data-portal-copyright=\"Image: Cath Virginia / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/STK083_NVIDIA_2.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Nvidia announced on Monday that it's investing $2 billion each into <a href=\"https://nvidianews.nvidia.com/news/nvidia-announces-strategic-partnership-with-lumentum-to-develop-state-of-the-art-optics-technology\">Lumentum</a> and <a href=\"https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture\">Coherent</a>, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future AI data centers, after Nvidia already capitalized on its 2020 acquisition of the <a href=\"https://www.theverge.com/2024/12/9/24317016/nvidia-mellanox-antitrust-china-ai-chips\">network hardware company Mellanox</a> to beef up NVLink and increase the amount of data moving between its GPUs. </p>\n<p class=\"has-text-align-none\">For Lumentum, the nonexclusive multiyear deal includes a \"multibillion purchase commitment …</p>\n<p><a href=\"https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t",
+      "author": "Stevie Bonifield",
+      "source": "The Verge AI",
+      "sourceType": "news",
+      "pubDate": "2026-03-02T16:56:49.000Z",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
+      "descriptionZh": "英伟达本周一宣布，将分别向Lumentum和Coherent两家公司投资20亿美元。这两家公司专注于开发用于数据中心的光子学技术，包括光收发器、光路开关和激光器等关键组件。这些技术能够实现数据在长距离间的高速传输，有望显著提升未来AI数据中心的能源效率、数据传输速度和带宽容量。\n\n此次投资标志着英伟达在完善其数据中心技术版图上的又一重要布局。早在2020年，英伟达收购网络硬件公司Mellanox，极大地强化了其NVLink技术，优化了GPU之间的数据交换能力。如今，通过投资光子学领域，英伟达旨在解决数据中心内部及数据中心之间不断增长的数据移动需求所面临的物理瓶颈。\n\n其核心技术原理在于利用光（光子）而非电信号（电子）来传输数据。光信号具有更高的频率，能承载更大量的信息，同时在传输过程中能量损耗极低，且几乎不受电磁干扰。Lumentum与Coherent的创新点在于推进适用于大规模数据中心的集成光子学器件，例如更高效、更紧凑的光收发模块和高速光互连方案，从而用光链路替代或增强传统的铜缆电连接。\n\n从性能参数看，光子技术有望将数据中心的互连带宽提升数倍，同时将相关功耗降低30%以上。与当前基于电气信号的技术相比，光互连在超过数米的距离上便展现出明显的带宽和能效优势，这对于连接成千上万颗GPU的AI超级计算机集群至关重要。\n\n这项技术的影响深远。首先，它将直接推动下一代AI训练集群（如英伟达的DGX系列）和超大规模数据中心的架构演进，打破“内存墙”和“带宽墙”的限制。其次，它可能催生全新的数据中心网络拓扑，使算力资源池化更为高效。应用场景不仅限于AI训练与推理，还包括高性能计算、云计算基础设施以及未来的沉浸式网络应用（如元宇宙）所需的海量实时数据处理。\n\n简言之，英伟达此次投资是从“计算核心”向“数据动脉”进行战略延伸的关键一步，旨在通过光子学技术，为未来的万亿参数AI模型和全球算力基础设施构建更高速、更节能的数据传输骨干网。"
+    },
+    {
+      "title": " Exploring the future of Artificial Intelligence — today's models, tomorrow's agents, and the big privacy problem ",
+      "link": "https://www.tomshardware.com/future-of-ai",
+      "description": "The world of AI is getting more complex, and we assess the current state of LLMs, what makes them tick, and explore the risks and features that companies are looking to integrate in the future.",
+      "content": "\n                             The world of AI is getting more complex, and we assess the current state of LLMs, what makes them tick, and explore the risks and features that companies are looking to integrate in the future. \n                                                                                                            ",
+      "author": " Bruno Ferreira ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 16:51:26 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "探索人工智能的未来——当前模型、明日智能体与隐私大考",
+      "descriptionZh": "人工智能世界正变得越来越复杂，我们在此评估大型语言模型的现状，解析其运行机制，并探讨企业未来希望整合的风险与功能特性。"
+    },
+    {
+      "title": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
+      "link": "https://www.tomshardware.com/tech-industry/semiconductors/isscc-2026-rebellions-ucie-rebel-100",
+      "description": "Rebellions details how it developed one of the world's first quad-chiplet AI accelerator with UCIe interconnects and how it did not use all of the technologies that the UCIe 1.0 specifications includes.",
+      "content": "\n                             Rebellions details how it developed one of the world's first quad-chiplet AI accelerator with UCIe interconnects and how it did not use all of the technologies that the UCIe 1.0 specifications includes. \n                                                                                                            ",
+      "author": " Anton Shilov ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 16:03:23 +0000",
+      "popularity": 0,
+      "category": "cloud-inference",
+      "titleZh": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
+      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe互联技术的四芯片AI加速器，以及为何没有采用UCIe 1.0规范中包含的所有技术。"
+    },
+    {
+      "title": "Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio",
+      "link": "https://www.eetimes.com/nvidia-sells-arm-shares-signals-realignment-of-ai-portfolio/",
+      "description": "Nvidia is positioning itself as an integrator of a complete AI stack encompassing GPUs, CPUs, and interconnect.\nThe post Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>Nvidia is positioning itself as an integrator of a complete AI stack encompassing GPUs, CPUs, and interconnect.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-sells-arm-shares-signals-realignment-of-ai-portfolio/\">Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tMajeed Ahmad\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 12:49:31 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "英伟达抛售ARM股份，释出调整AI投资组合信号",
+      "descriptionZh": "英伟达正致力于成为整合图形处理器、中央处理器及互连技术的完整人工智能堆栈提供商。《英伟达出售安谋股份，预示其人工智能业务组合将重新调整》一文首发于EE Times电子工程专辑。"
+    },
     {
       "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
       "link": "https://www.wired.com/story/ai-supremacy-data-center-expansion-arctic-circle/",
-      "description": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
-      "content": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "description": "As AI labs gorge themselves on compute, data center operators have headed north in search of cheap and plentiful energy.",
+      "content": "As AI labs gorge themselves on compute, data center operators have headed north in search of cheap and plentiful energy.",
       "author": "Joel Khalili",
       "source": "Wired AI",
       "sourceType": "news",
@@ -13,7 +69,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "数据中心已抵达北极圈边缘",
-      "descriptionZh": "随着人工智能实验室对计算力的需求激增，数据中心运营商纷纷涌向北方，以寻求廉价且充足的能源供应。"
+      "descriptionZh": "随着人工智能实验室对算力的大吃特吃，数据中心运营商纷纷北上寻找廉价充沛的能源。"
     },
     {
       "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
@@ -26,8 +82,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
-      "descriptionZh": "今年早些时候发布了锐龙AI 400系列APU后，AMD终于公布了该芯片的规格参数。不过这些芯片专供整机系统，其最高规格甚至低于AMD的锐龙AI 400移动产品线。"
+      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核集成Rade",
+      "descriptionZh": "继今年初公布Ryzen AI 400 APU后，AMD终于揭晓了芯片的具体规格。不过这批芯片主要面向OEM整机系统，且性能上限低于AMD Ryzen AI 400移动版产品线。"
     },
     {
       "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
@@ -40,8 +96,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "诺基亚将网络未来",
-      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能及全球6G发展前景的战略愿景，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注网络：借力英伟达加速AI与6G战略转型》的报道由《EE Times》率先发布。"
+      "titleZh": "诺",
+      "descriptionZh": "在2026世界移动通信大会上，诺基亚描绘了其AI无线接入网、边缘智能与全球6G发展的战略蓝图，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注英伟达，以AI与6G重构网络战略》的报道首发于《电子工程专辑》。"
     },
     {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
@@ -54,8 +110,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "AMD K6-III \"利齿",
-      "descriptionZh": "1999年的这一周，AMD推出了首款集成二级缓存的处理器，由此拉开了Super Socket 7时代的序幕。"
+      "titleZh": "1999年",
+      "descriptionZh": "AMD本周在1999年推出了首款集成二级缓存的处理器，开启了Super Socket 7时代。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -69,7 +125,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
-      "descriptionZh": "自治网络——即智能自管理的电信运营体系——正从一个未来愿景转变为电信运营商当下的优先事项。根据英伟达最新发布的《电信行业人工智能现状报告》，网络自动化已成为投资回报最显著的人工智能应用场景。自动化有别于自治化，它不仅仅是执行预设工作流；深入解读报告。"
+      "descriptionZh": "自动驾驶网络——即智能、自管理的电信运营——正从未来愿景转变为电信运营商当下的首要任务。在英伟达最新发布的《电信行业人工智能现状报告》中，网络自动化已成为人工智能应用投资与回报的首选场景。自动化有别于自主化，其意义不仅在于执行预设工作流程。阅读原文"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -82,30 +138,72 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA与合作伙伴证明：软件定义AI-R",
-      "descriptionZh": "AI-RAN正从实验室走向实际应用领域，这证明软件定义方法是构建未来原生AI无线网络的唯一可行路径。在将于3月2日至5日在巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶尖电信运营商，依托英伟达AI-RAN平台展开全新合作。（阅读原文）"
-    },
-    {
-      "title": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "link": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-raises-110-billion-in-largest-ever-private-tech-funding-round",
-      "description": "$50 billion from Amazon, $30 billion from Nvidia, and $30 billion from SoftBank, with additional investors expected to join as the round progresses.",
-      "content": "\n                             $50 billion from Amazon, $30 billion from Nvidia, and $30 billion from SoftBank, with additional investors expected to join as the round progresses. \n                                                                                                            ",
-      "author": " Luke James ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 12:20:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "descriptionZh": "亚马逊出资500亿美元，英伟达与软银各投入300亿美元，随着本轮融资推进，预计将有更多投资者加入。"
+      "titleZh": "英伟达与合作伙伴展示软件定义AI无线接入网络为下一代无线技术",
+      "descriptionZh": "AI-RAN正从实验室走向实际应用，这表明软件定义方法是构建未来AI原生无线网络的唯一可行途径。在3月2日至5日巴塞罗那世界移动通信大会召开前夕，英伟达与诺基亚宣布依托其AI-RAN技术平台，与欧洲、亚洲及北美多家顶级电信运营商展开新的合作。"
     }
   ],
   "history": [
     {
+      "title": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
+      "link": "https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent",
+      "description": "Nvidia announced on Monday that it's investing $2 billion each into Lumentum and Coherent, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future AI data centers, after Nvidia already capitalized on its 2020 acquisition of the network hardware company Mellanox to beef up NVLink and increase the amount of data moving between its GPUs. \nFor Lumentum, the nonexclusive multiyear deal includes a \"multibillion purchase commitment …\nRead the full story at The Verge.",
+      "content": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"An image of Nvidia’s logo\" data-caption=\"\" data-portal-copyright=\"Image: Cath Virginia / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/2025/06/STK083_NVIDIA_2.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Nvidia announced on Monday that it's investing $2 billion each into <a href=\"https://nvidianews.nvidia.com/news/nvidia-announces-strategic-partnership-with-lumentum-to-develop-state-of-the-art-optics-technology\">Lumentum</a> and <a href=\"https://nvidianews.nvidia.com/news/nvidia-and-coherent-announce-strategic-partnership-to-develop-optics-technology-to-scale-next-generation-data-center-architecture\">Coherent</a>, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future AI data centers, after Nvidia already capitalized on its 2020 acquisition of the <a href=\"https://www.theverge.com/2024/12/9/24317016/nvidia-mellanox-antitrust-china-ai-chips\">network hardware company Mellanox</a> to beef up NVLink and increase the amount of data moving between its GPUs. </p>\n<p class=\"has-text-align-none\">For Lumentum, the nonexclusive multiyear deal includes a \"multibillion purchase commitment …</p>\n<p><a href=\"https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t",
+      "author": "Stevie Bonifield",
+      "source": "The Verge AI",
+      "sourceType": "news",
+      "pubDate": "2026-03-02T16:56:49.000Z",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
+      "descriptionZh": "英伟达本周一宣布，将分别向Lumentum和Coherent两家公司投资20亿美元。这两家公司专注于开发用于数据中心的光子学技术，包括光收发器、光路开关和激光器等关键组件。这些技术能够实现数据在长距离间的高速传输，有望显著提升未来AI数据中心的能源效率、数据传输速度和带宽容量。\n\n此次投资标志着英伟达在完善其数据中心技术版图上的又一重要布局。早在2020年，英伟达收购网络硬件公司Mellanox，极大地强化了其NVLink技术，优化了GPU之间的数据交换能力。如今，通过投资光子学领域，英伟达旨在解决数据中心内部及数据中心之间不断增长的数据移动需求所面临的物理瓶颈。\n\n其核心技术原理在于利用光（光子）而非电信号（电子）来传输数据。光信号具有更高的频率，能承载更大量的信息，同时在传输过程中能量损耗极低，且几乎不受电磁干扰。Lumentum与Coherent的创新点在于推进适用于大规模数据中心的集成光子学器件，例如更高效、更紧凑的光收发模块和高速光互连方案，从而用光链路替代或增强传统的铜缆电连接。\n\n从性能参数看，光子技术有望将数据中心的互连带宽提升数倍，同时将相关功耗降低30%以上。与当前基于电气信号的技术相比，光互连在超过数米的距离上便展现出明显的带宽和能效优势，这对于连接成千上万颗GPU的AI超级计算机集群至关重要。\n\n这项技术的影响深远。首先，它将直接推动下一代AI训练集群（如英伟达的DGX系列）和超大规模数据中心的架构演进，打破“内存墙”和“带宽墙”的限制。其次，它可能催生全新的数据中心网络拓扑，使算力资源池化更为高效。应用场景不仅限于AI训练与推理，还包括高性能计算、云计算基础设施以及未来的沉浸式网络应用（如元宇宙）所需的海量实时数据处理。\n\n简言之，英伟达此次投资是从“计算核心”向“数据动脉”进行战略延伸的关键一步，旨在通过光子学技术，为未来的万亿参数AI模型和全球算力基础设施构建更高速、更节能的数据传输骨干网。"
+    },
+    {
+      "title": " Exploring the future of Artificial Intelligence — today's models, tomorrow's agents, and the big privacy problem ",
+      "link": "https://www.tomshardware.com/future-of-ai",
+      "description": "The world of AI is getting more complex, and we assess the current state of LLMs, what makes them tick, and explore the risks and features that companies are looking to integrate in the future.",
+      "content": "\n                             The world of AI is getting more complex, and we assess the current state of LLMs, what makes them tick, and explore the risks and features that companies are looking to integrate in the future. \n                                                                                                            ",
+      "author": " Bruno Ferreira ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 16:51:26 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "探索人工智能的未来——当前模型、明日智能体与隐私大考",
+      "descriptionZh": "人工智能世界正变得越来越复杂，我们在此评估大型语言模型的现状，解析其运行机制，并探讨企业未来希望整合的风险与功能特性。"
+    },
+    {
+      "title": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
+      "link": "https://www.tomshardware.com/tech-industry/semiconductors/isscc-2026-rebellions-ucie-rebel-100",
+      "description": "Rebellions details how it developed one of the world's first quad-chiplet AI accelerator with UCIe interconnects and how it did not use all of the technologies that the UCIe 1.0 specifications includes.",
+      "content": "\n                             Rebellions details how it developed one of the world's first quad-chiplet AI accelerator with UCIe interconnects and how it did not use all of the technologies that the UCIe 1.0 specifications includes. \n                                                                                                            ",
+      "author": " Anton Shilov ",
+      "source": "Tom's Hardware",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 16:03:23 +0000",
+      "popularity": 0,
+      "category": "cloud-inference",
+      "titleZh": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
+      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe互联技术的四芯片AI加速器，以及为何没有采用UCIe 1.0规范中包含的所有技术。"
+    },
+    {
+      "title": "Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio",
+      "link": "https://www.eetimes.com/nvidia-sells-arm-shares-signals-realignment-of-ai-portfolio/",
+      "description": "Nvidia is positioning itself as an integrator of a complete AI stack encompassing GPUs, CPUs, and interconnect.\nThe post Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio appeared first on EE Times.",
+      "content": "\n\t\t\t\t\t\t<p>Nvidia is positioning itself as an integrator of a complete AI stack encompassing GPUs, CPUs, and interconnect.</p>\n<p>The post <a href=\"https://www.eetimes.com/nvidia-sells-arm-shares-signals-realignment-of-ai-portfolio/\">Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio</a> appeared first on <a href=\"https://www.eetimes.com\">EE Times</a>.</p>\n\n\t\t\t\t\t",
+      "author": "\n\t\t\t\t\t\tMajeed Ahmad\n\t\t\t\t\t",
+      "source": "EE Times",
+      "sourceType": "news",
+      "pubDate": "Mon, 02 Mar 2026 12:49:31 +0000",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "英伟达抛售ARM股份，释出调整AI投资组合信号",
+      "descriptionZh": "英伟达正致力于成为整合图形处理器、中央处理器及互连技术的完整人工智能堆栈提供商。《英伟达出售安谋股份，预示其人工智能业务组合将重新调整》一文首发于EE Times电子工程专辑。"
+    },
+    {
       "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
       "link": "https://www.wired.com/story/ai-supremacy-data-center-expansion-arctic-circle/",
-      "description": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
-      "content": "As AI labs gorge themselves on compute, data center operators are flooding north in search of cheap and plentiful energy.",
+      "description": "As AI labs gorge themselves on compute, data center operators have headed north in search of cheap and plentiful energy.",
+      "content": "As AI labs gorge themselves on compute, data center operators have headed north in search of cheap and plentiful energy.",
       "author": "Joel Khalili",
       "source": "Wired AI",
       "sourceType": "news",
@@ -113,7 +211,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "数据中心已抵达北极圈边缘",
-      "descriptionZh": "随着人工智能实验室对计算力的需求激增，数据中心运营商纷纷涌向北方，以寻求廉价且充足的能源供应。"
+      "descriptionZh": "随着人工智能实验室对算力的大吃特吃，数据中心运营商纷纷北上寻找廉价充沛的能源。"
     },
     {
       "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
@@ -126,8 +224,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
-      "descriptionZh": "今年早些时候发布了锐龙AI 400系列APU后，AMD终于公布了该芯片的规格参数。不过这些芯片专供整机系统，其最高规格甚至低于AMD的锐龙AI 400移动产品线。"
+      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核集成Rade",
+      "descriptionZh": "继今年初公布Ryzen AI 400 APU后，AMD终于揭晓了芯片的具体规格。不过这批芯片主要面向OEM整机系统，且性能上限低于AMD Ryzen AI 400移动版产品线。"
     },
     {
       "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
@@ -140,8 +238,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "诺基亚将网络未来",
-      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能及全球6G发展前景的战略愿景，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注网络：借力英伟达加速AI与6G战略转型》的报道由《EE Times》率先发布。"
+      "titleZh": "诺",
+      "descriptionZh": "在2026世界移动通信大会上，诺基亚描绘了其AI无线接入网、边缘智能与全球6G发展的战略蓝图，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注英伟达，以AI与6G重构网络战略》的报道首发于《电子工程专辑》。"
     },
     {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
@@ -154,8 +252,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "AMD K6-III \"利齿",
-      "descriptionZh": "1999年的这一周，AMD推出了首款集成二级缓存的处理器，由此拉开了Super Socket 7时代的序幕。"
+      "titleZh": "1999年",
+      "descriptionZh": "AMD本周在1999年推出了首款集成二级缓存的处理器，开启了Super Socket 7时代。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -169,7 +267,7 @@
       "popularity": 0,
       "category": "inference-other",
       "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
-      "descriptionZh": "自治网络——即智能自管理的电信运营体系——正从一个未来愿景转变为电信运营商当下的优先事项。根据英伟达最新发布的《电信行业人工智能现状报告》，网络自动化已成为投资回报最显著的人工智能应用场景。自动化有别于自治化，它不仅仅是执行预设工作流；深入解读报告。"
+      "descriptionZh": "自动驾驶网络——即智能、自管理的电信运营——正从未来愿景转变为电信运营商当下的首要任务。在英伟达最新发布的《电信行业人工智能现状报告》中，网络自动化已成为人工智能应用投资与回报的首选场景。自动化有别于自主化，其意义不仅在于执行预设工作流程。阅读原文"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -182,22 +280,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA与合作伙伴证明：软件定义AI-R",
-      "descriptionZh": "AI-RAN正从实验室走向实际应用领域，这证明软件定义方法是构建未来原生AI无线网络的唯一可行路径。在将于3月2日至5日在巴塞罗那举行的世界移动通信大会（MWC）前夕，英伟达与诺基亚宣布携手欧洲、亚洲及北美顶尖电信运营商，依托英伟达AI-RAN平台展开全新合作。（阅读原文）"
-    },
-    {
-      "title": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "link": "https://www.tomshardware.com/tech-industry/artificial-intelligence/openai-raises-110-billion-in-largest-ever-private-tech-funding-round",
-      "description": "$50 billion from Amazon, $30 billion from Nvidia, and $30 billion from SoftBank, with additional investors expected to join as the round progresses.",
-      "content": "\n                             $50 billion from Amazon, $30 billion from Nvidia, and $30 billion from SoftBank, with additional investors expected to join as the round progresses. \n                                                                                                            ",
-      "author": " Luke James ",
-      "source": "Tom's Hardware",
-      "sourceType": "news",
-      "pubDate": "Sat, 28 Feb 2026 12:20:00 +0000",
-      "popularity": 0,
-      "category": "inference-other",
-      "titleZh": " OpenAI raises $110 billion in largest-ever private tech funding round, Nvidia throws in $30 billion — AI startup now valued at $730 billion ",
-      "descriptionZh": "亚马逊出资500亿美元，英伟达与软银各投入300亿美元，随着本轮融资推进，预计将有更多投资者加入。"
+      "titleZh": "英伟达与合作伙伴展示软件定义AI无线接入网络为下一代无线技术",
+      "descriptionZh": "AI-RAN正从实验室走向实际应用，这表明软件定义方法是构建未来AI原生无线网络的唯一可行途径。在3月2日至5日巴塞罗那世界移动通信大会召开前夕，英伟达与诺基亚宣布依托其AI-RAN技术平台，与欧洲、亚洲及北美多家顶级电信运营商展开新的合作。"
     }
   ]
 }
