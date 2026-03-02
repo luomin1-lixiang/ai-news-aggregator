@@ -219,13 +219,29 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
       const url = 'https://api.deepseek.com/v1/chat/completions';
 
       // 根据是否是标题设置不同的prompt
-      const systemPrompt = isTitle
-        ? '你是专业的英中翻译助手。只需翻译标题，不要添加任何说明或前缀。'
-        : '你是专业的AI芯片新闻编辑。阅读英文新闻后，生成完整的中文摘要。要求：1) 完整介绍背景和上下文 2) 详细解释核心技术原理和创新点 3) 分析性能参数、对比数据 4) 阐述技术影响和应用场景 5) 语言专业但易懂。摘要长度根据原文内容自然确定，无需限制字数。直接输出摘要，不要添加"摘要："等前缀。';
+      let systemPrompt, userPrompt, processType;
 
-      const userPrompt = isTitle
-        ? `翻译这个标题：${text}`
-        : `请为以下英文新闻生成完整的中文摘要（长度根据原文内容自然确定）：\n\n${text}`;
+      if (isTitle) {
+        // 标题翻译
+        systemPrompt = '你是专业的英中翻译助手。只需翻译标题，不要添加任何说明或前缀。';
+        userPrompt = `翻译这个标题：${text}`;
+        processType = '标题翻译';
+      } else {
+        // 内容处理：根据长度选择策略
+        const isShortContent = text.length < 500;
+
+        if (isShortContent) {
+          // 短内容（<500字符）：简单翻译
+          systemPrompt = '你是专业的英中翻译助手。将英文内容翻译成流畅的中文，保持原意和结构。不要添加"翻译："等前缀，直接输出翻译结果。';
+          userPrompt = `翻译以下内容：\n\n${text}`;
+          processType = `短内容翻译(${text.length}字符)`;
+        } else {
+          // 长内容（≥500字符）：详细摘要
+          systemPrompt = '你是专业的AI芯片新闻编辑。阅读英文新闻后，生成完整的中文摘要。要求：1) 完整介绍背景和上下文 2) 详细解释核心技术原理和创新点 3) 分析性能参数、对比数据 4) 阐述技术影响和应用场景 5) 语言专业但易懂。摘要长度根据原文内容自然确定，无需限制字数。直接输出摘要，不要添加"摘要："等前缀。';
+          userPrompt = `请为以下英文新闻生成完整的中文摘要（长度根据原文内容自然确定）：\n\n${text}`;
+          processType = `详细摘要(${text.length}字符)`;
+        }
+      }
 
       const response = await fetch(url, {
         method: 'POST',
@@ -269,7 +285,7 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
         const charCount = summary.length;
         const finishReason = choice.finish_reason;
 
-        console.log(`✓ DeepSeek${isTitle ? '翻译' : '摘要'}(${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
+        console.log(`✓ DeepSeek[${processType}](${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
 
         // 检查是否被截断
         if (!isTitle && charCount < 300) {
