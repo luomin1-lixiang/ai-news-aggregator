@@ -212,21 +212,25 @@ async function listAvailableModels(apiKey) {
 // 使用DeepSeek API生成AI摘要（英译中）- 带重试机制
 async function generateAISummary(text, isTitle = false, retries = 3) {
   if (!text || text.trim().length === 0) {
+    console.log('⚠️  [DeepSeek] 空文本，跳过处理');
     return text;
   }
 
   // 如果已经是中文，直接返回
   if (isChinese(text)) {
-    console.log('检测到中文内容，跳过AI处理');
+    console.log('✓ [DeepSeek] 检测到中文内容，跳过AI处理');
     return text;
   }
 
   // 获取DeepSeek API Key
   const apiKey = process.env.DEEPSEEK_API_KEY;
   if (!apiKey) {
-    console.error('未配置DEEPSEEK_API_KEY，返回原文');
+    console.error('❌ [DeepSeek] 未配置DEEPSEEK_API_KEY环境变量');
+    console.error('   文本前50字符:', text.substring(0, 50));
     return text;
   }
+
+  console.log(`🚀 [DeepSeek] 开始处理${isTitle ? '标题' : '内容'} (长度: ${text.length}字符, API Key: ${apiKey.substring(0, 8)}...)`);
 
   for (let attempt = 0; attempt < retries; attempt++) {
     try {
@@ -258,40 +262,51 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
         }
       }
 
+      const requestBody = {
+        model: 'deepseek-reasoner',
+        messages: [
+          { role: 'system', content: systemPrompt },
+          { role: 'user', content: userPrompt }
+        ],
+        temperature: 0.3,
+        max_tokens: isTitle ? 300 : 8192  // 标题300（增加到足够翻译长标题），摘要8192
+      };
+
+      console.log(`📡 [DeepSeek] 第${attempt + 1}次尝试调用API (${processType}, max_tokens: ${requestBody.max_tokens})`);
+      console.log(`   原文前80字符: ${text.substring(0, 80)}...`);
+
       const response = await fetch(url, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${apiKey}`,
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          model: 'deepseek-reasoner',
-          messages: [
-            { role: 'system', content: systemPrompt },
-            { role: 'user', content: userPrompt }
-          ],
-          temperature: 0.3,
-          max_tokens: isTitle ? 150 : 8192  // 标题150，摘要无限制(使用模型最大值)
-        })
+        body: JSON.stringify(requestBody)
       });
+
+      console.log(`📥 [DeepSeek] API响应状态: ${response.status} ${response.statusText}`);
 
       if (!response.ok) {
         const errorText = await response.text();
         const status = response.status;
 
+        console.error(`❌ [DeepSeek] API返回错误 (${status}): ${errorText.substring(0, 300)}`);
+
         // 如果是429或503错误，尝试重试
         if ((status === 429 || status === 503) && attempt < retries - 1) {
           const waitTime = Math.pow(2, attempt) * 5000; // 指数退避：5s, 10s, 20s
-          console.log(`⚠️  API限流/繁忙 (${status})，${waitTime/1000}秒后重试 (第${attempt + 1}次)...`);
+          console.log(`⏳ [DeepSeek] API限流/繁忙，${waitTime/1000}秒后重试...`);
           await delay(waitTime);
           continue; // 继续下一次尝试
         }
 
-        console.error(`DeepSeek API返回错误 (${status}): ${errorText}`);
+        console.error(`❌ [DeepSeek] 放弃重试，返回原文`);
         return text;
       }
 
       const data = await response.json();
+
+      console.log(`📊 [DeepSeek] API响应数据: choices=${data.choices?.length}, usage=${JSON.stringify(data.usage)}`);
 
       // DeepSeek API响应格式（OpenAI兼容）
       if (data.choices && data.choices[0] && data.choices[0].message) {
@@ -300,35 +315,43 @@ async function generateAISummary(text, isTitle = false, retries = 3) {
         const charCount = summary.length;
         const finishReason = choice.finish_reason;
 
-        console.log(`✓ DeepSeek[${processType}](${charCount}字, ${finishReason}): ${text.substring(0, 30)}... → ${summary.substring(0, 50)}...`);
+        console.log(`✅ [DeepSeek] ${processType}完成: ${charCount}字, finish_reason=${finishReason}`);
+        console.log(`   原文: ${text.substring(0, 50)}...`);
+        console.log(`   译文: ${summary.substring(0, 80)}...`);
 
         // 检查是否被截断
         if (!isTitle && charCount < 300) {
-          console.warn(`⚠️  摘要过短(${charCount}字)，finishReason: ${finishReason}`);
+          console.warn(`⚠️  [DeepSeek] 摘要过短(${charCount}字)，finishReason: ${finishReason}`);
         }
 
         // 如果因为长度限制被截断，警告但仍返回
         if (finishReason === 'length') {
-          console.warn(`⚠️  输出达到长度限制，内容可能不完整`);
+          console.warn(`⚠️  [DeepSeek] 输出达到长度限制(max_tokens=${requestBody.max_tokens})，内容可能不完整`);
         }
 
         return summary;
       } else {
-        console.error('DeepSeek API返回格式错误:', JSON.stringify(data).substring(0, 500));
+        console.error(`❌ [DeepSeek] API响应格式错误，缺少choices或message字段`);
+        console.error(`   响应数据前500字符: ${JSON.stringify(data).substring(0, 500)}`);
         return text;
       }
     } catch (error) {
+      console.error(`❌ [DeepSeek] 第${attempt + 1}次请求异常: ${error.message}`);
+      console.error(`   错误类型: ${error.name}`);
+      console.error(`   堆栈: ${error.stack?.substring(0, 200)}`);
+
       if (attempt < retries - 1) {
         const waitTime = Math.pow(2, attempt) * 5000;
-        console.log(`⚠️  请求失败: ${error.message}，${waitTime/1000}秒后重试...`);
+        console.log(`⏳ [DeepSeek] ${waitTime/1000}秒后进行第${attempt + 2}次重试...`);
         await delay(waitTime);
         continue;
       }
-      console.error('AI摘要生成失败:', error.message);
+      console.error(`❌ [DeepSeek] 所有重试都失败，返回原文`);
       return text;
     }
   }
 
+  console.error(`❌ [DeepSeek] 达到最大重试次数(${retries})，返回原文`);
   return text; // 所有重试都失败，返回原文
 }
 
@@ -527,7 +550,9 @@ async function main() {
   }
 
   // 第一阶段：批量翻译所有标题
-  console.log('\n📝 阶段1：批量翻译标题...');
+  console.log('\n' + '='.repeat(60));
+  console.log('📝 [阶段1] 批量翻译标题');
+  console.log('='.repeat(60));
   const titleTasks = selectedItems
     .filter(item => item.title && !isChinese(item.title))
     .map((item, index) => ({
@@ -536,17 +561,23 @@ async function main() {
       text: item.title
     }));
 
+  console.log(`待翻译标题数: ${titleTasks.length} / ${selectedItems.length}`);
+
   if (titleTasks.length > 0) {
+    console.log(`开始批量处理，批次大小: ${CONCURRENT_BATCH_SIZE}`);
     await processBatch(
       titleTasks,
       async (task) => {
         const translated = await generateAISummary(task.text, true);
         task.item.titleZh = translated;
-        console.log(`  ✓ [${task.index + 1}] ${task.text.substring(0, 40)}... → ${translated.substring(0, 30)}...`);
+        console.log(`  ✓ [${task.index + 1}/${selectedItems.length}] ${task.text.substring(0, 40)}... → ${translated.substring(0, 30)}...`);
         return translated;
       },
       CONCURRENT_BATCH_SIZE
     );
+    console.log(`✅ 标题翻译完成: ${titleTasks.length}条`);
+  } else {
+    console.log('✓ 无需翻译（全部为中文标题）');
   }
 
   // 为已是中文的标题设置titleZh
@@ -557,7 +588,9 @@ async function main() {
   });
 
   // 第二阶段：批量生成所有摘要
-  console.log('\n📄 阶段2：批量生成摘要...');
+  console.log('\n' + '='.repeat(60));
+  console.log('📄 [阶段2] 批量生成摘要');
+  console.log('='.repeat(60));
   const summaryTasks = selectedItems
     .map((item, index) => {
       // 清理HTML标签后再传递给翻译
@@ -571,17 +604,23 @@ async function main() {
     })
     .filter(task => task.needsTranslation);
 
+  console.log(`待翻译摘要数: ${summaryTasks.length} / ${selectedItems.length}`);
+
   if (summaryTasks.length > 0) {
+    console.log(`开始批量处理，批次大小: ${CONCURRENT_BATCH_SIZE}`);
     await processBatch(
       summaryTasks,
       async (task) => {
         const summary = await generateAISummary(task.text, false);
         task.item.descriptionZh = summary;
-        console.log(`  ✓ [${task.index + 1}] 摘要生成完成 (${summary.length}字)`);
+        console.log(`  ✓ [${task.index + 1}/${selectedItems.length}] 摘要生成完成 (${summary.length}字)`);
         return summary;
       },
       CONCURRENT_BATCH_SIZE
     );
+    console.log(`✅ 摘要生成完成: ${summaryTasks.length}条`);
+  } else {
+    console.log('✓ 无需翻译（全部为中文内容）');
   }
 
   // 为已是中文的内容设置descriptionZh
@@ -591,7 +630,9 @@ async function main() {
     }
   });
 
-  console.log('\n✅ AI摘要生成完成！');
+  console.log('\n' + '='.repeat(60));
+  console.log('✅ AI翻译与摘要生成全部完成');
+  console.log('='.repeat(60));
 
   // 直接使用新抓取的数据，不与旧数据合并
   const dataPath = path.join(__dirname, '../data/news.json');
