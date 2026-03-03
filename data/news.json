@@ -1,6 +1,20 @@
 {
-  "lastUpdated": "2026-03-02T19:53:13.286Z",
+  "lastUpdated": "2026-03-03T06:48:40.979Z",
   "items": [
+    {
+      "title": "Apple might use Google servers to store data for its upgraded AI Siri",
+      "link": "https://www.theverge.com/tech/887802/apple-ai-siri-google-servers",
+      "description": "Apple has asked Google to look into \"setting up servers\" for a new version of Siri that's Gemini-powered and meets Apple's privacy requirements, The Information reports. Apple had already announced in January that Google's Gemini AI models would help power the upgraded version of Siri it delayed last year, but The Information's report indicates Apple might lean even more on Google so it can catch up in AI.\nThe original partnership announcement said that \"the next generation of Apple Foundation Models will be based on Google's Gemini models and cloud technology,\" and that the models would \"help power future Apple Intelligence features,\" incl …\nRead the full story at The Verge.",
+      "content": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"Vector illustration of the Apple logo.\" data-caption=\"\" data-portal-copyright=\"Image: Cath Virginia / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25697396/STK071_APPLE_M.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Apple has asked Google to look into \"setting up servers\" for a new version of Siri that's Gemini-powered and meets Apple's privacy requirements, <a href=\"https://www.theinformation.com/articles/apple-discusses-google-hosting-new-siri-need-cloud-help-grows\"><em>The Information</em> reports</a>. Apple had already announced <a href=\"https://www.theverge.com/news/860521/apple-siri-google-gemini-ai-personalization\">in January</a> that Google's Gemini AI models would help power the upgraded version of Siri it <a href=\"https://www.theverge.com/news/626035/apple-delays-upgraded-siri-intelligence-longer-than-we-thought\">delayed last year</a>, but <em>The Information's</em> report indicates Apple might lean even more on Google so it can catch up in AI.</p>\n<p class=\"has-text-align-none\">The original partnership announcement <a href=\"https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/\">said that</a> \"the next generation of Apple Foundation Models will be based on Google's Gemini models and cloud technology,\" and that the models would \"help power future Apple Intelligence features,\" incl …</p>\n<p><a href=\"https://www.theverge.com/tech/887802/apple-ai-siri-google-servers\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t",
+      "author": "Jay Peters",
+      "source": "The Verge AI",
+      "sourceType": "news",
+      "pubDate": "2026-03-02T20:22:33.000Z",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "苹果或将使用谷歌服务器存储升级版人工智能Siri数据",
+      "descriptionZh": "根据科技媒体The Information报道，苹果已要求谷歌协助搭建符合苹果隐私要求的服务器，用于支持基于谷歌Gemini人工智能模型的新版Siri。这一动态表明，在今年1月宣布合作的基础上，苹果可能进一步依赖谷歌的技术以加速其在AI领域的追赶步伐。\n\n今年年初，苹果曾公开表示将采用谷歌的Gemini模型和云端技术构建“下一代苹果基础模型”，这些模型将用于驱动未来的“Apple Intelligence”功能体系。此次服务器部署请求，则揭示了双方合作已进入具体实施阶段。报道指出，苹果希望确保Gemini在云端处理用户请求时，能严格遵循其设备端处理优先、隐私保护为核心的设计原则。\n\n从技术架构看，新版Siri预计将采用混合AI处理模式：简单任务由设备端神经网络引擎处理，复杂查询则通过加密传输至Gemini云端模型。这种设计既保留了苹果本地化计算的隐私优势，又借助谷歌的大模型能力实现了复杂语义理解、多轮对话和内容生成等先进功能。值得注意的是，苹果此前推迟发布的Siri升级版本正是基于这一技术路线。\n\n性能表现方面，Gemini模型家族（包括Nano、Pro、Ultra等版本）在多项基准测试中展现出了强大的多模态理解和推理能力。与苹果自主研发的模型相比，Gemini在参数规模、知识时效性和多语言支持上具有明显优势。不过，具体到Siri集成方案，性能表现还将取决于苹果如何在设备端模型优化、隐私保护机制与云端模型效能之间取得平衡。\n\n此次深度合作对AI产业格局产生多重影响：首先，这标志着苹果暂时放弃了完全自主开发大语言模型的路线，转而通过生态合作快速弥补AI能力短板；其次，谷歌通过将其AI技术嵌入全球超20亿台活跃苹果设备，获得了前所未有的生态渗透力；最后，这也可能改变移动AI助手市场的竞争态势，使Siri在能力上更直接地与微软Copilot、亚马逊Alexa等对手展开竞争。\n\n应用场景上，Gemini驱动的Siri将显著增强在邮件智能总结、跨应用复杂操作、图像内容理解、代码编写辅助等生产力场景的表现。同时，苹果严格的隐私框架要求所有云端数据处理必须经过用户明确授权且实施数据匿名化，这为行业树立了隐私保护与AI能力融合的新范式。\n\n总体而言，这场科技巨头间的合作既反映了苹果在AI军备竞赛中的务实选择，也预示着移动智能交互将进入一个更强大却更注重隐私保护的新阶段。双方如何协调技术架构、商业模式与隐私标准，将成为影响全球AI产品进化方向的关键案例。"
+    },
     {
       "title": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
       "link": "https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent",
@@ -12,8 +26,8 @@
       "pubDate": "2026-03-02T16:56:49.000Z",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
-      "descriptionZh": "英伟达本周一宣布，将分别向Lumentum和Coherent两家公司投资20亿美元。这两家公司专注于开发用于数据中心的光子学技术，包括光收发器、光路开关和激光器等关键组件。这些技术能够实现数据在长距离间的高速传输，有望显著提升未来AI数据中心的能源效率、数据传输速度和带宽容量。\n\n此次投资标志着英伟达在完善其数据中心技术版图上的又一重要布局。早在2020年，英伟达收购网络硬件公司Mellanox，极大地强化了其NVLink技术，优化了GPU之间的数据交换能力。如今，通过投资光子学领域，英伟达旨在解决数据中心内部及数据中心之间不断增长的数据移动需求所面临的物理瓶颈。\n\n其核心技术原理在于利用光（光子）而非电信号（电子）来传输数据。光信号具有更高的频率，能承载更大量的信息，同时在传输过程中能量损耗极低，且几乎不受电磁干扰。Lumentum与Coherent的创新点在于推进适用于大规模数据中心的集成光子学器件，例如更高效、更紧凑的光收发模块和高速光互连方案，从而用光链路替代或增强传统的铜缆电连接。\n\n从性能参数看，光子技术有望将数据中心的互连带宽提升数倍，同时将相关功耗降低30%以上。与当前基于电气信号的技术相比，光互连在超过数米的距离上便展现出明显的带宽和能效优势，这对于连接成千上万颗GPU的AI超级计算机集群至关重要。\n\n这项技术的影响深远。首先，它将直接推动下一代AI训练集群（如英伟达的DGX系列）和超大规模数据中心的架构演进，打破“内存墙”和“带宽墙”的限制。其次，它可能催生全新的数据中心网络拓扑，使算力资源池化更为高效。应用场景不仅限于AI训练与推理，还包括高性能计算、云计算基础设施以及未来的沉浸式网络应用（如元宇宙）所需的海量实时数据处理。\n\n简言之，英伟达此次投资是从“计算核心”向“数据动脉”进行战略延伸的关键一步，旨在通过光子学技术，为未来的万亿参数AI模型和全球算力基础设施构建更高速、更节能的数据传输骨干网。"
+      "titleZh": "英伟达耗资40亿美元投入光子学，以保持AI领域领先优势",
+      "descriptionZh": "英伟达本周一宣布，将向Lumentum和Coherent两家公司分别投资20亿美元。这两家企业均致力于开发用于数据中心的光子技术，包括光学收发器、电路开关和激光器等关键部件，旨在实现长距离高速数据传输。\n\n此次投资建立在英伟达此前战略布局的基础上。2020年，英伟达收购网络硬件公司迈络思（Mellanox），成功强化了其NVLink技术，显著提升了GPU间的数据交换能力。如今，随着AI模型规模不断扩大，数据中心内部及之间的数据传输需求呈现爆炸式增长，传统电互连在能耗、带宽和距离上面临根本性瓶颈。光子技术利用光信号而非电信号进行数据传输，被视为下一代高性能计算和数据中心互连的关键突破方向。\n\nLumentum与Coherent的核心技术聚焦于光电转换与光传输。光学收发器将电信号转换为光信号，通过光纤进行极低损耗的传输，再在接收端转换回电信号。其创新点在于通过先进的集成光子学、硅光技术和高效激光器，不断提升模块的带宽密度（即单位面积或能耗下的数据传输能力）和能效比。例如，相干光通信技术能够利用光的相位和振幅信息，在单一波长上承载更多数据，从而大幅提升光纤的频谱效率。\n\n从性能参数看，当前先进的数据中心光模块正从400G向800G乃至1.6T演进。与传统的铜缆或电互连相比，光互连在相同带宽下功耗可降低多达50%，传输距离可从数米（高速电信号）扩展至数公里甚至更远而不失真。这对于构建跨机架、跨数据中心乃至跨地域的GPU集群至关重要。英伟达的此次投资，特别是与Lumentum签订的“多年期数十亿美元采购承诺”非独家协议，旨在确保其未来AI数据中心平台能够获得稳定、先进的光子学元件供应，从而在系统层面突破数据传输瓶颈。\n\n这项投资的技术影响深远。首先，它将加速光子技术与主流计算架构的融合，推动“光进铜退”在数据中心内部的进程。其次，它将助力英伟达构建端到端的AI计算基础设施，从GPU计算核心到网络互连，实现全栈优化。最终，高性能、低延迟、高能效的光互连将直接赋能大规模AI训练集群、高性能计算、云基础设施以及未来的沉浸式互联网应用，为下一波AI创新提供必要的基础设施支撑。"
     },
     {
       "title": " Exploring the future of Artificial Intelligence — today's models, tomorrow's agents, and the big privacy problem ",
@@ -26,8 +40,8 @@
       "pubDate": "Mon, 02 Mar 2026 16:51:26 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "探索人工智能的未来——当前模型、明日智能体与隐私大考",
-      "descriptionZh": "人工智能世界正变得越来越复杂，我们在此评估大型语言模型的现状，解析其运行机制，并探讨企业未来希望整合的风险与功能特性。"
+      "titleZh": "探秘人工智能未来——今日模型、明日智能体与巨大隐私问题",
+      "descriptionZh": "人工智能领域日趋复杂；我们评估大语言模型的发展现状、解析其运作机制，并探讨企业未来寻求整合应用的风险管控与功能特性。"
     },
     {
       "title": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
@@ -40,8 +54,8 @@
       "pubDate": "Mon, 02 Mar 2026 16:03:23 +0000",
       "popularity": 0,
       "category": "cloud-inference",
-      "titleZh": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
-      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe互联技术的四芯片AI加速器，以及为何没有采用UCIe 1.0规范中包含的所有技术。"
+      "titleZh": "ISSCC 2026：Rebellions发布业内首款基于UCIe互连的四芯粒AI方案，称Rebel100加速器性能比肩英伟达H200且功耗更低",
+      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe芯片间互联技术的四芯粒AI加速器，同时指出该产品并未完全采用UCIe 1.0规范包含的所有技术。"
     },
     {
       "title": "Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio",
@@ -54,8 +68,8 @@
       "pubDate": "Mon, 02 Mar 2026 12:49:31 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达抛售ARM股份，释出调整AI投资组合信号",
-      "descriptionZh": "英伟达正致力于成为整合图形处理器、中央处理器及互连技术的完整人工智能堆栈提供商。《英伟达出售安谋股份，预示其人工智能业务组合将重新调整》一文首发于EE Times电子工程专辑。"
+      "titleZh": "Nvidia出售Arm股票 暗示人工智能业务布局调整",
+      "descriptionZh": "英伟达正致力于成为涵盖GPU、CPU及互联技术的完整人工智能技术栈整合者。《英伟达出售安谋股份，表明其AI投资组合正在调整》一文首刊于《电子工程专辑》。"
     },
     {
       "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
@@ -68,8 +82,8 @@
       "pubDate": "Mon, 02 Mar 2026 10:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "数据中心已抵达北极圈边缘",
-      "descriptionZh": "随着人工智能实验室对算力的大吃特吃，数据中心运营商纷纷北上寻找廉价充沛的能源。"
+      "titleZh": "数据中心落户北极圈边缘",
+      "descriptionZh": "在AI实验室大量使用计算资源的同时，数据中心运营商纷纷北上寻求廉价且充足的能源。"
     },
     {
       "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
@@ -82,8 +96,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核集成Rade",
-      "descriptionZh": "继今年初公布Ryzen AI 400 APU后，AMD终于揭晓了芯片的具体规格。不过这批芯片主要面向OEM整机系统，且性能上限低于AMD Ryzen AI 400移动版产品线。"
+      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核配Radeon 860M显卡，APU仅限OEM整机销售",
+      "descriptionZh": "在今年早些时候公布锐龙AI 400 APU后，AMD终于披露了该系列芯片的具体规格。不过这些芯片主要面向OEM整机系统，且最高配置远低于AMD锐龙AI 400移动端产品线。"
     },
     {
       "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
@@ -96,8 +110,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "诺",
-      "descriptionZh": "在2026世界移动通信大会上，诺基亚描绘了其AI无线接入网、边缘智能与全球6G发展的战略蓝图，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注英伟达，以AI与6G重构网络战略》的报道首发于《电子工程专辑》。"
+      "titleZh": "诺基亚将网络押注于英伟达，以转向人工智能与6G战略",
+      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能以及全球6G发展视野方面的战略规划，重点强调从定制硬件向英伟达GPU的转型。《诺基亚以AI与6G转型为契机，将网络未来押注于英伟达》——EE Times率先报道。"
     },
     {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
@@ -110,8 +124,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "1999年",
-      "descriptionZh": "AMD本周在1999年推出了首款集成二级缓存的处理器，开启了Super Socket 7时代。"
+      "titleZh": "1999年本周，AMD K6-III“利齿”处理器横空出世，凭借片上二级缓存重创英特尔奔腾II——同时亦能抗衡奔腾III的进攻。",
+      "descriptionZh": "1999年的本周，AMD推出了首款将二级缓存直接集成于芯片之上的处理器，开启了Super Socket 7时代。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -124,8 +138,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:45 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
-      "descriptionZh": "自动驾驶网络——即智能、自管理的电信运营——正从未来愿景转变为电信运营商当下的首要任务。在英伟达最新发布的《电信行业人工智能现状报告》中，网络自动化已成为人工智能应用投资与回报的首选场景。自动化有别于自主化，其意义不仅在于执行预设工作流程。阅读原文"
+      "titleZh": "NVIDIA通过智能体化AI蓝图与电信推理模型推进自动驾驶网络发展",
+      "descriptionZh": "自主网络——即智能自主的电信运营——正从未来愿景转变为电信运营商当前的首要任务。在英伟达最新发布的《电信领域人工智能现状报告》中，网络自动化已成为人工智能投资与回报的首要应用场景。自动化有别于自主化，其价值不仅在于执行预先定义的工作流，阅读文章"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -138,12 +152,26 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达与合作伙伴展示软件定义AI无线接入网络为下一代无线技术",
-      "descriptionZh": "AI-RAN正从实验室走向实际应用，这表明软件定义方法是构建未来AI原生无线网络的唯一可行途径。在3月2日至5日巴塞罗那世界移动通信大会召开前夕，英伟达与诺基亚宣布依托其AI-RAN技术平台，与欧洲、亚洲及北美多家顶级电信运营商展开新的合作。"
+      "titleZh": "NVIDIA与合作伙伴展示软件定义AI-RAN为下一代无线技术",
+      "descriptionZh": "AI-RAN正从实验室走向现实应用，这表明软件定义方法是构建未来人工智能原生无线网络的唯一可行途径。在世界移动通信大会（MWC）即将于3月2日至5日在巴塞罗那举行之际，英伟达与诺基亚宣布将携手欧洲、亚洲和北美的多家顶尖电信运营商，在英伟达AI-RAN技术的驱动下展开新的合作。查看全文"
     }
   ],
   "history": [
     {
+      "title": "Apple might use Google servers to store data for its upgraded AI Siri",
+      "link": "https://www.theverge.com/tech/887802/apple-ai-siri-google-servers",
+      "description": "Apple has asked Google to look into \"setting up servers\" for a new version of Siri that's Gemini-powered and meets Apple's privacy requirements, The Information reports. Apple had already announced in January that Google's Gemini AI models would help power the upgraded version of Siri it delayed last year, but The Information's report indicates Apple might lean even more on Google so it can catch up in AI.\nThe original partnership announcement said that \"the next generation of Apple Foundation Models will be based on Google's Gemini models and cloud technology,\" and that the models would \"help power future Apple Intelligence features,\" incl …\nRead the full story at The Verge.",
+      "content": "\n\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\t\t\n<figure>\n\n<img alt=\"Vector illustration of the Apple logo.\" data-caption=\"\" data-portal-copyright=\"Image: Cath Virginia / The Verge\" data-has-syndication-rights=\"1\" src=\"https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25697396/STK071_APPLE_M.jpg?quality=90&#038;strip=all&#038;crop=0,0,100,100\" />\n\t<figcaption>\n\t\t</figcaption>\n</figure>\n<p class=\"has-text-align-none\">Apple has asked Google to look into \"setting up servers\" for a new version of Siri that's Gemini-powered and meets Apple's privacy requirements, <a href=\"https://www.theinformation.com/articles/apple-discusses-google-hosting-new-siri-need-cloud-help-grows\"><em>The Information</em> reports</a>. Apple had already announced <a href=\"https://www.theverge.com/news/860521/apple-siri-google-gemini-ai-personalization\">in January</a> that Google's Gemini AI models would help power the upgraded version of Siri it <a href=\"https://www.theverge.com/news/626035/apple-delays-upgraded-siri-intelligence-longer-than-we-thought\">delayed last year</a>, but <em>The Information's</em> report indicates Apple might lean even more on Google so it can catch up in AI.</p>\n<p class=\"has-text-align-none\">The original partnership announcement <a href=\"https://blog.google/company-news/inside-google/company-announcements/joint-statement-google-apple/\">said that</a> \"the next generation of Apple Foundation Models will be based on Google's Gemini models and cloud technology,\" and that the models would \"help power future Apple Intelligence features,\" incl …</p>\n<p><a href=\"https://www.theverge.com/tech/887802/apple-ai-siri-google-servers\">Read the full story at The Verge.</a></p>\n\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t",
+      "author": "Jay Peters",
+      "source": "The Verge AI",
+      "sourceType": "news",
+      "pubDate": "2026-03-02T20:22:33.000Z",
+      "popularity": 0,
+      "category": "inference-other",
+      "titleZh": "苹果或将使用谷歌服务器存储升级版人工智能Siri数据",
+      "descriptionZh": "根据科技媒体The Information报道，苹果已要求谷歌协助搭建符合苹果隐私要求的服务器，用于支持基于谷歌Gemini人工智能模型的新版Siri。这一动态表明，在今年1月宣布合作的基础上，苹果可能进一步依赖谷歌的技术以加速其在AI领域的追赶步伐。\n\n今年年初，苹果曾公开表示将采用谷歌的Gemini模型和云端技术构建“下一代苹果基础模型”，这些模型将用于驱动未来的“Apple Intelligence”功能体系。此次服务器部署请求，则揭示了双方合作已进入具体实施阶段。报道指出，苹果希望确保Gemini在云端处理用户请求时，能严格遵循其设备端处理优先、隐私保护为核心的设计原则。\n\n从技术架构看，新版Siri预计将采用混合AI处理模式：简单任务由设备端神经网络引擎处理，复杂查询则通过加密传输至Gemini云端模型。这种设计既保留了苹果本地化计算的隐私优势，又借助谷歌的大模型能力实现了复杂语义理解、多轮对话和内容生成等先进功能。值得注意的是，苹果此前推迟发布的Siri升级版本正是基于这一技术路线。\n\n性能表现方面，Gemini模型家族（包括Nano、Pro、Ultra等版本）在多项基准测试中展现出了强大的多模态理解和推理能力。与苹果自主研发的模型相比，Gemini在参数规模、知识时效性和多语言支持上具有明显优势。不过，具体到Siri集成方案，性能表现还将取决于苹果如何在设备端模型优化、隐私保护机制与云端模型效能之间取得平衡。\n\n此次深度合作对AI产业格局产生多重影响：首先，这标志着苹果暂时放弃了完全自主开发大语言模型的路线，转而通过生态合作快速弥补AI能力短板；其次，谷歌通过将其AI技术嵌入全球超20亿台活跃苹果设备，获得了前所未有的生态渗透力；最后，这也可能改变移动AI助手市场的竞争态势，使Siri在能力上更直接地与微软Copilot、亚马逊Alexa等对手展开竞争。\n\n应用场景上，Gemini驱动的Siri将显著增强在邮件智能总结、跨应用复杂操作、图像内容理解、代码编写辅助等生产力场景的表现。同时，苹果严格的隐私框架要求所有云端数据处理必须经过用户明确授权且实施数据匿名化，这为行业树立了隐私保护与AI能力融合的新范式。\n\n总体而言，这场科技巨头间的合作既反映了苹果在AI军备竞赛中的务实选择，也预示着移动智能交互将进入一个更强大却更注重隐私保护的新阶段。双方如何协调技术架构、商业模式与隐私标准，将成为影响全球AI产品进化方向的关键案例。"
+    },
+    {
       "title": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
       "link": "https://www.theverge.com/tech/887635/nvidia-ai-photonics-lumentum-coherent",
       "description": "Nvidia announced on Monday that it's investing $2 billion each into Lumentum and Coherent, which are both developing photonics technology for data centers, like optical transceivers, circuit switches, and lasers, which are used to move data at high speeds over long distances. Their tech could improve energy efficiency, data transfer speeds, and bandwidth in future AI data centers, after Nvidia already capitalized on its 2020 acquisition of the network hardware company Mellanox to beef up NVLink and increase the amount of data moving between its GPUs. \nFor Lumentum, the nonexclusive multiyear deal includes a \"multibillion purchase commitment …\nRead the full story at The Verge.",
@@ -154,8 +182,8 @@
       "pubDate": "2026-03-02T16:56:49.000Z",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "Nvidia&#8217;s spending $4 billion on photonics to stay ahead of the curve in AI",
-      "descriptionZh": "英伟达本周一宣布，将分别向Lumentum和Coherent两家公司投资20亿美元。这两家公司专注于开发用于数据中心的光子学技术，包括光收发器、光路开关和激光器等关键组件。这些技术能够实现数据在长距离间的高速传输，有望显著提升未来AI数据中心的能源效率、数据传输速度和带宽容量。\n\n此次投资标志着英伟达在完善其数据中心技术版图上的又一重要布局。早在2020年，英伟达收购网络硬件公司Mellanox，极大地强化了其NVLink技术，优化了GPU之间的数据交换能力。如今，通过投资光子学领域，英伟达旨在解决数据中心内部及数据中心之间不断增长的数据移动需求所面临的物理瓶颈。\n\n其核心技术原理在于利用光（光子）而非电信号（电子）来传输数据。光信号具有更高的频率，能承载更大量的信息，同时在传输过程中能量损耗极低，且几乎不受电磁干扰。Lumentum与Coherent的创新点在于推进适用于大规模数据中心的集成光子学器件，例如更高效、更紧凑的光收发模块和高速光互连方案，从而用光链路替代或增强传统的铜缆电连接。\n\n从性能参数看，光子技术有望将数据中心的互连带宽提升数倍，同时将相关功耗降低30%以上。与当前基于电气信号的技术相比，光互连在超过数米的距离上便展现出明显的带宽和能效优势，这对于连接成千上万颗GPU的AI超级计算机集群至关重要。\n\n这项技术的影响深远。首先，它将直接推动下一代AI训练集群（如英伟达的DGX系列）和超大规模数据中心的架构演进，打破“内存墙”和“带宽墙”的限制。其次，它可能催生全新的数据中心网络拓扑，使算力资源池化更为高效。应用场景不仅限于AI训练与推理，还包括高性能计算、云计算基础设施以及未来的沉浸式网络应用（如元宇宙）所需的海量实时数据处理。\n\n简言之，英伟达此次投资是从“计算核心”向“数据动脉”进行战略延伸的关键一步，旨在通过光子学技术，为未来的万亿参数AI模型和全球算力基础设施构建更高速、更节能的数据传输骨干网。"
+      "titleZh": "英伟达耗资40亿美元投入光子学，以保持AI领域领先优势",
+      "descriptionZh": "英伟达本周一宣布，将向Lumentum和Coherent两家公司分别投资20亿美元。这两家企业均致力于开发用于数据中心的光子技术，包括光学收发器、电路开关和激光器等关键部件，旨在实现长距离高速数据传输。\n\n此次投资建立在英伟达此前战略布局的基础上。2020年，英伟达收购网络硬件公司迈络思（Mellanox），成功强化了其NVLink技术，显著提升了GPU间的数据交换能力。如今，随着AI模型规模不断扩大，数据中心内部及之间的数据传输需求呈现爆炸式增长，传统电互连在能耗、带宽和距离上面临根本性瓶颈。光子技术利用光信号而非电信号进行数据传输，被视为下一代高性能计算和数据中心互连的关键突破方向。\n\nLumentum与Coherent的核心技术聚焦于光电转换与光传输。光学收发器将电信号转换为光信号，通过光纤进行极低损耗的传输，再在接收端转换回电信号。其创新点在于通过先进的集成光子学、硅光技术和高效激光器，不断提升模块的带宽密度（即单位面积或能耗下的数据传输能力）和能效比。例如，相干光通信技术能够利用光的相位和振幅信息，在单一波长上承载更多数据，从而大幅提升光纤的频谱效率。\n\n从性能参数看，当前先进的数据中心光模块正从400G向800G乃至1.6T演进。与传统的铜缆或电互连相比，光互连在相同带宽下功耗可降低多达50%，传输距离可从数米（高速电信号）扩展至数公里甚至更远而不失真。这对于构建跨机架、跨数据中心乃至跨地域的GPU集群至关重要。英伟达的此次投资，特别是与Lumentum签订的“多年期数十亿美元采购承诺”非独家协议，旨在确保其未来AI数据中心平台能够获得稳定、先进的光子学元件供应，从而在系统层面突破数据传输瓶颈。\n\n这项投资的技术影响深远。首先，它将加速光子技术与主流计算架构的融合，推动“光进铜退”在数据中心内部的进程。其次，它将助力英伟达构建端到端的AI计算基础设施，从GPU计算核心到网络互连，实现全栈优化。最终，高性能、低延迟、高能效的光互连将直接赋能大规模AI训练集群、高性能计算、云基础设施以及未来的沉浸式互联网应用，为下一波AI创新提供必要的基础设施支撑。"
     },
     {
       "title": " Exploring the future of Artificial Intelligence — today's models, tomorrow's agents, and the big privacy problem ",
@@ -168,8 +196,8 @@
       "pubDate": "Mon, 02 Mar 2026 16:51:26 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "探索人工智能的未来——当前模型、明日智能体与隐私大考",
-      "descriptionZh": "人工智能世界正变得越来越复杂，我们在此评估大型语言模型的现状，解析其运行机制，并探讨企业未来希望整合的风险与功能特性。"
+      "titleZh": "探秘人工智能未来——今日模型、明日智能体与巨大隐私问题",
+      "descriptionZh": "人工智能领域日趋复杂；我们评估大语言模型的发展现状、解析其运作机制，并探讨企业未来寻求整合应用的风险管控与功能特性。"
     },
     {
       "title": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
@@ -182,8 +210,8 @@
       "pubDate": "Mon, 02 Mar 2026 16:03:23 +0000",
       "popularity": 0,
       "category": "cloud-inference",
-      "titleZh": " ISSCC 2026: Rebellions details industry's first quad-chiplet AI solution with UCIe interconnects — claims Rebel100 AI accelerator equals the power of Nvidia H200 with lower power envelope ",
-      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe互联技术的四芯片AI加速器，以及为何没有采用UCIe 1.0规范中包含的所有技术。"
+      "titleZh": "ISSCC 2026：Rebellions发布业内首款基于UCIe互连的四芯粒AI方案，称Rebel100加速器性能比肩英伟达H200且功耗更低",
+      "descriptionZh": "Rebellions详细介绍了他们如何开发出全球首批采用UCIe芯片间互联技术的四芯粒AI加速器，同时指出该产品并未完全采用UCIe 1.0规范包含的所有技术。"
     },
     {
       "title": "Nvidia Sells Arm Shares, Signals Realignment of AI Portfolio",
@@ -196,8 +224,8 @@
       "pubDate": "Mon, 02 Mar 2026 12:49:31 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达抛售ARM股份，释出调整AI投资组合信号",
-      "descriptionZh": "英伟达正致力于成为整合图形处理器、中央处理器及互连技术的完整人工智能堆栈提供商。《英伟达出售安谋股份，预示其人工智能业务组合将重新调整》一文首发于EE Times电子工程专辑。"
+      "titleZh": "Nvidia出售Arm股票 暗示人工智能业务布局调整",
+      "descriptionZh": "英伟达正致力于成为涵盖GPU、CPU及互联技术的完整人工智能技术栈整合者。《英伟达出售安谋股份，表明其AI投资组合正在调整》一文首刊于《电子工程专辑》。"
     },
     {
       "title": "The Data Centers Have Arrived at the Edge of the Arctic Circle",
@@ -210,8 +238,8 @@
       "pubDate": "Mon, 02 Mar 2026 10:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "数据中心已抵达北极圈边缘",
-      "descriptionZh": "随着人工智能实验室对算力的大吃特吃，数据中心运营商纷纷北上寻找廉价充沛的能源。"
+      "titleZh": "数据中心落户北极圈边缘",
+      "descriptionZh": "在AI实验室大量使用计算资源的同时，数据中心运营商纷纷北上寻求廉价且充足的能源。"
     },
     {
       "title": " AMD details Ryzen AI 400 desktop with up to 8 cores, Radeon 860M graphics — APUs won’t be available as boxed units, only in OEM systems ",
@@ -224,8 +252,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核集成Rade",
-      "descriptionZh": "继今年初公布Ryzen AI 400 APU后，AMD终于揭晓了芯片的具体规格。不过这批芯片主要面向OEM整机系统，且性能上限低于AMD Ryzen AI 400移动版产品线。"
+      "titleZh": "AMD详解Ryzen AI 400桌面处理器：最高8核配Radeon 860M显卡，APU仅限OEM整机销售",
+      "descriptionZh": "在今年早些时候公布锐龙AI 400 APU后，AMD终于披露了该系列芯片的具体规格。不过这些芯片主要面向OEM整机系统，且最高配置远低于AMD锐龙AI 400移动端产品线。"
     },
     {
       "title": "Nokia Bets the Network on Nvidia in AI and 6G Pivot",
@@ -238,8 +266,8 @@
       "pubDate": "Mon, 02 Mar 2026 08:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "诺",
-      "descriptionZh": "在2026世界移动通信大会上，诺基亚描绘了其AI无线接入网、边缘智能与全球6G发展的战略蓝图，着重强调从定制硬件向英伟达GPU的转型。这篇题为《诺基亚押注英伟达，以AI与6G重构网络战略》的报道首发于《电子工程专辑》。"
+      "titleZh": "诺基亚将网络押注于英伟达，以转向人工智能与6G战略",
+      "descriptionZh": "在2026年世界移动通信大会上，诺基亚阐述了其在AI-RAN、边缘智能以及全球6G发展视野方面的战略规划，重点强调从定制硬件向英伟达GPU的转型。《诺基亚以AI与6G转型为契机，将网络未来押注于英伟达》——EE Times率先报道。"
     },
     {
       "title": " AMD’s K6-III ‘Sharptooth’ debuted this week in 1999 with on-die L2 cache to savage the Intel Pentium II — it also held the line against the Pentium III ",
@@ -252,8 +280,8 @@
       "pubDate": "Sun, 01 Mar 2026 11:00:00 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "1999年",
-      "descriptionZh": "AMD本周在1999年推出了首款集成二级缓存的处理器，开启了Super Socket 7时代。"
+      "titleZh": "1999年本周，AMD K6-III“利齿”处理器横空出世，凭借片上二级缓存重创英特尔奔腾II——同时亦能抗衡奔腾III的进攻。",
+      "descriptionZh": "1999年的本周，AMD推出了首款将二级缓存直接集成于芯片之上的处理器，开启了Super Socket 7时代。"
     },
     {
       "title": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
@@ -266,8 +294,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:45 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "NVIDIA Advances Autonomous Networks With Agentic AI Blueprints and Telco Reasoning Models",
-      "descriptionZh": "自动驾驶网络——即智能、自管理的电信运营——正从未来愿景转变为电信运营商当下的首要任务。在英伟达最新发布的《电信行业人工智能现状报告》中，网络自动化已成为人工智能应用投资与回报的首选场景。自动化有别于自主化，其意义不仅在于执行预设工作流程。阅读原文"
+      "titleZh": "NVIDIA通过智能体化AI蓝图与电信推理模型推进自动驾驶网络发展",
+      "descriptionZh": "自主网络——即智能自主的电信运营——正从未来愿景转变为电信运营商当前的首要任务。在英伟达最新发布的《电信领域人工智能现状报告》中，网络自动化已成为人工智能投资与回报的首要应用场景。自动化有别于自主化，其价值不仅在于执行预先定义的工作流，阅读文章"
     },
     {
       "title": "NVIDIA and Partners Show That Software-Defined AI-RAN Is the Next Wireless Generation",
@@ -280,8 +308,8 @@
       "pubDate": "Sun, 01 Mar 2026 07:00:03 +0000",
       "popularity": 0,
       "category": "inference-other",
-      "titleZh": "英伟达与合作伙伴展示软件定义AI无线接入网络为下一代无线技术",
-      "descriptionZh": "AI-RAN正从实验室走向实际应用，这表明软件定义方法是构建未来AI原生无线网络的唯一可行途径。在3月2日至5日巴塞罗那世界移动通信大会召开前夕，英伟达与诺基亚宣布依托其AI-RAN技术平台，与欧洲、亚洲及北美多家顶级电信运营商展开新的合作。"
+      "titleZh": "NVIDIA与合作伙伴展示软件定义AI-RAN为下一代无线技术",
+      "descriptionZh": "AI-RAN正从实验室走向现实应用，这表明软件定义方法是构建未来人工智能原生无线网络的唯一可行途径。在世界移动通信大会（MWC）即将于3月2日至5日在巴塞罗那举行之际，英伟达与诺基亚宣布将携手欧洲、亚洲和北美的多家顶尖电信运营商，在英伟达AI-RAN技术的驱动下展开新的合作。查看全文"
     }
   ]
 }
