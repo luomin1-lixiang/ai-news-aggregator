@@ -11,7 +11,7 @@
     "fetch-blogs": "node scripts/fetch-blogs.js"
   },
   "dependencies": {
-    "cheerio": "^1.0.0-rc.12",
+    "cheerio": "1.0.0-rc.12",
     "dotenv": "^17.3.1",
     "next": "^14.0.0",
     "react": "^18.2.0",
