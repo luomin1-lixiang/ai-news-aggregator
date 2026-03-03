@@ -1679,6 +1679,405 @@ git push origin main
 
 ---
 
+## 问题14: Web Scraping功能实现与File is not defined错误 (2026-03-03) ✅ **已解决**
+
+### 功能需求
+用户提出将新闻内容用大模型进行原文全文总结后发布，需要爬取完整正文而非RSS摘要。
+
+**爬取目标网站**（优先级排序）：
+- **第一阶段**: Nvidia Blog, Tom's Hardware
+- **第二阶段**: Chips and Cheese, AnandTech
+
+### 实现方案
+
+#### 1. 添加依赖
+```json
+"dependencies": {
+  "cheerio": "1.0.0-rc.12",  // ⚠️ 必须锁定版本，不能用^
+  // ... 其他依赖
+}
+```
+
+#### 2. RSS配置标记
+```javascript
+const RSS_FEEDS = [
+  { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news', fullArticle: true },
+  { url: 'https://www.anandtech.com/rss/', name: 'AnandTech', type: 'news', fullArticle: true },
+  { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news', fullArticle: true },
+  { url: 'https://blogs.nvidia.com/feed/', name: 'Nvidia Blog', type: 'news', fullArticle: true },
+  // ... 其他源
+];
+```
+
+#### 3. 站点提取器映射
+```javascript
+const SITE_EXTRACTORS = {
+  'Nvidia Blog': extractNvidiaArticle,
+  'Tom\'s Hardware': extractTomshardwareArticle,
+  'Chips and Cheese': extractChipsAndCheeseArticle,
+  'AnandTech': extractAnandtechArticle
+};
+```
+
+#### 4. 主爬虫函数
+```javascript
+async function fetchFullArticle(url, siteName, retries = 2) {
+  console.log(`🌐 [Crawler] 爬取完整正文: ${siteName}`);
+
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)...',
+          'Accept': 'text/html,application/xhtml+xml...',
+          'Accept-Language': 'en-US,en;q=0.9',
+        },
+        timeout: 15000
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      const html = await response.text();
+      const extractor = SITE_EXTRACTORS[siteName];
+      const content = extractor(html, url);
+
+      if (content && content.length > 200) {
+        console.log(`✅ [Crawler] 正文提取成功 (${content.length}字符)`);
+        return content;
+      }
+
+      throw new Error('提取内容过短');
+    } catch (error) {
+      if (attempt < retries - 1) {
+        await delay(2000);
+        continue;
+      }
+      console.error(`❌ [Crawler] 爬取失败: ${error.message}`);
+      return null;
+    }
+  }
+}
+```
+
+#### 5. 站点特定提取器示例
+```javascript
+function extractNvidiaArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      'article .post-content',
+      '.entry-content',
+      'article .content',
+      '.post-single__content',
+      'div[class*="post-content"]'
+    ];
+
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        // 移除广告、社交分享等元素
+        $content.find('script, style, nav, footer, .social-share, .related-posts').remove();
+        let text = $content.text().trim();
+        text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
+
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Nvidia提取器错误: ${error.message}`);
+    return null;
+  }
+}
+```
+
+#### 6. 集成到RSS处理流程
+```javascript
+async function fetchFeed(feedConfig) {
+  try {
+    const feed = await parser.parseURL(feedConfig.url);
+    const items = feed.items.map(item => ({ /* ... */ }));
+
+    // 🌐 如果配置了爬取完整正文，则爬取每篇文章
+    if (feedConfig.fullArticle) {
+      console.log(`\n📚 ${feedConfig.name}: 开始爬取完整正文 (${items.length}条)`);
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const fullContent = await fetchFullArticle(item.link, feedConfig.name);
+        if (fullContent) {
+          item.content = fullContent;  // 替换RSS摘要为完整正文
+          console.log(`  [${i+1}/${items.length}] ✅ ${item.title.substring(0, 50)}...`);
+        } else {
+          console.log(`  [${i+1}/${items.length}] ⚠️  使用RSS摘要`);
+        }
+        // 请求间隔1秒，避免被封
+        if (i < items.length - 1) {
+          await delay(1000);
+        }
+      }
+    }
+
+    return items;
+  } catch (error) {
+    console.error(`抓取 ${feedConfig.name} 失败:`, error.message);
+    return [];
+  }
+}
+```
+
+### 问题现象：ReferenceError: File is not defined
+
+**错误信息**：
+```
+ReferenceError: File is not defined
+    at Object.<anonymous> (/home/runner/work/.../node_modules/undici/lib/web/webidl/index.js:534:48)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    ...
+Node.js v18.20.8
+Error: Process completed with exit code 1.
+```
+
+**复现环境**：
+- GitHub Actions (Node.js 18.20.8)
+- npm run fetch-news
+
+### 诊断过程（三次尝试）
+
+#### 第一次尝试 ❌ **失败**
+**操作**：
+1. 移除 `scripts/fetch-rss.js` 中的 `const fetch = require('node-fetch');`
+2. 从 package.json 移除 `"node-fetch": "^2.7.0"`
+3. 提交 commit `06ca165`
+
+**失败原因**：
+- 只检查了显式导入的 node-fetch
+- 没有追查间接依赖关系
+- 问题依然存在
+
+#### 第二次尝试 ❌ **失败**
+**操作**：
+1. 删除 `node_modules` 和 `package-lock.json`
+2. 重新运行 `npm install`
+3. 测试脚本 - 本地运行成功
+
+**失败原因**：
+- npm install 自动将 `"^1.0.0-rc.12"` 升级到 `cheerio@1.2.0`
+- cheerio 1.2.0 引入了 `undici@7.22.0` 依赖
+- GitHub Actions 运行时问题依然存在
+
+#### 第三次尝试 ✅ **成功**
+**关键发现**：
+```bash
+$ npm list undici
+ai-news-aggregator@1.0.0
+└─┬ cheerio@1.2.0
+  └── undici@7.22.0
+```
+
+**根本原因分析**：
+1. `package.json` 中使用了 `"cheerio": "^1.0.0-rc.12"`（允许自动升级）
+2. npm install 自动升级到 `cheerio@1.2.0`
+3. `cheerio@1.2.0` 依赖 `undici@7.22.0`
+4. `undici@7.22.0` 在初始化时尝试访问浏览器专用的 `File` 对象
+5. Node.js 环境中不存在 `File` 构造函数 → **ReferenceError**
+
+**彻底解决方案**：
+1. **锁定 cheerio 版本**：`"cheerio": "1.0.0-rc.12"` （移除 `^` 前缀）
+2. **验证依赖树**：
+   ```bash
+   $ npm list cheerio undici
+   ai-news-aggregator@1.0.0
+   └── cheerio@1.0.0-rc.12
+   ```
+3. **确认 undici 已移除**
+4. 提交 commit `e6837c2`
+
+### 解决方案对比
+
+| 尝试次数 | 方案 | 结果 | 问题 |
+|---------|------|------|------|
+| 第一次 | 移除 node-fetch 导入 | ❌ 失败 | 未检查间接依赖 |
+| 第二次 | 清理 node_modules 重装 | ❌ 失败 | npm自动升级cheerio |
+| 第三次 | 锁定 cheerio 版本 | ✅ 成功 | 防止自动升级 |
+
+### 技术细节
+
+#### Node.js 18 内置 Fetch API
+Node.js 18+ 内置了全局的 `fetch()` API，无需安装 `node-fetch`：
+
+```javascript
+// ❌ 旧方式 (Node.js < 18)
+const fetch = require('node-fetch');
+
+// ✅ 新方式 (Node.js 18+)
+// 无需导入，直接使用全局 fetch()
+const response = await fetch(url, options);
+```
+
+#### cheerio 版本差异
+| 版本 | undici依赖 | Node.js兼容性 |
+|------|-----------|-------------|
+| 1.0.0-rc.12 | ❌ 无 | ✅ Node 12+ |
+| 1.2.0 | ✅ 有 (7.22.0) | ⚠️ 需要 File API |
+
+#### 版本锁定语法
+```json
+{
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12",  // ❌ 允许自动升级到 1.x.x
+    "cheerio": "~1.0.0-rc.12",  // ⚠️ 允许升级到 1.0.0-rc.x
+    "cheerio": "1.0.0-rc.12"    // ✅ 完全锁定版本
+  }
+}
+```
+
+### 经验教训
+
+#### 1. 依赖管理的重要性
+**问题根源**：使用 `^` 版本范围导致 npm 自动升级
+**解决方案**：
+- 对于不稳定版本（rc, beta），必须完全锁定版本号
+- 定期检查 `npm outdated` 和依赖树变化
+- 使用 `npm list <package>` 追查依赖链
+
+#### 2. 错误诊断要系统化
+**失败的诊断方式**：
+- ❌ 只看表面错误信息
+- ❌ 只检查直接依赖
+- ❌ 假设问题在自己的代码中
+
+**正确的诊断流程**：
+1. ✅ 完整阅读错误堆栈（包括 node_modules 路径）
+2. ✅ 检查依赖树 (`npm list <package>`)
+3. ✅ 搜索项目中所有相关导入 (`grep -r "require.*fetch"`)
+4. ✅ 理解错误的技术根因（File API是浏览器专用）
+
+#### 3. 环境差异要重视
+**问题场景**：
+- ✅ 本地 Windows 测试通过
+- ❌ GitHub Actions Ubuntu 运行失败
+
+**原因**：
+- 不同环境的 npm 可能安装不同版本的依赖
+- 必须检查 `package-lock.json` 的变化
+
+#### 4. 修复要彻底
+**三次尝试反思**：
+| 尝试 | 问题 | 根因 |
+|------|------|------|
+| 1 | 治标不治本 | 只删除显式导入 |
+| 2 | 重复相同错误 | 未锁定版本 |
+| 3 | 追根溯源 | 分析依赖树 |
+
+**关键教训**：
+- 修复问题要找到真正的根本原因
+- 不要对解决方案过于自信，要验证
+- 遇到反复出现的问题，说明理解不够深入
+
+### 修改文件
+
+#### scripts/fetch-rss.js
+**主要修改**：
+1. 移除 `const fetch = require('node-fetch');`（line 7）
+2. 添加 cheerio 导入（line 8）
+3. 添加 `SITE_EXTRACTORS` 映射（lines 196-202）
+4. 实现 `fetchFullArticle()` 主爬虫函数（lines 204-260）
+5. 实现 4 个站点特定提取器（lines 262-410）
+6. 修改 `fetchFeed()` 集成爬虫逻辑（lines 617-634）
+
+**关键函数**：
+- `fetchFullArticle(url, siteName, retries)` - 主爬虫入口
+- `extractNvidiaArticle(html, url)` - Nvidia Blog 提取器
+- `extractTomshardwareArticle(html, url)` - Tom's Hardware 提取器
+- `extractChipsAndCheeseArticle(html, url)` - Chips and Cheese 提取器
+- `extractAnandtechArticle(html, url)` - AnandTech 提取器
+
+#### package.json
+**依赖变更**：
+```diff
+  "dependencies": {
+-   "cheerio": "^1.0.0-rc.12",
++   "cheerio": "1.0.0-rc.12",
+-   "node-fetch": "^2.7.0",
+    "dotenv": "^17.3.1",
+    // ...
+  }
+```
+
+### 提交记录
+- Commit `a71080c`: feat: 添加完整正文爬取功能
+- Commit `06ca165`: fix: 修复Node.js 18 fetch API冲突（第一次尝试）
+- Commit `e6837c2`: fix: 彻底修复File is not defined错误（最终解决）
+
+### 验证结果
+
+**本地测试**：
+```
+npm run fetch-news
+
+✅ 脚本正常启动
+✅ RSS源正常抓取
+✅ 网页爬虫功能运行：
+   📚 Tom's Hardware: 开始爬取完整正文 (50条)
+   📚 Nvidia Blog: 开始爬取完整正文 (18条)
+   📚 Chips and Cheese: 开始爬取完整正文 (20条)
+✅ 成功提取正文（3579-8703字符）
+✅ 降级处理正常（部分文章使用RSS摘要）
+```
+
+**GitHub Actions**：
+- ✅ workflow 构建成功
+- ✅ 无 File is not defined 错误
+- ✅ 正文爬取功能正常运行
+
+### 功能特性
+
+#### 1. 多选择器后备方案
+每个站点配置多个 CSS 选择器，按优先级尝试：
+```javascript
+const selectors = [
+  'article .post-content',     // 优先
+  '.entry-content',            // 后备1
+  'article .content',          // 后备2
+  '.post-single__content',     // 后备3
+  'div[class*="post-content"]' // 模糊匹配
+];
+```
+
+#### 2. 智能降级
+- ✅ 爬取成功 → 使用完整正文
+- ⚠️ 爬取失败 → 使用RSS摘要
+- 📊 日志详细记录每篇文章状态
+
+#### 3. 反爬虫对策
+- User-Agent 伪装
+- 请求间隔限制（1秒/请求）
+- 重试机制（2次重试）
+- 超时设置（15秒）
+
+#### 4. 内容清理
+- 移除脚本、样式标签
+- 移除导航、页脚、社交分享等
+- 合并多余空白
+- 验证内容长度（≥200字符）
+
+### 相关资源
+
+**技术文档**：
+- [Node.js Fetch API](https://nodejs.org/dist/latest-v18.x/docs/api/globals.html#fetch)
+- [cheerio文档](https://cheerio.js.org/)
+- [npm语义化版本](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#dependencies)
+
+**问题追踪**：
+- [undici File is not defined issue](https://github.com/nodejs/undici/issues/2305)
+
+---
+
 *最后更新: 2026-03-03*
-*Session ID: ai-news-aggregator-translation-debugging*
+*Session ID: ai-news-aggregator-web-scraping*
 *Claude版本: Opus 4.5*
