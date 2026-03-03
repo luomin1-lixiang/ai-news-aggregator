@@ -4,14 +4,16 @@ require('dotenv').config();
 const Parser = require('rss-parser');
 const fs = require('fs');
 const path = require('path');
+const fetch = require('node-fetch');
+const cheerio = require('cheerio');
 
 // RSS数据源配置 - 聚焦AI芯片
 const RSS_FEEDS = [
   // === 芯片专业媒体（核心源）===
-  { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news' },
-  { url: 'https://www.anandtech.com/rss/', name: 'AnandTech', type: 'news' },
+  { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news', fullArticle: true },
+  { url: 'https://www.anandtech.com/rss/', name: 'AnandTech', type: 'news', fullArticle: true },
   { url: 'https://rsshub.app/semianalysis', name: 'SemiAnalysis', type: 'news' },
-  { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news' },
+  { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news', fullArticle: true },
   { url: 'https://www.eetimes.com/feed/', name: 'EE Times', type: 'news' },
 
   // === 国际主流科技媒体（芯片报道）===
@@ -25,7 +27,7 @@ const RSS_FEEDS = [
   { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', name: 'Ars Technica', type: 'news' },
 
   // === 芯片公司官方博客 ===
-  { url: 'https://blogs.nvidia.com/feed/', name: 'Nvidia Blog', type: 'news' },
+  { url: 'https://blogs.nvidia.com/feed/', name: 'Nvidia Blog', type: 'news', fullArticle: true },
   { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', type: 'news' },
   { url: 'https://community.amd.com/t5/blogs/rss', name: 'AMD Blog', type: 'news' },
 
@@ -190,6 +192,222 @@ function stripHtml(text) {
     .replace(/\s+/g, ' ')         // 合并多余空格
     .trim();                      // 去除首尾空格
 }
+
+// ==================== 网页完整正文爬取功能 ====================
+
+// 网站类型映射
+const SITE_EXTRACTORS = {
+  'Nvidia Blog': extractNvidiaArticle,
+  'Tom\'s Hardware': extractTomshardwareArticle,
+  'Chips and Cheese': extractChipsAndCheeseArticle,
+  'AnandTech': extractAnandtechArticle
+};
+
+// 主爬取函数：抓取完整网页正文
+async function fetchFullArticle(url, siteName, retries = 2) {
+  console.log(`🌐 [Crawler] 爬取完整正文: ${siteName}`);
+  console.log(`   URL: ${url}`);
+
+  for (let attempt = 0; attempt < retries; attempt++) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+          'Accept-Language': 'en-US,en;q=0.9',
+        },
+        timeout: 15000 // 15秒超时
+      });
+
+      if (!response.ok) {
+        console.error(`❌ [Crawler] HTTP错误 (${response.status}): ${url}`);
+        if (attempt < retries - 1) {
+          await delay(2000);
+          continue;
+        }
+        return null;
+      }
+
+      const html = await response.text();
+      console.log(`✓ [Crawler] HTML下载成功 (${Math.round(html.length / 1024)}KB)`);
+
+      // 根据网站选择提取器
+      const extractor = SITE_EXTRACTORS[siteName];
+      if (!extractor) {
+        console.error(`❌ [Crawler] 未找到${siteName}的提取器`);
+        return null;
+      }
+
+      const content = extractor(html, url);
+      if (content && content.length > 100) {
+        console.log(`✅ [Crawler] 正文提取成功 (${content.length}字符)`);
+        return content;
+      } else {
+        console.error(`❌ [Crawler] 正文提取失败或内容过短 (${content?.length || 0}字符)`);
+        return null;
+      }
+
+    } catch (error) {
+      console.error(`❌ [Crawler] 第${attempt + 1}次爬取异常: ${error.message}`);
+      if (attempt < retries - 1) {
+        await delay(2000);
+        continue;
+      }
+      return null;
+    }
+  }
+
+  return null;
+}
+
+// Nvidia Blog 正文提取器
+function extractNvidiaArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+
+    // Nvidia博客可能的正文选择器
+    const selectors = [
+      'article .post-content',
+      '.entry-content',
+      'article .content',
+      '.post-single__content',
+      'div[class*="post-content"]'
+    ];
+
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        // 移除不需要的元素
+        $content.find('script, style, nav, footer, .social-share, .related-posts').remove();
+
+        let text = $content.text().trim();
+        // 清理多余空格和换行
+        text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
+
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Nvidia提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Tom's Hardware 正文提取器
+function extractTomshardwareArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+
+    const selectors = [
+      'article .article-body',
+      '.article-content',
+      'div[id="article-body"]',
+      'article .content-wrapper',
+      'div[class*="article-content"]'
+    ];
+
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .widget, .ad, .related').remove();
+
+        let text = $content.text().trim();
+        text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
+
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Tom's Hardware提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Chips and Cheese 正文提取器
+function extractChipsAndCheeseArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+
+    const selectors = [
+      'article .entry-content',
+      '.post-content',
+      'article .content',
+      'div[class*="entry-content"]',
+      'div[class*="post-content"]'
+    ];
+
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .sharedaddy, .jp-relatedposts').remove();
+
+        let text = $content.text().trim();
+        text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
+
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Chips and Cheese提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// AnandTech 正文提取器
+function extractAnandtechArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+
+    const selectors = [
+      'article .articleContent',
+      '.article-content',
+      'div[itemprop="articleBody"]',
+      'article .content',
+      'div[class*="article-content"]'
+    ];
+
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .gallery, .widget, .related-articles').remove();
+
+        let text = $content.text().trim();
+        text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
+
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ AnandTech提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// ==================== 网页爬取功能结束 ====================
 
 // 列出可用的Gemini模型（调试用）
 async function listAvailableModels(apiKey) {
@@ -395,6 +613,25 @@ async function fetchFeed(feedConfig) {
         popularity: popularity
       };
     });
+
+    // 🌐 如果配置了爬取完整正文，则爬取每篇文章
+    if (feedConfig.fullArticle) {
+      console.log(`\n📚 ${feedConfig.name}: 开始爬取完整正文 (${items.length}条)`);
+      for (let i = 0; i < items.length; i++) {
+        const item = items[i];
+        const fullContent = await fetchFullArticle(item.link, feedConfig.name);
+        if (fullContent) {
+          item.content = fullContent;  // 替换RSS摘要为完整正文
+          console.log(`  [${i+1}/${items.length}] ✅ ${item.title.substring(0, 50)}...`);
+        } else {
+          console.log(`  [${i+1}/${items.length}] ⚠️  使用RSS摘要: ${item.title.substring(0, 50)}...`);
+        }
+        // 请求间隔1秒，避免被封
+        if (i < items.length - 1) {
+          await delay(1000);
+        }
+      }
+    }
 
     console.log(`${feedConfig.name}: 获取到 ${items.length} 条内容`);
     return items;
