@@ -4,7 +4,7 @@ require('dotenv').config();
 const Parser = require('rss-parser');
 const fs = require('fs');
 const path = require('path');
-const fetch = require('node-fetch');
+// Node.js 18+ 内置了 fetch API，无需导入 node-fetch
 const cheerio = require('cheerio');
 
 // RSS数据源配置 - 聚焦AI芯片
