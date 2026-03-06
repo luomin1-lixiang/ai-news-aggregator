@@ -4,19 +4,18 @@ import styles from '../styles/Home.module.css';
 import ClientOnlyMarkdown from '../components/ClientOnlyMarkdown';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini'
+  const [activeTab, setActiveTab] = useState('ai-news'); // 'ai-news', 'anthropic', 'gemini', 'youtube'
   const [newsData, setNewsData] = useState({ items: [], lastUpdated: null });
   const [anthropicData, setAnthropicData] = useState({ items: [], lastUpdated: null });
   const [geminiData, setGeminiData] = useState({ items: [], lastUpdated: null });
+  const [youtubeData, setYoutubeData] = useState({ items: [], lastUpdated: null });
   const [loading, setLoading] = useState(true);
-  const [expandedItems, setExpandedItems] = useState({}); // 记录展开状态
+  const [expandedItems, setExpandedItems] = useState({});
 
   useEffect(() => {
-    // 加载所有数据
     const basePath = process.env.NODE_ENV === 'production' ? '/ai-news-aggregator' : '';
     const timestamp = new Date().getTime();
 
-    // 加载AI芯片新闻
     fetch(`${basePath}/data/news.json?t=${timestamp}`, { cache: 'no-cache' })
       .then(res => res.json())
       .then(data => setNewsData(data))
@@ -25,7 +24,6 @@ export default function Home() {
         setNewsData({ items: [], lastUpdated: null });
       });
 
-    // 加载Anthropic博客
     fetch(`${basePath}/data/anthropic-news.json?t=${timestamp}`, { cache: 'no-cache' })
       .then(res => {
         if (!res.ok) throw new Error('Not found');
@@ -37,7 +35,6 @@ export default function Home() {
         setAnthropicData({ items: [], lastUpdated: null });
       });
 
-    // 加载Gemini博客
     fetch(`${basePath}/data/gemini-news.json?t=${timestamp}`, { cache: 'no-cache' })
       .then(res => {
         if (!res.ok) throw new Error('Not found');
@@ -47,27 +44,33 @@ export default function Home() {
       .catch(error => {
         console.error('加载Gemini博客失败:', error);
         setGeminiData({ items: [], lastUpdated: null });
+      });
+
+    fetch(`${basePath}/data/youtube-news.json?t=${timestamp}`, { cache: 'no-cache' })
+      .then(res => {
+        if (!res.ok) throw new Error('Not found');
+        return res.json();
+      })
+      .then(data => setYoutubeData(data))
+      .catch(error => {
+        console.error('加载YouTube数据失败:', error);
+        setYoutubeData({ items: [], lastUpdated: null });
       })
       .finally(() => setLoading(false));
   }, []);
 
-  // 获取当前Tab的数据
   const getCurrentData = () => {
     switch (activeTab) {
-      case 'ai-news':
-        return newsData;
-      case 'anthropic':
-        return anthropicData;
-      case 'gemini':
-        return geminiData;
-      default:
-        return { items: [], lastUpdated: null };
+      case 'ai-news': return newsData;
+      case 'anthropic': return anthropicData;
+      case 'gemini': return geminiData;
+      case 'youtube': return youtubeData;
+      default: return { items: [], lastUpdated: null };
     }
   };
 
   const currentData = getCurrentData();
 
-  // 获取作者名称（处理author可能是对象的情况）
   const getAuthorName = (author) => {
     if (!author) return '';
     if (typeof author === 'string') return author;
@@ -98,60 +101,46 @@ export default function Home() {
     } else if (diffDays < 7) {
       return `${diffDays}天前`;
     } else {
-      return date.toLocaleDateString('zh-CN', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric'
-      });
+      return date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
     }
   };
 
   const getSourceIcon = (sourceType) => {
     switch (sourceType) {
-      case 'youtube':
-        return '🎥';
-      case 'twitter':
-        return '🐦';
-      case 'news':
-        return '📰';
-      default:
-        return '📌';
+      case 'youtube': return '🎥';
+      case 'twitter': return '🐦';
+      case 'news': return '📰';
+      default: return '📌';
     }
   };
 
   const getCategoryLabel = (category) => {
     switch (category) {
-      case 'cloud-inference':
-        return { text: '云端推理', icon: '☁️', color: '#667eea' };
-      case 'edge-inference':
-        return { text: '边缘推理', icon: '📱', color: '#f59e0b' };
-      case 'inference-optimization':
-        return { text: '推理优化', icon: '⚡', color: '#10b981' };
-      case 'architecture':
-        return { text: '架构创新', icon: '🏗️', color: '#8b5cf6' };
-      case 'inference-other':
-        return { text: '其他推理', icon: '💡', color: '#ec4899' };
-      // 兼容旧分类
-      case 'ai-chip':
-        return { text: 'AI芯片', icon: '💻', color: '#667eea' };
-      case 'ai-hardware':
-        return { text: 'AI硬件', icon: '🔧', color: '#f59e0b' };
-      case 'ai-other':
-        return { text: 'AI资讯', icon: '🤖', color: '#10b981' };
-      default:
-        return { text: 'AI', icon: '🤖', color: '#6b7280' };
+      case 'cloud-inference': return { text: '云端推理', icon: '☁️', color: '#667eea' };
+      case 'edge-inference': return { text: '边缘推理', icon: '📱', color: '#f59e0b' };
+      case 'inference-optimization': return { text: '推理优化', icon: '⚡', color: '#10b981' };
+      case 'architecture': return { text: '架构创新', icon: '🏗️', color: '#8b5cf6' };
+      case 'inference-other': return { text: '其他推理', icon: '💡', color: '#ec4899' };
+      case 'ai-chip': return { text: 'AI芯片', icon: '💻', color: '#667eea' };
+      case 'ai-hardware': return { text: 'AI硬件', icon: '🔧', color: '#f59e0b' };
+      case 'ai-other': return { text: 'AI资讯', icon: '🤖', color: '#10b981' };
+      default: return { text: 'AI', icon: '🤖', color: '#6b7280' };
     }
   };
 
-  // 切换展开/收起状态
-  const toggleExpand = (index) => {
-    setExpandedItems(prev => ({
-      ...prev,
-      [index]: !prev[index]
-    }));
+  const getYoutubeCategoryLabel = (category) => {
+    switch (category) {
+      case 'claude-code': return { text: 'Claude Code', icon: '🤖', color: '#7c3aed' };
+      case 'chatgpt': return { text: 'ChatGPT', icon: '💬', color: '#10a37f' };
+      case 'inference-chip': return { text: 'AI推理芯片', icon: '⚡', color: '#f59e0b' };
+      default: return { text: 'AI', icon: '🎬', color: '#6b7280' };
+    }
   };
 
-  // 检查内容是否足够长需要展开按钮（超过200个字符）
+  const toggleExpand = (index) => {
+    setExpandedItems(prev => ({ ...prev, [index]: !prev[index] }));
+  };
+
   const needsExpandButton = (item) => {
     const content = item.descriptionZh || item.description || '';
     return content.length > 200;
@@ -168,9 +157,8 @@ export default function Home() {
       <main className={styles.main}>
         <header className={styles.header}>
           <h1 className={styles.title}>🤖 AI技术资讯聚合</h1>
-          <p className={styles.subtitle}>每日精选AI推理芯片、Anthropic、Gemini技术资讯</p>
+          <p className={styles.subtitle}>每日精选AI推理芯片、Anthropic、Gemini技术资讯及YouTube视频</p>
 
-          {/* Tab导航 */}
           <div className={styles.tabNav}>
             <button
               className={`${styles.tabButton} ${activeTab === 'ai-news' ? styles.tabButtonActive : ''}`}
@@ -193,6 +181,13 @@ export default function Home() {
               💎 Gemini博客
               {geminiData.items.length > 0 && <span className={styles.tabBadge}>{geminiData.items.length}</span>}
             </button>
+            <button
+              className={`${styles.tabButton} ${activeTab === 'youtube' ? styles.tabButtonActive : ''}`}
+              onClick={() => setActiveTab('youtube')}
+            >
+              🎬 YouTube视频
+              {youtubeData.items.length > 0 && <span className={styles.tabBadge}>{youtubeData.items.length}</span>}
+            </button>
           </div>
 
           {currentData.lastUpdated && (
@@ -206,7 +201,68 @@ export default function Home() {
           <div className={styles.loading}>加载中...</div>
         ) : currentData.items.length === 0 ? (
           <div className={styles.empty}>暂无内容</div>
+        ) : activeTab === 'youtube' ? (
+          // YouTube tab: special card layout with thumbnail
+          <div className={styles.newsList}>
+            {currentData.items.map((item, index) => {
+              const catLabel = getYoutubeCategoryLabel(item.category);
+              return (
+                <article key={index} className={styles.newsItem}>
+                  <div className={styles.newsHeader}>
+                    <span className={styles.sourceIcon}>🎬</span>
+                    <span className={styles.source}>{item.channelName}</span>
+                    <span className={styles.separator}>•</span>
+                    <span className={styles.date}>{formatDate(item.publishedAt)}</span>
+                    <span className={styles.separator}>•</span>
+                    <span
+                      className={styles.categoryTag}
+                      style={{
+                        backgroundColor: catLabel.color + '20',
+                        color: catLabel.color,
+                        borderColor: catLabel.color,
+                      }}
+                    >
+                      {catLabel.icon} {catLabel.text}
+                    </span>
+                  </div>
+
+                  <div className={styles.youtubeCard}>
+                    {item.thumbnailUrl && (
+                      <a href={item.videoUrl} target="_blank" rel="noopener noreferrer" className={styles.youtubeThumbnailLink}>
+                        <img
+                          src={item.thumbnailUrl}
+                          alt={item.titleZh || item.title}
+                          className={styles.youtubeThumbnail}
+                        />
+                      </a>
+                    )}
+                    <div className={styles.youtubeContent}>
+                      <h2 className={styles.newsTitle}>
+                        <a href={item.videoUrl} target="_blank" rel="noopener noreferrer">
+                          {item.titleZh || item.title}
+                        </a>
+                      </h2>
+                      <div className={`${styles.newsContent} ${expandedItems[index] ? styles.newsContentExpanded : styles.newsContentCollapsed}`}>
+                        <ClientOnlyMarkdown>{item.summaryZh || ''}</ClientOnlyMarkdown>
+                      </div>
+                      {item.summaryZh && item.summaryZh.length > 200 && (
+                        <button className={styles.expandButton} onClick={() => toggleExpand(index)}>
+                          {expandedItems[index] ? '收起内容 ▲' : '展开全文 ▼'}
+                        </button>
+                      )}
+                      <div className={styles.newsFooter}>
+                        <a href={item.videoUrl} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
+                          观看视频 →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
         ) : (
+          // News / Blog tabs
           <div className={styles.newsList}>
             {currentData.items.map((item, index) => (
               <article key={index} className={styles.newsItem}>
@@ -242,26 +298,17 @@ export default function Home() {
                   </a>
                 </h2>
 
-                {/* 显示新闻摘要（中文翻译优先），支持Markdown格式 */}
                 <div className={`${styles.newsContent} ${expandedItems[index] ? styles.newsContentExpanded : styles.newsContentCollapsed}`}>
                   <ClientOnlyMarkdown>{item.descriptionZh || item.description}</ClientOnlyMarkdown>
                 </div>
                 {needsExpandButton(item) && (
-                  <button
-                    className={styles.expandButton}
-                    onClick={() => toggleExpand(index)}
-                  >
+                  <button className={styles.expandButton} onClick={() => toggleExpand(index)}>
                     {expandedItems[index] ? '收起内容 ▲' : '展开全文 ▼'}
                   </button>
                 )}
 
                 <div className={styles.newsFooter}>
-                  <a
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.readMore}
-                  >
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className={styles.readMore}>
                     阅读原文 →
                   </a>
                   {item.popularity > 0 && (
@@ -278,9 +325,9 @@ export default function Home() {
 
       <footer className={styles.footer}>
         <p>
-          数据来源: Reuters, BBC, MIT, TechCrunch, The Verge, OpenAI, Google AI, 机器之心, 量子位 等37个源
+          数据来源: Reuters, TechCrunch, The Verge, Nvidia, Google AI, 机器之心, 量子位 等
         </p>
-        <p>每天早上 8:00 自动更新 | AI芯片新闻显示48小时内 | 博客显示7天内</p>
+        <p>每天凌晨2:00自动更新 | AI芯片新闻48小时内 | 博客7天内 | YouTube近7天视频</p>
       </footer>
     </div>
   );

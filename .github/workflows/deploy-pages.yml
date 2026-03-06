@@ -9,9 +9,11 @@ on:
       - 'data/news.json'
       - 'data/anthropic-news.json'
       - 'data/gemini-news.json'
+      - 'data/youtube-news.json'
       - 'public/data/news.json'
       - 'public/data/anthropic-news.json'
       - 'public/data/gemini-news.json'
+      - 'public/data/youtube-news.json'
 
   # 允许手动触发
   workflow_dispatch:
