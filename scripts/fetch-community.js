@@ -5,7 +5,8 @@ const path = require('path');
 
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
-// RSS sources: Reddit subreddits + GitHub releases
+// Reddit: 7-day window via both /new and /top?t=week
+// GitHub Releases: 3-day window, capped at 3 items
 const COMMUNITY_FEEDS = [
   {
     url: 'https://www.reddit.com/r/ClaudeAI/new.rss',
@@ -13,6 +14,15 @@ const COMMUNITY_FEEDS = [
     sourceType: 'reddit',
     category: 'reddit',
     filterKeywords: true,
+    lookbackHours: 168,
+  },
+  {
+    url: 'https://www.reddit.com/r/ClaudeAI/top.rss?t=week',
+    name: 'r/ClaudeAI',
+    sourceType: 'reddit',
+    category: 'reddit',
+    filterKeywords: true,
+    lookbackHours: 168,
   },
   {
     url: 'https://www.reddit.com/r/AnthropicAI/new.rss',
@@ -20,25 +30,46 @@ const COMMUNITY_FEEDS = [
     sourceType: 'reddit',
     category: 'reddit',
     filterKeywords: true,
+    lookbackHours: 168,
+  },
+  {
+    url: 'https://www.reddit.com/r/AnthropicAI/top.rss?t=week',
+    name: 'r/AnthropicAI',
+    sourceType: 'reddit',
+    category: 'reddit',
+    filterKeywords: true,
+    lookbackHours: 168,
   },
   {
     url: 'https://github.com/anthropics/claude-code/releases.atom',
     name: 'Claude Code Releases',
     sourceType: 'github-release',
     category: 'github-release',
-    filterKeywords: false, // all releases are relevant
+    filterKeywords: false,
+    lookbackHours: 72,
   },
 ];
 
-// Keywords to filter Reddit posts (Claude Code related)
+// Keywords to filter Reddit posts - covers both product topics and user-experience language
 const CLAUDE_CODE_KEYWORDS = [
+  // Product / tool names
   'claude code', 'claude-code', 'claude code cli',
   'mcp', 'mcp server', 'computer use',
-  'hooks', '.claude', 'claude_desktop',
-  'claude desktop', 'claude api', 'anthropic api',
+  // Config / integrations
+  'hooks', '.claude', 'claude_desktop', 'claude desktop',
+  // API
+  'claude api', 'anthropic api',
+  // Models
   'claude 3', 'claude 4', 'sonnet', 'haiku', 'opus',
+  // User-experience language
+  'workflow', 'use case', 'productivity', 'automation',
+  'tips', 'tricks', 'tutorial', 'guide', 'how i',
+  'my setup', 'my workflow', 'built with', 'built using',
+  'slash command', 'custom command', 'memory', 'project',
+  'prompt', 'context', 'codebase', 'repository',
+  // News signals
   'new feature', 'update', 'release', 'version',
-  'bug', 'fix', 'tip', 'trick', 'workflow',
+  'bug', 'fix',
 ];
 
 const parser = new Parser({
@@ -76,6 +107,13 @@ function stripHtml(text) {
     .replace(/&#39;/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+// Score Reddit items: longer content = more in-depth discussion; penalize age slightly
+function scoreRedditItem(item) {
+  const contentLen = item.rawContent.length;
+  const ageHours = (Date.now() - new Date(item.pubDate).getTime()) / (1000 * 60 * 60);
+  return contentLen - ageHours * 20;
 }
 
 // Translate title to Chinese via DeepSeek
@@ -117,15 +155,16 @@ async function translateTitle(title, retries = 3) {
 async function summarizeContent(title, content, sourceType, retries = 3) {
   if (!DEEPSEEK_API_KEY) return null;
 
-  const isShort = content.length < 300;
-
   let systemPrompt;
   if (sourceType === 'github-release') {
-    systemPrompt = 'You are a tech journalist. Summarize the following Claude Code release notes into a clear Chinese summary (300-600 characters). Highlight: new features, bug fixes, breaking changes. Keep version numbers and technical terms in English.';
-  } else if (isShort) {
-    systemPrompt = 'Translate the following Reddit post into fluent Chinese. Keep technical terms in English.';
+    systemPrompt = 'You are a tech journalist. Summarize the following Claude Code release notes into a clear Chinese summary (300-500 characters). Highlight: new features, bug fixes, breaking changes. Keep version numbers and technical terms in English.';
   } else {
-    systemPrompt = 'You are a tech journalist. Summarize the following Reddit post into a concise Chinese summary (300-500 characters). Capture the main question/topic, key insights, and community reactions if present. Keep technical terms in English.';
+    // Reddit: extract practical user insights
+    systemPrompt = `You are a tech content curator for Chinese developers. Analyze this Reddit post about Claude Code / AI tools and write a Chinese summary (400-600 characters) that covers:
+1. 用户场景：what the user was trying to accomplish
+2. 核心方法：the specific workflow, approach, or solution described
+3. 关键技巧：actionable tips, key insights, or pitfalls mentioned
+Focus on practical value for developers. If the post is a question thread, summarize the best answers. Keep technical terms (Claude Code, MCP, API, hooks, etc.) in English.`;
   }
 
   for (let attempt = 0; attempt < retries; attempt++) {
@@ -168,28 +207,28 @@ async function summarizeContent(title, content, sourceType, retries = 3) {
 
 async function fetchFeed(feedConfig) {
   console.log(`\n${'─'.repeat(50)}`);
-  console.log(`📡 Fetching: ${feedConfig.name}`);
+  console.log(`📡 Fetching: ${feedConfig.name} (${feedConfig.url.includes('top') ? 'top/week' : 'new'})`);
 
   try {
     const feed = await parser.parseURL(feedConfig.url);
     console.log(`  Found ${feed.items.length} items`);
 
-    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+    const cutoff = new Date(Date.now() - feedConfig.lookbackHours * 60 * 60 * 1000);
     const items = [];
 
     for (const item of feed.items) {
       const pubDate = new Date(item.pubDate || item.isoDate || item.updated);
 
-      // Skip items older than 24 hours
-      if (pubDate < twentyFourHoursAgo) continue;
+      if (pubDate < cutoff) continue;
 
       const rawContent = stripHtml(item.contentEncoded || item.content || item.summary || item.description || '');
       const title = item.title || '';
 
+      // Discard stub Reddit posts with no meaningful content
+      if (feedConfig.sourceType === 'reddit' && rawContent.length < 100) continue;
+
       // Filter Reddit posts by keyword relevance
-      if (feedConfig.filterKeywords && !isClaudeCodeRelated(title, rawContent)) {
-        continue;
-      }
+      if (feedConfig.filterKeywords && !isClaudeCodeRelated(title, rawContent)) continue;
 
       items.push({
         title,
@@ -224,16 +263,37 @@ async function main() {
     await delay(1000);
   }
 
-  console.log(`\n📊 Total relevant items: ${allRawItems.length}`);
+  // Deduplicate by link (top and new feeds may overlap)
+  const seen = new Set();
+  const dedupedItems = allRawItems.filter(item => {
+    if (seen.has(item.link)) return false;
+    seen.add(item.link);
+    return true;
+  });
 
-  if (allRawItems.length === 0) {
+  console.log(`\n📊 After dedup: ${dedupedItems.length} unique items`);
+
+  // Separate by source type and apply per-type caps
+  const redditItems = dedupedItems
+    .filter(item => item.sourceType === 'reddit')
+    .sort((a, b) => scoreRedditItem(b) - scoreRedditItem(a))
+    .slice(0, 15);
+
+  const githubItems = dedupedItems
+    .filter(item => item.sourceType === 'github-release')
+    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
+    .slice(0, 3);
+
+  console.log(`  Reddit: ${redditItems.length} items (by content richness)`);
+  console.log(`  GitHub Releases: ${githubItems.length} items (most recent)`);
+
+  // GitHub releases last so Reddit content appears first
+  const topItems = [...redditItems, ...githubItems];
+
+  if (topItems.length === 0) {
     console.log('⚠️  No items found, skipping file write');
     return;
   }
-
-  // Sort by pubDate descending, take top 20
-  allRawItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-  const topItems = allRawItems.slice(0, 20);
 
   console.log('\n' + '='.repeat(60));
   console.log('🤖 Translating and summarizing...');
