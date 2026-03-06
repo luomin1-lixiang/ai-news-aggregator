@@ -9,7 +9,7 @@
     "export": "next build",
     "fetch-news": "node scripts/fetch-rss.js",
     "fetch-blogs": "node scripts/fetch-blogs.js",
-    "fetch-youtube": "node scripts/fetch-youtube.js"
+    "fetch-community": "node scripts/fetch-community.js"
   },
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
@@ -18,8 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
-    "rss-parser": "^3.13.0",
-    "youtube-transcript": "1.2.1"
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0"

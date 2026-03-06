@@ -37,11 +37,10 @@ jobs:
           npm run fetch-news
           npm run fetch-blogs
 
-      - name: Fetch YouTube videos
+      - name: Fetch community feeds
         env:
-          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-        run: npm run fetch-youtube
+        run: npm run fetch-community
 
       - name: Validate blog data format
         run: node scripts/validate-blog-data.js
@@ -51,7 +50,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "actions@github.com"
-          git add data/news.json data/anthropic-news.json data/gemini-news.json data/youtube-news.json public/data/news.json public/data/anthropic-news.json public/data/gemini-news.json public/data/youtube-news.json
+          git add data/news.json data/anthropic-news.json data/gemini-news.json data/community-news.json public/data/news.json public/data/anthropic-news.json public/data/gemini-news.json public/data/community-news.json
           if git diff --quiet && git diff --staged --quiet; then
             echo "changed=false" >> $GITHUB_OUTPUT
           else
