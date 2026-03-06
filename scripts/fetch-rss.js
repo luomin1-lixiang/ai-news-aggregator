@@ -11,7 +11,9 @@ const cheerio = require('cheerio');
 const RSS_FEEDS = [
   // === 芯片专业媒体（核心源）===
   { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news', fullArticle: true },
-  { url: 'https://www.anandtech.com/rss/', name: 'AnandTech', type: 'news', fullArticle: true },
+  { url: 'https://semiengineering.com/feed/', name: 'Semiconductor Engineering', type: 'news' },
+  { url: 'https://www.electronicdesign.com/rss', name: 'Electronic Design', type: 'news' },
+  { url: 'https://www.nextplatform.com/feed/', name: 'The Next Platform', type: 'news' },
   { url: 'https://rsshub.app/semianalysis', name: 'SemiAnalysis', type: 'news' },
   { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news', fullArticle: true },
   { url: 'https://www.eetimes.com/feed/', name: 'EE Times', type: 'news' },
