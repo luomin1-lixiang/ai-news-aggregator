@@ -12,25 +12,21 @@ const RSS_FEEDS = [
   // === 芯片专业媒体（核心源）===
   { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news', fullArticle: true },
   { url: 'https://semiengineering.com/feed/', name: 'Semiconductor Engineering', type: 'news', fullArticle: true },
-  { url: 'https://www.electronicdesign.com/rss', name: 'Electronic Design', type: 'news' },
-  { url: 'https://www.nextplatform.com/feed/', name: 'The Next Platform', type: 'news' },
-  { url: 'https://rsshub.app/semianalysis', name: 'SemiAnalysis', type: 'news' },
+  { url: 'https://www.electronicdesign.com/rss', name: 'Electronic Design', type: 'news', fullArticle: true },
+  { url: 'https://www.nextplatform.com/feed/', name: 'The Next Platform', type: 'news', fullArticle: true },
   { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news', fullArticle: true },
 
   // === 国际主流科技媒体（芯片报道）===
-  { url: 'https://www.bloomberg.com/technology/feed', name: 'Bloomberg Technology', type: 'news' },
-  { url: 'https://www.reuters.com/technology/artificial-intelligence/rss', name: 'Reuters AI', type: 'news' },
-  { url: 'https://www.technologyreview.com/feed/', name: 'MIT Tech Review', type: 'news' },
-  { url: 'https://www.wired.com/feed/tag/ai/latest/rss', name: 'Wired AI', type: 'news' },
-  { url: 'https://techcrunch.com/tag/artificial-intelligence/feed/', name: 'TechCrunch AI', type: 'news' },
-  { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', name: 'The Verge AI', type: 'news' },
-  { url: 'https://venturebeat.com/category/ai/feed/', name: 'VentureBeat AI', type: 'news' },
-  { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', name: 'Ars Technica', type: 'news' },
+  { url: 'https://www.reuters.com/technology/artificial-intelligence/rss', name: 'Reuters AI', type: 'news', fullArticle: true },
+  { url: 'https://techcrunch.com/tag/artificial-intelligence/feed/', name: 'TechCrunch AI', type: 'news', fullArticle: true },
+  { url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', name: 'The Verge AI', type: 'news', fullArticle: true },
+  { url: 'https://venturebeat.com/category/ai/feed/', name: 'VentureBeat AI', type: 'news', fullArticle: true },
+  { url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', name: 'Ars Technica', type: 'news', fullArticle: true },
 
   // === 芯片公司官方博客 ===
   { url: 'https://blogs.nvidia.com/feed/', name: 'Nvidia Blog', type: 'news', fullArticle: true },
-  { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', type: 'news' },
-  { url: 'https://community.amd.com/t5/blogs/rss', name: 'AMD Blog', type: 'news' },
+  { url: 'https://blog.google/technology/ai/rss/', name: 'Google AI Blog', type: 'news', fullArticle: true },
+  { url: 'https://community.amd.com/t5/blogs/rss', name: 'AMD Blog', type: 'news', fullArticle: true },
 
   // === 中文芯片媒体 ===
   { url: 'https://rsshub.app/jiqizhixin/latest', name: '机器之心', type: 'news' },
@@ -198,10 +194,19 @@ function stripHtml(text) {
 
 // 网站类型映射
 const SITE_EXTRACTORS = {
-  'Nvidia Blog': extractNvidiaArticle,
-  'Tom\'s Hardware': extractTomshardwareArticle,
   'Chips and Cheese': extractChipsAndCheeseArticle,
-  'Semiconductor Engineering': extractSemiEngineeringArticle
+  'Semiconductor Engineering': extractSemiEngineeringArticle,
+  'Electronic Design': extractElectronicDesignArticle,
+  'The Next Platform': extractNextPlatformArticle,
+  'Tom\'s Hardware': extractTomshardwareArticle,
+  'Reuters AI': extractReutersArticle,
+  'TechCrunch AI': extractTechCrunchArticle,
+  'The Verge AI': extractVergeArticle,
+  'VentureBeat AI': extractVentureBeatArticle,
+  'Ars Technica': extractArsTechnicaArticle,
+  'Nvidia Blog': extractNvidiaArticle,
+  'Google AI Blog': extractGoogleAIBlogArticle,
+  'AMD Blog': extractAMDBlogArticle
 };
 
 // 主爬取函数：抓取完整网页正文
@@ -404,6 +409,272 @@ function extractSemiEngineeringArticle(html, url) {
     return null;
   } catch (error) {
     console.error(`  ❌ Semiconductor Engineering提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Electronic Design 正文提取器
+function extractElectronicDesignArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.article-content',
+      'div[itemprop="articleBody"]',
+      '.article-body',
+      'div[class*="article-body"]',
+      'div[class*="article-content"]'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, .related, .widget').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Electronic Design提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// The Next Platform 正文提取器
+function extractNextPlatformArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      'article .entry-content',
+      '.entry-content',
+      '.post-content',
+      'div[class*="entry-content"]'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .sharedaddy, .jp-relatedposts, .widget').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ The Next Platform提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Reuters AI 正文提取器
+function extractReutersArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '[class*="article-body__content"]',
+      '[class*="ArticleBodyWrapper"]',
+      'div[data-testid="article-body"]',
+      '[class*="article-body"]',
+      '.article__body'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, [class*="related"]').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Reuters提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// TechCrunch AI 正文提取器
+function extractTechCrunchArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.article-content',
+      '.entry-content',
+      'div[class*="article-content"]',
+      'div[class*="post-content"]'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, .related-articles, .social-share').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ TechCrunch提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// The Verge AI 正文提取器
+function extractVergeArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.duet--article--article-body-component',
+      '.c-entry-content',
+      'div[class*="article-body"]',
+      'article .e-content'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, .related, figure').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ The Verge提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// VentureBeat AI 正文提取器
+function extractVentureBeatArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.article-content',
+      '.entry-content',
+      'div[class*="article-content"]',
+      'div[class*="entry-content"]'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, .related-posts, .social').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ VentureBeat提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Ars Technica 正文提取器
+function extractArsTechnicaArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.article-guts',
+      'div[id="article-body"]',
+      'section.article-content',
+      'div[class*="article-content"]',
+      '.post-content'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad, aside, .gallery').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Ars Technica提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// Google AI Blog 正文提取器
+function extractGoogleAIBlogArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.uni-article-content',
+      'article .article__content',
+      'div[class*="article-body"]',
+      '.article-container .body',
+      'article .body'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .ad').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ Google AI Blog提取器错误: ${error.message}`);
+    return null;
+  }
+}
+
+// AMD Blog 正文提取器
+function extractAMDBlogArticle(html, url) {
+  try {
+    const $ = cheerio.load(html);
+    const selectors = [
+      '.lia-message-body-content',
+      'div[class*="lia-message-body"]',
+      '.blog-post-content',
+      '.MessageBody',
+      'div[class*="message-body"]'
+    ];
+    for (const selector of selectors) {
+      const $content = $(selector);
+      if ($content.length > 0) {
+        $content.find('script, style, nav, footer, .lia-quilt-column-alm').remove();
+        let text = $content.text().trim().replace(/\s+/g, ' ');
+        if (text.length > 200) {
+          console.log(`  ✓ 使用选择器: ${selector}`);
+          return text;
+        }
+      }
+    }
+    console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
+    return null;
+  } catch (error) {
+    console.error(`  ❌ AMD Blog提取器错误: ${error.message}`);
     return null;
   }
 }
