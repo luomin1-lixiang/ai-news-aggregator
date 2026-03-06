@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-06T15:03:10.354Z",
+  "lastUpdated": "2026-03-06T15:25:05.923Z",
   "items": [
     {
       "title": "v2.1.70",
@@ -9,7 +9,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-06T01:20:02.000Z",
-      "summaryZh": "Claude Code v2.1.70 发布，主要修复了多项API错误和功能问题。新功能包括VS Code活动栏新增会话列表图标、完整的Markdown计划文档视图，以及原生MCP服务器管理对话框。修复了工具搜索、模型响应、剪贴板文本损坏、语音模式、插件显示等大量错误，并优化了性能，减少了内存占用和重新渲染。无重大破坏性变更。",
+      "summaryZh": "Claude Code v2.1.70 发布，主要修复了多项 API 错误和功能问题。新功能包括 VS Code 活动栏新增会话列表图标、完整的 Markdown 计划文档视图，以及原生 MCP 服务器管理对话框。修复了第三方网关导致的 400 错误、工具搜索后空响应、Windows 剪贴板乱码、语音模式故障等关键问题。性能优化显著，减少了内存占用和重新渲染次数。部分设置项在远程环境中被忽略，需注意兼容性调整。",
       "category": "github-release"
     },
     {
@@ -20,7 +20,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-05T00:26:21.000Z",
-      "summaryZh": "Claude Code v2.1.69 发布，带来多项更新。新功能包括：新增 `/claude-api` 技能用于构建应用；支持数字小键盘选择选项；为 `/remote-control` 添加自定义会话名称参数；语音 STT 新增支持 10 种语言；终端标题现可显示代理名称。修复了多项问题：解决了 macOS 钥匙串损坏导致重复登录提示、`.credentials.json` 丢失订阅类型、Linux 沙盒命令后出现幽灵点文件、长会话中 Ctrl+O 冻结、插件钩子未触发等错误。安全修复包括：防止从 `node_modules` 等目录加载嵌套技能、修复符号链接绕过漏洞。此版本还包含多项性能改进和内存泄漏修复。",
+      "summaryZh": "Claude Code v2.1.69 发布，新增多项功能与修复。主要更新包括：新增 `/claude-api` 技能用于构建应用；扩展语音 STT 支持至 20 种语言；添加 `Ctrl+U` 快捷退出 bash 模式；支持数字小键盘选择面试问题选项。修复了安全漏洞，如嵌套技能可能从 `node_modules` 等目录加载文件；解决了 `claude remote-control` 在 npm 安装时崩溃、macOS 钥匙串损坏导致 OAuth 重复登录等问题。此外，还优化了内存泄漏、会话恢复错误，并增强了插件钩子与工作树支持。",
       "category": "github-release"
     },
     {
@@ -31,29 +31,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-04T10:11:14.000Z",
-      "summaryZh": "Claude Code v2.1.68 更新：为 Max 和 Team 订阅者默认启用 Opus 4.6 中等推理强度，平衡速度与准确性。重新引入 \"ultrathink\" 关键词以临时启用高强度推理。已从第一方 API 移除 Opus 4 和 4.1 模型，相关用户自动迁移至 Opus 4.6。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.66",
-      "titleZh": "v2.1.66",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.66",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-04T01:19:19.000Z",
-      "summaryZh": "No content.",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.63",
-      "titleZh": "v2.1.63",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.63",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-02-28T03:45:37.000Z",
-      "summaryZh": "Claude Code v2.1.63 发布，主要更新包括：新增 /simplify 和 /batch 捆绑命令，修复多个内存泄漏问题，优化长会话性能。新增 HTTP hooks 支持 JSON 交互，改进 /model 命令显示当前模型。修复 VSCode 远程会话历史显示问题，添加会话重命名和删除功能。引入环境变量 ENABLE_CLAUDEAI_MCP_SERVERS 可禁用 MCP 服务器。",
+      "summaryZh": "Claude Code v2.1.68 更新：Opus 4.6 模型现为 Max 和 Team 订阅者默认启用 medium effort 模式，平衡速度与质量。重新引入 \"ultrathink\" 关键词以临时启用 high effort 模式。已从 API 移除 Opus 4 和 4.1 版本，相关用户自动迁移至 Opus 4.6。",
       "category": "github-release"
     }
   ]
