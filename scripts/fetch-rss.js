@@ -11,12 +11,11 @@ const cheerio = require('cheerio');
 const RSS_FEEDS = [
   // === 芯片专业媒体（核心源）===
   { url: 'https://chipsandcheese.com/feed/', name: 'Chips and Cheese', type: 'news', fullArticle: true },
-  { url: 'https://semiengineering.com/feed/', name: 'Semiconductor Engineering', type: 'news' },
+  { url: 'https://semiengineering.com/feed/', name: 'Semiconductor Engineering', type: 'news', fullArticle: true },
   { url: 'https://www.electronicdesign.com/rss', name: 'Electronic Design', type: 'news' },
   { url: 'https://www.nextplatform.com/feed/', name: 'The Next Platform', type: 'news' },
   { url: 'https://rsshub.app/semianalysis', name: 'SemiAnalysis', type: 'news' },
   { url: 'https://www.tomshardware.com/feeds/all', name: 'Tom\'s Hardware', type: 'news', fullArticle: true },
-  { url: 'https://www.eetimes.com/feed/', name: 'EE Times', type: 'news' },
 
   // === 国际主流科技媒体（芯片报道）===
   { url: 'https://www.bloomberg.com/technology/feed', name: 'Bloomberg Technology', type: 'news' },
@@ -202,7 +201,7 @@ const SITE_EXTRACTORS = {
   'Nvidia Blog': extractNvidiaArticle,
   'Tom\'s Hardware': extractTomshardwareArticle,
   'Chips and Cheese': extractChipsAndCheeseArticle,
-  'AnandTech': extractAnandtechArticle
+  'Semiconductor Engineering': extractSemiEngineeringArticle
 };
 
 // 主爬取函数：抓取完整网页正文
@@ -373,23 +372,23 @@ function extractChipsAndCheeseArticle(html, url) {
   }
 }
 
-// AnandTech 正文提取器
-function extractAnandtechArticle(html, url) {
+// Semiconductor Engineering 正文提取器
+function extractSemiEngineeringArticle(html, url) {
   try {
     const $ = cheerio.load(html);
 
     const selectors = [
-      'article .articleContent',
-      '.article-content',
+      'article .entry-content',
+      '.entry-content',
       'div[itemprop="articleBody"]',
-      'article .content',
-      'div[class*="article-content"]'
+      '.post-content',
+      'div[class*="entry-content"]'
     ];
 
     for (const selector of selectors) {
       const $content = $(selector);
       if ($content.length > 0) {
-        $content.find('script, style, nav, footer, .gallery, .widget, .related-articles').remove();
+        $content.find('script, style, nav, footer, .sharedaddy, .jp-relatedposts, .addtoany_share_save_container, .widget').remove();
 
         let text = $content.text().trim();
         text = text.replace(/\s+/g, ' ').replace(/\n+/g, '\n');
@@ -404,7 +403,7 @@ function extractAnandtechArticle(html, url) {
     console.warn(`  ⚠️  所有选择器都未匹配到足够内容`);
     return null;
   } catch (error) {
-    console.error(`  ❌ AnandTech提取器错误: ${error.message}`);
+    console.error(`  ❌ Semiconductor Engineering提取器错误: ${error.message}`);
     return null;
   }
 }
