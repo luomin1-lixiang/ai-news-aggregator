@@ -260,7 +260,7 @@ export default function Home() {
         <p>
           数据来源: Reuters, TechCrunch, The Verge, Nvidia, Google AI, 机器之心, 量子位 等
         </p>
-        <p>每天凌晨2:00自动更新 | AI芯片新闻48小时内 | 博客7天内 | 社区动态近7天</p>
+        <p>每天凌晨2:00自动更新 | 所有内容均为24小时内</p>
       </footer>
     </div>
   );

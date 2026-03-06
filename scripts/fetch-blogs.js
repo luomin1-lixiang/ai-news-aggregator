@@ -223,22 +223,22 @@ async function main() {
   console.log(`Anthropic博客: ${anthropicItems.length} 条`);
   console.log(`Gemini博客: ${geminiItems.length} 条`);
 
-  // 只保留最近7天的博客
-  const sevenDaysAgo = new Date();
-  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+  // 只保留最近24小时的博客
+  const twentyFourHoursAgo = new Date();
+  twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
 
   let recentAnthropicItems = anthropicItems
-    .filter(item => new Date(item.pubDate) > sevenDaysAgo)
+    .filter(item => new Date(item.pubDate) > twentyFourHoursAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
 
   let recentGeminiItems = geminiItems
-    .filter(item => new Date(item.pubDate) > sevenDaysAgo)
+    .filter(item => new Date(item.pubDate) > twentyFourHoursAgo)
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 10); // 最多10条
 
-  console.log(`\n7天内Anthropic博客: ${recentAnthropicItems.length} 条`);
-  console.log(`7天内Gemini博客: ${recentGeminiItems.length} 条`);
+  console.log(`\n24小时内Anthropic博客: ${recentAnthropicItems.length} 条`);
+  console.log(`24小时内Gemini博客: ${recentGeminiItems.length} 条`);
 
   // 详细打印过滤结果
   if (anthropicItems.length > 0 && recentAnthropicItems.length === 0) {

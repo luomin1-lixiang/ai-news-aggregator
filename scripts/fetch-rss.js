@@ -972,20 +972,20 @@ async function main() {
   // 按发布时间排序（从新到旧）
   aiChipItems.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
 
-  // 严格限制：只保留过去48小时的新闻（硬性上限）
-  const fortyEightHoursAgo = new Date();
-  fortyEightHoursAgo.setHours(fortyEightHoursAgo.getHours() - 48);
+  // 严格限制：只保留过去24小时的新闻（硬性上限）
+  const twentyFourHoursAgo = new Date();
+  twentyFourHoursAgo.setHours(twentyFourHoursAgo.getHours() - 24);
 
   const finalItems = aiChipItems.filter(item => {
     const itemDate = new Date(item.pubDate);
-    return itemDate > fortyEightHoursAgo;
+    return itemDate > twentyFourHoursAgo;
   });
 
-  console.log(`过滤48小时: 从 ${aiChipItems.length} 条筛选出 ${finalItems.length} 条最新内容`);
+  console.log(`过滤24小时: 从 ${aiChipItems.length} 条筛选出 ${finalItems.length} 条最新内容`);
 
-  // 注意：宁可显示少于15条，也不显示超过48小时的旧新闻
+  // 注意：宁可显示少于15条，也不显示超过24小时的旧新闻
   if (finalItems.length < 15) {
-    console.log(`⚠️  48小时内只有 ${finalItems.length} 条AI推理芯片新闻，将只显示这些新闻（不会补充旧新闻）`);
+    console.log(`⚠️  24小时内只有 ${finalItems.length} 条AI推理芯片新闻，将只显示这些新闻（不会补充旧新闻）`);
   }
 
   // 对内容进行分类
@@ -1020,10 +1020,10 @@ async function main() {
     ...categorizedItems['inference-other'].slice(0, 3)         // 其他推理：最多3条
   ];
 
-  // 如果某个类别不足，从其他类别补充（但只从48小时内的数据补充）
+  // 如果某个类别不足，从其他类别补充（但只从24小时内的数据补充）
   const deficit = 15 - selectedItems.length;
   if (deficit > 0 && selectedItems.length > 0) {
-    console.log(`总数不足15条，尝试从48小时内其他AI推理新闻补充 ${deficit} 条`);
+    console.log(`总数不足15条，尝试从24小时内其他AI推理新闻补充 ${deficit} 条`);
     const remainingItems = finalItems.filter(item => !selectedItems.includes(item));
     const supplementItems = remainingItems.slice(0, deficit);
     selectedItems.push(...supplementItems);

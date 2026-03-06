@@ -174,14 +174,14 @@ async function fetchFeed(feedConfig) {
     const feed = await parser.parseURL(feedConfig.url);
     console.log(`  Found ${feed.items.length} items`);
 
-    const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
     const items = [];
 
     for (const item of feed.items) {
       const pubDate = new Date(item.pubDate || item.isoDate || item.updated);
 
-      // Skip items older than 7 days
-      if (pubDate < sevenDaysAgo) continue;
+      // Skip items older than 24 hours
+      if (pubDate < twentyFourHoursAgo) continue;
 
       const rawContent = stripHtml(item.contentEncoded || item.content || item.summary || item.description || '');
       const title = item.title || '';
