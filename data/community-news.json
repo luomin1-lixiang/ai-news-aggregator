@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-03-06T19:52:06.656Z",
+  "lastUpdated": "2026-03-07T02:20:17.391Z",
   "items": [
+    {
+      "title": "v2.1.71",
+      "titleZh": "v2.1.71",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.71",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-03-07T00:12:46.000Z",
+      "summaryZh": "Claude Code v2.1.71 发布。新增 /loop 循环命令和 cron 定时工具，支持语音按键重绑定，扩展了 bash 自动批准命令列表。修复了长会话 stdin 冻结、启动卡顿、分支会话计划文件冲突、图像处理导致上下文中断等关键问题。优化了插件管理、MCP 服务器去重和启动性能。移除了未认证连接器的启动通知。",
+      "category": "github-release"
+    },
     {
       "title": "v2.1.70",
       "titleZh": "v2.1.70",
@@ -20,18 +31,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-05T00:26:21.000Z",
-      "summaryZh": "Claude Code v2.1.69 发布，主要更新包括：新增 /claude-api 技能用于构建应用；支持 10 种新语言的语音识别；添加 /reload-plugins 命令无需重启即可激活插件更改；新增 ${CLAUDE_SKILL_DIR} 变量供技能引用自身目录。修复了多项安全问题和功能缺陷，包括修复嵌套技能可能从 gitignored 目录加载的安全问题、修复 macOS 密钥链损坏问题、修复内存泄漏等。新增 includeGitInstructions 设置可移除内置的 Git 工作流指令。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.68",
-      "titleZh": "v2.1.68",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.68",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-04T10:11:14.000Z",
-      "summaryZh": "Claude Code v2.1.68 更新：为 Max 和 Team 订阅者默认启用 Opus 4.6 中等推理强度，平衡速度与准确性。重新引入 \"ultrathink\" 关键词以临时切换至高强度模式。已从 API 中移除 Opus 4 和 4.1 版本，相关用户自动迁移至 Opus 4.6。",
+      "summaryZh": "Claude Code v2.1.69 发布，带来多项更新。新功能包括：新增 /claude-api 技能、支持数字小键盘选择选项、为 /remote-control 添加自定义会话名称参数、语音 STT 新增支持 10 种语言、新增 /reload-plugins 命令等。修复了大量问题，包括安全漏洞（嵌套技能可能从 gitignored 目录加载）、macOS 钥匙串损坏、内存泄漏、API 错误等。新增 includeGitInstructions 设置可移除内置 Git 工作流指令。插件系统增强，支持 Git 子目录源和 OAuth 元数据自定义 URL。",
       "category": "github-release"
     }
   ]
