@@ -5,39 +5,40 @@ const path = require('path');
 
 const DEEPSEEK_API_KEY = process.env.DEEPSEEK_API_KEY;
 
-// Reddit: 7-day window via both /new and /top?t=week
-// GitHub Releases: 3-day window, capped at 3 items
+// HN: keyword-filtered at source via hnrss.org search
+// Dev.to: tag-filtered at source
+// GitHub Releases: all relevant, 3-day window
 const COMMUNITY_FEEDS = [
   {
-    url: 'https://www.reddit.com/r/ClaudeAI/new.rss',
-    name: 'r/ClaudeAI',
-    sourceType: 'reddit',
-    category: 'reddit',
-    filterKeywords: true,
+    url: 'https://hnrss.org/newest?q=claude+code&count=20',
+    name: 'Hacker News',
+    sourceType: 'hackernews',
+    category: 'hackernews',
+    filterKeywords: false,
     lookbackHours: 168,
   },
   {
-    url: 'https://www.reddit.com/r/ClaudeAI/top.rss?t=week',
-    name: 'r/ClaudeAI',
-    sourceType: 'reddit',
-    category: 'reddit',
-    filterKeywords: true,
+    url: 'https://hnrss.org/newest?q=anthropic+claude&count=20',
+    name: 'Hacker News',
+    sourceType: 'hackernews',
+    category: 'hackernews',
+    filterKeywords: false,
     lookbackHours: 168,
   },
   {
-    url: 'https://www.reddit.com/r/AnthropicAI/new.rss',
-    name: 'r/AnthropicAI',
-    sourceType: 'reddit',
-    category: 'reddit',
-    filterKeywords: true,
+    url: 'https://dev.to/feed/tag/claudeai',
+    name: 'Dev.to',
+    sourceType: 'devto',
+    category: 'devto',
+    filterKeywords: false,
     lookbackHours: 168,
   },
   {
-    url: 'https://www.reddit.com/r/AnthropicAI/top.rss?t=week',
-    name: 'r/AnthropicAI',
-    sourceType: 'reddit',
-    category: 'reddit',
-    filterKeywords: true,
+    url: 'https://dev.to/feed/tag/anthropic',
+    name: 'Dev.to',
+    sourceType: 'devto',
+    category: 'devto',
+    filterKeywords: false,
     lookbackHours: 168,
   },
   {
@@ -48,28 +49,6 @@ const COMMUNITY_FEEDS = [
     filterKeywords: false,
     lookbackHours: 72,
   },
-];
-
-// Keywords to filter Reddit posts - covers both product topics and user-experience language
-const CLAUDE_CODE_KEYWORDS = [
-  // Product / tool names
-  'claude code', 'claude-code', 'claude code cli',
-  'mcp', 'mcp server', 'computer use',
-  // Config / integrations
-  'hooks', '.claude', 'claude_desktop', 'claude desktop',
-  // API
-  'claude api', 'anthropic api',
-  // Models
-  'claude 3', 'claude 4', 'sonnet', 'haiku', 'opus',
-  // User-experience language
-  'workflow', 'use case', 'productivity', 'automation',
-  'tips', 'tricks', 'tutorial', 'guide', 'how i',
-  'my setup', 'my workflow', 'built with', 'built using',
-  'slash command', 'custom command', 'memory', 'project',
-  'prompt', 'context', 'codebase', 'repository',
-  // News signals
-  'new feature', 'update', 'release', 'version',
-  'bug', 'fix',
 ];
 
 const parser = new Parser({
@@ -90,11 +69,6 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function isClaudeCodeRelated(title, description) {
-  const text = (title + ' ' + description).toLowerCase();
-  return CLAUDE_CODE_KEYWORDS.some(kw => text.includes(kw.toLowerCase()));
-}
-
 function stripHtml(text) {
   if (!text) return '';
   return text
@@ -109,8 +83,8 @@ function stripHtml(text) {
     .trim();
 }
 
-// Score Reddit items: longer content = more in-depth discussion; penalize age slightly
-function scoreRedditItem(item) {
+// Score community items: longer content = richer discussion; slight recency penalty
+function scoreByRichness(item) {
   const contentLen = item.rawContent.length;
   const ageHours = (Date.now() - new Date(item.pubDate).getTime()) / (1000 * 60 * 60);
   return contentLen - ageHours * 20;
@@ -128,7 +102,7 @@ async function translateTitle(title, retries = 3) {
         body: JSON.stringify({
           model: 'deepseek-chat',
           messages: [
-            { role: 'system', content: 'Translate the following title into Chinese. Return only the translation, no extra text. Keep technical terms like "Claude Code", "MCP", "API" in English.' },
+            { role: 'system', content: 'Translate the following title into Chinese. Return only the translation, no extra text. Keep technical terms like "Claude Code", "MCP", "API", "Hacker News", "Dev.to" in English.' },
             { role: 'user', content: title },
           ],
           max_tokens: 200,
@@ -158,13 +132,20 @@ async function summarizeContent(title, content, sourceType, retries = 3) {
   let systemPrompt;
   if (sourceType === 'github-release') {
     systemPrompt = 'You are a tech journalist. Summarize the following Claude Code release notes into a clear Chinese summary (300-500 characters). Highlight: new features, bug fixes, breaking changes. Keep version numbers and technical terms in English.';
+  } else if (sourceType === 'hackernews') {
+    systemPrompt = `You are a tech content curator for Chinese developers. Analyze this Hacker News post/discussion about Claude Code or Anthropic AI, and write a Chinese summary (400-600 characters) covering:
+1. 讨论主题：what topic or question is being discussed
+2. 核心观点：key insights, opinions, or findings from the community
+3. 实用价值：actionable takeaways or notable developer experiences mentioned
+Focus on what's practically useful for developers building with Claude. Keep technical terms (Claude Code, MCP, API, etc.) in English.`;
+  } else if (sourceType === 'devto') {
+    systemPrompt = `You are a tech content curator for Chinese developers. Analyze this Dev.to article about Claude Code or Anthropic AI, and write a Chinese summary (400-600 characters) covering:
+1. 用户场景：what problem or use case the author addresses
+2. 核心方法：the specific approach, workflow, or technique described
+3. 关键技巧：actionable tips, code patterns, or pitfalls to avoid
+Focus on practical developer value. Keep technical terms (Claude Code, MCP, API, hooks, etc.) in English.`;
   } else {
-    // Reddit: extract practical user insights
-    systemPrompt = `You are a tech content curator for Chinese developers. Analyze this Reddit post about Claude Code / AI tools and write a Chinese summary (400-600 characters) that covers:
-1. 用户场景：what the user was trying to accomplish
-2. 核心方法：the specific workflow, approach, or solution described
-3. 关键技巧：actionable tips, key insights, or pitfalls mentioned
-Focus on practical value for developers. If the post is a question thread, summarize the best answers. Keep technical terms (Claude Code, MCP, API, hooks, etc.) in English.`;
+    systemPrompt = 'You are a tech journalist. Summarize the following content into a concise Chinese summary (300-500 characters). Keep technical terms in English.';
   }
 
   for (let attempt = 0; attempt < retries; attempt++) {
@@ -207,7 +188,7 @@ Focus on practical value for developers. If the post is a question thread, summa
 
 async function fetchFeed(feedConfig) {
   console.log(`\n${'─'.repeat(50)}`);
-  console.log(`📡 Fetching: ${feedConfig.name} (${feedConfig.url.includes('top') ? 'top/week' : 'new'})`);
+  console.log(`📡 Fetching: ${feedConfig.name} (${feedConfig.url})`);
 
   try {
     const feed = await parser.parseURL(feedConfig.url);
@@ -215,7 +196,7 @@ async function fetchFeed(feedConfig) {
 
     const cutoff = new Date(Date.now() - feedConfig.lookbackHours * 60 * 60 * 1000);
     const items = [];
-    let skippedAge = 0, skippedEmpty = 0, skippedKeyword = 0;
+    let skippedAge = 0, skippedEmpty = 0;
 
     for (const item of feed.items) {
       const pubDate = new Date(item.pubDate || item.isoDate || item.updated);
@@ -225,17 +206,8 @@ async function fetchFeed(feedConfig) {
       const rawContent = stripHtml(item.contentEncoded || item.content || item.summary || item.description || '');
       const title = item.title || '';
 
-      // Discard completely empty posts (link/image posts with zero body text)
-      if (feedConfig.sourceType === 'reddit' && rawContent.length < 20) {
-        skippedEmpty++;
-        continue;
-      }
-
-      // Filter Reddit posts by keyword relevance
-      if (feedConfig.filterKeywords && !isClaudeCodeRelated(title, rawContent)) {
-        skippedKeyword++;
-        continue;
-      }
+      // Skip completely empty items
+      if (rawContent.length < 20 && title.length < 10) { skippedEmpty++; continue; }
 
       items.push({
         title,
@@ -249,7 +221,7 @@ async function fetchFeed(feedConfig) {
       });
     }
 
-    console.log(`  Skipped: ${skippedAge} too old, ${skippedEmpty} empty body, ${skippedKeyword} no keyword match`);
+    console.log(`  Skipped: ${skippedAge} too old, ${skippedEmpty} empty`);
     console.log(`  Relevant items: ${items.length}`);
     return items;
   } catch (error) {
@@ -271,7 +243,7 @@ async function main() {
     await delay(1000);
   }
 
-  // Deduplicate by link (top and new feeds may overlap)
+  // Deduplicate by link
   const seen = new Set();
   const dedupedItems = allRawItems.filter(item => {
     if (seen.has(item.link)) return false;
@@ -281,22 +253,23 @@ async function main() {
 
   console.log(`\n📊 After dedup: ${dedupedItems.length} unique items`);
 
-  // Separate by source type and apply per-type caps
-  const redditItems = dedupedItems
-    .filter(item => item.sourceType === 'reddit')
-    .sort((a, b) => scoreRedditItem(b) - scoreRedditItem(a))
-    .slice(0, 15);
+  // Community items (HN + Dev.to): sorted by content richness, cap at 12
+  const communityItems = dedupedItems
+    .filter(item => item.sourceType !== 'github-release')
+    .sort((a, b) => scoreByRichness(b) - scoreByRichness(a))
+    .slice(0, 12);
 
+  // GitHub Releases: most recent 3
   const githubItems = dedupedItems
     .filter(item => item.sourceType === 'github-release')
     .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate))
     .slice(0, 3);
 
-  console.log(`  Reddit: ${redditItems.length} items (by content richness)`);
-  console.log(`  GitHub Releases: ${githubItems.length} items (most recent)`);
+  console.log(`  Community (HN + Dev.to): ${communityItems.length} items`);
+  console.log(`  GitHub Releases: ${githubItems.length} items`);
 
-  // GitHub releases last so Reddit content appears first
-  const topItems = [...redditItems, ...githubItems];
+  // Community content first, releases at the bottom
+  const topItems = [...communityItems, ...githubItems];
 
   if (topItems.length === 0) {
     console.log('⚠️  No items found, skipping file write');
@@ -312,12 +285,12 @@ async function main() {
   for (let i = 0; i < topItems.length; i++) {
     const item = topItems[i];
     console.log(`\n[${i + 1}/${topItems.length}] ${item.title.substring(0, 70)}`);
-    console.log(`  Source: ${item.source} | Content: ${item.rawContent.length} chars`);
+    console.log(`  Source: ${item.source} (${item.sourceType}) | Content: ${item.rawContent.length} chars`);
 
     const titleZh = await translateTitle(item.title);
     await delay(400);
 
-    const summaryZh = item.rawContent.length > 50
+    const summaryZh = item.rawContent.length > 30
       ? await summarizeContent(item.title, item.rawContent, item.sourceType)
       : null;
     await delay(400);

@@ -107,7 +107,8 @@ export default function Home() {
 
   const getSourceIcon = (sourceType) => {
     switch (sourceType) {
-      case 'reddit': return '🔴';
+      case 'hackernews': return '🟠';
+      case 'devto': return '💻';
       case 'github-release': return '🚀';
       case 'twitter': return '🐦';
       case 'news': return '📰';
@@ -125,6 +126,9 @@ export default function Home() {
       case 'ai-chip': return { text: 'AI芯片', icon: '💻', color: '#667eea' };
       case 'ai-hardware': return { text: 'AI硬件', icon: '🔧', color: '#f59e0b' };
       case 'ai-other': return { text: 'AI资讯', icon: '🤖', color: '#10b981' };
+      case 'hackernews': return { text: 'Hacker News', icon: '🟠', color: '#ff6600' };
+      case 'devto': return { text: 'Dev.to', icon: '💻', color: '#3b49df' };
+      case 'github-release': return { text: 'Release Notes', icon: '🚀', color: '#24292e' };
       default: return { text: 'AI', icon: '🤖', color: '#6b7280' };
     }
   };
