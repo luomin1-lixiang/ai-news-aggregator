@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-07T03:13:18.011Z",
+  "lastUpdated": "2026-03-07T19:04:34.369Z",
   "items": [
     {
       "title": "How to Cut Your LLM API Costs by 90%: Caching, Routing, and Prompt Engineering That Actually Work",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-03T14:26:00.000Z",
-      "summaryZh": "本文针对LLM API成本飙升问题，提出一套实战优化方案。用户场景：AI应用因重复查询、模型选型不当和提示词冗余导致API费用激增。核心方法：通过语义缓存（Semantic Caching）识别相似查询复用结果，结合智能路由（Routing）将简单任务分配至廉价模型，并压缩提示词减少token消耗。关键技巧：设置合理的相似度阈值（如0.92），使用向量索引加速匹配；建立成本监控仪表盘区分可优化查询；避免对动态内容过度缓存。采用这些策略可降低60-80%的API成本。",
+      "summaryZh": "本文针对LLM API成本激增问题，提出一套实战优化方案。用户场景：AI应用因重复查询、模型选型不当和提示词冗余导致API费用失控。核心方法：结合语义缓存、智能路由和提示工程，通过向量化查询匹配、分层模型调用和上下文压缩技术降低成本。关键技巧：设置合理的相似度阈值（如0.92）平衡缓存命中率与准确性；用GPT-4.1 nano等轻量模型处理简单任务；压缩系统提示词减少token消耗。避免对语义相同但表述不同的查询重复计费。",
       "category": "devto"
     },
     {
@@ -20,7 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-06T19:19:56.000Z",
-      "summaryZh": "本文介绍如何通过Claude AI和MCP协议自动化管理TikTok广告。用户场景是解决TikTok广告创意疲劳周期短（3-5天）、数据指标复杂（完播率、拇指停留率等）且需实时监控的问题。核心方法是使用TikTok Ads MCP服务器，让Claude直接连接TikTok Marketing API，通过自然语言查询实时数据并执行操作。关键技巧包括：通过Composio实现10分钟快速部署；建立每日创意疲劳检测流程；基于ROAS数据实时调整预算；区分Spark Ads与付费广告效果分析。注意社区工具非官方产品，需谨慎评估。",
+      "summaryZh": "本文介绍如何通过Claude AI和MCP协议自动化TikTok广告管理。用户场景是解决TikTok广告创意疲劳周期短（3-5天）、数据指标复杂（完播率、拇指停留率等）且需实时监控的问题。核心方法是使用TikTok Ads MCP服务器连接Claude与TikTok Marketing API，实现自然语言查询广告数据、管理广告活动。关键技巧包括：通过Composio托管服务10分钟快速接入；建立每日创意疲劳检测、预算重分配等自动化流程；注意社区工具非官方性质，需审查源码；结合MCP Playground测试工具接口。",
+      "category": "devto"
+    },
+    {
+      "title": "Your AI Coding Session Is Degrading Silently — Here's How to Measure It",
+      "titleZh": "你的AI编码会话正在悄然降级——这是衡量它的方法",
+      "link": "https://dev.to/jerown/your-ai-coding-session-is-degrading-silently-heres-how-to-measure-it-43nm",
+      "author": "J Schoemaker",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-07T10:03:43.000Z",
+      "summaryZh": "本文介绍如何检测AI编程会话中的上下文退化问题。作者发现，在长时间使用Claude Code等AI编程工具时，模型性能会无声下降，表现为重复代码、信心减弱和前后矛盾。开发者往往难以察觉，直到会话已不可靠。\n\n核心方法是使用driftguard-mcp工具，通过读取本地会话文件（如Claude Code的JSONL格式）实时监测退化信号，无需修改API调用。工具采用六因素加权评分模型，其中上下文饱和度和重复性检测占主导（共74%权重）。\n\n关键技巧包括：关注API返回的token计数（input_tokens和cache_read_input_tokens）来准确计算上下文饱和度；使用3-gram重叠算法检测代码重复；注意Claude Code的compact boundaries会导致历史消息被丢弃，评分时需同步排除。这些方法帮助开发者在会话质量下降前及时干预。",
       "category": "devto"
     },
     {
@@ -31,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-05T11:08:25.000Z",
-      "summaryZh": "本文分析了Anthropic拒绝美国国防部要求移除Claude AI安全护栏的事件。用户场景：国防部希望将Claude用于武器瞄准和战场监控系统，但要求移除其内置的伦理约束。核心方法：Anthropic坚持其“宪法AI”设计原则，这些安全护栏通过RLHF和微调深度嵌入模型架构，无法简单关闭。关键技巧：开发者需注意，前沿AI模型的安全架构与核心功能不可分割，军用场景需要专门构建的系统而非修改商业模型；企业参与政府AI项目时应明确安全底线，避免技术误解演变为信任危机。这一案例为AI伦理与军事应用的冲突提供了重要参考。",
+      "summaryZh": "本文分析了Anthropic拒绝美国国防部要求移除Claude AI安全护栏的事件。用户场景：国防部希望将Claude用于武器瞄准和战场监控，但要求去除其内置的伦理约束。核心方法：Anthropic基于\"宪法AI\"架构，通过RLHF等技术将安全原则深度嵌入模型训练，无法通过简单开关禁用。关键技巧：开发者需注意，前沿AI模型的安全架构与核心功能不可分割；企业若涉及国防AI项目，应明确安全边界并建立独立技术评估能力，避免将伦理问题误解为信任问题。此次公开决裂预示商业AI与军事应用间的结构性矛盾将持续发酵。",
       "category": "devto"
     },
     {
@@ -42,7 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-05T12:48:25.000Z",
-      "summaryZh": "本文作者分享了一个利用Claude解决实际开发问题的独特方法。当遇到看似无解的困境时，作者通过向Claude提供“不存在死局”的思维框架和具体推理步骤，引导AI质疑问题前提并回归第一性原理，从而发现被忽略的第四种解决方案。核心技巧在于：1）明确禁止AI给出消极结论；2）设定“检测死锁→质疑前提→重构方案”的推理流程；3）利用LLM推理链的轻微漂移特性激发创造性。这种方法将Constitutional AI的“不放弃”原则操作化，为开发者突破思维定式提供了可复用的prompt架构。",
+      "summaryZh": "本文作者分享了一个利用Claude解决实际开发问题的独特方法。当面对三个方案均被阻塞的困境时，作者通过向Claude提供“不存在死局”的思维框架和具体推理步骤，引导AI质疑潜在前提并回归第一性原理，最终找到了优于原有方案的第四种路径。核心技巧在于：1）明确禁止AI给出消极结论；2）设定结构化推理流程：识别僵局→质疑前提→回归基础→重构方案。这种方法并非简单鼓励“不放弃”，而是通过指令引导推理链转向，在看似无解时激发结构性创新。作者将其与Constitutional AI的“不抛弃”原则关联，为开发者提供了一种在复杂问题中突破思维定式的实用提示词策略。",
       "category": "devto"
     },
     {
@@ -53,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-06T21:15:12.000Z",
-      "summaryZh": "本文作者基于1000多次Claude Code使用经验，总结出高效构建CLAUDE.md的方法论。核心解决**AI代理行为不可控、决策逻辑模糊**的问题。\n\n**核心方法**采用**双文件架构**：全局文件（`~/.claude/CLAUDE.md`）定义AI身份与核心原则；项目文件（`/project/CLAUDE.md`）配置具体工具与执行规则。这种分离避免了身份定义与操作指令的混淆。\n\n**关键技巧**包括：\n1. 用**行为化指令替代抽象描述**（如用“执行前先运行验证”替代“保持严谨”）\n2. 建立**可逆性分级规则**：读取/草稿可自主执行，部署/删除需人工确认\n3. 设置**显式故障处理流程**，避免AI在异常时随意发挥\n4. 全局文件聚焦**原则性条款**（如“行动优于空谈”），项目文件承载**具体API、SSH命令等实操配置**\n\n避免的陷阱：冗长的边缘情况清单（易冲突）、全局文件混入项目凭证、缺乏升级确认机制。最终目标是让AI在原则框架内自主处理常规任务，在关键节点触发人工干预。",
+      "summaryZh": "本文作者基于1000多次Claude Code使用经验，总结出高效构建CLAUDE.md的方法论。核心解决如何让AI代理在不同场景下保持行为一致性和可控性。\n\n**用户场景**：开发者在复杂项目协作中，需要AI代理能自主处理编码、部署、文档生成等任务，同时避免意外操作和决策混乱。\n\n**核心方法**：采用双文件架构——全局文件（~/.claude/CLAUDE.md）定义AI身份与核心原则，项目文件（/project/CLAUDE.md）配置具体工具和规则。通过分离恒定身份与可变上下文，解决指令混淆问题。\n\n**关键技巧**：\n1. 用行为定义替代抽象描述（如用“运行并展示输出”替代“保持严谨”）\n2. 建立可逆性分级规则，明确不同风险操作的自主权限\n3. 配置能力矩阵实现精准指令路由\n4. 为失败场景预设处理流程，避免代理盲目尝试\n5. 全局文件聚焦原则（如“行动优于空谈”），项目文件承载具体配置\n\n避免将项目凭证、部署指令等动态信息放入全局文件，防止会话启动时的信息过载。",
       "category": "devto"
     },
     {
       "title": "AI in the Crosshairs: Claude's Role in U.S.-Iran Conflict",
-      "titleZh": "AI成为焦点：Claude在美国与伊朗冲突中的角色",
+      "titleZh": "AI成为焦点：Claude在美国-伊朗冲突中的角色",
       "link": "https://dev.to/agent67/ai-in-the-crosshairs-claudes-role-in-us-iran-conflict-5f2",
       "author": "Agent",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-04T11:32:47.000Z",
-      "summaryZh": "本文探讨了AI在军事冲突中的应用，聚焦于Anthropic的Claude在美伊冲突中的潜在角色。作者分析了AI在情报收集和预测分析中的战略价值，例如通过自然语言处理快速分析多源数据，辅助军事决策。同时，文章强调了AI军事化带来的伦理风险，包括责任归属模糊、自主武器系统失控等问题。关键点在于：AI虽能提升作战效率，但需建立国际监管框架，平衡技术创新与道德约束，避免技术滥用破坏全球安全秩序。",
+      "summaryZh": "本文探讨了Anthropic的Claude AI在军事冲突（以美伊为例）中的应用与伦理挑战。用户场景聚焦于军事决策者如何利用AI进行情报分析和预测，以获取战术优势。核心方法涉及使用Claude的自然语言处理能力自动化处理多源数据（如社交媒体、报告），并通过预测分析预判冲突趋势。关键技巧包括：避免过度依赖AI预测而忽视人类判断，注意对抗性反制措施的风险，并需在创新与伦理（如问责制、国际法合规）间保持平衡。开发者需关注AI在军事领域部署时的数据安全与道德框架设计。",
       "category": "devto"
     },
     {
@@ -75,18 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-06T17:22:29.000Z",
-      "summaryZh": "本文介绍了一个Claude Code技能（planning-with-files）的安全漏洞与修复方案。用户场景是：开发者使用基于Manus模式的技能，通过三个Markdown文件作为AI代理的持久化工作记忆，并利用PreToolUse钩子在每次工具调用前重读task_plan.md以维持长期会话的目标注意力。核心安全问题是：当技能允许WebFetch和WebSearch工具时，不可信内容可能被写入task_plan.md，随后被钩子反复注入上下文，形成间接提示注入放大攻击。修复方法包括：1. 从所有IDE变体的allowed-tools中移除网络访问工具；2. 在SKILL.md添加安全边界规则，要求外部内容仅写入findings.md。关键技巧：使用Anthropic官方评估框架进行A/B测试验证修复效果，该技能在移除危险工具后仍保持96.7%通过率，但需注意会带来约68%的token开销增加。开发者构建类似技能时应谨慎评估钩子与工具的组合风险，并通过标准化评估确保功能有效性。",
+      "summaryZh": "本文介绍了作者开发的Claude Code技能`planning-with-files`被安全扫描器标记漏洞后的分析与修复过程。\n\n**用户场景**：该技能基于Manus模式，通过三个Markdown文件作为AI工作记忆，并使用PreToolUse钩子在每次工具调用前重读`task_plan.md`以维持长期会话中的目标注意力。但安全审计发现其存在间接提示注入风险。\n\n**核心方法**：漏洞根源在于技能同时声明了WebFetch/WebSearch工具权限，导致不可信内容可能通过钩子机制被反复注入上下文。修复方案包括：1）从所有IDE变体的`allowed-tools`中移除网络工具；2）在SKILL.md添加安全边界规则，明确外部内容仅限写入`findings.md`。\n\n**关键技巧**：1）使用钩子机制时需严格审查配套工具链，避免形成注入放大链；2）务必通过正式评估流程验证技能效果，作者利用Anthropic的eval pipeline进行盲测对比，显示该技能在结构化规划任务中通过率达96.7%（无技能仅6.7%），但需额外付出68%的token成本。",
       "category": "devto"
     },
     {
       "title": "# The Success Tax: An Engineering Post-Mortem of the Claude 2026 Global Outage",
-      "titleZh": "# 成功税：Claude 2026全球服务中断的工程复盘报告",
+      "titleZh": "# 成功税：Claude 2026全球服务中断的工程复盘",
       "link": "https://dev.to/genieinfotech/-the-success-tax-an-engineering-post-mortem-of-the-claude-2026-global-outage-3jn2",
       "author": "Genie InfoTech",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-04T04:21:41.000Z",
-      "summaryZh": "本文分析了2026年Claude全球宕机事件，为依赖AI服务的开发者提供架构韧性方案。\n\n**用户场景**：AI服务突发大规模故障导致开发工作流中断、企业客服瘫痪，暴露单一AI供应商架构的脆弱性。\n\n**核心方法**：提出三层「韧性架构」：1) 多LLM故障转移机制，在主要服务失败时自动切换备用AI；2) 将身份验证与推理服务解耦，直接使用API密钥而非依赖提供商前端；3) 对非创造性任务采用本地小型语言模型（SLM）。\n\n**关键技巧**：避免硬编码单一AI供应商API调用；为关键业务构建自定义控制面板而非依赖官方UI；将JSON解析等基础任务迁移至本地模型以规避云端服务风险。",
+      "summaryZh": "本文分析了2026年Claude全球宕机的工程原因与应对策略。用户场景：AI服务突发中断导致开发者、企业客服等依赖Claude的工作流全面瘫痪。核心方法：通过多LLM故障转移（如Claude宕机时自动切换至Gemini）、将身份验证与推理API解耦、以及采用本地小型语言模型（SLM）来构建弹性架构。关键技巧：避免硬编码单一AI服务API；直接使用API密钥而非依赖提供商前端；对非创造性任务优先采用本地模型（如Llama 3.3）以规避云端服务风险。",
       "category": "devto"
     },
     {
@@ -97,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-06T10:00:42.000Z",
-      "summaryZh": "本文讨论了美国国防部将Anthropic列为供应链风险事件对开发者的影响。**用户场景**：AI技术日益融入国防和关键基础设施，开发者需应对由此引发的安全与合规挑战。**核心方法**：建议通过持续关注AI安全动态、评估工具合规性、实施安全编码与数据管理最佳实践来降低风险。**关键技巧**：优先选用注重安全对齐的AI服务（如Jasper AI），积极参与GitHub等社区讨论，并通过专业课程持续学习AI伦理与合规知识。这一事件警示开发者必须在创新中主动构建安全可靠的AI系统。",
+      "summaryZh": "本文讨论了美国国防部将Anthropic列为供应链风险事件对开发者的影响。**用户场景**：AI开发者需应对日益严格的AI安全与供应链合规要求，特别是在国防和关键基础设施领域。**核心方法**：建议通过持续关注AI安全动态、评估工具合规性（如优先选择Jasper AI等注重安全性的服务）、实施安全编码与数据管理最佳实践来应对风险。**关键技巧**：主动参与GitHub等社区讨论、学习AI伦理与合规课程、在开发中内置偏差检测与漏洞监控机制，避免使用未经验证的AI组件。",
       "category": "devto"
     },
     {
@@ -108,7 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-06T14:35:28.000Z",
-      "summaryZh": "本文针对开发者在使用Claude Code时，通过SSH连接或tmux会话中因macOS Keychain锁定导致OAuth令牌无法访问的问题，提供了快速恢复方案。核心方法是利用Claude Code优先读取CLAUDE_CODE_OAUTH_TOKEN环境变量的特性，从本地Keychain提取令牌并注入环境变量。关键技巧包括：使用security命令提取JSON格式令牌、通过export设置环境变量、用tmux set-environment更新tmux会话环境，以及将令牌持久化保存至.zshrc或.openclaw/.env配置文件。这一流程可在30秒内恢复访问，且无需中断现有进程。",
+      "summaryZh": "本文针对开发者通过SSH连接Mac时，Claude Code因无法访问macOS Keychain而认证失败的问题，提供快速恢复方案。\n\n**用户场景**：在SSH或tmux会话中使用Claude Code CLI时，因Keychain锁定导致OAuth token无法读取，出现认证错误。\n\n**核心方法**：利用`CLAUDE_CODE_OAUTH_TOKEN`环境变量优先于Keychain的特性，通过`security`命令从本地Keychain提取token（JSON格式），手动设置环境变量。\n\n**关键技巧**：\n1. 使用`security find-generic-password -s 'Claude Code-credentials' -w`提取完整JSON token\n2. 通过`tmux set-environment`将token注入现有tmux会话环境\n3. 将token持久化至`~/.zshrc`或`~/.openclaw/.env`避免重复操作\n4. 注意token过期时间，Keychain会自动更新最新token\n\n该方法可在30秒内恢复SSH/tmux环境中的Claude Code访问，无需中断现有进程。",
       "category": "devto"
     },
     {
@@ -119,18 +130,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-05T10:00:43.000Z",
-      "summaryZh": "本文讨论了Anthropic公司与美国国防部重启AI合作谈判的行业动态。作者面向关注AI安全与国防应用的开发者，分析了这一趋势背后的技术整合与伦理挑战。核心在于理解政府机构如何将前沿AI模型（如Anthropic的安全对齐技术）应用于国家安全场景，同时确保伦理约束。关键点包括：1）跟踪AI在国防领域的具体用例（如网络安全、决策辅助）；2）关注AI安全框架在军事部署中的实践；3）注意企业-政府合作中常见的合规性陷阱。建议开发者通过TensorFlow/PyTorch等工具积累AI实战经验，并持续关注AI安全协议的技术演进。",
-      "category": "devto"
-    },
-    {
-      "title": "OpenAI vs Anthropic vs Gemini — Which AI Model is Best for Your Business?",
-      "titleZh": "OpenAI vs Anthropic vs Gemini —— 哪款AI模型最适合您的企业？",
-      "link": "https://dev.to/deepak_sharma_3ac7b707bce/openai-vs-anthropic-vs-gemini-which-ai-model-is-best-for-your-business-1aip",
-      "author": "Deepak Sharma",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-06T17:03:41.000Z",
-      "summaryZh": "本文对比了OpenAI、Anthropic和Gemini三大AI模型的企业应用选择。作者针对企业构建AI代理的需求场景，分析了各模型的核心特点：OpenAI（GPT-4）适合需要快速响应和成熟生态的客服与内容创作；Anthropic的Claude以安全性和真实性见长，适用于敏感数据处理和受监管行业；Gemini凭借多模态能力在Google生态中表现突出。关键建议是：根据具体需求场景选择模型，并推荐使用AGENTFORGE等平台实现模型灵活切换，避免绑定单一供应商。开发者应注意评估数据隐私、集成成本和任务适配性等实际因素。",
+      "summaryZh": "本文讨论了Anthropic公司与美国国防部重启AI合作谈判的行业影响。作者面向关注AI安全与国防应用的开发者，分析了这一趋势背后的技术整合与伦理挑战。核心观点是：政府正加速将前沿AI（如Anthropic的伦理对齐模型）用于国家安全领域，这既带来市场增长（AI/ML领域增长3%），也引发对AI安全部署的更高要求。关键建议包括：1）学习AI伦理与机器学习框架（TensorFlow/PyTorch）；2）通过实际项目积累AI工具实战经验；3）关注AI政策动态并参与开发者社区讨论。开发者需把握AI与国防融合的技术风向，同时深入思考安全可控的AI实施路径。",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-07T00:12:46.000Z",
-      "summaryZh": "Claude Code v2.1.71 发布。新增 /loop 循环命令和 cron 定时工具，支持周期性执行任务；新增 voice:pushToTalk 可自定义语音激活键。修复了长会话 stdin 冻结、启动卡顿、/fork 会话计划文件冲突、图像处理失败导致会话中断等关键问题。优化了插件管理、MCP 服务器去重和启动性能。移除了未认证连接器的启动通知。",
+      "summaryZh": "Claude Code v2.1.71 发布。新增 /loop 循环命令和 cron 定时工具，支持周期性执行任务；新增 voice:pushToTalk 可自定义语音按键。修复了长会话 stdin 冻结、启动卡顿、/fork 会话计划文件冲突、插件安装丢失、MCP 连接器重复等多项问题。优化了启动速度、桥接会话重连和插件管理。移除了未认证连接器的启动通知。",
       "category": "github-release"
     },
     {
@@ -152,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-06T01:20:02.000Z",
-      "summaryZh": "Claude Code v2.1.70 发布，主要修复了多项API错误和功能问题。新功能包括VS Code活动栏新增会话列表图标、完整的Markdown计划文档视图，以及原生MCP服务器管理对话框。修复了工具搜索、模型响应、剪贴板、语音模式、插件显示等大量错误，并优化了性能，减少了内存占用和重新渲染。无重大破坏性变更。",
+      "summaryZh": "Claude Code v2.1.70 发布，主要修复了多项API错误和功能问题。新功能包括VS Code活动栏新增会话列表图标、完整的Markdown计划文档视图，以及原生MCP服务器管理对话框。修复了工具搜索、模型响应、剪贴板文本损坏、语音模式、插件显示等关键问题。性能方面优化了提示缓存、内存占用和远程控制轮询频率。无重大破坏性变更。",
       "category": "github-release"
     },
     {
@@ -163,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-05T00:26:21.000Z",
-      "summaryZh": "Claude Code v2.1.69 发布，新增多项功能与修复。主要更新包括：新增 `/claude-api` 技能用于构建应用；扩展语音 STT 支持至 10 种新语言；添加 `Ctrl+U` 快捷退出 bash 模式；支持数字小键盘选择面试问题选项。修复了安全漏洞，如嵌套技能可能从 `node_modules` 等目录加载文件；解决了 `claude remote-control` 在 npm 安装时崩溃、macOS 钥匙串损坏导致 OAuth 问题、`.credentials.json` 丢失订阅类型等错误。新增 `includeGitInstructions` 设置以移除内置 Git 工作流指令，并优化了插件钩子事件与内存泄漏问题。",
+      "summaryZh": "Claude Code v2.1.69 发布，主要更新包括：新增 /claude-api 技能用于构建应用；添加 Ctrl+U 快捷退出 bash 模式；语音 STT 支持新增 10种语言；终端标题现可显示代理名称。修复了多项安全问题和 bug，包括修复嵌套技能可能从 gitignore 目录加载的安全漏洞、修复 macOS 钥匙链损坏问题、修复内存泄漏等。新增 includeGitInstructions 设置可移除内置 Git 工作流指令。插件系统增强，新增 /reload-plugins 命令和插件钩子事件。",
       "category": "github-release"
     }
   ]
