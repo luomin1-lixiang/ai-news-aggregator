@@ -55,6 +55,7 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           else
             git commit -m "Update AI news - $(date +'%Y-%m-%d %H:%M:%S')"
+            git pull --rebase
             git push
             echo "changed=true" >> $GITHUB_OUTPUT
           fi
