@@ -215,20 +215,27 @@ async function fetchFeed(feedConfig) {
 
     const cutoff = new Date(Date.now() - feedConfig.lookbackHours * 60 * 60 * 1000);
     const items = [];
+    let skippedAge = 0, skippedEmpty = 0, skippedKeyword = 0;
 
     for (const item of feed.items) {
       const pubDate = new Date(item.pubDate || item.isoDate || item.updated);
 
-      if (pubDate < cutoff) continue;
+      if (pubDate < cutoff) { skippedAge++; continue; }
 
       const rawContent = stripHtml(item.contentEncoded || item.content || item.summary || item.description || '');
       const title = item.title || '';
 
-      // Discard stub Reddit posts with no meaningful content
-      if (feedConfig.sourceType === 'reddit' && rawContent.length < 100) continue;
+      // Discard completely empty posts (link/image posts with zero body text)
+      if (feedConfig.sourceType === 'reddit' && rawContent.length < 20) {
+        skippedEmpty++;
+        continue;
+      }
 
       // Filter Reddit posts by keyword relevance
-      if (feedConfig.filterKeywords && !isClaudeCodeRelated(title, rawContent)) continue;
+      if (feedConfig.filterKeywords && !isClaudeCodeRelated(title, rawContent)) {
+        skippedKeyword++;
+        continue;
+      }
 
       items.push({
         title,
@@ -242,6 +249,7 @@ async function fetchFeed(feedConfig) {
       });
     }
 
+    console.log(`  Skipped: ${skippedAge} too old, ${skippedEmpty} empty body, ${skippedKeyword} no keyword match`);
     console.log(`  Relevant items: ${items.length}`);
     return items;
   } catch (error) {
