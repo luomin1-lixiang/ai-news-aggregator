@@ -1,31 +1,57 @@
 {
-  "lastUpdated": "2026-03-08T19:03:56.559Z",
+  "lastUpdated": "2026-03-10T19:57:05.704Z",
   "items": [
     {
-      "title": "Enabling Gemini for Education across all Malaysian public universities",
-      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/gemini-malaysia-universities/",
-      "description": "Gemini for Education is now in all 20 Malaysian public universities, reaching 600,000 students and 75,000 faculty members.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_for_Education_Resizing_I.max-600x600.format-webp.webp\">Gemini for Education is now in all 20 Malaysian public universities, reaching 600,000 students and 75,000 faculty members.",
-      "author": "Olivia Basrin",
+      "title": "Gemini Embedding 2: Our first natively multimodal embedding model",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-embedding-2/",
+      "description": "An overview of Gemini Embedding 2, our first fully multimodal embedding model that maps text, images, video, audio and documents into a single space.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-2_embedding_keyword_blog.max-600x600.format-webp.webp\">An overview of Gemini Embedding 2, our first fully multimodal embedding model that maps text, images, video, audio and documents into a single space.",
+      "author": "Min Choi",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Sun, 08 Mar 2026 18:00:00 +0000",
-      "titleZh": "启用Gemini覆盖马来西亚所有公立大学的教育领域",
-      "descriptionZh": "近日，Google 宣布其人工智能助手 Gemini for Education 已全面入驻马来西亚所有 20 所公立大学，标志着该国高等教育数字化转型的重要一步。该计划将覆盖约 60 万名学生以及 7.5 万名教职员工，旨在通过 AI 技术提升教学效率、支持个性化学习并赋能学术研究。\n\n这一举措的核心在于将 Gemini 的先进 AI 功能深度整合至大学的教学、研究与日常运营中。Gemini 能够协助学生进行资料检索、内容总结、代码调试及多语言交流，同时为教师提供课程设计、作业评估和研究分析等方面的支持。其创新点在于以安全、可控的企业级环境，为师生提供基于大型语言模型的实时辅助，并强调了负责任 AI 的使用原则。\n\n此举的技术影响深远，不仅加速了马来西亚高校的数字化进程，也为 AI 在教育领域的规模化应用提供了重要范例。从应用场景看，Gemini 将渗透到课堂互动、在线学习平台、学术写作、项目协作等多个环节，有望减轻师生负担，激发创新潜力，并帮助培养符合数字时代需求的技能。\n\n总体而言，Gemini for Education 在马来西亚的全面推广，不仅是技术工具的部署，更象征着 AI 正在成为支撑未来教育体系的基础设施，为全球教育科技的融合发展提供了实践参考。"
+      "pubDate": "Tue, 10 Mar 2026 16:00:00 +0000",
+      "titleZh": "双子座Embedding 2：我们的首款",
+      "descriptionZh": "近期，谷歌发布了Gemini Embedding 2，这是其首个**完全多模态的嵌入模型**。该模型标志着人工智能在理解和连接不同信息模态方面迈出了重要一步。\n\n**背景与上下文**\n传统嵌入模型通常专注于单一数据类型（如文本或图像），将数据转换为高维向量（嵌入），以便机器理解和处理。然而，现实世界的信息天然是多模态的——文本、图像、视频、音频和文档常常交织在一起。要构建真正理解复杂内容的AI系统（如高级搜索引擎、内容推荐或智能助手），需要一个能够**统一理解和关联所有模态信息**的模型。Gemini Embedding 2正是为了解决这一核心挑战而生。\n\n**核心技术原理与创新点**\nGemini Embedding 2的核心创新在于其 **“完全多模态”** 的设计。它能够将**文本、图像、视频、音频和各种文档（如PDF、PPT）** 全部映射到**同一个共享的向量语义空间**。\n1.  **统一编码架构**：模型通过一个统一的神经网络架构处理不同模态的输入。无论输入是句子、图片、视频片段还是音频波形，都会被转换为同一语义空间中的向量表示。这使得不同模态数据之间的语义相似性可以直接通过向量距离（如余弦相似度）来衡量。\n2.  **跨模态对齐训练**：模型通过在包含成对多模态数据（如图像-标题对、视频-描述对、音频-文本对）的大规模数据集上进行训练，学习到不同模态之间深层次的语义对应关系。例如，它学会“狗”的图片向量与其描述文本“一只狗在奔跑”的向量在嵌入空间中非常接近。\n3.  **处理长上下文与文档**：除了基础的多模态对齐，该模型还针对长文本和完整文档进行了优化，能够捕捉更长序列中的复杂语义和结构信息。\n\n**技术影响与应用场景**\nGemini Embedding 2的出现将极大推动需要深度理解多模态内容的应用发展：\n*   **跨模态检索与搜索**：用户可以输入一种模态的查询（如一张草图或一段语音），直接检索到其他模态的相关内容（如匹配的图片、视频或文档），实现“所见即所搜”。\n*   **多模态AI助手与代理**：使AI系统能够同时理解用户提供的文字、上传的图片、录制的语音等多种指令，并基于混合信息执行任务、生成回答或总结内容。\n*   **内容理解与推荐系统**：平台可以更精准地分析视频（结合画面、语音、字幕）、复杂文档或社交媒体帖子（图文混合）的完整含义，从而提供高度相关的个性化推荐或内容分类。\n*   **人工智能研究与开发**：为研究者提供了一个强大的基础模型，可用于零样本或少样本的多模态任务，加速在视觉-语言推理、音频-视觉分析等前沿领域的研究。\n\n**总结而言，Gemini Embedding 2通过创造一个所有数据类型都能“说同一种语言”（共享向量空间）的环境，打破了模态间的壁垒。它不仅是谷歌在多模态AI基础设施上的重要进展，也为构建下一代能够像人类一样综合处理多种信息形式的智能应用奠定了关键的技术基础。**"
     },
     {
-      "title": "Honoring the art of the possible this International Women’s Day",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/iwd-whm-the-art-of-the-possible/",
-      "description": "Google is honoring International Women’s Day and Women’s History Month across its products along with a  new film on Dr. Marian Croak.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/artofpossible_hero.max-600x600.format-webp.webp\">Google is honoring International Women’s Day and Women’s History Month across its products along with a  new film on Dr. Marian Croak.",
-      "author": "Christina Basilio",
+      "title": "Gemini in Google Sheets just achieved state-of-the-art performance.",
+      "link": "https://blog.google/products-and-platforms/products/workspace/gemini-google-sheets-state-of-the-art/",
+      "description": "Today we announced new beta features for Gemini in Sheets to help you create, organize and edit entire sheets, from basic tasks to complex data analysis — just describe …",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Workspace_Jan_Moment_Sheets_Blo.max-600x600.format-webp.webp\">Today we announced new beta features for Gemini in Sheets to help you create, organize and edit entire sheets, from basic tasks to complex data analysis — just describe …",
+      "author": "Eric Birnbaum",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Sun, 08 Mar 2026 16:00:00 +0000",
-      "titleZh": "国际妇女节：致敬无限可能",
-      "descriptionZh": "为纪念国际妇女节及妇女历史月，Google在其全线产品与服务中推出了系列主题庆祝活动，并发布了一部关于工程学先驱、AI伦理重要倡导者玛丽安·克鲁克博士的专题影片。\n\n这项年度活动旨在通过科技的力量，表彰女性在历史与当代社会，尤其是在科学、技术、工程和数学领域取得的卓越成就与贡献。其核心运作原理植根于Google庞大的产品生态系统的整合与协同。具体而言，Google在搜索引擎、Google助手、YouTube、Google艺术与文化等平台设置了特别入口、展示专题内容或启动互动体验。例如，在搜索相关关键词时呈现特别涂鸦或信息卡片，在YouTube首页推荐相关纪录片与访谈，利用Google艺术与文化平台展示女性艺术家的作品等。其技术创新点在于，并非进行单一的产品功能更新，而是通过算法优化、内容策展和跨平台联动，在全网范围内系统性地提升相关人物与故事的能见度，将纪念活动无缝融入数亿用户的日常数字体验之中。\n\n本次活动的焦点——关于玛丽安·克鲁克博士的影片，具有深刻的象征意义。克鲁克博士是VoIP技术的奠基人之一，拥有数百项专利，近年更专注于AI伦理与公平性的研究，是Google工程团队的高级副总裁。这部影片不仅是对她个人职业生涯的致敬，更是向公众清晰地传递了一个信息：科技行业的多元化与包容性是驱动突破性创新的关键引擎。通过讲述一位在技术核心领域取得顶尖成就的女性领导者的故事，Google旨在打破刻板印象，为全球年轻女性与女童树立至关重要的榜样。\n\n这一系列举措的技术与社会影响深远。从应用层面看，它利用全球最具影响力的信息平台之一，以润物细无声的方式进行大规模公众教育和意识提升，将多样性、公平与包容的价值理念传递给更广泛的受众。从行业影响看，它树立了科技企业如何利用自身核心产品履行社会责任的范例。更重要的是，通过彰显像克鲁克博士这样的女性技术领袖，Google不仅是在回顾历史，更是在积极塑造未来，激励下一代多元化人才投身科技领域，为解决复杂的全球性挑战贡献力量。这体现了科技企业在推动社会进步中，超越商业范畴，扮演文化塑造与启蒙者的角色。"
+      "pubDate": "Tue, 10 Mar 2026 13:00:00 +0000",
+      "titleZh": "谷歌表格中的Gemini功能现已实现最先进的性能表现。",
+      "descriptionZh": "今天，谷歌宣布为谷歌表格中的Gemini推出新的测试版功能，旨在通过自然语言交互，彻底改变用户创建、组织和编辑电子表格的方式。用户只需通过简单的描述，即可让AI助手协助完成从基础操作到复杂数据分析的全流程任务，显著提升工作效率和可访问性。\n\n**背景与上下文**\n此次更新是谷歌将生成式AI深度集成到其Workspace生产力套件中的又一重要举措。继在Docs和Gmail等应用中引入AI辅助功能后，谷歌表格成为下一个核心改造对象。传统的电子表格操作，尤其是复杂公式编写、数据清理和可视化，通常需要用户具备一定的专业知识。Gemini的引入旨在降低这一门槛，使更广泛的用户群体能够轻松进行数据处理和分析。\n\n**核心技术原理与创新点**\n新功能的核心在于将自然语言指令直接转化为表格操作和数据分析。其创新点主要体现在以下几个方面：\n1.  **自然语言到动作的转换**：用户可以像与同事对话一样，用自然语言描述需求。例如，输入“为上个季度的销售额创建一个图表并按区域着色”，Gemini便能理解意图，自动选择相关数据、生成并格式化相应的图表。\n2.  **端到端的工作流自动化**：该功能不仅限于单一指令，还能处理涉及多个步骤的复杂任务。例如，用户可以说“整理这份客户反馈表，提取所有提及‘延迟送货’的评论，按满意度评分排序，并总结主要问题点”。Gemini能够执行数据筛选、排序、分类和文本总结等一系列操作。\n3.  **公式生成与解释**：对于需要复杂公式的任务，用户可以直接描述计算逻辑（如“计算每个产品线的同比增长率”），由Gemini自动编写正确的公式（如使用`GROWTH`或自定义公式）。同时，它也能解释现有公式的工作原理，帮助用户学习和理解。\n4.  **数据清洗与结构化**：AI可以协助识别并修复不一致的数据格式、填充缺失值，甚至根据示例推断模式以结构化杂乱的数据，将非结构化或半结构化的信息快速整理成可分析的表格。\n\n**技术影响与应用场景**\n这项技术的影响是深远的：\n*   **提升效率与生产力**：自动化繁琐的重复性任务，让数据专家和普通用户都能将精力集中在更高层次的决策和分析上。\n*   **降低技术门槛**：使得没有深厚Excel或Sheets公式知识的市场、销售、运营等业务人员也能独立进行有效的数据操作和探索，实现“数据民主化”。\n*   **减少错误**：自动生成的公式和操作步骤可以减少因手动输入和理解偏差导致的错误。\n*   **教育与学习**：作为强大的实时辅助工具，它可以帮助学生和新人更快地学习数据分析的基本概念和操作。\n\n其应用场景广泛，包括但不限于：财务预算与预测分析、销售业绩跟踪与报告、市场调研数据整理、项目管理状态更新、以及任何需要从原始数据中提取洞察的日常办公场景。\n\n**总结**\n谷歌表格中Gemini新测试版功能的推出，标志着电子表格交互模式正从传统的菜单驱动、手动操作向以意图为中心的智能对话模式演进。它不仅仅是一个功能增强，更是对电子表格作为数据分析工具本身的一次重新定义。随着测试的深入和功能的完善，预计它将进一步模糊专业数据分析与日常业务处理之间的界限，成为未来智能办公环境中的核心组件。目前，这些功能正在以测试版形式向部分Workspace用户开放。"
+    },
+    {
+      "title": "New ways to create faster with Gemini in Docs, Sheets, Slides and Drive",
+      "link": "https://blog.google/products-and-platforms/products/workspace/gemini-workspace-updates-march-2026/",
+      "description": "These new Gemini features are coming to Google Docs, Sheets, Slides and Drive to help you get more done.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_-_keyword.max-600x600.format-webp.webp\">These new Gemini features are coming to Google Docs, Sheets, Slides and Drive to help you get more done.",
+      "author": "Yulie Kwon Kim",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 10 Mar 2026 13:00:00 +0000",
+      "titleZh": "借助Gemini在文档、表格、幻灯片",
+      "descriptionZh": "谷歌正在其生产力套件中深度集成Gemini人工智能能力，为Google文档、表格、幻灯片和云端硬盘带来一系列创新功能。这一举措旨在利用AI帮助用户更高效地处理信息、激发创意并完成工作。\n\n核心在于，这些新功能并非简单的通用AI对话，而是深度理解办公场景的上下文。例如，在**Google文档**中，用户可以直接请求Gemini基于现有内容生成摘要、润色文案或扩充段落。在**Google表格**中，AI能协助分析数据趋势、自动生成公式，甚至根据文字描述创建复杂的数据透视表。对于**Google幻灯片**，Gemini可以根据文本大纲自动生成视觉上吸引人的幻灯片初稿，并建议合适的布局、图像和设计元素。而在**Google云端硬盘**，强大的搜索能力将得到进一步增强，用户可以用自然语言描述来精准定位文件，例如“帮我找上周团队会议上讨论的预算表格”。\n\n技术上的创新点在于**多模态理解与生成能力与具体办公工作流的无缝结合**。Gemini模型不仅能理解文字指令，还能解析用户正在编辑的文档结构、表格中的数据关系以及演示文稿中的视觉逻辑，从而提供高度相关且可立即执行的建议。它标志着AI从“聊天机器人”向“工作协作者”的范式转变。\n\n这一集成将产生广泛影响：对于个人用户和团队，它能显著减少重复性劳动，将重心转移到更具战略性和创造性的工作上。例如，快速整理会议纪要、自动生成报告草稿、直观分析复杂数据集等场景将变得轻而易举。在企业层面，它有望提升整体知识工作效率，并降低使用高级数据分析或专业设计的门槛。未来，随着AI更深入地理解不同行业和岗位的特定需求，这类工具可能会演变为高度个性化的智能办公助手，从根本上改变我们创建、管理和协作信息的方式。"
+    },
+    {
+      "title": "How AI can improve breast cancer detection in the UK",
+      "link": "https://blog.google/innovation-and-ai/technology/health/google-ai-breast-cancer-detection/",
+      "description": "New research shows how Google AI helps radiologists detect breast cancer earlier and more accurately, while giving radiologists more time for patient care.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Mammo_.max-600x600.format-webp.webp\">New research shows how Google AI helps radiologists detect breast cancer earlier and more accurately, while giving radiologists more time for patient care.",
+      "author": "Yossi Matias",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 10 Mar 2026 10:00:00 +0000",
+      "titleZh": "人工智能如何改进英国的乳腺癌检测",
+      "descriptionZh": "近期，谷歌健康团队与多家医疗机构合作发布了一项突破性研究，证实其人工智能系统能够显著提升乳腺癌筛查的效能。该研究聚焦于利用深度学习技术分析乳腺X光影像（ mammography ），旨在协助放射科医生更早、更准确地识别乳腺癌迹象，同时将医生从繁重的初步阅片工作中解放出来，为其留出更多时间专注于患者沟通与复杂病例的诊断。\n\n研究的核心技术创新在于开发了一个基于卷积神经网络（ CNN ）的AI模型。该模型通过训练于数万张包含明确病理结果的乳腺X光影像，学习了从微钙化簇、结构扭曲到肿块等各类乳腺癌细微征象的模式。其创新点不仅在于极高的检测灵敏度，更在于它能够对影像进行“优先级排序”，将疑似程度高的病例优先推送给医生审阅，并能在影像上提供可视化的可疑区域提示，辅助医生进行定位与分析。这相当于为放射科医生配备了一位不知疲倦的“第一读者”，帮助减少因视觉疲劳或注意力分散导致的微小病灶漏诊。\n\n这项技术的潜在影响深远。在临床层面，早期发现是提高乳腺癌治愈率的关键，AI辅助有望降低假阴性率，让更多患者在疾病更早、更可治疗的阶段被确诊。在医疗系统层面，它能优化工作流程，缓解放射科医生日益增长的工作负荷，提升筛查效率，使医疗资源得到更合理的分配。长远来看，此类工具可作为标准化辅助手段，帮助提升不同地区、不同经验水平医生诊断的一致性，缩小医疗水平的差距。\n\n应用场景主要集中于大规模的乳腺癌群体筛查项目以及医院的放射科日常诊断工作中。未来，该技术有望与医院信息系统（ HIS/PACS ）深度整合，实现无缝的临床工作流嵌入。谷歌团队强调，该AI系统的设计初衷是“辅助”而非“替代”医生，最终的诊断决策权始终在临床医生手中。这项研究标志着人工智能在医学影像分析领域从实验研究迈向临床实用化的重要一步，为癌症早期筛查的精准化与普惠化带来了新的希望。"
     }
   ]
 }
