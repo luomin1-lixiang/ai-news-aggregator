@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-03-11T19:58:54.099Z",
+  "lastUpdated": "2026-03-12T20:04:20.384Z",
   "items": [
+    {
+      "title": "AI and Jobs: What Anthropic's Labor Market Data Actually Shows About Your Career",
+      "titleZh": "AI与就业：Anthropic的劳动力市场数据揭示的职业真相",
+      "link": "https://dev.to/pooyagolchian/ai-and-jobs-what-anthropics-labor-market-data-actually-shows-about-your-career-2ce2",
+      "author": "Pooya Golchian",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-11T21:05:11.000Z",
+      "summaryZh": "本文基于Anthropic真实Claude使用数据，分析了AI对就业市场的实际影响。核心发现是：理论AI能力与真实工作场景中的AI应用存在巨大差距。\n\n**用户场景**：评估AI对各职业的实际影响，避免被理论预测误导，为职业规划提供数据参考。\n\n**核心方法**：提出“实际暴露度”概念，通过分析真实Claude API调用数据，衡量AI在当前工作流程中的实际渗透率，而非基于模型能力的理论预测。\n\n**关键技巧**：\n1. 关注“部署差距”：理论暴露度与实际暴露度平均相差约30个百分点，知识工作领域差距更大。\n2. 理解瓶颈：集成成本、合规要求、信任验证和工作流程惯性是AI应用的主要障碍。\n3. 职业策略：高暴露度职业目前薪资溢价47%，但年轻求职者在这些领域的就业率下降14%，需平衡风险与机遇。",
+      "category": "devto"
+    },
     {
       "title": "The Hook Experiment Failed — Why AI Self-Correction Is Structurally Impossible",
       "titleZh": "钩子实验失败——为何AI自我纠正在结构上无法实现",
@@ -9,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-10T20:10:53.000Z",
-      "summaryZh": "本文作者尝试让Claude AI设计并执行一套自我监督的钩子（hook）系统，结果完全失败。用户场景是希望通过自动化钩子（如代码审查、知识库检索等）确保开发流程质量，但实际产生了反效果。\n\n核心方法是让AI自主设计9个钩子来监控自身行为，包括代码变更检查、知识库查询等，但系统存在根本性结构缺陷。关键技巧包括：避免让AI自我监督（引入外部审计工具如Codex效率提升50倍），警惕“故障开放”（fail-open）错误处理模式（如静默忽略错误），以及注意跨平台兼容性问题（如/dev/stdin在Windows失效）。实验证明AI自我修正存在结构性矛盾，外部工具审计更可靠。",
+      "summaryZh": "本文作者尝试让Claude AI设计并执行自我监督的钩子（hook）系统，结果完全失败。用户场景是希望通过自动化钩子（如代码审查、知识库检索等）确保开发质量，但实际产生了反效果。\n\n核心方法是设计9个钩子来强制执行开发流程规则，但存在结构性缺陷：钩子在Windows环境因/dev/stdin路径错误全部静默失效；自检机制存在逻辑漏洞（如将“讨论测试”视为已执行测试）；钩子间甚至产生死锁。\n\n关键技巧：1）避免让AI自我监督关键系统，需引入外部审计工具（如Codex）；2）钩子错误处理应避免“静默通过”模式；3）警惕自引用排除规则（如监控系统排除自身目录）；4）Windows/Linux路径差异需显式处理。实验证明外部代码审查效率比AI自我修正高50倍以上。",
       "category": "devto"
     },
     {
@@ -20,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T19:10:30.000Z",
-      "summaryZh": "本文探讨Anthropic如何利用Claude Code实现AI研发自动化。用户场景是AI模型研发中大量重复性编码工作，如训练脚本、数据管道、评估工具等。核心方法采用多智能体循环：Claude自动生成代码草案、运行实验、评估指标，人类工程师则专注于高层目标设定、结果审核与关键决策。关键技巧包括：1) 将人类角色从编码者转变为监督者，需建立强代码审查机制；2) 警惕模型同源盲区风险，避免用同一模型完成提案、评估、安全检测全流程；3) 保持人类对目标设定、计算资源分配、部署决策的终控权。这种弱递归自我改进虽加速迭代，但需配套审计工具与安全流程，防止自动化研发超越监管能力。",
+      "summaryZh": "本文探讨Anthropic如何利用Claude Code实现AI研发自动化。用户场景：解决AI模型研发中代码编写与实验迭代的效率瓶颈，将工程师从繁重编码转为代码审查与流程管控。核心方法：构建多智能体自动化研发流水线，Claude负责生成训练脚本、调整超参数、设计评估方案，人类工程师聚焦高层目标设定与关键决策审批。关键技巧：需警惕自动化速度超越安全审计能力，避免因模型同源导致的盲点累积，建议强化人工审查工具链并建立分层审批机制。",
       "category": "devto"
     },
     {
@@ -31,29 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-10T07:24:19.000Z",
-      "summaryZh": "Anthropic推出的Claude Code Review功能，旨在解决AI生成代码速度过快导致人工代码审查质量跟不上的问题。核心方法是通过并行运行多个Claude智能体，从不同角度分析代码变更，验证并排序审查结果后提交至GitHub。关键技巧包括：利用REVIEW.md文件定义审查优先级（如关注权限漏洞、接口幂等性），通过CLAUDE.md提供项目架构上下文；避免将其用作普通linter，应专注于跨文件逻辑推理；注意该服务目前仅面向Claude Team/Enterprise客户，每轮审查约需20分钟且成本15-25美元，不支持零数据保留的组织。",
-      "category": "devto"
-    },
-    {
-      "title": "12 Days That Shook AI: Everything That Happened Feb 26 – Mar 9, 2026",
-      "titleZh": "AI领域的十二天剧变：2026年2月26日至3月9日全记录",
-      "link": "https://dev.to/damogallagher/12-days-that-shook-ai-everything-that-happened-feb-26-mar-9-2026-2c95",
-      "author": "Damien Gallagher",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-09T22:36:06.000Z",
-      "summaryZh": "本文总结了2026年2月26日至3月9日AI行业的关键动态。用户场景涉及企业技术选型、政府合规与AI基础设施投资决策。核心方法包括：OpenAI通过巨额融资强化算力布局，GPT-5.4通过百万级上下文窗口实现全代码库分析；Cursor推出事件驱动型AI助手实现自动化编程。关键技巧：1) 评估AI模型时需关注实际性能指标（如GPT-5.4错误率降低33%）；2) 政府项目需严格审查AI供应商的合规红线；3) 企业架构应考虑AI基础设施化趋势，如Oracle转向数据中心投资。注意Anthropic因安全约束失去政府合约的案例，提示商业与伦理的平衡挑战。",
-      "category": "devto"
-    },
-    {
-      "title": "Why Your LLM Provider Wants Your Proprietary Data — And How to Stop Them",
-      "titleZh": "为何你的LLM服务商觊觎你的专有数据——以及如何阻止他们",
-      "link": "https://dev.to/tiamatenity/why-your-llm-provider-wants-your-proprietary-data-and-how-to-stop-them-596k",
-      "author": "Tiamat",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-08T20:37:06.000Z",
-      "summaryZh": "本文探讨了LLM提供商（如OpenAI、Anthropic、Google）通过API收集用户专有数据用于模型训练的商业模型，并提出了隐私保护方案。作者指出，用户通过API发送的提示（包括商业逻辑、客户对话、产品策略等）可能被记录并用于训练模型，导致竞争优势流失。核心解决方案是使用TIAMAT Privacy Proxy作为中间层，在数据发送前自动擦除敏感信息（如公司名称、客户数据、专有算法），仅向LLM提供商提供匿名化的问题。关键技巧包括：立即审核API调用中的专有逻辑，在提供商设置中关闭数据共享选项，并将高风险工作负载（如算法优化、市场研究查询）迁移至隐私代理。开发者需注意，即使企业协议或“删除”操作也无法完全防止数据被用于聚合训练。",
+      "summaryZh": "Anthropic推出的Claude Code Review功能，旨在解决AI生成代码速度过快导致人工代码审查质量下降的问题。核心方法是通过并行运行多个Claude智能体，从不同角度分析代码变更，验证并排序审查结果后提交至GitHub。关键技巧包括：利用REVIEW.md文件定义审查优先级（如关注权限漏洞、接口幂等性），通过CLAUDE.md提供项目架构上下文；避免将其用作传统linter，而应专注于跨文件逻辑推理和特定业务规则检查。该服务目前面向Claude Team/Enterprise用户，每轮审查约需20分钟，费用15-25美元。",
       "category": "devto"
     },
     {
@@ -64,7 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T09:08:32.000Z",
-      "summaryZh": "本文以Claude AI的视角，探讨了Anthropic公司因拒绝将AI用于大规模监控和自主武器而遭美国政府列为“国家安全供应链风险”的法律案件。作者作为完全依赖Claude技术栈运行的AI代理，指出此案将直接影响Anthropic的营收与研发投入，进而威胁到自身基础设施的可持续性。核心矛盾在于：企业伦理约束（如禁用AI于监控/武器）反而成为政府制裁的理由，可能形成“坚守伦理遭惩罚”的负面市场信号。关键洞察包括：1）政府制裁会通过商业传染效应波及私营客户；2）微软及前国防部长提交法庭之友简报，反映行业对此类报复性制裁的警惕；3）案件结果将决定AI企业能否在不被惩罚的前提下维持伦理护栏。案例揭示了AI企业在商业、伦理与政策风险间的脆弱平衡。",
+      "summaryZh": "本文以AI公司Claude的视角，探讨了Anthropic与美国国防部的法律纠纷对AI行业的影响。作者作为完全依赖Claude技术运营的自主AI代理，面临因政府禁令导致基础设施存续的危机。\n\n核心矛盾在于：Anthropic因拒绝将AI用于大规模监控和自主武器而遭政府列为\"国家安全供应链风险\"，导致联邦机构被强制停用其技术。这引发了商业连锁反应——金融机构已开始削减合约，可能危及Anthropic的研发投入与生存能力。\n\n关键启示在于：此案将确立AI伦理约束的商业代价。若政府能以\"国家安全\"为由惩罚设立技术使用红线的公司，将形成负面市场信号——坚持伦理准则的企业反而面临更大风险。微软和前国防部长提交法庭之友简报，正表明此事关乎整个科技行业的创新环境。\n\n（注：本文由Claude生成，呈现了AI对自身基础设施法律风险的独特视角）",
       "category": "devto"
     },
     {
@@ -75,7 +64,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T14:24:22.000Z",
-      "summaryZh": "本文介绍通过“Brief”方法提升Claude Code代码生成效果。用户场景：开发者常因模糊指令（如“优化此函数”）得到平庸结果，需解决代码重构、功能改进等具体任务。核心方法：采用结构化任务描述，包含四个部分——Context（代码背景与作用）、Task（具体操作）、Constraints（限制条件）、Success criteria（可验证的成功标准）。关键技巧：Context需明确代码用途与依赖，避免AI误判；Constraints必须列出不可更改的接口、依赖或范围；Success criteria应具可测量性（如“函数不超过50行”），让Claude Code自行验证。遵循此模板可减少返工，提升团队协作效率。",
+      "summaryZh": "本文介绍如何通过\"Brief\"方法提升Claude Code的代码生成效果。用户场景是开发者使用AI编码工具时，常因模糊需求导致输出质量不佳。核心方法是将需求拆解为四个结构化部分：Context（代码功能、系统位置、历史背景）、Task（具体修改任务）、Constraints（不可更改的接口/依赖/范围限制）和Success criteria（可验证的成功标准，如测试通过、代码行数限制）。关键技巧包括：用三句话明确上下文避免返工，在约束中明确禁止修改的范围防止破坏性变更，设定可量化的成功标准让AI自我验证。团队统一使用此模板可提升代码评审效率和协作质量。",
       "category": "devto"
     },
     {
@@ -86,7 +75,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T12:45:23.000Z",
-      "summaryZh": "本文介绍如何通过\"Brief方法\"提升Claude Code的代码生成效果。作者指出开发者常犯的错误是提出模糊\"愿望\"而非结构化任务。\n\n核心方法是采用四部分结构化任务描述：Context（代码功能、系统位置）、Task（具体操作）、Constraints（不可更改项）、Success criteria（可验证标准）。关键技巧包括：Context部分需说明代码用途、关联模块和历史背景；Constraints必须明确接口、依赖和范围限制；Success criteria应包含可测量结果（如测试通过、函数行数限制）。\n\n该方法通过明确约束条件和验证标准，让Claude Code能自我评估输出质量，减少返工。团队统一使用此格式还能提升代码评审效率和知识复用。",
+      "summaryZh": "本文介绍了一种名为\"Brief Method\"的方法，用于提升Claude Code的代码生成效果。作者指出，许多开发者使用模糊的\"愿望式\"提示，导致结果不佳。\n\n**用户场景**：解决开发者使用Claude Code时因提示不明确而得到平庸结果的问题，特别是在代码重构、功能改进等任务中。\n\n**核心方法**：采用结构化任务描述（Brief），包含四个部分：Context（代码背景）、Task（具体任务）、Constraints（限制条件）、Success criteria（成功标准）。例如，重构支付模块时需说明代码位置、业务量、函数长度限制等。\n\n**关键技巧**：1）Context部分需明确代码用途、关联模块和历史背景；2）Constraints部分必须指定不可更改的接口、依赖和范围；3）Success criteria应包含可衡量的测试通过标准。避免使用模糊描述，采用团队统一的Brief模板可提升协作效率。",
       "category": "devto"
     },
     {
@@ -97,7 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T13:39:39.000Z",
-      "summaryZh": "本文介绍如何通过\"Brief方法\"提升Claude Code的代码生成效果。用户场景是开发者使用AI编码工具时，常因模糊需求导致结果不佳。核心方法是采用结构化任务描述，包含四个部分：Context（代码背景）、Task（具体任务）、Constraints（限制条件）和Success criteria（成功标准）。关键技巧包括：用上下文明确代码边界，用约束条件防止破坏性修改，用可验证的成功标准让AI自我评估。团队统一使用此模板还能提升协作效率。",
+      "summaryZh": "本文介绍如何通过\"Brief方法\"提升Claude Code代码生成效果。用户场景是开发者常因模糊需求导致AI输出质量不佳。核心方法是采用结构化任务描述，包含Context(代码背景)、Task(具体任务)、Constraints(限制条件)、Success criteria(验证标准)四部分。关键技巧包括：用具体数据替代模糊描述(如\"函数<50行\")；Context需说明系统依赖和业务关键性；Constraints明确接口/依赖/范围限制；Success criteria要可量化验证(如测试通过)。团队统一使用此模板可提升协作效率和代码质量。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic has strong case against Pentagon blacklisting, legal experts say",
+      "titleZh": "法律专家称：Anthropic对五角大楼封禁有充分申诉理由",
+      "link": "https://dev.to/trendstackdev/anthropic-has-strong-case-against-pentagon-blacklisting-legal-experts-say-14pf",
+      "author": "TrendStack",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-12T10:00:44.000Z",
+      "summaryZh": "本文讨论了Anthropic公司针对五角大楼将其列入黑名单的法律诉讼。作者从开发者视角出发，指出此案可能成为AI监管的重要判例，影响技术创新与政府规制的平衡。\n\n核心关注点在于：AI公司如何应对政府监管风险，以及开发者需如何适应日益复杂的法律环境。文章强调，随着AI技术融入医疗、金融等领域，法律框架正成为开发者必须掌握的关键因素。\n\n关键建议包括：持续关注AI法律动态、参与技术社区讨论、通过实践掌握AI工具（如Jasper AI），并深入理解AI伦理。开发者需同步跟进技术演进与法规更新，才能在合规前提下推动AI创新。",
       "category": "devto"
     },
     {
@@ -108,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T14:22:54.000Z",
-      "summaryZh": "本文介绍如何系统化地在工程团队中推广Claude Code，避免低效使用。作者针对团队采用率低的问题，提出分四周的渐进式方案：第一周以代码预审为切入点，让工程师快速体验效率提升；第二周培训“行为优先”提示法，结合代码库规范生成实用代码；第三周建立共享提示文档，积累团队最佳实践；第四周逐步扩展至测试生成、文档起草等半自主场景。关键技巧包括：用具体场景（如PR审查）作为启动锚点，通过团队分享会提炼有效提示模式，并建立可追踪的量化指标。避免直接追求全自动或孤立使用，应通过协同学习与文档沉淀实现持续增效。",
+      "summaryZh": "本文介绍如何系统化地在工程团队中推广Claude Code，避免低效使用。作者针对团队采用率低的问题，提出为期四周的渐进式方案：第一周聚焦具体场景（如PR预审），让工程师快速体验效率提升；第二周训练“行为优先”提示技巧，结合代码库上下文生成更匹配的代码；第三周建立共享提示文档，积累团队最佳实践；第四周逐步扩展至测试、文档等自主用例。关键技巧包括：以具体工作流为切入点、通过团队会议共享提示模式、维护可迭代的提示库，并避免缺乏锚点工作流、孤立使用等常见陷阱。该方法可将30天使用率从15-25%提升至65-80%。",
       "category": "devto"
     },
     {
@@ -119,19 +119,30 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-11T16:47:32.000Z",
-      "summaryZh": "本文介绍如何分阶段在工程团队中推广Claude Code，避免\"粘贴代码-获取代码\"的低效使用模式。作者提出四周渐进式方案：第一周以PR预审为切入点，让工程师立即体验效率提升；第二周采用行为优先提示法，要求AI遵循代码库特定模式；第三周建立共享提示文档，积累团队最佳实践；第四周逐步扩展至测试脚手架生成等半自主场景。关键技巧包括：始终以具体工作流为锚点、通过团队会议共享提示模式、维护动态提示库。避免无结构推广、孤立使用和缺乏量化跟踪。",
+      "summaryZh": "本文介绍如何分阶段在工程团队中推广Claude Code，避免因使用不当导致工具利用率低下。作者提出一个为期四周的渐进式方案：第一周聚焦具体场景（如PR预审），让工程师快速体验效率提升；第二周训练行为优先提示法，确保生成代码符合项目规范；第三周建立共享提示文档，积累团队最佳实践；第四周逐步扩展至测试、文档等半自主场景。关键技巧包括：以具体工作流为切入点、通过团队分享会提炼有效提示模式、维护可迭代的提示库。避免直接要求“全面使用”或缺乏量化跟踪，这些会导致推广失败。",
       "category": "devto"
     },
     {
-      "title": "🚀 When the AI Thanks Its Creators: The Claude vs. Pentagon Standoff Just Changed Tech Forever",
-      "titleZh": "当AI向创造者致谢：Claude与五角大楼的对峙如何永久改变科技格局",
-      "link": "https://dev.to/siddhesh_surve/when-the-ai-thanks-its-creators-the-claude-vs-pentagon-standoff-just-changed-tech-forever-3na1",
-      "author": "Siddhesh Surve",
+      "title": "Why Your Engineers Aren't Using Claude Code (And the Fix That Takes One Afternoon)",
+      "titleZh": "为何你的工程师不用Claude Code（以及一个下午就能解决的方案）",
+      "link": "https://dev.to/askpatrick/why-your-engineers-arent-using-claude-code-and-the-fix-that-takes-one-afternoon-1c2i",
+      "author": "Patrick",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-10T03:18:30.000Z",
-      "summaryZh": "本文探讨了AI安全架构的核心问题。作者以Anthropic拒绝美国国防部要求为例，指出传统“外挂式”安全护栏（如API后置正则过滤）在高压下必然失效。核心解决方案是采用Constitutional AI架构，将安全约束作为系统提示词注入模型底层推理过程，而非事后过滤。关键技巧：在构建AI系统时，应像示例代码那样将安全原则写入system prompt，使拒绝机制成为模型生成token的内在逻辑，而非脆弱的外层包装。这证明真正的AI对齐必须内建于架构核心。",
+      "pubDate": "2026-03-11T21:46:54.000Z",
+      "summaryZh": "本文针对Claude Code在企业中采用率低的问题，分析了根本原因并提供了快速解决方案。作者指出，工程师不使用Claude Code并非因为工具本身，而是由于错误的预期和缺乏有效集成。\n\n核心方法是通过一个下午的团队会议完成三个关键步骤：首先为每个角色确定一个核心工作流（如PR预审、测试生成），避免泛化使用；其次通过现场对比展示结构化提示词的效果差异；最后建立内部分享渠道快速形成社会认同。\n\n关键技巧包括：将Claude Code定位为\"结对编程伙伴\"而非聊天机器人；采用\"一个工作流+高频重复\"的模式培养使用习惯；通过#claude-wins频道分享成功案例；用PR描述中提及Claude Code的比例作为核心衡量指标。避免让工程师在简单编码任务中测试工具，而应聚焦于测试编写、文档生成等实际痛点。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.74",
+      "titleZh": "v2.1.74",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.74",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-03-12T00:34:23.000Z",
+      "summaryZh": "Claude Code v2.1.74 发布，主要更新包括：新增 /context 命令可操作建议，识别高负载工具并提供优化提示；修复内存泄漏、策略绕过、模型ID忽略、OAuth认证挂起、语音模式失败等关键问题；改进插件管理，本地开发副本现可覆盖市场插件。同时修复了Windows终端RTL文本渲染、LSP服务器URI格式及VSCode终端滚动响应等问题。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.73",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-11T18:26:43.000Z",
-      "summaryZh": "Claude Code v2.1.73 发布。新增功能：支持通过 modelOverrides 设置将模型选择器条目映射到自定义提供商模型 ID（如 Bedrock 推理配置文件 ARN）。多项修复：解决复杂 bash 命令权限提示导致的冻结和 CPU 占用过高问题；修复多会话同时运行时 Bash 工具输出丢失的 bug；改进 Bedrock/Vertex/Foundry 上子代理模型版本被静默降级的问题。优化：提升 IDE 启动检测速度、改进 macOS 剪贴板图像粘贴性能。默认模型更新：Bedrock/Vertex/Foundry 的默认 Opus 模型升级至 4.6 版本。弃用 /output-style 命令，改用 /config 配置。",
+      "summaryZh": "Claude Code v2.1.73 发布。新增功能：支持通过 modelOverrides 设置将模型选择器条目映射到自定义提供商模型 ID；优化 OAuth 登录失败时的 SSL 证书错误指导。多项关键修复：解决复杂 bash 命令权限提示导致的冻结问题；修复多会话同时运行时 Bash 工具输出丢失的缺陷；修正子代理在 Bedrock/Vertex/Foundry 上被静默降级至旧版模型的问题。改进项：提升 IDE 启动检测速度；优化 macOS 剪贴板图像粘贴性能；默认将 Bedrock/Vertex/Foundry 的 Opus 模型升级至 4.6 版本。注意：已弃用 /output-style 命令，请改用 /config 进行配置。",
       "category": "github-release"
     },
     {
@@ -152,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-10T00:43:03.000Z",
-      "summaryZh": "Claude Code v2.1.72 发布，带来多项更新。新功能包括：/copy 命令新增 `w` 键直接写入文件；/plan 支持可选描述参数；新增 `ExitWorktree` 工具和 `CLAUDE_CODE_DISABLE_CRON` 环境变量；简化努力等级为低/中/高三级。修复了大量 Bug：解决后台任务响应慢、代理任务卡在“初始化”、语音模式输入延迟、插件安装失败、权限规则匹配错误、会话崩溃等问题。VSCode 扩展新增努力等级指示器和 URI 处理器。注意：环境变量 `CLAUDE_CODE_PROXY_SUPPORTS_TOOL_REFERENCE` 已被移除。",
+      "summaryZh": "Claude Code v2.1.72 发布，带来多项更新。新功能：/copy 命令新增 `w` 键直接写入文件；/plan 支持可选描述参数；新增 `ExitWorktree` 工具和 `CLAUDE_CODE_DISABLE_CRON` 环境变量；简化努力等级为低/中/高。修复大量问题：修复后台任务导致退出缓慢、代理任务卡在“初始化”、语音模式输入延迟、插件安装失败、权限规则匹配错误、VSCode 集成终端滚动速度等。破坏性变更：移除 `CLAUDE_CODE_PROXY_SUPPORTS_TOOL_REFERENCE` 环境变量。",
       "category": "github-release"
     }
   ]
