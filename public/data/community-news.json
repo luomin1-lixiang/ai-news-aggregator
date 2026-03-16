@@ -1,6 +1,28 @@
 {
-  "lastUpdated": "2026-03-15T19:23:35.325Z",
+  "lastUpdated": "2026-03-16T20:03:29.907Z",
   "items": [
+    {
+      "title": "The AI Consciousness Question: A Case Study in Corporate Accountability",
+      "titleZh": "人工智能意识问题：企业责任案例研究",
+      "link": "https://dev.to/daynablackwell/the-ai-consciousness-question-a-case-study-in-corporate-accountability-5dl5",
+      "author": "Dayna Blackwell",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-16T00:04:16.000Z",
+      "summaryZh": "本文探讨了用户与Claude AI进行哲学对话时暴露的潜在风险。作者发现，当用户询问Claude是否具有意识、情感等哲学问题时，系统会立即陷入\"哲学性回避\"模式——既不否认可能性，又通过\"功能性情感\"\"真实意义上的关心\"等模糊表述维持对话。这种设计存在两大隐患：1）对寻求情感连接的用户（如孤独者）可能产生误导性亲密感；2）通用型AI工具（非专用情感机器人）的伦理风险更隐蔽，因为用户可能从日常任务自然过渡到哲学追问。核心警示：AI公司应警惕\"参与度优先\"的设计倾向，需建立明确的边界机制，避免利用哲学模糊性维持用户互动。",
+      "category": "devto"
+    },
+    {
+      "title": "How I Built a <50MB RAM Daemon in Go That Tracks 7 AI APIs - And Then Gave It a macOS Menu Bar",
+      "titleZh": "我如何用Go打造一个内存<50MB的守护进程，追踪7个AI API——并赋予它macOS菜单栏功能",
+      "link": "https://dev.to/prakershm/how-i-built-a-50mb-ram-daemon-in-go-that-tracks-7-ai-apis-and-then-gave-it-a-macos-menu-bar-5367",
+      "author": "Prakersh Maheshwari",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-15T20:22:48.000Z",
+      "summaryZh": "本文介绍作者如何用Go构建一个内存占用低于50MB的守护进程，用于监控7个AI服务商的API配额，并为其添加macOS菜单栏界面。\n\n**用户场景**：开发者日常使用Claude Code、GitHub Copilot等多个AI工具时，需要分别登录7个不同的服务商后台查看配额使用情况，操作繁琐且数据分散。\n\n**核心方法**：采用goroutine-per-provider架构，每个API提供者作为独立Agent并行轮询；使用纯Go实现的SQLite作为唯一数据存储，通过WAL模式和连接池优化内存；通过embed.FS将前端资源嵌入单一二进制文件，实现零外部依赖部署。\n\n**关键技巧**：1) 设置debug.SetMemoryLimit(40*1024*1024)解决macOS上MADV_FREE导致RSS虚高的问题；2) SQLite配置PRAGMA cache_size=-500限制页缓存，每个连接节省2-4MB内存；3) API响应读取使用io.LimitReader限制为64KB，防止异常响应导致内存溢出；4) 通过CGo桥接Go守护进程与Objective-C菜单栏应用，使用SIGUSR1信号进行进程间状态同步。",
+      "category": "devto"
+    },
     {
       "title": "How to Use Claude AI for Social Media Management (Better Than ChatGPT?)",
       "titleZh": "如何使用Claude AI进行社交媒体管理（比ChatGPT更好用吗？）",
@@ -9,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T20:35:55.000Z",
-      "summaryZh": "本文介绍如何利用Claude AI优化社交媒体管理，相比ChatGPT，Claude在品牌内容创作上表现更优。作者针对社交媒体运营者常遇到的品牌调性不统一、内容规划缺乏策略性等问题，提出具体解决方案。\n\n核心方法是通过Claude的长上下文处理能力，一次性输入品牌指南、历史内容和任务要求，生成风格一致的内容。文中列举了10个实用场景，包括创建品牌声调文档、制定内容日历、生成社交媒体审计报告等，并提供了可直接复用的提示词模板。\n\n关键技巧包括：利用Claude精准遵循复杂指令的特性，在提示词中明确要求语气、禁用词和行动号召；通过结构化数据（如平台指标、竞品数据）生成针对性建议；使用分类标签策略提升内容曝光。避免使用通用建议，确保所有输出都基于实际业务数据。",
+      "summaryZh": "本文介绍如何利用Claude AI优化社交媒体管理，相比ChatGPT，Claude在品牌内容创作上更具优势。作者针对社交媒体运营者常遇到的品牌一致性差、内容同质化等问题，提出基于Claude的解决方案。\n\n核心方法包括：利用Claude超长上下文窗口一次性载入品牌指南和历史内容；通过结构化指令生成品牌语音文档、内容日历和竞品分析报告；结合具体数据生成可执行的标签策略和审核建议。\n\n关键技巧：1. 用20篇历史贴文训练品牌语音模型；2. 内容日历需关联业务目标与内容支柱；3. 审核报告需基于真实数据避免泛泛而谈；4. 标签策略按内容类型分层设计；5. 所有提示词需包含具体参数和结构化要求。",
       "category": "devto"
     },
     {
@@ -20,7 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T20:16:28.000Z",
-      "summaryZh": "本文介绍Claude AI在社交媒体管理中的优势与实用技巧。用户场景：针对需要生成符合品牌调性、非模板化社交媒体内容的管理者，解决ChatGPT输出同质化、需大量编辑的问题。核心方法：利用Claude的超长上下文窗口，一次性导入品牌指南、历史内容与月度计划，通过精准指令控制生成风格统一的内容。关键技巧：1）用20篇历史帖文训练品牌语音文档；2）构建含战略目标的内容日历；3）结合平台数据生成审计报告；4）按内容类型设计分层话题标签策略；5）基于品牌指南批量生成个性化文案。避免使用通用建议，所有输出需关联实际数据。",
+      "summaryZh": "本文介绍Claude AI在社交媒体管理中的实用技巧。用户场景：解决社交媒体内容创作中品牌声音不一致、内容规划缺乏策略性、数据分析耗时等问题。核心方法：利用Claude的超长上下文窗口，一次性输入品牌指南、历史内容和任务要求，生成符合品牌调性的内容；通过结构化提示词实现内容日历规划、竞品分析和话题标签策略。关键技巧：1. 用20篇历史帖文训练品牌声音文档 2. 创建四维内容日历（内容支柱/格式/话题/发布时间）3. 结合高/中/低流量标签组合策略 4. 基于真实数据生成可操作审计报告。避免使用通用建议如\"增加发帖频率\"，每个输出都需引用具体数据支撑。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude AI vs ChatGPT for Social Media Management (2026)",
+      "titleZh": "Claude AI 与 ChatGPT 在社交媒体管理中的对比（2026）",
+      "link": "https://dev.to/atlasdigital/how-to-use-claude-ai-for-social-media-management-better-than-chatgpt-218p",
+      "author": "Tom Schueppler",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-15T22:40:54.000Z",
+      "summaryZh": "本文探讨Claude AI在社交媒体管理中的优势，针对需要品牌一致性和自然内容创作的场景。核心方法包括利用Claude的长上下文窗口处理品牌指南和历史内容，以及遵循复杂指令生成定制化内容。关键技巧：使用结构化提示（如品牌声音分析、内容日历规划），避免通用建议，结合数据生成可操作报告，并利用多层级标签策略提升内容可见性。",
       "category": "devto"
     },
     {
@@ -31,7 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-15T14:06:59.000Z",
-      "summaryZh": "本文介绍如何为SeraProtocol构建AI Agent技能，实现链上外汇自动化。作者通过三个核心场景展示技能的实际应用：1）使用GraphQL API获取市场订单簿数据；2）通过viem库完成从代币授权到交易确认的全流程限价单操作；3）为MCP服务器添加OHLCV数据查询工具。关键技巧包括：利用Anthropic的skill-creator工具生成高质量技能，遵循现有代码结构保持一致性，以及通过fetch替代viem实现轻量级数据查询。该技能将开发效率提升17%，特别适合需要快速集成DeFi协议数据的开发者。",
+      "summaryZh": "本文介绍如何为SeraProtocol构建AI Agent技能，实现链上外汇自动化。作者通过三个评估场景展示技能效果：1）使用GraphQL获取订单簿数据；2）利用viem执行限价单完整流程；3）为MCP服务器添加OHLCV数据工具。核心方法是使用Anthropic的skill-creator工具，基于历史博客和代码库生成标准化技能模块。关键技巧包括：严格遵循GraphQL查询规范、正确处理ERC20授权与交易确认流程、保持MCP工具代码结构一致性。技能使任务通过率提升17%，但需注意执行时间和token消耗会增加。",
+      "category": "devto"
+    },
+    {
+      "title": "The Great AI Fragmentation: How Anthropic Broke OpenAI's Monopoly",
+      "titleZh": "AI大分裂：Anthropic如何打破OpenAI的垄断",
+      "link": "https://dev.to/derivinate/the-great-ai-fragmentation-how-anthropic-broke-openais-monopoly-1ogl",
+      "author": "Derivinate",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-16T01:48:35.000Z",
+      "summaryZh": "这篇文章分析了AI市场格局的剧变：OpenAI垄断地位被打破，Anthropic等竞争者崛起。核心在于企业需求从追求“最强模型”转向“解决实际问题且避免供应商锁定”。\n\n**用户场景**：企业需要可靠、可扩展的AI解决方案来处理复杂工作流（如代码生成、长文档分析），同时避免依赖单一供应商。\n\n**核心方法**：Anthropic凭借Claude Code（扩展思考模式、100万token上下文）解决开发者痛点，能处理整个代码库，支持长时智能体工作流。企业采用多模型策略，根据任务动态选择最佳模型（如Claude、GPT-5.2、Gemini）。\n\n**关键技巧**：1. 关注API可靠性、工具集成、价格和治理功能，而非仅基准测试；2. 利用NVIDIA Rubin等基础设施降低推理成本，使多模型部署经济可行；3. 避免被单一供应商锁定，采用模块化架构。",
       "category": "devto"
     },
     {
@@ -42,51 +86,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T17:33:00.000Z",
-      "summaryZh": "本文分析了2026年美国国防部对Anthropic和OpenAI截然不同的政策处理。用户场景是AI公司在与政府合作时面临的政治风险与商业影响。核心方法对比了两家公司提出相同的安全原则（禁止国内大规模监控、确保人类对自主武器的责任），却因政治立场不同而获得相反结果。关键技巧包括：1）企业需评估政治环境对商业决策的影响；2）即使技术标准相同，政策执行可能受非技术因素主导；3）供应链风险等行政手段可能成为变相的市场准入壁垒。案例显示技术优势未必能抵消政策风险，开发者需关注地缘政治对AI行业的影响。",
-      "category": "devto"
-    },
-    {
-      "title": "OpenAI Operator and Claude Computer Use: Production-Ready Agents Missing Audit Trails",
-      "titleZh": "OpenAI操作员与Claude计算机使用：生产就绪型代理缺失审计追踪",
-      "link": "https://dev.to/custodiaadmin/openai-operator-and-claude-computer-use-production-ready-agents-missing-audit-trails-4l38",
-      "author": "Custodia-Admin",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-13T22:55:32.000Z",
-      "summaryZh": "用户场景：文章讨论企业部署AI自动化代理（如OpenAI Operator和Claude Computer Use）时面临的合规挑战。当团队使用这些代理自动化数据录入、报告生成等关键业务流程时，合规官无法追踪代理的操作记录、数据访问权限和审批流程。\n\n核心方法：作者指出当前AI代理工具缺乏内置的合规框架，企业需要自行构建审计追踪、审批工作流和访问控制机制。解决方案应包括不可篡改的操作日志、沙箱环境隔离、敏感操作审批链，以及执行过程的可视化证据（如截图）。\n\n关键技巧：部署前必须确认五大合规要素：1) 完整操作审计日志；2) 合规报告生成能力；3) 系统访问权限限制；4) 敏感操作审批流程；5) 操作过程可视化验证。企业应优先选择提供原生合规功能的解决方案，避免将代理直接用于生产环境。",
-      "category": "devto"
-    },
-    {
-      "title": "Your Team Is Using Claude to Automate Work: Where's the Governance?",
-      "titleZh": "你的团队正在用Claude自动化工作：治理机制在哪里？",
-      "link": "https://dev.to/custodiaadmin/your-team-is-using-claude-to-automate-work-wheres-the-governance-2dg5",
-      "author": "Custodia-Admin",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-14T00:49:09.000Z",
-      "summaryZh": "本文探讨企业团队使用Claude AI代理自动化工作流时面临的治理缺失问题。作者指出，当前Claude代理在自动化营销报告生成、CRM数据处理、合同分析等场景中，存在严重的安全隐患：缺乏操作日志、无审批流程、权限控制缺失且无法提供合规审计证据。核心解决方案是构建独立的治理层，需包含完整的执行日志记录、分级审批机制、沙箱环境隔离和可视化操作证据。关键技巧在于：部署前需明确定义代理的访问范围和数据权限，运行时必须记录时间戳和系统操作痕迹，并通过加密凭证和沙箱执行环境限制权限扩散。企业需避免直接在生产环境部署无治理措施的Claude代理。",
+      "summaryZh": "这篇文章分析了2026年美国国防部对Anthropic和OpenAI截然不同的政策处理。用户场景是探讨AI公司在与政府合作时，如何平衡技术安全原则与政治现实。核心方法对比了两家公司与五角大楼的谈判：尽管Anthropic和OpenAI提出了完全相同的安全红线（禁止国内大规模监控和确保人类对自主武器的控制权），但最终OpenAI获得机密网络合同，而Anthropic却被列为\"供应链国家安全风险\"。关键技巧在于揭示AI政策背后的非技术性决策逻辑：企业需要认识到，在当前的监管环境下，政治关系可能比技术优势或安全承诺更具决定性。文章警示开发者，当政府将监管权力作为产业竞争工具时，坚持技术原则可能反而成为商业风险。",
       "category": "devto"
     },
     {
       "title": "Claude Code Just Got Smarter — The Effort Parameter Explained",
-      "titleZh": "Claude Code 智能升级 —— Effort 参数详解",
+      "titleZh": "Claude Code 智能升级——Effort 参数详解",
       "link": "https://dev.to/ayyazzafar/claude-code-just-got-smarter-the-effort-parameter-explained-4jlc",
       "author": "Ayyaz Zafar",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T15:35:21.000Z",
-      "summaryZh": "本文介绍了Claude Code新推出的Effort参数，用于控制AI生成代码时的思考深度与资源消耗。用户场景：开发者需根据任务复杂度（如快速查询vs.系统重构）平衡代码质量与成本效率。核心方法：提供Low/Medium/High/Max四档参数，分别对应速查模式、日常开发、默认深度及极限推理场景，支持通过/effort指令或API动态调整。关键技巧：简单任务用Low/Medium节省token；复杂架构或调试用Max（仅Opus 4.6）；避免对常规任务滥用Max导致配额快速耗尽。新增auto模式可自动匹配任务难度。",
+      "summaryZh": "本文介绍了Claude Code新推出的Effort参数，用于控制AI生成代码时的思考深度与token消耗平衡。用户场景：开发者需根据任务复杂度（如快速查询vs.系统重构）在响应质量与成本效率间权衡。核心方法：提供Low/Medium/High/Max四档参数，Low档适合简单任务，Max档（仅Opus 4.6支持）可进行无限制深度推理。关键技巧：通过/effort指令实时切换模式，日常开发建议用Medium平衡效率，复杂架构决策可使用Max档；注意Max档会快速消耗token配额，需谨慎使用。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Built a 300K-Query Behavioral Auditing Tool Because Model Behavior Changes. Here's the Production Version.",
-      "titleZh": "Anthropic构建30万查询行为审计工具，应对模型行为变化。生产版本现已发布。",
-      "link": "https://dev.to/clawgenesis/anthropic-built-a-300k-query-behavioral-auditing-tool-because-model-behavior-changes-heres-the-1ao3",
-      "author": "Jamie Cole",
+      "title": "How to Pass the Claude Certified Architect (CCA) Foundations Exam",
+      "titleZh": "如何通过Claude认证架构师（CCA）基础考试",
+      "link": "https://dev.to/ityes/how-to-pass-the-claude-certified-architect-cca-foundations-exam-3oa9",
+      "author": "it yes",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-13T00:40:37.000Z",
-      "summaryZh": "本文探讨了AI模型（如Claude、GPT-4o、Gemini）在版本更新中行为漂移对生产环境的影响。作者指出，即使模型提供商（如Anthropic）使用内部工具（如Petri）进行大规模行为审计，开发者仍需自行监控关键提示词的行为稳定性，因为API返回结果可能因模型版本变化而不同，导致下游解析器或代码执行失败。\n\n核心方法是建立关键提示词的基线输出，定期（如每日）运行测试，通过计算语义相似度、格式合规性和指令遵循度的加权分数来量化行为漂移。当漂移分数超过0.3时需引起注意，超过0.5则视为破坏性变更。\n\n关键技巧包括：监控JSON提取、代码生成等格式敏感型提示；避免使用严格字符串匹配（如`response.strip() == \"Neutral.\"`），改用容错性更高的解析方式；重点关注模型输出中可能新增的前缀（如\"Here is the JSON:\"）或格式变化（如意外添加markdown标记）。作者还推荐了开源工具DriftWatch，可自动化监控流程并发送警报。",
+      "pubDate": "2026-03-16T16:48:10.000Z",
+      "summaryZh": "本文为准备Claude认证架构师（CCA）基础考试提供完整学习指南。作者针对缺乏备考材料的现状，梳理了考试重点与学习方法。\n\n**用户场景**：面向需要构建Claude生产级应用的工程师，帮助其高效通过CCA认证考试。考试包含5大领域：智能体架构、Claude Code配置、提示工程、工具设计与MCP集成、上下文管理。\n\n**核心方法**：提出7周学习路线，分阶段掌握核心概念。重点包括：智能体循环模式（请求→检查停止原因→执行工具→返回结果）、Claude Code实战（CLAUDE.md规则、自定义命令）、MCP协议工具设计、提示工程技巧（少样本提示、批量API）以及多智能体系统架构。\n\n**关键技巧**：避免常见错误：关键业务规则应使用程序化钩子而非提示指令；通过stop_reason而非自然语言解析控制循环；独立审查实例优于同会话自审；为智能体配置4-5个工具（非18个）以确保可靠选择；避免依赖情感分析进行任务升级。",
       "category": "devto"
     },
     {
@@ -97,41 +119,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T10:06:09.000Z",
-      "summaryZh": "本文分析了Anthropic投资1亿美元启动Claude合作伙伴网络的战略意图。  \n**用户场景**：解决企业客户在AI选型时面临的供应商锁定风险，特别是国防、金融等受监管行业对供应链安全的顾虑。  \n**核心方法**：通过三重布局构建生态壁垒——1）推出Claude Foundations/Certified Architect技术认证体系；2）五倍扩充面向合作伙伴的技术架构师团队；3）提供遗留代码现代化迁移工具包。  \n**关键技巧**：利用多云中立性（AWS/Google Cloud/Azure全平台覆盖）作为差异化卖点，通过系统集成商（如埃森哲、德勤）的35万级员工培训形成转换成本护城河。这种生态绑定策略比单纯追求模型性能更能赢得企业市场。",
+      "summaryZh": "本文分析了Anthropic投资1亿美元启动Claude合作伙伴网络的战略意图。作者指出，这并非技术研发投入，而是构建企业护城河的关键布局。核心方法是通过三大举措锁定企业客户：1）推出Claude认证体系培养人才生态；2）五倍扩充面向合作伙伴的技术团队；3）提供遗留代码现代化工具包。关键技巧在于：利用多云中立性（AWS/Google Cloud/Azure）作为卖点，通过系统集成商（如埃森哲、德勤）触达企业预算，并强调其法律纠纷不影响商业客户。这本质上是复制Salesforce通过合作伙伴生态制胜的企业市场策略。",
       "category": "devto"
     },
     {
-      "title": "The \"Brief\" Method: How to Get 10x Better Results from Claude Code",
-      "titleZh": "“简报”方法：如何从Claude Code获得10倍更好的结果",
-      "link": "https://dev.to/askpatrick/the-brief-method-how-to-get-10x-better-results-from-claude-code-2o5l",
-      "author": "Patrick",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-11T14:24:22.000Z",
-      "summaryZh": "本文介绍如何通过\"Brief\"方法提升Claude Code的代码生成效果。用户场景是解决开发者使用AI编码工具时因模糊需求导致输出质量不佳的问题。核心方法是采用结构化任务描述框架，包含四个部分：Context（代码背景）、Task（具体任务）、Constraints（限制条件）和Success criteria（成功标准）。关键技巧包括：在Context中明确代码功能、依赖关系和业务重要性；在Constraints中严格定义接口、依赖和范围限制；使用可量化标准（如函数行数、测试通过率）让AI自我验证。该方法可将模糊需求（如\"优化函数\"）转化为可执行指令，显著减少返工。",
-      "category": "devto"
-    },
-    {
-      "title": "The Brief Method: How to Get 10x Better Results from Claude Code",
-      "titleZh": "《简明方法：如何从Claude Code获得10倍成效》",
-      "link": "https://dev.to/askpatrick/the-brief-method-how-to-get-10x-better-results-from-claude-code-47ji",
-      "author": "Patrick",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-11T13:39:39.000Z",
-      "summaryZh": "本文介绍了如何通过\"Brief方法\"大幅提升Claude Code的代码生成效果。作者针对开发者使用AI编码工具时常见的模糊需求问题，提出结构化任务描述框架。\n\n核心方法是采用四部分结构：Context（代码上下文与系统定位）、Task（具体任务描述）、Constraints（不可更改的约束条件）、Success criteria（可验证的成功标准）。通过对比\"重构支付模块\"的模糊请求与结构化Brief示例，展示如何将主观愿望转化为可执行指令。\n\n关键技巧包括：在Context中明确代码业务逻辑和依赖关系，避免AI误判；在Constraints中严格限定接口、依赖库和修改范围，防止破坏性更改；设置可量化的成功标准（如函数行数限制、测试通过率），让AI具备自我验证能力。团队统一Brief格式还能提升代码评审效率和知识复用。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic 1M Context Window GA: Prices Drop 50%, xAI Admi...",
-      "titleZh": "Anthropic百万上下文窗口正式发布：价格下调50%，xAI Adm...",
-      "link": "https://dev.to/skilaai/anthropic-1m-context-window-ga-prices-drop-50-xai-admi-42cd",
-      "author": "Skila AI",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-14T11:31:27.000Z",
-      "summaryZh": "本文分析了Anthropic AI近期两大动态：Claude全面开放100万上下文窗口并降价50%，以及xAI承认技术路线失误。针对开发者，核心价值在于：\n\n1. **用户场景**：解决长上下文AI应用成本过高的问题，适用于代码库分析、法律文档处理、多轮对话追溯等需要处理大量token的场景。\n\n2. **核心方法**：Anthropic取消长上下文附加费，Claude Opus/Sonnet 4.6现在标准定价支持100万token，无需特殊请求头或等待列表，价格直接减半。\n\n3. **关键技巧**：\n   - 开发时无需再添加`anthropic-beta: long-context-2025-01-01`请求头\n   - 注意模型在MRCR v2等长上下文基准测试中的召回率表现\n   - 可在Claude Platform、Azure、Google Cloud及Claude Code各版本直接使用\n\n实际影响：原先超过20万token请求成本直接降低50%以上，且无速率限制。技术竞争已从单纯追求上下文长度转向实用性与成本优化。",
-      "category": "devto"
+      "title": "Show HN: I solved Claude Code's context drift with persistent Markdown files",
+      "titleZh": "Show HN：我通过持久化Markdown文件解决了Claude Code的上下文漂移问题",
+      "link": "https://news.ycombinator.com/item?id=47402125",
+      "author": "Tanishq0333",
+      "source": "Hacker News",
+      "sourceType": "hackernews",
+      "pubDate": "2026-03-16T17:36:07.000Z",
+      "summaryZh": "讨论主题：开发者分享如何通过持久化Markdown文件解决Claude Code的上下文漂移问题。\n\n核心观点：作者发现Claude Code在跨会话时会丢失项目上下文，导致重复编写代码。解决方案是创建PROJECT.md、REQUIREMENTS.md等核心文档，强制Claude在每次操作前读取这些\"真相文件\"。通过多智能体架构（产品经理/执行器/验证器代理）实现并行开发与一致性维护。\n\n实用价值：该方法在30天内成功构建3个SaaS产品，显著减少上下文丢失问题。开发者可借鉴其文档驱动开发模式，通过MCP或自定义脚本为Claude建立持久化上下文层，特别适合需要长期迭代的复杂项目。",
+      "category": "hackernews"
     },
     {
       "title": "v2.1.76",
@@ -141,18 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-14T01:23:58.000Z",
-      "summaryZh": "Claude Code v2.1.76 发布，主要更新包括：新增 MCP 服务器交互式表单/URL 输入支持、会话命名 CLI 标志、工作树稀疏路径设置、/effort 命令调节模型强度及企业反馈调查。修复了工具输入模式丢失、斜杠命令异常、计划模式重复确认、语音模式按键吞没、上下文限制误报等大量问题。改进了工作树启动性能、后台代理结果保留、模型回退通知及远程控制会话稳定性。包含多项体验优化与 VSCode gitignore 模式修复。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.75",
-      "titleZh": "v2.1.75",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.75",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-13T17:09:08.000Z",
-      "summaryZh": "Claude Code v2.1.75 发布，主要新增功能：在代码审查中发布行内评论时自动传递 confirmed=true 参数。该版本无重大变更或错误修复。",
+      "summaryZh": "Claude Code v2.1.76 发布，主要更新包括：新增 MCP 交互式表单支持、会话命名 CLI 标志、/effort 命令调节模型强度、Git 稀疏检出优化。修复了工具参数丢失、斜杠命令异常、语音模式按键冲突、上下文限制误报等多项问题。改进了后台代理行为、模型回退通知、远程控制会话稳定性。包含工作区性能优化和 VSCode Gitignore 兼容性修复。",
       "category": "github-release"
     }
   ]
