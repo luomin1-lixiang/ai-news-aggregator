@@ -1,57 +1,44 @@
 {
-  "lastUpdated": "2026-03-16T20:01:27.490Z",
+  "lastUpdated": "2026-03-18T18:45:31.307Z",
   "items": [
     {
-      "title": "Giving you more transparency and control over your Gemini API costs",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/more-control-over-gemini-api-costs/",
-      "description": "Google introduces new features in AI Studio to enable developers to set monthly spend caps and scale effectively.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Limit_Hero.max-600x600.format-webp.webp\">Google introduces new features in AI Studio to enable developers to set monthly spend caps and scale effectively.",
-      "author": "Jason Stephen",
+      "title": "Introducing “vibe design” with Stitch",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/google-labs/stitch-ai-ui-design/",
+      "description": "Stitch is evolving into an AI-native platform that allows anyone to create, iterate, and collaborate on high-fidelity UI.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Stitch_Keyword_Hero_Visual.max-600x600.format-webp.webp\">Stitch is evolving into an AI-native platform that allows anyone to create, iterate, and collaborate on high-fidelity UI.",
+      "author": "Rustin Banks",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 16 Mar 2026 17:00:00 +0000",
-      "titleZh": "让您对Gemini API成本获得更充分的透明度与掌控权",
-      "descriptionZh": "Google近日在其AI开发平台AI Studio中引入了重要更新，旨在为开发者提供更灵活的成本控制和扩展能力。这一改进允许开发者在项目中设置月度消费限额，同时确保在需求增长时能够高效、无缝地进行扩展。这些新功能的推出，标志着Google在优化开发者体验、降低使用门槛方面迈出了新一步。\n\n从技术原理来看，新功能主要通过后台资源管理与自动化配额调整来实现。开发者可以在AI Studio的控制面板中预先设定每月的预算上限，系统会根据该限制自动监控资源消耗，并在接近限额时发出提醒，甚至暂停非关键任务以防止意外超支。在扩展性方面，平台通过动态资源分配和负载均衡机制，允许开发者在流量或计算需求上升时，快速获得更多资源支持，而无需手动干预或重新配置环境。\n\n这一更新对各类开发者都具有重要意义。对于个人开发者或初创团队，月度消费限额能有效避免因实验或测试导致的高额账单，从而降低尝试AI技术的风险和成本。对于中大型企业或正在推进AI产品化的团队，可扩展的架构意味着他们能更从容地应对用户增长或业务高峰，同时保持成本的可预测性。从应用场景看，无论是正在进行模型微调、Prompt优化，还是部署轻量级AI应用，开发者都能更安全、更高效地利用AI Studio完成从原型到产品的全过程。\n\n总体而言，Google AI Studio通过引入消费限额与弹性扩展机制，不仅提升了平台的实用性和可靠性，也进一步降低了AI开发与实验的门槛，有望推动更多开发者积极探索和应用生成式AI技术。"
+      "pubDate": "Wed, 18 Mar 2026 18:00:00 +0000",
+      "titleZh": "Introducing “vibe design” with Stitch",
+      "descriptionZh": "近期，AI在创意与设计领域的应用持续深化，其中界面设计工具正迎来智能化变革。谷歌此前推出的设计工具Stitch，现已升级为一款AI原生的协作平台，致力于让每个人——无论是专业设计师还是普通用户——都能更高效地创建、迭代并协同开发高保真的用户界面。\n\n其核心演进在于深度融合了生成式AI能力。传统UI设计流程通常涉及从草图、线框图到高保真模型的多步骤手动绘制与反复调整，耗时且对设计技能有一定要求。而Stitch平台的核心创新在于，它允许用户通过自然语言描述、草图勾画或简单编辑指令，直接生成或修改复杂的UI组件与完整界面。例如，用户可以输入“为一个音乐应用创建一个深色模式的播放器界面”，AI便能快速生成符合设计规范的视觉稿，并自动确保布局、间距和色彩系统的协调性。\n\n技术原理上，Stitch很可能整合了多种AI模型：包括理解设计意图的大型语言模型，以及专门用于生成视觉元素与布局的扩散模型或生成对抗网络。其创新点不仅在于“生成”，更在于“迭代”与“协作”。平台支持实时、多用户的协同编辑，AI在此过程中扮演辅助角色——能够根据团队成员的历史操作与反馈，智能推荐设计修改方案、自动维护设计系统的一致性，甚至将静态设计图与可交互原型、前端代码的生成流程打通。\n\n这一发展对设计行业的影响深远。首先，它大幅降低了高质量UI设计的门槛，使产品经理、开发者乃至业务人员都能直接参与界面构思与原型验证，加速产品创意到落地的循环。其次，它改变了设计师的工作流，将其从大量重复的绘制劳动中解放出来，更专注于创意、策略与用户体验的深层打磨。此外，AI驱动的设计协作平台也有助于团队建立统一的设计语言，保证产品在不同功能与版本间的视觉一致性。\n\n未来，类似Stitch的AI原生设计平台可广泛应用于快速原型设计、设计系统维护、多方案探索、无障碍设计优化等场景。它不仅是一个效率工具，更可能成为连接产品构思、视觉设计与工程开发的智能枢纽，推动整个数字产品创造流程向更自然、更集成化的方向发展。"
     },
     {
-      "title": "Google.org Future of Work: 5 years of impact and lessons for the AI era",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/future-of-work-impact-report/",
-      "description": "As we all look toward the AI era, we’re sharing what we learned in a new report.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google.org_Future_of_Work-hero.max-600x600.format-webp.webp\">As we all look toward the AI era, we’re sharing what we learned in a new report.",
-      "author": "Liza Ateh",
+      "title": "How we’ve made our products with recycled materials",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/new-recycled-materials-guide/",
+      "description": "Google is publishing its Recycled Materials Guide, which shares engineering, design, and operations insights.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/RecylcedMaterials_hero.max-600x600.format-webp.webp\">Google is publishing its Recycled Materials Guide, which shares engineering, design, and operations insights.",
+      "author": "David Bourne",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 16 Mar 2026 08:00:00 +0000",
-      "titleZh": "Google.org 未来工作报告：AI时代的五年影响与启示",
-      "descriptionZh": "您好，您只提供了博客的开头部分。要生成一份符合您要求（完整介绍背景、解释核心技术、分析影响）的详细中文摘要，我需要博客文章的完整内容。\n\n根据您提供的图片链接和第一句话“As we all look toward the AI era, we’re sharing what we learned in a new report.”，可以推断这是一篇由Google或Google.org发布的，关于AI时代未来工作的报告或博客。\n\n为了为您创建一份高质量的摘要，请您提供博客的完整文本。之后，我可以为您生成一个结构清晰、内容详尽的中文摘要，涵盖：\n1.  **背景与上下文**：报告发布的背景、核心研究问题（例如，AI将如何改变工作性质、技能需求和就业机会）。\n2.  **核心发现与原理**：报告的关键数据、洞察和结论（例如，哪些岗位最可能被增强或转变，哪些新技能变得至关重要，AI对生产力的具体影响预测）。\n3.  **创新点与建议**：报告提出的新框架、政策建议或解决方案（例如，针对个人、企业、教育机构和政府的适应性建议）。\n4.  **技术影响与应用场景**：分析这些发现对劳动力市场、教育体系、经济政策的长远影响，并举例说明AI在工作场景中的具体应用前景。\n\n期待您的完整内容。"
+      "pubDate": "Wed, 18 Mar 2026 15:25:00 +0000",
+      "titleZh": "我们如何利用回收材料制造产品",
+      "descriptionZh": "谷歌发布了其《可回收材料指南》，该指南旨在公开分享公司在产品制造中应用可回收材料的工程实践、设计理念与运营管理方面的深入见解。\n\n**背景与上下文**\n随着全球对循环经济和可持续发展的日益关注，科技行业正面临减少原材料消耗、降低碳足迹的重大压力。作为全球领先的科技企业，谷歌一直致力于将环保理念融入其硬件产品（如Pixel手机、Nest设备、Chromecast等）的整个生命周期。发布此指南，是谷歌将其在材料科学和可持续供应链管理领域积累的经验系统化、透明化的关键一步，旨在为整个行业树立标杆并推动集体进步。\n\n**核心技术原理与创新点**\n该指南并非简单的材料清单，而是一个融合了多学科知识的综合性框架。其核心创新与原理体现在：\n\n1.  **材料工程与科学**：指南详细阐述了如何识别、评估和认证消费后回收（PCR）材料，特别是**海洋塑料**和**再生铝**等高关注度材料。它深入探讨了如何确保这些材料在强度、耐久性、热稳定性和美观度上达到与原生材料同等的性能标准，这涉及复杂的材料改性、合金配方和测试协议。\n\n2.  **生态设计与系统思维**：创新点在于将可回收性作为产品的**初始设计参数**，而非事后考量。指南强调了模块化设计以便于拆解、减少材料种类以简化回收流程、以及避免使用难以分离的粘合剂或复合材料。这是一种从“摇篮到摇篮”的系统工程方法。\n\n3.  **供应链与运营创新**：指南分享了如何构建和审计透明的、可追溯的回收材料供应链。这包括与回收商和材料供应商建立新型合作关系，开发追踪材料来源和回收含量的数字工具，以及在生产运营中调整工艺以适应回收材料的特性（如熔融温度、流动性的差异）。\n\n4.  **数据驱动的决策**：谷歌利用生命周期评估（LCA）数据来量化使用回收材料所带来的环境效益（如减少的温室气体排放、水和能源节约），从而为材料选择提供科学依据，确保环保举措能产生实际、可测量的积极影响。\n\n**技术影响与应用场景**\n这份指南的发布具有广泛而深远的影响：\n\n*   **行业标杆与标准化**：为消费电子乃至更广泛的制造业提供了首个详尽、可操作的可回收材料应用“蓝图”，有望推动行业在材料规范、测试方法和报告标准上逐步统一。\n*   **降低创新门槛**：通过公开“秘诀”，中小型公司可以借鉴谷歌的经验，避免重复试错，加速其自身产品的可持续转型，从而放大整个产业链的环保效应。\n*   **引导供应链变革**：强大的需求信号（来自谷歌及其效仿者）将激励上游材料科学研发和回收基础设施投资，推动循环经济商业模式的成熟。\n*   **消费者教育与品牌责任**：它提升了消费者对产品环境足迹的认知，同时确立了科技企业不仅对产品功能负责，也对资源生命周期负责的新标准。\n\n**应用场景**直接贯穿硬件产品的所有环节：\n*   **产品设计阶段**：工程师和设计师依据指南选择材料、确定结构。\n*   **采购与制造阶段**：供应链团队根据指南建立供应商评估体系和生产流程。\n*   **市场营销与沟通**：基于指南中的LCA数据，可向消费者透明传达产品的环境效益。\n*   **回收与报废阶段**：为产品的末端回收拆解设计提供了前瞻性指导。\n\n总而言之，谷歌的《可回收材料指南》是一次重要的知识开源，它将企业层面的可持续发展实践，转化为可复制、可扩展的行业公共资产，其核心价值在于通过**工程技术的具体方案、系统性的设计哲学以及透明的数据分享**，切实推动硬件产业向循环经济模式加速演进。"
     },
     {
-      "title": "Introducing AI Works for Europe",
-      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/ai-works-for-europe/",
-      "description": "Announcing AI Works for Europe, our new initiative to provide AI skills and training to help people and businesses across the continent.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/EuropeAIWorks_Hero.max-600x600.format-webp.webp\">Announcing AI Works for Europe, our new initiative to provide AI skills and training to help people and businesses across the continent.",
-      "author": "Debbie Weinstein",
+      "title": "Google’s response to the CMA’s consultation on potential requirements for Search",
+      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/cma-response/",
+      "description": "Google is working with the UK’s CMA to ensure new digital market rules promote fairness and choice while protecting user experience.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CMA.max-600x600.format-webp.webp\">Google is working with the UK’s CMA to ensure new digital market rules promote fairness and choice while protecting user experience.",
+      "author": "Google UK",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 16 Mar 2026 08:00:00 +0000",
-      "titleZh": "人工智能欧洲成果",
-      "descriptionZh": "谷歌近日宣布启动“欧洲AI工作计划”，这是该公司为推动欧洲人工智能生态发展推出的全新倡议。该计划旨在通过提供系统性的AI技能培训与教育资源，帮助欧洲地区的个人、企业和组织掌握人工智能技术，以适应日益数字化的经济环境。\n\n在当前全球加速推进AI技术落地的背景下，欧洲面临人才短缺与技能不匹配的挑战。谷歌此项计划的核心在于构建一个开放、普惠的AI能力建设框架，通过线上与线下结合的培训课程、实践工具及行业合作，降低AI技术的学习与应用门槛。其创新点在于注重实操与场景结合，不仅涵盖机器学习、数据分析等基础知识，也涉及AI伦理、负责任创新等关键议题，强调技术发展与社会价值的平衡。\n\n该倡议预计将产生多层次影响：对个人而言，有助于提升就业竞争力与转型能力；对企业，尤其是中小型企业，可加速其借助AI实现运营优化与创新；从区域角度看，有望增强欧洲整体在AI领域的竞争力，促进具有包容性的数字经济增长。应用场景覆盖多个关键行业，包括制造业、医疗、零售与公共服务等。\n\n这一计划也反映出科技企业在区域数字战略中日益增长的角色，标志着从技术供应向生态赋能的重要转变。通过大规模技能培训，谷歌不仅助力欧洲构建本土AI能力，也为未来技术应用培育了市场与人才基础。"
-    },
-    {
-      "title": "Google has signed the Industry Accord Against Online Scams and Fraud.",
-      "link": "https://blog.google/innovation-and-ai/technology/safety-security/google-industry-accord-combat-scams-fraud/",
-      "description": "A look at Google’s support for the Industry Accord Against Online Scams and Fraud and its ongoing work to fight scammers.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Against_Online_Scams_and_Fraud_.max-600x600.format-webp.webp\">A look at Google’s support for the Industry Accord Against Online Scams and Fraud and its ongoing work to fight scammers.",
-      "author": "Karen Courington",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Mon, 16 Mar 2026 06:00:00 +0000",
-      "titleZh": "谷歌签署行业协议打击在线诈骗和欺诈。",
-      "descriptionZh": "谷歌近日发布文章，介绍了其对《反网络诈骗和欺诈行业协议》的支持，并概述了其持续打击网络诈骗的技术实践。这一行业协议由谷歌、微软、亚马逊等科技公司与金融、通信行业代表共同发起，旨在通过跨行业协作应对日益猖獗的网络诈骗活动。\n\n文章指出，网络诈骗已从分散的个体犯罪演变为复杂、大规模的专业化攻击，主要依赖**社会工程学手段**，诱骗用户共享敏感信息、转移资金或下载恶意软件。谷歌强调，单一的防护措施难以应对此类威胁，需要在整个数字生态链中——从电子邮件、搜索、广告到应用商店——建立多层次的防御体系。\n\n在技术层面，谷歌通过**AI驱动的实时检测系统**和**大规模威胁情报共享**来实现主动防护。例如，Gmail每日拦截超过99.9%的垃圾邮件和钓鱼邮件，其中AI模型能识别新兴的诈骗模式和隐蔽的恶意链接。在安卓生态中，Google Play Protect全天候扫描应用，阻止恶意应用的安装。广告政策方面，谷歌严格执行金融产品和服务广告的认证要求，2023年屏蔽或移除了超过13.7亿条违反政策的广告，并封禁了超过22.8万个广告账户。\n\n此外，谷歌积极推进**身份验证技术标准**（如FIDO通行密钥）以减少对传统短信验证码的依赖，因为后者容易遭受SIM卡劫持攻击。同时，通过**安全浏览服务**向合作伙伴（如浏览器、网络托管商）共享威胁数据，每天保护超过50亿台设备免受钓鱼网站和恶意软件的侵害。\n\n文章最后指出，行业协议的关键在于**建立标准化、可互操作的数据交换框架**，使不同平台能够快速共享诈骗模式、恶意网址等威胁指标。这不仅提升了各参与方的防御能力，也加大了犯罪分子的攻击成本和运营难度。谷歌表示，将继续投资于AI安全研究、用户安全教育及跨行业合作，以构建一个更安全、更具韧性的数字环境。\n\n总体而言，谷歌通过技术防护、生态治理、行业协同三方面构建了反诈骗的立体防线，体现了大型科技平台在应对系统性网络安全威胁中的关键作用。"
+      "pubDate": "Wed, 18 Mar 2026 12:50:00 +0000",
+      "titleZh": "Google’s response to the CMA’s consultation on potential requirements for Search",
+      "descriptionZh": "这张示意图（描绘了合作对话场景）所关联的博客内容，其核心是谷歌（Google）宣布与英国竞争与市场管理局（CMA）开展合作，以共同塑造未来英国数字市场的监管框架。这一合作的背景是，全球范围内，针对大型科技公司的反垄断和数字市场公平竞争监管正在不断强化。英国作为重要的市场，其CMA正在积极制定并实施新的数字市场竞争规则，旨在遏制潜在的反竞争行为，并为所有参与者创造一个更公平的竞争环境。\n\n此次合作的核心原理与创新点在于其“协同设计”的模式。传统上，监管规则的制定往往是监管机构单方面调研和出台，企业被动遵守。而谷歌与CMA的此次合作，旨在将大型科技平台的专业知识、技术视角与监管机构的公共利益目标相结合。其创新的目标是共同设计一套既能有效促进市场竞争、保护消费者选择权，又能维护甚至提升用户日常体验与安全、同时继续鼓励技术创新的规则。这需要在多个看似存在张力的目标之间找到精妙的平衡点，例如：在要求平台向竞争对手开放更多入口（如应用商店或搜索引擎选择）时，如何确保用户免受恶意软件和安全漏洞的侵害；在制定数据可移植性或互操作性规则时，如何保障用户隐私和数据安全。\n\n这项合作可能产生的技术影响和应用场景广泛而深远。首先，对于应用开发者和新兴科技公司而言，更公平的规则可能意味着更低的市场准入门槛、更合理的服务费用（例如应用内购买抽成）以及更顺畅地与用户建立联系。其次，对于最终用户，他们有望在关键数字服务（如搜索引擎、应用商店、移动操作系统）上获得更真实、更广泛的选择权，而无需牺牲用户体验、隐私或安全性。例如，用户可能会在设备设置中看到更多样化的默认服务选择，或能更便捷地将数据从一个服务迁移到另一个竞争性服务。具体应用可能涉及对移动生态系统中应用分发方式的规范、对默认搜索引擎选择流程的改进，以及对支付系统等核心平台服务的开放。\n\n总体而言，谷歌与CMA的这次合作，代表了一种新型的监管互动范式尝试。它不再仅仅是“监管与遵从”的关系，而是试图通过前期、建设性的对话，共同构建一个既能激发创新活力、又能确保公平竞争的可持续数字市场未来。其成果不仅将影响英国市场，也可能为全球其他地区的数字监管提供重要的参考范例。"
     }
   ]
 }

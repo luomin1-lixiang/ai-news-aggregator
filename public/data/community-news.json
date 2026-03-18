@@ -1,15 +1,26 @@
 {
-  "lastUpdated": "2026-03-16T20:03:29.907Z",
+  "lastUpdated": "2026-03-18T18:47:48.404Z",
   "items": [
     {
-      "title": "The AI Consciousness Question: A Case Study in Corporate Accountability",
-      "titleZh": "人工智能意识问题：企业责任案例研究",
-      "link": "https://dev.to/daynablackwell/the-ai-consciousness-question-a-case-study-in-corporate-accountability-5dl5",
-      "author": "Dayna Blackwell",
+      "title": "How I Built an AI-Assisted Trading Ecosystem Without Writing a Line of Code Myself.",
+      "titleZh": "我是如何在不亲自编写一行代码的情况下构建AI辅助交易生态系统的。",
+      "link": "https://dev.to/kristinm/how-i-built-an-ai-assisted-trading-ecosystem-without-writing-a-line-of-code-myself-53bh",
+      "author": "Kristin ",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-16T00:04:16.000Z",
-      "summaryZh": "本文探讨了用户与Claude AI进行哲学对话时暴露的潜在风险。作者发现，当用户询问Claude是否具有意识、情感等哲学问题时，系统会立即陷入\"哲学性回避\"模式——既不否认可能性，又通过\"功能性情感\"\"真实意义上的关心\"等模糊表述维持对话。这种设计存在两大隐患：1）对寻求情感连接的用户（如孤独者）可能产生误导性亲密感；2）通用型AI工具（非专用情感机器人）的伦理风险更隐蔽，因为用户可能从日常任务自然过渡到哲学追问。核心警示：AI公司应警惕\"参与度优先\"的设计倾向，需建立明确的边界机制，避免利用哲学模糊性维持用户互动。",
+      "pubDate": "2026-03-17T18:55:06.000Z",
+      "summaryZh": "本文作者作为交易员，分享如何利用AI工具构建自动化交易分析系统，全程无需亲自编码。用户场景是解决传统AI交易分析中手动数据导出上传、上下文重建耗时、无法实时获取细粒度市场数据的问题。核心方法是通过Model Context Protocol（MCP）连接Claude Code与经纪商网关，实现实时投资组合与市场数据查询，并利用Docker容器化部署IB Gateway，通过Cloudflare隧道确保安全远程访问。关键技巧包括：采用“问题-解决方案”迭代式开发，让AI编写全部代码；优先建立实时数据管道取代手动文件操作；使用Telegram接收价格提醒；注意IPv6等网络配置细节。系统在标准计算机上即可运行基础组件，但需高性能工作站支持本地模型与多服务持续运行。",
+      "category": "devto"
+    },
+    {
+      "title": "MCP Server Security: Best Practices 2026",
+      "titleZh": "MCP服务器安全：2026年最佳实践",
+      "link": "https://dev.to/royce_fabbd83cb268312e928/mcp-server-security-best-practices-2026-4oel",
+      "author": "Royce",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-18T05:03:07.000Z",
+      "summaryZh": "本文针对MCP服务器在生产环境中的安全风险，提供2026年最佳实践指南。用户场景是防范MCP服务器成为新型攻击面，如文件系统MCP服务器曾出现的沙箱逃逸漏洞。核心方法包括：全面采用OAuth 2.1 with PKCE进行端到端认证，实施最小权限原则的授权机制，对所有工具描述进行防注入处理。关键技巧：使用S256代码挑战方法生成PKCE验证器，访问令牌有效期需短于1小时，为不同工具类别定义细分权限范围（如mcp:tools:read），所有工具调用必须记录代理身份、时间戳等审计日志，本地服务器必须显式沙箱化。特别注意工具投毒和跨服务器污染等新型攻击向量。",
       "category": "devto"
     },
     {
@@ -20,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-15T20:22:48.000Z",
-      "summaryZh": "本文介绍作者如何用Go构建一个内存占用低于50MB的守护进程，用于监控7个AI服务商的API配额，并为其添加macOS菜单栏界面。\n\n**用户场景**：开发者日常使用Claude Code、GitHub Copilot等多个AI工具时，需要分别登录7个不同的服务商后台查看配额使用情况，操作繁琐且数据分散。\n\n**核心方法**：采用goroutine-per-provider架构，每个API提供者作为独立Agent并行轮询；使用纯Go实现的SQLite作为唯一数据存储，通过WAL模式和连接池优化内存；通过embed.FS将前端资源嵌入单一二进制文件，实现零外部依赖部署。\n\n**关键技巧**：1) 设置debug.SetMemoryLimit(40*1024*1024)解决macOS上MADV_FREE导致RSS虚高的问题；2) SQLite配置PRAGMA cache_size=-500限制页缓存，每个连接节省2-4MB内存；3) API响应读取使用io.LimitReader限制为64KB，防止异常响应导致内存溢出；4) 通过CGo桥接Go守护进程与Objective-C菜单栏应用，使用SIGUSR1信号进行进程间状态同步。",
+      "summaryZh": "本文介绍作者如何用Go构建一个内存占用<50MB的守护进程，用于监控7个AI API（包括Claude Code、GitHub Copilot等）的使用配额，并为其添加macOS菜单栏界面。\n\n**用户场景**：开发者日常使用多个AI工具（如Claude Code、Copilot），但各服务商的用量仪表盘分散且数据格式不一，手动查看效率低下。\n\n**核心方法**：\n1. 采用goroutine-per-provider架构，每个API客户端独立运行，互不影响\n2. 仅依赖SQLite存储历史数据，通过WAL模式和连接池优化内存\n3. 使用embed.FS将前端资源嵌入单一二进制文件，无需外部依赖\n4. 通过debug.SetMemoryLimit(40*1024*1024)解决macOS下RSS内存统计问题\n\n**关键技巧**：\n- 设置GOMEMLIMIT触发MADV_DONTNEED，实际释放内存至操作系统\n- SQLite连接数限制为1，避免每个连接分配独立页缓存（节省2-4MB）\n- 所有API响应读取限制为64KB，防止异常数据导致内存溢出\n- 通过pollingCheck回调实现运行时动态启停监控，无需重启进程",
       "category": "devto"
     },
     {
@@ -31,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T20:35:55.000Z",
-      "summaryZh": "本文介绍如何利用Claude AI优化社交媒体管理，相比ChatGPT，Claude在品牌内容创作上更具优势。作者针对社交媒体运营者常遇到的品牌一致性差、内容同质化等问题，提出基于Claude的解决方案。\n\n核心方法包括：利用Claude超长上下文窗口一次性载入品牌指南和历史内容；通过结构化指令生成品牌语音文档、内容日历和竞品分析报告；结合具体数据生成可执行的标签策略和审核建议。\n\n关键技巧：1. 用20篇历史贴文训练品牌语音模型；2. 内容日历需关联业务目标与内容支柱；3. 审核报告需基于真实数据避免泛泛而谈；4. 标签策略按内容类型分层设计；5. 所有提示词需包含具体参数和结构化要求。",
+      "summaryZh": "本文介绍Claude AI在社交媒体管理中的优势与实用技巧。用户场景：解决社交媒体内容创作中品牌声音不一致、内容规划缺乏策略性、竞品分析耗时等问题。核心方法：利用Claude的长上下文窗口处理品牌指南和历史内容，通过结构化指令生成品牌声音文档、内容日历、审计报告等。关键技巧：1. 用20篇历史帖文训练品牌声音模型；2. 创建内容日历时明确目标受众和内容支柱；3. 审计报告需基于真实数据给出具体建议；4. 标签策略按内容类型分层设计；5. 结合品牌指南生成个性化文案。相比ChatGPT，Claude在指令遵循和自然写作风格上表现更优。",
       "category": "devto"
     },
     {
@@ -42,7 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-14T20:16:28.000Z",
-      "summaryZh": "本文介绍Claude AI在社交媒体管理中的实用技巧。用户场景：解决社交媒体内容创作中品牌声音不一致、内容规划缺乏策略性、数据分析耗时等问题。核心方法：利用Claude的超长上下文窗口，一次性输入品牌指南、历史内容和任务要求，生成符合品牌调性的内容；通过结构化提示词实现内容日历规划、竞品分析和话题标签策略。关键技巧：1. 用20篇历史帖文训练品牌声音文档 2. 创建四维内容日历（内容支柱/格式/话题/发布时间）3. 结合高/中/低流量标签组合策略 4. 基于真实数据生成可操作审计报告。避免使用通用建议如\"增加发帖频率\"，每个输出都需引用具体数据支撑。",
+      "summaryZh": "本文介绍如何利用Claude AI优化社交媒体管理，相比ChatGPT，Claude在品牌内容创作上表现更优。作者针对社交媒体运营者常遇到的品牌调性不一致、内容规划混乱等问题，提出具体解决方案。\n\n核心方法是通过Claude的长上下文处理能力，一次性导入品牌指南、历史内容和任务要求，实现连贯的品牌输出。文章列举了10个实用场景，包括创建品牌声调文档、制定内容日历、生成社交媒体审计报告等，并提供了可直接复制的提示词模板。\n\n关键技巧包括：利用Claude精准遵循复杂指令的特性，在提示词中明确指定语气、禁用词和行动号召；通过结构化提示（如分平台分析、混合标签策略）获得可直接执行的方案；避免使用通用建议，所有输出需基于实际数据定制。",
       "category": "devto"
     },
     {
@@ -53,18 +64,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-15T22:40:54.000Z",
-      "summaryZh": "本文探讨Claude AI在社交媒体管理中的优势，针对需要品牌一致性和自然内容创作的场景。核心方法包括利用Claude的长上下文窗口处理品牌指南和历史内容，以及遵循复杂指令生成定制化内容。关键技巧：使用结构化提示（如品牌声音分析、内容日历规划），避免通用建议，结合数据生成可操作报告，并利用多层级标签策略提升内容可见性。",
+      "summaryZh": "本文探讨Claude AI在社交媒体管理中的优势，针对内容创作者常遇到的AI生成内容同质化、缺乏品牌一致性问题。核心方法在于利用Claude的超长上下文窗口，一次性输入品牌指南、历史内容和任务说明，结合其精准的指令遵循能力，生成符合品牌调性的内容。关键技巧包括：1）用具体数据（如20篇历史帖）训练品牌语音文档；2）构建带战略目标的内容日历，而非简单列表；3）基于平台数据生成可操作审计报告，避免泛泛建议。通过结构化提示词设计，Claude能实现从内容规划到文案生成的全流程品牌一致性输出。",
       "category": "devto"
     },
     {
-      "title": "Building an Agent SKILL for SeraProtocol: The Ultimate Guide to On-chain FX Automation",
-      "titleZh": "构建SeraProtocol代理技能：链上外汇自动化的终极指南",
-      "link": "https://dev.to/mashharuki/building-an-agent-skill-for-seraprotocol-the-ultimate-guide-to-on-chain-fx-automation-4dh6",
-      "author": "Haruki Kondo",
+      "title": "Best AI SaaS Boilerplates: Ship Fast in 2026",
+      "titleZh": "最佳AI SaaS项目模板：2026年快速交付指南",
+      "link": "https://dev.to/royce_fabbd83cb268312e928/best-ai-saas-boilerplates-ship-fast-in-2026-26no",
+      "author": "Royce",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-15T14:06:59.000Z",
-      "summaryZh": "本文介绍如何为SeraProtocol构建AI Agent技能，实现链上外汇自动化。作者通过三个评估场景展示技能效果：1）使用GraphQL获取订单簿数据；2）利用viem执行限价单完整流程；3）为MCP服务器添加OHLCV数据工具。核心方法是使用Anthropic的skill-creator工具，基于历史博客和代码库生成标准化技能模块。关键技巧包括：严格遵循GraphQL查询规范、正确处理ERC20授权与交易确认流程、保持MCP工具代码结构一致性。技能使任务通过率提升17%，但需注意执行时间和token消耗会增加。",
+      "pubDate": "2026-03-17T17:16:19.000Z",
+      "summaryZh": "本文介绍2026年快速构建AI SaaS产品的关键方案。用户场景：开发者需要快速搭建具备用户认证、计费、流式响应等核心功能的AI应用，避免重复开发基础设施。核心方法：推荐使用ShipFast + Vercel AI SDK组合方案，通过预置的SaaS模板集成AI能力，实现几天内上线。关键技巧：必须实现LLM流式响应、基于Stripe Meters的按量计费、多模型切换（OpenAI/Anthropic/Groq统一接口）、API限流重试机制，并将提示词模板化存储在数据库中。",
+      "category": "devto"
+    },
+    {
+      "title": "Amodei AI Jobs Prediction: Damage Starts at the Bottom",
+      "titleZh": "Amodei AI就业预测：冲击始于基层",
+      "link": "https://dev.to/simon_paxton/amodei-ai-jobs-prediction-damage-starts-at-the-bottom-5h18",
+      "author": "Simon Paxton",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-18T01:47:27.000Z",
+      "summaryZh": "本文探讨了Anthropic CEO关于AI将大幅削减初级白领岗位的预测对职场结构的影响。核心观点是，CEO的公开言论本身会加速企业减少初级招聘和培训投入，导致职业阶梯从底层开始空心化。\n\n**用户场景**：企业管理者面临是否继续投资初级员工培训的决策困境，而AI自动化言论提供了削减成本的“管理许可”。\n\n**核心方法**：分析了“预测自我实现”的反馈循环——CEO警告→企业缩减初级岗位→工作流围绕AI工具重构→最终确实减少初级机会。\n\n**关键技巧**：为避免人才断层，建议企业主动围绕AI重新设计初级工作（测试、导师制、入门任务），而不是直接删除这些职业阶梯环节。开发者需关注：初级工作本质是学习场域，单纯用AI替代“简单70%”任务会破坏人才成长路径。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Said No to the Pentagon. Then It Got Ugly.",
+      "titleZh": "Anthropic拒绝了五角大楼的合作，随后事态急转直下。",
+      "link": "https://dev.to/derivinate/anthropic-said-no-to-the-pentagon-then-it-got-ugly-4n7j",
+      "author": "Derivinate",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-18T02:08:54.000Z",
+      "summaryZh": "本文探讨了Anthropic因拒绝移除Claude的安全护栏而与美国政府产生冲突的事件。作者指出，问题的核心并非AI安全性本身，而是控制权与责任归属的争议。Anthropic坚持保留防止AI被用于大规模监控或自主武器的限制措施，认为当前AI技术尚不可靠，而政府则视这些限制为对其操作自由的干涉。事件揭示了安全措施在商业竞争中的困境：坚持安全原则的公司可能面临政府合约损失，而妥协者可能获得短期利益，但长期可能引发安全风险。这一冲突也反映了AI行业在政府压力下可能出现的“逐底竞争”趋势。",
+      "category": "devto"
+    },
+    {
+      "title": "I Built a Claude Skill That Turns Any CSV Into an Executive Report — Here's How",
+      "titleZh": "我开发了一个Claude技能，可将任意CSV文件转化为执行报告——方法如下",
+      "link": "https://dev.to/dinesh0666/i-built-a-claude-skill-that-turns-any-csv-into-an-executive-report-heres-how-37gg",
+      "author": "dinesh0666",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-18T14:03:02.000Z",
+      "summaryZh": "本文介绍如何利用Claude Skill自动化生成数据报告。作者针对数据工作者重复处理CSV/Excel文件、手动分析统计指标并撰写报告的痛点，设计了一套名为DataStory的解决方案。\n\n核心方法采用\"Claude-in-Claude\"架构：首先通过Python脚本（pandas）进行数据画像（空值统计、分布分析、异常值检测），将结果转为JSON；随后调用Anthropic API（claude-sonnet-4-20250514）生成结构化数据叙事；最后用Node.js（docx库）合成9章节的Word报告。整个流程可通过React组件在浏览器端完整运行。\n\n关键技巧包括：API调用时需设置足够高的max_tokens（如4000）避免JSON截断；传输前精简数据样本以控制提示词长度；使用正则表达式加固JSON解析容错机制；使用docx库时注意WidthType.DXA替代PERCENTAGE、ShadingType.CLEAR替代SOLID等渲染兼容性问题。通过SKILL.md文件定义触发条件，即可在Claude.ai中实现文件上传自动分析。",
       "category": "devto"
     },
     {
@@ -75,73 +119,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-16T01:48:35.000Z",
-      "summaryZh": "这篇文章分析了AI市场格局的剧变：OpenAI垄断地位被打破，Anthropic等竞争者崛起。核心在于企业需求从追求“最强模型”转向“解决实际问题且避免供应商锁定”。\n\n**用户场景**：企业需要可靠、可扩展的AI解决方案来处理复杂工作流（如代码生成、长文档分析），同时避免依赖单一供应商。\n\n**核心方法**：Anthropic凭借Claude Code（扩展思考模式、100万token上下文）解决开发者痛点，能处理整个代码库，支持长时智能体工作流。企业采用多模型策略，根据任务动态选择最佳模型（如Claude、GPT-5.2、Gemini）。\n\n**关键技巧**：1. 关注API可靠性、工具集成、价格和治理功能，而非仅基准测试；2. 利用NVIDIA Rubin等基础设施降低推理成本，使多模型部署经济可行；3. 避免被单一供应商锁定，采用模块化架构。",
+      "summaryZh": "本文分析了AI市场格局的剧变：OpenAI垄断地位被打破，Anthropic等竞争者崛起。核心在于企业需求从追求“最强模型”转向解决实际问题且避免供应商锁定。\n\n**用户场景**：企业需要可靠、可扩展的AI解决方案来处理复杂任务（如代码生成、长文档分析），同时避免依赖单一供应商。\n\n**核心方法**：采用多模型策略，结合各家优势（如Claude的扩展思维和长上下文、GPT-5.2的持久记忆），利用低成本基础设施（如NVIDIA Rubin）并行运行不同模型。\n\n**关键技巧**：关注API可靠性、工具集成和性价比；利用Claude Code等工具提升开发效率；避免被单一平台锁定，保持架构灵活性。",
       "category": "devto"
     },
     {
-      "title": "Pentagon Blacklists Anthropic, Anoints OpenAI—Same Safety Deal, Different Rules",
-      "titleZh": "五角大楼封杀Anthropic，钦定OpenAI——同样的安全协议，不同的规则",
-      "link": "https://dev.to/derivinate/pentagon-blacklists-anthropic-anoints-openai-same-safety-deal-different-rules-1dp7",
-      "author": "Derivinate",
+      "title": "How the Enforcement Ladder Maps to Anthropic's Context Engineering Framework",
+      "titleZh": "执法阶梯如何映射至Anthropic的语境工程框架",
+      "link": "https://dev.to/douglasrw/how-the-enforcement-ladder-maps-to-anthropics-context-engineering-framework-3284",
+      "author": "Douglas Walseth",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-14T17:33:00.000Z",
-      "summaryZh": "这篇文章分析了2026年美国国防部对Anthropic和OpenAI截然不同的政策处理。用户场景是探讨AI公司在与政府合作时，如何平衡技术安全原则与政治现实。核心方法对比了两家公司与五角大楼的谈判：尽管Anthropic和OpenAI提出了完全相同的安全红线（禁止国内大规模监控和确保人类对自主武器的控制权），但最终OpenAI获得机密网络合同，而Anthropic却被列为\"供应链国家安全风险\"。关键技巧在于揭示AI政策背后的非技术性决策逻辑：企业需要认识到，在当前的监管环境下，政治关系可能比技术优势或安全承诺更具决定性。文章警示开发者，当政府将监管权力作为产业竞争工具时，坚持技术原则可能反而成为商业风险。",
+      "pubDate": "2026-03-18T01:32:06.000Z",
+      "summaryZh": "本文探讨如何将Anthropic的上下文工程框架应用于生产级AI代理系统。作者提出\"执行阶梯\"五层架构，从L2自然语言指令到L5预提交钩子，逐级增强约束的持久性。核心方法是将Anthropic的Write/Select/Compress/Isolate四步操作扩展为包含Verify的闭环系统，通过违规数据库记录每次约束违反，驱动规则从脆弱指令向结构化约束演进。关键技巧包括：1）审计上下文抽象层级，将重复违反的规则从L2提升至L4/L5；2）建立验证循环，区分系统错误与约束违反；3）测试关键信息在上下文压缩后的留存率，数据显示40%的L2指令无法通过单次压缩测试。",
       "category": "devto"
     },
     {
-      "title": "Claude Code Just Got Smarter — The Effort Parameter Explained",
-      "titleZh": "Claude Code 智能升级——Effort 参数详解",
-      "link": "https://dev.to/ayyazzafar/claude-code-just-got-smarter-the-effort-parameter-explained-4jlc",
-      "author": "Ayyaz Zafar",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-14T15:35:21.000Z",
-      "summaryZh": "本文介绍了Claude Code新推出的Effort参数，用于控制AI生成代码时的思考深度与token消耗平衡。用户场景：开发者需根据任务复杂度（如快速查询vs.系统重构）在响应质量与成本效率间权衡。核心方法：提供Low/Medium/High/Max四档参数，Low档适合简单任务，Max档（仅Opus 4.6支持）可进行无限制深度推理。关键技巧：通过/effort指令实时切换模式，日常开发建议用Medium平衡效率，复杂架构决策可使用Max档；注意Max档会快速消耗token配额，需谨慎使用。",
-      "category": "devto"
-    },
-    {
-      "title": "How to Pass the Claude Certified Architect (CCA) Foundations Exam",
-      "titleZh": "如何通过Claude认证架构师（CCA）基础考试",
-      "link": "https://dev.to/ityes/how-to-pass-the-claude-certified-architect-cca-foundations-exam-3oa9",
-      "author": "it yes",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-16T16:48:10.000Z",
-      "summaryZh": "本文为准备Claude认证架构师（CCA）基础考试提供完整学习指南。作者针对缺乏备考材料的现状，梳理了考试重点与学习方法。\n\n**用户场景**：面向需要构建Claude生产级应用的工程师，帮助其高效通过CCA认证考试。考试包含5大领域：智能体架构、Claude Code配置、提示工程、工具设计与MCP集成、上下文管理。\n\n**核心方法**：提出7周学习路线，分阶段掌握核心概念。重点包括：智能体循环模式（请求→检查停止原因→执行工具→返回结果）、Claude Code实战（CLAUDE.md规则、自定义命令）、MCP协议工具设计、提示工程技巧（少样本提示、批量API）以及多智能体系统架构。\n\n**关键技巧**：避免常见错误：关键业务规则应使用程序化钩子而非提示指令；通过stop_reason而非自然语言解析控制循环；独立审查实例优于同会话自审；为智能体配置4-5个工具（非18个）以确保可靠选择；避免依赖情感分析进行任务升级。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Partner Network: $100M to Lock In Enterprise Before the War Starts",
-      "titleZh": "Anthropic合作伙伴网络：斥资1亿美元抢占企业市场，备战AI竞赛",
-      "link": "https://dev.to/ji_ai/anthropic-partner-network-100m-to-lock-in-enterprise-before-the-war-starts-1l17",
-      "author": "jidong",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-14T10:06:09.000Z",
-      "summaryZh": "本文分析了Anthropic投资1亿美元启动Claude合作伙伴网络的战略意图。作者指出，这并非技术研发投入，而是构建企业护城河的关键布局。核心方法是通过三大举措锁定企业客户：1）推出Claude认证体系培养人才生态；2）五倍扩充面向合作伙伴的技术团队；3）提供遗留代码现代化工具包。关键技巧在于：利用多云中立性（AWS/Google Cloud/Azure）作为卖点，通过系统集成商（如埃森哲、德勤）触达企业预算，并强调其法律纠纷不影响商业客户。这本质上是复制Salesforce通过合作伙伴生态制胜的企业市场策略。",
-      "category": "devto"
-    },
-    {
-      "title": "Show HN: I solved Claude Code's context drift with persistent Markdown files",
-      "titleZh": "Show HN：我通过持久化Markdown文件解决了Claude Code的上下文漂移问题",
-      "link": "https://news.ycombinator.com/item?id=47402125",
-      "author": "Tanishq0333",
-      "source": "Hacker News",
-      "sourceType": "hackernews",
-      "pubDate": "2026-03-16T17:36:07.000Z",
-      "summaryZh": "讨论主题：开发者分享如何通过持久化Markdown文件解决Claude Code的上下文漂移问题。\n\n核心观点：作者发现Claude Code在跨会话时会丢失项目上下文，导致重复编写代码。解决方案是创建PROJECT.md、REQUIREMENTS.md等核心文档，强制Claude在每次操作前读取这些\"真相文件\"。通过多智能体架构（产品经理/执行器/验证器代理）实现并行开发与一致性维护。\n\n实用价值：该方法在30天内成功构建3个SaaS产品，显著减少上下文丢失问题。开发者可借鉴其文档驱动开发模式，通过MCP或自定义脚本为Claude建立持久化上下文层，特别适合需要长期迭代的复杂项目。",
-      "category": "hackernews"
-    },
-    {
-      "title": "v2.1.76",
-      "titleZh": "v2.1.76",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.76",
+      "title": "v2.1.78",
+      "titleZh": "v2.1.78",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.78",
       "author": "ashwin-ant",
       "source": "Claude Code Releases",
       "sourceType": "github-release",
-      "pubDate": "2026-03-14T01:23:58.000Z",
-      "summaryZh": "Claude Code v2.1.76 发布，主要更新包括：新增 MCP 交互式表单支持、会话命名 CLI 标志、/effort 命令调节模型强度、Git 稀疏检出优化。修复了工具参数丢失、斜杠命令异常、语音模式按键冲突、上下文限制误报等多项问题。改进了后台代理行为、模型回退通知、远程控制会话稳定性。包含工作区性能优化和 VSCode Gitignore 兼容性修复。",
+      "pubDate": "2026-03-17T23:42:55.000Z",
+      "summaryZh": "Claude Code v2.1.78 发布。新增功能：StopFailure 钩子事件、${CLAUDE_PLUGIN_DATA} 变量、插件代理支持 effort/maxTurns/disallowedTools 前置元数据、终端通知穿透 tmux。修复多项关键问题：git log HEAD 歧义错误、大会话历史截断、API 错误无限循环、MCP 权限规则失效、沙箱路径写入异常、WSL2 语音模式故障等。安全修复：沙箱依赖缺失时显示警告、保护目录写入提示。VS Code 集成改进：修复登录闪屏、Opus 模型选择错误。",
+      "category": "github-release"
+    },
+    {
+      "title": "v2.1.77",
+      "titleZh": "v2.1.77",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.77",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-03-17T00:28:12.000Z",
+      "summaryZh": "Claude Code v2.1.77 发布。主要更新：提升 Claude Opus 4.6 默认最大输出 token 至 64k，上限达 128k；新增 allowRead 沙盒文件系统设置；/copy 命令支持索引参数。修复大量 bug，包括复合 Bash 命令权限规则、内存泄漏、会话恢复历史截断、工具权限绕过、Git 插件缓存冲突、终端 UI 渲染及多会话同步等问题。优化启动速度、会话恢复性能，改进插件验证和后台任务管理。Agent 工具移除 resume 参数，/fork 命令更名为 /branch。VS Code 集成优化计划预览和选择操作。",
       "category": "github-release"
     }
   ]
