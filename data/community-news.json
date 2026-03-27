@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-26T18:57:43.332Z",
+  "lastUpdated": "2026-03-27T18:48:35.296Z",
   "items": [
     {
       "title": "Zero-copy protobuf and ConnectRPC for Rust",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-25T20:19:53.000Z",
-      "summaryZh": "本文介绍了作者在Anthropic开源的两个Rust库：buffa（支持零拷贝视图的Protobuf实现）和connect-rust（多协议RPC框架）。用户场景是解决现有Rust生态中Protobuf库对editions支持不足、JSON支持笨重，以及RPC框架性能瓶颈的问题。核心方法包括：通过buffa实现基于editions的代码生成，利用Rust生命周期特性创建零拷贝消息视图（如LogRecordView），并通过OwnedView解决异步场景下的生命周期问题。关键技巧：使用decode_view避免字符串字段的堆分配，通过DecodeOptions灵活配置递归深度和消息大小限制，在connect-rust中默认设置4MB消息大小限制以增强安全性。这些优化使解码密集型负载比tonic+prost方案快33%，CPU分配压力降低62%。",
+      "summaryZh": "本文介绍了作者在Anthropic开源的两个Rust库：buffa（支持零拷贝视图的Protobuf实现）和connect-rust（基于Tower的ConnectRPC框架）。核心解决了Rust生态中Protobuf版本兼容性差和RPC性能瓶颈问题。\n\n通过protobuf editions特性实现版本兼容，并利用Rust所有权系统设计零拷贝消息视图（如LogRecordView<'a>），避免字符串和字节数据的重复分配。关键技巧包括：使用OwnedView<V>包装视图以跨越async生命周期；通过DecodeOptions灵活配置递归深度和消息大小限制；在connect-rust中默认启用4MB消息限制提升安全性。\n\n实际测试显示，在处理密集解码场景时，相比tonic+prost方案性能提升33%，内存分配压力降低62.5%。这些库已通过Google官方测试套件验证，并在生产环境中运行。",
       "category": "devto"
     },
     {
@@ -20,18 +20,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-25T06:25:32.000Z",
-      "summaryZh": "本文探讨了AI代码生成与代码审查的差异。作者通过两周实验，让GPT-5.4和Claude Opus 4.6分别负责生成代码和审查对方代码，发现擅长生成简洁代码的模型往往不擅长发现非自写代码的问题。\n\n核心方法是让两个模型交替担任生成者和审查者角色，处理支付系统等真实生产代码。实验显示，GPT生成的代码结构清晰但可能隐藏并发漏洞；Claude的代码防御性强但可能过度设计。\n\n关键技巧：开发者不应假设单一AI模型能胜任所有任务。建议用GPT生成标准功能代码，用Claude审查安全性和边界情况；或用Claude编写关键模块，用GPT优化性能。注意GPT可能忽略标准模式中的安全漏洞，Claude可能错过性能优化机会。",
+      "summaryZh": "本文通过对比GPT-5.4与Claude Opus 4.6在代码生成与审查中的表现，揭示了一个关键洞见：擅长生成高质量代码的模型，未必擅长发现他人代码中的问题。\n\n**用户场景**：开发者在构建支付系统等复杂生产级应用时，通常依赖单一AI模型完成代码生成、审查、调试等全流程工作，但可能因此遗漏潜在缺陷。\n\n**核心方法**：作者进行了为期两周的对照实验：第一周由GPT生成新功能代码，Claude进行审查；第二周角色互换。任务涉及身份验证、速率限制、Webhook处理等实际生产需求。\n\n**关键技巧**：\n1. GPT生成的代码结构清晰、符合最佳实践，但可能掩盖并发竞争条件、安全漏洞等深层问题\n2. Claude生成的代码防御性强、错误处理完善，但可能过度工程化导致性能瓶颈\n3. 建议采用\"交叉审查\"策略：用不同模型进行生成与审查，利用各自优势互补盲区\n4. 注意模型固有倾向：GPT易忽略标准模式中的边缘情况，Claude可能错过优化机会\n\n实验证明，混合使用不同AI模型进行代码生成与审查，能显著提升生产代码的质量与安全性。",
       "category": "devto"
     },
     {
       "title": "The Complete Guide to Model Context Protocol (MCP): Building AI-Native Applications in 2026",
-      "titleZh": "Model Context Protocol (MCP) 完全指南：在2026年构建AI原生应用",
+      "titleZh": "模型上下文协议（MCP）完全指南：2026年构建AI原生应用",
       "link": "https://dev.to/universe7creator/the-complete-guide-to-model-context-protocol-mcp-building-ai-native-applications-in-2026-5e57",
       "author": "Can Koylan",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-25T03:23:12.000Z",
-      "summaryZh": "本文介绍了Anthropic推出的Model Context Protocol (MCP)协议，旨在帮助开发者构建能无缝连接外部数据源和工具的AI原生应用。\n\n**用户场景**：解决AI助手（如Claude Code）与外部系统（数据库、API、文件等）的集成难题，实现统一、安全的跨平台数据交互。\n\n**核心方法**：采用三层架构（Host/Client/Server），通过标准化协议解耦AI模型与数据源。开发者可构建MCP Server（如示例中的GitHub数据服务），暴露Resources（只读数据）、Tools（可执行函数）和Prompts（模板）。\n\n**关键技巧**：1. 使用@modelcontextprotocol/sdk快速实现Server，通过setRequestHandler注册工具；2. 合理设计Resource URI（如github://trending）和Tool输入模式；3. 注意错误处理与权限控制，避免直接暴露敏感API密钥。",
+      "summaryZh": "本文介绍了Anthropic推出的Model Context Protocol (MCP)开放标准，用于构建AI原生应用。用户场景：解决AI助手与外部数据源（如GitHub、数据库）和工具无缝集成的难题，实现AI应用与异构系统的标准化连接。核心方法：MCP采用三层架构（主机、客户端、服务器），通过标准化协议让AI模型（如Claude Code）可插拔式访问各类资源。关键技巧：开发者需遵循资源、工具、提示的暴露模式；示例中GitHub服务器通过定义工具（get_repository）和资源（github://trending）实现API封装；注意使用类型安全SDK并合理设计权限机制。",
+      "category": "devto"
+    },
+    {
+      "title": "The Anthropic Injunction Shows Where AI Power Really Lives",
+      "titleZh": "Anthropic禁令揭示AI权力的真正所在",
+      "link": "https://dev.to/simon_paxton/the-anthropic-injunction-shows-where-ai-power-really-lives-38g2",
+      "author": "Simon Paxton",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-27T18:24:05.000Z",
+      "summaryZh": "本文分析了美国法院对Anthropic的临时禁令案例，揭示了AI领域权力重心从技术能力向采购合规工具的转移。作者指出，该案核心并非Claude模型的技术能力问题，而是政府如何利用“供应链风险”标签等合规机制进行政治打压。这暴露了AI供应商面临的新风险：行政命令或合规标签可能瞬间切断客户渠道，比技术竞争更具破坏性。\n\n关键启示在于，开发者需要构建供应商无关的AI架构。具体方法包括：1）设计抽象层接口，支持Claude/GPT/Gemini等模型的无缝切换；2）在采购合同中明确要求多模型支持条款；3）借鉴金融风控思路，在第三方合规平台设置供应商浓度限制和自动降级路径。技术决策需同时考虑监管失效场景，将供应商锁定风险提升至架构设计层面。",
       "category": "devto"
     },
     {
@@ -42,18 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-25T18:28:03.000Z",
-      "summaryZh": "本文探讨了如何通过系统化工程方法，而非单纯依赖模型规模，来提升本地LLM的编程能力。作者以ATLAS项目为例，展示了如何让一个14B参数的量化模型在LiveCodeBench上达到74.6%的pass@1分数，甚至超过了Claude Sonnet 4.5的71.4%。\n\n**用户场景**：开发者希望利用本地LLM进行代码生成和辅助编程，以降低对云端API的依赖和成本，但面临模型能力有限、生成质量不稳定的问题。\n\n**核心方法**：ATLAS采用了一套系统化的工作流，将基础模型（如Qwen3-14B）作为核心组件，通过多步骤的“工程化”流程来提升代码生成质量。其核心流程是：**propose → score → test → debug → resubmit**。具体包括：\n1.  **Best-of-N generation**：针对同一问题生成多个候选解决方案。\n2.  **Lens-based selection**：使用嵌入模型（Geometric Lens）对候选方案进行评分和筛选，而非依赖模型自身的置信度。\n3.  **Iterative self-verification and repair**：为失败的方案生成测试用例，运行代码，分析错误，并提示模型进行修复（如PR‑CoT机制）。\n\n**关键技巧**：\n*   **思维转变**：最大的性能提升（近20个百分点的pass@1）来自围绕模型的**系统化工程流程**，而非模型本身的改进。应将模型视为一个可被编排的组件。\n*   **权衡取舍**：这种系统化方法会显著增加**延迟**（平均每个任务约11-12秒），适合批量处理或离线重构，但不适合需要即时响应的编辑器代码补全。\n*   **适用边界**：当前方法在**单函数、定义清晰的基准测试**上效果显著，但其在**大型、复杂、模式模糊的真实代码库**中的泛化能力仍有待验证。\n*   **成本优势**：本地运行边际成本极低（约$0.004/任务），相比云端API有25-100倍的成本优势，但需要权衡开发、部署和维护该复杂系统的精力。\n\n总之，本地LLM编程的前沿正从追求“更大的模型”转向构建“更智能的运行时系统”。ATLAS项目证明，通过精心设计的工程化流程，即使是中等规模的本地模型也能在特定任务上达到媲美顶级云端模型的性能，为成本敏感或隐私要求高的开发场景提供了新思路。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude vs Perplexity: Which AI Tool Is Right for You in 2026?",
-      "titleZh": "Claude与Perplexity对比：2026年哪款AI工具更适合你？",
-      "link": "https://dev.to/techsifted/claude-vs-perplexity-which-ai-tool-is-right-for-you-in-2026-3gfj",
-      "author": "Marcus Rowe",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-21T17:28:48.000Z",
-      "summaryZh": "本文对比了Claude与Perplexity两款AI工具的核心差异。Claude专注于推理、写作和代码分析，适合长文档处理、复杂问题拆解和代码评审；Perplexity则擅长实时网络搜索与引用，适合快速事实查询和时效性研究。开发者若需代码辅助或技术文档分析应首选Claude，而需要最新技术动态或验证信息来源时可使用Perplexity。两者在研发流程中可互补使用。",
+      "summaryZh": "本文探讨了如何通过系统化工程方法，而非单纯依赖模型规模，显著提升本地LLM的编程能力。作者以ATLAS项目为例，展示了如何将一款中等规模的Qwen3-14B模型，通过一套精心设计的执行流程，在LiveCodeBench基准测试中实现接近Claude Sonnet 4.5的性能。\n\n**用户场景**：开发者希望利用本地LLM（如运行在RTX 5060 Ti上的量化模型）获得高质量的代码生成与辅助编程能力，以替代或补充云端API服务，从而大幅降低成本。\n\n**核心方法**：ATLAS并非依赖单一模型推理，而是构建了一个多阶段的系统化工作流（Pipeline）。其核心流程包括：1）**Best-of-N生成**：让模型为同一问题生成多个候选解决方案；2）**Lens-based选择**：通过嵌入向量和“Geometric Lens”模型对候选方案进行评分和筛选；3）**迭代式自我验证与修复**：为失败的方案生成测试用例，运行代码，分析失败原因，并提示模型进行修复（如PR‑CoT机制）。这套“生成→评分→测试→调试→重提交”的循环，模拟了人类工程师的工作方式。\n\n**关键技巧**：\n1.  **将模型视为系统组件**：最大的性能提升（文中案例提升近20个百分点）来自对模型输出的系统性编排与后处理，而非模型本身的改进。\n2.  **理解权衡**：这种系统化方法会显著增加**延迟**（每个任务平均耗时约12秒），适用于批量处理或离线重构，但不适合需要即时响应的编辑器代码补全。其优势在于极低的边际成本（约$0.004/任务）。\n3.  **注意基准测试的局限性**：像LiveCodeBench这样的基准测试主要针对**单一函数**的生成，与在大型、复杂、模式不清晰的真实代码库中进行开发和修改是不同的问题。系统化流程在“玩具问题”上表现出的优势，在真实生产环境中的泛化能力仍有待验证。\n4.  **技术复杂性**：实现此类系统（如ATLAS依赖K3s、定制化的llama-server等）目前具有较高的**技术复杂度**和集成成本，更像是研究框架而非开箱即用的产品。开发者需要在“云端的便捷与延迟”和“本地的成本与控制”之间做出选择。",
       "category": "devto"
     },
     {
@@ -64,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-25T16:10:53.000Z",
-      "summaryZh": "本文探讨Claude计算机使用功能带来的安全风险。作者指出，当LLM获得操作系统级控制权时，传统自动化工具与AI代理存在本质区别：Claude通过视觉识别屏幕像素进行概率决策，而非操作确定性DOM结构。核心风险在于，原本仅导致错误输出的提示词注入攻击，在OS控制场景下可能演变为打开银行应用、发送凭证等灾难性操作。关键建议包括：必须在沙箱环境（虚拟机/Docker容器）中运行计算机使用功能，警惕网页隐藏文本、电子表格白字指令等间接提示词注入攻击，并认识到基准测试与生产环境的安全性差距。开发者需在便利性与安全实践之间谨慎权衡。",
+      "summaryZh": "本文探讨Claude计算机使用功能带来的安全风险。作者指出，当LLM获得操作系统级控制权（如截图、鼠标键盘操作）时，传统自动化工具（如Selenium）的确定性执行被基于像素解读的概率性决策取代，这放大了安全隐患。核心风险在于提示词注入攻击——恶意指令可通过网页、文档等载体触发，导致Claude执行危险操作（如发送敏感数据）。关键建议包括：严格在沙箱环境（虚拟机、容器）中运行该功能，警惕间接提示词注入，并认识到模型无法可靠区分正常指令与恶意命令。开发者需在便捷性与系统安全间谨慎权衡。",
       "category": "devto"
     },
     {
-      "title": "Stop Writing Terrible Content Briefs: AI Prompt Engineering That Actually Works",
-      "titleZh": "别再写糟糕的内容大纲了：真正有效的AI提示词工程",
-      "link": "https://dev.to/synergistdigitalmedia/stop-writing-terrible-content-briefs-ai-prompt-engineering-that-actually-works-3e4j",
-      "author": "Drew Madore",
+      "title": "AI Daily Briefing: March 27, 2026",
+      "titleZh": "AI每日简报：2026年3月27日",
+      "link": "https://dev.to/damogallagher/ai-daily-briefing-march-27-2026-2dgj",
+      "author": "Damien Gallagher",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-23T12:41:55.000Z",
-      "summaryZh": "本文针对AI生成内容质量不佳的问题，提出了一套实用的提示词工程框架。作者指出，问题的核心在于提示词设计，而非AI工具本身。\n\n**用户场景**：解决使用ChatGPT、Claude等AI写作助手时，生成内容过于通用、缺乏价值的问题。\n\n**核心方法**：提出了一个三层框架来构建有效的内容指令：\n1.  **Context**：明确目标受众、具体问题和背景，避免泛泛而谈。\n2.  **Constraints**：设定字数、语调、格式、排除项等具体限制，引导AI产出结构化的内容。\n3.  **Character**：赋予AI一个具体的写作视角或人格（如“持怀疑态度的实践者”），使内容更具独特性和记忆点。\n\n**关键技巧**：\n*   使用提供的**问题解决、逆向思维、战术分解**等模板快速构建指令。\n*   采用“反例法”，明确告诉AI**避免**哪些陈词滥调或常见例子。\n*   加入“现实检验”要求，让内容承认其建议的局限性，增加可信度。\n*   使用“具体化倍增器”，用极其具体的描述替换宽泛术语。",
+      "pubDate": "2026-03-27T12:33:00.000Z",
+      "summaryZh": "本文总结了2026年3月27日AI领域的关键动态。用户场景涉及AI公司面临的政策、融资、技术评估与市场竞争等综合挑战。核心方法包括法律诉讼应对、大规模融资策略、新广告模式探索、以及交互式基准测试ARC-AGI-3的引入。关键技巧：关注政策风险对技术部署的影响；通过多元化融资支持长期研发；广告可成为API和订阅之外的新收入层；ARC-AGI-3强调智能体通过交互学习而非模式匹配，这重新定义了AI评估标准。",
       "category": "devto"
     },
     {
@@ -86,7 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-26T09:31:58.000Z",
-      "summaryZh": "本文介绍了Claude Code插件凭据管理功能。用户场景是解决插件API密钥等敏感信息在配置文件或环境变量中明文存储的安全风险。核心方法是利用操作系统密钥链（如macOS Keychain）安全存储凭据，并通过CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1防止凭据泄漏到子进程。关键技巧包括：1）插件架构应确保密钥不进入Claude上下文，仅返回结构化API数据；2）对返回数据需进行字段级过滤，防止提示注入攻击；3）采用深度防御策略：插件代码限制+API提供商权限限制+密钥链存储，三层防护相互独立。",
+      "summaryZh": "本文介绍了Claude Code 2.1.83的插件凭证管理功能。用户场景是解决API密钥等敏感信息在开发中易被泄露的问题，如避免明文存储导致意外提交至Git仓库。核心方法是利用操作系统密钥链（macOS Keychain/Windows Credential Manager）安全存储凭证，并通过CLAUDE_CODE_SUBPROCESS_ENV_SCRUB=1环境变量防止凭证泄漏到子进程环境。关键技巧包括：1）插件架构设计应确保API密钥不暴露给Claude模型，仅返回结构化数据；2）使用keyring库从密钥链读取凭证；3）通过数据清洗和字段白名单防范提示注入攻击；4）实施纵深防御：结合只读插件代码、受限API密钥和密钥链存储三层保护。注意密钥链仅提供安全存储，不限制权限，实际安全依赖插件架构设计。",
+      "category": "devto"
+    },
+    {
+      "title": "I Built Jira for AI Agents - Here's why your AI Coding Assistant needs its own project management",
+      "titleZh": "我为何为AI智能体打造了专属Jira——你的AI编程助手需要自己的项目管理工具",
+      "link": "https://dev.to/rpostulart/i-built-jira-for-ai-agents-heres-why-your-ai-coding-assistant-needs-its-own-project-management-1m5f",
+      "author": "rpostulart",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-27T05:33:50.000Z",
+      "summaryZh": "本文介绍了一个为AI编程助手（如Claude Code）设计的原生项目管理工具Claude Project Tracker。它解决了AI代理在复杂编码任务中缺乏工作追踪和决策记录的问题。\n\n**用户场景**：当AI代理执行跨多文件重构、尝试多种解决方案等复杂任务时，传统提交信息（如\"fix bug\"）会丢失关键决策过程，导致后续维护困难。\n\n**核心方法**：在代码仓库中引入`.project/`目录，使用纯文件（JSON/Markdown）和Git来管理项目。AI代理自动创建“工单”、记录决策过程、维护Wiki，并将所有操作以文件形式保存，实现无数据库、无SaaS的轻量级项目管理。\n\n**关键技巧**：\n1. 利用**文件系统即API**理念，AI通过读写文件直接管理任务，无需REST API集成\n2. 采用**append-only文件结构**（如每评论单独文件）避免合并冲突，支持多代理并行工作\n3. 通过**steering files**（Wiki中的指导文件）预设编码规范，让AI自动遵循团队约定\n4. 提供**slash commands**（如`/track-work`）和Web UI，兼顾终端代理与人类开发者的使用习惯",
       "category": "devto"
     },
     {
@@ -97,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-23T13:40:11.000Z",
-      "summaryZh": "本文介绍开源平台Ruflo如何通过多智能体并行协作优化Claude Code开发流程。作者针对传统单智能体线性工作流效率低、API成本高的问题，提出分布式智能体集群方案。核心方法是将开发任务分解为架构设计、编码、测试、安全审查等子任务，由60+个专用智能体通过网状/分层拓扑并行执行，并共享SONA记忆层。关键技巧包括：采用三阶智能模型路由（轻量/中阶/Claude完整模型）降低75% API成本；使用map-reduce模式并行处理大规模任务；通过内置向量数据库RuVector实现代码语义搜索。开发者可通过npm快速部署，利用预置的170+ MCP工具链构建自动化CI/CD等场景。",
+      "summaryZh": "本文介绍RuFlow（Ruflo）——一个专为Claude Code设计的开源多智能体编排平台，能显著提升开发效率并降低API成本。\n\n**用户场景**：解决传统单智能体Claude工作流在处理复杂任务时效率低、成本高的问题，尤其适用于需要并行处理代码编写、测试、安全审查等环节的软件开发场景。\n\n**核心方法**：将单一Claude实例转化为60+个并行协作的专用智能体群，采用三层智能模型路由系统（轻量/中阶/完整Claude模型），通过共享内存层（SONA架构）实现跨任务知识复用。\n\n**关键技巧**：\n1. 使用`npx claude-flow coordination swarm-init`初始化网状拓扑智能体群\n2. 通过`--strategy parallel --pattern map-reduce`参数实现大规模任务的并行处理与结果归并\n3. 利用内置170+ MCP工具链让智能体直接访问文件系统、数据库等资源\n4. 生产环境推荐使用Docker Compose部署，基础使用仅需Node.js环境\n\n该平台通过并行化将API成本降低75%，在SWE-Bench基准测试中达到84.8%准确率，特别适合需要持续集成、基础设施即代码等DevOps场景的团队。",
       "category": "devto"
     },
     {
@@ -108,30 +119,30 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-23T17:20:57.000Z",
-      "summaryZh": "本文介绍SOUL.md框架，用于为AI智能体注入个性化人格。用户场景：解决AI输出同质化问题，让智能体以用户独特的思维方式和语言风格进行创作。核心方法：通过结构化Markdown文件（SOUL.md定义世界观、STYLE.md定义写作风格、SKILL.md定义操作模式等）编码用户语言特征，使任何LLM都能加载并模拟用户表达。关键技巧：1）用具体观点替代模糊描述（如用“AI安全讨论是空谈”替代“对AI有 nuanced views”）；2）在examples/中提供10-20个优质输出样本作为校准目标；3）保留观点矛盾性以增强人格真实性；4）跨模型测试时，若廉价模型输出偏离，说明对应描述需更具体。框架兼容Claude Code、Aeon等主流智能体平台。",
+      "summaryZh": "本文介绍SOUL.md框架，让AI助手摆脱通用语气，模拟用户真实语言风格。核心方法是通过结构化Markdown文件（SOUL.md定义世界观、STYLE.md定义写作风格、examples/提供输出样本）为LLM注入个性化特征。关键技巧包括：用具体描述替代模糊表述（如将\"我喜欢阅读\"改为具体书目引用），保留观点矛盾以增强真实感，通过Claude Code的/soul指令或直接读取文件加载配置。框架兼容Claude生态及主流模型，对弱模型可将核心文件嵌入系统提示，并通过对比测试校准输出一致性。",
       "category": "devto"
     },
     {
-      "title": "Building an AI System That Manages a LinkedIn Profile Without Getting Caught",
-      "titleZh": "打造一个不被察觉的AI系统来管理领英个人资料",
-      "link": "https://dev.to/gliguori_ai/building-an-ai-system-that-manages-a-linkedin-profile-without-getting-caught-2jjk",
-      "author": "Giovanni Liguori",
+      "title": "Anthropic Subprocessor Changes",
+      "titleZh": "Anthropic 子处理方变更",
+      "link": "https://dev.to/trendstackdev/anthropic-subprocessor-changes-3eao",
+      "author": "TrendStack",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-25T05:48:21.000Z",
-      "summaryZh": "本文介绍了一个基于Claude Code构建的自动化LinkedIn个人资料管理系统。作者针对个人专业用户难以持续投入3-4小时/天维护LinkedIn活跃度的问题，设计了一套五阶段配置向导：从身份语调提取、内容策略规划，到防检测机制和任务审批流程。核心创新在于三层防AI检测系统：通过自然对话指数(NDI)评分、七项反模式规则和事实核查机制，确保互动内容不被平台标记。关键技术包括使用Claude Cowork直接编排任务流，通过Chrome MCP控制浏览器操作，并设置验证关卡防止事实性错误。关键技巧包括：严格限制AI工具提及频率、避免重复修辞模式、对引用案例强制进行网页搜索验证。系统在22天测试中实现零封禁事件，但需注意浏览器扩展稳定性问题（初期成功率仅57%）。",
+      "pubDate": "2026-03-27T10:00:36.000Z",
+      "summaryZh": "本文介绍了Anthropic对其AI服务子处理器（subprocessors）的调整及其对开发者的影响。作者主要面向需要集成AI能力并关注数据安全与合规性的开发者。\n\n核心内容围绕Anthropic通过优化第三方服务合作，提升其AI工具的数据处理透明度、可追溯性及分析能力。这直接关系到开发者在构建可靠、合规的AI应用时可依赖的基础设施。\n\n关键建议包括：查阅Anthropic信任中心以了解子处理器变更细节，积极试用其AI模型进行集成测试，并持续关注官方更新以确保开发流程符合最新的数据安全标准。这些步骤有助于开发者在AI项目中更好地平衡创新与合规性。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Shut Down the Claude OAuth Workaround. Here is the Cheapest Alternative",
-      "titleZh": "Anthropic关闭了Claude OAuth的变通方案。这是最经济的替代方案",
-      "link": "https://dev.to/sophiaashi/anthropic-shut-down-the-claude-oauth-workaround-here-is-the-cheapest-alternative-29m",
-      "author": "sophiaashi",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-25T16:56:16.000Z",
-      "summaryZh": "本文针对Anthropic关闭Claude OAuth令牌漏洞后，OpenClaw用户面临的API成本飙升问题，提供了2026年最经济的替代方案。\n\n**用户场景**：开发者曾通过OAuth令牌漏洞以200美元/月低价获取超1000美元价值的Claude API服务，漏洞关闭后需承担高昂的官方API费用（轻量使用50-150美元/月，24/7自主代理达1500美元/月）。\n\n**核心方法**：推荐三款解决方案：1. **TeamoRouter**（首选）——支持Claude/GPT-4o/Gemini等6家供应商的智能路由网关，提供阶梯折扣（首25美元5折），自动故障转移规避限流；2. **ClawRouter**——本地部署支持44+模型，但需加密货币支付；3. **Anthropic原生方案**——提示缓存与批量API可降本90%/50%，但无法跨供应商容灾。\n\n**关键技巧**：优先选用TeamoRouter的`teamo-balanced`路由模式，系统将自动选择性价比最高的模型；安装仅需将skill.md链接粘贴至OpenClaw，无需管理多账户；警惕ClawRouter的加密货币支付门槛，非加密用户可直接使用TeamoRouter的美元结算。",
-      "category": "devto"
+      "title": "v2.1.85",
+      "titleZh": "v2.1.85",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.85",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-03-26T22:52:12.000Z",
+      "summaryZh": "Claude Code v2.1.85 发布，新增多项功能与优化。主要更新包括：为 MCP headersHelper 脚本添加环境变量，支持单个助手服务多个服务器；引入条件 if 字段优化钩子运行逻辑，减少进程开销；提升深链查询支持至 5000 字符。修复了 /compact 命令在大型对话中失败、多显示器设置下 switch_display 工具不可用、远程会话内存泄漏等关键问题。同时改进了大型仓库的文件自动补全性能、PowerShell 危险命令检测，并优化了大型转录本的滚动性能。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.84",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-26T00:31:05.000Z",
-      "summaryZh": "Claude Code v2.1.84 发布，新增 PowerShell 工具预览版，支持通过环境变量自定义模型标签和流式空闲超时。新增 TaskCreated 和 WorktreeCreate 钩子，管理员可设置频道插件白名单。修复了语音按键输入泄漏、箭头键无响应、MCP 缓存泄漏等多项问题。优化了启动性能，改进了危险操作检测。调整了 Issue/PR 引用链接规则，隐藏了当前环境不可用的斜杠命令。",
+      "summaryZh": "Claude Code v2.1.84 发布，新增 PowerShell 工具预览版，支持通过环境变量自定义模型标签和流式空闲超时。新增 TaskCreated 和 WorktreeCreate 钩子，优化 MCP 工具描述长度限制和服务器去重。修复了语音按键输入泄漏、箭头键无响应、MCP 缓存泄漏等多项问题。改进了危险文件删除检测、启动性能，并优化了界面显示，如隐藏不可用命令、改进令牌计数显示格式。",
       "category": "github-release"
     },
     {
@@ -152,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-25T06:08:12.000Z",
-      "summaryZh": "Claude Code v2.1.83 发布，带来多项新功能和改进。主要更新包括：新增 managed-settings.d/ 目录支持分团队部署策略片段；添加 CwdChanged 和 FileChanged 钩子事件用于响应式环境管理；引入 sandbox.failIfUnavailable 设置，确保沙盒不可用时直接报错而非降级运行。新增 transcript 搜索功能（按 / 键），并优化了图像粘贴体验（插入 [Image #N] 引用标记）。\n\n修复了大量问题：解决了 macOS 退出卡顿、界面空闲闪烁、大文件 diff 超时、启动时 UI 冻结、bash 模式激活异常、远程会话内存泄漏等关键缺陷。同时改进了 Bedrock SDK 冷启动延迟、--resume 内存使用、插件启动速度及 WebFetch 性能。\n\n重要变更：将“停止所有后台代理”快捷键从 Ctrl+F 改为 Ctrl+X Ctrl+K；弃用 TaskOutput 工具，推荐改用 Read 工具读取任务输出文件。Linux 系统现遵循 XDG_DATA_HOME 注册协议处理器。",
+      "summaryZh": "Claude Code v2.1.83 发布，新增多项功能与改进。主要更新包括：新增 managed-settings.d/ 目录支持分团队部署策略片段；添加 CwdChanged 和 FileChanged 钩子事件用于响应式环境管理；引入 sandbox.failIfUnavailable 设置，确保沙盒不可用时退出而非降级运行。新增 transcript 搜索功能（按 / 键），支持图像粘贴引用，代理可声明 initialPrompt 自动提交首轮对话。\n\n修复了大量问题：解决了 macOS 退出卡顿、界面空闲闪烁、大文件 diff 超时、启动时 UI 冻结、bash 模式激活异常、远程会话内存泄漏等关键缺陷。性能方面优化了 Bedrock SDK 冷启动延迟、--resume 内存占用、插件启动速度，并提升了 WebFetch 内存效率。\n\n变更点：将“停止所有后台代理”快捷键从 Ctrl+F 改为 Ctrl+X Ctrl+K；弃用 TaskOutput 工具，推荐使用 Read 读取输出文件路径。VSCode 扩展新增后端无响应提示，修复了会话历史加载问题。",
       "category": "github-release"
     }
   ]
