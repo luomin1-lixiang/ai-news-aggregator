@@ -1,18 +1,31 @@
 {
-  "lastUpdated": "2026-03-28T18:28:18.710Z",
+  "lastUpdated": "2026-03-30T18:47:10.990Z",
   "items": [
     {
-      "title": "How Google Does It: An inside look at cybersecurity",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/how-google-does-it-security-series/",
-      "description": "Learn how Google approaches some of today's most pressing security topics, challenges and concerns, straight from Google experts.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/How-Google-Does-It---Keyword-he.max-600x600.format-webp.webp\">Learn how Google approaches some of today's most pressing security topics, challenges and concerns, straight from Google experts.",
+      "title": "Google Maps simplifies battery predictions and trip planning for 350+ Android Auto EV models.",
+      "link": "https://blog.google/products-and-platforms/products/maps/google-maps-simplifies-battery-predictions-and-trip-planning-for-350-android-auto-ev-models/",
+      "description": "We’re bringing Maps’ AI-powered EV charging features to over 350 car models with Android Auto. Now, Maps will recommend when and where to charge based on your EV model a…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/wagtailvideo-hh5d044n_thumb.jpg\">We’re bringing Maps’ AI-powered EV charging features to over 350 car models with Android Auto. Now, Maps will recommend when and where to charge based on your EV model a…",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 27 Mar 2026 21:00:00 +0000",
-      "titleZh": "谷歌之道：网络安全内幕深度剖析",
-      "descriptionZh": "谷歌的安全博客“谷歌安全专栏”汇集了其顶级安全专家的一线实践与深度思考，旨在直面当今数字世界最紧迫的安全挑战，并分享谷歌的解决方案与核心理念。\n\n**背景与上下文**\n在日益复杂且威胁不断演进的网络环境中，安全不再是单一产品或附加功能，而是需要融入基础设施、开发流程和组织文化的根本性工程实践。谷歌凭借其运营全球规模最大的互联网服务（如搜索、Gmail、YouTube、云平台）所积累的二十年经验，构建了一套独特且被业界广泛借鉴的安全体系。这个博客系列的核心，便是将谷歌内部如何构建、运营和保护这些服务的深层方法论公开，为整个行业提供参考。\n\n**核心技术原理与创新点**\n谷歌的安全方法建立在其著名的“默认安全”哲学之上，并具体体现在几个关键领域：\n\n1.  **基础设施层面的深度防护**：\n    *   **BeyondProd：云原生安全模型**：这是对传统边界安全（BeyondCorp）在开发和部署领域的延伸。它假设网络内部并不可信，通过严格的微服务认证、全流程代码完整性验证（从源码到生产）、以及自动化的安全策略执行，确保即使单一服务被攻破，其影响也能被严格限制。\n    *   **零信任架构的实践**：谷歌很早就摒弃了基于网络位置的信任，转向基于身份和设备状态的动态访问控制。员工访问内部应用与外部用户无异，都需要强认证和持续授权，这极大地缩小了攻击面。\n\n2.  **供应链安全与可信根基**：\n    *   **对软件供应链的全面防护**：从自主研发硬件（如Titan安全芯片）建立硬件信任根，到大规模使用和贡献开源安全项目（如SLSA框架、OSS-Fuzz），谷歌致力于确保从底层硬件到上层软件依赖的每一个环节都尽可能安全、可验证。\n    *   **大规模模糊测试与自动化漏洞挖掘**：通过像OSS-Fuzz这样的服务，持续对关键开源软件进行自动化测试，提前发现并修复漏洞，将安全左移。\n\n3.  **威胁检测与响应规模化**：\n    *   利用人工智能和机器学习分析每秒数以万亿计的安全信号，从全球流量中快速识别异常模式和新型威胁。同时，通过自动化的编排响应，将威胁缓解时间从数小时缩短至数秒。\n\n4.  **开源与透明化**：\n    *   谷歌不仅使用开源技术，更是将许多内部安全工具和框架（如SLSA、Tsunami网络安全扫描器）开源，并积极参与制定行业安全标准。这种透明化推动了整个生态系统的安全水位提升。\n\n**技术影响与应用场景**\n谷歌的这些安全实践产生了深远影响，并适用于多种场景：\n\n*   **对云计算的深远影响**：谷歌云平台（GCP）将这些内部安全能力产品化（如机密计算、安全指挥中心），让企业客户能够直接利用谷歌级别的安全基础设施来保护其数据和应用。\n*   **为企业安全架构提供蓝图**：BeyondCorp和BeyondProd模型已成为零信任和云原生安全的行业事实标准，指导无数企业重新设计其网络安全和开发安全运维（DevSecOps）体系。\n*   **提升开源软件生态安全性**：通过资助、贡献和维护关键开源项目，谷歌极大地增强了全球软件供应链的基础安全。\n*   **保护数十亿用户**：最终，所有这些技术都服务于一个目标：保护使用谷歌搜索、安卓、Gmail等服务的普通用户，使其在无需成为安全专家的情况下也能获得强大的安全保护。\n\n总而言之，谷歌安全博客所揭示的，是一套将安全视为系统工程、深度融合于其技术DNA的实践哲学。它强调从硬件根基到软件供应链、从开发到运维的全生命周期防护，通过自动化、透明化和零信任原则，在超大规模下持续应对安全挑战，并为整个科技行业树立了标杆。"
+      "pubDate": "Mon, 30 Mar 2026 15:30:00 +0000",
+      "titleZh": "谷歌地图为超350款安卓汽车电动车推出电池预测与",
+      "descriptionZh": "谷歌宣布将其地图应用中的AI驱动电动车充电功能，扩展至超过350款搭载Android Auto系统的车型。这一升级使谷歌地图能够根据用户具体的电动车型号、实时电池状态以及行程路线，智能推荐最佳的充电时机和站点位置。\n\n该功能的核心创新在于深度整合了车辆数据与地图AI算法。系统会综合分析当前电量、能耗模式、路况和充电站实时占用情况（包括充电桩类型、功率及空闲状态），通过机器学习动态规划充电方案。当监测到电池电量可能无法支撑抵达目的地时，地图会主动建议中途充电点，并精确预估充电所需时长，用户甚至可提前查看站点的实际环境照片。\n\n此项技术将显著缓解电动车主的里程焦虑，优化长途出行体验。对于汽车制造商而言，这标志着车机系统与云端智能服务的更深层次融合。目前该功能已逐步向Android Auto用户推送，预计将覆盖主流电动车品牌。未来谷歌计划进一步整合充电费用支付、预约系统等生态服务，推动电动车基础设施的智能化进程。"
+    },
+    {
+      "title": "Evolving expectations of what’s possible",
+      "link": "https://blog.google/innovation-and-ai/technology/safety-security/evolving-expectations-of-whats-possible/",
+      "description": "Kent Walker shares Google’s perspective on the future of privacy at IAPP Global Summit 2026.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/KW_evolvingexpectations_hero.max-600x600.format-webp.webp\">Kent Walker shares Google’s perspective on the future of privacy at IAPP Global Summit 2026.",
+      "author": "Kent Walker",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 30 Mar 2026 15:00:00 +0000",
+      "titleZh": "对可能实现的目标的期望不断演进",
+      "descriptionZh": "近日，在2026年国际隐私专家协会（IAPP）全球隐私峰会上，Google及Alphabet总裁兼全球事务首席法务官Kent Walker分享了Google对于隐私保护未来发展的核心观点。面对日益增长的隐私期待、严格的监管环境与技术创新的迫切需求，Google阐述了其致力于构建一个既保护用户隐私，又能支持开放网络和数字生态系统持续繁荣的愿景。\n\n**背景与核心理念：从“合规”到“责任”的演变**\nWalker指出，全球隐私格局正在经历深刻转变。用户的期望已从简单的“知情同意”演变为要求真正的“数据自主”和“默认为私”的体验。同时，监管框架日趋完善，而人工智能等技术的爆炸性增长对数据处理提出了新的挑战。在此背景下，Google认为，隐私保护必须超越单纯的法律合规，成为企业核心责任和产品设计的基石。未来的方向是在不损害隐私的前提下，继续释放数据的价值，支持个性化的服务、相关的内容和有效的数字广告——这三者是当今免费、开放互联网的经济基础。\n\n**核心技术路径：隐私增强技术与新范式的构建**\n为了践行这一理念，Google正在推动多项前沿技术和新范式的落地：\n1.  **隐私沙盒（Privacy Sandbox）倡议**：这是针对网络广告生态的系统性重塑。其核心是用一组新的隐私保护API替代第三方Cookie等跨站跟踪技术。例如：\n    *   **主题API**：将用户最近的浏览兴趣归类到如“健身”或“旅行”等宽泛主题中，广告主可以基于主题投放，但无法获取个人浏览历史。\n    *   **受保护的受众API**：允许在用户设备本地进行兴趣群体匹配和广告竞价，确保用户的兴趣信息不会离开其设备。\n    *   **归因报告API**：在广告点击或浏览与转化（如购买）之间建立衡量链路时，引入延迟、噪声和聚合机制，防止跨站识别个人用户。\n2.  **隐私增强计算（PEC）**：这是一套允许对数据进行分析和获取洞察，而无需直接访问原始明文数据的技术。Google重点投入的领域包括：\n    *   **联邦学习**：模型直接在用户设备或本地服务器上进行训练，仅上传加密的模型参数更新进行聚合，原始数据永不离开本地。\n    *   **差分隐私**：在数据集查询结果中注入精心计算的统计噪声，使得任何单一数据记录的存在与否无法被推断，从而在输出宏观洞察的同时保护个体隐私。\n    *   **同态加密与可信执行环境**：允许在加密数据或高度隔离的硬件安全区域内直接进行计算。\n\n**技术影响与应用场景**\n这些技术的发展将深远影响多个领域：\n*   **广告与媒体行业**：推动行业从基于个体追踪的精准广告，转向基于上下文、聚合兴趣或本地化处理的隐私安全广告。这有助于维持免费内容的可持续商业模式。\n*   **医疗与科学研究**：医院和研究机构可以在不共享敏感患者原始数据的前提下，通过联邦学习协作训练更强大的疾病预测模型，加速医学突破。\n*   **金融服务与反欺诈**：银行可以利用隐私保护技术，在加密状态下跨机构分析交易模式，更有效地检测洗钱和欺诈网络，同时遵守严格的数据本地化法规。\n*   **企业内部数据分析**：企业可以安全地分析来自不同部门或区域的敏感业务数据，获取整合洞察，而无需将所有数据集中存储。\n\n**结论与未来展望**\nWalker强调，构建隐私优先的未来是一项复杂的系统工程，需要技术创新、行业协作、政策对话和用户教育的多管齐下。Google承诺将继续投资于隐私增强技术的基础研发，并通过开源项目和行业标准推动其普及。最终目标是实现一个“鱼与熊掌兼得”的未来：一个既高度尊重和保护个人隐私，又能让创新蓬勃发展、让所有人受益的数字世界。这不仅是技术挑战，更是整个科技行业需要共同承担的社会责任。"
     }
   ]
 }

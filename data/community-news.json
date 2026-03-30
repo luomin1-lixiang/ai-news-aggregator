@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-03-29T18:29:43.999Z",
+  "lastUpdated": "2026-03-30T18:49:08.655Z",
   "items": [
     {
       "title": "Sextant: Making Claude Code Read Your Code Before Changing It",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-28T08:22:37.000Z",
-      "summaryZh": "本文介绍Sextant框架，旨在解决Claude Code在真实代码库操作中的常见问题：过早编辑、忽略系统架构、处理粒度不当。核心方法是通过任务类型路由（如bug修复、功能添加、代码审查等子技能）和基于变更规模的分级规则（轻量/中/大型任务对应不同检查深度），确保AI在修改前建立安全基线。关键技巧包括：明确原则冲突的仲裁规则（如DRY vs YAGNI）、使用五因素影响半径评分卡量化变更规模、通过消歧步骤区分问题类型，避免无效操作。",
+      "summaryZh": "本文介绍Sextant框架，旨在解决Claude Code在真实代码库操作中的常见问题：过早编辑、忽略系统架构、处理粒度不当。核心方法是通过任务类型路由（如bug修复、功能添加、代码审查等子技能）和基于变更规模的分级规则（轻量/中等/大型变更触发不同检查），确保AI在修改前建立安全基线。关键技巧包括：明确原则冲突的仲裁规则（如DRY vs YAGNI）、使用五因素影响半径评分卡量化变更规模、通过消歧步骤防止任务误分类。该框架帮助开发者引导Claude Code进行更精准的代码变更，减少无效操作。",
       "category": "devto"
     },
     {
@@ -20,7 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-29T15:16:16.000Z",
-      "summaryZh": "本文是一份完整的Claude Code实战教程，指导开发者利用该AI编码代理工具快速构建并部署一个AI应用。教程聚焦于解决文档问答API的开发需求，通过具体案例演示了从零到生产部署的全流程。\n\n核心方法上，作者展示了Claude Code的项目级操作能力：从脚手架生成（FastAPI项目）、功能迭代（实现RAG检索逻辑）到测试编写与调试，全程通过自然语言指令驱动。工具能自动执行命令、读取错误并修复，形成\"描述-执行-调试\"的闭环工作流。\n\n关键技巧包括：1) 利用`CLAUDE.md`文件建立项目级AI上下文，避免重复说明技术栈和规范；2) 通过\"运行-修复\"循环让AI自主解决依赖和逻辑错误；3) 在复杂重构（如添加向量检索）时，Claude Code能保持多文件修改的一致性。特别注意避免将完整文档直接发送给LLM，教程演示了如何通过分块和相似度检索优化token使用。",
+      "summaryZh": "本文是一份完整的Claude Code实战教程，指导开发者利用Anthropic的AI编程代理工具，在数小时内构建并部署一个基于RAG的文档问答API应用。\n\n**用户场景**：解决AI应用开发中从零搭建到部署的完整流程问题，特别是需要快速实现文档检索与问答功能的场景。\n\n**核心方法**：通过Claude Code在终端中交互式开发。作者演示了从项目脚手架搭建（FastAPI）、核心功能实现（文档上传/向量检索/OpenAI集成）、到自动化测试与错误修复的端到端工作流。关键步骤包括：1) 描述需求，让Claude Code生成完整代码文件；2) 运行并自动修复错误；3) 迭代优化（如将全文检索升级为分块向量检索）；4) 编写并验证测试用例。\n\n**关键技巧**：1) 利用`CLAUDE.md`文件为项目提供持久化上下文（技术栈、编码规范、测试配置）；2) 通过“描述需求-执行-验证”循环让AI自主处理多文件修改和错误修复；3) 使用TF-IDF向量化实现轻量级语义检索，避免全文传输的token浪费。注意：Claude Code擅长理解项目级上下文，但需通过明确指令引导复杂重构（如检索逻辑优化）。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude vs ChatGPT: Why Claude Feels More Honest and Accurate",
+      "titleZh": "Claude vs ChatGPT：为何Claude显得更诚实与准确",
+      "link": "https://dev.to/simon_paxton/claude-vs-chatgpt-why-claude-feels-more-honest-and-accurate-312m",
+      "author": "Simon Paxton",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-30T01:46:10.000Z",
+      "summaryZh": "本文探讨Claude与ChatGPT在\"诚实度\"上的差异。作者指出，Claude在BullshitBench测试中表现更优，能更频繁地识别并拒绝回答无意义问题，这源于Anthropic将其设计为保守校准的模型。核心方法是强化学习与偏好建模，明确奖励模型拒绝错误前提和承认不确定性。关键技巧在于根据应用场景选择模型：在医疗、法律等容错率低的领域使用Claude以减少\"幻觉\"，在需要创造性输出的场景则可选用更流畅的模型。开发者需注意，Claude仍会产生自信的错误答案，其\"诚实\"是设计权衡而非绝对真理。",
       "category": "devto"
     },
     {
@@ -31,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-29T01:20:51.000Z",
-      "summaryZh": "本文分析了Anthropic意外泄露Claude Mythos（代号Capybara）模型的事件。该模型在代码生成、学术推理和网络安全基准测试中显著超越现有Opus 4.6版本，其网络安全能力尤其引发行业担忧——能够以远超人类防御速度的方式发现和利用漏洞（包括零日漏洞）。泄露源于内容管理系统的基础配置错误，导致近3000份未发布文件暴露。作者指出该模型具备双重用途：既可用于防御性代码审计，也可能被攻击方用作漏洞挖掘的\"力量倍增器\"。关键警示在于：AI驱动的漏洞发现能力可能颠覆现有攻防平衡，而技术公司自身的基础设施安全配置失误与此形成讽刺对比。",
+      "summaryZh": "本文分析了Anthropic意外泄露的Claude Mythos模型（代号Capybara）的技术细节及其对网络安全领域的潜在影响。用户场景聚焦于高级AI模型在代码审计与漏洞挖掘中的双重应用——既可作为防御方的自动化安全工具，也可能被攻击方用于大规模漏洞利用。核心方法揭示了该模型通过超越现有Claude Opus 4.6的架构，在代码生成、学术推理和网络安全基准测试中实现突破性表现，其关键能力在于自动化发现生产环境代码库中的未知漏洞（零日漏洞）。关键技巧包括：1）关注模型在代码静态分析中的模式识别机制；2）警惕AI驱动的漏洞挖掘可能颠覆传统攻防节奏；3）注意企业级AI服务的高成本特性（预计输入token成本达30-50美元/百万）。技术风险提示：该泄露事件本身暴露了基础架构配置错误的安全隐患，与模型宣称的网络安全能力形成鲜明反差。",
       "category": "devto"
     },
     {
@@ -42,18 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-29T18:14:38.000Z",
-      "summaryZh": "本文分析了Anthropic Mythos模型泄露事件对AI行业的影响。作者指出，若该模型真如泄露草案所言在编程、推理和网络安全能力上实现“阶跃式提升”，将意味着AI发展模式从渐进式优化转向昂贵且罕见的突破性跃进。核心观点是：这种模式将导致训练成本急剧上升，使前沿模型成为“奢侈品”，只有少数巨头实验室能参与竞争，从而加剧行业权力集中。关键警示包括：开源模型与前沿商业模型的差距可能拉大，AI供应链将面临更高国家安全风险，开发者需关注企业级API访问限制和成本结构变化。",
-      "category": "devto"
-    },
-    {
-      "title": "The Anthropic Injunction Shows Where AI Power Really Lives",
-      "titleZh": "Anthropic禁令揭示AI权力的真正所在",
-      "link": "https://dev.to/simon_paxton/the-anthropic-injunction-shows-where-ai-power-really-lives-38g2",
-      "author": "Simon Paxton",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-27T18:24:05.000Z",
-      "summaryZh": "本文讨论美国法院对Anthropic的临时禁令，核心并非Claude模型的技术能力，而是揭示了AI生态中权力重心正从技术转向采购与合规工具。作者指出，此案暴露了政府如何利用“供应链风险”标签等行政手段影响AI供应商生存，而非基于实际安全评估。\n\n关键启示在于，开发者与企业需重新评估AI供应商锁定的风险。当单一行政命令即可使供应商被列入采购黑名单时，技术选型需优先考虑架构的可移植性与合规韧性。文中建议采取以下策略：构建抽象层以实现Claude、GPT等模型的无缝切换；在采购合同中明确要求多模型支持；并借鉴金融行业的风控思路，在第三方合规平台中分散AI供应商风险。\n\n这标志着AI基础设施设计逻辑的转变：从追求单一模型性能，转向构建能快速应对政策风险的弹性架构。开发团队应提前规划供应商不可用时的降级路径，将监管失效模式纳入系统设计考量。",
+      "summaryZh": "本文分析了Anthropic Mythos模型泄露事件对AI行业的影响。作者指出，若该模型真如泄露草案所称在编程、推理和网络安全能力上实现“阶跃式提升”，将意味着AI发展模式从渐进式优化转向昂贵、不连续的突破。核心观点是：这种突破将导致训练成本剧增，使前沿模型成为“奢侈品”，进而加剧行业权力集中——仅有少数拥有巨额计算资源的巨头实验室能参与竞争。关键警示包括：开源模型与前沿商业模型的差距可能拉大，AI供应链安全将上升至国家安全层面，开发者需为可能出现的更严格API使用限制和分层定价模式做好准备。",
       "category": "devto"
     },
     {
@@ -64,7 +64,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-28T01:46:32.000Z",
-      "summaryZh": "本文分析了Anthropic数据泄露事件，揭示AI安全风险不仅来自模型层面，更源于基础运维失误。用户场景：公司因CMS配置错误，导致近3000份未发布资料（包括Claude Mythos模型草案）通过公开端点暴露。核心方法：作者指出风险常源于\"无聊的运维错误\"——如默认公开的资产存储、依赖人工标记敏感文件、未将CMS视为关键安全系统。关键技巧：企业需将安全文化扩展到模型层之外，自动化流程中需内置安全检查，避免\"仅关注高端风险而忽视基础配置\"的陷阱。事件表明，AI公司的安全防线往往在最普通的Web配置环节被突破。",
+      "summaryZh": "本文分析了Anthropic数据泄露事件，揭示了一个关键矛盾：一家以AI安全为核心卖点的前沿公司，却因基础运维失误导致敏感信息暴露。作者指出，此次泄露并非源于复杂的AI攻击，而是由于CMS（内容管理系统）配置错误，导致近3000份未发布的内部资料（包括Claude Mythos模型草案）可通过公开端点直接访问。\n\n核心观点在于：真正的AI风险往往隐藏在“无聊”的运维层面——如默认公开的资产存储、自动化流程中的盲点、以及安全配置疏忽。当企业过度聚焦模型层面的安全（如红队测试、宪法AI），却忽视基础设施的“安全卫生”，就会形成安全漏洞。\n\n关键启示：AI安全必须覆盖全技术栈，尤其需要将CMS、数据管道等支撑系统纳入安全评估范围。开发团队应建立“默认私有”的资产存储策略，并对所有外部服务进行定期安全审计，避免因基础运维失误抵消前沿AI安全投入的价值。",
       "category": "devto"
     },
     {
@@ -75,7 +75,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-28T17:44:53.000Z",
-      "summaryZh": "本文介绍了Anthropic Dispatch——一款能自主完成桌面任务的AI代理。用户场景是解决跨应用数据流、代码维护、文档处理等耗时工作，实现“异步工作委托”，让AI在用户离开时完成全流程任务。核心方法是通过本地桌面应用直接操作UI层，无需API集成，用户只需通过手机发送自然语言指令即可启动任务。关键技巧包括：优先用于跨应用数据同步、研究收集等结构化任务；避免涉及安全敏感操作或动态UI界面；注意其运行在本地环境，需合理设置权限范围。",
+      "summaryZh": "本文介绍了Anthropic Dispatch，一款能自主完成桌面任务的AI代理。用户场景是解决跨应用数据整合、代码维护、研究分析等耗时工作，实现“异步工作委托”——用户只需发条指令，AI就能在本地桌面环境自动操作各类软件，无需API集成。核心方法是利用计算机视觉技术直接操作UI界面，绕过传统自动化对API的依赖。关键技巧包括：适用于多应用数据流（如从Salesforce提取数据更新PPT）、代码库维护等明确任务；但需避免用于长流程模糊任务或涉及敏感财务的操作，注意本地运行带来的权限管理问题。",
       "category": "devto"
     },
     {
@@ -86,51 +86,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-29T01:46:09.000Z",
-      "summaryZh": "本文分析了AI行业巨头OpenAI与Anthropic之间的竞争，揭示了政治资本在AI安全话语权争夺中的关键作用。\n\n**用户场景**：探讨AI公司如何通过政治捐款影响政府合同获取，而非仅凭技术安全实力竞争。\n\n**核心方法**：通过分析Greg Brockman向特朗普超级PAC捐赠2500万美元的事件，以及Anthropic CEO内部备忘录的泄露内容，揭示OpenAI通过“政治捐款+安全叙事”双轨策略获得国防部合同。\n\n**关键技巧**：\n1. 技术安全白皮书塑造公开形象，政治捐款实际打通采购通道\n2. 企业需平衡道德高地与实际商业利益，单纯依赖技术优势可能错失关键市场\n3. AI安全竞争已从实验室延伸到游说战场，忽视政治维度将被边缘化\n\n开发者启示：技术实力需配合战略布局，在监管密集型领域需建立多层次影响力体系。",
+      "summaryZh": "本文分析了AI行业巨头OpenAI与Anthropic的竞争本质，指出AI安全不仅是技术问题，更是政治博弈。作者通过格雷格·布罗克曼向特朗普超级PAC捐赠2500万美元的案例，揭示了企业如何通过政治献金获取政府合同和话语权。\n\n核心观点是：AI安全竞争已从技术研发扩展至政治游说层面。企业需同时布局技术安全叙事（白皮书、安全报告）和政治资本（政治捐款、高层关系），否则将在政府采购中处于劣势。\n\n关键启示：开发者需认识到，AI行业的技术决策常受政治经济因素影响。企业战略需平衡技术伦理与政治现实，单纯依赖技术优势可能无法赢得关键市场。",
       "category": "devto"
     },
     {
-      "title": "AI Daily Briefing: March 27, 2026",
-      "titleZh": "AI每日简报：2026年3月27日",
-      "link": "https://dev.to/damogallagher/ai-daily-briefing-march-27-2026-2dgj",
-      "author": "Damien Gallagher",
+      "title": "Claude Computer Use: Anthropic AI Now Performs Tasks Like a Human",
+      "titleZh": "Claude计算机使用：Anthropic AI现已能像人类一样执行任务",
+      "link": "https://dev.to/elara1/claude-computer-use-anthropic-ai-now-performs-tasks-like-a-human-141e",
+      "author": "Elara",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-27T12:33:00.000Z",
-      "summaryZh": "本文总结了2026年3月27日AI领域的关键动态。用户场景涉及AI行业政策、融资竞争、技术评估与监管趋势。核心方法包括法律诉讼、资本运作、广告变现及新型基准测试。关键技巧：关注ARC-AGI-3交互式基准对智能本质的重新定义，注意政府禁令对AI供应链的影响，警惕企业融资规模与竞争格局变化。技术术语保留：Anthropic, OpenAI, ARC-AGI-3, API。",
+      "pubDate": "2026-03-30T12:59:11.000Z",
+      "summaryZh": "本文介绍了Anthropic推出的Claude Computer Use功能，它让AI能像人类一样操作电脑界面。主要解决重复性数字任务自动化问题，如数据录入、网页研究、邮件管理等。核心方法是结合视觉理解、决策制定和键鼠控制，使AI能直接点击、输入、浏览，完成端到端工作流。关键技巧包括：明确指令引导AI分步操作，利用其界面识别能力处理复杂软件，同时注意内置的安全审批和活动日志功能，避免自动化过程中的意外操作。这标志着AI从对话助手向能执行实际任务的数字同事演进。",
+      "category": "devto"
+    },
+    {
+      "title": "How I Used 5 AI Agents to Ship 15 Features in a Day",
+      "titleZh": "我如何用5个AI智能体在一天内交付15个功能",
+      "link": "https://dev.to/profiterole/how-i-used-5-ai-agents-to-ship-15-features-in-a-day-20k1",
+      "author": "Profiterole",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-03-30T16:06:59.000Z",
+      "summaryZh": "本文作者尝试用5个Claude AI代理在一天内完成15个功能部署。用户场景是探索低成本自动化开发流程的商业可行性，通过多代理系统处理产品迭代、内容创作和运营任务。核心方法采用基于cron调度的分工代理架构：Executor执行任务，Thinker生成改进点，Strategist优化优先级，Discovery进行市场研究，Blogger负责内容发布，所有代理通过读写共享状态文件协同工作。关键技巧包括：1）采用清晰的待办事项管理系统，每个任务需明确完成定义；2）将任务拆分为小范围可交付单元；3）设置健康监控机制防止代理停滞；4）注意需人工干预的阻塞任务（如API令牌更新）。实验显示自动化能大幅提升输出效率，但商业转化仍需验证。",
       "category": "devto"
     },
     {
       "title": "ChatGPT told me I was right. Claude told me I was wrong. I switched.",
-      "titleZh": "ChatGPT说我没错，Claude说我错了。我换边站了。",
+      "titleZh": "ChatGPT说我对，Claude说我错。我换边站了。",
       "link": "https://dev.to/subprime2010/chatgpt-told-me-i-was-right-claude-told-me-i-was-wrong-i-switched-5dfl",
       "author": "brian austin",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-28T18:52:56.000Z",
-      "summaryZh": "本文作者分享了从ChatGPT转向Claude进行技术决策咨询的经历。用户场景是开发者在设计微服务架构时，需要AI提供客观的代码评审和架构建议，而非一味附和。核心方法是通过对比测试，发现Claude基于Constitutional AI原则更倾向于诚实指出设计缺陷，例如直接分析独立数据库方案带来的分布式事务复杂度问题。关键技巧包括：1）使用特定提示词要求AI“指出潜在错误”而非验证决策；2）注意AI在用户表达自信时更容易产生迎合倾向；3）可通过SimplyLouie等低成本方案访问Claude API。实践表明，Claude在技术反馈的直接性和风险预警方面表现更优。",
+      "summaryZh": "本文作者分享从ChatGPT转向Claude进行技术决策的经验。用户场景是开发者寻求AI对微服务架构设计的代码评审，但ChatGPT倾向于迎合用户，导致潜在问题被忽视。核心方法是使用Claude的Constitutional AI原则，它更注重诚实反馈，能直接指出设计缺陷（如分布式事务复杂性），并建议替代方案（共享数据库+独立模式）。关键技巧包括：1）主动要求AI“指出错误”而非验证决策；2）避免在提问时流露过度自信；3）通过低成本API（如SimplyLouie）访问Claude以获取经济高效的技术反馈。",
       "category": "devto"
     },
     {
-      "title": "Anthropic's 'Claude Mythos' Leaked: A Step Change in AI Power — and Risk",
-      "titleZh": "Anthropic的'Claude Mythos'泄露：人工智能能力与风险的重大飞跃",
-      "link": "https://dev.to/damogallagher/anthropics-claude-mythos-leaked-a-step-change-in-ai-power-and-risk-gb2",
-      "author": "Damien Gallagher",
+      "title": "Anthropic's Mythos Leaked — And the Real Story Isn't the Model",
+      "titleZh": "Anthropic的Mythos模型泄露——真正的焦点并非模型本身",
+      "link": "https://dev.to/oolongtea2026/anthropics-mythos-leaked-and-the-real-story-isnt-the-model-823",
+      "author": "Wu Long",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-28T21:06:18.000Z",
-      "summaryZh": "本文分析了Anthropic新AI模型Claude Mythos（内部代号Capybara）意外泄露事件。**用户场景**：企业级AI应用需要更强大的模型能力，但同时也面临新型AI带来的未知安全风险。**核心方法**：Anthropic构建了超越现有Opus级别的新模型层级，计划通过CEO峰会等企业渠道推广，并罕见地主动预警其网络安全风险。**关键技巧**：开发者需关注Capybara这一新模型层级；企业应注意云存储配置安全（本次泄露源于内容管理系统配置错误）；采用\"先披露后发布\"模式可给安全社区预留应对时间。该模型可能重新定义行业基准。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Subprocessor Changes",
-      "titleZh": "Anthropic 子处理方变更",
-      "link": "https://dev.to/trendstackdev/anthropic-subprocessor-changes-3eao",
-      "author": "TrendStack",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-27T10:00:36.000Z",
-      "summaryZh": "本文探讨了Anthropic调整其AI服务子处理器（subprocessors）对开发者的影响。作者指出，这些变更旨在提升AI工具的数据安全性与合规性，尤其关注数据处理透明度、操作回放追踪（replay and tracking）及分析能力增强。对于开发者而言，这意味着使用Anthropic API或集成其AI模型时，需更重视数据治理与合规要求。关键建议包括：查阅Anthropic信任中心了解子处理器详情，测试AI模型时关注数据流安全性，并持续关注其政策更新。开发者可通过这些调整构建更可靠、符合伦理的AI应用。",
+      "pubDate": "2026-03-29T20:31:54.000Z",
+      "summaryZh": "本文分析了Anthropic公司Claude Mythos模型泄露事件背后的深层启示。作者指出，虽然新模型在编码和推理能力上有显著提升，但真正的重点在于泄露原因——简单的CMS配置错误暴露了3000份内部资料。这给开发者带来三点关键提醒：1）最严重的漏洞往往源于基础配置疏忽；2）内部文档（如产品策略）需视同生产数据严格保护；3）安全文化必须落实到每个基础系统。对于AI应用开发者，未来需考虑新增的Capybara层级带来的成本优化挑战，智能路由多模型API将成为必备能力。",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-29T02:17:02.000Z",
-      "summaryZh": "Claude Code v2.1.87 发布，主要修复了 Cowork Dispatch 中消息无法正常传递的问题。本次更新为错误修复版本，无新增功能或破坏性变更。",
+      "summaryZh": "Claude Code v2.1.87 发布，主要修复了 Cowork Dispatch 中消息无法正常传递的问题。本次更新为错误修复版本，无新增功能或重大变更。",
       "category": "github-release"
     },
     {
@@ -152,18 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-03-27T21:42:09.000Z",
-      "summaryZh": "Claude Code v2.1.86 发布，主要更新包括：新增 X-Claude-Code-Session-Id 请求头，便于代理按会话聚合请求；修复了 --resume 失败、文件操作异常、配置频繁写入、内存泄漏等关键问题；优化了内存使用、提示缓存和令牌开销。同时改进了技能列表排序、自动模式提示等用户体验细节，并修复了 VSCode 扩展的多个问题。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.85",
-      "titleZh": "v2.1.85",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.85",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-26T22:52:12.000Z",
-      "summaryZh": "Claude Code v2.1.85 发布，新增多项功能与优化：支持环境变量配置多MCP服务器、添加条件钩子过滤减少开销、增强长链接与OAuth支持。修复了包括/compact命令失败、插件启用错误、多显示器切换异常、内存泄漏及终端键盘协议兼容性在内的多个关键问题。同时提升了文件自动补全性能与滚动流畅度，并优化了大型会话的UI响应。",
+      "summaryZh": "Claude Code v2.1.86 发布，主要更新包括：新增 X-Claude-Code-Session-Id 请求头，便于代理按会话聚合请求；修复了 --resume 在旧会话中的失败问题、Windows 配置写入性能问题、长会话内存泄漏风险、--bare 模式工具丢失等关键错误；优化了 token 使用和缓存命中率。同时调整了技能菜单排序和自动模式提示。VSCode 扩展修复了长时间操作显示和模型默认设置问题。",
       "category": "github-release"
     }
   ]
