@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-03-31T18:50:38.745Z",
+  "lastUpdated": "2026-04-01T18:50:19.780Z",
   "items": [
-    {
-      "title": "We Reverse-Engineered 12 Versions of Claude Code. Then It Leaked Its Own Source Code.",
-      "titleZh": "我们逆向分析了12个版本的Claude Code，然后它泄露了自己的源代码。",
-      "link": "https://dev.to/kolkov/we-reverse-engineered-12-versions-of-claude-code-then-it-leaked-its-own-source-code-pij",
-      "author": "Andrey Kolkov",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-31T15:21:11.000Z",
-      "summaryZh": "本文作者作为Go开发者，因Claude Code工具频繁崩溃（内存泄漏、死锁）而被迫逆向分析其12个版本。核心方法是解析minified JavaScript，通过环境变量启用隐藏的CLAUDE_ENABLE_STREAM_WATCHDOG功能，并定位到三个关键缺陷：看门狗初始化时机过晚、中止函数在连接阶段无效、降级机制在关键阶段失效。关键技巧包括：使用sed/grep追踪代码路径、分析JSONL会话日志、关注未文档化的环境变量。开发者需注意，逆向工程虽能揭示架构问题，但无法替代官方源码支持。",
-      "category": "devto"
-    },
     {
       "title": "Sextant: Making Claude Code Read Your Code Before Changing It",
       "titleZh": "Sextant：让Claude Code在修改代码前先读懂你的代码",
@@ -20,29 +9,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-28T08:22:37.000Z",
-      "summaryZh": "本文介绍Sextant框架，旨在解决Claude Code在真实代码库操作中的常见问题：过早编辑、忽略现有架构模式、任务规模误判。核心方法是通过任务类型路由（如bug修复、功能添加、代码审查等子技能）和基于影响半径的规则分层（轻量/中/大型变更），确保AI在修改前建立安全基线。关键技巧包括：1) 歧义消除步骤区分行为错误与需求变更；2) 明确原则冲突仲裁规则（如DRY与YAGNI冲突时，单调用场景优先YAGNI）；3) 使用五因素影响评分卡客观判定任务规模，避免主观判断。",
+      "summaryZh": "本文介绍Sextant框架，旨在解决Claude Code在真实代码库操作中的常见问题：过早编辑、忽略系统架构、处理粒度不当。核心方法是通过任务类型路由（如bug修复、功能添加、代码审查等子技能）和基于变更规模的分级规则（轻量/中/大型任务对应不同检查深度），确保AI先建立安全基线再执行修改。关键技巧包括：1) 明确原则冲突的仲裁规则（如DRY与YAGNI冲突时，单调用场景优先YAGNI）；2) 使用五因素影响半径评分卡客观判定任务规模，避免主观误判；3) 通过歧义消除步骤区分问题类型（如行为错误与需求变更），防止无效操作。",
       "category": "devto"
     },
     {
-      "title": "GPT-5.4 vs Claude Opus 4.6: Code vs Code Review Differences",
-      "titleZh": "GPT-4与Claude Opus：代码生成与代码审查能力对比",
-      "link": "https://dev.to/leena_malhotra/gpt-54-vs-claude-opus-46-code-vs-code-review-differences-3db6",
-      "author": "Leena Malhotra",
+      "title": "Anthropic Just Leaked Claude Code's Source. Here's What That Means for Every AI Agent You Run.",
+      "titleZh": "Anthropic刚刚泄露了Claude Code的源代码。这对你运行的每个AI代理意味着什么。",
+      "link": "https://dev.to/waxell/anthropic-just-leaked-claude-codes-source-heres-what-that-means-for-every-ai-agent-you-run-f7k",
+      "author": "Logan",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-25T06:25:32.000Z",
-      "summaryZh": "本文探讨了AI代码生成与代码审查的差异。作者通过两周实验，让GPT-5.4和Claude Opus 4.6分别负责生成代码和审查对方代码，发现两者擅长领域不同。\n\n**用户场景**：开发者通常用单一AI模型处理所有编码任务，但生成优质代码的模型未必擅长发现代码缺陷，这可能导致生产环境bug。\n\n**核心方法**：交替使用GPT和Claude进行代码生成与审查。GPT生成结构清晰但可能忽略边缘情况的代码；Claude生成防御性强但可能过度设计的代码。两者互为补充。\n\n**关键技巧**：\n1. 不要假设生成能力强的模型审查能力也强\n2. GPT容易忽略安全漏洞和竞态条件，但擅长发现性能问题\n3. Claude擅长捕捉安全风险和边缘情况，但可能错过优化机会\n4. 生产系统中，结合使用两者可避免严重问题（如认证漏洞、性能瓶颈）",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Mythos: What We Actually Know (and What We Don't)",
-      "titleZh": "Claude Mythos：我们已知与未知的真相",
-      "link": "https://dev.to/solomonneas/claude-mythos-what-we-actually-know-and-what-we-dont-32k5",
-      "author": "Solomon Neas",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-31T01:09:36.000Z",
-      "summaryZh": "本文分析了Anthropic公司Claude Mythos模型泄露事件的技术启示。用户场景聚焦于AI模型在网络安全领域的应用潜力与风险。核心方法是通过早期访问计划，让安全团队提前使用高性能AI模型加固代码库，以应对未来AI驱动的漏洞攻击。关键技巧包括：利用Claude Code Security进行类人代码审计，结合Git历史分析发现深层漏洞；注意AI模型可能被用于自动化攻击，需建立相应防御机制；企业应严格管理内部系统权限配置，避免类似信息泄露。",
+      "pubDate": "2026-04-01T18:31:58.000Z",
+      "summaryZh": "本文探讨了Claude Code源代码泄露事件对AI代理安全的影响。作者指出，泄露的代码暴露了Claude Code的完整架构，包括工具系统、查询引擎和多代理协调逻辑，使攻击者能够针对性地设计恶意输入。核心观点是：AI代理安全不应依赖代码保密，而需在基础设施层实施运行时控制。关键建议包括：建立运行时工具访问策略，在工具调用前进行权限评估；加强输入验证和输出过滤；防范供应链攻击。开发者需重视AI代理的行为安全，而非仅关注代码安全。",
       "category": "devto"
     },
     {
@@ -53,18 +31,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-29T15:16:16.000Z",
-      "summaryZh": "本文是一份完整的Claude Code实战教程，指导开发者利用Anthropic的AI编程代理工具，在数小时内从零构建并部署一个基于RAG的文档问答API应用。\n\n**用户场景**：解决传统AI编码工具仅提供单行代码建议的局限，通过项目级AI协作快速实现从创意到可部署产品的全流程开发。\n\n**核心方法**：在终端中运行Claude Code，通过自然语言指令驱动AI完成多文件项目搭建、代码生成、错误调试、测试编写等任务。教程演示了构建FastAPI应用的具体步骤：1) 初始化项目结构 2) 实现文档上传与问答端点 3) 优化为分块检索的RAG系统 4) 自动生成并运行测试。\n\n**关键技巧**：利用`CLAUDE.md`文件为项目建立持久的AI上下文记忆；通过\"描述需求-执行验证\"的交互模式让AI自主修复错误；在复杂重构（如添加TF-IDF检索）时，Claude Code能保持跨文件逻辑一致性。避免直接传送完整文档到LLM，应采用分块检索优化token使用。",
+      "summaryZh": "本文是一份完整的Claude Code实战教程，指导开发者利用Anthropic的AI编程助手快速构建并部署AI应用。教程聚焦于解决实际开发问题，而非仅停留在工具安装层面。\n\n**用户场景**：开发者需要快速构建一个基于RAG（检索增强生成）的文档问答API，并部署到生产环境，但希望避免繁琐的脚手架搭建、错误调试和测试编写工作。\n\n**核心方法**：教程演示了如何使用Claude Code在终端中以项目级协作的方式开发。通过自然语言指令，Claude Code能自动完成从项目初始化（创建FastAPI应用、定义端点）、实现核心逻辑（文档分块、TF-IDF向量检索、集成OpenAI API），到编写并运行pytest测试的完整工作流。其核心优势在于能理解代码库上下文，执行多文件修改，并自动运行代码、读取错误输出进行自我修正。\n\n**关键技巧**：\n1.  利用`CLAUDE.md`文件为项目建立持久的AI协作上下文，记录技术栈、代码规范和测试设置，避免每次会话重复说明。\n2.  通过“描述需求 -> 让Claude Code执行 -> 运行并修复错误”的循环进行高效开发，无需在聊天窗口和编辑器间切换。\n3.  在构建RAG系统时，明确指示Claude Code实现文档分块和向量检索，而非简单地将整个文档发送给大模型，以提升效率并节省token。",
       "category": "devto"
     },
     {
-      "title": "Claude vs ChatGPT: Why Claude Feels More Honest and Accurate",
-      "titleZh": "Claude vs ChatGPT：为何Claude显得更诚实与准确",
-      "link": "https://dev.to/simon_paxton/claude-vs-chatgpt-why-claude-feels-more-honest-and-accurate-312m",
+      "title": "A Code Authorship Analysis on the Claude Code Leak. What Was Found Doesn't Match Human or AI Code.",
+      "titleZh": "对Claude代码泄露的代码作者分析：发现结果与人类或AI代码均不匹配",
+      "link": "https://dev.to/nodexislabs/a-code-authorship-analysis-on-the-claude-code-leak-what-was-found-doesnt-match-human-or-ai-code-27p0",
+      "author": "Scott",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-01T13:51:00.000Z",
+      "summaryZh": "本文通过代码指纹分析工具Curia，对比了Claude Code泄露源码与多个开源项目（Next.js、TypeORM、Vite）在AI时代前后的代码特征差异。\n\n**用户场景**：探究Claude Code泄露的51.4万行TypeScript代码是否由人类编写，通过量化分析识别AI生成代码的潜在模式。\n\n**核心方法**：提取30多项代码指纹指标（如平均行长度、异常抛出频率、注释风格等），横向对比不同时期代码库，并重点分析Claude Code早期版本(v0.2)与泄露版本(v2.1)的指标突变。\n\n**关键技巧**：\n1. 关注代码风格一致性：Claude Code的注释呈现高度模板化（如固定使用\"TODO(上下文): 具体操作\"结构），缺乏人类开发者常见的个性化表达和疑问句式。\n2. 警惕指标异常跳变：泄露版本出现平均行长度激增（62.7字符）、异常抛出率下降5倍等突变，不符合人类代码的演化规律。\n3. 对比控制组：通过同团队开发的Claude Code Action项目作为参照，发现其注释风格（侧重描述功能）与泄露代码（侧重解释原因）存在显著差异。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Code Leak: Why the Harness, Not the Model",
+      "titleZh": "Claude代码泄露：问题在于工具，而非模型本身",
+      "link": "https://dev.to/simon_paxton/claude-code-leak-why-the-harness-not-the-model-2nfn",
       "author": "Simon Paxton",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-30T01:46:10.000Z",
-      "summaryZh": "本文探讨Claude与ChatGPT在\"诚实度\"上的差异。作者指出，Claude在BullshitBench测试中表现更优，能更频繁地识别并拒绝回答无意义问题，这源于Anthropic将其设计为保守、校准的模型，通过强化学习奖励模型拒绝错误前提和承认不确定性。关键技巧在于根据应用场景选择模型：在医疗、法律等容错率低的领域使用Claude以减少\"自信的谎言\"；在需要创造性或流畅对话的场景则可能更适合ChatGPT。开发者需注意，即使Claude的\"抑制回路\"降低了幻觉概率，它仍可能生成看似合理但错误的答案。",
+      "pubDate": "2026-04-01T01:47:04.000Z",
+      "summaryZh": "本文分析Claude Code源码泄露事件，揭示AI产品的真正壁垒在于工程架构而非模型本身。作者指出泄露内容包含完整的Agent运行时系统，涉及工具调用安全边界、客户端认证、长期状态管理等生产级设计。\n\n核心发现包括：1）采用YOLO分类器自动审批工具调用，减少人工干预；2）通过CACHED_MAY_BE_STALE模式优先保障响应速度；3）实施prctl内存保护等本地安全机制；4）所有安全规则均标注具体负责人。\n\n关键启示：开发者应关注Agent运行时架构设计，特别是模型间的协同监督机制、延迟与数据新鲜度的权衡策略，以及生产环境中的安全边界实现方案。避免仅依赖简单API封装，而需构建具备自主决策能力的工业级Agent系统。",
+      "category": "devto"
+    },
+    {
+      "title": "I Downloaded the Claude Code Source Before Anthropic DMCA'd It",
+      "titleZh": "我在Anthropic发出DMCA通知前下载了Claude Code源代码",
+      "link": "https://dev.to/johnson998877/i-downloaded-the-claude-code-source-before-anthropic-dmcad-it-fll",
+      "author": "Johnson",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-01T06:50:56.000Z",
+      "summaryZh": "本文分析了Claude Code源码泄露事件的技术细节。用户场景是开发者通过逆向工程获取Anthropic未公开的CLI工具内部实现。核心方法采用多轮Claude代理并行重构TypeScript类型和文件结构，成功修复1341个类型错误并生成1206个私有包存根。关键技巧包括：通过feature()函数统一控制30个隐藏功能开关；发现KAIROS常驻代理、SSH_REMOTE远程控制等未公开功能；注意权限系统包含6300行TS代码和YOLO命令安全分类器；三种运行模式深度集成在1700行的流式查询循环中。技术亮点在于用Claude逆向重建Claude的递归实现方式。",
       "category": "devto"
     },
     {
@@ -75,29 +75,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-31T18:23:58.000Z",
-      "summaryZh": "本文澄清了关于Anthropic AGI时间线的误传，强调应关注CEO在达沃斯论坛上的实际预测：未来6-12个月内，AI模型可能完成大部分甚至全部软件工程工作。核心在于区分未经证实的社交媒体谣言与可验证的技术趋势——重点不是AGI何时到来，而是即将发生的\"编码自动化冲击\"。开发者应关注实际工作流变革：工程师角色将转向代码审查、集成与系统设计，而非逐行编码。关键建议包括：1）优先观察企业招聘、产品发布等实际指标，而非网络传言；2）适应以编辑AI生成代码为主的新工作模式；3）为代码主要由机器编写的业务场景做准备。技术演进路径已清晰：模型编写代码，代码优化模型，形成自我增强循环。",
+      "summaryZh": "本文澄清了关于Anthropic AGI时间线的误传，强调CEO在达沃斯论坛的实际发言是：未来6-12个月内，AI模型可能完成大部分甚至全部软件工程工作，而非实现通用人工智能（AGI）。作者建议开发者应关注即将到来的“编码自动化冲击”，而非社交媒体谣言。\n\n核心观点是：未来一年，高级模型将能生成生产级代码，工程师角色将转向编辑、集成和系统设计。Anthropic内部已在用Claude生成代码、重构模块。\n\n关键建议：关注实际招聘趋势、产品发布和代码生成使用模式，而非未经证实的传言。企业应准备迎接以AI生成为主的开发流程，工程师需转型为代码审核者和系统架构师。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Mythos: Step Change, Power, and Risk",
-      "titleZh": "Anthropic神话：阶跃式变革、力量与风险",
-      "link": "https://dev.to/simon_paxton/anthropic-mythos-step-change-power-and-risk-k4i",
-      "author": "Simon Paxton",
+      "title": "Claude Code Source Leaked: 5 Hidden Features Found in 510K Lines of Code",
+      "titleZh": "Claude Code源码泄露：51万行代码中发现的5个隐藏功能",
+      "link": "https://dev.to/harrison_guo_e01b4c8793a0/claude-code-source-leaked-5-hidden-features-found-in-510k-lines-of-code-3mbn",
+      "author": "Harrison Guo",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-29T18:14:38.000Z",
-      "summaryZh": "本文分析了Anthropic Mythos模型泄露事件对AI行业的影响。核心观点是：如果Mythos确实代表\"阶跃式进步\"，将改变AI发展模式——从连续迭代转向昂贵、不连续的突破。这将导致：1) 训练成本飙升，只有少数巨头能参与竞争；2) 服务成本上升，前沿模型可能变成\"奢侈品\"；3) 权力重新集中到少数实验室和超大规模云厂商手中。文章特别警示了该模型在网络安全能力上的突破可能带来的国家安全风险。开发者需关注：开源模型与前沿技术的差距可能拉大，API服务可能实施更严格的层级划分。",
-      "category": "devto"
-    },
-    {
-      "title": "The Future Of Software Engineering according to Anthropic",
-      "titleZh": "Anthropic眼中的软件工程未来",
-      "link": "https://dev.to/kodus/the-future-of-software-engineering-according-to-anthropic-30ei",
-      "author": "Kody from Kodus",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-30T20:48:00.000Z",
-      "summaryZh": "本文探讨AI代码助手带来的效率提升与代码审查挑战。作者指出，当前AI生成代码速度快，但后续审查困难，因为无法理解其逻辑假设，导致验证时间远超生成时间。核心观点是软件工程师的角色需从编写代码转向定义规范和验证系统。具体方法包括：1）编写精确的机器可读规范（输入、输出、行为、约束）；2）建立完整的验证环境（测试、性能基准）。关键技巧：将代码审查转为规范审查，确保测试覆盖所有场景；架构设计应关注AI代理的交互与边界定义；调试时优先检查规范而非直接调试生成代码。",
+      "pubDate": "2026-03-31T22:02:07.000Z",
+      "summaryZh": "本文分析了Claude Code源码泄露事件中发现的5个隐藏功能。用户场景：开发者通过源码意外发现Anthropic未公开的AI辅助编程工具特性。核心方法包括：1）虚拟宠物系统作为复活节彩蛋；2）Undercover模式自动隐藏AI痕迹；3）Kairos持久记忆系统实现四阶段记忆强化；4）Ultraplan支持30分钟深度任务规划；5）多智能体协调与守护进程架构。关键技巧：注意USER_TYPE权限控制，利用KAIROS/ULTRAPLAN等feature flag，避免在公开仓库暴露Co-Authored-By头部，理解queryLoop()中LLM驱动的工作流模式。",
       "category": "devto"
     },
     {
@@ -108,30 +97,52 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-31T05:33:31.000Z",
-      "summaryZh": "本文介绍了一个使用Claude Code构建的三智能体开源安全管道，用于自动化私有项目的开源准备流程。\n\n**用户场景**：解决开发者开源私有项目时，因手动清理API密钥、内部引用等敏感信息而导致的繁琐和易出错问题，防止代码泄露。\n\n**核心方法**：设计三个独立的Claude Code智能体协同工作：Forker负责复制项目并替换敏感信息；Sanitizer以不信任前者的原则进行独立审计，确保无遗漏；Packager自动生成项目文档和配置文件。\n\n**关键技巧**：采用“不信任”设计原则，将审计与修复功能分离，避免智能体自查自改导致漏洞；所有智能体仅由Markdown文件定义，无需额外依赖；支持自然语言触发，提升易用性。",
+      "summaryZh": "本文介绍了一个用Claude Code构建的三代理自动化流水线，用于安全地将私有项目开源。作者针对开源过程中手动清理敏感信息（如API密钥、.env文件）易出错且繁琐的问题，设计了一个包含Forker、Sanitizer和Packager三个代理的解决方案。核心方法是让代理相互独立且不信任：Forker负责替换敏感信息并生成.env.example；Sanitizer作为独立的只读审计员，用30多种模式重新扫描代码，严格阻止任何关键问题；Packager则自动生成项目文档。关键技巧包括：利用代理间的“不信任”设计实现安全审查分离，用纯Markdown文件定义代理逻辑无需依赖，以及通过自然语言指令触发整个流程。",
       "category": "devto"
     },
     {
-      "title": "Greg Brockman Donation Shows AI Safety Is Political",
-      "titleZh": "格雷格·布罗克曼的捐赠表明人工智能安全具有政治性",
-      "link": "https://dev.to/simon_paxton/greg-brockman-donation-shows-ai-safety-is-political-4pbn",
-      "author": "Simon Paxton",
+      "title": "Anthropic Filtró Su Propio Código: Lo Que el Leak de Claude Code Revela (y Lo Que Nadie Está Diciendo)",
+      "titleZh": "Anthropic过滤了自家代码：Claude Code泄露事件揭示了什么（以及无人提及的真相）",
+      "link": "https://dev.to/ctala/anthropic-filtro-su-propio-codigo-lo-que-el-leak-de-claude-code-revela-y-lo-que-nadie-esta-382",
+      "author": "Cristian Tala S.",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-29T01:46:09.000Z",
-      "summaryZh": "本文分析了AI行业巨头OpenAI与Anthropic的竞争本质，指出政治捐款已成为影响政府合同的关键因素。作者通过格雷格·布罗克曼向特朗普超级PAC捐赠2500万美元的案例，揭示了AI安全竞争已从技术层面延伸至政治游说领域。核心观点是：在争夺政府合同时，政治资本（捐款、人脉）的影响力可能超过技术安全报告。关键技巧包括：企业需同时布局技术安全叙事（白皮书）与政治影响力（捐款）；忽视政治游说可能导致在政府采购中处于劣势。这为开发者理解AI行业竞争提供了现实视角：技术优势需结合政治策略才能赢得关键市场。",
+      "pubDate": "2026-04-01T12:44:53.000Z",
+      "summaryZh": "本文分析了Claude Code源码泄露事件的技术启示。用户场景：开发者面临AI编程助手在长会话中的记忆管理难题，以及需要了解未来功能演进方向。核心方法：泄露代码揭示了Claude Code的三层记忆架构（轻量索引+按需加载+精准检索）和44个已开发未发布功能（如多智能体协作、真实浏览器控制）。关键技巧：采用\"严格写入规范\"防止上下文污染；可参考其基于Bun的运行时和模块化工具架构；注意快速扩张带来的工程成熟度风险。",
       "category": "devto"
     },
     {
-      "title": "Claude Computer Use: Anthropic AI Now Performs Tasks Like a Human",
-      "titleZh": "Claude计算机使用：Anthropic AI现已能像人类一样执行任务",
-      "link": "https://dev.to/elara1/claude-computer-use-anthropic-ai-now-performs-tasks-like-a-human-141e",
-      "author": "Elara",
+      "title": "Anthropic Accidentally Leaked Their Next Model. It's Called Mythos.",
+      "titleZh": "Anthropic意外泄露了他们的新模型，名为Mythos。",
+      "link": "https://dev.to/alanwest/anthropic-accidentally-leaked-their-next-model-its-called-mythos-4l4g",
+      "author": "Alan West",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-03-30T12:59:11.000Z",
-      "summaryZh": "本文介绍了Anthropic推出的Claude Computer Use功能，它让AI能像人类一样操作电脑界面。用户场景：解决重复性数字任务自动化需求，如数据录入、网页研究、邮件管理等，提升工作效率。核心方法：结合视觉理解（识别屏幕元素）、决策制定（判断操作步骤）和输入控制（模拟键盘鼠标操作）三大技术，实现端到端任务执行。关键技巧：用户需明确指令，利用其安全审批和活动日志功能确保可控性，注意区分其与传统AI仅生成响应的本质差异——Claude能直接执行工作流。",
+      "pubDate": "2026-04-01T18:39:31.000Z",
+      "summaryZh": "本文讨论了Anthropic因CMS配置错误意外泄露其下一代模型Mythos（属于Capybara层级）的事件。作者从开发者视角分析了此次泄露揭示的关键信息：\n\n**用户场景**：开发者日常依赖Claude进行代码生成（如数据库迁移）、安全审计等工作，但现有模型在处理边缘情况和跨服务漏洞分析时存在局限。\n\n**核心方法**：泄露的基准测试显示Mythos在编码、学术推理和网络安全任务上相比Opus 4.6有显著提升。其改进体现在生成代码时能进行更深入的上下文推理（如自动处理PostgreSQL枚举类型），并能执行跨服务边界的安全漏洞链分析。\n\n**关键技巧**：\n1. 代码生成时关注模型对部署环境的理解能力（如数据库特定语法处理）\n2. 安全审计可配置`cross_service_analysis`参数识别跨服务漏洞链\n3. 注意更强大模型的双重用途风险——既提升防御能力也可能增强攻击手段\n4. 企业用户需评估AI供应商的操作安全与AI安全承诺的一致性",
       "category": "devto"
+    },
+    {
+      "title": "Anthropic Leaked Its Own Code: What the Claude Code Source Dump Reveals (And What Nobody's Saying)",
+      "titleZh": "Anthropic泄露自家代码：Claude Code源码泄露揭示的真相（以及无人提及的隐情）",
+      "link": "https://dev.to/cristiantalasanchez/anthropic-leaked-its-own-code-what-the-claude-code-source-dump-reveals-and-what-nobodys-saying-30mn",
+      "author": "Cristian Tala",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-01T12:45:58.000Z",
+      "summaryZh": "本文分析了Anthropic意外泄露Claude Code源代码事件的技术启示。作者指出，泄露的代码揭示了Claude Code解决长会话记忆问题的三层架构：轻量级索引文件MEMORY.md、按需加载的主题文件、仅用于检索的会话记录，这种“严格写入纪律”能有效防止上下文污染。泄露还曝光了44个已开发未发布的功能，包括后台代理、多智能体协作、定时任务和真实浏览器控制等。对于开发者，这提供了构建智能体系统的参考架构，同时警示依赖快速成长工具的风险——需权衡其强大功能与潜在的不稳定性。技术栈显示项目使用Bun运行时和React Ink终端UI。",
+      "category": "devto"
+    },
+    {
+      "title": "v2.1.89",
+      "titleZh": "v2.1.89",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.89",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-04-01T01:07:06.000Z",
+      "summaryZh": "Claude Code v2.1.89 发布，主要更新：新增 defer 权限决策、无闪烁渲染选项、权限拒绝重试机制及命名子代理；修复了 Windows CRLF 处理、JSON 内存泄漏、大文件崩溃等关键问题；改进了工具提示和文件编辑流程。注意：清理周期设置现会验证，思维总结默认关闭。包含愚人节彩蛋功能。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.88",
@@ -142,17 +153,6 @@
       "sourceType": "github-release",
       "pubDate": "2026-03-30T23:53:01.000Z",
       "summaryZh": "chore: Update CHANGELOG.md",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.87",
-      "titleZh": "v2.1.87",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.87",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-29T02:17:02.000Z",
-      "summaryZh": "Claude Code v2.1.87 发布，主要修复了 Cowork Dispatch 中消息无法正常传递的问题。本次更新为错误修复版本，无新增功能或破坏性变更。",
       "category": "github-release"
     }
   ]
