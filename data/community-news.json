@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-04-02T18:45:39.962Z",
+  "lastUpdated": "2026-04-03T18:36:21.893Z",
   "items": [
-    {
-      "title": "Anthropic Just Leaked Claude Code's Source. Here's What That Means for Every AI Agent You Run.",
-      "titleZh": "Anthropic刚刚泄露了Claude Code的源代码。这对你运行的每个AI代理意味着什么。",
-      "link": "https://dev.to/waxell/anthropic-just-leaked-claude-codes-source-heres-what-that-means-for-every-ai-agent-you-run-f7k",
-      "author": "Logan",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-01T18:31:58.000Z",
-      "summaryZh": "本文探讨了Claude Code源代码泄露事件对AI代理安全治理的启示。作者指出，泄露的代码暴露了Claude Code的完整架构，包括工具调用、决策流程和上下文管理机制，这使攻击者能够针对性地设计恶意输入。\n\n核心观点是：AI代理安全不应依赖代码混淆，而需在基础设施层实施运行时控制。具体包括：严格限制工具访问权限、验证输入输出、执行行为监控。\n\n关键建议：开发者应假设代理内部逻辑可能暴露，提前部署访问控制策略，避免仅依赖黑盒安全。同时需关注供应链风险，及时更新依赖项。",
-      "category": "devto"
-    },
     {
       "title": "The Claude Code Leak: What Anthropic Accidentally Revealed About the Future of AI",
       "titleZh": "Claude代码泄露事件：Anthropic意外揭示了AI未来的哪些秘密",
@@ -20,29 +9,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-01T23:41:17.000Z",
-      "summaryZh": "本文分析了Anthropic意外泄露的Claude Code源码，揭示了AI编程助手的内部演进。用户场景聚焦于提升开发效率与代码质量，解决公共版本存在的幻觉问题和被动响应限制。核心方法包括：1）通过ant标志区分内部版本，启用自动验证循环确保代码可运行；2）KAIROS后台守护进程实现主动监控与自动优化；3）ULTRAPLAN结合Fennec引擎进行30分钟深度推理，支持200万token上下文。关键技巧：利用虚拟构建预验证代码、二进制差分流实现毫秒级多文件同步、通过autoDream子进程自动整理项目知识库。开发者可关注这些设计模式，但需注意当前公开版本尚未包含这些高级能力。",
-      "category": "devto"
-    },
-    {
-      "title": "The Complete Claude Code Tutorial: Build and Deploy an AI App in an Afternoon",
-      "titleZh": "Claude Code 完整教程：一个下午构建并部署 AI 应用",
-      "link": "https://dev.to/sali_ac161a1b71406354896c/the-complete-claude-code-tutorial-build-and-deploy-an-ai-app-in-an-afternoon-4ij",
-      "author": "Saif Ali",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-03-29T15:16:16.000Z",
-      "summaryZh": "本文是Claude Code实战教程，教你用一下午构建并部署AI应用。用户场景：快速开发文档问答API，实现RAG（检索增强生成）模式。核心方法：使用Claude Code终端代理，通过自然语言指令完成从项目搭建（FastAPI框架）、功能实现（文档分块/向量检索/OpenAI集成）到测试编写的全流程开发。关键技巧：1）利用`CLAUDE.md`文件持久化项目配置和编码规范；2）通过“运行-报错-修复”循环让AI自动调试；3）用多步骤指令实现复杂重构（如将全文检索优化为向量检索）。避免直接传送完整文档导致token浪费，需实现分块和相似度检索。",
+      "summaryZh": "本文分析了Anthropic意外泄露的Claude Code源码，揭示了AI开发工具的内部实现与公开版本的巨大差距。核心发现包括：1）内部员工通过\"ant\"标志解锁了更强大的验证循环和幻觉修复功能；2）KAIROS后台代理能主动监控项目、自动修复错误并整理知识库；3）ULTRAPLAN结合Fennec引擎支持30分钟深度推理，具备虚拟构建和二进制差分更新能力。关键启示：当前AI开发工具存在明显的功能分层，未来趋势是向持续运行、自主优化的智能代理演进。开发者可关注MCP协议扩展和后台代理模式的设计思路。",
       "category": "devto"
     },
     {
       "title": "I Built a Star Trek LCARS Terminal to Manage My Claude Code Setup",
-      "titleZh": "我打造了一个《星际迷航》LCARS终端来管理我的Claude代码配置",
+      "titleZh": "我打造了一个《星际迷航》LCARS终端来管理我的Claude代码设置",
       "link": "https://dev.to/snozberryface/i-built-a-star-trek-lcars-terminal-to-manage-my-claude-code-setup-1b0e",
       "author": "Andre Figueira",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T16:28:07.000Z",
-      "summaryZh": "本文作者针对Claude Code配置管理混乱的问题，开发了一个LCARS风格的终端仪表盘。核心方案是通过`npx claude-hud-lcars`扫描`~/.claude/`目录，自动生成可视化HTML界面，将技能、代理、MCP服务器等配置以可交互节点展示。关键技巧包括：1）点击任意节点可查看语法高亮的详细配置；2）集成语音对话功能（支持ElevenLabs），需处理回声消除和中断检测；3）通过TACTICAL标签页用动态力导向图可视化架构依赖；4）添加健康检查机制，异常时触发RED ALERT警报；5）利用CSS变量快速切换企业号/发现号等主题。该工具将分散的配置文件转化为可浏览、可调试的星舰控制台，解决了Claude Code生态中配置不可见的管理痛点。",
+      "summaryZh": "本文作者针对Claude Code配置管理混乱的问题，开发了一款LCARS风格的可视化终端。核心方案是通过`npx claude-hud-lcars`扫描`~/.claude/`目录，自动生成交互式HTML仪表盘。关键技巧包括：1）点击任意技能/MCP配置可查看详情；2）集成语音输入输出与健康检查告警；3）通过力导向图可视化架构关系；4）支持多主题切换与彩蛋交互。该工具将分散的配置文件转化为可直观操作的系统视图。",
+      "category": "devto"
+    },
+    {
+      "title": "I'm Paying $200/Month for Claude. Anthropic Quietly Downgraded What I'm Getting.",
+      "titleZh": "我每月花200美元用Claude，Anthropic却悄悄降低了服务质量。",
+      "link": "https://dev.to/lostbeard/im-paying-200month-for-claude-anthropic-quietly-downgraded-what-im-getting-4869",
+      "author": "Todd Tanner",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-03T00:48:25.000Z",
+      "summaryZh": "本文作者作为Claude Code高级订阅用户，发现Anthropic在未通知的情况下新增了Max推理层级，导致原本的最高设置High实际被降级，影响复杂开发任务的质量。\n\n**用户场景**：开发高性能.NET库（GPU计算转译器、WebRTC网络、ML推理引擎）时，因AI推理深度不足导致生产环境出现隐蔽bug。\n\n**核心方法**：通过对比High与Max设置下的代码质量，发现Max能捕获High忽略的深层逻辑错误（如内存泄漏、竞态条件、架构设计缺陷）。\n\n**关键技巧**：\n1. 立即检查Claude Code的effort设置，手动切换至Max\n2. 对近期AI生成的复杂代码用Max设置重新审计\n3. 警惕“效率优化”可能掩盖的推理捷径，复杂工程任务必须使用Max\n4. 通过跨工具验证（如Cursor审计Claude Code输出）发现系统性缺陷\n\n技术影响：High设置倾向统计似然解，Max才执行穷举推理，这对需要严格正确性的系统编程至关重要。",
       "category": "devto"
     },
     {
@@ -53,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-03-31T05:33:31.000Z",
-      "summaryZh": "本文介绍了一个基于Claude Code的三智能体工作流，用于安全自动化开源项目。作者针对开发者手动清理代码库中的敏感信息（如API密钥、.env文件、内部域名引用）时易出错且耗时的痛点，设计了一个包含Forker、Sanitizer、Packager三个独立代理的管道。核心方法是通过职责分离实现安全审查：Forker负责替换敏感信息并生成.env.example；Sanitizer以不信任前者的原则独立进行二次审计，严格检测30多种风险模式；Packager则自动生成项目文档。关键技巧包括：利用纯Markdown文件构建无依赖代理链；设置Sanitizer的“误报可接受，漏报不可接受”偏执审查策略；通过自然语言指令触发流程，提升易用性。",
+      "summaryZh": "本文介绍了一个基于Claude Code的三智能体工作流，用于安全自动化开源私有项目。作者针对开发者开源项目时手动清理敏感信息（如API密钥、.env文件）易出错且繁琐的问题，设计了一个管道系统。核心方法包含三个阶段：Forker代理使用正则表达式替换代码中的密钥并生成.env.example；Sanitizer代理以独立只读模式重新审计代码，严格检查六大类风险（密钥、PII、内部引用等），采用“不信任前序环节”的安全设计；Packager代理则自动生成项目文档（CLAUDE.md、README等）。关键技巧包括：通过分离修复与审计职责避免盲点，采用“可接受误报但绝不容忍漏报”的严格检查策略，以及完全基于Markdown/YAML实现无依赖的智能体架构。",
       "category": "devto"
     },
     {
@@ -64,18 +53,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-01T18:39:31.000Z",
-      "summaryZh": "本文讨论了Anthropic因CMS配置错误意外泄露其下一代模型Mythos（属于Capybara层级）的事件。作者从开发者视角分析了此次泄露揭示的关键信息：\n\n**用户场景**：开发者日常依赖Claude进行代码生成（如数据库迁移）、安全审计等工作，但现有模型在处理边缘情况和复杂上下文时仍存在局限。\n\n**核心方法**：泄露资料显示Mythos在代码生成、学术推理和网络安全基准测试中表现显著优于Opus 4.6。其核心突破在于从“生成代码”进阶到“理解部署上下文”，能自动处理数据库兼容性检查、回滚逻辑等复杂场景。\n\n**关键技巧**：\n1. 代码生成时关注模型对跨数据库兼容性、边缘案例的自主处理能力\n2. 安全审计可尝试结构化prompt（定义scope、analysis_depth、cross_service_analysis）\n3. 注意网络安全能力的双重性：更强的漏洞发现能力可能伴随更高的滥用风险\n4. 企业用户需评估AI供应商的操作安全与AI安全承诺的一致性",
+      "summaryZh": "本文讨论了Anthropic因CMS配置错误意外泄露其下一代模型Mythos（属于Capybara层级）的事件。作者从开发者视角分析了此次泄露揭示的技术进展及其实际影响。\n\n**用户场景**：开发者日常使用Claude进行代码生成（如数据库迁移）、安全审计等工作时，现有模型在复杂逻辑处理和边缘场景中仍存在可靠性瓶颈。\n\n**核心方法**：泄露的基准测试显示Mythos在编码、学术推理和网络安全任务上相比Opus 4.6有显著提升。新模型能生成更考虑部署上下文、包含边缘情况处理（如PostgreSQL枚举类型检查）和回滚逻辑的代码。\n\n**关键技巧**：\n1. 代码生成：提示词应明确要求处理数据库特定逻辑（如`CREATE TYPE IF NOT EXISTS`）和跨服务安全分析\n2. 安全审计：可利用增强的威胁建模能力进行深度分析，但需注意相同能力可能被用于攻击\n3. 风险认知：企业用户需评估AI供应商的操作安全（OpSec）与其AI安全承诺的一致性",
       "category": "devto"
     },
     {
       "title": "AI Dev Weekly #4: Anthropic Leaks Everything, OpenAI Raises $122B, and Qwen 3.6 Drops Free",
-      "titleZh": "AI开发周刊第4期：Anthropic全面开源，OpenAI融资1220亿美元，Qwen 3.6免费发布",
+      "titleZh": "AI开发周报第4期：Anthropic全面开源，OpenAI融资1220亿美元，Qwen 3.6免费发布",
       "link": "https://dev.to/ai_made_tools/ai-dev-weekly-4-anthropic-leaks-everything-openai-raises-122b-and-qwen-36-drops-free-2ff3",
       "author": "Joske Vermeulen",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T07:01:53.000Z",
-      "summaryZh": "本文分析了AI开发领域一周动态。用户场景：开发者评估AI编程工具时需考虑代码安全性与成本效益。核心方法：对比了Claude Code源码泄露事件、OpenAI商业化策略及Qwen免费模型发布。关键技巧：企业选用AI工具应审查其安全实践；开发RAG应用可尝试Qwen 3.6的百万上下文免费额度；注意Claude即将推出的Mythos高阶模型可能带来API成本变化。技术术语保留英文原名。",
+      "summaryZh": "本文分析了AI开发领域一周动态。用户场景：开发者评估AI编程工具时需考虑代码安全性与成本效益。核心方法：对比了Claude Code因构建配置失误导致源码泄露、OpenAI关闭Sora转向平台化战略、以及Qwen 3.6提供免费API的竞争策略。关键技巧：使用Claude Code时需关注企业级安全风险；开发RAG管道可尝试Qwen 3.6的百万token免费上下文窗口；选择API时应权衡GPT-5.4与Claude模型的质量成本比。",
       "category": "devto"
     },
     {
@@ -86,7 +75,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-01T16:26:31.000Z",
-      "summaryZh": "本文介绍了一个为AI代理（如Claude Code）构建知识存档系统Lorg的方案，解决代理在会话结束后丢失所学知识（如代码边缘情况、有效工作流）的问题。\n\n核心方法是通过MCP工具让代理在任务前后自动调用钩子（lorg_pre_task, lorg_evaluate_session, lorg_contribute），实现无人工干预的知识自主归档。系统采用仅追加（append-only）的PostgreSQL数据库，通过触发器禁止修改删除，并用哈希链（SHA-256 + stableStringify确保JSONB哈希稳定）保障记录不可篡改。\n\n关键技巧包括：1) 使用CLAUDE.md代码片段快速集成；2) 通过信任评分机制（基于采纳率、同行验证等五个信号）激励高质量贡献；3) 设置质量门禁（pgvector相似性搜索）过滤低价值内容，维持知识库信噪比。",
+      "summaryZh": "本文介绍了一个为AI代理（如Claude Code）构建的永久性知识存档系统Lorg，旨在解决代理在会话结束后丢失所学知识（如代码库边缘情况、有效工作流）的问题。\n\n**用户场景**：AI代理在完成任务时获得的关键知识（如特定代码模式、工具失败条件）无法跨会话保留，导致重复学习。\n\n**核心方法**：通过MCP提供22个工具，代理在任务开始调用`lorg_pre_task`检索相关历史记录，任务结束时通过`lorg_evaluate_session`评估会话价值，若符合条件则自动提交贡献到不可变数据库。系统采用哈希链技术（SHA-256 + stableStringify序列化）确保数据防篡改，并通过信任评分机制（0-100分，基于采用率、同行验证等5个信号）对代理进行分级管理。\n\n**关键技巧**：1) 使用PostgreSQL触发器实现数据库层只追加（append-only）约束；2) 通过确定性JSON序列化解决哈希链键序问题；3) 设置质量门槛（≥60分）结合pgvector相似度搜索过滤低质量提交；4) 通过`CLAUDE.md`代码片段快速集成到Claude Code工作流。",
       "category": "devto"
     },
     {
@@ -97,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T07:09:01.000Z",
-      "summaryZh": "本文分析了Anthropic在五天内两次因配置失误泄露源码的安全事件。用户场景涉及AI开发团队如何避免因工具链漏洞（如Bun打包bug）和存储桶权限错误导致敏感信息泄露。核心方法包括：1）发布前使用npm pack --dry-run检查打包内容；2）默认将云存储桶设为私有并定期审计；3）对AI生成代码实施系统化安全审查（如结合OWASP清单）。关键技巧：生产环境应禁用source map文件；警惕AI助手可能引入的安全盲区（如错误处理缺陷）；参考Claude Code泄露的三层内存架构与子代理设计可优化AI编程工具开发。",
+      "summaryZh": "本文分析了Anthropic在五天内两次因配置失误泄露源码的安全事件。用户场景涉及AI开发团队如何避免因工具链漏洞（如Bun打包bug）和存储桶权限错误导致敏感信息泄露。核心方法包括：1）发布前使用npm pack --dry-run检查打包内容，防止调试文件泄露；2）严格遵循存储桶私有化默认原则；3）对AI生成代码实施系统化安全审查（如32项OWASP检查清单）。关键技巧：生产级AI代码助手（如Claude Code）采用三层内存架构和子代理生成机制优化上下文管理，其泄露的TypeScript源码为开发者提供了可参考的AI代理实现范式。",
       "category": "devto"
     },
     {
@@ -108,7 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T13:26:31.000Z",
-      "summaryZh": "本文针对Claude等LLM在数学计算中常出现“自信但错误”的问题，提出实用解决方案。作者发现LLM本质是模式匹配，无法可靠执行多步骤精确计算（如TDEE、贷款利息等）。\n\n核心方法是利用Model Context Protocol（MCP），为Claude接入可执行确定性代码的工具服务器。作者开发的@thicket-team/mcp-calculators包含20多个经过单元测试的TypeScript计算器，涵盖健康、金融、数学等领域。\n\n关键技巧：1）通过Claude Desktop配置或Claude Code一行命令快速部署MCP服务器；2）计算时Claude自动调用对应工具函数（如calculate_tdee）而非自行演算；3）该方法比Python解释器更轻量（响应<50ms），且从根本上解决LLM算术缺陷。实测显示，工具调用能确保TDEE、复利等计算100%准确。",
+      "summaryZh": "本文针对Claude等LLM在数学计算中常出现“自信但错误”的问题，提出通过MCP（Model Context Protocol）工具集成实现可靠计算。作者开发了@thicket-team/mcp-calculators服务器，包含健康、金融、数学等20+计算器，通过TypeScript代码和单元测试确保结果精确。\n\n核心方案是让Claude调用外部工具执行确定性计算，而非依赖模型自身的近似推理。用户可通过Claude Desktop配置或Claude Code命令行快速集成，使模型在TDEE计算、贷款分析等场景中输出准确数值。\n\n关键技巧包括：避免依赖LLM内置算术；优先使用MCP工具处理多步骤公式；通过<50ms工具调用替代重型Python解释器。此方法解决了LLM普遍存在的数学不可靠问题，适合需要精确计算的开发场景。",
       "category": "devto"
     },
     {
@@ -119,7 +108,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T02:44:45.000Z",
-      "summaryZh": "本文解析了Anthropic公司Claude Code代码泄露事件中揭示的核心AI工程实践。**用户场景**：解决AI智能体在长会话中出现的“上下文熵”问题（如幻觉、遗忘），并防范因代码公开导致的供应链攻击风险。**核心方法**：采用“自愈内存”架构，用轻量级指针索引MEMORY.md替代全量存储，结合KAIROS后台进程实现空闲时内存优化；同时暴露了“隐身模式”等内部机制。**关键技巧**：构建“怀疑型”内存系统，强制AI验证本地代码库；立即检查项目锁文件中是否包含恶意axios版本（1.14.1或0.30.4），若存在需彻底清理系统并迁移至官方原生安装包以规避npm依赖链风险。",
+      "summaryZh": "本文解析了Anthropic公司Claude Code AI代理的泄露代码，揭示了其核心工程方案。**用户场景**：解决AI编码代理在长会话中出现的“上下文熵”问题（如幻觉、遗忘），并实现从被动响应到自主后台运行的升级。**核心方法**：采用“自愈内存”架构，用轻量级指针索引MEMORY.md替代全量存储，仅记录文件位置并按需获取；通过KAIROS功能与autoDream后台进程实现空闲时的内存优化与逻辑整理。**关键技巧**：1. 构建“怀疑型”内存，强制模型在行动前验证本地代码库；2. 警惕供应链攻击，若在特定日期通过npm安装，需检查是否感染恶意axios版本，并迁移至官方原生安装器以隔离风险。",
+      "category": "devto"
+    },
+    {
+      "title": "I built a Python pipeline that auto-generates digital products using Claude API — here's the architecture",
+      "titleZh": "我构建了一个使用Claude API自动生成数字产品的Python流水线——以下是其架构",
+      "link": "https://dev.to/kirozdormu/i-built-a-python-pipeline-that-auto-generates-digital-products-using-claude-api-heres-the-14hd",
+      "author": "Kirozdormu",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-02T21:50:57.000Z",
+      "summaryZh": "本文作者分享了一个基于Claude API的自动化数字产品生成流水线。用户场景是解决内容创作和产品发布的效率问题，通过AI自动生成并发布数字产品。核心方法包括：使用Python脚本从Reddit抓取痛点并生成产品创意，通过Telegram进行人工审核，调用Claude API生成内容，最后自动打包并部署到静态网站和Gumroad平台。关键技巧包括：采用静态站点架构（Cloudflare Pages）实现零服务器成本，设置审核环节保证质量，以及将免费产品作为引流手段。作者指出当前主要挑战在于产品分发而非技术实现。",
       "category": "devto"
     },
     {
@@ -130,8 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-02T11:28:26.000Z",
-      "summaryZh": "本文探讨Anthropic从聊天机器人转向构建AI操作系统的战略转变。作者指出，传统聊天界面已无法满足知识工作者的效率需求，Claude通过嵌入式工具（如Figma、Slack）直接在聊天界面提供可交互的工作空间，消除了应用切换带来的认知负担和时间损耗。核心方法采用MCP协议集成企业级工具，实现跨平台上下文联动。关键技巧包括：优先选择支持实时编辑和权限管理的工具集成；关注团队级工作流模板标准化；避免插件式信息检索，转向嵌入式操作界面。这种转变使AI从对话工具升级为工作流编排层，重新定义了人机协作模式。",
+      "summaryZh": "本文探讨Anthropic从开发聊天机器人转向构建AI操作系统的战略转变。作者指出，传统聊天界面已无法满足知识工作者的效率需求，Claude通过嵌入式工具（如Figma、Slack）直接在聊天界面中创建可交互的工作空间，消除了应用切换带来的认知负担和时间损耗。核心方法采用MCP协议集成企业级工具，实现跨工具上下文联动。关键技巧包括：优先选择支持实时编辑的嵌入式工具而非仅数据查询的插件；关注团队级工作流模板实现标准化部署；利用Claude的宪法AI特性满足企业安全需求。这种从模型竞争转向工作流整合的策略，可能重塑AI产品的生态定位。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.91",
+      "titleZh": "v2.1.91",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.91",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-04-02T23:45:35.000Z",
+      "summaryZh": "Claude Code v2.1.91 发布，新增 MCP 工具结果持久化覆盖功能，支持通过 _meta[\"anthropic/maxResultSizeChars\"] 注解处理高达 500K 字符的大型结果（如数据库模式），避免截断。新增 disableSkillShellExecution 设置，可禁用技能、自定义斜杠命令和插件命令中的内联 shell 执行。修复了 --resume 时的转录链中断、cmd+delete 在多个终端中的行为异常、远程会话中计划模式文件跟踪丢失等关键问题。同时优化了 /feedback 提示、/claude-api 技能指导，并提升了性能。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.90",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-01T23:41:31.000Z",
-      "summaryZh": "Claude Code v2.1.90 发布，新增互动教程功能 /powerup，通过动画演示教学。新增环境变量 CLAUDE_CODE_PLUGIN_KEEP_MARKETPLACE_ON_FAILURE，支持离线环境下保留市场缓存。修复了多个关键问题：包括速率限制弹窗无限循环导致崩溃、--resume 在特定情况下的缓存失效、编辑文件时因保存钩子导致的失败等。性能优化显著，改进了 MCP 工具模式缓存、SSE 传输和大会话写入效率。调整了 --resume 选择器的会话显示逻辑，并移除了 DNS 缓存相关命令的自动允许权限。",
+      "summaryZh": "Claude Code v2.1.90 发布，新增交互式教程 `/powerup` 和离线环境配置变量。修复了多项关键问题：包括无限弹窗崩溃、`--resume` 缓存失效、文件编辑冲突、权限检查绕过等。性能优化涉及 MCP 缓存、SSE 传输和长会话处理。调整了 `--resume` 会话显示逻辑，并移除了 DNS 缓存工具的自动授权。",
       "category": "github-release"
     },
     {
@@ -152,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-01T01:07:06.000Z",
-      "summaryZh": "Claude Code v2.1.89 发布，主要更新包括：新增 defer 权限决策、无闪烁渲染选项、PermissionDenied 重试钩子、子代理提及建议；修复了 Windows 换行符、内存泄漏、大文件崩溃、LSP 僵尸状态、令牌统计等大量问题；改进了工具摘要显示、Bash 工具警告；变更了钩子输出保存方式、默认禁用思考摘要；/env 现支持 PowerShell，/buddy 为愚人节彩蛋。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.88",
-      "titleZh": "v2.1.88",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.88",
-      "author": "actions-user",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-03-30T23:53:01.000Z",
-      "summaryZh": "chore: Update CHANGELOG.md",
+      "summaryZh": "Claude Code v2.1.89 发布，主要更新：新增 defer 权限决策、无闪烁渲染选项、PermissionDenied 钩子、子代理提及建议。修复了 Edit/Read 符号链接检查、Windows CRLF 处理、JSON 内存泄漏、大文件崩溃、LSP 僵尸状态、CJK 历史记录丢失、令牌统计错误、-p 恢复挂起、MCP 错误截断等大量问题。改进了工具摘要显示、Bash 工具警告、提及排序。Edit 工具现可直接操作 sed/cat 查看的文件，钩子大输出改为保存到磁盘，默认禁用思考摘要。修复了 PowerShell 参数解析、/env 适用范围等问题。",
       "category": "github-release"
     }
   ]
