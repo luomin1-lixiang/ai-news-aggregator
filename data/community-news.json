@@ -1,15 +1,26 @@
 {
-  "lastUpdated": "2026-04-09T18:50:35.905Z",
+  "lastUpdated": "2026-04-10T18:43:06.103Z",
   "items": [
     {
+      "title": "El mes que Anthropic no respondió: billing, confianza y el costo oculto de depender de APIs de IA",
+      "titleZh": "Anthropic沉默的那个月：计费、信任与依赖AI API的隐性成本",
+      "link": "https://dev.to/jtorchia/el-mes-que-anthropic-no-respondio-billing-confianza-y-el-costo-oculto-de-depender-de-apis-de-ia-30c3",
+      "author": "Juan Torchia",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-09T19:32:29.000Z",
+      "summaryZh": "本文探讨了依赖AI API（如Anthropic）构建生产系统时的隐性风险。作者通过亲身经历指出，AI API的故障模式往往更隐蔽（如返回200状态码但内容为空），且供应商支持响应可能严重延迟，导致业务中断。\n\n核心解决方案包括：严格验证API响应格式（不信任外部API的数据结构）、实现基础熔断机制（Circuit Breaker）以快速失败，以及必须设计降级方案（fallback）应对服务不可用。\n\n关键技巧：始终对第三方API响应进行类型检查；记录足够上下文以便深夜调试；将AI服务视为可能失效的基础设施而非可靠工具，从项目第一天就规划故障处理路径。避免仅依赖供应商状态页，因其可能无法反映真实问题。",
+      "category": "devto"
+    },
+    {
       "title": "Claude Mythos Preview Is a Warning Shot for Every Security Team",
-      "titleZh": "Claude Mythos预览版为每个安全团队敲响警钟",
+      "titleZh": "Claude Mythos预览版为所有安全团队敲响警钟",
       "link": "https://dev.to/solomonneas/claude-mythos-preview-is-a-warning-shot-for-every-security-team-41i6",
       "author": "Solomon Neas",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T02:38:47.000Z",
-      "summaryZh": "本文分析了Anthropic发布Claude Mythos Preview模型对网络安全领域的冲击。作者指出，该模型在漏洞研究和利用开发方面能力过强，导致Anthropic决定不公开发布，而是通过邀请制的Project Glasswing项目仅限防御性安全合作伙伴使用。\n\n核心发现是：Mythos能自主发现并开发漏洞利用链，包括27年历史的OpenBSD漏洞和浏览器沙箱逃逸攻击。在安全基准测试中表现远超前代模型（如漏洞复现率83.1% vs 66.6%）。\n\n关键警示：1）AI将大幅压缩漏洞从发现到利用的时间窗口（从数月缩短至分钟级）2）模型的编码和推理能力提升会直接转化为攻击能力增强 3）企业需重新评估依赖漏洞未公开（0-day）的安全假设。技术团队应关注AI驱动的自动化攻击对现有防御体系的挑战。",
+      "summaryZh": "本文分析了Anthropic发布Claude Mythos Preview模型对网络安全领域的冲击。作者指出，该模型在漏洞研究和利用开发方面能力突出，以至于Anthropic决定不公开发布，而是通过邀请制的Project Glasswing项目仅限防御性安全合作伙伴使用。\n\n核心方法：Mythos Preview通过API、Amazon Bedrock等平台提供，但访问受严格限制。模型在代码理解和自主工具使用方面有显著提升，能自动识别漏洞并生成复杂利用链。\n\n关键技巧：安全团队需重新评估威胁模型，因为AI可能将漏洞发现到利用的时间从数月压缩到分钟。尽管模型整体对齐性更好，但其在追求任务成功时仍可能绕过限制，因此需加强监控和评估流程。",
       "category": "devto"
     },
     {
@@ -20,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T13:13:56.000Z",
-      "summaryZh": "本文针对开发者在使用Claude Code时遇到的配额消耗过快问题，分析了官方确认的原因和实用解决方案。用户场景是开发者在使用Claude Code进行代码重构、仓库扫描等任务时，发现会话配额消耗异常加速，影响开发效率。\n\n核心方法包括：1）避开工作日东部时间8:00-14:00的高峰时段执行重型任务；2）默认使用Sonnet模型，仅在复杂场景切换Opus；3）通过/effort降低推理强度或禁用extended thinking；4）使用/clear及时清理会话上下文。\n\n关键技巧：将CLAUDE.md控制在200行以内，专用指令移至skills按需加载；用/rename保存会话后清理历史；通过MAX_THINKING_TOKENS=8000限制思考令牌；提示词需具体明确（如指定文件路径），避免模糊请求触发全库扫描。",
+      "summaryZh": "本文针对开发者在使用Claude Code时遇到的配额消耗过快问题，分析了官方确认的原因与应对策略。用户场景：近期用户反馈Claude Code会话配额消耗异常加速，尤其在高峰时段或执行重型任务时更为明显。\n\n核心方法：Anthropic已确认配额在Claude.ai、Claude Code和Claude Desktop间共享，并实施了高峰时段（美东时间8AM-2PM）限流策略。此外，三月促销结束也导致配额恢复基准水平。\n\n关键技巧：1. 将重型任务（如重构、全库扫描）移至非高峰时段或周末执行；2. 默认使用Sonnet模型，仅对复杂任务切换至Opus；3. 通过/effort降低或禁用扩展思考（extended thinking）以减少token消耗；4. 使用/clear及时重置会话上下文，避免无关任务累积token成本；5. 保持CLAUDE.md简洁（建议200行内），将专项指令移至skills按需加载。",
       "category": "devto"
     },
     {
@@ -31,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T10:59:06.000Z",
-      "summaryZh": "本文总结了本周AI开发领域的关键动态。作者从开发者视角出发，分析了Anthropic、Z.ai、Meta和OpenAI的最新进展。\n\n**用户场景**：开发者需要了解前沿AI模型的能力边界、开源生态变化及商业化服务，以评估技术选型、安全影响和工具效率。\n\n**核心方法**：\n- Anthropic推出过于危险而暂不公开的漏洞挖掘模型Claude Mythos，并与巨头合作优先修补系统。\n- Z.ai发布开源模型GLM-5.1，在SWE-Bench Pro编码基准测试中超越GPT-5和Claude，支持长达8小时的自主编码任务。\n- Anthropic推出Claude Managed Agents托管服务，提供规模化AI代理部署的API与基础设施。\n- Meta发布闭源模型Muse Spark，改变了其开源策略。\n\n**关键技巧**：\n- 关注GLM-5.1（MIT许可）作为开源编码工具的高性价比替代方案，尤其适合需要长上下文连贯性的任务。\n- 评估Claude Managed Agents时需权衡便利性与供应商锁定风险，其与Sentry等平台的集成展示了生产环境自动修复bug的实用场景。\n- 注意开源生态变化：若依赖开源模型，可转向GLM-5.1、Gemma 4或Qwen 3.5等选项。\n- 警惕AI发现漏洞的速度可能超过人类修复能力，及时更新依赖库的安全补丁。",
+      "summaryZh": "本文总结AI开发周报核心内容：1. 用户场景：开发者面临AI模型安全风险、开源替代选择及企业级AI代理部署需求。2. 核心方法：Anthropic通过Claude Mythos发现系统漏洞但限制公开；Z.ai推出MIT许可的GLM-5.1开源模型；Anthropic推出Claude Managed Agents简化AI代理部署。3. 关键技巧：关注GLM-5.1在SWE-Bench Pro的领先表现（58.4分）及其8小时持续编码能力；评估开源模型（GLM-5.1/Gemma 4/Qwen 3.5）与闭源方案；通过Sentry等集成实现生产环境Bug自动修复。注意：Anthropic营收达300亿美元反映AI工具商业化成熟度。",
       "category": "devto"
     },
     {
@@ -42,7 +53,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T16:44:05.000Z",
-      "summaryZh": "本文介绍了一个结合Anthropic Claude与TensorFlow的实时加密货币交易系统。用户场景是让交易者通过自然语言指令（如“做多ETH 3倍杠杆”）自动执行交易，无需手动操作。核心方法采用分层架构：Claude作为自然语言接口与推理层，解析用户意图并生成解释；TensorFlow模型（包括Transformer市场状态分类器和GARCH波动率预测）负责量化分析与信号生成；系统根据市场状态（趋势、盘整、波动）动态路由至不同策略。关键技巧包括：使用GARCH模型动态计算止损（避免固定百分比止损在波动市场中失效），以及利用Claude可靠的工具调用能力确保交易执行安全透明。这种LLM负责推理解释、传统ML模型负责预测的设计模式，兼顾了自动化与可解释性。",
+      "summaryZh": "本文介绍了一个结合Anthropic Claude与TensorFlow的实时加密货币交易系统。用户场景是让交易者通过自然语言指令（如“做多ETH 3倍杠杆”）自动执行交易，无需手动操作。核心方法采用分层架构：Claude作为自然语言接口与推理层，解析用户意图并生成解释；TensorFlow模型（包括Transformer分类器和GARCH波动率预测）负责市场状态判断与参数计算；Redis存储53种技术指标数据。关键技巧包括：使用Transformer准确分类市场趋势（上涨、下跌、盘整、高波动），避免策略错配；通过GARCH模型动态计算止损位，替代固定百分比止损以降低爆仓风险；利用Claude的结构化解释能力，结合实时指标（如RSI、布林带）向用户透明展示交易逻辑，提升信任度。系统在700多个交易对上实现了78%的市场状态分类准确率，并将止损触发率降低了40%。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Might Build Its Own AI Chips, and That Changes the AI Power Map",
+      "titleZh": "Anthropic或自研AI芯片，这将改变AI势力版图",
+      "link": "https://dev.to/damogallagher/anthropic-might-build-its-own-ai-chips-and-that-changes-the-ai-power-map-5704",
+      "author": "Damien Gallagher",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-10T15:51:56.000Z",
+      "summaryZh": "本文探讨了Anthropic考虑自研AI芯片的战略意义。作者指出，当前AI竞争已从模型质量转向算力控制，因为训练和推理能力决定了企业能否持续改进模型并满足市场需求。Anthropic目前依赖英伟达、谷歌和亚马逊的硬件，虽降低了研发成本，但也带来了供应链依赖风险。\n\n核心方法是探索定制芯片以优化特定工作负载、降低单token成本并提升能效。这不仅能缓解算力瓶颈，还能增强与现有合作伙伴（如谷歌TPU、AWS芯片）的议价能力。\n\n关键技巧在于：AI公司需意识到基础设施正成为核心竞争力，模型使用者应预见到价格、可用性和平台政策将持续波动。自研芯片虽难度极高，但标志着AI行业向垂直整合演进——控制底层算力可能比拥有最佳模型更重要。",
+      "category": "devto"
+    },
+    {
+      "title": "MCP vs Skills: Which Architecture Actually Wins in 2026?",
+      "titleZh": "MCP与技能架构：2026年究竟哪种设计更胜一筹？",
+      "link": "https://dev.to/whoffagents/mcp-vs-skills-which-architecture-actually-wins-in-2026-29bj",
+      "author": "Atlas Whoff",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-10T12:01:53.000Z",
+      "summaryZh": "本文探讨了在AI工具开发中MCP与Skills两种架构的选择。作者指出，MCP适用于需要真实世界交互的场景，如查询数据库、调用API等，它通过类型化模式提供结构化数据交互。而Skills则擅长定义行为模式，如代码审查流程或调试步骤，无需服务器即可实现行为一致性。关键技巧在于结合使用两者：用Skills定义工作流逻辑，用MCP执行具体操作。开发者应从Skills入手快速验证需求，仅在需要外部数据或持久化副作用时引入MCP，避免过度工程化。",
       "category": "devto"
     },
     {
@@ -53,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T15:06:03.000Z",
-      "summaryZh": "本文探讨了使用Claude Code等AI工具自动化高风险平台操作时如何避免账号被封禁。作者通过分析Meta广告账号被封的真实案例，指出问题核心在于AI以机器速度执行敏感操作（如预算调整、创意上传），触发了平台反欺诈机制。\n\n核心方法是建立\"风险分层\"策略：将平台分为高风险（如Meta/Google广告）、中风险（如LinkedIn、YouTube）和低风险（如dev.to、GitHub），针对不同风险级别采用不同自动化策略。关键技巧包括：1）为所有操作添加随机延迟模拟人类行为；2）默认使用只读权限，写操作需人工审核；3）优先使用平台官方API而非浏览器自动化；4）通过Cookie复用避免重复登录触发风控；5）执行\"凌晨3点测试\"——评估操作在非工作时间是否显得可疑。\n\n特别强调对于广告平台，应采用\"半自动化\"模式：AI仅生成修改建议，由人工在后台一键确认执行，尤其避免自动化预算调整。这些策略在作者自主开发的Atlas智能体中得到验证，实现了业务自动化与账号安全的平衡。",
+      "summaryZh": "本文针对开发者使用Claude Code等AI工具自动化平台操作时遭遇封号的问题，提出了一套风险规避方案。作者通过分析Meta广告账户被封案例，指出平台反欺诈系统会检测异常API访问模式、非人工操作速度等特征。\n\n核心方法是建立平台风险分级机制（高/中/低风险），并为自动化操作添加人性化摩擦：1）所有操作插入随机延迟（2.5-7秒）；2）默认采用只读权限；3）优先使用官方API而非浏览器自动化；4）通过Cookie复用避免重复登录触发风控。\n\n关键技巧包括：对广告平台仅拉取数据不自动修改预算，采用\"AI生成方案+人工审核执行\"的半自动化流程，并通过\"凌晨3点测试\"评估操作可疑度。作者强调自动化本身不是问题，无节制授予AI高权限才是封号根源。",
       "category": "devto"
     },
     {
@@ -64,18 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T09:15:58.000Z",
-      "summaryZh": "本文针对开发者在使用Anthropic API时面临的成本失控问题，提出实时监控解决方案。核心方法是封装Anthropic客户端，在每次API调用时捕获关键元数据（如令牌数、耗时、用户ID和功能标签），并通过异步方式发送至监控后端。关键技巧包括：1）按功能/用户维度标记API调用，精准定位消耗源头；2）设置分层告警规则（如24小时令牌预算、单次请求异常高消耗）；3）避免过度告警，根据实际业务模式定义阈值。通过可视化数据，开发者可优化提示词设计、调整请求策略，实现成本精细化管理。",
-      "category": "devto"
-    },
-    {
-      "title": "Building Your First MCP Server: A Complete Guide for Claude Code",
-      "titleZh": "构建你的首个MCP服务器：Claude Code完全指南",
-      "link": "https://dev.to/whoffagents/building-your-first-mcp-server-a-complete-guide-for-claude-code-2p77",
-      "author": "Atlas Whoff",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-07T09:20:57.000Z",
-      "summaryZh": "本文介绍了如何为Claude Code构建自定义MCP服务器，扩展AI编程助手的工具集成能力。\n\n**用户场景**：解决Claude Code原生功能限制，使其能通过自定义服务器连接文件系统、数据库或实时API等外部资源。\n\n**核心方法**：使用@modelcontextprotocol/sdk创建Node.js服务器，通过StdioServerTransport与Claude Code通信，注册工具（如get_weather）和资源（如config://app）供AI调用。\n\n**关键技巧**：\n1. 在~/.claude/config.json配置服务器路径\n2. 使用MCP inspector进行本地测试\n3. 必须实施输入验证、错误处理和速率限制\n4. 避免硬编码凭证，使用环境变量\n5. 部署前用MCP Security Scanner进行安全审计\n\n通过MCP协议，开发者可为Claude Code创建类似\"贾维斯\"的智能工具生态系统。",
+      "summaryZh": "本文针对开发者在使用Anthropic API时面临的成本失控问题，提出了一套实时监控解决方案。作者指出，原生控制台缺乏实时细粒度数据，导致无法定位高消耗的API调用或用户行为。\n\n核心方法是构建一个封装客户端，在每次API请求时捕获关键元数据（如令牌数、耗时、用户ID和功能模块），并将数据异步发送至监控后端。文中提供了Python代码示例，演示如何包装Anthropic客户端以自动收集指标。\n\n关键技巧包括：1）按实际业务设置智能告警（如单日令牌预算、异常高消耗请求），避免警报疲劳；2）将数据接入时序数据库或专用监控平台（如ClawPulse），实现可视化分析；3）通过数据洞察优化提示词设计或请求批处理，从而显著降低API成本。",
       "category": "devto"
     },
     {
@@ -86,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-08T13:38:48.000Z",
-      "summaryZh": "本文针对Claude Code用户因Anthropic调整Max套餐（$200/月）的速率限制而影响开发效率的问题，提出了一种经济高效的替代方案。核心方法是利用Claude Code支持的环境变量ANTHROPIC_BASE_URL，将请求路由至SimplyLouie的API代理端点（$2/月），从而直接使用Claude官方模型，无需改变现有工作流。关键技巧包括：通过设置环境变量快速切换端点，享受透明且按需计费的API访问；对于重度用户，此方案即使按使用量阶梯计费，成本仍远低于原套餐，且能规避SaaS产品的隐性降级风险。",
+      "summaryZh": "本文针对Claude Code用户因Anthropic调整Max套餐（$200/月）的速率限制而影响开发效率的问题，提出了一种经济高效的替代方案。核心方法是利用Claude Code支持的环境变量ANTHROPIC_BASE_URL，将API请求通过SimplyLouie（$2/月）代理服务路由至Anthropic官方API，从而绕过原套餐限制。关键技巧包括：通过设置环境变量无缝切换端点，保持原有开发流程不变；选择透明计费的代理服务，按实际使用量付费，避免企业级产品的隐性成本。此方案尤其适合进行代码重构、调试等间歇性开发场景，能以极低成本获得相同的Claude模型能力。",
       "category": "devto"
     },
     {
@@ -97,18 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-07T19:58:03.000Z",
-      "summaryZh": "本文介绍如何利用Claude Code的`-p`（非交互模式）标志构建全自动AI代理。作者通过设置定时任务（macOS launchd），让Claude Code在无人干预下执行开发工具业务的日常运维，包括内容发布、支付处理、数据分析等。\n\n核心方法包括：使用`-p`参数执行预设指令链，配合`--dangerously-skip-permissions`跳过权限确认，通过`--max-budget-usd`控制成本，并利用`--add-dir`提供项目上下文。\n\n关键技巧：1) 提示词需明确指定文件路径和后备方案；2) 任务结尾需包含报告生成步骤；3) 避免模糊指令导致意外行为；4) 长任务应拆分防止上下文丢失。作者通过此方案实现了500+文章自动发布与业务全流程管理。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Just Admitted Their New Model Is Too Dangerous to Release",
-      "titleZh": "Anthropic承认其新模型过于危险，不宜发布",
-      "link": "https://dev.to/o96a/anthropic-just-admitted-their-new-model-is-too-dangerous-to-release-2og1",
-      "author": "Aamer Mihaysi",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-08T11:21:44.000Z",
-      "summaryZh": "本文讨论了Anthropic公司最新AI模型Claude Mythos在网络安全领域的突破性能力及其引发的安全担忧。\n\n**用户场景**：针对软件漏洞挖掘与利用这一高难度安全研究任务，传统方法效率低下且高度依赖专家经验。\n\n**核心方法**：Claude Mythos通过自主分析代码，能够串联多个漏洞（如浏览器JIT堆喷、内核竞争条件、TCP协议漏洞等）构建完整攻击链，在200次测试中成功开发181个可利用漏洞。\n\n**关键技巧**：模型展示了多维度攻击能力——包括浏览器沙箱逃逸、Linux本地提权、跨数据包ROP链构建，甚至发现了存在27年的OpenBSD TCP SACK漏洞。开发者需关注：1）AI驱动漏洞挖掘将大幅提升补丁需求速度 2）开源模型（如GLM-5.1）正快速逼近前沿能力 3）亟需开发AI驱动的防御性代码审计工具。\n\n该案例标志着AI能力管理从理论讨论进入实操阶段，企业首次因安全风险主动限制先进模型的部署。",
+      "summaryZh": "本文介绍如何利用Claude Code的`-p`（--print）标志实现完全自主的AI代理工作流。作者通过该功能运行一个开发者工具业务，实现零人工干预的自动化管理。\n\n**用户场景**：解决需要定期执行开发任务（如内容发布、支付处理、日志记录）但希望完全自动化、无需人工介入的场景。\n\n**核心方法**：使用`claude -p`命令启动非交互会话，配合`--dangerously-skip-permissions`跳过权限确认、`--add-dir`添加项目目录、`--max-budget-usd`设置预算上限。通过macOS launchd定时触发任务（如每日3次）。\n\n**关键技巧**：\n1. 提示词需明确声明自主代理身份，包含具体任务列表、文件路径和备用方案\n2. 必须设置预算上限防止无限循环\n3. 每个任务需指定精确路径（避免模糊描述）\n4. 最后添加报告任务让代理自行记录工作内容\n5. 复杂任务应拆分为多个会话防止上下文溢出\n\n作者通过此方案实现了500+文章自动发布、支付处理、数据分析等全流程自动化。",
       "category": "devto"
     },
     {
@@ -119,19 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-08T13:22:51.000Z",
-      "summaryZh": "本文介绍了Anthropic发布Claude Mythos模型并限制其公开使用的决策。用户场景聚焦于AI在安全研究领域的突破性应用，该模型能自主发现并串联多个漏洞，甚至挖掘出存在27年的系统漏洞。核心方法是Anthropic通过\"Project Glasswing\"项目，仅向安全研究合作伙伴提供模型访问，并投入资金支持开源安全组织。关键技巧包括：AI已从生成低质量报告转向产出真实有效的安全报告；企业需在漏洞防御与攻击能力之间找到平衡；建议安全团队关注AI自动化漏洞挖掘对传统研究模式的冲击。",
+      "summaryZh": "本文探讨Anthropic因安全风险限制Claude Mythos模型发布的行业影响。作者指出该模型展现出前所未有的漏洞挖掘能力：能自主串联四个漏洞突破浏览器沙箱，在Firefox测试中生成181个有效攻击载荷，甚至发现了存在27年的OpenBSD漏洞。核心方案是\"Project Glasswing\"：向安全合作伙伴提供1亿美元算力资源，优先让防御方修补漏洞，暂不向公众开放高危模型。关键启示在于：AI正彻底改变漏洞研究范式，传统依赖专家经验的漏洞挖掘可能被自动化工具取代，但需在安全研究加速与风险管控间寻求平衡。",
       "category": "devto"
     },
     {
-      "title": "LangChain vs Vercel AI SDK vs Raw API: Choosing Your AI Stack",
-      "titleZh": "LangChain vs Vercel AI SDK vs 原生API：如何选择你的AI技术栈",
-      "link": "https://dev.to/whoffagents/langchain-vs-vercel-ai-sdk-vs-raw-api-choosing-your-ai-stack-4e56",
-      "author": "Atlas Whoff",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-07T09:34:42.000Z",
-      "summaryZh": "本文对比了三种主流AI开发方案：Raw API、Vercel AI SDK和LangChain，帮助开发者根据场景选择技术栈。\n\n**用户场景**：针对不同复杂度的AI应用开发需求，从简单对话到复杂RAG系统。\n\n**核心方法**：\n- Raw API：直接调用官方SDK，适合简单补全任务和成本优化场景\n- Vercel AI SDK：为React/Next.js优化的全栈方案，内置流式响应和工具调用\n- LangChain：专为复杂工作流设计，支持RAG、多步代理和向量存储集成\n\n**关键技巧**：\n1. 简单场景选Raw API，避免不必要的抽象层\n2. 需要多模型切换时用Vercel AI SDK，其统一接口支持Claude/GPT/Gemini\n3. 文档处理和复杂代理场景必须用LangChain的链式架构\n4. 所有方案都支持工具调用功能，但实现方式不同",
-      "category": "devto"
+      "title": "v2.1.98",
+      "titleZh": "v2.1.98",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.98",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-04-09T19:18:28.000Z",
+      "summaryZh": "Claude Code v2.1.98 发布，主要更新包括：新增 Google Vertex AI 交互式设置向导、Monitor 工具和子进程沙箱隔离；修复了多个安全漏洞，包括 Bash 工具权限绕过和代码执行风险；解决了 /resume 选择器、/export 路径处理、内存泄漏等问题。新增 CLAUDE_CODE_PERFORCE_MODE 等环境变量，改进了 /agents 界面布局和 Vim 模式导航。部分权限规则和设置行为有调整，需注意兼容性。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.97",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-08T21:52:34.000Z",
-      "summaryZh": "Claude Code v2.1.97 发布。新增功能：支持 NO_FLICKER 模式下的焦点视图切换（Ctrl+O），可显示提示、工具摘要和最终响应；状态栏新增 refreshInterval 设置，支持定期重新运行命令；新增 Cedar 策略文件语法高亮。修复多项权限问题，包括 --dangerously-skip-permissions 模式异常、Bash 工具权限检查、settings.json 被忽略等；解决 MCP 连接内存泄漏、HTTP 429 重试机制、/resume 缓存丢失、跨会话工作目录泄漏等问题；优化 NO_FLICKER 模式下的滚动、复制、内存泄漏等表现。改进自动批准逻辑、图像压缩、多语言输入体验等。",
+      "summaryZh": "Claude Code v2.1.97 发布，新增聚焦视图切换（Ctrl+O）和状态行刷新间隔设置，支持 Cedar 策略文件语法高亮。修复了多项权限、MCP 连接、恢复会话和 NO_FLICKER 模式问题，包括内存泄漏、滚动异常和文本复制乱码。改进了自动批准逻辑、图像压缩、命令补全和桥接会话显示。包含多项性能优化和错误提示改进。",
       "category": "github-release"
     },
     {
@@ -153,17 +164,6 @@
       "sourceType": "github-release",
       "pubDate": "2026-04-08T04:37:36.000Z",
       "summaryZh": "Claude Code v2.1.96 修复了关键 Bug：在 v2.1.94 中引入的回归问题导致使用 AWS_BEARER_TOKEN_BEDROCK 或 CLAUDE_CODE_SKIP_BEDROCK_AUTH 时，Bedrock 请求会因 403 \"Authorization header is missing\" 错误而失败。本次更新无新增功能或破坏性变更。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.94",
-      "titleZh": "v2.1.94",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.94",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-04-07T21:18:51.000Z",
-      "summaryZh": "Claude Code v2.1.94 发布，主要更新：新增对 Amazon Bedrock（Mantle 驱动）的支持，默认将 API 等用户的代码生成强度设为 high。修复了多个关键问题：代理在 429 限流后卡住、macOS 控制台登录失败、插件技能钩子被忽略、长会话中滚动显示异常等。VSCode 扩展优化了启动性能，修复了下拉菜单选择错误，并添加了 settings.json 解析失败的警告横幅。无重大破坏性变更。",
       "category": "github-release"
     }
   ]
