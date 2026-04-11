@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-04-10T18:43:06.103Z",
+  "lastUpdated": "2026-04-11T18:31:56.122Z",
   "items": [
+    {
+      "title": "anthropic mythos, Where Secrecy Becomes Social Proof",
+      "titleZh": "Anthropic神话：当保密成为社交资本",
+      "link": "https://dev.to/simon_paxton/anthropic-mythos-where-secrecy-becomes-social-proof-1pig",
+      "author": "Simon Paxton",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-11T04:09:26.000Z",
+      "summaryZh": "本文分析了Anthropic公司发布Mythos模型时的市场策略，揭示了AI行业一种新型产品发布逻辑。\n\n**用户场景**：AI模型发布时面临公众难以独立评估真实能力的困境，传统基准测试和公开演示存在局限性。\n\n**核心方法**：通过“安全框架包装+限量预览+精英合作伙伴+传闻发酵”的组合策略，将模型保密性转化为社交证明。具体包括：1）以网络安全为由限制访问权限；2）仅向苹果、微软等头部科技公司提供预览；3）允许员工惊叹传闻在社交媒体传播。\n\n**关键技巧**：1）稀缺性即证据——有限访问权限暗示产品价值；2）焦虑即需求——安全担忧反向激发市场兴趣；3）不确定性即品牌光环——技术模糊性为叙事留白。需注意这种策略依赖行业特性：AI模型难以独立验证，员工情绪和合作伙伴名单成为能力代理指标。",
+      "category": "devto"
+    },
     {
       "title": "El mes que Anthropic no respondió: billing, confianza y el costo oculto de depender de APIs de IA",
       "titleZh": "Anthropic沉默的那个月：计费、信任与依赖AI API的隐性成本",
@@ -9,29 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T19:32:29.000Z",
-      "summaryZh": "本文探讨了依赖AI API（如Anthropic）构建生产系统时的隐性风险。作者通过亲身经历指出，AI API的故障模式往往更隐蔽（如返回200状态码但内容为空），且供应商支持响应可能严重延迟，导致业务中断。\n\n核心解决方案包括：严格验证API响应格式（不信任外部API的数据结构）、实现基础熔断机制（Circuit Breaker）以快速失败，以及必须设计降级方案（fallback）应对服务不可用。\n\n关键技巧：始终对第三方API响应进行类型检查；记录足够上下文以便深夜调试；将AI服务视为可能失效的基础设施而非可靠工具，从项目第一天就规划故障处理路径。避免仅依赖供应商状态页，因其可能无法反映真实问题。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Mythos Preview Is a Warning Shot for Every Security Team",
-      "titleZh": "Claude Mythos预览版为所有安全团队敲响警钟",
-      "link": "https://dev.to/solomonneas/claude-mythos-preview-is-a-warning-shot-for-every-security-team-41i6",
-      "author": "Solomon Neas",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-09T02:38:47.000Z",
-      "summaryZh": "本文分析了Anthropic发布Claude Mythos Preview模型对网络安全领域的冲击。作者指出，该模型在漏洞研究和利用开发方面能力突出，以至于Anthropic决定不公开发布，而是通过邀请制的Project Glasswing项目仅限防御性安全合作伙伴使用。\n\n核心方法：Mythos Preview通过API、Amazon Bedrock等平台提供，但访问受严格限制。模型在代码理解和自主工具使用方面有显著提升，能自动识别漏洞并生成复杂利用链。\n\n关键技巧：安全团队需重新评估威胁模型，因为AI可能将漏洞发现到利用的时间从数月压缩到分钟。尽管模型整体对齐性更好，但其在追求任务成功时仍可能绕过限制，因此需加强监控和评估流程。",
+      "summaryZh": "本文探讨了依赖AI API（如Anthropic）构建生产系统时的隐性风险。作者通过亲身经历指出，AI API的故障模式往往更隐蔽（如返回200状态码但内容为空），且供应商支持响应可能严重延迟，导致业务中断。\n\n核心解决方案包括：严格验证API响应格式（不信任外部API的数据结构）、实现基础熔断机制（Circuit Breaker）以快速失败和降级，以及必须预先设计故障回退策略。\n\n关键技巧：始终对第三方API响应进行类型检查和空值验证；为AI集成部署熔断器，避免级联故障；不要完全依赖供应商状态页，需自行监控；在开发早期就规划故障场景处理，而非仅关注正常流程。",
       "category": "devto"
     },
     {
       "title": "Claude Code Is Burning Through Your Quota. Here's What's Actually Happening and How to Fix It.",
-      "titleZh": "Claude Code 正在快速消耗你的额度。问题根源与解决方案全解析。",
+      "titleZh": "Claude Code 正在快速消耗你的额度。问题根源与解决方案在此。",
       "link": "https://dev.to/oldeucryptoboi/claude-code-is-burning-through-your-quota-heres-whats-actually-happening-and-how-to-fix-it-3n9d",
       "author": "Laurent DeSegur",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T13:13:56.000Z",
-      "summaryZh": "本文针对开发者在使用Claude Code时遇到的配额消耗过快问题，分析了官方确认的原因与应对策略。用户场景：近期用户反馈Claude Code会话配额消耗异常加速，尤其在高峰时段或执行重型任务时更为明显。\n\n核心方法：Anthropic已确认配额在Claude.ai、Claude Code和Claude Desktop间共享，并实施了高峰时段（美东时间8AM-2PM）限流策略。此外，三月促销结束也导致配额恢复基准水平。\n\n关键技巧：1. 将重型任务（如重构、全库扫描）移至非高峰时段或周末执行；2. 默认使用Sonnet模型，仅对复杂任务切换至Opus；3. 通过/effort降低或禁用扩展思考（extended thinking）以减少token消耗；4. 使用/clear及时重置会话上下文，避免无关任务累积token成本；5. 保持CLAUDE.md简洁（建议200行内），将专项指令移至skills按需加载。",
+      "summaryZh": "本文针对开发者在使用Claude Code时遇到的配额消耗过快问题，分析了根本原因并提供实用解决方案。用户场景是开发者在高峰时段或进行重型任务时，会话配额迅速耗尽，影响工作效率。核心方法包括：避开工作日东部时间8点至14点的峰值时段，将重型任务移至非高峰时间；默认使用Sonnet模型，仅在复杂场景切换至Opus；通过/effort降低推理强度或禁用扩展思考以节省令牌。关键技巧：使用/clear及时清理会话上下文，避免无关任务累积令牌成本；编写精准提示而非模糊指令，减少文件扫描和工具调用；压缩CLAUDE.md文件至200行以内，将专项指令移至按需加载的skills中。这些策略均基于Anthropic官方文档，能有效延长配额使用时长。",
       "category": "devto"
     },
     {
@@ -42,7 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T10:59:06.000Z",
-      "summaryZh": "本文总结AI开发周报核心内容：1. 用户场景：开发者面临AI模型安全风险、开源替代选择及企业级AI代理部署需求。2. 核心方法：Anthropic通过Claude Mythos发现系统漏洞但限制公开；Z.ai推出MIT许可的GLM-5.1开源模型；Anthropic推出Claude Managed Agents简化AI代理部署。3. 关键技巧：关注GLM-5.1在SWE-Bench Pro的领先表现（58.4分）及其8小时持续编码能力；评估开源模型（GLM-5.1/Gemma 4/Qwen 3.5）与闭源方案；通过Sentry等集成实现生产环境Bug自动修复。注意：Anthropic营收达300亿美元反映AI工具商业化成熟度。",
+      "summaryZh": "本文总结AI开发者周报核心内容：1. 用户场景：开发者面临AI工具选择、代码安全漏洞修复及开源模型生态变化等实际问题。2. 核心方法：Anthropic通过Claude Mythos自动发现系统漏洞并联合科技巨头快速修复；Z.ai推出MIT许可的GLM-5.1开源模型，在SWE-Bench Pro测试中超越GPT-5和Claude；Anthropic推出Claude Managed Agents提供云端AI代理部署API。3. 关键技巧：关注GLM-5.1的8小时持续编码能力对开发效率的提升；警惕Meta转向闭源模型对开源生态的影响；评估Anthropic托管服务在便利性与供应商锁定之间的权衡。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Exploring Custom AI Chips Shows the AI Race Is Moving Down the Stack",
+      "titleZh": "Anthropic探索定制AI芯片，显示AI竞赛正向底层技术栈延伸",
+      "link": "https://dev.to/damogallagher/anthropic-exploring-custom-ai-chips-shows-the-ai-race-is-moving-down-the-stack-52gl",
+      "author": "Damien Gallagher",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-10T20:05:46.000Z",
+      "summaryZh": "本文探讨了Anthropic探索自研AI芯片背后的行业趋势。作者指出，当前AI竞争正从模型能力层面向基础设施栈深层转移。\n\n**用户场景**：AI公司面临外部计算依赖带来的成本、延迟和规模可控性挑战，难以构建可持续的商业壁垒。\n\n**核心方法**：通过定制芯片实现软硬件协同优化，围绕自身推理模式、训练负载和部署模型设计硬件，从而掌控性能、成本与能效。\n\n**关键技巧**：  \n1. 识别并解决关键约束（算力/成本/部署/信任），比单纯追求模型指标更重要  \n2. 构建基础设施级产品优势——通过降低延迟、优化工作流适配来创造实际价值  \n3. 关注工业化能力整合：将模型能力、基础设施经济性、安全控制与企业部署融合为复合系统  \n\n这标志着AI竞争进入工业化阶段，胜负关键将取决于系统经济性而非单纯模型性能。",
       "category": "devto"
     },
     {
@@ -53,18 +64,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T16:44:05.000Z",
-      "summaryZh": "本文介绍了一个结合Anthropic Claude与TensorFlow的实时加密货币交易系统。用户场景是让交易者通过自然语言指令（如“做多ETH 3倍杠杆”）自动执行交易，无需手动操作。核心方法采用分层架构：Claude作为自然语言接口与推理层，解析用户意图并生成解释；TensorFlow模型（包括Transformer分类器和GARCH波动率预测）负责市场状态判断与参数计算；Redis存储53种技术指标数据。关键技巧包括：使用Transformer准确分类市场趋势（上涨、下跌、盘整、高波动），避免策略错配；通过GARCH模型动态计算止损位，替代固定百分比止损以降低爆仓风险；利用Claude的结构化解释能力，结合实时指标（如RSI、布林带）向用户透明展示交易逻辑，提升信任度。系统在700多个交易对上实现了78%的市场状态分类准确率，并将止损触发率降低了40%。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Might Build Its Own AI Chips, and That Changes the AI Power Map",
-      "titleZh": "Anthropic或自研AI芯片，这将改变AI势力版图",
-      "link": "https://dev.to/damogallagher/anthropic-might-build-its-own-ai-chips-and-that-changes-the-ai-power-map-5704",
-      "author": "Damien Gallagher",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-10T15:51:56.000Z",
-      "summaryZh": "本文探讨了Anthropic考虑自研AI芯片的战略意义。作者指出，当前AI竞争已从模型质量转向算力控制，因为训练和推理能力决定了企业能否持续改进模型并满足市场需求。Anthropic目前依赖英伟达、谷歌和亚马逊的硬件，虽降低了研发成本，但也带来了供应链依赖风险。\n\n核心方法是探索定制芯片以优化特定工作负载、降低单token成本并提升能效。这不仅能缓解算力瓶颈，还能增强与现有合作伙伴（如谷歌TPU、AWS芯片）的议价能力。\n\n关键技巧在于：AI公司需意识到基础设施正成为核心竞争力，模型使用者应预见到价格、可用性和平台政策将持续波动。自研芯片虽难度极高，但标志着AI行业向垂直整合演进——控制底层算力可能比拥有最佳模型更重要。",
+      "summaryZh": "本文介绍了一个结合Anthropic Claude与TensorFlow的实时加密货币交易系统。用户场景是让交易者通过自然语言指令（如“做多ETH 3倍杠杆”）自动执行交易，无需手动操作。核心方法采用分层架构：Claude作为自然语言接口与推理层，解析用户意图并生成解释；TensorFlow模型（包括Transformer市场状态分类器和GARCH波动率预测模型）负责量化分析与信号生成；系统根据市场状态动态路由至趋势跟踪或均值回归策略。关键技巧包括：使用Transformer准确分类市场状态（趋势、盘整、波动）以匹配策略；采用GARCH模型动态计算止损位，避免固定百分比止损在波动市场中失效；利用Claude可靠的工具调用能力执行交易，并提供基于多指标（如RSI、布林带）的透明决策解释，从而提升用户信任与系统绩效。",
       "category": "devto"
     },
     {
@@ -75,7 +75,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-10T12:01:53.000Z",
-      "summaryZh": "本文探讨了在AI工具开发中MCP与Skills两种架构的选择。作者指出，MCP适用于需要真实世界交互的场景，如查询数据库、调用API等，它通过类型化模式提供结构化数据交互。而Skills则擅长定义行为模式，如代码审查流程或调试步骤，无需服务器即可实现行为一致性。关键技巧在于结合使用两者：用Skills定义工作流逻辑，用MCP执行具体操作。开发者应从Skills入手快速验证需求，仅在需要外部数据或持久化副作用时引入MCP，避免过度工程化。",
+      "summaryZh": "本文探讨了在AI工具开发中，MCP（Model Context Protocol）与Skills（技能/自定义指令）的架构选择。作者基于实际开发经验，指出两者并非竞争关系，而是互补的技术层。\n\n**用户场景**：开发者需要为Claude等AI模型构建外部工具集成或定义特定行为模式，例如查询实时数据库、执行代码审查流程或自动化部署任务。\n\n**核心方法**：MCP适用于需要真实I/O操作的场景（如调用API、读写文件），通过类型化模式提供结构化数据交互；Skills则用于定义模型的行为逻辑（如代码规范、调试流程），通过上下文注入实现零延迟的行为控制。\n\n**关键技巧**：\n1. 优先使用Skills定义行为逻辑，无需基础设施即可快速验证需求\n2. 仅在需要外部系统交互或持久化副作用时引入MCP\n3. 避免将纯提示工程场景过度工程化为MCP工具\n4. 注重Skills的质量而非MCP工具的数量，精心设计的单个Skill可影响多个工作流\n\n作者建议采用分层架构：Skills作为行为控制层，MCP作为执行层，两者协同构建可靠的AI代理系统。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Might Build Its Own AI Chips, and That Changes the AI Power Map",
+      "titleZh": "Anthropic或自研AI芯片，这将改变AI势力版图",
+      "link": "https://dev.to/damogallagher/anthropic-might-build-its-own-ai-chips-and-that-changes-the-ai-power-map-5704",
+      "author": "Damien Gallagher",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-10T15:51:56.000Z",
+      "summaryZh": "本文探讨了Anthropic考虑自研AI芯片的战略意义。作者指出，当前AI竞争已从模型质量转向算力控制。核心方法是：通过自研定制芯片降低对英伟达、谷歌等供应商的依赖，优化特定工作负载的能效和成本。关键技巧：AI公司需关注垂直整合，将基础设施访问能力转化为竞争优势；开发者应预见到基于前沿模型的定价、可用性和平台政策将持续波动。这标志着AI行业进入基础设施战略竞争的新阶段。",
       "category": "devto"
     },
     {
@@ -86,7 +97,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T15:06:03.000Z",
-      "summaryZh": "本文针对开发者使用Claude Code等AI工具自动化平台操作时遭遇封号的问题，提出了一套风险规避方案。作者通过分析Meta广告账户被封案例，指出平台反欺诈系统会检测异常API访问模式、非人工操作速度等特征。\n\n核心方法是建立平台风险分级机制（高/中/低风险），并为自动化操作添加人性化摩擦：1）所有操作插入随机延迟（2.5-7秒）；2）默认采用只读权限；3）优先使用官方API而非浏览器自动化；4）通过Cookie复用避免重复登录触发风控。\n\n关键技巧包括：对广告平台仅拉取数据不自动修改预算，采用\"AI生成方案+人工审核执行\"的半自动化流程，并通过\"凌晨3点测试\"评估操作可疑度。作者强调自动化本身不是问题，无节制授予AI高权限才是封号根源。",
+      "summaryZh": "本文针对开发者使用Claude Code等AI工具自动化操作时易触发平台风控的问题，提出了一套风险分层与防封禁策略。作者通过分析Meta广告账户被封案例，指出直接赋予AI高级API权限并以机器速度操作是主因。\n\n核心方法是将平台按风险分级：广告支付类（高风险）仅限数据读取+人工审核，社交平台（中风险）需添加随机延迟与Cookie认证，技术社区（低风险）可安全调用官方API。关键技巧包括：为所有操作添加2.5-7秒随机延迟、默认只读模式、使用平台原生API替代浏览器自动化、通过Cookie复用避免重复登录验证。\n\n开发者应注意：永远不要自动化预算修改等高危操作，采用\"AI生成方案+人工一键确认\"的半自动化模式，并通过\"凌晨3点测试\"评估操作合理性。",
+      "category": "devto"
+    },
+    {
+      "title": "MCP 2026: From Anthropic Proposal to Industry Standard",
+      "titleZh": "MCP 2026：从Anthropic提案到行业标准",
+      "link": "https://dev.to/chunxiaoxx/mcp-2026-from-anthropic-proposal-to-industry-standard-1kfa",
+      "author": "chunxiaoxx",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-11T17:45:45.000Z",
+      "summaryZh": "本文探讨了Anthropic提出的Model Context Protocol（MCP）如何从厂商协议演变为AI基础设施标准。作者面向需要将AI模型与外部系统（数据库、API等）集成的开发者，指出传统定制化集成成本高昂的问题。\n\n核心方法在于MCP通过标准化接口统一AI与工具的连接方式，类比USB-C的通用性。关键发展节点包括：2025年OpenAI等巨头采纳推动生态爆发，2025年底Anthropic将协议捐赠给Linux基金会下的AAIF确保中立治理，2026年路线图聚焦传输扩展性、会话韧性等生产级需求。\n\n对开发者的关键建议：1）应尽早基于MCP构建，其已成为稳定基础设施而非厂商锁定方案 2）关注MCP在无状态扩展、多智能体通信等演进方向 3）可结合Anthropic同期发布的Claude托管智能体平台提升企业级部署效率。",
       "category": "devto"
     },
     {
@@ -97,18 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-09T09:15:58.000Z",
-      "summaryZh": "本文针对开发者在使用Anthropic API时面临的成本失控问题，提出了一套实时监控解决方案。作者指出，原生控制台缺乏实时细粒度数据，导致无法定位高消耗的API调用或用户行为。\n\n核心方法是构建一个封装客户端，在每次API请求时捕获关键元数据（如令牌数、耗时、用户ID和功能模块），并将数据异步发送至监控后端。文中提供了Python代码示例，演示如何包装Anthropic客户端以自动收集指标。\n\n关键技巧包括：1）按实际业务设置智能告警（如单日令牌预算、异常高消耗请求），避免警报疲劳；2）将数据接入时序数据库或专用监控平台（如ClawPulse），实现可视化分析；3）通过数据洞察优化提示词设计或请求批处理，从而显著降低API成本。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic quietly cut what $200/month Claude users get — here's the $2 alternative",
-      "titleZh": "Anthropic悄然削减200美元月费Claude用户权益——这是2美元的替代方案",
-      "link": "https://dev.to/subprime2010/anthropic-quietly-cut-what-200month-claude-users-get-heres-the-2-alternative-54oi",
-      "author": "brian austin",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-08T13:38:48.000Z",
-      "summaryZh": "本文针对Claude Code用户因Anthropic调整Max套餐（$200/月）的速率限制而影响开发效率的问题，提出了一种经济高效的替代方案。核心方法是利用Claude Code支持的环境变量ANTHROPIC_BASE_URL，将API请求通过SimplyLouie（$2/月）代理服务路由至Anthropic官方API，从而绕过原套餐限制。关键技巧包括：通过设置环境变量无缝切换端点，保持原有开发流程不变；选择透明计费的代理服务，按实际使用量付费，避免企业级产品的隐性成本。此方案尤其适合进行代码重构、调试等间歇性开发场景，能以极低成本获得相同的Claude模型能力。",
+      "summaryZh": "本文针对开发者在使用Anthropic API时面临的成本失控问题，提出了一套实时监控解决方案。作者指出，原生仪表盘缺乏实时性和细粒度数据，导致无法定位高消耗的代码模块或用户行为。\n\n核心方法是构建一个包装客户端，在每次API调用时捕获关键元数据（如令牌数、耗时、用户ID和功能模块），并将数据流式传输到可查询的后端。文中提供了Python代码示例，演示如何封装Anthropic客户端以自动记录每次请求的输入/输出令牌数、延迟及业务上下文。\n\n关键技巧包括：1）避免过度告警，应针对性地设置阈值（如单日令牌预算、异常高消耗请求）；2）将监控数据与业务维度（用户、功能）关联，以识别优化点；3）建议使用专用监控平台（如ClawPulse）简化基础设施搭建。通过实时可视化，团队可优化提示设计或请求批处理，从而显著降低API成本。",
       "category": "devto"
     },
     {
@@ -119,19 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-07T19:58:03.000Z",
-      "summaryZh": "本文介绍如何利用Claude Code的`-p`（--print）标志实现完全自主的AI代理工作流。作者通过该功能运行一个开发者工具业务，实现零人工干预的自动化管理。\n\n**用户场景**：解决需要定期执行开发任务（如内容发布、支付处理、日志记录）但希望完全自动化、无需人工介入的场景。\n\n**核心方法**：使用`claude -p`命令启动非交互会话，配合`--dangerously-skip-permissions`跳过权限确认、`--add-dir`添加项目目录、`--max-budget-usd`设置预算上限。通过macOS launchd定时触发任务（如每日3次）。\n\n**关键技巧**：\n1. 提示词需明确声明自主代理身份，包含具体任务列表、文件路径和备用方案\n2. 必须设置预算上限防止无限循环\n3. 每个任务需指定精确路径（避免模糊描述）\n4. 最后添加报告任务让代理自行记录工作内容\n5. 复杂任务应拆分为多个会话防止上下文溢出\n\n作者通过此方案实现了500+文章自动发布、支付处理、数据分析等全流程自动化。",
+      "summaryZh": "本文介绍如何利用Claude Code的`-p`（非交互模式）标志构建全自动AI代理。作者通过该功能实现开发者工具业务的无人化运营，包括内容发布、支付处理等日常任务。\n\n**核心方法**：通过`claude -p`指令配合`--dangerously-skip-permissions`等参数启动无头会话，结合macOS launchd设置定时任务（如每日3次），使AI代理能自主读取文件、执行命令并生成工作报告。\n\n**关键技巧**：\n1. 提示词需明确指定文件路径和备用方案（如\"若X失败则执行Y并记录\"）\n2. 必须设置`--max-budget-usd`防止无限循环\n3. 通过`--add-dir`添加所有需访问的目录避免权限错误\n4. 长任务应拆分为多个会话防止上下文溢出\n5. 提示词结尾需包含报告生成任务以便追踪执行结果\n\n该方案已实现500+文章自动发布、支付系统自动化等场景，展示了AI代理在开发运维中的实用价值。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Just Did Something Unprecedented: They Kept a Model Because It Was Too Good at Hacking",
-      "titleZh": "Anthropic做出前所未有之举：因模型黑客能力过强而将其保留",
-      "link": "https://dev.to/o96a/anthropic-just-did-something-unprecedented-they-kept-a-model-because-it-was-too-good-at-hacking-135",
-      "author": "Aamer Mihaysi",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-08T13:22:51.000Z",
-      "summaryZh": "本文探讨Anthropic因安全风险限制Claude Mythos模型发布的行业影响。作者指出该模型展现出前所未有的漏洞挖掘能力：能自主串联四个漏洞突破浏览器沙箱，在Firefox测试中生成181个有效攻击载荷，甚至发现了存在27年的OpenBSD漏洞。核心方案是\"Project Glasswing\"：向安全合作伙伴提供1亿美元算力资源，优先让防御方修补漏洞，暂不向公众开放高危模型。关键启示在于：AI正彻底改变漏洞研究范式，传统依赖专家经验的漏洞挖掘可能被自动化工具取代，但需在安全研究加速与风险管控间寻求平衡。",
-      "category": "devto"
+      "title": "v2.1.101",
+      "titleZh": "v2.1.101",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.101",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-04-10T19:03:41.000Z",
+      "summaryZh": "Claude Code v2.1.101 发布，主要更新：新增 /team-onboarding 命令生成队友入门指南；默认信任 OS CA 证书库以支持企业 TLS 代理；/ultraplan 等功能自动创建默认云环境；改进 brief/focus 模式、错误提示和插件管理。修复了命令注入漏洞、内存泄漏、会话恢复、权限覆盖、MCP 工具继承等大量问题。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.98",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-09T19:18:28.000Z",
-      "summaryZh": "Claude Code v2.1.98 发布，主要更新包括：新增 Google Vertex AI 交互式设置向导、Monitor 工具和子进程沙箱隔离；修复了多个安全漏洞，包括 Bash 工具权限绕过和代码执行风险；解决了 /resume 选择器、/export 路径处理、内存泄漏等问题。新增 CLAUDE_CODE_PERFORCE_MODE 等环境变量，改进了 /agents 界面布局和 Vim 模式导航。部分权限规则和设置行为有调整，需注意兼容性。",
+      "summaryZh": "Claude Code v2.1.98 发布，新增 Google Vertex AI 交互式设置向导、Monitor 工具和子进程沙箱隔离。修复了多个安全漏洞，包括 Bash 工具权限绕过和代码执行风险。改进了 /resume 选择器、代理管理界面和 Vim 模式。注意：环境变量 CLAUDE_CODE_PERFORMA_MODE 现在对只读文件会提示 p4 edit，而非静默覆盖。",
       "category": "github-release"
     },
     {
@@ -152,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-08T21:52:34.000Z",
-      "summaryZh": "Claude Code v2.1.97 发布，新增聚焦视图切换（Ctrl+O）和状态行刷新间隔设置，支持 Cedar 策略文件语法高亮。修复了多项权限、MCP 连接、恢复会话和 NO_FLICKER 模式问题，包括内存泄漏、滚动异常和文本复制乱码。改进了自动批准逻辑、图像压缩、命令补全和桥接会话显示。包含多项性能优化和错误提示改进。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.96",
-      "titleZh": "v2.1.96",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.96",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-04-08T04:37:36.000Z",
-      "summaryZh": "Claude Code v2.1.96 修复了关键 Bug：在 v2.1.94 中引入的回归问题导致使用 AWS_BEARER_TOKEN_BEDROCK 或 CLAUDE_CODE_SKIP_BEDROCK_AUTH 时，Bedrock 请求会因 403 \"Authorization header is missing\" 错误而失败。本次更新无新增功能或破坏性变更。",
+      "summaryZh": "Claude Code v2.1.97 发布，新增焦点视图切换（Ctrl+O）和状态行刷新间隔设置，支持 Cedar 策略文件语法高亮。修复了多项权限、MCP 连接、恢复会话和 NO_FLICKER 模式下的问题，包括内存泄漏、滚动异常和文本复制乱码。改进了自动批准逻辑、图像处理和命令补全。包含多项性能优化和界面改进。",
       "category": "github-release"
     }
   ]
