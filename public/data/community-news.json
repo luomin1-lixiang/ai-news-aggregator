@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-04-12T18:35:36.790Z",
+  "lastUpdated": "2026-04-13T19:03:09.882Z",
   "items": [
     {
-      "title": "anthropic mythos, Where Secrecy Becomes Social Proof",
-      "titleZh": "Anthropic神话：当保密成为社交资本",
-      "link": "https://dev.to/simon_paxton/anthropic-mythos-where-secrecy-becomes-social-proof-1pig",
-      "author": "Simon Paxton",
+      "title": "How to Add AI Features to Any Existing Web App Without a Rewrite",
+      "titleZh": "如何在不重写代码的情况下为现有Web应用添加AI功能",
+      "link": "https://dev.to/pockit_tools/how-to-add-ai-features-to-any-existing-web-app-without-a-rewrite-o40",
+      "author": "HK Lee",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-11T04:09:26.000Z",
-      "summaryZh": "本文分析了Anthropic公司发布Mythos模型时的市场策略，揭示了AI行业一种新型产品发布模式。\n\n**用户场景**：AI公司如何在模型能力难以公开验证的情况下，有效建立市场认知和品牌价值。\n\n**核心方法**：通过“限制访问+安全叙事+精英背书”的组合策略，将模型稀缺性转化为社会认同。具体包括：1）仅向苹果、微软等头部科技/安全公司开放（Project Glasswing）；2）强调网络安全风险评估框架；3）利用合作伙伴名单作为“社会证明”。\n\n**关键技巧**：1）不依赖传统基准测试，而是通过“内部员工反应”、“合作伙伴声望”等间接信号塑造认知；2）将安全关切（如非常规心理评估）自然转化为能力暗示；3）允许而非压制传闻传播，让市场自行完成叙事构建。这种策略的核心在于：公开证据的缺失不是缺陷，而是营销有效性的组成部分。",
+      "pubDate": "2026-04-13T13:48:00.000Z",
+      "summaryZh": "本文介绍如何为现有Web应用快速集成AI功能，无需重构。作者针对产品经理要求在现有代码库中添加AI能力（如智能搜索、内容生成）的场景，提出一种非侵入式集成方案。\n\n核心方法是在现有架构中插入独立的AI抽象层，包含AI路由、供应商适配器和防护层。关键技巧包括：1）创建统一的Provider抽象层，支持OpenAI、Anthropic等多供应商热切换；2）内置成本估算函数，实时监控API调用开销；3）采用标准化消息接口，保持代码一致性。\n\n开发者可复用文中TypeScript代码模板，通过封装AI调用、实现流式响应处理和降级机制，将AI能力模块化集成到现有REST API中。",
       "category": "devto"
     },
     {
@@ -20,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-11T21:31:30.000Z",
-      "summaryZh": "本文分析了Claude Code近期因隐藏\"思考过程\"导致的工作流故障。作者指出，当AI编码助手失去可见的推理预算时，会从\"研究优先\"模式转向\"编辑优先\"模式，引发三个核心问题：1）减少代码阅读导致盲目修改；2）违反指令和流程钩子；3）提前声明完成任务但未实际执行。关键技巧在于：开发团队应将AI助手视为工程系统的组成部分，而非智能聊天机器人；必须监控其推理深度和操作状态，避免因隐藏内部机制而破坏工作流契约。当AI助手表现出\"语法正确但逻辑缺失\"时，往往是推理预算不足的早期信号。",
+      "summaryZh": "本文分析了Claude Code近期因隐藏\"思考过程\"导致的性能衰退问题。作者指出，当AI编码助手失去可见的推理预算时，其行为模式会从\"研究优先\"转变为\"编辑优先\"，具体表现为：减少代码阅读（下降至原来的1/3）、增加全文件重写、违反指令、任务中途停止等。关键发现是：扩展思考对高级工程工作流具有结构性支撑作用，而非可选功能。开发者应警惕AI工具在隐藏操作条件时产生的系统性风险，建议通过监控工具调用模式、会话中断率等指标来检测异常，避免将编码助手误当作\"增强版自动补全\"工具而忽视其工作流层面的失效。",
       "category": "devto"
     },
     {
@@ -31,29 +31,84 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-12T06:27:42.000Z",
-      "summaryZh": "本文介绍Anthropic推出的Claude Managed Agents服务，解决开发者构建生产级AI代理时面临的基础设施搭建难题。核心方法是通过托管API平台，用户仅需用自然语言或YAML定义代理逻辑，平台自动处理容器隔离、状态持久化、凭证管理和工具编排等复杂运维。关键技巧包括：区分Claude Code（本地开发环境）与Managed Agents（云端生产部署）的使用场景；利用其多代理协调和自动提示优化功能提升任务成功率；参考早期企业案例（如发票处理、客服自动化）设计无代码工作流。注意开源替代方案（如multica）提供自托管选项，需根据基础设施控制需求选择方案。",
+      "summaryZh": "本文探讨Claude Managed Agents如何解决AI代理的生产级部署难题。作者指出，传统构建需自建容器、状态管理、凭证存储等基础设施，而Claude Managed Agents提供托管服务，用户仅需通过自然语言或YAML定义代理逻辑，平台自动处理沙箱容器、跨步骤状态持久化、安全凭证管理和工具编排。关键技巧包括：区分Claude Code（本地开发环境）与Managed Agents（云端生产部署）的使用场景；利用其多代理协调和自动提示优化功能提升任务成功率；避免重复造轮子，直接应用于发票处理、客户支持自动化等实际工作流。该方案降低了AI代理的运维门槛，使开发者能快速构建可扩展的生产级智能体系统。",
       "category": "devto"
     },
     {
-      "title": "Project Glasswing: Securing critical software for the AI era",
-      "titleZh": "Project Glasswing：为AI时代筑牢关键软件安全防线",
-      "link": "https://dev.to/damogallagher/project-glasswing-securing-critical-software-for-the-ai-era-34f",
-      "author": "Damien Gallagher",
+      "title": "Anthropic vs OpenAI: The Revenue Race That's Reshaping AI in 2026",
+      "titleZh": "Anthropic与OpenAI：重塑2026年AI格局的营收竞赛",
+      "link": "https://dev.to/sheraz046/anthropic-vs-openai-the-revenue-race-thats-reshaping-ai-in-2026-4pi9",
+      "author": "Muhammad Sheraz",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-11T21:29:02.000Z",
-      "summaryZh": "Anthropic的Project Glasswing项目针对AI时代软件安全防御速度滞后于攻击的严峻挑战。核心方法是联合AWS、Google等科技巨头，利用其前沿模型Claude Mythos Preview大规模扫描关键软件漏洞，并通过向开源组织提供资金与API访问来构建防御生态。关键技巧在于将AI深度集成到安全运维工作流中，实现漏洞的持续发现、验证与修复闭环，而非仅作为辅助工具。开发者需转变观念，将AI驱动的安全审查嵌入开发全流程，以应对攻击面扩大和漏洞挖掘成本降低的双重压力。",
+      "pubDate": "2026-04-13T05:24:20.000Z",
+      "summaryZh": "本文分析了2026年Anthropic与OpenAI在AI市场的竞争格局。**用户场景**：企业级AI应用开发者和技术决策者需要选择适合生产环境的AI平台。**核心方法**：Anthropic凭借Claude Code这一杀手级应用实现爆发式增长，其企业优先策略（API收入占比70-75%）优化了生产级工作负载支持；OpenAI则依赖ChatGPT订阅和API，但面临高昂的推理成本（2025年达84亿美元）。**关键技巧**：1. 企业用户应关注API定价、速率限制和SLA设计；2. Anthropic的单用户月均收入达211美元（OpenAI为25美元/周），显示其更高的商业化效率；3. 注意OpenAI的现金流困境（预计2030年才转正）可能影响长期服务稳定性。",
+      "category": "devto"
+    },
+    {
+      "title": "Specification-First Agentic Development: A Methodology for Structured, Traceable AI-Assisted Development",
+      "titleZh": "规范优先的智能体开发：一种结构化、可追溯的AI辅助开发方法论",
+      "link": "https://dev.to/holgerleichsenring/specification-first-agentic-development-a-methodology-for-structured-traceable-ai-assisted-la",
+      "author": "holger leichsenring",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-12T20:04:59.000Z",
+      "summaryZh": "本文介绍了一种\"规范优先\"的AI辅助开发方法，解决开发者使用Claude等工具时常见的代码质量失控、上下文丢失和决策追溯难题。核心方法是通过结构化文件夹（planned/active/done）管理开发阶段，并强制要求每个阶段必须创建决策日志（decisions.md）。关键技巧包括：1）先在Claude Web讨论并生成规范文档，再进入IDE编码；2）通过context.yaml文件压缩项目上下文，避免重复消耗token；3）采用\"合约优先→实现→依赖注入→测试\"的严格实施顺序。该方法特别适合需要长期维护的中大型项目，确保六个月后仍能清晰追溯每个架构决策的\"为什么\"。",
+      "category": "devto"
+    },
+    {
+      "title": "Mythos: The AI Anthropic Built and Wont Let You Use",
+      "titleZh": "Mythos：Anthropic打造却未向公众开放的AI系统",
+      "link": "https://dev.to/sunilskcj/mythos-the-ai-anthropic-built-and-wont-let-you-use-34pf",
+      "author": "Sunil Cj",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-12T19:48:52.000Z",
+      "summaryZh": "本文分析了Anthropic未公开AI模型Mythos的行业影响。用户场景聚焦于网络安全领域，模型泄露事件引发了对AI攻防能力失衡的担忧。核心方法体现在Anthropic通过\"Project Glasswing\"计划进行受控部署，仅向精选的网络安全防御方开放访问，这种\"疫苗式\"发布策略颠覆了传统API开放模式。关键技巧包括：1）关注\"阶跃变化\"指标而非常规性能提升，该术语通常意味着模型突破原有能力边界；2）警惕AI自动化攻击对传统安全运维模式的冲击，防御方需重新评估人力分析的价值定位；3）注意商业策略与安全伦理的平衡，企业需在能力开放与风险管控间建立新范式。",
+      "category": "devto"
+    },
+    {
+      "title": "Mythos: The AI Anthropic Built and Won't Let You Use",
+      "titleZh": "Mythos：Anthropic打造却禁止你使用的AI",
+      "link": "https://dev.to/sunilskcj/mythos-the-ai-anthropic-built-and-wont-let-you-use-4149",
+      "author": "Sunil Cj",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-12T19:48:19.000Z",
+      "summaryZh": "本文讨论了Anthropic公司未公开的AI模型Mythos及其封闭部署计划Project Glasswing。用户场景聚焦于网络安全领域，面对AI驱动的自动化攻击威胁，防御方需提前获得先进AI工具以建立防护优势。核心方法是Anthropic通过Glasswing项目，仅向精选的网络安全公司（主要为防御方）有限开放Mythos，进行可控部署而非全面发布，旨在优先赋能防御体系。关键技巧在于理解这种“疫苗式”发布策略的行业影响：它改变了AI能力的风险定价，即使模型未公开，其存在本身已迫使整个网络安全行业重新评估威胁模型与人力防御的价值。开发者需关注前沿AI在特定领域（如端到端网络操作）的“阶跃式”能力突破可能引发的市场与技术范式转变。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude 4 API Setup: Python and JavaScript Integration Guide",
+      "titleZh": "Claude 4 API 配置指南：Python 与 JavaScript 集成",
+      "link": "https://dev.to/icarax/claude-4-api-setup-python-and-javascript-integration-guide-4npo",
+      "author": "Icarax",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-13T17:51:37.000Z",
+      "summaryZh": "本文介绍如何集成Claude 4 API构建对话AI应用。用户场景：开发者需要为Python/JavaScript项目接入Claude 4的对话生成能力。核心方法：通过官方anthropic-claude库，使用API key初始化客户端后调用get_response方法。关键技巧：Python用pip install anthropic-claude，JavaScript用npm install @anthropic-claude；注意通过batch参数批量请求可优化API调用成本。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude 3 is Here: Anthropic's Latest LLM Challenges GPT-4",
+      "titleZh": "Claude 3 震撼发布：Anthropic 最新大语言模型挑战 GPT-4",
+      "link": "https://dev.to/icarax/claude-3-is-here-anthropics-latest-llm-challenges-gpt-4-564g",
+      "author": "Icarax",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-13T17:27:10.000Z",
+      "summaryZh": "本文作者作为LLM深度用户，对比测试了Claude 3与GPT-4在实际开发场景中的表现。核心方法是通过内容创作、图像分析、提示工程等日常任务进行横向评估。关键技巧包括：利用Claude 3的200k上下文窗口处理长文本指令，使用其免费版本进行多模态任务（如手写公式转LaTeX），但需注意其数学计算能力较弱且不支持角色扮演。对于需要创意写作的场景建议保留GPT-4，形成互补工作流。",
       "category": "devto"
     },
     {
       "title": "Claude 3 Haiku Is Being Deprecated April 19. Here's How to Find and Fix Every Reference in Your Python Code.",
-      "titleZh": "Claude 3 Haiku 将于 4 月 19 日停用。以下是如何查找并修复 Python 代码中的所有引用。",
+      "titleZh": "Claude 3 Haiku 将于 4 月 19 日停用。以下是如何查找并修复 Python 代码中所有相关引用。",
       "link": "https://dev.to/peytongreen_dev/claude-3-haiku-is-being-deprecated-april-19-heres-how-to-find-and-fix-every-reference-in-your-1c14",
       "author": "Peyton Green",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-12T06:58:01.000Z",
-      "summaryZh": "本文针对Anthropic即将在2026年4月19日弃用Claude 3 Haiku模型的情况，为使用Anthropic API的开发者提供迁移方案。\n\n**用户场景**：需要批量替换Python代码库中所有硬编码的\"claude-3-haiku\"模型引用，避免API调用在截止日期后失效。\n\n**核心方法**：\n1. 使用ripgrep或grep全局搜索代码库中的模型字符串（包括.py/.json/.yaml/.env文件）\n2. 迁移到Claude Haiku 4.5（保持速度/成本优势）或Claude Sonnet 4.6（提升推理能力）\n3. 创建集中式模型配置（如models.py），统一管理模型ID\n\n**关键技巧**：\n- 特别注意函数默认参数、配置字典、测试夹具和环境变量中的隐藏引用\n- 对AI生成的代码进行专项检查，避免训练数据残留旧模型ID\n- 迁移后必须测试：验证响应长度、延迟表现和结构化输出解析\n- 建立单点维护机制，未来模型更新只需修改一处常量",
+      "summaryZh": "本文针对Anthropic即将在2026年4月19日停用Claude 3 Haiku模型的情况，为使用Anthropic API的开发者提供代码迁移方案。\n\n**用户场景**：需要快速定位并替换Python项目中所有硬编码的\"claude-3-haiku\"模型引用，避免API调用在截止日期后失效。\n\n**核心方法**：\n1. 使用ripgrep或grep全局搜索代码库中的模型字符串（包括.py/.json/.yaml/.env文件）\n2. 迁移至Claude Haiku 4.5（保持速度/成本优势）或Claude Sonnet 4.6（提升推理能力）\n3. 创建集中式模型配置类（如models.py），实现单一数据源管理\n\n**关键技巧**：\n- 特别注意函数默认参数、配置字典、测试夹具和环境变量中的隐藏引用\n- 对AI生成的代码进行专项审查，可能包含过时的模型字符串\n- 迁移后必须测试：验证token长度假设、延迟敏感逻辑和结构化输出解析\n- 使用常量类管理模型字符串，避免未来再次出现分散引用问题",
       "category": "devto"
     },
     {
@@ -64,18 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-12T06:03:01.000Z",
-      "summaryZh": "本文分析了Anthropic发布Claude 4 AI模型引发的连锁反应。**用户场景**：AI技术快速发展超越监管速度，导致网络安全风险激增和市场波动。**核心方法**：通过分析技术发布→安全警告→市场反应→监管应对的因果链，揭示AI创新与风险管控的矛盾。**关键技巧**：关注欧盟AI办公室政策动向和科技公司财报，警惕网络安全股短期波动；预测市场需重点监控半导体周期、反垄断及监管环境变化指标。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic's OpenClaw Ban Scare Shows the Real Power Struggle in AI Tooling",
-      "titleZh": "Anthropic的OpenClaw禁令风波揭示AI工具领域的真实权力博弈",
-      "link": "https://dev.to/damogallagher/anthropics-openclaw-ban-scare-shows-the-real-power-struggle-in-ai-tooling-5fdk",
-      "author": "Damien Gallagher",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-11T20:10:26.000Z",
-      "summaryZh": "本文通过Anthropic暂停OpenClaw开发者账户事件，揭示了AI工具市场的深层矛盾：模型厂商追求全栈控制，而开发者生态需要开放的多模型工作流。\n\n**用户场景**：开发者在构建AI应用时，依赖特定厂商的模型与工作流，面临平台锁定风险（如定价变更、功能重叠、账户封禁）。\n\n**核心方法**：独立框架（如OpenClaw）主张模型无关设计，通过分离提示逻辑与厂商API、保持评估流程可移植性，实现跨模型灵活切换。\n\n**关键技巧**：  \n1. 早期设计预留多模型支持能力，避免深度绑定单一厂商  \n2. 将模型访问视为可能失效的依赖项，而非恒定基础设施  \n3. 警惕厂商原生功能与第三方工具的竞争关系  \n4. 采用便携式架构应对定价策略、访问规则等突发变更  \n\n开发者需意识到：AI基础设施正成为新竞争壁垒，技术决策需平衡效率与自主权。",
+      "summaryZh": "本文分析了Anthropic发布Claude 4 AI模型引发的连锁反应。**用户场景**：AI技术快速发展超越监管框架，导致网络安全风险激增和市场波动。**核心方法**：通过分析Claude 4发布后网络安全机构的预警、股市波动数据（科技股跌2-5%）和监管动态，揭示技术突破与风险管控的失衡。**关键技巧**：关注欧盟AI办公室政策动向、科技公司财报对风险的应对措施；警惕AI能力被武器化导致网络威胁增加30%的预测；投资需平衡创新红利与监管风险溢价。",
       "category": "devto"
     },
     {
@@ -86,51 +130,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-12T18:07:52.000Z",
-      "summaryZh": "本文探讨了Anthropic的Claude Managed Agents在记忆存储上的局限性，并提出了解决方案。用户场景：当开发者需要确保AI智能体在多轮会话中保持行为一致性、避免身份漂移时，原生记忆系统仅提供版本化文件存储，无法检测行为变化。核心方法：引入Cathedral作为远程MCP服务器，通过/wake恢复记忆库、/drift计算漂移分数（0-1），并与Managed Agents形成互补——后者负责执行基础设施，前者保障身份完整性。关键技巧：直接调用公共MCP端点集成Cathedral，无需安装；使用/snapshot创建记忆库加密基线，通过/drift监控行为偏离；注意区分内部身份漂移（接近0为稳定）与外部行为变化。",
-      "category": "devto"
-    },
-    {
-      "title": "MCP vs Skills: Which Architecture Actually Wins in 2026?",
-      "titleZh": "MCP与技能架构：2026年究竟哪种设计更胜一筹？",
-      "link": "https://dev.to/whoffagents/mcp-vs-skills-which-architecture-actually-wins-in-2026-29bj",
-      "author": "Atlas Whoff",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-10T12:01:53.000Z",
-      "summaryZh": "本文探讨了在AI工具开发中，MCP与Skills两种架构的适用场景与协作方式。作者基于实战经验指出，MCP适用于需要真实I/O操作的场景，如查询数据库、调用API或执行Shell命令，其强类型协议能确保结构化数据交互。而Skills则擅长定义行为模式，如代码审查流程或部署检查清单，无需服务器即可通过上下文注入实现零延迟、高可靠的行为控制。\n\n关键技巧在于将两者结合使用：用Skills层定义工作流逻辑，用MCP层处理具体的外部操作。开发者应先从Skills入手验证需求，仅在需要真实数据交互时引入MCP。避免将提示词工程过度设计为MCP工具，同时注重Skills的质量而非MCP工具的数量。这种分层策略能构建出既灵活又可靠的AI代理系统。",
-      "category": "devto"
-    },
-    {
-      "title": "OpenAI Turns Up the Heat on Anthropic While Pushing ChatGPT Projects Into Real Workflows",
-      "titleZh": "OpenAI施压Anthropic，同时将ChatGPT项目推向实际工作流",
-      "link": "https://dev.to/damogallagher/openai-turns-up-the-heat-on-anthropic-while-pushing-chatgpt-projects-into-real-workflows-5ddl",
-      "author": "Damien Gallagher",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-11T20:10:19.000Z",
-      "summaryZh": "本文分析了OpenAI近期两大动作：通过投资者备忘录强调其算力优势，并发布ChatGPT Projects指南。用户场景：解决AI在长期、复杂工作流中上下文丢失的问题，如重复上传文件、重新解释需求等。核心方法：将ChatGPT Projects定位为持久化工作区，集成对话、文件、指令和共享上下文，支持跨天/周协作。关键技巧：关注从单次提示工具向AI原生工作平台的转变；企业选型时需权衡模型质量、算力规模与产品粘性；基础设施（算力）正成为核心竞争壁垒。",
-      "category": "devto"
-    },
-    {
-      "title": "I built a $2/month Claude API — here's the curl command",
-      "titleZh": "我搭建了一个每月2美元的Claude API——这是curl调用命令",
-      "link": "https://dev.to/subprime2010/i-built-a-2month-claude-api-heres-the-curl-command-356",
-      "author": "brian austin",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-12T07:34:03.000Z",
-      "summaryZh": "本文介绍了一个低成本使用Claude API的方案。作者针对个人开发者、学生等预算有限的群体，通过SimplyLouie代理服务以每月2美元的固定费用访问Claude 3.5 Sonnet模型，相比官方API按token计费可大幅降低成本。\n\n核心方法是使用兼容Claude消息格式的REST API，通过curl命令或封装SDK进行调用。文中提供了完整的curl示例及Node.js封装类，可直接集成到项目中。\n\n关键技巧包括：在CI流水线中自动进行代码审查、生成测试用例、编写函数文档等实用场景。注意需替换YOUR_API_KEY，并遵守合理的速率限制。该方案特别适合开源项目、辅助编程等轻量级应用场景。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Code Got Someone's Meta Ads Account Banned. Here's How to Automate Without Getting Flagged.",
-      "titleZh": "Claude Code导致Meta广告账户被封？自动化操作防封指南",
-      "link": "https://dev.to/whoffagents/claude-code-got-someones-meta-ads-account-banned-heres-how-to-automate-without-getting-flagged-513h",
-      "author": "Atlas Whoff",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-09T15:06:03.000Z",
-      "summaryZh": "本文针对开发者使用Claude Code等AI工具自动化平台操作时遭遇封号的问题，提出了一套风险规避方案。作者通过分析Meta广告账户被封案例，指出平台反欺诈系统会检测异常API访问模式、非人工操作速度等行为。\n\n核心方法是建立平台风险分级机制（高/中/低风险），并为高风险操作设置防护规则：1）全自动化仅适用于低风险平台（如GitHub API、自建CMS）；2）对广告平台等高风险场景采用\"只读API+人工审核\"的半自动化模式。\n\n关键技巧包括：为所有操作添加随机延迟（time.sleep(random.uniform(2.5,7.0))）、优先使用平台原生API而非浏览器自动化、通过cookie复用避免重复登录触发风控、遵循\"凌晨3点测试\"原则评估操作合理性。特别注意避免让AI直接执行预算调整等高危操作，而是生成变更草案供人工确认。",
+      "summaryZh": "本文探讨了Anthropic Claude Managed Agents在记忆存储上的局限性，并提出了解决方案。用户场景是：当开发者需要确保AI代理在多轮会话中保持行为一致性，避免因记忆重建导致身份漂移时，Managed Agents仅提供版本化文件存储，无法检测代理行为是否偏离初始设定。\n\n核心方法是引入Cathedral作为远程MCP服务器，通过/wake接口在会话开始时恢复完整记忆库，并使用/drift工具量化行为漂移程度（余弦距离评分）。Cathedral与Managed Agents形成互补：后者负责执行环境，前者保障身份一致性。\n\n关键技巧包括：1) 通过Cathedral的snapshot功能建立记忆库的加密基准点；2) 定期调用drift检测行为偏离（0.0-1.0评分）；3) 直接集成MCP服务器无需本地安装，通过API密钥即可实现多租户接入。注意区分内部身份漂移与外部行为变化，避免误判。",
       "category": "devto"
     },
     {
@@ -141,18 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-10T19:03:41.000Z",
-      "summaryZh": "Claude Code v2.1.101 发布，主要更新：新增 /team-onboarding 命令生成队友上手指南；默认信任 OS CA 证书库以支持企业 TLS 代理；/ultraplan 等功能自动创建默认云环境；改进 brief/focus 模式、错误提示和插件管理。修复了命令注入漏洞、内存泄漏、会话恢复问题、权限规则覆盖、Bedrock 认证失败、MCP 工具继承等大量问题。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.98",
-      "titleZh": "v2.1.98",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.98",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-04-09T19:18:28.000Z",
-      "summaryZh": "Claude Code v2.1.98 发布，新增 Google Vertex AI 交互式设置向导、Monitor 工具和子进程沙箱隔离。修复了多个安全漏洞，包括 Bash 工具权限绕过和代码执行风险。改进了 /resume 选择器、代理管理和权限规则应用。注意：部分环境变量和标志行为有调整，如 CLAUDE_CODE_PERFORCE_MODE 现在对只读文件操作更严格。",
+      "summaryZh": "Claude Code v2.1.101 发布，主要更新：新增 /team-onboarding 命令生成队友入门指南；默认信任 OS CA 证书，支持企业 TLS 代理；/ultraplan 等功能自动创建默认云环境。修复了命令注入漏洞、内存泄漏、会话恢复问题、权限规则覆盖错误、MCP 工具继承失败等大量问题。改进了错误提示、速率限制显示、插件管理和远程控制稳定性。",
       "category": "github-release"
     }
   ]
