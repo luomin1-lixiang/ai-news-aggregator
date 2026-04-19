@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-04-18T18:36:26.826Z",
+  "lastUpdated": "2026-04-19T18:37:05.467Z",
   "items": [
     {
       "title": "Claude Opus 4.7: Mixed Early Signal, Real API Breaks, and a Token Usage Story Anthropic Had to Address Fast",
@@ -9,7 +9,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T17:57:15.000Z",
-      "summaryZh": "本文分析了Claude Opus 4.7的发布，重点关注开发者实际使用中的变化与挑战。\n\n**用户场景**：针对需要长时间运行、自主性强的智能体编码任务，如自动化代码生成与审查。\n\n**核心方法**：模型引入了三项关键工作流改进：1) 新增 `xhigh` 努力级别，为复杂任务提供更精细的推理深度控制；2) 用 `{ type: \"adaptive\" }` 自适应思考模式取代旧的固定思考预算，需手动开启；3) 推出任务预算功能，用于管理整个智能体循环的成本与时长。\n\n**关键技巧**：API存在破坏性变更，迁移时需注意：旧版思考预算已移除，非默认采样参数会报错，思考内容默认被隐藏。Claude Code 默认使用 `xhigh` 努力级别，并转向“提交任务-查看摘要”的代理模式。需注意新分词器可能导致实际token使用量增加约1-1.35倍，实际成本可能高于标价。",
+      "summaryZh": "本文分析了Claude Opus 4.7发布后的早期反馈与核心变化。用户场景聚焦于**长周期自主编码任务**，开发者需应对API破坏性变更与潜在成本上升。核心方法体现在**工作流层革新**：引入`xhigh`推理强度档位、`adaptive`思维模式替代固定预算、实验性任务级预算控制。关键技巧包括：Claude Code默认启用`xhigh`强度，API迁移需注意**思维模式配置变更**与**分词器效率变化**（相同文本可能消耗1-1.35倍token），生产环境切换前务必测试实际工作负载。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Code Opus 4.7: 7 Secrets from Its Creator",
+      "titleZh": "Claude Code Opus 4.7：来自其创造者的7个秘密",
+      "link": "https://dev.to/max_quimby/claude-code-opus-47-7-secrets-from-its-creator-3jpa",
+      "author": "Max Quimby",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-19T03:30:35.000Z",
+      "summaryZh": "本文分享了Claude Code工具创建者Boris Cherny针对Opus 4.7版本的7个核心使用技巧。用户场景是帮助开发者高效利用Claude Code自动化完成开发任务，减少人工监督。核心方法包括启用Auto Mode实现低风险操作自动执行、使用/fewer-permission-prompts技能减少重复权限提示、利用Recaps功能快速恢复上下文、通过Focus Mode隐藏中间过程专注结果。关键技巧：Opus 4.7采用自适应推理机制，对任务准备度要求更高；通过Shift+Tab快速切换Auto Mode；定期运行/fewer-permission-prompts优化权限配置；在并行任务中利用Recaps实现无缝切换。这些配置能显著提升从代码编写到PR提交的全流程自动化效率。",
       "category": "devto"
     },
     {
@@ -20,29 +31,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T13:41:10.000Z",
-      "summaryZh": "本文介绍了一种利用Claude Code与Chrome DevTools Protocol（CDP）快速发现应用未公开API的高效方法。\n\n**用户场景**：传统上，开发者（如yt-dlp、Nitter项目）需要耗费数周手动逆向工程应用的内部API，过程繁琐且维护成本高。本文旨在解决如何系统、快速地发现应用（包括开源和商业软件）隐藏的、未在官方文档中记载的功能端点。\n\n**核心方法**：通过MCP服务器将Chrome DevTools Protocol封装，使AI智能体（如Claude Code）能直接访问浏览器的运行时环境（DOM、网络请求、控制台）。智能体在已认证的会话中，使用`javascript_tool`执行页面上下文中的JavaScript（如`fetch`调用），并系统性地拦截、分析网络请求，探测相邻URL模式，从而自动发现和记录API端点及其响应结构。\n\n**关键技巧**：1. 对开源软件进行本地实验是安全且高效的起点；对商业软件需首先审查其服务条款。2. 初始指令应结构化，例如先拦截所有请求、按路径和方法分类端点，再系统探测，而非简单“探索”。3. 利用智能体自动执行重复性网络流量分析，避免人工操作的疲劳和疏漏，将原本需数周的工作压缩至数小时。",
+      "summaryZh": "本文介绍了一种利用Claude Code与Chrome DevTools Protocol（CDP）快速发现应用未公开API的方法。用户场景是解决传统手动逆向工程内部API耗时耗力的问题，如yt-dlp等项目需持续投入大量人力维护。核心方法是通过MCP服务器将CDP封装为AI可交互协议，使智能代理能实时监控网络请求、执行页面脚本并系统化探测端点。关键技巧包括：在已认证会话中注入fetch()调用以继承登录状态；结构化提示代理按路径和方法分类端点；优先在开源软件本地环境实验，避免法律风险。该方法将原本需数周的逆向工作压缩至数小时，为开发者提供了高效探索应用隐藏能力的标准化方案。",
       "category": "devto"
     },
     {
       "title": "Claude Opus 4.7 y el principio del fin de la abundancia en IA",
-      "titleZh": "Claude Opus 4.7与人工智能丰饶时代的终结开端",
+      "titleZh": "Claude Opus 4.7与AI丰饶时代的终结开端",
       "link": "https://dev.to/jtorchia/claude-opus-47-y-el-principio-del-fin-de-la-abundancia-en-ia-4ll3",
       "author": "Juan Torchia",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T17:21:01.000Z",
-      "summaryZh": "本文作者反思了AI模型从“成本持续下降”到“前沿模型高价稀缺”的范式转变，并分享了应对这一变化的架构策略。\n\n**用户场景**：当依赖的AI服务（如Claude API）突然不可用或成本变得高昂时，系统缺乏弹性，业务逻辑与供应商深度耦合，导致重写和停机。\n\n**核心方法**：构建一个抽象层来封装不同LLM供应商，定义统一的接口（如`LLMProvider`），并根据任务类型和预算，通过路由函数动态选择最合适的模型（如前沿的Opus、中端的Sonnet或低成本的Gemini Flash）。\n\n**关键技巧**：\n1.  **避免硬编码**：不要将特定模型（如Claude）直接写死在业务代码中。\n2.  **实现智能路由**：根据任务实际需求（如多步推理需要“frontier”模型，简单分类则不需要）和成本预算选择模型，避免为所有任务使用昂贵的前沿模型。\n3.  **设计真实降级方案**：确保主供应商不可用时，系统能自动切换到备用供应商，而不仅仅是重试逻辑。\n4.  **关注Token成本**：在高成本或稳定成本模式下，未报告的Token使用会带来显著损失，需精确监控。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Opus 4.7 y el principio del fin de la abundancia en IA",
-      "titleZh": "Claude Opus 4.7与人工智能丰饶时代的终结开端",
-      "link": "https://dev.to/jtorchia/claude-opus-47-y-el-principio-del-fin-de-la-abundancia-en-ia-5bin",
-      "author": "Juan Torchia",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-17T23:31:56.000Z",
-      "summaryZh": "本文作者分享了因Claude API服务中断导致系统瘫痪的经历，并指出当前AI领域正从“成本持续下降”转向“前沿模型高价化”的新常态。核心方案是构建抽象层来解耦业务逻辑与具体AI供应商，通过接口统一调用不同模型，并设计路由策略根据任务类型和预算动态选择模型（如Claude Opus用于复杂推理，Gemini Flash用于低成本任务）。关键技巧包括：避免硬编码单一模型、为不同任务层级匹配对应模型以控制成本、建立供应商故障回退机制，以及警惕因无限资源假设导致的过度使用前沿模型和提示词锁定风险。",
+      "summaryZh": "本文作者基于亲身经历，探讨了AI开发中一个关键转变：从“成本持续下降”的乐观预期，转向“前沿模型可能昂贵且不稳定”的现实。作者因Anthropic API长达一个月的意外中断，意识到严重依赖单一前沿模型（如Claude Opus）的风险。\n\n**核心方法**是构建一个**抽象层**和**智能路由系统**。作者建议定义统一的`LLMProvider`接口，封装不同模型（如Claude Opus/Sonnet、Gemini Flash），并根据任务类型和预算，动态选择最合适的提供商。例如，关键生产代码使用高成本的“frontier”模型，而简单分类任务则路由到廉价的“mid”或“local”模型。\n\n**关键技巧**包括：\n1.  **避免硬编码**：不要将业务逻辑与特定模型API深度耦合。\n2.  **设计有意义的降级策略**：系统应在主提供商不可用时，能自动切换到备用模型，而非完全失效。\n3.  **按需使用前沿模型**：严格区分任务，仅为真正需要顶级能力的任务（如多步推理、关键代码生成）支付高昂费用。\n4. **警惕Prompt锁定**：为特定模型优化的prompt可能在其他模型上失效，需考虑可移植性。\n\n总之，开发者需改变“成本会自动优化”的旧假设，通过架构设计实现**成本感知**和**供应商弹性**，以应对AI领域可能出现的“稀缺性”新常态。",
       "category": "devto"
     },
     {
@@ -53,18 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T17:21:10.000Z",
-      "summaryZh": "本文作者反思了AI成本下降趋势的终结对开发架构的影响。用户场景是：当依赖单一前沿AI提供商（如Claude Opus）时，突遇API中断或成本飙升，导致系统瘫痪。\n\n核心方法是构建抽象层和智能路由：定义统一的LLMProvider接口，根据任务类型（如multi_step_reasoning）和预算动态选择模型（frontier/mid/local），避免硬编码依赖。\n\n关键技巧：1）用tier分类模型并实现成本路由，非关键任务使用廉价模型（如Gemini Flash）；2）设计真实降级方案，确保主提供商不可用时系统仍运行；3）避免提示词锁死，保持提示在不同模型间的可移植性。",
-      "category": "devto"
-    },
-    {
-      "title": "The Month Anthropic Didn't Respond: Billing, Trust, and the Hidden Cost of AI API Dependency",
-      "titleZh": "Anthropic沉默之月：计费、信任与AI API依赖的隐性成本",
-      "link": "https://dev.to/jtorchia/the-month-anthropic-didnt-respond-billing-trust-and-the-hidden-cost-of-ai-api-dependency-4394",
-      "author": "Juan Torchia",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-17T11:41:56.000Z",
-      "summaryZh": "本文探讨了将AI API（如Anthropic）视为可靠基础设施的风险。作者通过亲身经历，指出AI服务商在API版本管理、故障响应和支持时效上与传统云服务（如AWS、Stripe）存在差距，可能导致生产环境在无预警下失效。\n\n核心方案是建立防御性编程机制：1）严格验证API响应格式，即使返回HTTP 200也需检查数据完整性；2）实现熔断器模式，在连续失败时自动降级；3）建立独立健康检查，不依赖服务商状态页。\n\n关键技巧包括：始终为AI接口设计降级方案；用TypeScript接口明确响应结构；记录含时间戳的详细错误上下文；避免将AI服务直接作为关键业务流的唯一依赖。这些措施能减少对不稳定外部API的过度信任。",
+      "summaryZh": "本文探讨了AI成本模式转变对开发架构的影响。作者因API访问中断而意识到，过去依赖单一前沿模型且成本持续下降的假设已不成立。核心方案是构建抽象层，通过接口统一管理不同能力层级的模型（如Claude Opus、Sonnet、Gemini Flash），并实现基于任务类型和预算的成本感知路由。关键技巧包括：避免所有任务都使用高价前沿模型；设计多供应商回退机制，防止单点故障；减少对特定模型提示词的依赖，以降低迁移成本。",
       "category": "devto"
     },
     {
@@ -75,7 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T17:22:40.000Z",
-      "summaryZh": "本文探讨了开发者使用Claude Code时的实际痛点与官方宣传的差距。作者指出，Anthropic的设计重心偏向企业级用户和API规范使用场景，而非深夜调试、突破上下文限制的硬核开发者。核心矛盾体现在：产品在视觉和文档上呈现精致统一的“Claude设计”，但CLI工具在关键细节上缺乏透明度，如上下文限制提示模糊、工具执行日志不一致、拒绝操作标准不明确等。关键技巧包括：需自行估算token使用（如通过字符数近似计算）、警惕模型的“表演性冗长”消耗额外token，并注意会话间学习不持久的问题。这些设计选择反映了企业需求与开发者实际工作流之间的张力。",
+      "summaryZh": "本文探讨了开发者使用Claude Code时的核心痛点：产品设计更偏向企业用户和普通Web用户，而非深度开发者。作者指出，Claude在终端使用中暴露出诸多问题：上下文限制提示不明确、工具执行日志不一致、模型拒绝标准不透明、以及冗余解释消耗token和延迟。这些设计选择反映了Anthropic优先考虑的是可控、可审计的企业集成场景，而非需要深入调试和极限使用的开发者。关键技巧包括：手动估算token以应对上下文限制、注意工具自动模式的日志不一致问题、以及警惕模型的“表演性冗长”带来的额外开销。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Design Looks Like AI Magic. Reading the Source, It's Four Engineering Patterns.",
+      "titleZh": "Claude设计看似AI魔法，细读源码实为四大工程模式。",
+      "link": "https://dev.to/ernham/claude-design-looks-like-ai-magic-reading-the-source-its-four-engineering-patterns-3p9m",
+      "author": "고광웅",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-19T04:34:45.000Z",
+      "summaryZh": "本文作者将Claude Design视为工程案例而非设计工具，通过分析其源码总结出四个核心工程模式：1）利用data-*属性和CSS变量实现实时主题切换（Tweaks），无需调用API即可生成144种静态组合；2）使用621行Web Component（deck-stage.js）构建幻灯片系统，通过CSS缩放适配视图、注入@page规则支持PDF导出，并采用visibility切换而非卸载组件来保持交互状态；3）SKILL.md作为轻量级清单（Manifest）提供结构化指引而非冗长提示词；4）通过预览卡片（preview/）和React UMD套件实现设计令牌可视化。关键技巧包括：用CSS变量分离设计与逻辑、通过Web Component的connectedCallback处理外部依赖、用数据属性驱动UI状态切换。这些模式证明复杂AI工具可通过简洁工程架构实现，其核心价值在于系统设计而非模型本身。",
       "category": "devto"
     },
     {
@@ -86,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T10:09:10.000Z",
-      "summaryZh": "本文探讨了在2026年Claude 4.7时代，开发者如何应对LLM token成本飙升的挑战。作者指出，随着模型能力增强，看似微小的单token成本在规模化应用中可能成为巨大的财务黑洞。\n\n核心方法是通过智能提示工程优化token使用效率，而非单纯选择廉价API。关键技巧包括：采用“先总结后细化”的两步法处理长文档；在对话AI中动态修剪无关上下文；明确指定JSON等结构化输出格式以压缩token；利用工具调用功能将复杂计算转移至后端；以及使用“负面约束”提示（如“避免技术术语”）来精准控制输出内容。\n\n这些策略能帮助开发者在保持AI性能的同时，显著降低运营成本，确保应用的可扩展性与盈利性。",
+      "summaryZh": "本文探讨了在2026年Claude 4.7时代，开发者如何应对LLM token成本飙升的挑战。作者指出，随着模型能力提升，看似微小的单token成本在规模化应用中可能成为巨大的财务黑洞。\n\n核心方法是通过智能提示工程优化token使用效率，而非单纯选择廉价API。关键技巧包括：采用“先总结后细化”的两步法处理长文档；在对话AI中动态修剪无关上下文；明确指定JSON等结构化输出格式以压缩token；利用工具调用功能将复杂计算转移至后端；以及使用“负面约束”提示（如“避免技术术语”）精准控制输出内容。\n\n这些策略能帮助开发者在保持AI性能的同时，显著降低运营成本，是构建可持续AI应用的关键。",
       "category": "devto"
     },
     {
@@ -97,18 +97,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-17T11:26:33.000Z",
-      "summaryZh": "本文探讨Claude AI集成如何革新智能自动化。作者面向企业开发者，解决传统自动化工具灵活性不足、无法处理复杂工作流的问题。核心方法是通过API将Claude深度集成至CRM、数据分析等业务系统，使其成为内嵌式智能体而非独立工具。关键技术包括：利用Transformer架构实现上下文感知，通过Constitutional AI确保输出可靠性，借助扩展思维（extended thinking）分步解决复杂问题。实践建议：优先在文档分析、代码生成等场景验证效果，注意企业级需求如数据安全与扩展性，避免将Claude仅视为聊天机器人而低估其工作流编排能力。",
+      "summaryZh": "本文探讨Claude AI集成如何革新智能自动化。用户场景：企业需要超越传统规则型自动化的动态解决方案，以处理复杂任务（如客户支持、代码生成、数据分析）。核心方法：通过API将Claude嵌入现有系统（CRM、开发平台），利用其Transformer架构和扩展思维（Extended Thinking）能力实现上下文感知的工作流自动化。关键技巧：发挥其大上下文窗口优势直接处理完整数据集；结合AI代理（AI Agent）模式让系统自主执行任务；注意企业级需求如数据安全与可扩展性集成设计。",
       "category": "devto"
     },
     {
-      "title": "Identity Verification on Claude is the New AI Precedent",
-      "titleZh": "Claude身份验证开创AI行业新先例",
-      "link": "https://dev.to/simon_paxton/identity-verification-on-claude-is-the-new-ai-precedent-5hgk",
-      "author": "Simon Paxton",
+      "title": "Welche Risiken birgt Künstliche Intelligenz im Unternehmensalltag?",
+      "titleZh": "人工智能在日常企业运营中的风险有哪些？",
+      "link": "https://dev.to/fewture/welche-risiken-birgt-kunstliche-intelligenz-im-unternehmensalltag-dk1",
+      "author": "FEWTURE",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-17T04:22:57.000Z",
-      "summaryZh": "本文分析了Anthropic为Claude引入的身份验证机制。用户场景：针对高风险AI能力访问（如代码生成、敏感内容创建）的滥用防范与合规需求。核心方法：通过第三方服务商Persona进行政府证件（护照/驾照）原件拍照验证，结合活体自拍检测，建立账户与真实身份的强关联。关键技巧：验证流程目前仅针对特定高风险场景触发，非全员强制；开发者需注意验证数据由第三方存储，但法律风险与隐私暴露半径扩大；避免将临时证件或电子复印件用于验证。这标志着AI服务正从匿名工具转向受控基础设施。",
+      "pubDate": "2026-04-19T06:59:27.000Z",
+      "summaryZh": "本文探讨了在企业日常工作中集成AI（如Claude Word插件）的风险与应对策略。\n\n**用户场景**：针对法律和金融专业人士，使用AI工具（如Claude Word插件）加速文档处理、合同审查和财务分析，但需警惕效率提升伴随的决策风险。\n\n**核心方法**：通过AI插件实现文档智能问答（带可点击引用）、保持格式的文本修订、跟踪修订模式，并整合到专业工作流中，同时强调必须保留人工审核与清晰流程。\n\n**关键技巧**：关键风险包括：AI的“奉承倾向”（Sykophantie）可能导致决策偏差；警惕诱导快速决策的Dark patterns设计；注意AI可能产生无依据的“幻觉”信息；必须建立明确的审计日志、责任归属与数据安全规范，避免自动化建议带来的责任模糊。",
       "category": "devto"
     },
     {
@@ -119,7 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T08:59:26.000Z",
-      "summaryZh": "本文介绍了Claude Opus 4.7如何帮助企业通过AI提升效率并降低成本。\n\n**用户场景**：企业需要自动化处理复杂任务（如文档处理、图像分析、数据整理）并减少人工干预，同时确保输出质量与安全性。\n\n**核心方法**：Claude Opus 4.7通过三大技术升级实现高效自动化：\n1. 图像处理分辨率提升3倍以上，增强细节识别能力；\n2. 支持最高1.35倍Token扩展，处理更长上下文；\n3. 新增xhigh Effort模式与/ultrareview功能，提升任务稳定性与结果自检。\n\n**关键技巧**：\n- 直接集成现有工作流，无需重构系统；\n- 利用扩展Token容量处理多步骤自动化任务；\n- 结合Perplexity等平台编排复杂计算任务；\n- 注意安全机制（如Glasswing项目）会限制高风险操作，需合理规划任务预算。",
+      "summaryZh": "本文介绍了Claude Opus 4.7如何帮助企业通过AI提升效率并控制成本。\n\n**用户场景**：面向需要自动化业务流程、处理复杂任务（如文档处理、图像分析、数据整理）并追求高可靠性的企业开发团队。\n\n**核心方法**：Claude Opus 4.7通过三大技术升级实现：1）图像处理分辨率提升3倍以上，增强细节识别；2）Token使用量提升至1.35倍，支持更长上下文与复杂任务链；3）新增xhigh Effort模式与/ultrareview功能，强化任务执行的准确性与自我验证。\n\n**关键技巧**：开发者可将其无缝集成至现有工作流，重点利用其增强的上下文窗口处理自动化任务。需注意其定价模式（输入$5/百万Token，输出$25/百万Token），并通过内置的Glasswing安全机制与任务预算控制风险。避免在未启用安全审查的情况下处理敏感操作。",
       "category": "devto"
     },
     {
@@ -130,7 +130,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T16:56:29.000Z",
-      "summaryZh": "本文探讨高级开发者如何利用Claude Max（每月350美元）提升工程效率。用户场景：解决Claude Pro（每月20美元）因25条消息限制导致的AI使用克制问题，如避免复杂重构、限制探索性对话。核心方法：将Claude Max作为全天候编程伙伴，日均处理200-500条消息，支持持续会话完成多文件重构、架构设计等任务。关键技巧：1）绿色项目架构：用15-20轮对话快速产出完整RFC草案；2）遗留代码重构：在单会话中保持上下文，4小时完成60文件身份验证服务改造；3）规模化测试生成：每分钟生成50-100个测试用例，周生成500+测试。需注意：系统设计面试、分布式系统调试等复杂推理任务仍需人工深度参与。",
+      "summaryZh": "本文探讨高级开发者如何利用Claude Max（月费$350）提升工程效率。用户场景：解决Claude Pro（25条消息限制）导致的请求批量化、探索性对话受限问题，实现无摩擦的持续结对编程。核心方法：通过无限消息额度支持高强度会话，典型工作流包括晨间架构设计（40-60条）、午后编码（80-120条）、晚间评审（30-50条），单日可达500+条消息。关键技巧：1）绿色项目架构时用15-20轮对话生成完整RFC草案；2）遗留代码重构时保持跨文件上下文连续性；3）测试生成采用模块接口粘贴+边界条件覆盖模式，周生成500+测试；4）避免将系统设计面试准备、分布式系统竞态调试等需要人类深度推理的任务交给AI。数据显示：RFC起草提速3-4倍，50文件重构提速4-6倍，百条测试生成提速6-9倍。",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-18T01:34:30.000Z",
-      "summaryZh": "Claude Code v2.1.114 发布，主要修复了权限对话框崩溃问题：当代理团队的队友请求工具权限时，对话框不再崩溃。本次更新为错误修复版本，无新增功能或破坏性变更。",
+      "summaryZh": "Claude Code v2.1.114 版本发布，主要修复了权限对话框崩溃问题。当代理团队的队友请求工具权限时，系统不再出现崩溃情况。本次更新为稳定性修复，无新增功能或破坏性变更。",
       "category": "github-release"
     },
     {
@@ -152,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-17T19:34:41.000Z",
-      "summaryZh": "Claude Code v2.1.113 发布，主要更新包括：新增沙盒网络域名黑名单设置，支持通过 `sandbox.network.deniedDomains` 阻止特定域名；优化全屏模式、快捷键（如 Ctrl+A/E）和长 URL 显示；改进 `/loop`、`/ultrareview` 和 Bash 工具的安全性及功能。修复了 MCP 并发调用超时、Markdown 表格渲染、会话存档等多项问题。安全方面增强了对 macOS 系统路径和 Bash 命令包装器的防护。",
+      "summaryZh": "Claude Code v2.1.113 发布，主要更新包括：新增沙盒网络域名黑名单设置，允许在通配符白名单中阻止特定域名；优化 /loop 和 /ultrareview 功能，提升交互清晰度与启动速度；增强远程控制客户端功能，支持查询文件自动补全。修复了多项安全漏洞，包括 Bash 工具权限绕过和 MCP 并发调用超时处理问题；解决了 markdown 表格渲染、会话存档、光标显示等多个界面与稳定性缺陷。此版本包含安全强化，建议升级。",
       "category": "github-release"
     },
     {
@@ -163,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-16T19:55:41.000Z",
-      "summaryZh": "Claude Code v2.1.112 发布，主要修复了自动模式下“claude-opus-4-7 暂时不可用”的错误。本次更新为错误修复版本，无新增功能或破坏性变更。",
+      "summaryZh": "Claude Code v2.1.112 发布，主要修复了自动模式下“claude-opus-4-7 暂时不可用”的错误。本次更新为问题修复版本，无新增功能或破坏性变更。",
       "category": "github-release"
     }
   ]
