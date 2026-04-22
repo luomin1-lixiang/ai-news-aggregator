@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-04-21T19:03:27.047Z",
+  "lastUpdated": "2026-04-22T19:07:51.324Z",
   "items": [
-    {
-      "title": "Claude Sonnet 4.6: 1M Context, 300K Output, Agentic Coding",
-      "titleZh": "Claude Sonnet 4.6：100万上下文，30万输出，智能代理编码",
-      "link": "https://dev.to/jangwook_kim_e31e7291ad98/claude-sonnet-46-1m-context-300k-output-agentic-coding-397n",
-      "author": "Jangwook Kim",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-21T00:16:45.000Z",
-      "summaryZh": "本文介绍Claude Sonnet 4.6如何通过性能提升和API优化，成为开发者的高性价比AI编程助手。\n\n**用户场景**：开发者需要处理复杂编程任务（如代码重构、安全审计、数据库设计），但希望控制AI使用成本，避免频繁调用高价旗舰模型。\n\n**核心方法**：利用Sonnet 4.6的1M上下文窗口处理大型代码库，通过Message Batches API生成300K长文本，结合adaptive thinking机制动态分配计算资源。模型在SWE-bench达到79.6%准确率，接近Opus但价格仅1/5。\n\n**关键技巧**：启用beta header使用1M上下文；用Batches API异步处理大型生成任务以节省50%成本；对复杂问题设置thinking budget触发深度推理；通过模型路由策略，仅在数学推理等特定场景切换至Opus。",
-      "category": "devto"
-    },
     {
       "title": "Chrome DevTools Protocol + Claude Code: The Pattern Open Source Teams Spent Years On",
       "titleZh": "Chrome DevTools Protocol + Claude Code：开源团队多年打磨的开发范式",
@@ -20,18 +9,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T13:41:10.000Z",
-      "summaryZh": "本文介绍了一种利用Claude Code与Chrome DevTools Protocol（CDP）快速发现应用未公开API的方法。用户场景是解决传统API逆向工程耗时费力的问题，如yt-dlp等项目需投入大量人力维护。核心方法是通过CDP的MCP服务器让AI代理实时监控网络请求、执行页面脚本，并系统化探测端点。关键技巧包括：在已认证会话中注入fetch调用、按路径和方法分类端点、避免直接模糊测试而采用结构化探测。该方法将原本需数周的手动分析压缩到数小时，但需注意在开源软件本地测试，商用软件需遵守服务条款。",
+      "summaryZh": "本文介绍了一种利用Claude Code与Chrome DevTools Protocol（CDP）快速发现应用未公开API的方法。用户场景是解决传统API逆向工程耗时费力的问题，如yt-dlp等项目需投入大量人力维护。核心方法是通过CDP的MCP服务器让AI代理实时监控网络请求、执行页面脚本，并系统化探测端点。关键技巧包括：在已认证会话中注入fetch调用、结构化探索指令（而非模糊提示）、优先测试相邻URL模式。该方法使Ghost在单次下午会话中自动发现27个未公开端点，将传统需数周的手动分析压缩至数小时。注意：该方法适用于开源软件，商业软件需遵守服务条款。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Code for Team Workflows: How I Built a 90-Person AI Organization Without Hiring Anyone",
+      "titleZh": "Claude Code赋能团队协作：我如何零招聘打造90人规模的AI组织",
+      "link": "https://dev.to/nextools/claude-code-for-team-workflows-how-i-built-a-90-person-ai-organization-without-hiring-anyone-4477",
+      "author": "Nex Tools",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-22T09:26:07.000Z",
+      "summaryZh": "本文探讨如何利用Claude Code构建多智能体协作系统，解决单一AI助手在复杂业务场景中缺乏领域专精和上下文记忆的问题。核心方法是将AI智能体模拟为组织架构：设立CEO、部门经理、专业执行者三层角色，每个智能体通过专属技能命令（如`/invoice-processor`）和上下文文件（CLAUDE.md）承载特定职责。关键技巧包括：1) 为每个部门明确定义职责范围和数据权限；2) 建立路由层（`/router`）实现任务智能分发；3) 通过结构化文件（open-tasks.md）管理任务流转和交接记录。避免让单一智能体处理跨领域任务，而是通过专业化分工提升输出质量。",
       "category": "devto"
     },
     {
       "title": "Anthropic revirtió su posición sobre Claude CLI: la semana pasada era un gris, hoy es verde. Mi flujo de trabajo no cambió.",
-      "titleZh": "Anthropic 对 Claude CLI 的态度发生逆转：上周还是灰色地带，如今已转为绿灯放行。我的工作流程并未因此改变。",
+      "titleZh": "Anthropic 对 Claude CLI 的态度发生转变：上周还是灰色地带，如今已转为绿灯放行。我的工作流程并未因此改变。",
       "link": "https://dev.to/jtorchia/anthropic-revirtio-su-posicion-sobre-claude-cli-la-semana-pasada-era-un-gris-hoy-es-verde-mi-1a9o",
       "author": "Juan Torchia",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-21T14:32:31.000Z",
-      "summaryZh": "本文讨论了Anthropic对Claude CLI使用政策的反转及其对开发者的影响。作者指出，尽管官方政策从“灰色地带”转为明确允许，但其实际工作流（如通过脚本调用Claude进行代码审查）并未改变。核心问题在于：依赖第三方AI服务时，政策变动可能直接影响系统架构，而开发者往往缺乏控制权。\n\n作者建议采用抽象层设计（如通用模型适配器接口），以降低对特定供应商的依赖。关键技巧包括：将政策变化视为架构风险而非技术风险，避免深度耦合；明确“允许使用”不等于“长期稳定”，需预留切换能力；关注CLI使用的合理边界与成本限制。最终强调，可持续的工具应赋予开发者真正的控制权，而非让其受制于外部决策。",
+      "summaryZh": "本文讨论了Anthropic对Claude CLI使用政策的转变及其对开发者的影响。作者指出，尽管官方政策从“灰色地带”变为“允许”，但其实际工作流（如通过脚本调用Claude进行代码审查）并未改变，凸显了依赖第三方AI服务时的架构风险。\n\n核心方法是通过抽象层（如通用模型接口）解耦业务逻辑与具体AI提供商，避免因政策突变导致系统重构。作者以Bash脚本和TypeScript接口为例，展示了如何将Claude CLI调用封装为独立适配器。\n\n关键技巧包括：1. 始终假设提供商政策可能变更，采用防御性架构设计；2. 明确“允许”不等于“永久保障”，需关注费率限制与成本控制；3. 警惕政策模糊地带，避免触发滥用机制。文中强调，长期稳定的工具应赋予开发者真正的控制权，而非被动依赖外部决策。",
       "category": "devto"
     },
     {
@@ -42,18 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-21T14:32:36.000Z",
-      "summaryZh": "本文作者讨论了Anthropic对Claude CLI使用政策从模糊到明确允许的转变，并反思了依赖第三方AI服务的架构风险。\n\n**用户场景**：开发者在自动化工作流（如代码审查、测试代理）中集成Claude模型，但面临服务条款模糊或突然变更的风险。\n\n**核心方法**：通过抽象层（如ModelAdapter接口）封装AI服务调用，实现与具体提供商（Claude/GPT等）和接入方式（API/CLI）的解耦，保障系统可迁移性。\n\n**关键技巧**：1) 为API调用实现指数退避（exponential backoff）机制，避免循环脚本导致成本失控；2) 明确“政策允许”不等于“服务保障”，需预设条款可能变更；3) 警惕速率限制与经济成本成为新的隐形成本边界。",
+      "summaryZh": "本文作者探讨了Anthropic对Claude CLI使用政策从模糊到明确允许的转变，并指出其深层问题。用户场景是开发者已深度集成Claude CLI到自动化工作流（如代码审查、测试代理），政策变动直接影响系统架构稳定性。核心方法是通过抽象层设计（如ModelAdapter接口）解耦业务逻辑与具体AI供应商，确保可替换性。关键技巧包括：1）假设政策会再次变化，采用防御性架构；2）明确“允许”不等于“保证”，需自行管理风险；3）实现指数退避等容错机制，避免API成本失控。作者强调，长期可靠的开发需避免对第三方政策形成深度依赖。",
       "category": "devto"
     },
     {
-      "title": "Claude Opus 4.7 is on Bedrock. Amazon just bet $25 billion it's the future. Here's what engineers need to know.",
-      "titleZh": "Claude Opus 4.7登陆Bedrock平台。亚马逊豪掷2500亿美元押注其未来。工程师需要了解这些关键信息。",
-      "link": "https://dev.to/ajbuilds/claude-opus-47-is-on-bedrock-amazon-just-bet-25-billion-its-the-future-heres-what-engineers-4ec8",
-      "author": "Aj",
+      "title": "Claude Code on the Pro Plan: If They Pull It, That Says Everything About Who Anthropic Actually Cares About",
+      "titleZh": "Claude Code 专业版计划：若被取消，则揭示 Anthropic 真正关心的用户群体",
+      "link": "https://dev.to/jtorchia/claude-code-on-the-pro-plan-if-they-pull-it-that-says-everything-about-who-anthropic-actually-48fm",
+      "author": "Juan Torchia",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-21T11:20:53.000Z",
-      "summaryZh": "本文解析AWS将Claude Opus 4.7引入Amazon Bedrock及亚马逊追加250亿美元投资Anthropic对开发者的影响。用户场景：需在生产环境中部署长期运行的智能体（agent）工作流或处理复杂编码任务的企业及开发者。核心方法：Opus 4.7通过动态容量分配与自适应思考机制，根据任务复杂度自动分配推理token，提升长序列工具调用的稳定性。关键技巧：迁移时需注意不再支持temperature/top_p等参数，应通过提示工程调整模型行为；需针对实际工作负载测试，现有提示可能需优化以适配新模型。",
+      "pubDate": "2026-04-22T17:02:57.000Z",
+      "summaryZh": "本文作者作为独立开发者，深度使用Claude Code四周，分享真实数据：67%的会话始于终端报错，83%的任务无需切换上下文即可解决，平均会话22分钟。核心场景是**实时调试**——在深夜独自面对运行时错误时，Claude Code成为能理解上下文的“诊断伙伴”，而非普通助手。\n\n作者指出，若Anthropic将Claude Code从Pro计划（$20/月）移至Max计划（$100/月），单次任务成本将从约$0.10升至$0.50。这不仅是价格变化，更会**破坏工作流的心流状态**——一旦开始“计数”任务，工具的流畅性便丧失了。\n\n关键洞察：平台常将高使用率误读为“成本过高”，但作者的数据证明这是**真实价值体现**（60次会话=60个实际问题被解决）。独立开发者是工具的早期深度用户，其工作习惯将影响未来的技术选型决策。",
       "category": "devto"
     },
     {
@@ -64,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T10:09:10.000Z",
-      "summaryZh": "本文探讨了2026年基于Claude 4.7构建应用时，因忽视token成本管理而导致的财务风险。作者指出，随着模型能力提升，看似微小的单token成本在规模化应用中可能造成巨额开销。\n\n核心方法是通过智能提示工程与流程优化来控制token消耗。具体技巧包括：采用“先总结后细化”的两步法处理长文档；在对话应用中实施上下文修剪，移除过时信息；明确要求结构化输出（如JSON）以减少冗余；利用工具调用功能将复杂计算转移至后端；以及使用“负面约束”提示（如“避免技术术语”）来精准控制输出内容。\n\n这些实践性策略能帮助开发者在保持应用性能的同时，显著降低Claude 4.7的API调用成本。",
+      "summaryZh": "本文探讨了在2026年Claude 4.7等先进LLM应用中，如何通过优化token使用来控制成本。作者指出，随着模型能力提升，看似微小的单token成本在规模化应用中可能成为巨大的财务负担。\n\n核心方法是实施精细化的提示工程与流程设计。具体包括：采用“先总结后细化”的两步法处理长文档；在对话系统中动态修剪无关上下文；明确要求结构化输出（如JSON）以减少冗余；利用工具调用功能将复杂计算转移至后端。\n\n关键技巧包括：用“负面约束”提示（如“避免技术术语”）替代冗长说明；对比显示，将“描述中世纪城堡的架构、防御和生活细节”优化为更简洁的指令，可在保持效果的同时显著降低token消耗。这些策略能直接帮助开发者提升LLM应用的运行效率与经济性。",
       "category": "devto"
     },
     {
-      "title": "Was bringt Claude Opus 4.7 für Kosten- und Effizienz?",
-      "titleZh": "Claude Opus 4.7 在成本与效率方面带来了什么？",
-      "link": "https://dev.to/fewture/was-bringt-claude-opus-47-fur-kosten-und-effizienz-o8n",
-      "author": "FEWTURE",
+      "title": "Claude Opus 4.6 Didn’t Vanish: Opus 4.7 Arrived",
+      "titleZh": "Claude Opus 4.6并未消失：Opus 4.7已到来",
+      "link": "https://dev.to/simon_paxton/claude-opus-46-didnt-vanish-opus-47-arrived-292n",
+      "author": "Simon Paxton",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-18T08:59:26.000Z",
-      "summaryZh": "本文介绍Claude Opus 4.7如何通过技术升级提升企业自动化效率。用户场景聚焦于企业流程自动化、成本优化及复杂任务处理，如图像分析、长文本处理和代码生成。核心方法包括：提升图像处理分辨率至3倍以上，支持更长的上下文窗口（最高1.35倍Token扩展），并引入xhigh Effort模式增强任务稳定性。关键技巧：利用/ultrareview功能自动校验输出，通过Glasswing安全机制过滤风险请求，集成时可直接对接现有工作流。需注意其定价保持5美元/百万输入Token和25美元/百万输出Token，适合高精度需求但需评估长上下文成本。",
+      "pubDate": "2026-04-21T21:35:41.000Z",
+      "summaryZh": "本文澄清了Claude Opus 4.6并未被官方正式弃用，而是随着Opus 4.7的发布，在部分产品界面中被替代。作者指出，模型“从UI中消失”与“被官方宣布弃用”是两回事，这通常源于产品界面的更新而非模型本身的终止服务。\n\n核心方法是通过对比官方文档、新闻稿和产品页面来验证模型状态。作者建议开发者区分“产品表面变化”和“正式弃用”，前者可能仅影响UI中的模型选项，后者则会有明确的弃用公告和迁移指南。\n\n关键技巧包括：1）在依赖特定模型版本的工作流中，明确指定模型ID而非使用默认选项；2）分别在Claude API、Bedrock等各接入渠道确认模型可用性；3) 在升级前重新进行内部评估，因为官方基准测试的提升不一定直接转化为生产环境的同等表现；4）注意Opus 4.7的定价变化，及时调整成本预算。",
       "category": "devto"
     },
     {
@@ -86,7 +86,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-20T09:09:19.000Z",
-      "summaryZh": "本文教你如何快速构建自定义MCP服务器，让Claude Code连接内部工具。作者通过一个TODO列表管理器的实例，演示了MCP的核心实现模式。\n\n**用户场景**：解决开发者希望Claude Code能直接操作项目TODO列表、查询数据库或调用内部API等定制化需求，而不仅限于预置工具。\n\n**核心方法**：基于Node.js和MCP SDK构建JSON-RPC服务器，通过定义`list_todos`、`add_todo`、`complete_todo`等工具方法，让Claude能根据对话上下文自动调用对应功能。关键步骤包括：初始化项目、创建server处理工具请求、在Claude Code配置文件中注册MCP服务器。\n\n**关键技巧**：1) 使用`StdioServerTransport`实现标准输入输出通信；2) 通过`setRequestHandler`分别处理工具列表查询和具体工具调用；3) 生产环境需添加错误处理（try-catch返回isError标志）和输入验证。该模式可扩展至数据库查询、Slack消息推送等任何内部系统集成。",
+      "summaryZh": "本文介绍如何快速构建自定义MCP服务器，让Claude Code连接内部工具。作者针对开发者希望扩展AI助手能力、连接私有数据源的需求，通过构建TODO列表管理服务器的实例，演示MCP核心开发流程。\n\n核心方法是使用Node.js和MCP SDK创建JSON-RPC服务器，通过定义工具接口（list_todos/add_todo/complete_todo）让Claude动态调用。关键步骤包括：初始化项目并安装SDK、实现工具注册与请求处理器、配置Claude Code连接服务器。\n\n关键技巧：1）理解MCP本质是标准化工具协议，Claude自主决定工具调用时机；2）使用StdioServerTransport实现进程间通信；3）配置文件需使用绝对路径；4）生产环境需添加错误处理和输入验证。该模式可扩展至数据库查询、API集成等场景，将任意工具转化为自然语言接口。",
+      "category": "devto"
+    },
+    {
+      "title": "Amazon Just Committed $25 Billion More to Anthropic — Here''s What It Means for Claude",
+      "titleZh": "亚马逊再投250亿美元给Anthropic——这对Claude意味着什么",
+      "link": "https://dev.to/techsifted/amazon-just-committed-25-billion-more-to-anthropic-heres-what-it-means-for-claude-2k0j",
+      "author": "Marcus Rowe",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-21T22:20:11.000Z",
+      "summaryZh": "亚马逊向Anthropic追加250亿美元投资，将Claude深度绑定至AWS生态。本文从开发者视角分析其影响：\n\n**用户场景**：企业AI选型与云服务采购日益耦合，AWS用户将更便捷地集成Claude API；开发者关注模型API的稳定性与扩展能力。\n\n**核心方法**：通过百亿美元级AWS资源承诺（含5GW Trainium芯片容量）保障Claude长期算力；企业可通过IAM策略直接调用Claude，无需额外凭证。\n\n**关键技巧**：AWS企业客户应优先评估Claude API的集成成本优势；开发者可关注API速率限制的潜在改善，但需注意短期产品功能不会突变。技术选型时需区分“模型能力优劣”与“企业采购路径”两个决策维度。",
+      "category": "devto"
+    },
+    {
+      "title": "claude-3-haiku-20240307 just started returning errors — here's what happened",
+      "titleZh": "Claude-3-Haiku-20240307 突然开始返回错误——以下是具体情况",
+      "link": "https://dev.to/flarecanary/claude-3-haiku-20240307-just-started-returning-errors-heres-what-happened-57he",
+      "author": "FlareCanary",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-22T13:18:11.000Z",
+      "summaryZh": "本文针对Anthropic模型退役导致的API调用故障，提供排查与迁移方案。\n\n**用户场景**：生产环境因Claude Haiku 3模型（claude-3-haiku-20240307）于2026年4月20日被强制退役而突发API错误，错误表现为4XX响应（not_found_error/invalid_request_error），但代码本身未变更。\n\n**核心方法**：通过全局搜索（git grep）定位所有模型ID引用点，包括环境变量、框架封装层、测试固件、路由逻辑等，并替换为推荐的新模型ID（claude-haiku-4-5-20251001）。需注意新模型存在多项破坏性变更。\n\n**关键技巧**：\n1. 移除同时设置temperature和top_p的代码（新模型禁止同时使用）\n2. 检查stop_reason的匹配逻辑是否兼容新增的停止原因\n3. 注意工具参数中的换行符不再被自动去除\n4. 重新评估成本（新模型价格提升至4倍）和配额（需单独申请）\n5. 建议建立API监控机制（如定期轮询GET /v1/models），主动检测模型列表变更\n\n长期而言，应建立对第三方AI服务商API合约的持续验证流程，避免类似静默故障。",
       "category": "devto"
     },
     {
@@ -97,7 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-18T18:44:54.000Z",
-      "summaryZh": "本文介绍了如何通过Model Context Protocol（MCP）将Claude Code连接到Shopify、Gmail和Meta Ads等外部服务，快速构建AI智能体。作者通过本地MCP服务器实现Claude与外部API的安全通信，无需手动切换工具或导出数据。\n\n核心方法是在claude_desktop_config.json中配置MCP服务器，每个服务对应一个本地服务端脚本处理认证和API调用。Claude Code会自动识别暴露的工具函数，如get-orders或搜索邮件。\n\n关键技巧包括：1）为不同操作使用独立权限令牌，如Shopify的读写分离；2）将配置文件加入.gitignore避免密钥泄露；3）利用多服务联动实现跨平台分析，如结合广告数据与订单信息优化营销策略。注意避免返回过多数据消耗上下文窗口。",
+      "summaryZh": "本文介绍了如何通过Model Context Protocol（MCP）将Claude Code连接到Shopify、Gmail和Meta Ads等外部服务，快速构建AI智能体。作者通过配置本地MCP服务器，让Claude能够直接调用API读取订单数据、搜索邮件内容、分析广告表现，实现跨系统数据联动分析。关键技巧包括：使用只读权限令牌保障安全、将配置文件加入.gitignore避免密钥泄露、通过--confirm标志控制写操作。这种集成方式将原本需要多工具协作的数小时工作，压缩为单会话自动化处理，显著提升运营效率。",
       "category": "devto"
     },
     {
@@ -108,30 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-21T11:44:08.000Z",
-      "summaryZh": "本文介绍了成为Claude专家的核心路径：完成Anthropic官方免费的四门课程。作者指出，仅会使用聊天界面与真正掌握Claude开发能力存在本质区别。\n\n**用户场景**：针对希望从“会使用Claude聊天”进阶到“能用Claude构建产品”的开发者，解决其缺乏系统、权威学习路径的问题。\n\n**核心方法**：通过依次学习四门官方课程构建完整知识体系：\n1.  **Claude with the Anthropic API**：学习API调用、消息处理、流式响应等，将Claude集成到代码中。\n2.  **Introduction to Agent Skills**：掌握编写可重复执行特定任务的Agent Skill的方法。\n3.  **Introduction to Model Context Protocol (MCP)**：学习通过MCP标准将Claude连接到数据库、内部工具等外部系统。\n4.  **Claude Code in Action**：学习将Claude Code作为完整的开发代理来理解代码库、修改代码并确保测试通过。\n\n**关键技巧**：\n*   **学习顺序**：建议按上述API -> Skill -> MCP -> Claude Code的顺序学习，由基础到应用。\n*   **前置要求**：需具备英语理解能力、至少一门编程语言基础、Anthropic API账号及基本的终端操作能力。\n*   **零基础起步**：可从无需代码的Agent Skills课程开始，并在学习API前，用2-3小时通过Claude辅导学习Python基础。\n*   **成果认证**：完成每门课程可获得Anthropic官方颁发的结业证书。",
+      "summaryZh": "本文介绍了成为Claude专家的核心路径：学习Anthropic官方免费课程。用户场景是帮助开发者从基础使用进阶到产品化集成，解决仅会提示词操作而无法深度开发的问题。核心方法是通过四个模块系统学习：Claude API集成、Agent Skills编写、Model Context Protocol（MCP）连接外部系统、以及Claude Code工程化应用。关键技巧包括：按API→Skills→MCP→Claude Code顺序学习；无编程基础者可先学Skills模块，再用Claude辅助学习Python基础；课程需配合API账号实操，注重终端操作和代码集成能力。完成约10小时学习可获得官方认证，实现从“提示词优化”到“用Claude构建产品”的跨越。",
       "category": "devto"
     },
     {
-      "title": "5 Claude Code Hooks That Save Me 3 Hours Every Day",
-      "titleZh": "5个Claude Code钩子，每天为我节省3小时",
-      "link": "https://dev.to/nextools/5-claude-code-hooks-that-save-me-3-hours-every-day-3542",
-      "author": "Nex Tools",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-18T18:44:15.000Z",
-      "summaryZh": "本文介绍如何利用Claude Code的hooks功能实现开发自动化，解决日常编码中的低效问题。\n\n**用户场景**：开发者使用Claude Code时，常需手动处理文件格式化、Git操作、测试验证等重复任务，耗费大量时间。\n\n**核心方法**：通过配置.claude/settings.json中的hooks，在PreToolUse/PostToolUse/Stop事件触发时自动执行shell命令。利用jq解析JSON输入获取文件路径等上下文信息。\n\n**关键技巧**：\n1. 文件写入后自动运行prettier格式化代码\n2. 文件编辑后自动git add保持工作区清洁  \n3. 文件变更后立即运行npm test，通过tail -20输出错误信息\n4. 会话结束时自动生成git diff统计报告\n5. 使用PreToolUse拦截对.env等敏感文件的误操作\n\n这些hooks组合使用可节省数小时手动操作时间，特别适合需要频繁与Claude交互的重构、调试和代码生成场景。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Code Tips: 7 Rules That Make It 10x More Useful",
-      "titleZh": "Claude Code 使用技巧：让效率提升十倍的七条黄金法则",
-      "link": "https://dev.to/olivia_craft/claude-code-tips-7-rules-that-make-it-10x-more-useful-j3p",
-      "author": "Olivia Craft",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-18T09:52:54.000Z",
-      "summaryZh": "本文分享7条提升Claude Code实用性的规则。用户场景：解决AI助手在编码时偏离项目规范、生成不一致代码、需要反复纠正的问题。核心方法：通过项目根目录和子目录的CLAUDE.md文件分层配置上下文，持久化定义技术栈、代码规范、测试规则等约束。关键技巧：1) 用CLAUDE.md替代临时系统提示，实现团队共享的版本化配置；2) 设置明确边界防止过度重构；3) 预定义代码格式化规则避免风格冲突；4) 指导测试编写聚焦行为而非实现细节。这些规则可将Claude Code从演示工具转化为高效编程伙伴。",
-      "category": "devto"
+      "title": "v2.1.117",
+      "titleZh": "v2.1.117",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.117",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-04-22T00:04:40.000Z",
+      "summaryZh": "Claude Code v2.1.117 发布，主要更新包括：新增实验性 Advisor Tool 并修复其卡顿问题；子代理现可通过环境变量在外部构建中启用；/model 选择持久化，/resume 支持大会话摘要；启动速度优化，插件安装逻辑改进。修复了 OAuth 令牌过期、WebFetch 大页面挂起、代理返回 204 崩溃等关键问题。macOS/Linux 原生构建中 Glob/Grep 工具被嵌入式 bfs/ugrep 替代。Pro/Max 用户在 Opus 4.6/Sonnet 4.6 上的默认 effort 调整为 high。同时修复了 VSCode 插件面板、Opus 4.7 上下文计算错误等多个稳定性问题。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.116",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-04-20T22:18:28.000Z",
-      "summaryZh": "Claude Code v2.1.116 发布，主要优化性能和修复多项问题。新功能包括：大幅提升大型会话的 /resume 速度（最高67%）、改进 MCP 启动效率、终端滚动更流畅、/config 支持搜索选项值、/doctor 可在响应时打开。修复了终端中 Devanagari 脚本对齐问题、Ctrl+Z 导致终端挂起、滚动重复历史记录、模态搜索框溢出等 bug。安全更新：沙箱自动允许不再绕过危险路径检查。",
+      "summaryZh": "Claude Code v2.1.116 发布，主要优化性能与修复多项问题。新特性包括：大幅提升大型会话的 /resume 速度（最高67%）、优化多服务器启动、改进终端滚动体验、新增思考进度提示、增强 /config 搜索功能。修复了终端文本对齐、快捷键失效、滚动重复、对话框溢出等关键问题。安全方面，强化了沙箱路径检查。",
       "category": "github-release"
     }
   ]
