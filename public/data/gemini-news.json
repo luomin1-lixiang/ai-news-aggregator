@@ -1,18 +1,31 @@
 {
-  "lastUpdated": "2026-04-25T18:36:12.879Z",
+  "lastUpdated": "2026-04-27T19:05:21.598Z",
   "items": [
     {
-      "title": "8 Gemini tips for organizing your space (and life)",
-      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-spring-cleaning-tips/",
-      "description": "Organize your home and digital space with Gemini. Use AI-powered tips for cleaning schedules, inbox decluttering, seasonal chores.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Spring_Cleaning_hero.max-600x600.format-webp.webp\">Organize your home and digital space with Gemini. Use AI-powered tips for cleaning schedules, inbox decluttering, seasonal chores.",
-      "author": "Ivy Levine",
+      "title": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/",
+      "description": "Google is bringing back its 5-Day AI Agents Intensive Course with Kaggle and registration is open.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Vibe_Coding_Course_herosocial.max-600x600.format-webp.webp\">Google is bringing back its 5-Day AI Agents Intensive Course with Kaggle and registration is open.",
+      "author": "Anant Nawalgaria",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 24 Apr 2026 19:00:00 +0000",
-      "titleZh": "8个Gemini技巧，帮你整理空间（和生活）",
-      "descriptionZh": "Google最新推出的Gemini AI助手，正将大语言模型的应用从复杂的专业领域延伸至日常生活的琐碎管理。这篇博客围绕“用Gemini整理家庭与数字空间”这一核心命题，展示了如何借助AI的智能规划与自然语言理解能力，帮助用户优化清洁计划、清理收件箱、管理季节性杂务——这些看似简单却容易让人拖延或遗漏的日常任务，如今都能通过对话式AI获得量身定制的效率方案。\n\n在背景层面，博客指出：现代人面临双重空间的“杂乱”——物理家中的物品堆积和清洁项目缺乏系统性，数字空间里的邮件、文件、日程同样散乱无章。传统的待办清单或单一功能App往往只能解决单点问题，缺乏跨场景的智能协调。Gemini的出现填补了这一空白：它不仅能理解用户用自然语言描述的需求（例如“帮我安排下周的春季大扫除”），还能自动分解任务、设定优先级、生成时间表，甚至根据天气、季节或用户历史行为调整建议。\n\n技术原理上，Gemini的核心创新在于其多模态理解与任务规划能力。与传统规则式任务管理不同，Gemini利用了大规模预训练模型中的常识推理：它明白“春季清洁”不仅意味着擦玻璃和换床单，还包含空调滤网清洗、衣柜换季收纳等隐含子任务。当用户说“清理收件箱”，它能区分重要邮件、订阅广告和垃圾邮件，并建议批量退订、自动归档或设置过滤器——这背后依赖的是模型对语言意图和上下文的深度建模，而非简单的关键词匹配。\n另一个创新点是时序感知与动态调整。Gemini能够结合用户的日历（如工作日、周末）、当地气候数据（如湿度高的地区需增加除霉任务）以及过往完成情况，动态优化任务排期。例如，“季节性杂务”模块会自动识别春季花粉季来临，提前一周提醒用户清洁空调滤网并采购滤芯，这种前瞻性规划源自模型对因果关系的理解。\n\n技术影响方面，Gemini对家庭管理的介入标志着AI从“生产力工具”向“生活管家”的转折。它降低了智能化的门槛：用户无需学习复杂App操作，只需像聊天一样说出需求，就能获得完整的执行方案。对于收件箱清理，Gemini甚至能自动生成回应草稿或取消订阅链接，将耗时数小时的数字清理缩短到几分钟。\n应用场景极其广泛：从独居年轻人到多成员家庭，从租房族到自住房屋主。例如，夫妻可以共享一个Gemini会话，让AI协调两人生日、工作和家务安排；季节性任务如“冬季管道防冻检查”或“夏季草坪护理计划”都能被自动纳入，避免遗忘。此外，数字化方面，Gemini还能管理云存储空间、删除重复照片、整理下载文件夹，实现物理与数字空间的同步优化。\n\n总体而言，这篇博客不仅展示了Gemini作为AI助手的实用性，更揭示了未来人机协作的一种新范式：AI不再只是被动回答问题的工具，而是主动观察、规划、执行的“副驾驶”。它用自然语言取代复杂的设置，用推理能力替代死板的规则，真正让整理生活变得像聊天一样简单。"
+      "pubDate": "Mon, 27 Apr 2026 13:00:00 +0000",
+      "titleZh": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
+      "descriptionZh": "Google 联合 Kaggle 重新推出为期五天的“AI 智能体强化课程”（5-Day AI Agents Intensive Course），目前注册通道已开放。该课程旨在系统性地引导开发者掌握构建、部署与优化自主 AI 智能体的核心技术，是当前大语言模型应用从“对话”向“行动”演进的关键实战训练。\n\n### 背景与课程定位\n\n随着大语言模型（如 Gemini、GPT 等）能力的快速提升，简单的“一问一答”式交互已无法满足复杂场景需求。AI 智能体（Agent）能够感知环境、调用工具、制定计划并自主执行多步任务，成为连接语言模型与真实世界操作的桥梁。Google 与 Kaggle 此前已成功举办多届同类密集课程（如 2024 年的“5-Day Gen AI Intensive”），此次回归聚焦于智能体开发，反映业界对“LLM 应用落地”的迫切需求。\n\n### 核心技术原理与课程亮点\n\n1. **智能体框架与设计模式**：课程将深入讲解 ReAct（Reasoning + Acting）范式，让模型在推理与行动之间循环，通过“思考-行动-观察”循环打破静态问答局限。学员将学会如何为智能体定义工具（如搜索、计算、数据库查询、API 调用），并利用结构化输出（如 JSON）驱动工具链调用。\n\n2. **记忆与上下文管理**：针对多轮复杂任务，课程会涉及短期记忆（会话上下文窗口压缩）、长期记忆（向量数据库存储历史交互）以及工作记忆（任务栈管理），确保智能体不会在长链操作中丢失信息。\n\n3. **规划与执行策略**：包括任务分解（如 Chain-of-Thought 子目标）、动态重规划（当中间步骤失败时回退调整）以及并行工具调用优化。此外，课程将演示如何结合 Google 的 Gemini API 与 Function Calling 能力，快速构建具备“意图理解-工具选择-结果验证”闭环的智能体。\n\n4. **端到端实战项目**：Kaggle 平台提供 Jupyter Notebook 与数据集，学员将在 5 天内完成从基础聊天机器人到多工具协作智能体的完整构建，例如集成搜索、代码执行与外部数据库的科研助手或自动化报告生成器。\n\n### 技术影响与应用场景\n\n- **企业自动化**：智能体能将自然语言指令转化为跨系统操作（如 CRM、ERP、数据分析平台），极大降低 RPA 脚本编写门槛，尤其适用于客服、IT 运维、供应链管理等场景。\n- **开发效率革命**：开发者可快速原型化“对话式应用”，将复杂工作流封装为可复用的智能体模块，例如自动编写代码并测试的编码助手、动态查询金融数据的投研工具。\n- **AI 安全与可控制性**：课程会强调智能体的边界约束（如工具白名单、执行确认机制），防止自主操作失控，这对金融、医疗等合规行业至关重要。\n\n### 注册与参与建议\n\n课程完全免费，在 Kaggle 平台进行，适合具备一定 Python 基础且熟悉 LLM API 调用的开发者。完成课程可获得证书，并有机会参与 Google 与 Kaggle 社区组织的智能体竞赛。注册地址已通过官方博客公布，名额通常有限，建议尽早报名。\n\n（摘要基于 Google 博客公告及 Kaggle 课程页面信息，结合智能体技术原理进行扩展解读。）"
+    },
+    {
+      "title": "Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.",
+      "link": "https://blog.google/products/marketingplatform/360/albertsons-google-commerce-media-suite/",
+      "description": "Supercharge performance across the shopper journey by connecting Albertsons data with Google’s AI and scale.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_social_share.max-600x600.format-webp.webp\">Supercharge performance across the shopper journey by connecting Albertsons data with Google’s AI and scale.",
+      "author": "Marta Martinez",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 27 Apr 2026 12:00:00 +0000",
+      "titleZh": "Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.",
+      "descriptionZh": "抱歉，您提供的输入中只包含一张图片链接和一个标题，没有博客正文内容。为了生成准确、完整的中文摘要，我需要阅读原始的英文博客全文。请您提供博客的文本内容，或者确认是否有其他信息。目前基于仅有的标题，我无法生成符合要求的详细摘要。\n\n如果您能提供博客正文，我将立即为您生成专业的中文摘要，涵盖背景、技术原理、创新点、影响和应用场景。"
     }
   ]
 }

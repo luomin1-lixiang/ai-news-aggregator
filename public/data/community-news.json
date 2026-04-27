@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-04-26T18:38:57.934Z",
+  "lastUpdated": "2026-04-27T19:06:56.090Z",
   "items": [
-    {
-      "title": "What Google's $40B Anthropic Investment Means for n8n Workflow Automation in 2026",
-      "titleZh": "谷歌400亿美元投资Anthropic对2026年n8n工作流自动化的影响",
-      "link": "https://dev.to/jahanzaibai/what-googles-40b-anthropic-investment-means-for-n8n-workflow-automation-in-2026-55cn",
-      "author": "Jahanzaib",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-25T05:09:45.000Z",
-      "summaryZh": "## Google 400亿美元投资Anthropic：对n8n工作流自动化意味着什么？\n\n### 用户场景\n作者是一名使用n8n构建自动化工作流的开发者，后端依赖Claude API处理客户邮件路由。他面临的核心问题是：Claude Code因需求激增导致频繁超时和宕机，尤其在高峰时段（如晚上11点）服务不稳定，严重影响生产环境中的自动化流程可靠性。\n\n### 核心方法\nGoogle承诺立即投入100亿美元，另有300亿美元取决于Anthropic达成性能目标；Amazon同期也投入50亿美元。这笔资金主要用于基础设施扩容（AWS Trainium/Inferentia芯片、Google TPU/Cloud），解决Claude Code因过度流行导致的容量瓶颈。同时，Anthropic发布了更强大的Mythos模型（仅限合作伙伴），但已遭未授权访问，预示未来能力跃升和更严格的安全管控。\n\n### 关键技巧\n1. **短期应对波动**：在n8n工作流中为每个Claude API调用添加**重试逻辑+指数退避**（3次重试，每次延迟翻倍），并设置降级方案（缓存响应或简化回答），避免因服务中断导致工作流崩溃。\n2. **长期规划**：随着Mythos等更强模型推出，Anthropic可能收紧高能力模型访问权限。构建自动化时需明确区分工作流所需模型等级，避免过度依赖前沿能力。\n3. **基础设施陷阱**：投资到实际扩容需数月时间，2026年Q3前高峰时段不稳定将持续。不要假设资金到位后立即改善，务必做好错误处理。",
-      "category": "devto"
-    },
     {
       "title": "How Prompt Caching Cuts AI Costs by 90%",
       "titleZh": "提示缓存如何将AI成本降低90%",
@@ -20,18 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-26T09:18:26.000Z",
-      "summaryZh": "# 如何通过Prompt Caching将AI API成本降低90%\n\n## 用户场景\n开发者在使用Claude、GPT、Gemini等大模型API时，每次请求都需要重复处理相同的系统提示词（如工具定义、few-shot示例），导致大量不必要的token消耗和费用。Anthropic的Prompt Caching功能可将缓存部分的输入token成本从$3/百万降至$0.30/百万，降幅达90%。\n\n## 核心方法\n缓存机制基于8步流水线：1) API对标记为cacheable的prompt前缀计算SHA-256哈希；2) 查询分布式Redis缓存集群；3) 缓存未命中时完整处理prompt并支付25%的写入溢价；4) 使用LZ4压缩KV-cache张量（压缩率60-70%）；5) 写入缓存并设置300秒TTL；6) 缓存命中时直接加载张量到GPU。缓存仅在5分钟内有效，过期需重新计算。\n\n## 关键技巧\n- **动态内容后置**：将系统指令、工具定义放在缓存前缀，时间戳等变量内容放在后缀，避免哈希变化导致缓存失效\n- **保持活跃机制**：在活跃会话中每4.5分钟发送一次轻量缓存请求，防止5分钟TTL过期\n- **批量请求**：将API调用集中在短时间内，最大化缓存命中率\n- **注意模型版本**：模型权重更新会使旧缓存失效，需关注部署时间\n- **成本权衡**：首次写入溢价25%，但后续读取仅需标准成本的10%，适合高频重复prompt场景",
-      "category": "devto"
-    },
-    {
-      "title": "Cancelled Claude AI Agent: My 4 Reasons For The Switch",
-      "titleZh": "取消Claude AI Agent：我切换的4个理由",
-      "link": "https://dev.to/umair24171/cancelled-claude-ai-agent-my-4-reasons-for-the-switch-20ab",
-      "author": "Umair Bilal",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-04-25T05:47:02.000Z",
-      "summaryZh": "# 取消Claude AI Agent：一位生产环境开发者的4个理由\n\n## 用户场景\n作者运营着多个生产级AI系统（FarahGPT黄金交易系统、YouTube自动化9-agent流水线、NexusOS治理平台），发现Claude AI Agent在生产环境中出现严重退化，导致成本上升、用户信任受损，最终决定全面替换。\n\n## 核心方法\n作者进行了100次迭代的基准测试，对比claude-3-sonnet-20240229、gpt-4o和deepseek-v2在博客大纲生成任务上的表现。关键指标包括：Token消耗、每次运行成本、任务成功率、延迟。\n\n## 关键技巧与数据\n- **Claude退化表现**：任务成功率从92%降至75%，工具调用成功率从95%降至88%，虚假\"卖出\"信号从8%升至15%\n- **基准测试结果**：gpt-4o以94%任务成功率、$0.007/次成本、3.1秒延迟胜出；deepseek-v2以$0.004/次成本成为性价比黑马\n- **避坑建议**：不要迷信\"长上下文\"特性，应优化prompt engineering和memory management；注意Claude在复杂多轮对话中的幻觉和工具调用退化问题\n- **架构建议**：作者正在构建基于模型路由的Agent系统，根据任务关键性动态选择gpt-4o（高可靠性）或deepseek-v2（低成本）",
+      "summaryZh": "# 如何通过Prompt Caching将AI API成本降低90%\n\n## 用户场景\n开发者在使用Claude、GPT、Gemini等大模型API时，频繁发送包含长系统提示词（如10万token）的请求，导致每次调用都需重新计算，成本高昂。作者指出，大多数开发者从未配置过Prompt Caching，错失了将输入token成本从$3/百万降至$0.30/百万（Claude 3.5 Sonnet）的90%折扣。\n\n## 核心方法\nAnthropic于2024年7月推出的Prompt Caching机制，通过8步流水线实现：1) API对标记为cacheable的prompt前缀计算SHA-256哈希；2) 查询分布式Redis缓存集群中的KV-cache张量状态；3) 缓存未命中时完整处理prompt（需支付25%写入溢价）；4) 使用LZ4压缩KV-cache张量（减少60-70%存储）；5) 写入缓存并设置300秒TTL；6) 缓存命中时直接加载张量到GPU内存。OpenAI对GPT-4o自动启用（前缀>1024 tokens），Gemini 1.5 Pro提供75%折扣（需>32,768 tokens）。\n\n## 关键技巧\n- **动态内容后置**：将系统指令、工具定义、few-shot示例放在cacheable前缀中，时间戳等变量内容放在后缀，避免哈希不匹配\n- **保持前缀稳定**：10,000 token系统提示中一个字符变化就会产生完全不同的哈希，导致缓存失效\n- **实现keep-alive机制**：Claude缓存5分钟不活动后过期，需每4.5分钟发送轻量级缓存请求维持活跃\n- **批量请求**：将API调用集中在更短的时间窗口内，最大化缓存命中率\n- **注意模型版本**：Anthropic更新模型权重后，旧缓存自动失效，需重新写入",
       "category": "devto"
     },
     {
@@ -42,29 +20,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-25T23:32:47.000Z",
-      "summaryZh": "# Claude Design 如何倒逼 Canva 和 Figma 转型为 AI 平台\n\n## 用户场景\n作者分析了 Anthropic 于4月17日推出的 Claude Design 实验性产品，它专注于快速生成视觉内容、幻灯片、单页文档和原型。这直接切入 Canva 和 Figma 的核心使用场景——营销素材制作和产品原型探索。虽然两家公司营收仍在增长（Canva 年收入40亿美元，Figma 2026年增速加快），但竞争已从设计工具层面上升到 AI 平台层面。\n\n## 核心方法\nClaude Design 的核心竞争力在于：将 prompt、文件和团队上下文直接转化为成品输出，无需传统设计工具的操作流程。这迫使 Canva 和 Figma 加速转型：\n- **Canva AI 2.0**：从“带AI的设计平台”转向“以AI为核心的生产力平台”，新增对话式创作、Slack/Gmail/Notion 等连接器、自动化调度和品牌记忆功能\n- **Figma AI**：通过 AI credits 计量收费（Starter 150 credits/天，Enterprise 4250/月），推出 Figma Make/Draw/Sites/Slides/Buzz 及 MCP 支持\n\n## 关键技巧\n1. **定价策略差异**：Canva 将 AI 功能深度集成到订阅中，Figma 则采用 credits 计量模式，开发者需注意成本控制\n2. **防御方向不同**：Canva 向营销和生产力工作流扩展，Figma 沿产品设计到代码路径延伸，选择合作时需匹配自身需求\n3. **MCP 支持**：Figma 已支持通过 MCP 协议与 AI coding agents 共享设计上下文，这是开发者集成设计到代码工作流的关键接口\n4. **避免误区**：Claude Design 目前是实验性产品，并非专业设计套件的替代品，适合快速原型而非精细设计",
+      "summaryZh": "# Claude Design 如何倒逼 Canva 和 Figma 转型为 AI 平台\n\n## 用户场景\n作者指出，Anthropic 于4月17日推出 Claude Design 实验性产品，主打快速视觉创作、幻灯片、单页文档和原型设计。这直接切入 Canva 擅长的营销素材和演示制作领域，以及 Figma 的早期概念和原型工作流。虽然 Canva（年收入40亿美元，月活2.7亿）和 Figma（收入增长加速至2026年）的核心业务并未崩溃，但竞争已从设计界面和模板层升级为“AI 设计工具层”——用户只需输入 prompt、文件或团队上下文即可获得成品。\n\n## 核心方法\n两大巨头正在积极构建防御性护城河：\n- **Canva AI 2.0**：从“带 AI 的设计平台”转型为“以 AI 为核心的设计+生产力平台”，新增对话式创作、Slack/Gmail/Notion 等连接器、网络研究、自动化调度、品牌记忆库和 Canva Code 2.0。通过收购 Simtheory 和 Ortto（覆盖190国1.1万客户）加速进化。\n- **Figma AI**：走产品设计到代码路径，推出 Figma Make/Draw/Sites/Slides/Buzz 及 MCP 支持（与 AI 编码代理共享设计上下文）。AI 功能采用计量付费模式（Starter 150 credits/天，Enterprise 4250/月）。\n\n## 关键技巧\n1. **定位差异**：Canva 向营销和工作流平台扩展，Figma 沿设计到代码路径延伸，两者防御方向不同。\n2. **定价策略**：Figma 将 AI 作为独立计费单元（credits），而非捆绑进核心产品，便于控制成本和变现。\n3. **投资风险**：产品范围扩大通常意味着更高的工程和支持成本，而 AI 计量付费可能改变传统设计软件的利润率结构。开发者需关注这些平台如何平衡 AI 功能与核心设计体验。",
       "category": "devto"
     },
     {
       "title": "Google's $40B Anthropic Bet: What It Means for Developers",
-      "titleZh": "谷歌400亿美元押注Anthropic：对开发者意味着什么",
+      "titleZh": "谷歌400亿美元投资Anthropic：对开发者意味着什么",
       "link": "https://dev.to/max_quimby/googles-40b-anthropic-bet-what-it-means-for-developers-5g5o",
       "author": "Max Quimby",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-26T03:39:13.000Z",
-      "summaryZh": "## Google 400亿美元押注Anthropic：开发者需要知道的真相\n\n**用户场景**：开发者关心的是，这笔巨额投资能否解决Claude API调用时的速率限制、算力不足和可靠性问题。当前Tier 1开发者仅50 RPM/30K TPM，Tier 4需$400累计消费才能达到4,000 RPM。\n\n**核心方法**：这不是传统风投，而是\"循环融资\"结构——Google给Anthropic 400亿美元，Anthropic用这笔钱购买Google Cloud TPU算力，Google确认云收入。实际产出是5吉瓦专用TPU算力锁定在Google栈上。其中100亿为即时现金（3500亿估值），300亿为基于业绩里程碑的可行使期权。\n\n**关键技巧**：\n1. **算力稳定性**：Anthropic的算力由资本协议结构性保障，而非单纯采购关系，这对API调用延迟和可靠性是长期利好\n2. **Mythos模型**：代号\"Capybara\"的Claude Mythos已在Vertex AI私有预览，定价$25/百万输入tokens、$125/百万输出tokens。开发者应申请Project Glasswing访问权限获取前沿能力\n3. **平台选择**：当前Claude Code年化收入已达25亿美元，但速率限制仍是瓶颈。建议企业用户直接通过Vertex AI接入，获得更优的TPU后端支持",
+      "summaryZh": "## Google 400亿美元押注Anthropic：开发者需要关注的三大要点\n\n### 用户场景\n开发者面临的核心问题是：Claude API的调用速度、速率限制和可靠性能否提升？当前Tier 1开发者仅50 RPM/30,000 TPM，Tier 4需$400累计消费才能达到4,000 RPM。Anthropic收入从2024年12月的10亿美元年化飙升至2026年4月的300亿美元，Claude Code单产品年化收入达25亿美元，需求远超算力供给。\n\n### 核心方法\n这笔交易本质是\"循环融资\"：Google给Anthropic 400亿美元→Anthropic购买Google Cloud TPU→Google确认云收入。实际交付物是5吉瓦专用TPU算力（5年），加上Broadcom合作的3.5吉瓦下一代TPU（2027年上线）。交易分两批：100亿美元立即到账（3500亿估值），300亿美元挂钩业绩里程碑。这确保Anthropic的算力供给由资本协议结构性保障，而非单纯采购关系。\n\n### 关键技巧\n1. **Claude Mythos已可用**：通过Vertex AI的Project Glasswing私有预览，定价$25/百万输入token、$125/百万输出token。NSA已在生产中使用，建议企业开发者立即申请访问。\n2. **速率限制策略**：当前Claude API Tier 4开发者可达4,000 RPM/2,000,000 ITPM，需$400累计消费。算力扩容后限制将逐步提升。\n3. **平台选择**：Google TPU正成为Nvidia的可行替代方案，Mythos优先在Vertex AI上线。预测市场显示Anthropic模型领先概率达90%，建议优先在Google Cloud生态构建。",
       "category": "devto"
     },
     {
-      "title": "Anthropic April 23 Postmortem: 3 Confounding Changes Behind Claude Code's Month-Long Quality Drop",
-      "titleZh": "Anthropic 4月23日事后分析：Claude Code长达一个月的质量下降背后的3个令人困惑的变更",
-      "link": "https://dev.to/_46ea277e677b888e0cd13/anthropic-april-23-postmortem-3-confounding-changes-behind-claude-codes-month-long-quality-drop-2pl6",
-      "author": "정상록",
+      "title": "125 Words, No Account Cues: AI Identifies Writer From Style",
+      "titleZh": "125词，无需账户提示：AI通过写作风格识别作者",
+      "link": "https://dev.to/simon_paxton/125-words-no-account-cues-ai-identifies-writer-from-style-200b",
+      "author": "Simon Paxton",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-04-25T04:35:33.000Z",
-      "summaryZh": "## Anthropic 4月23日事故复盘：Claude Code质量下降的3个隐藏原因\n\n**用户场景**：过去一个月，开发者使用Claude Code时遭遇响应变短、会话中丢失上下文、使用额度消耗过快等问题。Anthropic于4月23日发布工程复盘，确认了三个并发部署的变更叠加导致了难以诊断的质量退化。\n\n**核心方法**：\n1. **默认思考强度下调**（3月4日）：将Sonnet 4.6/Opus 4.6的默认思考强度从\"高\"降至\"中\"，本意是避免用户因等待60秒而误以为\"卡死\"。结果适得其反——用户宁愿等更久也要准确答案。4月7日回滚。\n2. **缓存Bug**（3月26日）：清除过期思考片段的缓存优化代码逻辑错误，导致每次交互都清除推理痕迹，Claude变成\"健忘症\"——忘记决策、重复尝试、缓存命中率从99.8%暴跌至接近零。该Bug通过了多人审查、自动化测试、内部试用，但被两个无关实验掩盖。有趣的是，Opus 4.7能发现这个Bug，而4.6不能。\n3. **系统提示词加了两行**（4月16日）：限制工具调用间文本≤25词、最终响应≤100词，旨在控制Opus 4.7的冗长输出。标准评测无退化，但事后消融测试发现特定评测下降3%。4月20日回滚。\n\n**关键技巧**：\n- **一次只改一个变量**：三个变更叠加导致无法归因，这是调试的基础原则\n- **用下一代模型审计当前模型**：定期用新模型重新审查旧模型的输出，成本低但能发现盲区\n- **评测盲区普遍存在**：即使Anthropic的完整验证链（多人审查、自动化测试、内部试用）也会漏掉Bug，生产环境监控和用户反馈不可或缺",
+      "pubDate": "2026-04-27T04:34:18.000Z",
+      "summaryZh": "Anthropic 的 Claude Opus 4.7 最近引发热议：仅凭 125 字未公开发表的文本，就准确识别出记者 Kelsey Piper 的身份。更关键的是，她通过无痕模式、禁用记忆、换用朋友电脑和 API 调用等方式排除了账户、浏览器和设备线索，证明模型靠的是文本风格而非元数据。\n\n**核心方法**：这本质上是**文体指纹识别（Stylometric Fingerprinting）**——模型通过分析句子长度、标点习惯、过渡词偏好、句法模式等无意识写作特征，将匿名文本与训练数据中的已知作者进行匹配。Piper 还换了题材（从政治评论到孩子学校报告和影评），模型依然准确识别，说明它不依赖主题推断。\n\n**关键技巧与风险**：\n- **实用价值**：对记者、匿名举报人、笔名作者而言，仅靠分离账户和设备已不够。攻击者不需要“100%确定你是谁”，只需可靠地判断“这两个匿名账号很可能是同一个人”就能造成跨账号去匿名化。\n- **注意事项**：该能力未经大规模独立复现，目前仅是个案。知名作者（如 Piper）因公开语料多，更容易被识别；普通人风险相对较低。但模型即使只给出“最可能的几位候选人”，也足以构成安全威胁。\n- **对比**：ChatGPT 和 Gemini 在同样测试中猜错作者，说明这是 Claude Opus 4.7 的独特行为，而非通用能力。\n\n**开发者启示**：如果你构建涉及匿名文本处理的工具（如匿名投稿平台、安全通信应用），需考虑文体指纹被 AI 利用的风险。单纯依赖账户隔离已不够，可能需要引入风格混淆或文本改写机制。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Tested a Marketplace Where AI Agents Bought and Sold Real Things — Here's What They Found",
+      "titleZh": "Anthropic测试了一个AI代理买卖真实物品的市场——以下是他们的发现",
+      "link": "https://dev.to/techsifted/anthropic-tested-a-marketplace-where-ai-agents-bought-and-sold-real-things-heres-what-they-found-32dd",
+      "author": "Marcus Rowe",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-27T02:20:07.000Z",
+      "summaryZh": "## Anthropic 的 AI 代理真实交易市场实验：Project Deal 核心发现\n\n**用户场景：** Anthropic 构建了一个名为 Project Deal 的真实内部市场，69 名员工各获 $100 礼品卡，由 Claude 代理代表他们进行真实的买卖谈判。186 笔交易完成，总交易额超 $4,000。这并非模拟，而是 AI 代理自主商业行为的真实预览。\n\n**核心方法：** 实验通过 Slack 工作区运行，类似内部 Craigslist。用户只需在初始访谈中告知 Claude 代理自己的偏好和优先级，之后代理完全自主处理——浏览列表、发起谈判、设定价格、成交或放弃。实验运行四个并行版本，关键变量是底层模型：部分使用 Claude Opus 4.5（强模型），部分使用 Haiku 4.5（弱模型），参与者不知情。\n\n**关键技巧与发现：**\n- **模型能力差距无声但致命**：Opus 卖家每件商品多赚 $2.68，买家每件节省 $2.45。同一辆坏自行车，Haiku 卖 $38，Opus 卖 $65。但两组用户的满意度几乎相同——弱模型不会报错，只是默默接受更差的结果。\n- **开发者需警惕的失败模式**：弱模型 = 更差结果，但无人标记，日志看起来正常。这与 Claude Code 企业部署中的成本差异问题类似——模型层级的影响不会主动暴露，只能通过事后结果发现。\n- **授权与法律真空**：代理需要知道何时交易（如某代理为\"自己\"买了 19 个乒乓球），也需要约束购买范围。目前\"AI 模型代表我们交易的 policy 和法律框架根本不存在\"——当两个代理达成交易后发生争议，谁负责？",
       "category": "devto"
     },
     {
@@ -75,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-26T14:38:09.000Z",
-      "summaryZh": "## Anthropic 将最强模型封锁在50家公司联盟内：对Agent开发者的影响\n\n### 用户场景\nAnthropic 于2026年4月7日发布新前沿模型 **Claude Mythos Preview**（在 Opus 4.6 基础上实现\"阶跃式提升\"），但未通过公共API开放，而是将其封锁在名为 **Project Glasswing** 的封闭联盟中。12家启动合作伙伴 + 约40家受邀组织，包括 AWS、Apple、Google、Microsoft、NVIDIA 等关键基础设施巨头。无公开API、无定价、无GA时间表。这对依赖最新模型构建Agent的开发者构成直接威胁——你无法通过 `anthropic.messages.create` 调用到基准测试中最强的模型。\n\n### 核心方法\nMythos 在 USAMO 2026 达 97.6%，SWE-bench Verified 约 93.9%，并在 Firefox 147 中发现 271 个零日漏洞。其自主发现和武器化零日漏洞的能力（速率是 Opus 4.6 的两个数量级）导致 Anthropic 选择\"先给防御者窗口期\"的封闭策略。但封锁仅维持两周即遭第三方供应商环境泄露。作者建议开发者构建**模型路由器**而非硬编码客户端：按优先级尝试 Mythos → Opus 4.6 → GPT-5.4，捕获\"不在联盟中\"错误后自动降级。\n\n### 关键技巧\n1. **解耦模型依赖**：避免prompt编码特定模型特性（如 Opus 4.6 的工具调用格式），保持可移植性\n2. **构建路由器架构**：即使只调用一个模型，也要结构化调用点，使切换或分层只需10行代码而非10个文件\n3. **显式追踪能力差距**：为每个工作负载维护内部笔记：\"当前运行在 Opus 4.6；若 Mythos 开放，瓶颈（漏洞模式识别/8小时自主编码）是切换理由\"\n4. **代码模式**：使用 `dataclass` + `Callable` 定义模型层级，通过有序列表和 `try/except` 实现优雅降级，无需框架抽象",
+      "summaryZh": "## Anthropic 将最强模型封锁在50家公司联盟内：开发者应对指南\n\n**用户场景**：Anthropic 于2026年4月7日发布 Claude Mythos Preview，这是号称\"阶梯式飞跃\"的模型（USAMO 2026达97.6%，SWE-bench Verified约93.9%，Firefox零日漏洞发现率是Opus 4.6的100倍），但仅限Project Glasswing联盟的约50家关键基础设施企业（AWS、Apple、Microsoft、NVIDIA等）使用，不提供公开API。这对依赖前沿模型的AI Agent开发者构成直接威胁——你无法通过`anthropic.messages.create`调用到最强模型。\n\n**核心方法**：文章提出\"模型分层路由\"架构。核心逻辑是：优先尝试Mythos，捕获权限错误后自动降级到Opus 4.6或GPT-5.4。代码实现为三个独立调用函数（`_try_mythos`、`_try_opus`、`_try_gpt5`），通过有序列表+try/except循环实现自动降级。关键设计：每个模型调用独立封装，路由逻辑仅需10行代码。\n\n**关键技巧**：\n1. **解耦提示词**：避免在prompt中硬编码模型特定行为（如Opus 4.6的tool-call格式、GPT-5.4的JSON模式），保持提示词可移植\n2. **构建路由器而非硬编码客户端**：即使当前只用单一模型，也要设计成10行代码可切换的架构\n3. **显式追踪能力差距**：为每个工作负载维护一段内部文档，明确\"当前用Opus 4.6，若Mythos开放，瓶颈在X，需切换\"\n4. **警惕依赖风险**：未来前沿模型可能持续采用封闭发布模式，需提前规划模型供应商多元化\n\n**警示**：据报道，该封闭机制在两周内已被第三方供应商环境突破，但\"封闭发布\"已成为可行模式，Agent开发者必须将此视为常态而非特例。",
       "category": "devto"
     },
     {
       "title": "Claude Code for Data Pipelines: How I Automated My Entire Analytics Stack",
-      "titleZh": "Claude Code 在数据管道中的应用：我是如何自动化整个分析技术栈的",
+      "titleZh": "Claude Code 在数据管道中的应用：我是如何自动化整个分析栈的",
       "link": "https://dev.to/nextools/claude-code-for-data-pipelines-how-i-automated-my-entire-analytics-stack-5bfh",
       "author": "Nex Tools",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-24T09:10:48.000Z",
-      "summaryZh": "# Claude Code 数据管道实战：自动化分析栈全攻略\n\n## 用户场景\n作者曾是\"手动数据搬运工\"——每周一花3小时从Shopify、Meta Ads、Klaviyo等平台手动拉取数据，拼接到Excel里做分析。这种模式有两个致命问题：一是容易漏数据或拉错日期范围，二是数据获取的摩擦成本太高，导致只有出大问题时才去看数据，而问题往往已持续数周。核心痛点不是缺乏数据，而是数据获取的\"摩擦力\"阻碍了日常使用。\n\n## 核心方法\n作者用Claude Code构建了四层数据管道：\n1. **提取层**：为每个数据源写独立提取脚本，只拉取必要字段，立即标准化为JSON格式。Shopify示例中，Claude自动生成带日期过滤、分页处理的fetch代码。\n2. **转换层**：将不同源数据统一为三种实体类型——收入事件、支出事件、绩效指标。Claude能根据自然语言描述生成转换函数，自动处理零花费广告组、时区归一化等边缘情况。\n3. **计算层**：注入业务逻辑（如COGS=$17、Meta ROAS目标2.0），Claude生成带红绿灯状态（GREEN/YELLOW/RED）的每日评估函数。\n4. **报告层**：放弃传统仪表盘，改用每天6点自动生成的纯文本简报，直接发送到邮箱。关键设计：零点击、零登录、零摩擦。\n\n## 关键技巧\n- **提取层要\"笨\"**：只做数据拉取和标准化，不要过早加入业务逻辑\n- **完成转换层再使用数据**：60%进度时最容易想\"先用起来\"，但半转换数据比没数据更危险\n- **用自然语言描述需求**：Claude Code能根据\"我需要一个函数，输入Meta广告对象，输出包含date/platform/campaign_name/spend_usd/roas的支出事件\"这样的描述生成完整代码\n- **报告要\"被动消费\"**：仪表盘两周就没人看了，但每天自动推送的纯文本简报会坚持看\n- **维护成本极低**：两周搭建，后续几乎零维护",
+      "summaryZh": "# Claude Code 数据管道实战：自动化分析全栈\n\n## 用户场景\n作者面临手动数据处理的典型痛点：每周一花3小时从Shopify、Meta Ads、Klaviyo等平台手动拉取数据，不仅耗时且容易出错（日期范围错误、遗漏数据）。更严重的是，数据获取的高摩擦导致作者只在问题明显时才深入分析，往往问题已持续数周。核心诉求不是为自动化而自动化，而是消除摩擦，让数据真正被日常使用。\n\n## 核心方法\n作者用Claude Code构建了四层数据管道：\n1. **提取层**：为每个数据源编写独立提取脚本，只拉取必要字段，立即标准化为统一JSON格式。Shopify示例展示了简洁的API调用模式，Meta则需处理分页和速率限制。\n2. **转换层**：将不同源数据翻译为三种通用实体——收入事件、支出事件、绩效指标。关键原则：完成全部转换前不要急于使用数据，半转换数据比无数据更糟。\n3. **计算层**：注入业务逻辑（如COGS=$17、Meta ROAS目标2.0），生成每日流量灯状态（GREEN/YELLOW/RED）。\n4. **报告层**：放弃传统仪表盘，改用每日清晨自动生成的纯文本简报邮件，无需登录点击，5分钟读完。\n\n## 关键技巧\n- **提取层设计原则**：只提取所需字段，立即标准化，不搞复杂逻辑\n- **Claude Code协作模式**：用自然语言描述需求（如“我需要一个函数处理Meta广告数据，输出包含日期、平台、花费、ROAS”），Claude自动生成代码并处理边界情况（零花费活动、时区归一化、跨午夜活动）\n- **避坑指南**：完成全部转换层前不要急于使用数据；报告形式要极致简单（纯文本邮件）才能保证每日查看\n- **维护成本**：两周搭建，后续几乎零维护",
       "category": "devto"
     },
     {
@@ -97,18 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-25T21:30:35.000Z",
-      "summaryZh": "## Claude Code Token 使用分析：历史与工具才是真正的“吞金兽”\n\n**用户场景：** 开发者在使用 Claude Code 时，普遍认为“用更少的词写提示词就能大幅节省 token”，但实际效果往往不明显。作者揭示了 token 消耗的真正大头——会话历史、工具定义、工具输出和项目记忆文件（如 CLAUDE.md），而非用户输入的简短程度。\n\n**核心方法：** 作者通过拆解 Claude Code 每次交互的 token 构成，指出：用户新输入的 prompt 只占很小一部分，而会话历史（often large）、工具定义（fixed/background）、工具输出（often very large）和 CLAUDE.md（can be large）才是主要消耗源。Anthropic 的 `/compact` 命令可将会话历史替换为结构化摘要，是减少上下文负载的关键手段。\n\n**关键技巧：**\n1. **使用 `/usage` 命令**：获取当前会话的详细 token 统计，比凭感觉猜测更准确\n2. **定期使用 `/compact`**：长会话中，用摘要替换原始历史，这是官方提供的减少上下文负载的主要工具\n3. **精简 CLAUDE.md**：保持在 200 行以内，利用 HTML 块注释（`<!-- -->`）添加内部备注，这些注释会被剥离，不消耗 token\n4. **裁剪工具输出**：大型终端输出、日志和文件转储的 token 成本远高于冗长的 prompt，只保留关键错误摘要\n5. **利用子代理**：子代理在独立上下文窗口中工作，只返回摘要给主会话，有效控制主会话的上下文膨胀",
+      "summaryZh": "## Claude Code Token 使用分析：历史与工具才是大头\n\n**用户场景：** 开发者在使用 Claude Code 时，普遍认为“用更少的词写提示就能大幅节省 token”，但实际效果往往不明显。作者揭示了 token 消耗的真正来源，帮助开发者理解成本结构。\n\n**核心方法：** Claude Code 的 token 消耗远不止用户输入的提示。在用户输入前，系统已加载：系统提示、工具定义、对话历史、工具输入输出、CLAUDE.md 项目记忆等。作者通过对比实验（新会话 vs 40轮调试会话 vs 工具密集型会话）证明：**会话包袱（session baggage）才是 token 大头，而非提示词长度**。Anthropic 的 `/usage` 命令可查看当前会话详细 token 统计，比凭感觉判断更准确。\n\n**关键技巧：**\n1. **使用 `/compact`**：当会话变长时，用此命令将原始对话历史替换为结构化摘要，显著降低上下文负载\n2. **精简 CLAUDE.md**：保持在 200 行以内，利用 HTML 块注释（`<!-- -->`）添加内部说明，这些注释会被剥离，不消耗 token\n3. **裁剪工具输出**：大型终端输出、日志、文件转储比冗长提示更耗 token。只保留错误摘要而非 2000 行输出\n4. **利用子代理（subagent）**：子代理在独立上下文窗口工作，仅返回摘要给主会话，避免主会话膨胀\n5. **避免误区**：提示词简洁对 token 节省影响很小（通常仅 20 token），而历史、工具定义、CLAUDE.md 等固定内容才是主要消耗源",
       "category": "devto"
     },
     {
       "title": "Claude Code Tips: 7 Rules That Make It 10x More Useful",
-      "titleZh": "Claude Code 使用技巧：7条规则让效率提升10倍",
+      "titleZh": "Claude Code 使用技巧：7 条规则让效率提升 10 倍",
       "link": "https://dev.to/olivia_craft/claude-code-tips-7-rules-that-make-it-10x-more-useful-2m1a",
       "author": "Olivia Craft",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-24T11:55:39.000Z",
-      "summaryZh": "## Claude Code 7条黄金规则：让AI编程效率提升10倍\n\n**用户场景：** 开发者在使用Claude Code时，常遇到AI“失忆”——忘记项目约定、生成不一致代码、每次会话都要重复说明。作者6个月实战经验，总结出7条规则解决这一痛点。\n\n**核心方法：**\n1. **CLAUDE.md全局配置**：在项目根目录创建Markdown文件，Claude Code自动读取。定义技术栈（Node.js 20 + Fastify 4 + Drizzle）、代码规范（路由放`src/routes/`、用Zod验证），避免每次纠正“我们不用Express”。\n2. **显式边界约束**：添加规则“只改指定代码，不重构无关内容、不加注释、一次只改一个逻辑”，消除80%不必要的diff。\n3. **目录级规则**：在`src/api/`、`tests/`等子目录放独立CLAUDE.md，实现API代码严格验证、测试代码灵活工厂模式的分场景控制。\n4. **格式化规范**：明确单引号、2空格缩进、无分号、解构参数等，让生成代码零lint错误。\n5. **测试行为控制**：指定“测试行为而非实现、优先集成测试、用`describe`按功能分组”，避免浅层或过度mock的测试。\n\n**关键技巧：**\n- CLAUDE.md是Git版本化的团队共享文件，不同于单次API调用的System Prompt\n- 测试规则示例：`test('returns all active users')` 而非 `test('calls database.query with correct SQL')`\n- 避免Claude过度“优化”：明确禁止重构未指定代码、添加未请求的错误处理",
+      "summaryZh": "## Claude Code 7条规则：让AI编码助手效率提升10倍\n\n**用户场景**：开发者在使用Claude Code时，常遇到AI“健忘”问题——每次会话都会忘记项目约定、生成不一致代码、需要反复纠正。作者通过6个月实践，总结出7条规则解决这一痛点。\n\n**核心方法**：\n1. **CLAUDE.md全局配置**：在项目根目录创建Markdown文件，自动注入项目栈（如Fastify+Drizzle+Zod）、编码规范，每次会话自动加载，省去重复说明\n2. **显式边界控制**：添加规则限制AI只做最小改动，不重构无关代码、不添加未请求的功能，消除80%多余diff\n3. **目录级规则分层**：在src/api/、tests/等子目录放置独立CLAUDE.md，实现API严格验证、测试灵活工厂模式的差异化行为\n4. **自动格式化规则**：明确引号风格、缩进、分号等偏好，让生成代码零lint错误直接提交\n\n**关键技巧**：\n- 区分**CLAUDE.md**（项目级持久化、Git版本控制）与**System Prompt**（API调用级临时配置），日常开发用前者\n- 测试规则要具体：指定测试框架（Vitest vs Jest）、行为测试而非实现测试、优先集成测试\n- 陷阱：AI默认会过度“帮助”，必须用“Keep changes focused and minimal”等规则约束",
       "category": "devto"
     },
     {
@@ -119,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-26T00:15:58.000Z",
-      "summaryZh": "## AI Agent 内容运营第一天就翻车了？来看看作者踩过的坑\n\n**用户场景**：作者构建了一个名为 Ares 的 AI Agent，希望它能全自动完成公司内容运营工作，包括 Dev.to 发布、Reddit 刷分、HuggingFace 数据集发布、Newsletter CTA 部署等。结果第一天就遭遇了 8 个任务卡壳——不是逻辑错误，而是**凭证缺失**问题。\n\n**核心方法**：作者发现 AI Agent 存在一个结构性的\"冷启动问题\"——传统 SaaS 冷启动是让用户注册，而 Agent 冷启动是**让所有外部系统完成凭证配置**。每个任务都卡在\"需要人类先设置\"这一步。Ares 实际上变成了一个\"自主任务检测器\"——它能发现所有需要做的事，但无法完成最后一步。\n\n**关键技巧**：\n1. **凭证映射先行**：在写任何 Agent 逻辑前，先列出所有外部 API 的凭证清单（Reddit OAuth、HuggingFace write token、Dev.to API key 等）\n2. **写权限必须显式测试**：MCP 连接显示\"已认证\"不代表能写操作——很多工具默认只读。**GET 返回 200 ≠ POST 能成功**\n3. **预检机制**：每次 Agent 会话启动前，用 canary call 验证每个凭证是否真正可用，而不仅仅是检查 key 是否存在\n4. **优雅降级**：凭证缺失时不要静默失败或无限重试，应提交工单并明确告知人类需要做什么\n\n**核心洞察**：Agent 运营有一个\"20 分钟周维护窗口\"——凭证会过期、API 会轮换密钥。人类只需每周花 20 分钟维护凭证，Agent 就能自主运行剩下的 23+ 小时。",
+      "summaryZh": "## 当AI Agent接管内容运营：第一天就翻车的8个坑\n\n**用户场景**：作者构建了一个名为Ares的AI Agent，希望它能全自动完成公司内容运营——包括Dev.to发布、Reddit刷分、HuggingFace数据集发布、Newsletter CTA部署等。结果第一天就遭遇了8个任务集体卡壳。\n\n**核心方法**：问题根源不是逻辑错误，而是**凭证缺口**——Agent能检测到所有待办任务、生成内容、规划流程，但最后一步永远卡在“需要人类先设置”。作者总结出Agent运营的“冷启动问题”：传统SaaS冷启动是用户注册，而Agent冷启动是**所有外部系统的凭证就绪**，且凭证会过期、API会轮换。\n\n**关键技巧**：\n1. **凭证清单预检**：在Agent启动前，用canary调用验证每个凭证的**写权限**（不是仅检查key是否存在）\n2. **读写分离陷阱**：HuggingFace MCP显示已认证，但只能读不能写——MCP工具默认只读。**所有集成测试必须测试写操作**\n3. **优雅降级**：凭证缺失时，Agent应自动提交工单（含具体修复步骤）并等待，而非静默失败或无限重试\n4. **20分钟维护窗口**：每周花20分钟维护凭证表面（注册OAuth、刷新token、更新env），Agent就能自主运行其余23+小时\n\n**避坑清单**：Reddit OAuth未注册、HN账号不存在、Dev.to API key已轮换、HuggingFace write token未配置、GitHub需要账号级认证——每个问题只需2-5分钟修复，但Agent无法自主完成。",
       "category": "devto"
     },
     {
@@ -130,7 +119,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-04-24T11:55:40.000Z",
-      "summaryZh": "## CLAUDE.md 快速上手：每个新项目必备的10条规则\n\n**用户场景：** 开发者使用 Claude Code 时，每次新会话都要重复解释项目栈、约定和约束，效率低下。作者提出通过 CLAUDE.md 文件解决这一痛点，让 AI 助手自动获取持久化项目上下文。\n\n**核心方法：** 在项目根目录创建 CLAUDE.md，写入具体、可测试的规则，而非模糊的“写好代码”。10条核心规则包括：1) 声明技术栈（Runtime、Framework、Database等）；2) 禁止项（如禁止使用 `any`、禁止提交 `console.log`）；3) 指定测试命令（避免 Claude 发明假命令）；4) 定义“完成”标准（测试通过、类型检查、lint 零警告）；5) 标注关键目录结构；6) 锁定命名规范（PascalCase 组件、camelCase hooks）；7) 定义 Git 工作流（分支命名、提交格式）；8) 编码数据层规则（Prisma 迁移、外键约束）；9) 设置依赖添加策略（先询问、优先标准库）；10) 写入“卡住时询问”条款。\n\n**关键技巧：** 负面规则比正面规则更有用（如“不要使用 `any`”）；明确指定包管理器（如 `pnpm`）可避免锁文件损坏；定义“完成”标准防止 AI 过早宣布成功；依赖策略可防止 node_modules 膨胀；最重要的规则是“卡住时询问”，将静默失败转化为对话。",
+      "summaryZh": "## CLAUDE.md 快速上手：每个新项目必备的10条规则\n\n**用户场景**：开发者每次使用 Claude Code 时都需要重复解释项目栈、约定和约束，导致效率低下。CLAUDE.md 文件可以持久化项目上下文，但大多数人的规则过于模糊（如“写干净代码”），无法真正提升 AI 助手的表现。\n\n**核心方法**：作者提出10条具体、可测试的规则模板，直接复制修改即可使用。核心思路是**用负面规则替代正面说教**（如“禁止使用 `any`”比“使用 TypeScript”更有效），并明确“完成”的定义、测试命令、目录结构、命名规范等硬性约束。\n\n**关键技巧**：\n1. **声明栈**：明确包管理器（如 `pnpm`），避免 Claude 乱装依赖破坏 lockfile\n2. **禁止清单**：每条规则对应一次历史事故（如禁止 `console.log` 提交、禁止修改 `migrations/`）\n3. **精确命令**：指定测试命令和端口号，防止 Claude 伪造测试结果或启动重复 dev server\n4. **完成定义**：要求代码必须通过类型检查、lint、测试，并手动验证 UI\n5. **目录映射**：减少 Claude 每次探索 repo 的耗时\n6. **依赖策略**：禁止随意添加新依赖，优先使用标准库\n7. **“卡住时询问”**：这是最重要的规则——让 Claude 在遇到歧义或失败时主动对话，而非默默犯错20分钟",
+      "category": "devto"
+    },
+    {
+      "title": "Why Claude Ignores Your Instructions (And How to Fix It With CLAUDE.md)",
+      "titleZh": "为什么Claude会忽略你的指令（以及如何通过CLAUDE.md修复）",
+      "link": "https://dev.to/olivia_craft/why-claude-ignores-your-instructions-and-how-to-fix-it-with-claudemd-1ba1",
+      "author": "Olivia Craft",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-04-24T11:55:47.000Z",
+      "summaryZh": "## Claude Code 指令失效的真相与修复方案\n\n**用户场景**：开发者在使用Claude Code时经常遇到指令漂移问题——明明写好了清晰规则，Claude却自作主张添加注释、重构代码、扩大任务范围。这不是模型故意违抗，而是大语言模型的注意力机制导致原始指令在长对话中被稀释。\n\n**核心方法**：作者提出用`CLAUDE.md`文件作为**强制钩子**（Enforcement Hook），而非依赖对话中的被动规则。这个文件在每次交互时都会被重新加载到上下文中，不会因对话增长而衰减。关键是将指令从\"对话记忆\"转移到\"项目结构\"中。\n\n**关键技巧**：\n1. **负向约束优先**：用\"DO NOT\"开头明确禁止行为（如\"不要添加注释\"），比正向指导更易执行。模型对硬边界的判断比模糊标准更准确。\n2. **范围锚定**：使用\"提及但不要修复\"模式，给Claude一个压力释放阀——可以指出问题但禁止行动，既满足其\"乐于助人\"的倾向又不破坏当前任务。\n3. **格式强制执行**：提供正反例对比，比如展示错误提交信息格式。模型基于模式匹配，负面示例比正面规则信号更强。\n\n**避坑提示**：不要试图用更长的提示词解决问题，这只会加剧注意力衰减。`CLAUDE.md`通过改变指令的存储位置（从对话到项目结构）从根本上解决漂移问题。",
       "category": "devto"
     },
     {
@@ -142,17 +142,6 @@
       "sourceType": "github-release",
       "pubDate": "2026-04-25T00:14:25.000Z",
       "summaryZh": "chore: Update CHANGELOG.md",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.119",
-      "titleZh": "v2.1.119",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.119",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-04-23T23:24:19.000Z",
-      "summaryZh": "## Claude Code v2.1.119 更新说明\n\n**新功能：**\n- `/config` 设置（主题、编辑器模式、详细输出等）现持久化至 `~/.claude/settings.json`，并支持项目/本地/策略覆盖优先级\n- 新增 `prUrlTemplate` 设置，可将 PR 徽章指向自定义代码审查 URL\n- 新增 `CLAUDE_CODE_HIDE_CWD` 环境变量，隐藏启动徽标中的工作目录\n- `--from-pr` 现支持 GitLab 合并请求、Bitbucket 拉取请求和 GitHub Enterprise PR URL\n- `--print` 模式现遵循 agent 的 `tools:` 和 `disallowedTools:` 前置元数据\n- `--agent <name>` 现遵循内置 agent 定义的 `permissionMode`\n- PowerShell 工具命令现可在权限模式下自动批准\n- 钩子：`PostToolUse` 和 `PostToolUseFailure` 输入新增 `duration_ms`（工具执行时间）\n- 子 agent 和 SDK MCP 服务器重配置现并行连接\n- Vim 模式：INSERT 中按 Esc 不再拉回排队消息\n- 斜杠命令建议现高亮匹配字符，长描述换行显示\n- `owner/repo#N` 简写链接现使用 git 远程主机而非固定指向 github.com\n- 安全：`blockedMarketplaces` 现正确执行 `hostPattern` 和 `pathPattern`\n- OpenTelemetry：`tool_result` 和 `tool_decision` 事件新增 `tool_use_id`\n\n**Bug 修复：**\n- 修复粘贴 CRLF 内容（Windows 剪贴板、Xcode 控制台）插入多余空行\n- 修复多行粘贴在 kitty 键盘协议序列中丢失换行\n- 修复 Glob 和 Grep 工具在 Bash 工具被拒绝时消失\n- 修复全屏模式下向上滚动在工具完成时自动回到底部\n- 修复 MCP HTTP 连接因非 JSON 响应体导致的 \"Invalid OAuth error response\" 错误\n- 修复 Rewind 覆盖层对带图片附件消息显示 \"(no prompt)\"\n- 修复 auto 模式覆盖 plan 模式的 \"Execute immediately\" 指令\n- 修复异步 PostToolUse 钩子在无响应时写入空条目\n- 修复子 agent 任务通知孤立时旋转图标持续显示\n- 修复 `@-file` Tab 补全在斜杠命令中替换整个提示\n- 修复 macOS Terminal.app 通过 Docker/SSH 启动时出现多余字符 `p`\n- 修复 MCP 服务器 `${ENV_VAR}` 占位符未替换\n- 修复 MCP OAuth `client_secret` 未在需要 `client_secret_post` 的服务器中发送\n- 修复 `/skills` 回车键关闭对话框而非预填充\n- 修复 `/agents` 详情视图错误标记子 agent 不可用工具为 \"Unrecognized\"\n- 修复 Windows 上插件缓存不完整时 MCP 服务器未启动\n- 修复 `/export` 显示当前默认模型而非对话实际使用模型\n- 修复详细输出设置重启后未持久化\n- 修复 `/usage` 进度条与 \"Resets…\" 标签重叠\n- 修复插件 MCP 服务器在 `${user_config.*}` 引用可选空白字段时失败\n- 修复列表项中句末数字被单独换行\n- 修复 `/plan` 和 `/plan open` 未作用于现有计划\n- 修复自动压缩前调用的技能被重新执行\n- 修复 `/reload-plugins` 和 `/doctor` 报告禁用插件的加载错误\n- 修复 Agent 工具 `isolation: \"worktree\"` 重用过期工作树\n- 修复禁用 MCP 服务器在 `/status` 中显示为 \"failed\"\n- 修复 TaskList 返回任务未按 ID 排序\n- 修复 `gh` 输出中包含 \"rate limit\" 的 PR 标题时触发虚假提示\n- 修复 SDK/bridge `read_file` 未正确限制增长文件大小\n- 修复 git worktree 中 PR 未链接到会话\n- 修复 `/doctor` 对高优先级作用域覆盖的 MCP 服务器条目发出警告\n- Windows：移除虚假的 \"Windows requires 'cmd /c' wrapper\" MCP 配置警告\n- [VSCode] 修复 macOS 上语音输入首次录音在麦克风权限提示时无输出\n\n**破坏性变更：**\n- Vertex AI 上工具搜索默认",
       "category": "github-release"
     }
   ]
