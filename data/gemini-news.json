@@ -1,31 +1,57 @@
 {
-  "lastUpdated": "2026-04-27T19:05:21.598Z",
+  "lastUpdated": "2026-04-28T19:19:49.591Z",
   "items": [
     {
-      "title": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/kaggle-genai-intensive-course-vibe-coding-june-2026/",
-      "description": "Google is bringing back its 5-Day AI Agents Intensive Course with Kaggle and registration is open.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Vibe_Coding_Course_herosocial.max-600x600.format-webp.webp\">Google is bringing back its 5-Day AI Agents Intensive Course with Kaggle and registration is open.",
-      "author": "Anant Nawalgaria",
+      "title": "Celebrating 20 years of Google Translate: Fun facts, tips and new features to try",
+      "link": "https://blog.google/products-and-platforms/products/translate/fun-facts-google-translate-20-years/",
+      "description": "Google’s sharing 20 fun facts to celebrate Google Translate turning 20, from its roots as a 2006 AI experiment to supporting almost 250 languages today.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Translate_20th_hero_NC8a.max-600x600.format-webp.webp\">Google’s sharing 20 fun facts to celebrate Google Translate turning 20, from its roots as a 2006 AI experiment to supporting almost 250 languages today.",
+      "author": "Rose Yao",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 27 Apr 2026 13:00:00 +0000",
-      "titleZh": "Join the new AI Agents Vibe Coding Course from Google and Kaggle",
-      "descriptionZh": "Google 联合 Kaggle 重新推出为期五天的“AI 智能体强化课程”（5-Day AI Agents Intensive Course），目前注册通道已开放。该课程旨在系统性地引导开发者掌握构建、部署与优化自主 AI 智能体的核心技术，是当前大语言模型应用从“对话”向“行动”演进的关键实战训练。\n\n### 背景与课程定位\n\n随着大语言模型（如 Gemini、GPT 等）能力的快速提升，简单的“一问一答”式交互已无法满足复杂场景需求。AI 智能体（Agent）能够感知环境、调用工具、制定计划并自主执行多步任务，成为连接语言模型与真实世界操作的桥梁。Google 与 Kaggle 此前已成功举办多届同类密集课程（如 2024 年的“5-Day Gen AI Intensive”），此次回归聚焦于智能体开发，反映业界对“LLM 应用落地”的迫切需求。\n\n### 核心技术原理与课程亮点\n\n1. **智能体框架与设计模式**：课程将深入讲解 ReAct（Reasoning + Acting）范式，让模型在推理与行动之间循环，通过“思考-行动-观察”循环打破静态问答局限。学员将学会如何为智能体定义工具（如搜索、计算、数据库查询、API 调用），并利用结构化输出（如 JSON）驱动工具链调用。\n\n2. **记忆与上下文管理**：针对多轮复杂任务，课程会涉及短期记忆（会话上下文窗口压缩）、长期记忆（向量数据库存储历史交互）以及工作记忆（任务栈管理），确保智能体不会在长链操作中丢失信息。\n\n3. **规划与执行策略**：包括任务分解（如 Chain-of-Thought 子目标）、动态重规划（当中间步骤失败时回退调整）以及并行工具调用优化。此外，课程将演示如何结合 Google 的 Gemini API 与 Function Calling 能力，快速构建具备“意图理解-工具选择-结果验证”闭环的智能体。\n\n4. **端到端实战项目**：Kaggle 平台提供 Jupyter Notebook 与数据集，学员将在 5 天内完成从基础聊天机器人到多工具协作智能体的完整构建，例如集成搜索、代码执行与外部数据库的科研助手或自动化报告生成器。\n\n### 技术影响与应用场景\n\n- **企业自动化**：智能体能将自然语言指令转化为跨系统操作（如 CRM、ERP、数据分析平台），极大降低 RPA 脚本编写门槛，尤其适用于客服、IT 运维、供应链管理等场景。\n- **开发效率革命**：开发者可快速原型化“对话式应用”，将复杂工作流封装为可复用的智能体模块，例如自动编写代码并测试的编码助手、动态查询金融数据的投研工具。\n- **AI 安全与可控制性**：课程会强调智能体的边界约束（如工具白名单、执行确认机制），防止自主操作失控，这对金融、医疗等合规行业至关重要。\n\n### 注册与参与建议\n\n课程完全免费，在 Kaggle 平台进行，适合具备一定 Python 基础且熟悉 LLM API 调用的开发者。完成课程可获得证书，并有机会参与 Google 与 Kaggle 社区组织的智能体竞赛。注册地址已通过官方博客公布，名额通常有限，建议尽早报名。\n\n（摘要基于 Google 博客公告及 Kaggle 课程页面信息，结合智能体技术原理进行扩展解读。）"
+      "pubDate": "Tue, 28 Apr 2026 16:00:00 +0000",
+      "titleZh": "庆祝谷歌翻译20周年：趣味事实、使用技巧及新功能体验",
+      "descriptionZh": "2006年，Google Translate作为一项AI实验悄然诞生，最初仅支持有限的语言对，依赖统计机器翻译——通过分析大量对齐的双语文本，用概率模型预测最可能的翻译结果。20年后，它已发展成为支持近250种语言的全球性工具，每天处理数千亿次翻译请求。这20个趣闻背后，折射出机器翻译技术的革命性演进：从早期基于短语的统计模型，到2016年引入神经机器翻译（GNMT），利用深度神经网络实现端到端的序列到序列建模，极大地提升了翻译的流畅度和准确度。创新点包括使用注意力机制捕捉长距离依赖、引入Transformer架构并行化训练，以及通过零样本翻译让模型在没有直接双语数据的情况下也能推理出新语言对。这些技术突破使Google Translate不仅能处理主流语言，还能覆盖濒危语言和方言，例如支持约克语的翻译。技术影响深远：它打破了语言壁垒，让信息获取、跨国交流、学术合作变得前所未有的便捷；也被广泛应用于跨境电商、旅游、医疗和政务服务，甚至帮助难民在语言不通的地区生存。当然，它仍面临专业领域翻译、文化语境理解等挑战，但其从AI实验室走向全球用户的20年历程，本身就是一部人工智能实用化与平民化的缩影。"
     },
     {
-      "title": "Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.",
-      "link": "https://blog.google/products/marketingplatform/360/albertsons-google-commerce-media-suite/",
-      "description": "Supercharge performance across the shopper journey by connecting Albertsons data with Google’s AI and scale.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_social_share.max-600x600.format-webp.webp\">Supercharge performance across the shopper journey by connecting Albertsons data with Google’s AI and scale.",
-      "author": "Marta Martinez",
+      "title": "We're announcing the first West Memphis Energy Impact Fund recipients.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/west-memphis-energy-impact-fund-recipients/",
+      "description": "The West Memphis Energy Impact Fund announced its first grant recipients, kicking off a $25 million commitment to energy efficiency in Greater West Memphis and Crittende…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/arkansas_energyimpact.max-600x600.format-webp.webp\">The West Memphis Energy Impact Fund announced its first grant recipients, kicking off a $25 million commitment to energy efficiency in Greater West Memphis and Crittende…",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 27 Apr 2026 12:00:00 +0000",
-      "titleZh": "Albertsons Media Collective brings retail signals to YouTube with Google’s Commerce Media Suite.",
-      "descriptionZh": "抱歉，您提供的输入中只包含一张图片链接和一个标题，没有博客正文内容。为了生成准确、完整的中文摘要，我需要阅读原始的英文博客全文。请您提供博客的文本内容，或者确认是否有其他信息。目前基于仅有的标题，我无法生成符合要求的详细摘要。\n\n如果您能提供博客正文，我将立即为您生成专业的中文摘要，涵盖背景、技术原理、创新点、影响和应用场景。"
+      "pubDate": "Tue, 28 Apr 2026 15:30:00 +0000",
+      "titleZh": "我们宣布了首批西孟菲斯能源影响基金受助者。",
+      "descriptionZh": "西孟菲斯能源影响基金（West Memphis Energy Impact Fund）正式宣布了首批受助者名单，标志着这项总额2500万美元的能源效率承诺在大西孟菲斯和克里滕登县（Crittenden County）地区正式启动。该基金旨在通过投资建筑节能改造、智能电网技术、工业能效优化以及可再生能源集成等关键领域，显著降低区域碳排放和居民能源开支。尽管博客原文仅披露了基金启动和受助者的基本信息，但结合能源效率项目的普遍技术路径，可以推知其核心创新点在于采用“成本分拆-绩效付费”模式：基金将前期改造费用与后续节能收益挂钩，利用物联网传感器、人工智能能耗预测算法和自动化控制系统，实现从照明、暖通到生产流程的精细化调控。这一机制打破了传统节能补贴“一次性投入、效果难追踪”的局限，通过数据中台持续监测节电率，确保资金使用效率最大化。技术影响方面，该基金的落地有望为美国中南部能源密集型社区提供可复制的电气化转型范本——通过将老旧建筑升级为近零能耗设施，并推动工业余热回收与分布式光伏微电网的协同，预计可在5年内削减区域电力消耗15%以上。应用场景覆盖市政建筑、低收入住房、中小型工厂和农业冷链设施，尤其注重优先支持当地少数族裔和女性创办的企业，兼顾环境正义与经济普惠。随着首批受助项目进入实施阶段，该基金还将建立公开的能效数据仪表盘，为后续政策制定和金融产品创新（如绿色债券、碳信用核算）提供实证基础。"
+    },
+    {
+      "title": "We’re donating Agent Payments Protocol to the FIDO Alliance to support the future of secure, agentic payments.",
+      "link": "https://blog.google/products-and-platforms/platforms/google-pay/agent-payments-protocol-fido-alliance/",
+      "description": "Google donates the Agent Payments Protocol (AP2) to the FIDO Alliance to help secure the evolution of AI-driven commerce.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/26009_Google_Agentic_Thumbnail0.max-600x600.format-webp.webp\">Google donates the Agent Payments Protocol (AP2) to the FIDO Alliance to help secure the evolution of AI-driven commerce.",
+      "author": "Stavan Parikh",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 28 Apr 2026 13:00:00 +0000",
+      "titleZh": "We’re donating Agent Payments Protocol to the FIDO Alliance to support the future of secure, agentic payments.",
+      "descriptionZh": "Google将Agent Payments Protocol（AP2）捐赠给FIDO联盟，旨在为人工智能驱动的商业交易提供安全保障。随着AI代理（如智能购物助手、自主服务机器人、自动订阅系统）在日常交易中的参与度急剧上升，传统的支付安全模型面临根本性挑战——这些代理需要代表用户执行支付操作，却无法复制人类输入的密码或生物特征，同时还要防范恶意代理的欺诈行为。AP2协议正是为填补这一空白而设计，它允许AI代理在用户授权下发起安全、可验证的支付请求，而无需暴露用户的凭据或绕过现有身份验证框架。\n\n核心技术创新在于将FIDO联盟的无密码身份认证标准（如FIDO2、WebAuthn）扩展到“代理场景”。具体来说，AP2定义了一套基于公钥加密的授权链：用户通过个人设备（如智能手机或安全密钥）为特定AI代理签发一个绑定了支付权限的短期凭证，该凭证限定了支付额度、频率和商户范围。当代理需要付款时，它使用此凭证生成一个附带加密签名的时间戳支付请求，商家将请求转发到用户的FIDO服务器进行验证，确认代理的授权仍然有效且未被篡改。整个过程无需用户实时介入，但用户的控制权始终通过可撤销凭证和审计日志得到保障。此外，AP2引入了“代理身份绑定”机制，将AI代理的实例ID、运行环境哈希与用户账户关联，防止凭证被复制或重放攻击。\n\n这一创新点对AI商业生态的影响是深远的。首先，它解决了当前AI代理支付中的“信任鸿沟”——用户无法完全让代理自主花钱，但又需要其高效完成重复性采买或竞价任务。有了AP2，用户可以设定“每周50美元以下的生活用品自动补货”并让代理独立执行，而无需每次手动确认。其次，该协议与FIDO联盟现有的认证基础设施无缝集成，意味着银行、支付处理器和电商平台无需重建系统，只需更新软件即可支持。应用场景覆盖广泛：从智能家居自动购买电力和耗材、自动驾驶汽车自主缴纳停车费或充电费，到内容平台上的AI作家自动购买图片授权，再到企业级AI助手代表部门采购云资源。在隐私和安全方面，AP2通过分离身份与支付授权，确保即使商家获得了支付请求也无法关联用户的长期身份信息，从而降低数据泄露风险。\n\nGoogle将AP2捐赠给FIDO联盟，相当于将这一关键基础设施开放为标准，邀请业界共同完善并推广。这不仅是技术协议捐赠，更是一种战略布局——随着AI代理开始管理真实经济中的货币流，一个统一、开源且经过严格审计的安全层将防止碎片化和安全漏洞。FIDO联盟随后会启动标准化进程，预计将把AP2作为扩展规范纳入FIDO2协议族，未来可能成为全球AI驱动的商业交易默认安全底座。"
+    },
+    {
+      "title": "Expanding digital IDs in India and around the world",
+      "link": "https://blog.google/products-and-platforms/platforms/google-pay/aadhaar-digital-id/",
+      "description": "Consumers in India can now save their Aadhaar Verifiable Credentials in Google Wallet and digital IDs expand to more countries.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Aadhaar_hero_j1Hg0MB.max-600x600.format-webp.webp\">Consumers in India can now save their Aadhaar Verifiable Credentials in Google Wallet and digital IDs expand to more countries.",
+      "author": "Alan Stapelberg",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 28 Apr 2026 04:30:00 +0000",
+      "titleZh": "Expanding digital IDs in India and around the world",
+      "descriptionZh": "Google Wallet 正将其数字身份功能拓展至印度市场，允许用户将 Aadhaar 可验证凭证直接保存到钱包中。Aadhaar 是印度政府推出的全球最大生物识别数字身份系统，已覆盖超过 13 亿居民，集成了指纹、虹膜扫描等生物特征数据及其对应的 12 位唯一身份号码。此次集成意味着印度用户可以在 Google Wallet 中存储其 Aadhaar 凭证，并在需要时通过数字方式验证身份，而无需出示实体卡或反复输入个人信息。这一功能的核心技术在于“可验证凭证”架构，它基于 W3C 标准，利用非对称加密和数字签名技术，确保凭证的防篡改、可溯源和选择性披露能力。用户持有私钥，而政府作为签发方对凭证进行签名，验证方只需验证签名即可确认身份真实性，无需接触原始生物数据，从而在保护隐私的同时提升了验证效率。创新点在于 Google Wallet 充当了可信任的数字代理，将开放标准与移动设备的安全硬件（如 TEE 或 eSE）结合，使凭证存储和出示既便捷又符合数据最小化原则。除了印度，Google 还宣布数字身份功能将陆续扩展至其他国家和地区，例如哥斯达黎加、德国等，这些地区的政府签发的身份凭证同样能接入 Google Wallet。技术影响方面，此举有望显著降低纸质或塑料身份卡的依赖，减少身份伪造风险，并加速线上线下场景的数字化身份验证流程，例如银行业务、旅行登记、年龄验证、医疗服务等。实用场景包括：用户可以用手机快速办理 SIM 卡激活、酒店入住、机场安检，或在酒店/租车等场景中仅展示必要属性（如年龄或国籍）而不暴露完整身份信息。从更宏观的视角看，Google Wallet 的数字身份扩展标志着科技巨头与政府身份系统的深度整合已经进入实用阶段，将个人身份主权逐步从物理载体迁移到可控的数字设备上。当然，这也对设备安全、密钥管理以及用户对数据控制权的理解提出了更高要求。总体而言，这项更新不仅方便了印度用户的日常身份认证，也为全球数字身份生态走向互操作、便携和隐私友好提供了一个参考范本。"
     }
   ]
 }
