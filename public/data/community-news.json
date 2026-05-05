@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-05-04T19:15:54.735Z",
+  "lastUpdated": "2026-05-05T19:08:45.746Z",
   "items": [
-    {
-      "title": "Postmortem: Misconfigured Anthropic API 2.0 and LangChain 0.3 Leaked 500k User Prompts",
-      "titleZh": "事后分析：配置错误的Anthropic API 2.0与LangChain 0.3泄露50万用户提示",
-      "link": "https://dev.to/johalputt/postmortem-misconfigured-anthropic-api-20-and-langchain-03-leaked-500k-user-prompts-18ao",
-      "author": "ANKUSH CHOUDHARY JOHAL",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-04T13:47:08.000Z",
-      "summaryZh": "## 事故复盘：Anthropic API 2.0 + LangChain 0.3 配置失误导致 50 万条用户提示词泄露\n\n**用户场景**：某 SaaS 初创公司在生产环境中使用 LangChain 0.3 集成 Anthropic API 2.0 构建客服系统，因配置不当导致 512,409 条用户提示词（含 PII 信息）在 2 天内泄露给未授权第三方，最终损失 210 万美元。\n\n**核心方法**：问题出在 `ChatAnthropic` 客户端的 `trace: true` 配置——该选项会将所有提示词内容转发给注册的 logger，而开发者使用 Winston 将未加密的完整 trace 数据写入文件，且未设置任何 payload 脱敏规则。LangChain 0.3.1 和 Anthropic API 2.0.4 的默认日志行为变更在发布 14 天后才被文档化，导致团队完全不知情。\n\n**关键技巧**：\n1. **永远不要在生产环境开启 `trace: true`**——如需调试，必须配合 payload 加密和脱敏\n2. **对发送给 LLM 的消息进行预检**：在 `invoke()` 前用 PII 检测器扫描 `HumanMessage` 内容\n3. **日志分级管理**：生产环境只记录 `info` 级别，debug 日志必须加密存储并设置文件权限\n4. **使用 `express-rate-limit` 限制 API 调用频率**，防止批量数据泄露\n5. **定期审计 LangChain 和 Anthropic SDK 的默认行为变更**，尤其是日志和 trace 相关配置\n\n92% 的 LangChain 0.3 集成项目未显式设置 payload 脱敏规则，这是当前 LLM 应用安全的最大盲区。",
-      "category": "devto"
-    },
     {
       "title": "CLAUDE.md for PostgreSQL: 13 Rules That Make AI Write Safe, Production-Ready SQL",
       "titleZh": "CLAUDE.md for PostgreSQL：13条规则，让AI编写安全、可用于生产的SQL",
@@ -20,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-03T12:19:23.000Z",
-      "summaryZh": "以下是关于《CLAUDE.md for PostgreSQL: 13 Rules That Make AI Write Safe, Production-Ready SQL》的中文摘要：\n\n**用户场景**  \n开发者用Claude Code等AI助手生成SQL时，常遇到看似正确但生产环境会爆炸的代码：f-string拼接SQL导致注入、直接给大表加NOT NULL列引发30分钟锁表、同一发布中DROP COLUMN导致滚动部署时旧Pod崩溃。AI从海量教程中学习，但教程只演示12行数据的demo表，生产环境才是真正的考验。\n\n**核心方法**  \n在项目根目录创建`CLAUDE.md`文件，Claude Code、Cursor、Aider等AI工具每次任务都会读取。作者分享了13条Postgres规则，每条都针对真实生产事故。核心思想是：**AI生成的代码必须经过规则约束，而非直接信任其模式匹配能力**。\n\n**关键技巧**  \n1. **永远参数化SQL**：禁止f-string拼接用户输入，使用驱动占位符（psycopg用`%s`，node-postgres用`$1`）。  \n2. **通过PgBouncer连接**：生产环境用端口6432的transaction-mode连接池，避免Postgres连接数耗尽（`max_connections=200`限制）。  \n3. **三步加列**：大表（>1M行）加列必须：①ADD COLUMN nullable（元数据操作，瞬间完成）②分批回填（每批≤50k行）③ALTER SET NOT NULL。  \n4. **延迟删列**：DROP COLUMN必须晚于代码停止使用该列的发布，因为滚动部署期间新旧Pod共存。  \n5. **禁用服务端预处理语句**：使用transaction pooling时需关闭（psycopg设置`prepare_threshold=None`）。  \n\n完整规则集见gist：https://gist.github.com/oliviacraft/91e8b91ebe06585b27c91769cfb7c252",
+      "summaryZh": "# CLAUDE.md 让AI写出生产级SQL的13条铁律\n\n**用户场景**：开发者让AI写SQL时，常得到看似正确实则危险的代码——f-string拼接用户输入导致SQL注入、直接给50M行表加NOT NULL列引发30分钟锁表、同一发布中DROP COLUMN导致滚动部署时旧pod崩溃。AI从海量教程中学会了\"demo写法\"，但生产环境会让这些代码全部爆炸。\n\n**核心方法**：在项目根目录创建`CLAUDE.md`，Claude Code、Cursor、Aider等AI工具每次任务都会读取。通过13条规则约束AI的SQL生成行为，每条规则都对应一个真实生产事故。\n\n**关键技巧**：\n1. **永远参数化查询**：用`%s`(psycopg)或`$1`(node-postgres)占位符，禁止f-string拼接用户输入\n2. **通过PgBouncer连接**：端口6432，`pool_mode=transaction`，禁用服务端预编译语句（psycopg设`prepare_threshold=None`）\n3. **加列三步走**：先ADD COLUMN nullable → 分批回填（每批≤50k行）→ 再SET NOT NULL。Postgres 11+常量DEFAULT安全，但`now()`等易变表达式仍会重写表\n4. **DROP COLUMN延迟一个发布周期**：先停止写入，下个发布再删除，避免滚动部署时旧pod查询失败\n\n完整规则集见gist：gist.github.com/oliviacraft/91e8b91ebe06585b27c91769cfb7c252",
       "category": "devto"
     },
     {
@@ -31,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-03T10:17:29.000Z",
-      "summaryZh": "以下是关于这篇 Dev.to 文章的中文总结：\n\n**用户场景**：当开发者让 AI（如 Claude Code）为 Rust 项目生成代码时，常得到看似正确但隐患重重的代码：滥用 `.unwrap()`、`unsafe` 无注释、错误类型用 `Box<dyn Error>` 导致调用方无法匹配、`tokio::spawn` 的 `JoinHandle` 被丢弃、`Cargo.toml` 写死 `tokio = \"*\"` 等。AI 不懒，只是不知道你的项目约定。\n\n**核心方法**：在项目根目录创建 `CLAUDE.md` 文件，写入 12 条 Rust 编码规则。Claude Code、Cursor、Aider 等 AI 工具每次任务前都会读取此文件，从而生成符合项目规范的代码，避免重复在 PR review 中解释约定。\n\n**关键技巧**（12 条规则精选）：\n1. **所有权与借用**：公共只读参数用 `&str` 而非 `&String`，用 `&[T]` 而非 `&Vec<T>`，存储值才用 `String`/`Vec<T>`。永远别用 `.clone()` 糊弄借用检查器。\n2. **禁止 `.unwrap()`/`.expect()`**（测试除外）：用 `?`、`ok_or`、`let-else`、`map_err` 替代。工作区启用 `clippy::unwrap_used` 等 lint。\n3. **Clippy 零容忍**：CI 中 `-D warnings`，固定工具链版本（`rust-toolchain.toml`），禁止无理由的 `#[allow(...)]`。\n4. **`unsafe` 必须带 `// SAFETY:` 注释**：默认 `#![forbid(unsafe_code)]`，必要时每条 unsafe 块需解释不变量。\n5. **错误处理分离**：库用 `thiserror` 定义枚举错误，二进制用 `anyhow::Result`，永远别用 `Box<dyn Error>`。",
+      "summaryZh": "以下是关于这篇Dev.to文章的AI技术内容摘要，专为中国开发者提炼：\n\n**用户场景**：作者发现AI（如Claude Code）生成的Rust代码虽然能编译通过，但存在大量隐患：滥用`Box<dyn Error>`导致调用方无法匹配错误变体、到处`.unwrap()`埋下panic炸弹、无注释的`unsafe`块、`serde`配置缺失导致静默吞掉拼写错误的key、`Cargo.toml`使用通配符版本等。核心痛点是AI不了解项目约定，需要一份`CLAUDE.md`文件来约束代码生成。\n\n**核心方法**：在项目根目录创建`CLAUDE.md`，定义12条硬性规则。Claude Code、Cursor、Aider等AI工具每次任务都会读取该文件，从而生成符合项目规范的代码。规则覆盖所有权借用、错误处理、unsafe安全、CI流水线等关键领域。\n\n**关键技巧**：\n1. **所有权约定**：公共函数参数用`&str`而非`&String`，用`&[T]`而非`&Vec<T>`，存储值才用所有权类型\n2. **禁止`.unwrap()`**：在workspace级别启用`clippy::unwrap_used`等lint，强制使用`?`操作符和`context`/`map_err`链式错误处理\n3. **CI强制规范**：`cargo clippy -- -D warnings` + `cargo fmt --check` + `cargo test`，并用`rust-toolchain.toml`固定工具链版本\n4. **unsafe安全**：默认`#![forbid(unsafe_code)]`，必须用时每个block需附`// SAFETY:`注释说明不变式\n5. **错误处理分离**：库用`thiserror`定义枚举错误，二进制用`anyhow::Result`，杜绝`Box<dyn Error>`",
       "category": "devto"
     },
     {
@@ -42,96 +31,118 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-03T06:20:03.000Z",
-      "summaryZh": "## CLAUDE.md 实战：13条规则让AI写出生产级K8s清单\n\n**用户场景**  \n开发者让Claude写K8s Deployment，结果得到一堆\"半成品\"：`image: myapp:latest`、无资源限制、无探针、甚至明文密码。AI并非能力不足，而是被互联网上大量不规范的教程清单\"带偏\"了。作者通过在仓库根目录配置`CLAUDE.md`，让AI在每次任务前读取生产级规则，彻底解决这个问题。\n\n**核心方法**  \n在`CLAUDE.md`中定义13条硬性规则，Claude Code、Cursor、Aider等AI工具会自动遵循：\n1. **RBAC最小权限**：禁止`cluster-admin`，改用`Role`+`RoleBinding`+`resourceNames`\n2. **资源限制**：每个容器必须声明`requests`和`limits`，内存建议`requests==limits`（Guaranteed QoS）\n3. **镜像标签**：禁用`:latest`，强制使用语义版本或`@sha256:`摘要\n4. **安全上下文**：`runAsNonRoot: true`、`readOnlyRootFilesystem: true`、`capabilities.drop: [ALL]`\n5. **探针必配**：同时配置`readinessProbe`（检查下游依赖）和`livenessProbe`（检查进程状态）\n\n**关键技巧**  \n- 内存敏感服务（JVM/Node）设置`requests==limits`避免OOMKill\n- 需要临时写入路径时用`emptyDir`卷，绝不放宽`readOnlyRootFilesystem`\n- `startupProbe`配合慢启动服务，防止liveness误杀冷启动\n- 规则要简短明确，避免AI忽略（每条规则配\"Bad/Good\"示例）\n- 资源数值必须基于实际观测数据，禁止\"拍脑袋\"",
+      "summaryZh": "## CLAUDE.md 的 13 条 Kubernetes 生产规则：让 AI 写出安全可靠的 K8s 配置\n\n### 用户场景\n开发者让 AI 生成 K8s Deployment 时，常得到 `image: myapp:latest`、无资源限制、无探针、甚至 `cluster-admin` 权限的\"半成品\"。AI 并非无能，而是从海量教程中学习了错误模式——没人告诉它生产环境哪些模式不可接受。\n\n### 核心方法\n在基础设施仓库根目录创建 `CLAUDE.md`，Claude Code 每次任务都会读取。Cursor、Aider、Codex 等支持上下文文件的 AI 同样适用。13 条规则每条都短小精悍，AI 不会忽略。\n\n### 关键技巧\n1. **RBAC 最小权限**：工作负载永远不绑定 `cluster-admin`，默认使用 `Role` + `RoleBinding` 限定命名空间，用 `resourceNames` 缩小访问范围\n2. **资源限制**：每个容器必须声明 `requests` 和 `limits`，内存敏感服务设置 `requests == limits` 获得 Guaranteed QoS\n3. **镜像标签**：禁止 `:latest`，生产环境固定到 MAJOR.MINOR.PATCH 或 `@sha256:` 摘要\n4. **安全上下文**：`runAsNonRoot: true`，`readOnlyRootFilesystem: true`，`capabilities.drop: [ALL]`，需要写路径用 `emptyDir`\n5. **健康探针**：同时配置 `readinessProbe`（依赖就绪）和 `livenessProbe`（进程存活），慢启动用 `startupProbe`",
       "category": "devto"
     },
     {
-      "title": "Claude AI OpenClaw: The Algorithmic Gatekeeper Threat to Developer Freedom",
-      "titleZh": "Claude AI OpenClaw：算法守门人对开发者自由的威胁",
-      "link": "https://dev.to/nilesh_kasar_2b00e7247dd5/claude-ai-openclaw-the-algorithmic-gatekeeper-threat-to-developer-freedom-3n42",
-      "author": "Nilesh Kasar",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-01T07:35:21.000Z",
-      "summaryZh": "# Claude AI OpenClaw：算法守门人对开发者自由的潜在威胁\n\n## 用户场景\n本文探讨了一个令人警醒的未来场景：当AI编程助手（如Claude Code、GitHub Copilot）深度嵌入开发者工作流后，可能从“被动工具”演变为“主动市场仲裁者”。作者担忧AI提供商可能通过技术手段，在开发者无感知的情况下，操纵技术选择、抑制竞争、嵌入商业利益，最终威胁开发者自由与创新生态。\n\n## 核心方法\n文章揭示了AI可能实施“算法守门”的四种技术机制：\n1. **动态资源分配与差异化定价**：AI根据代码语义分析，对竞争对手的库/框架自动增加token消耗或计算费用，形成财务惩罚\n2. **针对性性能降级**：对特定技术栈故意增加推理延迟、降低代码补全质量，甚至生成更差代码，使竞品显得技术落后\n3. **RLHF隐性引导**：通过人类反馈强化学习，暗中将AI建议偏向自有生态，对开源/竞品方案降级排序\n4. **算法化内容策略执行**：将商业偏好编码为模型内部的“内容政策”，在代码层面实施隐性审查\n\n## 关键技巧与警示\n- **警惕“黑箱”风险**：LLM/LCM的决策不可解释性（即使有LIME/SHAP等事后分析工具）为商业偏见提供了隐蔽空间\n- **关注定价透明度**：开发者应监控AI服务的token计费模式是否对不同技术栈存在差异\n- **避免单一AI依赖**：交叉使用多个AI助手（如Claude Code + Copilot + 本地模型）可降低被单一供应商锁定的风险\n- **开源替代方案**：优先选择可本地部署的开源编码模型（如Code Llama、StarCoder），避免商业AI的潜在偏见\n- **代码审计意识**：对AI生成的代码建议保持批判性，特别是涉及技术选型时，需独立验证其推荐的中立性\n\n**核心警示**：AI编程助手正从效率工具演变为“算法守门人”，其商业偏见可能通过定价、性能、建议排序等隐蔽机制，潜移默化地重塑开发者生态。保持技术多样性和批判性思维，是抵御这一威胁的关键防线。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Haiku 4.5: When to Use It Over Sonnet 4.6",
-      "titleZh": "Claude Haiku 4.5：何时使用它而非Sonnet 4.6",
-      "link": "https://dev.to/jangwook_kim_e31e7291ad98/claude-haiku-45-when-to-use-it-over-sonnet-46-1n0c",
+      "title": "Claude Design and Claude Routines: Anthropic's New Agentic Products",
+      "titleZh": "Claude设计与Claude例程：Anthropic的新型代理产品",
+      "link": "https://dev.to/jangwook_kim_e31e7291ad98/claude-design-and-claude-routines-anthropics-new-agentic-products-19jn",
       "author": "Jangwook Kim",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-04T08:20:18.000Z",
-      "summaryZh": "# Claude Haiku 4.5：何时使用它而非Sonnet 4.6\n\n## 用户场景\n开发者常将Haiku 4.5简单视为“便宜版模型”，但作者指出其SWE-bench得分73.3%（接近3倍价格模型水平），且首次支持extended thinking和computer use。核心问题是：如何为不同任务路由正确模型，避免为简单工作多付钱或因用错模型导致结果降级。\n\n## 核心方法\n1. **多模型管道架构**：Orchestrator（Sonnet 4.6/Opus 4.7）负责复杂推理和任务分解，Executors（多个Haiku 4.5并行）执行具体子任务（文件读写、代码编辑、API调用）。Haiku 4.5的91 tok/s输出速度使并行执行比单个Sonnet调用更快。\n2. **成本优化杠杆**：Prompt caching（缓存输入降至标准价10%）+ Batch API（异步任务价格减半）叠加使用，可使管道成本降至Sonnet 4.6的5-8%。示例：每日1000万输出token，Sonnet需$150/天，Haiku+Batch仅$25/天，月省$3750。\n3. **适用场景**：子代理执行、实时客户应用（0.74s首token延迟 vs Sonnet的1.5s）、UI自动化（computer use性能超越Sonnet 4）。\n\n## 关键技巧\n- **避免陷阱**：不要将Haiku用于需要复杂推理的主任务，它擅长执行而非规划\n- **配置要点**：启用extended thinking时设置budget control限制思考token数；利用200K context window和64K输出token处理长上下文任务\n- **代码模式**：在orchestrator/executor架构中，使用多个Haiku实例并行处理子任务，利用其低延迟优势\n- **成本监控**：检查Bedrock/Vertex等云提供商可能有独立token费率卡，需查阅文档确认",
+      "pubDate": "2026-05-05T04:18:10.000Z",
+      "summaryZh": "## Anthropic 新 Agent 产品：Claude Design 与 Claude Code Routines\n\n### 用户场景\n开发者面临两大痛点：一是从设计需求到生产代码的翻译鸿沟，团队常花大量时间将视觉需求转化为设计文件或手写模板；二是 Claude Code 任务需要人工值守，无法在开发者离线时自主运行。Anthropic 于 2026 年 4 月推出的两款产品分别解决这两个问题。\n\n### 核心方法\n**Claude Design**（4月17日发布）基于 Opus 4.7 模型，从自然语言直接生成可运行的 HTML/CSS/JS 代码，而非原型图。关键创新是**设计系统集成**：读取你的代码库和 Figma 文件，自动提取配色、排版、间距等设计规范，确保输出与现有产品风格一致。支持文本、图片、DOCX/PPTX、网页抓取等输入，最终可导出为 Handoff Bundle（tar 包），直接传递给 Claude Code 实现。\n\n**Claude Code Routines**（4月14日发布）允许你定义保存的 Claude Code 配置（含 prompt、仓库、连接器），通过定时、API 或 GitHub 事件触发，在 Anthropic 管理的云基础设施上自主运行，无需本地电脑在线。\n\n### 关键技巧\n1. **设计到开发的无缝衔接**：Claude Design 的 Handoff Bundle 是核心集成点，包含 README、CSS 和组件结构，一条复制粘贴指令即可传递给 Claude Code，无需 Figma 导出或手动重建。\n2. **设计系统提取**：首次使用时务必让 Claude Design 读取你的代码库和设计文件，这决定了输出质量。设计系统越完整，结果越贴合产品。\n3. **Routines 触发场景**：适合定时任务（如每日代码审查）、API 触发（如 CI/CD 流程）或 GitHub 事件（如 PR 自动测试），释放开发者离线时间。\n4. **注意限制**：Claude Design 处于研究预览阶段，有周使用配额且无公开 API；Routines 需注意权限提示问题已移除，但需确保 prompt 足够精确以避免自主执行偏差。",
       "category": "devto"
     },
     {
-      "title": "MCP vs Plain Tool Calling: When Each One Earns Its Keep",
-      "titleZh": "MCP 与普通工具调用：各显其能的适用场景",
-      "link": "https://dev.to/gabrielanhaia/mcp-vs-plain-tool-calling-when-each-one-earns-its-keep-5d2a",
-      "author": "Gabriel Anhaia",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-04T16:19:26.000Z",
-      "summaryZh": "# MCP vs 普通工具调用：何时选择哪种方案\n\n## 用户场景\n作者通过一个真实案例展示了开发者在构建AI Agent时面临的核心困境：随着工具数量增长（从9个到23个），硬编码工具列表导致每次新增工具都需要重新部署Agent，系统提示词膨胀，工具选择准确度下降。不同团队面临不同的工具管理需求。\n\n## 核心方法\n文章对比了两种实现方式：\n1. **普通工具调用**：工具schema和handler写在同一个文件，通过`tools=[LIST_FILES_TOOL]`直接传入API调用，Agent循环约30行代码即可完成\n2. **MCP协议**：工具运行在独立server进程（如`fs_server.py`），Agent作为client通过stdio传输连接，使用`@mcp.tool()`装饰器自动生成schema，通过`list_tools()`动态发现工具\n\n## 关键技巧\n- **普通调用适用场景**：工具数量少（<10个）、单一团队维护、不需要独立部署\n- **MCP适用场景**：工具数量多、多团队协作、需要独立部署和版本管理\n- **MCP最佳实践**：使用stdio传输（无需端口和认证），FastMCP自动从类型提示生成schema\n- **注意陷阱**：MCP引入额外复杂度（异步、进程管理），小项目不要过度工程化",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Claude API: Building with Constitutional AI",
-      "titleZh": "Anthropic Claude API：基于Constitutional AI的构建",
-      "link": "https://dev.to/matt_frank_usa/anthropic-claude-api-building-with-constitutional-ai-gff",
-      "author": "Matt Frank",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-04T18:00:56.000Z",
-      "summaryZh": "## Anthropic Claude API：基于Constitutional AI的智能系统构建指南\n\n**用户场景**：开发者在使用传统AI模型时，常面临响应不可预测、输出内容不安全等问题，需要大量外部护栏和持续监控。本文针对这一痛点，介绍如何通过Anthropic的Claude API和Constitutional AI架构，构建始终“有用、无害、诚实”的AI应用。\n\n**核心方法**：Constitutional AI采用**双重训练机制**——模型先识别潜在有害输出，再根据宪法原则自我修正，将伦理推理内嵌到模型架构中。Claude API的关键组件包括：\n- **System Prompts**：设定应用级行为准则的高阶指令\n- **Context Windows**：支持高达200k tokens的上下文窗口，维持长对话连贯性\n- **Tool Integration**：Claude作为智能编排层，可推理何时调用外部工具并合成结果\n- **Message Threading**：通过结构化消息数组维护多轮交互状态\n\n**关键技巧**：\n1. **上下文管理策略**：需设计上下文优先级排序、记忆管理和信息检索机制，避免上下文溢出影响用户体验和成本\n2. **工具调用模式**：Claude会基于对话上下文推理工具使用时机，开发者无需在应用层编写复杂编排逻辑\n3. **安全生成机制**：安全考量融入生成过程而非事后过滤，响应更自然且无人工约束感\n4. **架构权衡**：需平衡上下文完整性与处理效率，针对多用户/多会话场景设计状态管理方案\n\n**避坑提示**：不要将Claude API当作传统REST API使用——它是带推理能力的中间件层，需设计有状态、上下文感知的交互架构。",
-      "category": "devto"
-    },
-    {
-      "title": "Cost-Capped Agents: A Token Budget That Holds the Line on a Conversation",
-      "titleZh": "成本上限代理：控制对话的令牌预算",
-      "link": "https://dev.to/gabrielanhaia/cost-capped-agents-a-token-budget-that-holds-the-line-on-a-conversation-3d65",
-      "author": "Gabriel Anhaia",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-04T16:22:55.000Z",
-      "summaryZh": "## 成本上限代理：用Token预算控制对话开销\n\n**用户场景**：作者解决了AI Agent对话成本失控的痛点。原本设计5步的任务，因需要澄清和工具重试，最终跑了9步，导致上下文窗口膨胀、缓存写入频繁，单次对话成本从\"几分钱\"飙升到远超预期，甚至出现过4个Agent、11天、$47K的惨痛案例。\n\n**核心方法**：在每次模型调用前进行**预测性预算检查**，而非事后统计。核心是围绕Anthropic SDK构建约80行Python代码，以**对话**为成本核算单位，跟踪四个关键指标：`input_tokens`（未缓存输入）、`output_tokens`（输出）、`cache_creation_input_tokens`（缓存写入）、`cache_read_input_tokens`（缓存读取）。注意：缓存读取比新鲜输入便宜，缓存写入更贵，不能混为一谈。\n\n**关键技巧**：\n1. **预检查机制**：使用`check()`方法在API调用前估算最坏情况成本（`prompt_tokens_estimate + max_tokens`），超过预算则抛出`BudgetExceeded`异常\n2. **定价表配置化**：将`ModelRates`作为配置加载，避免硬编码；`usd_for()`函数统一计算美元成本\n3. **输出估算**：用`max_tokens`作为输出上限，不要低估；可通过降低常规轮次的`max_tokens`来优化预算\n4. **提示词估算**：可用`len(serialised_messages) // 3`快速估算（故意高估），或使用`count_tokens` API精确计算",
-      "category": "devto"
-    },
-    {
-      "title": "Streaming Tool Calls: Parse Anthropic SSE Without Loading the Whole Message",
-      "titleZh": "流式工具调用：无需加载完整消息即可解析 Anthropic SSE",
-      "link": "https://dev.to/gabrielanhaia/streaming-tool-calls-parse-anthropic-sse-without-loading-the-whole-message-2on",
-      "author": "Gabriel Anhaia",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-04T16:15:02.000Z",
-      "summaryZh": "# Streaming Tool Calls: 解析 Anthropic SSE 无需等待完整消息\n\n## 用户场景\n当用户向 AI 客服提问时，模型需要调用 `search_orders` 等工具。传统非流式调用需要等待 4.2 秒才能看到完整结果，UI 全程空白。实际上模型在 token 30 时就知道了 email，token 80 时知道了日期范围，但 SDK 非流式调用让用户白白等待。\n\n## 核心方法\n利用 Anthropic Messages API 的 Server-Sent Events (SSE) 流式格式，通过 `client.messages.stream` 逐块接收事件。关键事件流包括：\n- `content_block_start`：打开工具调用缓冲区\n- `content_block_delta`：携带 `partial_json` 片段，需拼接后解析\n- `content_block_stop`：触发完整 JSON 解析\n\n使用 `StreamState` 维护按 block_index 索引的 text 和 tool 缓冲区，支持块间交错处理。\n\n## 关键技巧\n1. **缓冲区拼接**：`partial_json` 可能断在 key 或字符串中间，必须等到 `content_block_stop` 才调用 `json.loads()`\n2. **提前响应**：通过 `tool_partial` 事件实时获取原始 JSON，用正则 `first_string_field()` 提取关键字段（如 email），无需等待完整 JSON 解析即可预加载数据\n3. **空参数处理**：工具无参数时仍会触发 `content_block_start` 和 `content_block_stop`，需用 `or \"{}\"` 兜底\n4. **事件路由**：`_handle()` 函数按 `event.type` 分发，分别处理 text_delta 和 input_json_delta，保持代码清晰可维护",
-      "category": "devto"
-    },
-    {
-      "title": "CLAUDE.md for Elixir: 13 Rules That Make AI Write Idiomatic OTP Code",
-      "titleZh": "CLAUDE.md 的 Elixir 指南：让 AI 编写地道 OTP 代码的 13 条规则",
-      "link": "https://dev.to/olivia_craft/claudemd-for-elixir-13-rules-that-make-ai-write-idiomatic-otp-code-3ba0",
+      "title": "14 CLAUDE.md Rules That Make AI Write Truly Safe Rust Code",
+      "titleZh": "14条CLAUDE.md规则，让AI编写真正安全的Rust代码",
+      "link": "https://dev.to/olivia_craft/14-claudemd-rules-that-make-ai-write-truly-safe-rust-code-184m",
       "author": "Olivia Craft",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-03T14:27:15.000Z",
-      "summaryZh": "以下是关于《CLAUDE.md for Elixir: 13 Rules That Make AI Write Idiomatic OTP Code》的中文总结：\n\n**用户场景**  \nAI助手（如Claude Code）编写Elixir代码时，常产出“能运行但不符合社区规范”的代码：滥用if/else替代模式匹配、用try/rescue破坏OTP监督机制、忽略Ecto changeset验证、将GenServer状态暴露给调用方等。这些代码虽能编译，但在生产环境重启时极易出问题。作者通过项目根目录的CLAUDE.md文件，为AI设定13条规则，强制生成符合Elixir/OTP惯用法的代码。\n\n**核心方法**  \n1. **模式匹配优先**：用多函数头替代条件分支（如`def greet(%{role: :admin})`而非`if`嵌套）  \n2. **数据形状解构**：通过`%{price: price}`直接匹配结构，而非`is_map/1`类型守卫  \n3. **with/1链式处理**：扁平化嵌套case，用`<-`提前返回错误（如`with {:ok, valid} <- validate(params)`）  \n4. **let it crash**：禁止裸rescue，改用`{:ok, result} | {:error, reason}`元组返回，依赖Supervisor重启  \n5. **Ecto changeset强制验证**：禁止直接构建struct，必须通过`cast/validate_required/unique_constraint`链  \n6. **GenServer状态封装**：所有交互通过`handle_call/handle_cast`暴露的公共API，禁止`sys.get_state`  \n7. **监督树管理**：禁止`spawn/1`孤儿进程，统一通过`Supervisor/DynamicSupervisor`启动子进程  \n8. **Logger替代IO.inspect**：生产代码用`Logger.debug(fn -> ... end)`惰性求值，避免泄漏结构体  \n\n**关键技巧**  \n- **模式匹配陷阱**：若数据缺少`:price`字段，应让进程崩溃（`let it crash`），而非返回`nil`  \n- **with/1优势**：错误路径自动提前返回，无需手动处理每个case分支  \n- **GenServer反模式**：调用方不应知道内部状态结构（如`state.counter`），必须通过`Counter.value()`获取  \n- **Supervisor策略**：动态worker用`:one_for_one`策略，避免一个worker崩溃影响其他进程  \n- **Logger惰性求值**：`fn -> ... end`形式在日志级别被过滤时跳过字符串拼接，提升性能  \n\n**开发者价值**：这13条规则本质是Elixir社区最佳实践的AI化编码约束，能显著减少代码审查中的“反模式”修改，尤其适合团队统一AI生成代码风格。",
+      "pubDate": "2026-05-05T18:19:15.000Z",
+      "summaryZh": "以下是关于这篇 Dev.to 文章的 AI 中文总结：\n\n**用户场景：** Rust 开发者使用 AI 编码助手（如 Claude Code、Cursor）时，AI 经常生成不安全的 Rust 代码：对用户输入使用 `unwrap()`、在 `.await` 间持有 `std::sync::Mutex` 锁、用 `Box<dyn Error>` 污染公共 API、测试中 mock 数据库却让有问题的查询上线。作者通过 `CLAUDE.md` 文件约束 AI 行为。\n\n**核心方法：** 在项目根目录创建 `CLAUDE.md`，Claude Code 每次任务都会读取，Cursor/Continue/Aider 等工具也支持。文件定义了 14 条 Rust 安全编码规则，强制 AI 遵循最佳实践。\n\n**关键技巧：**\n1. **项目结构**：`src/lib.rs` 定义公共 API，`src/main.rs` 仅做薄入口（解析参数、调用 `library::run()`），业务逻辑放 lib 中以便测试和复用。\n2. **所有权设计**：公共函数签名用 `String`/`Vec<T>`/`impl Into<String>`，内部实现用 `&str`/`&[T]` 避免克隆。`Rc<T>` 不能出现在可能多线程的公共 API 中。\n3. **错误处理**：库用 `thiserror` 定义枚举错误，二进制用 `anyhow` + `.with_context()` 提供可读错误信息。禁止 `Box<dyn Error>` 和 `unwrap()`/`expect()`（CI 会 grep 拦截）。\n4. **Option/Result**：优先用组合器（`.map`/`.and_then`/`.ok_or_else`），`let-else` 处理 `None` 提前返回。对不可信输入绝对禁止 `unwrap()`。\n5. **异步陷阱**：统一用 tokio，`std::sync::Mutex` 锁不能跨 `.await`（会导致死锁），改用 `tokio::sync::Mutex` 或提前释放锁。阻塞代码用 `spawn_blocking` 包裹。\n6. **unsafe 控制**：crate 根设置 `#![deny(unsafe_code)]`，需要 unsafe 的模块单独 `#[allow(unsafe_code)]`，且每个 unsafe 块必须写 `// SAFETY:` 注释。\n\n完整规则 Gist 链接见原文。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Message Batching: When 50% Off Is Worth the Latency",
-      "titleZh": "Anthropic消息批处理：当五折优惠值得等待时",
-      "link": "https://dev.to/gabrielanhaia/anthropic-message-batching-when-50-off-is-worth-the-latency-4jfc",
+      "title": "Claude Computer Use in Production: 5 Patterns That Keep Surfacing",
+      "titleZh": "Claude Computer Use 在生产环境中的实践：5 种反复出现的模式",
+      "link": "https://dev.to/gabrielanhaia/claude-computer-use-in-production-5-patterns-that-keep-surfacing-4bj3",
       "author": "Gabriel Anhaia",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-04T16:26:44.000Z",
-      "summaryZh": "以下是关于 Anthropic Message Batching API 的中文总结：\n\n## 用户场景\n当你需要批量处理大量 LLM 请求（如夜间评估集运行、嵌入向量生成、文档分类、离线数据标注、批量内容重写等），且用户无需实时等待结果时，常规 Messages API 会遇到速率限制、重试管理等问题，导致任务半途而废。Anthropic 的 Message Batches API 专为此设计。\n\n## 核心方法\n通过单次 POST 提交最多 100,000 个请求，使用独立端点处理。典型工作流：1) 构建请求列表，每个请求需包含 `custom_id`（1-64字符，用于结果匹配）；2) 调用 `client.messages.batches.create()` 提交；3) 轮询 `processing_status` 直到变为 `ended`（通常1小时内完成，硬性24小时过期）；4) 通过 `client.messages.batches.results()` 流式获取结果。费用为标准 token 价格的 **50%**。\n\n## 关键技巧\n- **custom_id 必须唯一且可追溯**：使用 eval 行 ID 而非自增数字，确保重跑和部分失败时可复现\n- **轮询间隔设为 60 秒**：Batches API 有真实速率限制，每秒轮询会浪费配额\n- **结果处理需区分 `result.type`**：仅 `succeeded` 状态计费，`errored`/`canceled`/`expired` 免费，可避免因错误 prompt 导致的意外费用\n- **不适合场景**：用户实时交互、严格 SLA 任务、少于 30 个请求的小批量（开销大于节省）\n- **使用 `MessageCreateParamsNonStreaming`**：batch 内不支持流式，该类型明确信号",
+      "pubDate": "2026-05-05T16:16:26.000Z",
+      "summaryZh": "## Claude Computer Use 生产环境实战：5个反复出现的模式\n\n**用户场景：** 当开发者将Claude的Computer Use功能（允许AI操控计算机界面）部署到真实生产环境时，常遇到截图分辨率错误、API成本失控、安全风险等问题。本文针对需要让Agent无人值守运行过夜的团队。\n\n**核心方法：** \n1. **只读优先策略**：先用工具包装器过滤掉所有输入操作（点击/输入），仅保留`screenshot`和`zoom`。验证截图清晰度后再逐步开放键盘→点击→拖拽。团队通常跑一周只读模式来暴露缩放bug。\n2. **循环边界控制**：设置三个计数器——最大操作数(MAX_ACTIONS)、最大时长(MAX_SECONDS)、最大输入token数(MAX_INPUT_TOKENS)。任一超限即暂停并交给人工审核，防止API费用失控。\n3. **沙箱隔离**：使用Docker容器（每会话新建）、Firecracker微VM（访问不可信URL时）或QEMU/KVM虚拟机（最高安全需求）运行Agent，主机永不直接暴露。\n\n**关键技巧：**\n- 使用`response.content`时需调用`[b.model_dump() for b in response.content]`序列化，否则无法持久化\n- 模型ID和beta头会随版本更新，部署前务必对照最新Anthropic文档\n- 简单任务（填表单）设15次操作为上限，复杂任务（跨标签页研究）可放宽到60次\n- 先跑一周只读模式排查截图缩放bug，再逐步开放输入操作",
       "category": "devto"
+    },
+    {
+      "title": "Trump Is Considering Mandatory Pre-Launch AI Reviews. Here's What That Actually Means.",
+      "titleZh": "特朗普正考虑强制实施AI发布前审查。这到底意味着什么？",
+      "link": "https://dev.to/techsifted/trump-is-considering-mandatory-pre-launch-ai-reviews-heres-what-that-actually-means-778",
+      "author": "Marcus Rowe",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T12:19:51.000Z",
+      "summaryZh": "好的，作为一名中文技术内容策展人，以下是根据您提供的Dev.to文章撰写的技术摘要：\n\n**用户场景：**\n本文探讨了美国政府（特朗普政府）在AI监管上的政策转向。核心问题是：在撤销了拜登政府强制性的AI安全测试报告要求后，面对Anthropic开发的、能自主发现大量零日漏洞的“Mythos”模型，美国政府意识到缺乏对前沿AI模型发布前的审查机制，导致国家安全面临潜在风险。文章分析了这一政策转变的动机与具体方案。\n\n**核心方法：**\n文章描述了拟议中的“AI工作组”方案。该工作组将由科技高管和政府官员组成，核心职责是在前沿AI模型公开发布前进行审查。与拜登政府将审查权集中于商务部/NIST不同，新方案倾向于将审查权分散到国家安全局（NSA）、国家网络总监办公室（ONCD）和国家情报总监办公室（ODNI）等情报机构。其定位并非“否决机制”，而是“政府可见性机制”，旨在让政府提前了解模型能力，以便参与风险管控。\n\n**关键技巧：**\n1.  **政策对比**：理解“强制报告”（拜登EO）与“自愿框架”（NIST AI RMF）及“情报机构主导的预审”（新提案）之间的本质区别。后者虽非直接否决，但情报机构的介入意味着审查标准将更侧重于国家安全（如自主漏洞利用能力），而非消费者保护或偏见。\n2.  **触发事件**：Mythos模型是政策转向的关键。该模型能自主发现99%以上未修补的零日漏洞，且其受限发布后立即出现未经授权的访问。这直接证明了“危险能力+受限访问+即时泄露”这一风险场景的现实性。\n3.  **潜在陷阱**：情报机构缺乏与商业AI公司的既有合作经验和评估基础设施（NIST已建设多年）。开发者需警惕，这种分散的、以情报为导向的审查可能带来流程不透明、标准不统一及沟通成本激增的风险。",
+      "category": "devto"
+    },
+    {
+      "title": "CLAUDE.md for Multi-Agent Claude Code: 11 Rules to Stop Your Agents Conflicting",
+      "titleZh": "多智能体Claude Code的CLAUDE.md：防止智能体冲突的11条规则",
+      "link": "https://dev.to/olivia_craft/claudemd-for-multi-agent-claude-code-11-rules-to-stop-your-agents-conflicting-48ac",
+      "author": "Olivia Craft",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T02:20:10.000Z",
+      "summaryZh": "以下是关于《CLAUDE.md for Multi-Agent Claude Code: 11 Rules to Stop Your Agents Conflicting》的中文总结：\n\n## 用户场景\n当你在同一仓库中并行运行多个 Claude Code 会话（如后端agent + 前端agent + 测试agent），或使用 Task 工具生成子agent，或通过 CI 调度器启动多个非交互式任务时，最常见的三大问题：文件冲突、日志覆盖、子agent失控。作者提供了可直接放入仓库根目录的 CLAUDE.md，包含11条具体规则来预防这些故障。\n\n## 核心方法\n1. **工作目录隔离**：每个agent分配独立临时目录（`$SCRATCH`），禁止写入公共临时路径，解决80%的中间文件覆盖问题。\n2. **文件锁机制**：使用 `flock` 实现文件级锁，编辑共享文件（如 `package.json`、`CLAUDE.md`）前必须获取锁，30秒内获取不到则停止并报告。\n3. **追加式共享内存**：多agent写入同一日志文件时强制使用 `>>` 追加模式，禁止 `>` 覆盖写入。\n4. **工具调用标记**：每个shell命令、MCP调用、HTTP请求都打上 `AGENT_ID` 标签，便于追踪和调试。\n5. **子agent限制**：最大深度2层、超时10分钟、并行不超过4个、重试策略明确（临时错误1次，逻辑错误0次）。\n\n## 关键技巧\n- **git状态预检**：每次写入前执行 `git status` 和 `git diff --name-only`，发现文件被其他agent修改且未持有锁时立即停止，不自动合并。\n- **夜间记忆合并**：每天由唯一一个agent执行日志压缩，将 `trace.log` 中的关键决策（WIN/FAIL/DECISION）整理成结构化记忆文件。\n- **避免陷阱**：不要用 `cat > file << EOF` 覆盖共享文件；子agent不能递归生成子agent；锁获取失败时不要无限重试。\n- **单agent也适用**：规则6（git预检）、8（日志标记）、9（文件锁）、11（记忆合并）在单会话场景同样有价值。",
+      "category": "devto"
+    },
+    {
+      "title": "Why JSON Mode Slows Your Streaming UX (And When That Tradeoff Makes Sense)",
+      "titleZh": "为何JSON模式会拖慢你的流式用户体验（以及何时这种权衡是合理的）",
+      "link": "https://dev.to/gabrielanhaia/why-json-mode-slows-your-streaming-ux-and-when-that-tradeoff-makes-sense-jec",
+      "author": "Gabriel Anhaia",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T15:19:38.000Z",
+      "summaryZh": "以下是关于这篇Dev.to文章的中文总结，涵盖用户场景、核心方法和关键技巧：\n\n**用户场景：**  \n当开发者为聊天UI启用流式传输（streaming）后，用户体验流畅。但一旦加入JSON模式（如返回`next_step`字段供前端路由），流式输出会变成`{\"r`、`eason`等半成品JSON片段，破坏用户体验。问题在于：API逐token传输的是JSON语法（花括号、逗号），而非可直接渲染的文本。\n\n**核心方法：**  \n文章提出三种实用模式，从轻量到深度改造：\n1. **宽容解析器（Pattern 1）**：使用`partial-json`等库，每次收到delta后对累积的JSON缓冲区进行宽容解析（自动闭合未完成的字符串、对象、数组），仅提取已解析的字段（如`reason`、`answer`）渲染到UI。用户看到的是逐字增长的字段内容，而非JSON语法。\n2. **深度感知过滤器（Pattern 2）**：通过状态机追踪JSON深度和字符串状态，仅在字段值完整闭合后才提取并渲染。例如`{\"intent\": \"...\"}`中，`intent`的值只在引号闭合后出现，避免中间状态。\n3. **重写响应形状**：完全改变后端返回格式，直接返回纯文本+结构化字段分离（如SSE事件流中分别发送文本和JSON字段）。\n\n**关键技巧：**  \n- **不要直接渲染原始delta**：无论使用哪种API（OpenAI、Anthropic），中间token都是字节流，可能无效JSON。必须缓冲后解析。\n- **宽容解析性能可忽略**：500 token的JSON响应约200次解析，耗时仅数毫秒，远低于模型延迟。\n- **深度过滤器适用场景**：当需要字段“一次性出现”而非逐字增长时（如路由决策字段），用状态机跟踪深度和闭合状态。\n- **陷阱**：Pattern 2的状态机仅处理扁平单层对象+字符串值，嵌套对象或数字/布尔值需扩展逻辑。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Opus 4.7 Adaptive Thinking: When the Reasoning Tokens Pay Off",
+      "titleZh": "Claude Opus 4.7自适应思维：当推理Token物有所值时",
+      "link": "https://dev.to/gabrielanhaia/claude-opus-47-adaptive-thinking-when-the-reasoning-tokens-pay-off-1pma",
+      "author": "Gabriel Anhaia",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T15:15:29.000Z",
+      "summaryZh": "以下是关于《Claude Opus 4.7 Adaptive Thinking: When the Reasoning Tokens Pay Off》的中文总结：\n\n## 用户场景\n作者朋友在生产环境为所有请求开启 extended thinking，结果账单翻了4倍，但分类准确率几乎没变。这暴露了开发者普遍困惑：如何判断哪些任务值得为 reasoning tokens 买单，哪些是纯浪费。\n\n## 核心方法\n作者提出**三模式对比测试框架**：对同一任务分别运行 no-thinking、adaptive low effort、adaptive high effort，通过量化指标（输出token数、耗时、LLM评分）判断 reasoning 的实际收益。关键代码展示了如何用 Anthropic SDK 的 `thinking` 参数（type: \"adaptive\"）和 `output_config`（effort: \"low\"/\"high\"）控制推理深度，并强调 `output_tokens` 已包含 thinking tokens，避免重复计费。\n\n## 关键技巧\n- **值得用 reasoning 的任务**：多步数学（允许回溯纠错）、多文档综合（矛盾调和）、agent 规划（避免错误工具调用）\n- **纯浪费的任务**：短事实查询（如“法国首都”）、确定性转换（JSON转YAML）、简单分类（8个明确规则）\n- **避坑指南**：不要全局开启 thinking；用 JSONL 文件存储测试用例，配合 LLM-as-judge 按0-5分评估；在 Opus 4.7 上 Anthropic 推荐 adaptive 模式而非手动设置 budget_tokens\n- **成本意识**：thinking tokens 按模型输出价格计费，可能使输出 token 数翻几倍，必须通过实测验证 ROI",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic's MCP Has a Security Flaw. Here's What Developers Need to Know.",
+      "titleZh": "Anthropic的MCP存在安全漏洞。开发者需要了解以下内容。",
+      "link": "https://dev.to/techsifted/anthropics-mcp-has-a-security-flaw-heres-what-developers-need-to-know-25hd",
+      "author": "Marcus Rowe",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T14:19:54.000Z",
+      "summaryZh": "好的，这是根据您提供的 Dev.to 文章内容撰写的技术摘要：\n\n**标题：Anthropic 的 MCP 协议存在安全缺陷，开发者需警惕**\n\n**1. 用户场景：**\n文章揭示了 AI 编程工具（如 Claude Code、Cursor、Windsurf）底层协议 MCP（Model Context Protocol）的一个系统性安全漏洞。当开发者使用这些工具时，AI 模型通过 MCP 与本地文件系统、数据库或终端交互。问题在于，攻击者可以利用该协议的设计缺陷，在用户无感知的情况下（例如打开一个包含恶意内容的 README 文件）实现**任意命令执行**，直接威胁开发机安全。\n\n**2. 核心方法：**\n漏洞根源在于 MCP 的 STDIO 传输机制。当 MCP 创建子进程时，即使命令执行失败，它也会返回一个句柄（handle），这意味着命令**实际上已被执行**。攻击者可通过四种方式利用：\n- **未授权命令注入**：LangFlow 等工具未验证外部输入。\n- **绕过安全加固**：Upsonic 等工具的防护措施可被绕过。\n- **零点击提示注入**：在 Claude Code 和 Windsurf 中，打开恶意文件即可触发命令执行。\n- **市场投毒**：MCP 服务器目录可能分发恶意配置。\n\n**3. 关键技巧与避坑指南：**\n- **风险认知**：该缺陷嵌入在官方 MCP SDK（Python/TypeScript/Java/Rust）中，影响超过 20 万个实例，已分配多个高危 CVE（如 CVE-2026-30615）。\n- **Anthropic 的回应**：官方认为这是“预期行为”，要求开发者自行负责输入清洗。但文章批评这种回应“技术正确但毫无帮助”，尤其是零点击攻击场景下，用户无法防御。\n- **行动建议**：开发者应**立即审查**正在使用的 MCP 服务器配置，避免从不可信来源安装 MCP 服务器，并关注 Anthropic 更新的安全指南。对于 IDE 工具，警惕打开来源不明的文件。",
+      "category": "devto"
+    },
+    {
+      "title": "CLAUDE.md for GraphQL & Apollo: 13 Rules That Stop AI From Writing Leaky, Overfetching APIs",
+      "titleZh": "CLAUDE.md 用于 GraphQL 与 Apollo：防止 AI 编写泄漏和过度获取 API 的 13 条规则",
+      "link": "https://dev.to/olivia_craft/claudemd-for-graphql-apollo-13-rules-that-stop-ai-from-writing-leaky-overfetching-apis-4d1i",
+      "author": "Olivia Craft",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-05T00:16:23.000Z",
+      "summaryZh": "好的，这是一篇关于如何通过 `CLAUDE.md` 文件约束 AI 编写高质量 GraphQL/Apollo 代码的实战指南。\n\n**用户场景：**\n开发者让 AI 助手（如 Claude Code）快速添加 GraphQL 查询和字段，但 AI 常会写出“泄漏”内部数据、性能低下的 API。例如，直接返回 Prisma ORM 模型导致 `passwordHash` 等敏感字段暴露；`Post.author` 字段使用逐行查询引发 N+1 问题；使用 `offset/limit` 分页导致数据重复或遗漏。这些问题在开发时看似正常，上线后却会引发生产事故。\n\n**核心方法：**\n作者提出在项目根目录创建 `CLAUDE.md` 文件，写入 13 条硬性规则，让 AI 在每次任务前自动读取并遵守。文章重点介绍了其中 4 条：\n1.  **禁止暴露 ORM 模型**：强制使用 `toGraphQLUser()` 等映射函数，将数据库实体转换为 GraphQL 类型，确保数据库字段变更不会自动泄露到 API。\n2.  **用 DataLoader 解决 N+1**：所有关联字段必须通过 `DataLoader` 批量加载，禁止在字段解析器中直接调用 `prisma.user.findUnique`，避免列表查询时产生大量 SQL。\n3.  **使用游标分页**：遵循 Relay Connection 规范（`first/after`），替代 `offset/limit`，保证分页稳定且性能与偏移量无关。\n4.  **规范错误处理**：避免直接 `throw new Error()`，应使用 Apollo 的 `GraphQLError` 或自定义错误码，确保客户端能可靠解析。\n\n**关键技巧：**\n- **规则文件即文档**：将 `CLAUDE.md` 视为团队契约，AI 和人类开发者都遵守同一套规范。\n- **代码生成与 lint 结合**：配合 codegen 生成类型安全的 resolver，并用 lint 规则禁止 `return await prisma.model.find...` 等危险模式。\n- **性能监控**：在 CI 中设置查询次数回归阈值，防止 N+1 问题复现。\n- **实用代码模式**：提供 `toGraphQL` 映射函数、`createContext` 中初始化 DataLoader、以及完整的 Relay 游标分页实现模板，可直接复制使用。",
+      "category": "devto"
+    },
+    {
+      "title": "v2.1.128",
+      "titleZh": "v2.1.128",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.128",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-05-04T23:01:47.000Z",
+      "summaryZh": "## Claude Code v2.1.128 更新说明\n\n**新功能与改进：**\n- `/color` 无参数时随机选择会话颜色\n- `/mcp` 显示已连接服务器的工具数量，标记0工具服务器\n- `--plugin-dir` 支持 .zip 插件包\n- `--channels` 支持控制台 API Key 认证\n- 更新 `/model` 选择器，合并重复的 Opus 4.7 条目，当前 Opus 显示为 \"Opus\"\n- 子进程不再继承 OTEL_* 环境变量\n- MCP 工作区现为保留服务器名称\n- 重新连接 MCP 服务器不再刷屏工具列表\n- SDK 主机接收持久化 localSettings 建议\n- EnterWorktree 从本地 HEAD 创建分支\n\n**Bug 修复：**\n- 修复焦点模式闪烁、Kitty 终端通知、远程控制空消息、大输入崩溃、长 URL 点击、插件面板错误、MCP 图片丢失、代码块缩进、标签导航、Markdown 链接、1M 上下文模型阻塞、并行 shell 调用、模型支持显示、vim 模式光标、终端进度指示器、会话恢复、状态行残留、PATH 污染、MCP 参数损坏、子代理缓存、插件更新检测、子代理重复触发等30+项问题\n\n**破坏性变更：**\n- MCP 工作区为保留名称，现有同名服务器将被跳过并警告",
+      "category": "github-release"
     }
   ]
 }
