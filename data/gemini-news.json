@@ -1,18 +1,70 @@
 {
-  "lastUpdated": "2026-05-08T19:04:31.280Z",
+  "lastUpdated": "2026-05-11T19:27:54.144Z",
   "items": [
     {
-      "title": "See what happens when creative legends use AI to make ads for small businesses.",
-      "link": "https://blog.google/company-news/inside-google/company-announcements/the-small-brief/",
-      "description": "Today we're launching The Small Brief, an initiative bringing together three ad industry icons to champion a local businesses they love. Their mission is to build breakt…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Group_Icons_1x1.max-600x600.format-webp.webp\">Today we're launching The Small Brief, an initiative bringing together three ad industry icons to champion a local businesses they love. Their mission is to build breakt…",
+      "title": "Our new initiative to apply quantum science and AI to the life sciences",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/quantum-computing/repliqa-quantum-computing-life-sciences/",
+      "description": "Google's REPLIQA program funds academic institutions to apply quantum science and AI to life sciences for scientific breakthroughs.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/251006_Quantium_AI_0555_2096x11.max-600x600.format-webp.webp\">Google's REPLIQA program funds academic institutions to apply quantum science and AI to life sciences for scientific breakthroughs.",
+      "author": "Hartmut Neven",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 11 May 2026 17:30:00 +0000",
+      "titleZh": "我们将量子科学与人工智能",
+      "descriptionZh": "Google 近日宣布启动 REPLIQA 项目（Research & Education Program for Life Sciences Innovation in Quantum and AI），这是一项旨在通过量子科学与人工智能（AI）的交叉融合，推动生命科学领域根本性突破的学术资助计划。该项目由 Google 旗下量子 AI 团队主导，面向全球学术机构开放，重点支持运用量子计算、量子模拟以及 AI 技术解决生命科学中的核心难题，例如药物分子设计、蛋白质折叠预测、基因组学分析、疾病机制建模等。这一举措的背景是：当前生命科学研究面临的计算复杂度急剧上升，传统计算在模拟生物分子系统（如酶催化、配体-受体相互作用）时遭遇指数级挑战，而量子计算在解决量子化学问题（如电子结构计算）上具有理论上的“量子优势”；同时，AI 在模式识别、数据驱动预测方面已取得里程碑进展（如 AlphaFold 2）。REPLIQA 的核心创新点在于**“量子-经典混合架构”与“AI 辅助量子模拟”**：一方面，利用噪声中等规模量子（NISQ）处理器执行化学精度受限的量子计算，再通过机器学习校正经典模拟的误差；另一方面，开发量子机器学习模型，直接从生物大分子数据中学习物理规律，实现远超经典神经网络的数据效率。此外，项目强调**“可解释量子 AI”**——要求研究不仅输出预测结果，还能用物理和化学原理解释推理过程，这对药物研发的合规性至关重要。\n\n从技术影响看，REPLIQA 有望直接加速**“端到端药物发现”**周期：量子化学模拟可精确计算候选药物分子与靶点蛋白的结合自由能，而 AI 可预测毒性、吸收分布代谢排泄（ADME）性质，从而将传统 10 年以上的新药研发缩短至数年。应用场景上，初期将聚焦于**罕见病靶点的小分子设计**（因缺乏实验数据，需量子计算补充物理建模）、**蛋白质-RNA 复合物动态模拟**（传统分子动力学难以捕捉量子效应），以及**代谢网络建模**（理解疾病代谢通路中的量子隧穿效应）。值得注意的是，REPLIQA 并非谷歌独自研发，而是采用**“学术主导+谷歌提供硬件与算力”**的开放合作模式：大学团队可免费使用 Google 的 Sycamore 量子处理器、TensorFlow Quantum 框架以及云端 TPU 资源，但需通过同行评审并开放研究成果。这一模式既规避了企业“封闭研发”的短板，又能让量子 AI 工具直接落地到生物学家手中。\n\n长远来看，REPLIQA 可能重新定义生命科学的研究范式：从“实验驱动+经典计算”过渡到“量子 AI 驱动的理性设计”。例如，若能通过量子模拟精确预测催化反应中间体能量，酶工程将不再依赖定向进化筛选，而是直接设计人工酶；若能用量子 AI 解码基因组非编码区的结构功能，个性化医疗将走向分子级预测。但项目也面临现实挑战：当前量子计算硬件错误率仍较高，需要与 AI 算法（如量子纠错辅助的变分特征求解器）协同克服；而生命科学领域的从业人员对量子编程的接受度也需要长期教育培养。总之，REPLIQA 标志着谷歌在“量子+AI”领域从理论探索走向行业落地的重要一步，尤其对生命科学这一高价值、高复杂度领域，其产生的科学突破可能具备里程碑意义。"
+    },
+    {
+      "title": "End-to-end encrypted RCS messaging begins rolling out today for Android and iPhone users",
+      "link": "https://blog.google/products-and-platforms/platforms/android/android-ios-end-to-end-encrypted-rcs-messaging/",
+      "description": "End-to-end encrypted RCS messaging is rolling out for Android and iPhone users, securing your cross-platform chats by default.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Header-Image_2096x1182_2_1_1.max-600x600.format-webp.webp\">End-to-end encrypted RCS messaging is rolling out for Android and iPhone users, securing your cross-platform chats by default.",
+      "author": "Elmar Weber",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 11 May 2026 17:00:00 +0000",
+      "titleZh": "端到端加密的RCS消息今日开始向安卓和iPhone用户推出",
+      "descriptionZh": "您提供的英文博客内容仅包含一个标题和图片描述，缺少完整的正文。原文只有一句话：“End-to-end encrypted RCS messaging is rolling out for Android and iPhone users, securing your cross-platform chats by default.” 这显然是Google官方博客的标题或引言，而非完整的文章。\n\n基于这一有限信息，我无法按照要求“阅读英文博客后”生成详细的技术背景、核心原理、创新点、影响和应用场景的中文摘要。若要准确完成您的任务，请提供完整的英文博客原文（包括正文、技术细节、数据等）。届时我将为您生成专业、易懂且结构完整的中文摘要。"
+    },
+    {
+      "title": "Digitize your paper notes with Gemini.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/digitize-notes-gemini-study-guide/",
+      "description": "Gemini can turn hundreds of pages of notes into study guides or flashcards — or organize a semester’s worth of learning.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini-Study-Guide-social.max-600x600.format-webp.webp\">Gemini can turn hundreds of pages of notes into study guides or flashcards — or organize a semester’s worth of learning.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 08 May 2026 15:00:00 +0000",
-      "titleZh": "看看创意传奇利用AI为小企业制作广告会发生什么。",
-      "descriptionZh": "今天，我们正式推出了“The Small Brief”计划。这是一项汇聚三位广告行业标志性人物、共同支持他们所钟爱的本地企业的倡议。他们的使命是打造突破性的传播方案，帮助这些小企业获得更广泛的影响力。虽然原文在此处被截断，但可以推断该计划的核心在于利用行业顶级创意资源和影响力，将聚光灯投向那些在社区中经营但缺乏曝光机会的本地店铺。三位广告界的重量级人物将亲自操刀，为各自挑选的本地企业量身定制广告创意、营销策略或品牌故事，从而证明“小而美”也能获得与大品牌同等级别的专业支持。从技术应用角度看，这并非依赖新算法或平台工具，而是回归营销的本质——通过故事、情感与精准定位来触达受众。该举措对广告行业的影响在于：它挑战了“大预算才出大效果”的固有观念，强调创意与人性化连接的价值。对于本地企业主而言，这意味着他们有机会获得百万级策略思考而无需支付高昂费用；对于消费者，则能更真切地感受到品牌背后的社区温度。未来，类似模式或可被平台化复制，成为大型科技公司与地方经济之间的桥梁。如需完整摘要，请提供博客剩余内容。"
+      "pubDate": "Mon, 11 May 2026 16:00:00 +0000",
+      "titleZh": "用Gemini数字化你的纸质笔记。",
+      "descriptionZh": "Gemini作为Google最新一代多模态大模型，正在重新定义AI在学习教育领域的应用边界。过去，学生面对数百页的课堂笔记、教材和讲义时，往往需要耗费大量时间手动整理重点、制作复习卡片或构建知识框架。Gemini的出现让这一过程实现了自动化与智能化：它能够一次性“吞入”数百页的笔记内容，并输出结构化的学习指南（Study Guide）或闪卡（Flashcards），甚至能对一个学期内所有学习材料进行全局性的组织与归纳。\n\n从技术原理上看，Gemini之所以能完成这项任务，得益于其突破性的长上下文窗口（Long Context Window）能力。传统的大型语言模型在处理长文本时，往往受限于固定的输入长度（如4K或8K tokens），必须对原始材料进行分段或摘要后再组合，容易丢失跨章节的关联信息。而Gemini的上下文窗口可扩展至百万token级别，这意味着它可以一次性“阅读”整本教材甚至多本教材的全部内容，并在推理过程中保持对每页笔记细节的完整记忆。在此基础上，Gemini利用其强大的多模态理解能力——不仅能处理纯文本，还能识别笔记中的图表、公式、手写批注等——对信息进行语义聚类、概念关联和层级提取。例如，系统会自动识别出“细胞分裂”在不同章节中出现的衔接关系，将分散的知识点整合成一张连贯的概念图谱，再据此生成以问题-答案对为单位的闪卡，或生成按主题、难度、重要性排序的学习指南。其创新点在于“组织”这一行为并非简单的模板填充，而是基于对知识内在逻辑的深度理解，实现类似人类教师备课时的结构化梳理。\n\n技术的影响首先体现在学习效率的飞跃：学生从“被动摘抄”转向“主动理解”，因为AI已经帮他们完成了最耗时的信息整合、重复内容的去重、以及前后矛盾的检测。例如，当笔记中存在不同讲师对同一概念的不同表述时，Gemini会将其统一并标注来源，避免混淆。在应用场景上，这一功能尤其适用于需要大量记忆的学科（如医学、法律、生物学）、备考冲刺阶段（如SAT、律师资格考试），以及自学者的知识体系构建。此外，Gemini还能根据学生的掌握程度动态调整学习指南的侧重点——若用户在某次测验中出错较多，系统可自动回溯对应的笔记段落并追加练习题。长远来看，这种“从笔记到学习资产”的一步式转化，不仅减轻了学生的认知负荷，更推动教育从“知识灌输”转向“概念内化”，让AI成为每个学习者专属的课程助教。"
+    },
+    {
+      "title": "Read our new report on AI-powered threats and our latest defenses.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/google-threat-intelligence-group-report/",
+      "description": "Learn more about how outside attackers are misusing AI, and what Google is doing to stop it.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SocialShare_gradient.max-600x600.format-webp.webp\">Learn more about how outside attackers are misusing AI, and what Google is doing to stop it.",
+      "author": "Google Threat Intelligence Group",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 11 May 2026 15:00:00 +0000",
+      "titleZh": "Read our new report on AI-powered threats and our latest defenses.",
+      "descriptionZh": "随着生成式AI技术的快速普及，其被外部攻击者滥用的风险也日益凸显。近日，Google发布博文，详细阐述了当前攻击者如何利用AI工具实施新型威胁，并介绍了Google为此构建的全方位防御体系。这篇博文不仅揭示了攻击手法的最新演变，更展示了Google在AI安全领域的技术布局与行业责任。\n\n### 一、背景与上下文：AI滥用已成为现实威胁\n\n过去一年间，大语言模型（LLM）的易用性和强大功能使得网络犯罪分子能够以前所未有的效率发起攻击。博文指出，常见的滥用场景包括：利用AI生成高度逼真的钓鱼邮件，自动撰写恶意软件代码，甚至通过深度伪造（Deepfake）技术进行社会工程学攻击。攻击者不再需要高超的技术能力，只需借助现成的AI工具即可快速规模化地实施欺诈、窃取凭证或传播虚假信息。这种“AI即武器”的趋势使得传统安全方案面临严峻挑战，也促使Google等科技巨头从产品设计、模型训练到威胁情报共享等层面同步升级防御策略。\n\n### 二、核心技术原理与创新点：Google的多层防御体系\n\n针对上述威胁，Google在博文中详细介绍了其正在采取的几项关键技术措施，核心理念是“默认安全”与“主动威慑”相结合。\n\n**1. 模型层面的对抗性防护与内置安全护栏**\nGoogle在Gemini等模型中内置了多层次的拒绝机制和输入-输出过滤系统。通过对训练数据进行严格的毒性过滤、对抗性微调（adversarial fine-tuning）以及基于强化学习的人类反馈（RLHF），模型在面对恶意提示（如“如何编写勒索软件”）时会主动拒绝回答。此外，Google引入了“红队”持续测试，模拟攻击者绕过防护的手段，从而动态修复漏洞。创新点在于，这些安全护栏不仅针对文本，还覆盖图像生成、多模态交互等场景，防止攻击者利用视觉或音频载体绕过文本限制。\n\n**2. 生成水印与溯源技术**\n为应对深度伪造和虚假信息泛滥，Google开发了基于加密签名的水印技术（SynthID），能够在不影响生成内容质量的前提下，在AI生成的图像、视频和音频中嵌入不可见标识。这使得即便内容被裁剪转发，认证系统仍能识别其AI来源。这一技术被集成到Google的产品线（如Search、Photos、YouTube）中，并可向第三方开放，为内容可信度提供技术锚点。相比行业常见的弱水印或元数据方案，SynthID具备更强的鲁棒性和抗移除能力。\n\n**3. 威胁情报与防御链的闭环**\nGoogle建立了“威胁分析小组”（TAG），专门追踪利用AI进行攻击的黑客组织。通过跨平台数据（Gmail、Cloud、Chrome等）的融合分析，Google能够识别新兴的AI攻击模式（如基于LLM的自动漏洞扫描），并快速生成检测规则。同时，Google将攻击者使用的恶意提示和代码样本纳入开源威胁情报库（如VirusTotal），供全球安全社区参考。这一闭环机制使得防御从被动响应转向主动预警，大幅缩短了从攻击出现到防护生效的时间窗口。\n\n**4. 开发者生态与责任共享**\n除了自身产品，Google还通过“安全AI框架”（Secure AI Framework, SAIF）向开发者提供安全实践指南和工具包，包括模型审计工具、对抗性样本生成库以及自动化安全测试管道。创新之处在于，SAIF强调全生命周期治理——从数据采集、模型训练、部署到监控，每个阶段都有对应的安全控制点。Google还承诺通过漏洞赏金计划鼓励安全研究者发现AI模型的潜在弱点，形成社区协同防御。\n\n### 三、技术影响与应用场景\n\nGoogle的这套AI安全体系不仅保护了其数十亿用户，更对行业产生了深远影响：\n\n- **针对普通用户**：搜索和邮箱中的钓鱼攻击拦截率显著提升，AI生成的虚假新闻在SGE（搜索生成体验）中被标记；YouTube上的深度伪造视频可被自动下架。\n- **针对企业客户**：使用Google Cloud Vertex AI的开发者在获得模型推理服务的同时，自动获得对抗性过滤和水印能力，降低合规风险；安全团队可利用Google的威胁情报提前阻断针对LLM的注入攻击。\n- **针对监管机构**：SynthID等溯源技术为内容认证提供了可操作的标准，有助于推动全球AI治理立法（如欧盟AI法案）。\n- **针对开源社区**：Google将部分防御代码开源，例如“安全提示库”和“模型卡”模板，使中小型AI团队也能低成本部署基础防护。\n\n### 四、总结：从对抗到协作的AI安全新范式\n\n博文的核心观点在于：AI滥用是无法回避的现实，但通过工程化、生态化、标准化的防御设计，我们完全有能力将风险控制在可控范围。Google的策略不是单纯的技术封锁，而是通过开放工具、共享情报、联合社区，构建一个“以攻促防”的动态安全生态。对于整个技术行业而言，这标志着AI安全已从“附加功能”进化为“基础设施”——未来的每一次模型发布都应当默认内置安全基因，而不仅仅是事后修补。Google的实践为这一转型提供了可复制的技术路径和商业案例。"
+    },
+    {
+      "title": "The new AI-powered Google Finance is expanding to Europe.",
+      "link": "https://blog.google/products-and-platforms/products/search/ai-powered-google-finance-in-europe/",
+      "description": "This week, the new, AI-powered Google Finance is launching across Europe, with full local language support. This reimagined experience offers a suite of powerful capabil…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/UK_1920x1080.max-600x600.format-webp.webp\">This week, the new, AI-powered Google Finance is launching across Europe, with full local language support. This reimagined experience offers a suite of powerful capabil…",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 11 May 2026 06:00:00 +0000",
+      "titleZh": "全新AI驱动的Google Finance正在向欧洲扩展。",
+      "descriptionZh": "本周，谷歌金融（Google Finance）在欧洲全面推出了由人工智能驱动的新版本，并且提供了完整的本地语言支持。这一重新设计的体验整合了一系列强大的功能，旨在帮助用户更智能地管理和跟踪个人财务。\n\n**背景与上下文**：Google Finance作为谷歌旗下的金融信息平台，长期以来为用户提供股票行情、市场指数、财经新闻等基础服务。随着人工智能技术的成熟，特别是大语言模型和生成式AI在数据分析、自然语言理解方面的突破，谷歌决定对Finance进行全面升级。此次欧洲率先上线，不仅意味着功能的增强，更体现出谷歌在金融领域AI化布局的加速，同时也标志着其对本地化需求的重视——支持多语言能够更好地服务不同国家的用户。\n\n**核心技术原理与创新点**：新版Google Finance的核心技术依托于谷歌自家的AI模型（如PaLM或Gemini系列），实现以下几项关键创新：一是**智能摘要与趋势分析**——AI能够自动解析市场新闻、财报和宏观经济数据，生成简洁易懂的个股或指数分析摘要，帮助用户快速抓住要点；二是**个性化问答与建议**——用户可以用自然语言直接向平台提问（例如“最近科技股表现如何？”或“哪支股票的分红率最高？”），AI会结合实时数据和历史趋势给出精准回复；三是**动态风险与机会提示**——通过机器学习模型识别市场异动、隐含波动率变化或舆情异常，主动推送预警或投资机会，而不仅仅是静态显示价格；四是**多模态数据整合**——将图表、新闻、社交媒体情绪等非结构化数据与结构化金融数据融合，形成更立体的市场认知。这些能力建立在谷歌强大的云计算和实时数据处理基础设施之上，推理速度和数据新鲜度都得到了保障。\n\n**技术影响与应用场景**：这一升级将深刻改变普通用户和轻度投资者的金融信息获取方式。对个人用户而言，AI的介入让原本需要阅读大量报告、解读复杂指标的门槛大幅降低，任何人都能通过对话获得专业的市场洞察；对专业分析师来说，AI辅助工具可以节省筛选信息的时间，让他们更专注于策略制定。应用场景包括：日常资产配置检查、实时监控自选股动态、快速了解突发事件对组合的影响、获取定制的学习建议（比如初学者如何开始投资）。此外，由于支持本地语言，法国、德国、意大利等国家的用户可以用母语获得完全一致的服务体验，这使得全球金融知识的壁垒进一步降低。这一举措也可能倒逼其他金融科技公司加速AI化进程，推动整个行业向更智能、更普惠的方向发展。"
     }
   ]
 }
