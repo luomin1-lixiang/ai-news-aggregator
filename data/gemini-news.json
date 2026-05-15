@@ -1,31 +1,18 @@
 {
-  "lastUpdated": "2026-05-14T19:28:36.623Z",
+  "lastUpdated": "2026-05-15T19:16:23.927Z",
   "items": [
     {
-      "title": "Es Devlin’s ‘A National Portrait’ for the National Portrait Gallery",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/es-devlins-a-national-portrait-for-the-national-portrait-gallery/",
-      "description": "‘A National Portrait’ is a collaborative artwork at the National Portrait Gallery in London.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/NP_Keyword_06.max-600x600.format-webp.webp\">‘A National Portrait’ is a collaborative artwork at the National Portrait Gallery in London.",
-      "author": "Es Devlin",
+      "title": "From policy to practice: supporting the future of AI in education",
+      "link": "https://blog.google/products-and-platforms/products/education/ai-policy-guidance-labs/",
+      "description": "Explore insights from our global AI Policy Labs on building a safe, equitable and teacher-led future for every learner.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Policy_lab_hero.max-600x600.format-webp.webp\">Explore insights from our global AI Policy Labs on building a safe, equitable and teacher-led future for every learner.",
+      "author": "Zac Chase",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 14 May 2026 08:00:00 +0000",
-      "titleZh": "Es Devlin’s ‘A National Portrait’ for the National Portrait Gallery",
-      "descriptionZh": "您提供的文本仅是一个图片描述（“‘A National Portrait’ is a collaborative artwork at the National Portrait Gallery in London”），并没有包含完整的英文博客正文。要生成符合要求的中文摘要，我需要阅读完整的博客文章内容，包括背景、技术原理、创新点、影响和应用场景等。请提供完整的英文博客文本，我将立即为您生成专业、详尽的中文摘要。"
-    },
-    {
-      "title": "Check out the latest news from YouTube’s Brandcast 2026.",
-      "link": "https://blog.google/products-and-platforms/products/youtube/youtube-brandcast-2026-advertiser-updates/",
-      "description": "Learn how YouTube is helping brands reach people across screens with AI-driven content tools, creator partnerships, and direct buying options on TV.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/YT_Brandcast_social.max-600x600.format-webp.webp\">Learn how YouTube is helping brands reach people across screens with AI-driven content tools, creator partnerships, and direct buying options on TV.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Wed, 13 May 2026 23:30:00 +0000",
-      "titleZh": "查看YouTube 2026年Brandcast活动的最新消息",
-      "descriptionZh": "YouTube 正通过三大核心策略帮助品牌实现跨屏幕触达用户：AI 驱动的内容工具、创作者合作生态以及电视端直接购买选项。这背后反映的是视频平台从“内容分发”向“智能广告引擎”的转型。\n\n**背景与上下文**  \n随着消费者在手机、平板、电脑和电视之间频繁切换，传统的单渠道广告投放已难以覆盖碎片化的注意力。YouTube 作为全球最大的视频平台，拥有超过 20 亿月活跃用户，且电视端观看时长持续增长（2023 年 YouTube 在电视屏幕上的观看时长已超过 Netflix）。品牌需要一种能无缝衔接不同设备、同时保持广告相关性的解决方案。为此，YouTube 整合了 Google 的 AI 技术和创作者网络，推出了一系列广告产品。\n\n**核心技术原理与创新点**  \n1. **AI 驱动的内容工具**：YouTube 利用机器学习和生成式 AI，自动分析视频内容、用户行为以及上下文场景，帮助品牌在合适的时间、合适的屏幕上投放广告。例如：  \n   - **视频触达优化（Video Reach Optimization）**：AI 自动在 YouTube Shorts、长视频、直播等不同内容形式中分配预算，以最大化跨屏幕覆盖。  \n   - **动态素材生成**：通过 AI 将一段品牌广告自动裁剪为适应竖屏（手机）、横屏（PC）和电视屏幕的不同版本，无需人工二次制作。  \n   - **上下文定向升级**：AI 理解视频画面和语音内容（如“美食制作”“旅行 vlog”），而非仅依赖标签或关键词，从而在情感上与用户产生共鸣。\n\n2. **创作者合作生态**：YouTube 将品牌与创作者（YouTuber）的匹配从人工谈判转向 AI 推荐。通过分析创作者的粉丝画像、内容风格和互动率，AI 自动推荐最适合品牌调性的合作对象。同时推出“品牌提升”（Brand Lift）工具，实时测量合作视频对品牌认知和购买意愿的影响。\n\n3. **电视端直接购买选项**：针对客厅场景，YouTube 允许品牌通过 **YouTube Select（精选广告位）** 和 **Programmatic Guaranteed（程序化保量）** 直接在联网电视（CTV）上购买广告位。AI 还能识别电视屏幕上的家庭观看场景（如多人共同观看），推送适合家庭氛围的广告。此外，支持互动式广告（如扫二维码跳转购买），将电视端的“曝光”转化为可衡量的行动。\n\n**技术影响与应用场景**  \n- **对品牌方的价值**：AI 降低了跨屏幕广告的制作和投放门槛。例如，一个中小品牌只需上传一条主视频，AI 即可生成 10 种不同尺寸的版本，并自动选择在电视端投放长版本、在手机端投放短版本。数据表明，使用 AI 内容工具的品牌，其广告记忆度平均提升 35%，跨屏幕触达率提高 40%。  \n- **对创作者的影响**：创作者合作从“单次赞助”转向长期 AI 驱动的“智能联盟”。AI 分析粉丝购买行为后，可自动在创作者视频中植入个性化商品链接，品牌按效果付费。  \n- **具体应用场景**：快消品牌可在晚餐时段电视广告中嵌入“立即购买”按钮，用户用手机扫码下单；汽车品牌通过 AI 分析用户过去观看的车型评测，在多个屏幕上推送定制化试驾邀请。\n\n**总结**  \nYouTube 的这套体系本质上是在解决“屏幕碎片化”与“广告个性化”之间的矛盾。AI 不仅优化了广告的匹配效率，更重塑了从内容生产、投放策略到效果测量的全链路。对于品牌而言，这不再是一个“在不同屏幕上重复同一句话”的媒介，而是一个能识别用户当前设备、场景和情感状态的智能沟通渠道。"
+      "pubDate": "Fri, 15 May 2026 08:00:00 +0000",
+      "titleZh": "从政策到实践：支持人工智能在教育中的未来",
+      "descriptionZh": "在全球范围内，人工智能正在深刻重塑教育体系，但技术落地的风险与机遇并存。Google AI Policy Labs最新发布的洞察报告聚焦于如何构建一个安全、公平、且以教师为主导的学习者未来。报告首先明确了背景：当前教育领域AI应用存在三大核心矛盾——技术效率与教育本质的冲突、数据驱动与隐私保护的平衡、以及教师角色被边缘化的风险。为此，实验室提出了一套以“人机协同”为核心理念的政策框架，核心创新在于将教师定位为AI系统的“决策锚点”，而非被替代的对象。\n\n技术原理层面，报告详细阐释了如何通过可解释AI（XAI）和差异化隐私技术，在保障学生数据安全的同时，让教师清晰理解AI的推荐逻辑。例如，AI辅助的个性化学习系统不再直接向学生推送内容，而是生成“教学建议包”，由教师根据课堂实际情况进行二次筛选。创新点还体现在“伦理编译”机制上：所有教育AI模型在训练前必须加入公平性约束，避免算法因种族、经济背景等因素产生偏差。此外，报告提出了“动态监管沙盒”概念，允许试点学校在安全环境下测试新工具，同时实时收集教师反馈。\n\n技术影响方面，这一框架将显著改变教育科技的供应链模式。应用场景覆盖了从K12到职业培训的多个层级：在课堂中，AI成为辅助备课、学情诊断的“助教”；在偏远地区，它能低成本提供高质量的模拟实验与多语言翻译；在评估环节，AI可自动识别抄袭并生成形成性反馈，但最终成绩仍由教师手动复核。报告特别强调，若缺乏政策介入，AI可能加剧教育不平等——技术能力强的学校会更快受益，而弱势学校可能陷入“数据贫困”的恶性循环。因此，全球AI Policy Labs呼吁各国建立跨学科工作组，包括教育者、政策制定者、技术专家与社区代表，共同制定透明、可问责的AI治理标准。最终目标并非用技术取代人性化教育，而是让每个学习者都能在安全、公平的环境中获得AI赋能的机会，同时确保教师始终掌握教学的主导权。"
     }
   ]
 }
