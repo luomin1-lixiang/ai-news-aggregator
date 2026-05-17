@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-05-15T19:16:23.927Z",
+  "lastUpdated": "2026-05-17T18:53:09.017Z",
   "items": [
     {
-      "title": "From policy to practice: supporting the future of AI in education",
-      "link": "https://blog.google/products-and-platforms/products/education/ai-policy-guidance-labs/",
-      "description": "Explore insights from our global AI Policy Labs on building a safe, equitable and teacher-led future for every learner.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Policy_lab_hero.max-600x600.format-webp.webp\">Explore insights from our global AI Policy Labs on building a safe, equitable and teacher-led future for every learner.",
-      "author": "Zac Chase",
+      "title": "We’re launching the Google DeepMind Accelerator program in Asia Pacific to tackle environmental risks.",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/accelerator-ai-for-the-planet/",
+      "description": "The Asia-Pacific region is a global engine for economic growth, but it's also highly vulnerable to climate change. While green technologies are gaining momentum, a recen…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/DeepMind_Accelerator_Asia_Pacif.max-600x600.format-webp.webp\">The Asia-Pacific region is a global engine for economic growth, but it's also highly vulnerable to climate change. While green technologies are gaining momentum, a recen…",
+      "author": "Dr. Ramine Tinati",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 15 May 2026 08:00:00 +0000",
-      "titleZh": "从政策到实践：支持人工智能在教育中的未来",
-      "descriptionZh": "在全球范围内，人工智能正在深刻重塑教育体系，但技术落地的风险与机遇并存。Google AI Policy Labs最新发布的洞察报告聚焦于如何构建一个安全、公平、且以教师为主导的学习者未来。报告首先明确了背景：当前教育领域AI应用存在三大核心矛盾——技术效率与教育本质的冲突、数据驱动与隐私保护的平衡、以及教师角色被边缘化的风险。为此，实验室提出了一套以“人机协同”为核心理念的政策框架，核心创新在于将教师定位为AI系统的“决策锚点”，而非被替代的对象。\n\n技术原理层面，报告详细阐释了如何通过可解释AI（XAI）和差异化隐私技术，在保障学生数据安全的同时，让教师清晰理解AI的推荐逻辑。例如，AI辅助的个性化学习系统不再直接向学生推送内容，而是生成“教学建议包”，由教师根据课堂实际情况进行二次筛选。创新点还体现在“伦理编译”机制上：所有教育AI模型在训练前必须加入公平性约束，避免算法因种族、经济背景等因素产生偏差。此外，报告提出了“动态监管沙盒”概念，允许试点学校在安全环境下测试新工具，同时实时收集教师反馈。\n\n技术影响方面，这一框架将显著改变教育科技的供应链模式。应用场景覆盖了从K12到职业培训的多个层级：在课堂中，AI成为辅助备课、学情诊断的“助教”；在偏远地区，它能低成本提供高质量的模拟实验与多语言翻译；在评估环节，AI可自动识别抄袭并生成形成性反馈，但最终成绩仍由教师手动复核。报告特别强调，若缺乏政策介入，AI可能加剧教育不平等——技术能力强的学校会更快受益，而弱势学校可能陷入“数据贫困”的恶性循环。因此，全球AI Policy Labs呼吁各国建立跨学科工作组，包括教育者、政策制定者、技术专家与社区代表，共同制定透明、可问责的AI治理标准。最终目标并非用技术取代人性化教育，而是让每个学习者都能在安全、公平的环境中获得AI赋能的机会，同时确保教师始终掌握教学的主导权。"
+      "pubDate": "Sun, 17 May 2026 18:00:00 +0000",
+      "titleZh": "我们在亚太地区推出Google DeepMind加速器项目以应对环境风险",
+      "descriptionZh": "亚太地区是全球经济增长的重要引擎，但同时也是气候变化影响最为脆弱的区域之一。尽管绿色技术正在加速发展，但近期研究表明，减排速度和适应能力仍远未达到2030年气候目标所需水平。在此背景下，DeepMind（谷歌旗下AI实验室）推出了专门面向亚太地区的AI加速器项目，旨在利用机器学习技术帮助该区域应对气候变化带来的系统性挑战。\n\n该项目的核心技术原理在于：通过深度学习模型对气候系统进行高精度模拟与预测，特别是针对极端天气事件（如台风、洪水和热浪）的发生频率与强度进行提前预报。DeepMind开发了基于物理约束的神经网络架构（Physics-Informed Neural Networks, PINNs），将传统气候模型中的热力学、流体动力学方程嵌入到训练过程中，使得AI预测不仅依赖历史数据，还能遵循物理定律，从而提高外推能力与长期可靠性。此外，项目还采用强化学习（Reinforcement Learning）来优化可再生能源的调度与电网负荷平衡，例如在太阳能和风能波动剧烈的区域，动态调整储能系统的充放电策略，实现接近实时的供需匹配。\n\n创新点主要体现在三个层面：第一，跨尺度建模——能够将全球气候模式的输出降尺度到城市或社区级别，提供精细化的风险评估数据；第二，多目标优化——在减少碳排放的同时兼顾经济成本与社会公平，例如帮助城市制定优先安装光伏板的低收入社区名单；第三，可解释性增强——通过注意力机制（Attention Mechanism）和Shapley值分析，让决策者理解AI推荐的关键气候因子（如海表温度异常、季风路径偏移）是如何影响最终预测的。\n\n技术影响与应用场景非常广泛。在农业领域，AI可以提前三个月预测季风到达日期和降雨量，指导东南亚稻农的播种与灌溉计划，减少因旱涝导致的减产风险。在城市防灾方面，日本和菲律宾的沿海城市已试点利用该模型生成72小时内的风暴潮淹没地图，协助应急管理部门部署救援物资。在能源领域，印度与澳大利亚的电网运营商正测试AI驱动的分布式能源交易平台，通过实时调节家庭屋顶光伏与电动汽车的电力流向，可将弃风弃光率降低约40%。此外，项目还开源了部分训练数据集和基准模型，鼓励亚太地区高校与初创企业基于本地数据进一步微调，推动气候AI生态的本土化发展。\n\n总体而言，DeepMind加速器项目不仅提供了技术工具，更构建了一种“AI+气候”的协作范式：让顶尖算法工作者与区域气候专家、市政官员、农民直接对话，确保模型输出能落地为可操作的行动指南。在亚太地区复杂的政治经济与自然地理条件下，这种从数据到决策的闭环能力，可能是弥合气候行动鸿沟的关键突破口。"
     }
   ]
 }
