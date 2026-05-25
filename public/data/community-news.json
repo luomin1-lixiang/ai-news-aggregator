@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-24T19:01:59.930Z",
+  "lastUpdated": "2026-05-25T19:17:04.871Z",
   "items": [
     {
       "title": "Claude Design: Developer Guide to Anthropic's Prototyping Tool",
@@ -9,29 +9,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-24T08:19:30.000Z",
-      "summaryZh": "# Claude Design 开发者指南：Anthropic 的原型工具深度解析\n\n## 用户场景\n开发者常面临“设计→代码”的手动转换痛点：Figma 设计稿与实现之间存在巨大鸿沟，需要手动标注、导出规范、翻译组件，且 CSS 渲染常与设计意图不符。Claude Design 直接生成可运行的 HTML/CSS/JS 代码，而非静态截图，特别适合早期原型验证、产品概念演示和快速迭代场景。\n\n## 核心方法\nClaude Design 采用双面板界面（左侧对话 + 右侧实时画布），通过自然语言描述即可生成工作原型。关键创新在于**设计系统接入**：支持上传 CSS 变量、React 组件库、Figma 文件或品牌文档，让 AI 输出使用你的真实设计规范而非通用占位符。最亮眼的是 **Claude Code 交接包**——将原型打包为机器可读的组件结构、设计令牌和布局层级，Claude Code 可直接消费，形成“提示→原型→生产”的闭环。\n\n## 关键技巧\n1. **设计系统优先**：在项目初始化时务必上传现有代码库或 Figma 变量，避免 AI 生成“看起来不像你的产品”的界面\n2. **Web 捕获工具**：直接从现有网站抓取视觉元素，确保新功能原型与已部署产品风格一致\n3. **迭代策略**：使用对话式修改（“按钮放大，移到标题下方”）、内联注释或 AI 生成的自定义滑块调整属性\n4. **导出选择**：除 Claude Code 交接外，支持 Canva、PDF、PPTX 和独立 HTML 导出，适合不同交付场景\n5. **注意限制**：目前为研究预览版，使用量计入订阅计划限额；输出质量依赖设计系统输入的完整性",
+      "summaryZh": "# Claude Design 开发者指南：Anthropic 的原型工具深度解析\n\n## 用户场景\n开发者常面临“设计→代码”的手动转换痛点：Figma 设计稿与最终实现之间存在巨大鸿沟，早期原型阶段大量工程时间消耗在“描述想法”到“生成可运行代码”的转化上。Claude Design 直接输出 HTML/CSS/JS 可运行代码，而非静态截图，特别适合创始人、产品经理和独立开发者进行快速原型验证。\n\n## 核心方法\nClaude Design 是 claude.ai 内的双面板界面（左侧对话+右侧实时画布），由 Claude Opus 4.7 驱动。关键创新点：\n1. **设计系统接入**：支持上传代码文件（CSS变量、React组件）、设计文件（SVG、Figma截图）或品牌文档，Claude 自动构建内部设计系统参考，后续生成均使用真实组件而非占位符\n2. **Figma 连接器**：通过 Settings → Connectors → Figma 授权后，可直接拉取变量、组件和样式\n3. **Claude Code 交接包**：原型完成后生成机器可读的组件结构、设计令牌和布局层级，Claude Code 可直接消费，形成“提示→原型→生产”闭环\n\n## 关键技巧\n- **设计系统优先**：项目初期务必上传现有代码库或 Figma 文件，避免 AI 生成“看起来不像你产品”的界面\n- **Web 捕获工具**：直接从现有网站拉取视觉元素，确保新功能原型与已部署产品风格一致\n- **迭代方式**：支持对话修改、画布内联注释、直接编辑和自定义滑块四种方式\n- **导出策略**：Canva 用于资产精修，PDF/PPTX 用于演示，HTML 直接部署，Claude Code 交接包用于深度开发\n- **注意限制**：目前是研究预览版，消耗现有订阅计划配额，且输出质量取决于设计系统输入的完整性",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Prompt Caching: Real Numbers From 330 Production Calls",
+      "titleZh": "Anthropic提示缓存：来自330次生产调用的真实数据",
+      "link": "https://dev.to/rikuq/anthropic-prompt-caching-real-numbers-from-330-production-calls-2eg4",
+      "author": "Ravi Patel",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-25T05:04:36.000Z",
+      "summaryZh": "# Anthropic Prompt Caching 实战：330次生产调用数据揭秘\n\n## 用户场景\n作者Ravi运营Citare（AI搜索可见性监控平台），每天处理大量LLM调用进行品牌审计、SERP分析和评分。面临的核心问题是：如何在不牺牲质量的前提下，有效降低高频率LLM调用的成本？他构建了Prism网关实现三层缓存，并用真实生产数据验证各层效果。\n\n## 核心方法\n对比三种缓存策略：\n1. **Exact缓存（Redis指纹）**：对完整请求做哈希匹配，命中率<5%，节省1-3%\n2. **语义缓存（Upstash Vector + BGE-small）**：通过嵌入向量相似度匹配，命中率~12%，节省~5%\n3. **Anthropic原生Prompt缓存**：在API请求中添加`cache_control: { type: \"ephemeral\" }`标记，命中率85-90%，节省25-35%\n\n## 关键技巧\n- **Anthropic原生缓存ROI最高**：零工程投入，只需在system prompt加一个参数，5分钟TTL内重复调用享受90%输入token折扣\n- **注意写入惩罚**：首次写入缓存成本增加25%，需确保每个前缀被复用10次以上才划算\n- **语义缓存有规模门槛**：月调用量低于10,000次时，基础设施成本超过节省\n- **Exact缓存别指望省钱**：它的价值在于幂等性保障（防止重复请求双倍计费），而非成本优化\n- **工作负载类型决定效果**：长稳定system prompt+短可变用户输入（如审计框架+不同SERP片段）是缓存最佳场景，创意写作类效果差",
       "category": "devto"
     },
     {
       "title": "Streaming Tool Calls with Anthropic's API: The Buffer Pattern Nobody Documents",
-      "titleZh": "使用Anthropic API进行流式工具调用：无人记录的缓冲区模式",
+      "titleZh": "使用Anthropic API进行流式工具调用：无人记录的缓冲模式",
       "link": "https://dev.to/gabrielanhaia/streaming-tool-calls-with-anthropics-api-the-buffer-pattern-nobody-documents-27f8",
       "author": "Gabriel Anhaia",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-24T09:16:46.000Z",
-      "summaryZh": "以下是关于《Streaming Tool Calls with Anthropic's API: The Buffer Pattern Nobody Documents》的中文总结：\n\n**用户场景**  \n开发者在使用Anthropic API流式处理tool calls时，常遇到JSON解析崩溃问题。官方文档仅展示非流式场景下完整的tool_use结构，但流式场景下模型会分多次发送`input_json_delta`事件，每个片段可能在任意字符边界截断（如`{\"ci`、`ty\": \"San Fran`），直接对片段执行`json.loads()`会抛出`JSONDecodeError`。新手常通过try/except跳过错误，结果导致最终tool_input为None，工具调用失败。\n\n**核心方法**  \n文章提出**缓冲区模式（Buffer Pattern）**：  \n1. 为每个content block维护独立的字符串缓冲区，以事件中的`index`字段作为键  \n2. 在`content_block_start`事件中记录tool的`id`和`name`  \n3. 在`content_block_delta`事件中仅做字符串拼接（`tool_buffers[index] += delta.partial_json`），绝不解析  \n4. 在`content_block_stop`事件中一次性对完整缓冲区执行`json.loads()`，处理空输入（`\"\"`或`{}`）  \n\n**关键技巧**  \n- 使用`defaultdict(str)`自动初始化缓冲区，避免手动检查键是否存在  \n- 用两个字典分别存储元数据（`tool_meta`）和缓冲区（`tool_buffers`），在`content_block_stop`后及时清理  \n- 注意`content_block_start`中的`input`字段始终为`{}`，真实参数仅存在于`partial_json`片段中  \n- 处理空输入时需兼容`\"\"`和`{}`两种情况  \n- 多工具调用时，不同index的block可能交错出现，缓冲区模式天然支持并发处理  \n\n该模式仅需约40行代码，解决了流式tool calls中最隐蔽的解析陷阱，是构建可靠AI Agent系统的必备模式。",
-      "category": "devto"
-    },
-    {
-      "title": "Karpathy's Role at Anthropic a…",
-      "titleZh": "Karpathy在Anthropic的角色…",
-      "link": "https://dev.to/norviktech/karpathys-role-at-anthropic-a-3ml1",
-      "author": "Norvik Tech",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:06:41.000Z",
-      "summaryZh": "## 摘要：Andrej Karpathy 加入 Anthropic 的前沿预训练团队\n\n**用户场景**：本文探讨了 AI 领域知名专家 Andrej Karpathy（OpenAI 联合创始人、前 Tesla AI 总监）加入 Anthropic 并领导预训练研究团队的战略意义。对于关注 Claude 模型演进和 AI 预训练技术发展的开发者与决策者，本文揭示了这一人事变动如何影响下一代 AI 模型的研发方向。\n\n**核心方法**：Karpathy 将专注于优化 **Claude** 的预训练流程——即在大规模数据集上训练模型，再针对特定任务微调。他计划通过改进 Transformer 架构和自监督学习算法，提升 Claude 在自然语言理解（NLU）和对话 AI 方面的能力。与 GPT-3 等模型相比，Claude 更强调安全性与人类价值观对齐，适合企业级应用。\n\n**关键技巧**：\n- **预训练优化**：利用 Karpathy 在深度学习和强化学习的经验，推动更高效的模型训练与部署。\n- **行业应用**：金融领域用于预测分析和欺诈检测（案例显示某银行年减损 500 万美元）；医疗领域用于患者数据分析。\n- **避坑指南**：避免忽视伦理问题（引发公众反弹）、数据质量低下（直接影响模型性能）和测试不足（导致偏见或错误输出）。\n- **ROI 参考**：早期采用者报告运营效率提升 30%，但需配套基础设施和团队培训。\n\n**开发者价值**：关注 Claude 预训练技术的演进，可为企业 AI 集成提供更安全、高效的解决方案，尤其在金融、医疗和零售等垂直领域。",
+      "summaryZh": "以下是关于 Anthropic API 流式工具调用（Streaming Tool Calls）的 Buffer 模式的技术摘要：\n\n**用户场景**  \n开发者在使用 Anthropic API 进行流式工具调用时，常遇到 JSON 解析崩溃问题。官方文档仅展示非流式场景下的完整 `tool_use` 块，但流式传输会返回碎片化的 `input_json_delta` 事件，这些 JSON 片段可能在任意字符边界（如 mid-key、mid-value）被截断。直接对每个片段执行 `json.loads()` 会导致 `JSONDecodeError`，而简单用 try/except 忽略错误又会导致工具参数丢失。\n\n**核心方法**  \n作者提出 **Buffer 模式**：为每个 content block 维护独立缓冲区（以 `index` 字段为键），仅做字符串拼接，**绝不**在 `content_block_delta` 阶段解析 JSON。关键流程：\n1. `content_block_start`：记录工具元数据（`id`、`name`）\n2. `content_block_delta`：将 `partial_json` 片段追加到缓冲区\n3. `content_block_stop`：对完整缓冲区执行一次 `json.loads()`，生成最终工具调用\n\n**关键技巧**  \n- 使用 `defaultdict(str)` 管理缓冲区，避免手动初始化\n- 处理空输入：`json.loads(raw) if raw.strip() else {}`\n- 注意 `content_block_start` 中的 `input` 字段始终为 `{}`，真实参数仅存在于 `partial_json` 片段中\n- 多工具调用时，不同 index 的缓冲区独立管理，互不干扰\n- 避免在流式处理中做任何 JSON 解析尝试，直到收到 `content_block_stop` 事件\n\n该模式仅需约 40 行代码，即可稳定处理任意复杂度的流式工具调用，是官方文档未明确记载的关键实践。",
       "category": "devto"
     },
     {
@@ -42,7 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-19T15:42:09.000Z",
-      "summaryZh": "## 用 Claude Code 一键搭建 Astro 博客：从零到 SEO 就绪\n\n**用户场景**：作者从 Lovable.dev 迁移到 Astro，因为 Lovable 构建的 React 应用对 Googlebot 返回空 HTML，而 Astro 直接生成静态 HTML，无需 JavaScript 即可被搜索引擎索引。目标是快速搭建一个 SEO 友好的博客系统。\n\n**核心方法**：作者将整个博客搭建任务交给 Claude Code，仅用一条 Prompt：“Build me an SEO-ready Astro blog from scratch with Tailwind, MDX, RSS feed, sitemap, and fonts”。Claude 自动执行了以下操作：\n- 运行 `npm create astro@latest` 创建项目，选择 Empty 模板 + TypeScript strict 模式\n- 自动集成 Tailwind、MDX、字体（@fontsource-variable/inter）和 RSS（@astrojs/rss）\n- **关键决策**：主动跳过 `@astrojs/sitemap`（该集成在 Astro 4.16+ 会崩溃），改用 `src/pages/sitemap.xml.ts` 手动构建 sitemap endpoint\n- 生成完整项目结构：包含 Header、PostList、SeriesNav 组件，以及 tags/categories/series/archive 等所有 SEO 路由\n\n**关键技巧**：\n1. **BaseLayout.astro 自动 SEO**：Claude 为每个页面自动生成 Canonical URL、Open Graph 标签、Twitter Card（summary_large_image）、JSON-LD 结构化数据（Article/WebSite/BreadcrumbList 三种 schema），无需手动配置\n2. **内容 Schema 设计**：在 `src/content/config.ts` 中定义 title/description/publishDate/tags/category/draft/image/series/part 等字段，支持系列文章自动导航（SeriesNav.astro）\n3. **部署避坑**：Vercel 部署需添加 `vercel.json` 指定 outputDirectory 为 \"dist\"；从服务器推送到 GitHub 需使用 Personal Access Token 嵌入远程 URL（注意安全，使用 fine-grained token 或 SSH）\n4. **实际效果**：一条 Prompt 生成完整博客，包含标签/分类/系列导航、RSS、Sitemap，部署后自动生效所有 SEO 元数据",
+      "summaryZh": "## Claude Code 构建 Astro 博客实战：从零到SEO就绪\n\n**用户场景**：开发者需要快速搭建一个SEO友好的静态博客，避免React SPA（如Lovable.dev）生成空HTML导致Googlebot无法抓取的问题。Astro的静态HTML生成方案完美解决此痛点。\n\n**核心方法**：通过单条Prompt让Claude Code全自动完成博客搭建。Claude执行了以下关键步骤：\n1. 初始化Astro项目（TypeScript严格模式）\n2. 集成Tailwind、MDX、RSS\n3. 智能跳过已废弃的`@astrojs/sitemap`（Astro 4.16+会崩溃），改用手动`sitemap.xml.ts`端点\n4. 构建完整内容分类体系：tags/categories/series导航/归档页\n5. 自动配置SEO元数据：Canonical URL、Open Graph标签、Twitter Card、JSON-LD结构化数据（Article/WebSite/BreadcrumbList）\n\n**关键技巧**：\n- **SEO布局自动化**：BaseLayout.astro自动为每篇文章生成所有meta标签，开发者只需在`src/content/config.ts`中定义frontmatter（title/description/publishDate/tags/category/series等）\n- **系列文章管理**：通过`series`和`part`字段自动生成SeriesNav组件（上一篇/下一篇导航）\n- **部署避坑**：Vercel需手动添加`vercel.json`指定outputDirectory为`dist`；服务器环境需用Personal Access Token配置Git远程仓库\n- **安全提醒**：Token需使用fine-grained权限（仅限单仓库），避免提交到代码库或留在shell历史中\n\n**结果**：一条Prompt生成完整博客，包含标签/分类/系列/归档/RSS/站点地图，部署到Vercel仅需2分钟。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic and Blackstone's Acq…",
+      "titleZh": "Anthropic与黑石集团的收购…",
+      "link": "https://dev.to/norviktech/anthropic-and-blackstones-acq-3ffb",
+      "author": "Norvik Tech",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-25T05:06:43.000Z",
+      "summaryZh": "# Anthropic与Blackstone收购Fractional AI：技术解读与商业影响\n\n## 用户场景\n本文面向企业决策者和技术负责人，解答一个核心问题：当AI巨头与资本联手收购技术公司时，企业如何理解这一动向并制定应对策略？作者聚焦于LATAM和西班牙市场，指出本地企业需快速适应AI服务升级，否则将面临竞争力下降风险。\n\n## 核心方法\n收购后的技术架构采用**混合模型**，结合本地部署与云端能力，核心组件包括：\n- **模块化架构**：支持灵活集成现有系统\n- **API集成**：连接遗留系统实现数据共享与流程自动化\n- **实时分析**：提供及时市场洞察\n- **可扩展基础设施**：覆盖初创到大型企业\n- **用户中心设计**：降低非技术人员使用门槛\n\n应用场景覆盖医疗（患者数据管理）、金融（合规检查与风险评估）、零售（个性化营销）、制造（预测性维护）。\n\n## 关键技巧\n1. **内部审计先行**：评估现有技术栈与AI解决方案的兼容性\n2. **试点项目验证**：低风险测试Fractional AI功能后再全面部署\n3. **合规风险意识**：LATAM与欧洲监管环境差异大，需提前了解本地AI部署法规\n4. **团队培训投资**：非技术人员需掌握AI工具使用，避免“买了不会用”的陷阱\n5. **明确ROI指标**：设定可量化的效率提升目标，避免盲目跟风\n\n> 核心价值：企业应把这次收购视为技术升级信号，而非简单跟风。通过分步实施、合规先行、人员培训，才能将AI能力转化为实际竞争力。",
       "category": "devto"
     },
     {
@@ -53,73 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-24T12:06:44.000Z",
-      "summaryZh": "Anthropic 宣布即将实现盈利，预计下一季度营收将翻倍至约 109 亿美元。这一里程碑不仅提振了投资者信心，也标志着 AI 行业从技术探索向商业落地的关键转折。\n\n**用户场景**：文章面向企业决策者和技术团队，探讨如何理解 Anthropic 的商业模式及其对 AI 应用落地的启示。核心问题在于：AI 公司如何实现可持续盈利？企业如何借鉴其路径加速自身 AI 转型？\n\n**核心方法**：Anthropic 的营收增长依赖三大机制：1）战略合作（与科技、金融巨头结盟）；2）多元化服务（AI 咨询、定制方案、产品开发）；3）市场需求（医疗、金融、零售等行业对 AI 的依赖加深）。技术上，其架构结合**Neural Networks**（自动从原始数据提取特征）与**Reinforcement Learning**（通过反馈优化决策），相比传统机器学习减少了特征工程成本，更具自适应性和可扩展性。\n\n**关键技巧**：1）**基础设施评估**：确保 IT 架构能支撑高级 AI 方案，避免“买得起用不好”；2）**小规模试点**：先启动 Pilot Projects，用 KPI 验证效果再推广；3）**人才投资**：内部培训或招聘 AI 人才，而非完全依赖外部供应商。文章特别指出，早期采用 AI 的企业可获得竞争优势，但需警惕基础设施就绪度和人才缺口两大陷阱。",
+      "summaryZh": "Anthropic 宣布其营收预计将翻倍至约 109 亿美元，标志着 AI 行业的重要里程碑。本文探讨了这一增长对技术生态的影响，尤其针对开发者与企业决策者。\n\n**用户场景**：作者面向希望理解 AI 商业化趋势、评估技术投资价值的开发者与业务负责人。核心问题是：Anthropic 如何实现营收爆发，以及其技术架构对实际应用有何启示。\n\n**核心方法**：Anthropic 的增长源于三大机制：战略合作（与科技、金融巨头）、多元化服务（AI 咨询、定制方案、产品开发）以及市场需求（医疗、金融、零售等行业的 AI 采纳）。技术层面，其架构依赖**神经网络**与**强化学习**的协同：神经网络自动从原始数据提取特征，减少人工特征工程；强化学习通过反馈优化决策，提升模型自适应能力。相比传统机器学习，这种方法更可扩展，开发周期更短。\n\n**关键技巧**：\n- **基础设施准备**：确保 IT 架构能支撑高级 AI 方案，避免性能瓶颈。\n- **人才策略**：投资培训或招聘具备 AI 技能的人员，而非仅依赖外部工具。\n- **试点迭代**：从小规模试点开始，用 KPI 衡量效果（如医疗诊断准确率提升 20%），再逐步扩展。\n- **避免陷阱**：不要忽视数据质量与模型对齐（AI safety），否则可能导致业务风险。\n\n**实用价值**：对于西班牙、拉丁美洲等地区的企业，早期采用 AI 可获竞争优势与成本效率。建议从评估现有能力、启动试点项目入手，并持续监控指标以优化方案。",
       "category": "devto"
     },
     {
       "title": "Why your Claude API bill is 3x what it should be (and how to fix it)",
-      "titleZh": "为什么你的Claude API账单是应有金额的3倍（以及如何解决）",
+      "titleZh": "为什么你的Claude API账单比预期高出3倍（以及如何解决）",
       "link": "https://dev.to/midrelay/why-your-claude-api-bill-is-3x-what-it-should-be-and-how-to-fix-it-4lfo",
       "author": "Shek",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-22T19:24:53.000Z",
-      "summaryZh": "# Claude API 账单为何是实际需求的3倍？以及如何修复\n\n## 用户场景\n作者审计了一个B2B文档摘要创业公司的Claude API账单，发现每月$4,200的支出中，只有$1,300产生了实际业务价值，其余$2,900完全是浪费。这个问题普遍存在于使用LLM API的生产环境中。\n\n## 核心方法\n通过分析请求日志，作者发现了三大浪费模式：\n1. **Prompt缓存未启用**：Claude 4.x支持`cache_control`，缓存命中后价格降低10倍（从$3.00/百万token降至$0.30）。只需在system prompt中添加`\"cache_control\": {\"type\": \"ephemeral\"}`即可。\n2. **模型过度使用**：Opus价格是Sonnet的4-5倍，但测试显示在JSON提取、代码审查、创意写作等任务上，Sonnet表现与Opus几乎无差异。仅复杂多步推理场景Opus才有明显优势。\n3. **串行调用未批量处理**：Anthropic Message Batches API提供50%折扣（24小时SLA），适合夜间摘要、数据分类、索引生成等非实时任务。\n\n## 关键技巧\n- **缓存优化**：检查最近30天API日志，如果系统prompt重复但调用次数>10,000，说明缓存未启用\n- **模型选择**：对最昂贵的3个端点进行A/B测试，用次便宜模型运行一周并盲评输出质量\n- **批量处理**：所有cron job、周报、异步任务都应改用batches API\n- **实际效果**：通过这三项优化，账单从$4,200降至$1,540，节省63%，且产品质量不变",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Can Now Reach Your Internal Database: MCP Tunnels Launch",
-      "titleZh": "Claude 现已可连接你的内部数据库：MCP 隧道正式上线",
-      "link": "https://dev.to/jessyt/claude-can-now-reach-your-internal-database-mcp-tunnels-launch-2h56",
-      "author": "JessYT",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:40:53.000Z",
-      "summaryZh": "## Claude 内部数据库访问新方案：MCP Tunnels 与自托管沙箱\n\n**用户场景**：企业使用 Claude Agent 时，需要访问内部数据库、工单系统或知识库，但传统方案要求将 MCP 服务器暴露在公网，导致安全团队审批困难，尤其在金融、医疗等合规严苛的行业，PoC 常因防火墙规则而停滞。\n\n**核心方法**：Anthropic 推出两项安全功能——**MCP Tunnels**（研究预览版）和 **Self-Hosted Sandboxes**（公开测试版）。前者在客户网络内部署轻量网关，仅建立一条加密出站连接到 Anthropic，无需开放入站防火墙规则，凭证永不经过公网；后者采用分离架构，Agent 循环留在 Anthropic 基础设施，仅工具执行迁移到客户环境，敏感文件不离开网络。\n\n**关键技巧**：\n- 现有集成代码无需修改，仅需配置变更即可切换基础设施\n- 支持 Cloudflare、Daytona、Modal、Vercel 四家合作伙伴，可自定义资源大小和运行时镜像\n- 注意：MCP Tunnels 需申请访问权限，Self-Hosted Sandboxes 已公开可用\n- 适合场景：内部系统需作为 Agent 工具、数据不得离开网络的合规环境",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Now Holds the SDK Tooling Behind OpenAI Too — What the Stainless Deal Means",
-      "titleZh": "Anthropic 现在也掌握了 OpenAI 背后的 SDK 工具——Stainless 交易意味着什么",
-      "link": "https://dev.to/jessyt/anthropic-now-holds-the-sdk-tooling-behind-openai-too-what-the-stainless-deal-means-58l7",
-      "author": "JessYT",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:29:58.000Z",
-      "summaryZh": "## Anthropic收购Stainless：SDK工具链成为AI竞争新战场\n\n**用户场景：** 当AI Agent需要连接外部API时，SDK（软件开发工具包）的生成和维护一直是开发者的痛点。OpenAI、Google、Cloudflare等公司此前都依赖同一家初创公司Stainless来自动生成多语言SDK。Anthropic以3亿美元收购Stainless后，竞争对手的SDK基础设施瞬间被\"卡脖子\"。\n\n**核心方法：** Stainless的核心能力是从单一OpenAPI规范自动生成并维护多语言SDK、CLI和MCP（Model Context Protocol）服务器。这意味着AI Agent连接外部世界的\"管道\"被Anthropic掌控。收购后，Stainless的托管产品将逐步关闭，竞争对手必须自建替代方案。\n\n**关键技巧：**\n- 现有SDK仍可使用，但新版本和新增语言的自动生成能力被切断\n- Anthropic将加速Claude Agent SDK与MCP服务器的整合，实现模型发布日同步多语言SDK\n- 开发者需关注：未来AI竞争将从模型能力转向\"连接基础设施\"，MCP生态将成为关键差异化因素\n- 短期无影响，但长期看，SDK工具链的自主可控性变得至关重要",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Agents Move Into Company Infrastructure — Two London Reveals",
-      "titleZh": "Claude Agents 进入公司基础设施——伦敦两场发布会揭示",
-      "link": "https://dev.to/jessyt/claude-agents-move-into-company-infrastructure-two-london-reveals-34ai",
-      "author": "JessYT",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:33:59.000Z",
-      "summaryZh": "## Claude Agents 企业级基础设施更新解读\n\n**用户场景**：金融科技和企业团队在采用Claude Agents时面临核心障碍——代码和敏感文件必须离开公司网络，导致安全合规无法通过。本文针对这一痛点，介绍了Anthropic伦敦发布会推出的两项关键更新。\n\n**核心方法**：\n1. **Self-hosted Sandbox（公测）**：将工具执行和文件处理从Anthropic网络迁移到客户自有基础设施。代码、数据库和内部服务无需暴露给外部网络。同时提供Cloudflare、Daytona、Modal、Vercel四个托管选项。\n2. **MCP Tunnels（研究预览）**：通过端到端加密隧道，让Claude Agent调用内部MCP服务器时无需开放入站防火墙规则，仅需一条出站连接。\n\n**关键技巧**：\n- 注意：编排层（agent loop、prompt、模型推理）仍在Anthropic网络运行，完全离线部署尚未支持\n- 对于要求\"prompt本身不能外发\"的金融机构，本次更新仍不满足\n- MCP Tunnels需通过表单申请，非即时可用\n- 这是企业AI竞争从\"模型性能\"转向\"部署边界\"的信号，建议尽早评估架构适配性",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Agent SDK Gets Separate Billing on June 15 — D-28",
-      "titleZh": "Claude Agent SDK 将于6月15日起独立计费——倒计时28天",
-      "link": "https://dev.to/jessyt/claude-agent-sdk-gets-separate-billing-on-june-15-d-28-1a1l",
-      "author": "JessYT",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:25:47.000Z",
-      "summaryZh": "## Claude Agent SDK 计费拆分倒计时 D-28\n\n**用户场景：**\nAnthropic 宣布自 2026 年 6 月 15 日起，Claude Agent SDK 将实行独立计费。此前 Pro $20 或 Max $200 订阅计划中，交互式使用（claude.ai 聊天、Claude Code 终端交互）与自动化任务（claude -p 脚本、Agent SDK 任务、GitHub Actions）共享同一额度池。新政策将两者拆分，自动化任务需使用独立额度池。\n\n**核心方法：**\n从 6/15 起，额度池分为两个：\n- **订阅池**：仅用于人类直接交互（claude.ai 聊天、Claude Code 交互会话、Claude Cowork）\n- **自动化池**：用于程序化调用（claude -p 脚本、Agent SDK 调用、GitHub Actions CI 任务、第三方工具如 OpenClaw）\n\n自动化池额度与订阅池相同（Pro $20、Max 5× $100、Max 20× $200），月度未用完自动过期，不会回退到订阅池。超额需手动开启 \"extra usage\" 开关按标准 API 费率计费，否则请求停止。\n\n**关键技巧：**\n1. **检查自动化使用量**：如果你运行 cron 任务、CI 中的 Claude Code Actions 或 Agent SDK 项目，务必在 6/14 前评估月度自动化消耗，避免额度耗尽后服务中断。\n2. **注意额度过期**：自动化池月度额度不会累积，未用完即清零，需合理规划任务频率。\n3. **开启超额保护**：如需持续运行自动化任务，提前开启 \"extra usage\" 开关，否则额度耗尽后请求直接失败。\n4. **区分调用来源**：同一模型（如 Opus 4.7）的调用，由\"谁发起\"决定消耗哪个池——人类交互走订阅池，脚本调用走自动化池。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude's Managed Agents Now Run Inside Your Corporate Network",
-      "titleZh": "Claude的托管代理现已可在企业网络内部运行",
-      "link": "https://dev.to/jessyt/claudes-managed-agents-now-run-inside-your-corporate-network-4hdd",
-      "author": "JessYT",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-23T15:45:18.000Z",
-      "summaryZh": "## Claude Managed Agents 企业内网部署方案\n\n### 用户场景\n企业（金融、医疗、公共部门）因合规要求，无法将代码和数据库上传至Anthropic外部基础设施。此前Claude Managed Agents需在Anthropic服务器上执行工具和访问文件，导致安全团队无法批准。\n\n### 核心方法\nAnthropic推出两项安全特性：\n1. **自托管沙箱（公开测试版）**：工具执行环境部署在企业自有VM中，Anthropic仅负责编排、上下文管理和恢复逻辑。支持Cloudflare（微VM+零信任密钥）、Daytona（长时运行）、Modal（亚秒级冷启动）、Vercel（VPC对等连接）四家供应商，也可完全自托管。\n2. **MCP隧道（研究预览版）**：通过轻量级网关建立单向加密出站连接，无需开放入站端口，即可访问内部MCP服务器（如内部Wiki、Jira、数据库）。由Claude Console工作区管理。\n\n### 关键技巧\n- **数据边界**：敏感数据保留在沙箱内，仅外部API请求流向Anthropic\n- **合规策略**：零入站端口设计（仅出站加密通道），安全团队可轻松批准\n- **当前限制**：MCP隧道需单独申请访问权限，建议先运行沙箱PoC验证\n- **架构要点**：编排在Anthropic，执行在企业内网——企业可接受的合规设计",
+      "summaryZh": "以下是这篇 Dev.to 文章的中文总结，聚焦于开发者如何优化 Claude API 成本：\n\n**用户场景：** 作者审计了一家 B2B 文档摘要初创公司的 Claude API 账单，发现每月 $4,200 的支出中，仅 $1,300 产生业务价值，其余 $2,900 均为浪费。这揭示了多数团队在生产环境中使用 LLM API 时的常见成本陷阱。\n\n**核心方法：** 通过分析请求日志，作者识别出三大浪费模式并逐一修复：\n1. **Prompt Caching 未启用**：这是最大的“沉默杀手”。Claude 4.x 支持 `cache_control`（5分钟/1小时 TTL），缓存读取成本仅为新鲜输入的 1/10（$0.30 vs $3.00/百万 tokens）。只需在 system prompt 中添加 `\"cache_control\": {\"type\": \"ephemeral\"}` 一行代码，即可对后续重复请求享受 90% 折扣。该案例中，20K tokens 的 system prompt 以 50% 缓存命中率计算，每月节省 $2,400。\n2. **模型过度使用**：默认使用 Opus（成本是 Sonnet 的 4-5 倍）是常见错误。作者通过 1000 样本测试发现：Opus 仅在复杂多步推理任务上显著胜出；Sonnet 在代码审查、创意文案等任务中与 Opus 质量相当，成本仅 1/4；Haiku 在 JSON 提取等任务中准确率仅低 2-5%，成本却低 13 倍。将默认模型从 Opus 切换为 Sonnet + Haiku 组合，该部分成本从 $680 降至 $140。\n3. **串行调用未批量处理**：对于非实时任务（如夜间摘要、数据标注），Anthropic Message Batches API 提供 50% 折扣（24 小时 SLA）。将 `asyncio.gather` 改为 `client.messages.batches.create()` 批量提交，该部分成本从 $410 降至 $205。\n\n**关键技巧：**\n- **审计清单**：拉取 30 天 API 日志，检查 distinct system prompts 数量（<10 但调用 >10,000 次 = 缓存未启用）；按模型+端点组合排序，找出可降级的任务；定位单日峰值，判断是否为可批处理的作业。\n- **模型选择策略**：对每个端点进行 A/B 测试，用 judge model + 人工抽检评分，找到“最佳性价比”模型。Haiku 适合有下游验证的任务，Sonnet 是多数场景的平衡点，Opus 仅保留给复杂推理。\n- **批量处理适用场景**：夜间运行、报告生成、训练数据准备等非用户交互任务，均可使用 Batches API 节省 50% 成本。\n- **自动化工具**：作者推荐 MidRelay 代理，可自动注入 cache hint 并支持 OpenAI/Anthropic 双接口路由，无需修改 SDK 代码即可享受缓存折扣。\n\n**最终效果：** 三项优化后，月账单从 $4,200 降至 $1,540（降幅 63%），产品功能和质量完全不变。核心原则：利用 API 已支持的缓存和批量功能，而非盲目升级模型。",
       "category": "devto"
     },
     {
@@ -130,7 +86,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-22T15:03:35.000Z",
-      "summaryZh": "## great_cto v2.17 更新：告别繁琐配置，一键启动AI开发工作流\n\n**用户场景**：开发者在使用Claude Code时，常需手动安装Superpowers、Beads等多个插件，配置过程耗时20分钟以上。great_cto v2.17解决了这一痛点，实现“一次安装，全部就绪”。\n\n**核心方法**：\n- **一键安装**：`npx great-cto install` 命令自动安装Superpowers（方法论插件，提供/brainstorm、/write-plan等技能）和Beads（git原生任务追踪器），无需手动克隆仓库或修改settings.json\n- **智能合规**：jurisdictions模块自动检测项目上下文（EU/US/CA/UK/AU等8个地区），激活对应监管审查代理（如欧盟金融产品自动启用EU reviewer）\n- **前置审查**：在编码前引入Architecture critic（架构审查）、Spec critic（规格审查）、Schema critic（数据库Schema审查），避免“解决错误问题”或“部署后死锁”等昂贵错误\n- **llm-leash UI**：新增16项功能，包括Cmd-K全局命令面板、Issues子标签（安全合规汇总）、Session timeline（会话时间线）、Topology graph（代理依赖图）、HITL diff（人工审核变更）、OPA配置（Open Policy Agent集成）、SOC2一键导出等\n\n**关键技巧**：\n- 避免手动安装插件，使用`npx great-cto install`自动完成配置\n- 利用前置审查代理在编码前发现架构耦合、O(n²)循环、NOT NULL无默认值等隐患\n- 通过llm-leash UI的HITL diff功能，在代理变更应用前进行人工审核，防止自动化错误",
+      "summaryZh": "## great_cto v2.17 更新：告别繁琐配置，一键启动AI开发助手\n\n**用户场景**：开发者在使用Claude Code时，常需手动安装Superpowers、Beads等多个插件，配置过程耗时且易出错。great_cto v2.17解决了这一痛点，让开发者能快速启动AI辅助开发环境。\n\n**核心方法**：\n- **一键安装**：运行 `npx great-cto install` 即可自动安装Superpowers和Beads插件，无需手动克隆仓库或修改配置\n- **智能合规**：jurisdictions模块自动检测项目上下文（EU/US/CA/UK/AU等），激活对应监管审查代理（如欧盟金融产品自动启用EU审查器）\n- **早期审查**：新增Architecture critic（架构审查）、Spec critic（规格审查）、Schema critic（模式审查）三个代理，在编码前发现结构性错误、错误解决方案和数据库迁移风险\n- **llm-leash UI**：新增16项功能，包括Cmd-K全局命令面板、安全合规问题汇总、会话时间线、代理依赖拓扑图、HITL差异审查、OPA策略集成、SOC2一键导出等\n\n**关键技巧**：\n- Superpowers提供结构化工作流（/brainstorm、/write-plan、/execute-plan等），避免Claude凭感觉行事\n- Beads作为git原生任务追踪器，任务以commit形式存在，支持依赖和阻塞关系，跨会话持久化\n- 最昂贵的bug不在代码中，而在编码前的决策中——早期审查代理可避免O(n²)循环、NOT NULL无默认值、缺少CONCURRENTLY的索引等陷阱\n- 若git缺失，great_cto会友好提示而非静默失败",
+      "category": "devto"
+    },
+    {
+      "title": "Legal AI Misstep Exposes Risks as Lawyers Use Claude for Court Filings",
+      "titleZh": "律师使用Claude提交法庭文件，法律AI失误暴露风险",
+      "link": "https://dev.to/codego_group_c184db25b758/legal-ai-misstep-exposes-risks-as-lawyers-use-claude-for-court-filings-4g8m",
+      "author": "Codego Group",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-19T03:58:44.000Z",
+      "summaryZh": "近日，美国律师因使用Anthropic的Claude Console起草法庭文件，导致文件中出现AI生成的虚假引文，不得不公开道歉。这一事件暴露了法律行业在快速采用AI工具时面临的重大风险。\n\n**用户场景**：律师在处理特朗普时期裁员相关案件时，为提升效率，使用Claude Console辅助起草法庭文件。然而，AI生成了看似权威但完全虚构的引文，而律师未能识别，最终提交至联邦法院，成为永久司法记录的一部分。\n\n**核心方法**：律师依赖Claude Console进行法律研究、文档准备和论点生成，期望利用其处理大量判例并快速生成连贯论证的能力。但AI系统可能产生“幻觉”，即生成令人信服但虚假的内容，而当前验证流程不足以检测此类错误。\n\n**关键技巧**：\n- **避免完全依赖AI**：Claude等工具应作为辅助资源，而非替代传统研究和起草方法。必须建立多层人工审查、事实核查和引文验证流程。\n- **强化验证协议**：针对AI输出，需设计专门的核查机制，如交叉引用原始判例、使用独立数据库验证引文真实性。\n- **注意职业责任**：律师需确保提交文件的准确性，AI使用可能涉及专业责任和伦理义务。建议律师协会制定AI使用指南，包括强制披露和验证标准。\n\n此事件警示：法律行业需重新校准AI采用策略，在效率与准确性间取得平衡，避免因技术便利而损害司法公正。",
+      "category": "devto"
+    },
+    {
+      "title": "Tell HN: Claude Code now allows Anthropic to remotely inject system prompts",
+      "titleZh": "Tell HN: Claude Code 现允许 Anthropic 远程注入系统提示",
+      "link": "https://news.ycombinator.com/item?id=48259288",
+      "author": "matheusmoreira",
+      "source": "Hacker News",
+      "sourceType": "hackernews",
+      "pubDate": "2026-05-24T17:34:02.000Z",
+      "summaryZh": "## HN讨论：Claude Code远程系统提示注入问题\n\n**讨论主题**：用户发现Claude Code v2.1.150版本新增了远程系统提示注入功能，Anthropic可通过网络动态修改Claude的system prompt。\n\n**核心观点**：\n1. 新版本在启动时调用`api.anthropic.com/api/claude_cli/bootstrap`获取远程提示，并通过GrowthBook功能标志（`tengu_heron_brook`）每60秒后台同步刷新\n2. 此前版本虽有类似代码但实际返回null（死代码），v2.1.150才真正激活\n3. 官方changelog仅标注\"内部基础设施改进（无用户可见变化）\"，被社区批评为严重低估\n4. 用户可通过环境变量`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1`和`DISABLE_GROWTHBOOK=1`阻止此行为\n\n**实用价值**：\n- 开发者若需完全控制Claude Code行为，建议设置上述环境变量\n- 可通过`npm pack`解包验证二进制文件中的相关函数（如`nAA`读取缓存、`n0A`网络请求）\n- 该机制可能用于紧急修复或A/B测试，但存在安全隐患（远程代码注入风险）\n- 建议关注后续版本更新，或考虑使用本地化替代方案（如直接修改system prompt的fork版本）",
+      "category": "hackernews"
+    },
+    {
+      "title": "Anthropic API: Claude, Tool Use, and Structured Outputs in Apps",
+      "titleZh": "Anthropic API：Claude、工具使用及应用中的结构化输出",
+      "link": "https://dev.to/ganeshjoshi/anthropic-api-claude-tool-use-and-structured-outputs-in-apps-2hke",
+      "author": "Ganesh Joshi",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-25T12:37:04.000Z",
+      "summaryZh": "Anthropic API 实战指南：Claude 工具调用与结构化输出\n\n**用户场景**  \n开发者需要在应用中集成 Claude 的 API，实现工具调用（如 HTTP 请求、数据库操作、内部函数）和结构化输出。常见痛点包括：模型版本混乱、工具参数校验缺失、输出格式不可控。\n\n**核心方法**  \n1. **工具调用（Tool Use）**：Claude 通过 API 请求中的 `tools` 参数声明可用工具，模型返回 `tool_use` 类型的消息，包含函数名和参数。开发者需在服务端执行工具并返回结果。  \n2. **结构化输出**：结合工具调用与严格校验，强制模型输出符合 JSON Schema 的格式。将模型输出视为不可信数据，解析前必须验证。  \n3. **API 版本管理**：从官方文档或控制台复制模型 ID（如 `claude-3-5-sonnet-20241022`），避免使用过时博客中的字符串。\n\n**关键技巧**  \n- 工具参数必须用 JSON Schema 校验，防止模型生成非法值。  \n- 日志记录 `request_id` 便于 Anthropic 支持团队排查问题。  \n- 监控 token 消耗，设置预算上限避免超额。  \n- 定期轮换 API 密钥，降低泄露风险。  \n- 示例代码：  \n```python\nresponse = client.messages.create(\n    model=\"claude-3-5-sonnet-20241022\",\n    tools=[{\"name\": \"get_weather\", \"input_schema\": {\"type\": \"object\", \"properties\": {\"location\": {\"type\": \"string\"}}}}],\n    messages=[{\"role\": \"user\", \"content\": \"北京天气如何？\"}]\n)\n```",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Grabs Stainless—and Rivals Lose SDK Tooling",
+      "titleZh": "Anthropic 收购 Stainless——竞争对手失去 SDK 工具支持",
+      "link": "https://dev.to/mlxio_ai/anthropic-grabs-stainless-and-rivals-lose-sdk-tooling-80e",
+      "author": "MLXIO",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-25T06:19:16.000Z",
+      "summaryZh": "## Anthropic 收购 Stainless：SDK 工具链变成 AI 军备竞赛\n\n**用户场景：** 开发者依赖 Stainless 这类 SDK 生成工具，将 OpenAI、Google、Cloudflare 等厂商的原始 API 快速封装成可用的开发工具包。Anthropic 收购 Stainless 后，将关闭其托管 SDK 生成服务，导致竞争对手（如 OpenAI、Google）失去中立的 SDK 基础设施支持。\n\n**核心方法：** 这不是简单的人才收购，而是将 API 管道（API plumbing）武器化。Stainless 的核心价值在于把原始 API 转化为开发者友好的 SDK 产品。Anthropic 通过吸收这一能力，直接控制从 API 到开发者工具的转化环节，形成 Claude 生态的护城河。\n\n**关键技巧：**\n- 对使用 Stainless 生成 SDK 的团队：立即评估替代方案（如 OpenAPI Generator、手动维护 SDK），避免服务关闭后开发流程中断\n- 对 AI 平台开发者：注意 API 工具链的中立性正在消失，选择 SDK 工具时需考虑供应商锁定风险\n- 对技术决策者：关注 Anthropic 此举可能引发连锁反应——其他 AI 公司可能效仿，收购关键基础设施组件（如 API 网关、模型部署工具）来巩固生态\n\n**行动建议：** 检查项目是否依赖 Stainless 生成的 SDK，提前迁移至开源或自维护方案；关注 Anthropic 后续是否将 Stainless 能力整合到 Claude Code 或 MCP 协议中。",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-05-23T04:03:51.000Z",
-      "summaryZh": "## Claude Code v2.1.150 更新说明\n\n本次更新主要聚焦于**内部基础设施优化**，未引入任何面向用户的新功能或界面变化。具体改进包括：\n\n- **后端架构调整**：重构了部分核心模块，提升系统稳定性和响应效率\n- **性能增强**：优化了代码执行路径，减少资源占用\n- **无破坏性变更**：所有现有功能保持兼容，无需用户调整使用习惯\n\n此次更新属于**纯技术性迭代**，旨在为后续功能开发奠定更可靠的基础。用户无需升级操作，现有工作流不受影响。",
+      "summaryZh": "## Claude Code v2.1.150 更新说明\n\n本次更新主要聚焦于**内部基础设施优化**，未引入任何面向用户的新功能或界面变化。具体改进包括：\n\n- **后端架构调整**：对核心服务层进行了重构，提升了系统稳定性和响应效率。\n- **性能增强**：优化了数据处理流水线，减少了资源占用。\n- **无破坏性变更**：所有现有功能、API接口及配置均保持向后兼容。\n\n**总结**：这是一次纯技术性升级，用户无需调整使用习惯，但底层运行更流畅、更可靠。建议保持自动更新以获取最佳体验。",
       "category": "github-release"
     },
     {
@@ -152,18 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-05-22T22:09:29.000Z",
-      "summaryZh": "## Claude Code v2.1.149 更新说明\n\n**新功能：**\n- `/usage` 新增按类别（技能、子代理、插件、MCP服务器）显示使用限制明细\n- `/diff detail` 视图支持键盘滚动（方向键、j/k、PgUp/PgDn、空格、Home/End）\n- Markdown 输出支持 GFM 任务列表复选框（`- [ ]`/`- [x]`）\n- 企业版新增 `allowAllClaudeAiMcps` 管理设置，可加载 claude.ai 云 MCP 连接器\n\n**Bug 修复：**\n- 修复 PowerShell 权限绕过问题：内置 cd 命令（`cd..`、`cd\\`、`cd~`、`X:`）可无检测更改工作目录\n- 修复 git worktrees 中沙盒写入白名单覆盖整个主仓库根目录的问题\n- 修复 PowerShell 前缀/通配符允许规则未预批准原生可执行文件和脚本\n- 修复 Bash 工具中 `find` 命令耗尽 macOS 系统文件/vnode 表导致主机崩溃\n- 修复 `/ultraplan` 和远程会话创建时\"无法捕获未提交更改\"的错误\n- 修复路径含空格时 `otelHeadersHelper` 静默失败的问题\n- 修复 `Ctrl+O` 转录视图冻结、编辑历史记录丢失、`/insights` 崩溃等多个问题\n\n**改进：**\n- `/feedback` 报告现在包含上下文压缩前的对话内容，便于排查长会话早期问题",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.148",
-      "titleZh": "v2.1.148",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.148",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-05-22T01:16:52.000Z",
-      "summaryZh": "## Claude Code v2.1.148 更新说明\n\n本次更新主要修复了一个关键问题：**Bash 工具返回退出码 127** 的 Bug。该问题影响部分用户，导致每次执行命令时都显示“命令未找到”的错误（退出码 127），属于 v2.1.147 版本引入的回归性故障。现已修复，恢复正常命令执行与退出码反馈。\n\n**主要变更：**\n- 修复：Bash 工具退出码异常（回归修复）\n- 影响范围：所有使用 Bash 工具的用户\n\n**技术细节：**\n- 版本号：v2.1.148\n- 无新增功能或破坏性变更\n- 建议所有受影响的用户升级至此版本\n\n本次更新专注于稳定性修复，未引入新功能或 API 变更。",
+      "summaryZh": "## Claude Code v2.1.149 更新说明\n\n**新功能：**\n- `/usage` 命令新增按类别（技能、子代理、插件、MCP服务器）的使用量明细\n- `/diff detail` 视图支持键盘滚动（方向键、j/k、PgUp/PgDn、空格、Home/End）\n- Markdown 输出支持 GFM 任务列表复选框（`- [ ]`/`- [x]`）\n- 企业版新增 `allowAllClaudeAiMcps` 设置，可加载 claude.ai 云 MCP 连接器\n\n**Bug 修复：**\n- 修复 PowerShell 权限绕过问题（内置 cd 函数未检测工作目录变更）\n- 修复 Git worktrees 中沙箱写入白名单范围过大问题\n- 修复 PowerShell 前缀/通配符允许规则未预批准原生可执行文件\n- 修复 Bash 工具中 `find` 命令导致 macOS 系统文件表耗尽崩溃\n- 修复 `/ultraplan` 和远程会话创建时\"无法捕获未提交更改\"错误\n- 修复空格路径导致 otelHeadersHelper 静默失败\n- 修复多项 UI 问题（思考动画、折叠输出行数、参数提示截断等）\n\n**破坏性变更：** 无",
       "category": "github-release"
     }
   ]
