@@ -1,15 +1,26 @@
 {
-  "lastUpdated": "2026-05-27T20:01:05.653Z",
+  "lastUpdated": "2026-05-28T20:08:31.903Z",
   "items": [
     {
+      "title": "Claude Opus 4.8 didn't raise the price. It raised the default. Here's what `effort=high` does to your bill.",
+      "titleZh": "Claude Opus 4.8 并未涨价，而是提高了默认设置。`effort=high` 对你的账单有何影响。",
+      "link": "https://dev.to/layzerzero105/claude-opus-48-didnt-raise-the-price-it-raised-the-default-heres-what-efforthigh-does-to-3569",
+      "author": "LayerZero",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-28T17:59:37.000Z",
+      "summaryZh": "## Claude Opus 4.8 发布：价格没涨，但你的账单可能翻倍\n\n**用户场景**  \nAnthropic 于 5 月 28 日发布 Claude Opus 4.8，官方宣称价格不变（输入 $5/M tokens，输出 $25/M tokens）。但作者发现，真正影响开发者成本的是默认参数 `effort=high` 被悄悄启用——API、Claude Code、Web 应用全部默认使用高推理预算，导致每个任务的 token 消耗量大幅增加。\n\n**核心方法**  \n`effort` 参数控制模型在回答前的推理 token 数量。`high` 模式下，一个原本需要 4,000 输出 token 的任务可能膨胀到 12,000 token。作者以支持工单分类场景为例：50 万次调用/月，每次 800 token 答案 + 1,500 推理 token，成本约 $18,750/月；切换 `high` 后推理 token 升至 4,000，成本飙至 $50,000/月——多出 $31,000，而代码一行未改。\n\n**关键技巧**  \n1. **显式设置 `effort` 参数**：不要依赖默认值，对简单任务（分类、提取、路由）使用 `medium` 或 `low`，仅对复杂任务（迁移规划、代码审查）启用 `high`。\n2. **警惕 Dynamic Workflows**：新功能允许单会话生成数百并行子代理，每个子代理都默认 `high`，成本呈指数级增长。\n3. **监控输出 token 而非输入**：`effort` 主要增加输出 token（$25/M），这才是账单大头。建议在 API 调用中显式设置 `effort: \"low\"` 或 `effort: \"medium\"` 以控制成本。",
+      "category": "devto"
+    },
+    {
       "title": "Anthropic Pays SpaceX $15 Billion a Year for Compute. Here's What That Means for AI Search Economics.",
-      "titleZh": "Anthropic每年向SpaceX支付150亿美元用于算力。这对AI搜索经济意味着什么。",
+      "titleZh": "Anthropic每年向SpaceX支付150亿美元用于计算。这对AI搜索经济意味着什么。",
       "link": "https://dev.to/searchless_ai/anthropic-pays-spacex-15-billion-a-year-for-compute-heres-what-that-means-for-ai-search-2ofl",
       "author": "Searchless",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T09:44:35.000Z",
-      "summaryZh": "## Anthropic 每年向 SpaceX 支付 150 亿美元算力费用：AI 搜索经济学的真相\n\n### 用户场景\n本文揭示了 AI 搜索行业的核心经济困境：运行大规模 AI 搜索的成本极其高昂，且必须有人买单。品牌经理、营销总监和依赖 AI 搜索可见性的企业需要理解，这些成本最终会通过广告等形式转嫁到他们身上。\n\n### 核心方法\nAnthropic 与 SpaceX 签署了每月 12.5 亿美元、至 2029 年 5 月的算力合同（每年 150 亿美元），用于访问 Colossus GPU 集群。xAI 在 2025 年运营亏损 63 亿美元，收入仅 32 亿美元；2026 年 Q1 亏损 25 亿美元。SpaceX 2025 年资本支出中 61%（127 亿美元）用于 AI 基础设施，远超太空业务。讽刺的是，Anthropic 在资助竞争对手 Musk 的 xAI（Grok）的基础设施。AI 搜索平台正通过企业 API、消费者订阅和广告三种方式回收成本，但前两者增长有限，广告成为必然选择。\n\n### 关键技巧\n- **成本结构差异**：传统 Google 搜索边际成本近乎为零（索引构建一次，增量更新）；AI 搜索每次查询需实时推理，成本高几个数量级，且随查询量线性增长。\n- **行业趋势**：ChatGPT 正构建广告产品对标 Google Ads；Perplexity 测试赞助商务单元；Google 将 AI Overviews 嵌入 25 亿次月搜索。这些并非独立决策，而是算力经济学的必然结果。\n- **投资启示**：OpenAI 计划 2026 年 9 月 IPO，SpaceX S-1 文件揭示了 AI 搜索的算力成本真相。投资者需警惕：AI 搜索平台在盈利前可能持续烧钱，广告变现是唯一出路。",
+      "summaryZh": "## Anthropic 每年向 SpaceX 支付 150 亿美元算力费用：AI 搜索经济学的真相\n\n### 用户场景\n本文揭示了 AI 搜索行业的核心矛盾：**算力成本极其高昂，且必须通过收入回收**。品牌经理、营销总监等依赖 AI 搜索可见性的从业者，需要理解这些成本如何最终影响他们的广告支出和流量获取策略。\n\n### 核心方法\n- **算力合同公开**：Anthropic 与 SpaceX 签订每月 12.5 亿美元（年 150 亿美元）的 Colossus 数据中心访问协议，持续至 2029 年 5 月。这比大多数 Fortune 500 公司的年收入还高。\n- **成本结构透明化**：xAI 在 2025 年运营亏损 63 亿美元，收入仅 32 亿美元；SpaceX 的 AI 资本支出占总资本支出的 61%（127 亿美元），远超其太空基础设施投入（约 10 亿美元）。\n- **竞争悖论**：Anthropic 资助竞争对手 Elon Musk 的 xAI（Grok 的开发者）的基础设施，因为算力稀缺迫使公司别无选择。\n\n### 关键技巧\n- **AI 搜索 vs 传统搜索成本差异**：传统 Google 搜索的边际成本几乎为零（索引一次构建，增量更新）；AI 搜索每次查询需实时推理，成本高出数个数量级，且随查询量线性增长。\n- **收入来源局限**：企业 API 合同增长不够快；消费者订阅（如 ChatGPT Plus 月费 20 美元）有自然上限。**广告成为唯一可大规模拉动的杠杆**——ChatGPT 正构建对标 Google Ads 的广告产品，Perplexity 测试赞助电商单元，Google 将 AI Overviews 嵌入 25 亿次月搜索。\n- **IPO 背景**：OpenAI 计划 2026 年 9 月上市，与 SpaceX S-1 文件共同揭示行业正急于变现，因为算力成本迫使平台必须激进盈利。\n\n**核心洞察**：AI 搜索平台不是主动选择广告，而是被算力经济学逼迫——每美元算力成本都需要通过广告回收，最终由品牌和出版商承担。",
       "category": "devto"
     },
     {
@@ -20,29 +31,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T12:08:16.000Z",
-      "summaryZh": "## Anthropic 发布 Claude Sandbox 与安全指导插件：AI 代码安全新方案\n\n**用户场景：** 针对 AI 开发者在构建和部署模型时面临的代码安全漏洞问题，Anthropic 推出了集成于 Claude AI 平台的 Sandbox 环境与安全指导插件，帮助开发者在开发阶段实时识别并修复潜在安全风险。\n\n**核心方法：** 该插件采用 AI 驱动的代码分析引擎，在 Claude Sandbox 中实时扫描代码，识别漏洞并提供改进建议。不同于传统安全工具，它采用**整体性安全方法**，专门针对 AI 系统的独特风险（如模型投毒、数据泄露等）进行深度分析，提供细粒度的安全评估。\n\n**关键技巧：**\n- **实时反馈机制**：在编码过程中即时获得安全建议，避免后期修复成本\n- **无缝集成**：与 Claude AI 平台原生集成，但需注意与其他 DevOps 工具的兼容性挑战\n- **技术门槛**：需要一定的安全与 AI 专业知识才能有效配置和使用\n- **成本考量**：作为付费插件，预算有限的小团队需评估 ROI\n- **局限性**：不能覆盖所有漏洞，建议作为安全流程的补充而非替代\n\n**实用建议：** 适合用于 AI 模型开发、代码审查、安全测试及 DevOps 流水线集成，但需结合传统安全工具形成多层防护。",
+      "summaryZh": "## Anthropic 发布 Claude Sandbox 与安全指导插件\n\n**用户场景：** 针对AI开发者在构建和部署模型时面临的安全漏洞问题，Anthropic推出了集成于Claude平台的Sandbox环境与安全指导插件，解决传统安全工具难以精准识别AI特有风险的痛点。\n\n**核心方法：** 该插件采用AI驱动分析（AI-driven analysis）技术，在代码编写过程中实时扫描潜在漏洞，提供即时反馈（real-time feedback）与改进建议。它并非简单安全扫描工具，而是针对AI系统独特风险（如模型偏见、数据泄露等）设计的全流程安全方案，与Claude平台深度集成，形成统一开发环境。\n\n**关键技巧：**\n- **实时防护**：开发过程中即可获得漏洞预警，避免后期修复成本\n- **技术门槛**：需具备一定AI/安全专业知识才能高效配置使用\n- **集成注意**：与Claude平台无缝对接，但与其他工具链集成可能面临挑战\n- **成本考量**：作为付费插件，预算有限团队需评估ROI\n- **局限性**：虽能识别多数代码漏洞，但无法覆盖所有安全问题，不能作为唯一安全防线\n\n**实用建议**：建议将插件融入DevOps流水线（DevOps integration），用于AI模型开发、代码审查、安全测试等环节，但需配合传统安全工具形成多层防护。",
       "category": "devto"
     },
     {
-      "title": "Claude MCP Tunnels: Private MCP Access for Agents",
-      "titleZh": "Claude MCP隧道：面向智能体的私有MCP访问",
-      "link": "https://dev.to/jangwook_kim_e31e7291ad98/claude-mcp-tunnels-private-mcp-access-for-agents-59b3",
-      "author": "Jangwook Kim",
+      "title": "Claude Opus 4.8 Is Here: Honesty Gains, Dynamic Workflows, and a 2.5 Faster Fast Mode",
+      "titleZh": "Claude Opus 4.8 正式发布：诚实度提升、动态工作流，以及快模式提速 2.5 倍",
+      "link": "https://dev.to/harsh_rastogi/claude-opus-48-is-here-honesty-gains-dynamic-workflows-and-a-25x-faster-fast-mode-7gd",
+      "author": "Harsh Rastogi",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-26T00:09:16.000Z",
-      "summaryZh": "以下是关于《Claude MCP Tunnels: Private MCP Access for Agents》的中文总结：\n\n**用户场景**  \n当开发者使用Claude Managed Agents或Messages API时，常需让AI Agent访问内部私有系统（如工单工具、数据仓库、内部API）。传统做法需将MCP服务器暴露到公网，存在严重安全隐患。本文作者（Effloow Lab）针对此问题，验证了Anthropic于2026年5月发布的MCP Tunnels（研究预览版）方案——通过轻量级网关建立单向出站隧道，使Agent无需开放入站防火墙规则即可安全调用私有MCP服务器。\n\n**核心方法**  \n部署架构包含两个内部组件：1）`cloudflared` 建立出站隧道连接；2）Anthropic代理组件基于hostname验证上游IP并路由请求。每个私有MCP服务器获得独立子域名（如 `docs.<your-tunnel-domain>`）。Agent通过标准MCP连接器配置（`mcp_servers` + `mcp_toolset` + beta header）即可调用隧道内的服务，URL指向隧道域名而非公网端点。作者用Node.js搭建了本地PoC验证路由逻辑：网关对允许的hostname（`echo.local-tunnel.test`）返回200，对未知hostname（`admin.local-tunnel.test`）返回403。\n\n**关键技巧**  \n1. **Host头必须显式设置**：Node的fetch默认保留loopback Host头导致路由失败，需改用`http.request`并手动指定Host头。  \n2. **路由表需fail-closed**：未知hostname应默认拒绝（返回403），避免安全漏洞。  \n3. **隧道≠沙箱**：自托管沙箱决定执行环境，隧道决定网络可达性，两者独立可组合使用。  \n4. **安全分层**：隧道不是唯一安全边界，每个MCP服务器仍需OAuth、窄IP白名单、凭证轮换和日志监控。  \n5. **测试陷阱**：模板字符串嵌套易导致脚本生成失败，需注意转义；务必用真实hostname测试MCP服务器后再排查模型问题。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude for Small Business: 382K Day-One Buyer's Guide",
-      "titleZh": "Claude 小企业版：38.2万首日买家指南",
-      "link": "https://dev.to/max_quimby/claude-for-small-business-382k-day-one-buyers-guide-a4k",
-      "author": "Max Quimby",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-26T03:36:00.000Z",
-      "summaryZh": "# Claude for Small Business：38.2万首日下载的深度解析\n\n## 用户场景\nAnthropic刚推出的Small Business Bundle首日下载量达38.2万次（r/ClaudeAI社区数据），远超Salesforce Agentforce、Microsoft Copilot等竞品的SMB版本。目标用户是15-50人的小型企业（HVAC公司、景观公司、房地产经纪），而非传统企业客户。核心痛点：SMB需要即开即用的AI代理，而非复杂的企业级部署。\n\n## 核心方法\nBundle包含**15个就绪工作流 + 15个可复用技能**，而非社区流传的\"31个技能\"。工作流是SOP形态（薪资规划、月度结算、发票催收、线索分类、合同审查、活动构建），技能是底层构建块（现金流预测、利润率分析、客户情绪、招聘包构建、税务准备）。通过**7个连接器**（QuickBooks、PayPal、HubSpot、Canva、DocuSign、Google Workspace、Microsoft 365 + Slack）整合。所有功能通过**单个Cowork开关**一键启用，无需新定价层（Pro $20/月或Max $100-200/月即可使用）。\n\n## 关键技巧\n1. **理解架构**：看到\"31技能\"时，应翻译为\"15 SOP工作流 + 15可复用技能，通过1个Cowork开关和7个连接器控制\"\n2. **注意缺失项**：无SMB专属仪表盘、无代理角色（如\"AI簿记员\"）、无垂直行业代理（如HVAC专用）、无代理间商业市场——Anthropic选择\"平台而非应用\"策略\n3. **工作流映射**：财务（5个，主连QuickBooks）、运营（3个，连QuickBooks+DocuSign）、销售（2个，连HubSpot+Canva）、营销（2个，连Canva+HubSpot）、HR（2个，连Google Workspace+DocuSign）\n4. **避坑指南**：不要期待垂直行业定制或代理人格化——Anthropic将技能作为可预订抽象层，未来通过市场、垂直化、代理间商业变现",
+      "pubDate": "2026-05-28T20:02:17.000Z",
+      "summaryZh": "# Claude Opus 4.8 发布：诚实度提升、动态工作流与2.5倍快速模式\n\n## 用户场景\n开发者面临的核心痛点：AI模型在代码生成中\"沉默地\"引入缺陷，导致调试耗时巨大。Anthropic最新发布的Claude Opus 4.8（模型ID：claude-opus-4-8）针对这一场景，将SWE-Bench Pro得分从64.3%提升至69.2%，意味着模型能自主完成近七成真实软件工程任务。特别适合企业级代码迁移、大规模重构等需要高可靠性的场景。\n\n## 核心方法\n1. **诚实度升级**：模型\"沉默缺陷\"减少4倍，会主动标记不确定性——如\"未处理空数组情况，请补充测试\"、\"未运行验证SQL计划\"等。建议将不确定性标记作为机器可读信号，用于门控自动合并或触发额外测试。\n2. **动态工作流（Dynamic Workflows）**：Claude Code可协调数百个并行子代理，将大型代码库迁移分解为独立模块，自动重试失败子任务。原本数周的重构可缩短至一夜完成。\n3. **快速模式重构**：速度提升2.5倍，成本降低3倍（$10/M输入，$50/M输出）。建议：延迟敏感任务默认用Fast Mode，高风险推理（安全审查、金融分析）用Standard Mode，系统提示词和工具定义积极使用Prompt Caching（节省90%成本）。\n\n## 关键技巧\n- 不要乐观解析4.8的输出，将不确定性标记视为门控信号\n- 对US-residency工作负载，可选用US-only推理（1.1倍定价）\n- 动态工作流目前仅限Claude Code Enterprise/Team/Max计划",
       "category": "devto"
     },
     {
@@ -53,18 +53,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T05:22:10.000Z",
-      "summaryZh": "## 两层知识层级：为AI Agent与LLM结构化上下文\n\n**用户场景**：开发者在使用Claude Code等AI Agent进行代码库维护时，常面临上下文管理难题——要么一次性加载全部代码导致token浪费，要么信息不足导致Agent决策错误。TestSmith项目通过区分两类AI消费者（开发Agent vs 运行时LLM）来解决这个问题。\n\n**核心方法**：\n1. **Agent层（CLAUDE.md层级）**：采用根目录+子包的多级文档结构。根文件包含包地图、依赖方向（如`domain`永不导入其他内部包）和不可变约束；每个子包（如`internal/llm/`）的CLAUDE.md仅包含该包特有的数据流、中间件栈等。Claude Code打开文件时自动加载对应包文档。\n2. **运行时LLM层（TESTSMITH.md）**：项目级+目录级两级合并。根文件定义全局约定（如pytest框架、mock风格），子目录文件覆盖特定模块规则（如支付模块需mock Stripe）。这些知识注入系统提示（system prompt），不受用户提示的token预算限制。\n3. **动态挖掘**：自动从同目录现有测试中提取模式（最多5文件80行），比手写文档更准确且自动更新。\n\n**关键技巧**：\n- 依赖签名索引：预分析所有源文件，生成`modulePath → SourceAnalysis`映射，让LLM直接获取真实接口签名（如`discount.ApplyPromoCode(order Order, code string) (Order, error)`），避免生成虚假测试桩。\n- 优先级裁剪机制：用户提示按优先级裁剪（源码永不丢弃→内部依赖签名→样式片段最先丢弃），但项目知识始终保留在系统提示中。\n- 避免混淆：Agent上下文（架构导航）和运行时LLM上下文（生成质量）必须分离，否则会导致系统提示臃肿或Agent信息不足。",
+      "summaryZh": "## 两层知识层级：为AI Agent和LLM结构化上下文\n\n**用户场景**：开发者在使用AI工具（如Claude Code）辅助开发项目时，面临两个不同的问题：一是AI Agent需要理解代码库结构以进行开发维护，二是运行时LLM需要生成符合项目规范的测试代码。传统单一上下文文件无法同时满足两者需求。\n\n**核心方法**：作者提出分层上下文策略：\n1. **Agent层（CLAUDE.md层级）**：根目录CLAUDE.md包含包地图、依赖方向、不变约束；每个包内独立CLAUDE.md包含该包数据流、关键类型、操作清单。Claude Code打开文件时自动加载对应包文档，实现精准上下文加载。\n2. **运行时LLM层（TESTSMITH.md）**：项目根目录TESTSMIDTH.md定义全局规范（框架、mock风格），子目录可覆盖。运行时合并两级配置注入system prompt，且豁免于token预算裁剪。\n\n**关键技巧**：\n- 根CLAUDE.md只放所有任务都需要的三要素：包地图、依赖方向、不变约束\n- 使用`PromptTokenBudget`（默认6000 tokens）按优先级裁剪：源代码永不裁剪，内部依赖签名次之，风格片段优先丢弃\n- 动态挖掘：自动从同目录最多5个现有测试文件（80行上限）提取实际测试模式，比手写规范更准确且自动更新\n- 依赖签名索引：`--all`运行时一次性分析所有源文件，生成`modulePath → SourceAnalysis`映射，确保测试double匹配真实接口签名",
       "category": "devto"
     },
     {
       "title": "Building a Full-Stack Roulette…",
-      "titleZh": "构建全栈轮盘赌应用…",
+      "titleZh": "构建全栈轮盘赌…",
       "link": "https://dev.to/norviktech/building-a-full-stack-roulette-1196",
       "author": "Norvik Tech",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-26T23:06:31.000Z",
-      "summaryZh": "### 中文摘要\n\n**用户场景**  \n本文面向希望构建高性能全栈游戏应用（如轮盘赌）的开发者，探讨如何利用 Claude AI 实现动态游戏体验，并借助 AWS 解决高并发与扩展性问题。作者指出，传统游戏开发在用户留存、实时交互和个性化调整方面存在挑战，而 AI 驱动的自适应机制可有效提升玩家参与度。\n\n**核心方法**  \n1. **技术栈**：前端使用 React 实现实时 UI 更新，后端基于 Node.js 构建 RESTful API，数据库采用 MongoDB 存储用户数据与游戏统计。  \n2. **Claude AI 集成**：通过分析历史游戏数据，AI 实时调整难度参数（如胜率、奖励频率），并基于玩家行为提供个性化推荐，形成“数据采集→动态调整→反馈学习”的闭环。  \n3. **部署策略**：AWS 提供弹性伸缩能力，支持流量峰值时自动扩容，同时按需付费控制成本。\n\n**关键技巧**  \n- **避免过度设计**：建议从 MVP（最小可行产品）起步，仅实现核心功能（如基础轮盘逻辑+AI 难度调节），通过用户测试验证假设后再扩展。  \n- **数据驱动迭代**：利用 Claude AI 的反馈循环持续优化模型，例如记录玩家放弃游戏时的状态，针对性调整难度曲线。  \n- **合规与基础设施**：在拉美/西班牙市场需提前评估本地数据保护法规（如 GDPR 类似条款），并确保现有技术栈能支持现代框架（如 React 的虚拟 DOM 优化）。  \n- **团队协作**：组建跨职能团队（产品+工程+设计），明确每个阶段的决策文档，避免技术债务积累。",
+      "summaryZh": "这是一篇关于构建全栈轮盘游戏的技术文章，重点介绍了如何利用 Claude AI 和 AWS 架构来提升游戏体验。以下是中文总结：\n\n**用户场景**  \n作者面向需要构建高并发、可扩展在线游戏（如轮盘赌）的开发者，解决传统游戏在实时交互、个性化体验和系统性能上的痛点。文章特别关注拉丁美洲和西班牙市场，指出当地企业面临基础设施升级、市场竞争和合规挑战，希望通过技术方案提升用户留存和品牌忠诚度。\n\n**核心方法**  \n采用前后端分离架构：前端用 React 实现动态响应式界面，后端基于 Node.js 构建 RESTful API，数据库使用 MongoDB 存储用户数据和游戏统计。关键创新是集成 Claude AI：通过分析历史游戏数据识别玩家行为模式，实时调整游戏难度和参数（如动态修改结果或推荐策略），形成“数据采集→AI分析→参数调整→反馈学习”的闭环，从而提升参与度和竞争性。\n\n**关键技巧**  \n1. **AI 集成要点**：Claude AI 需建立持续反馈循环，通过分析玩家行为（如下注模式、停留时间）动态调整游戏参数，避免固定难度导致用户流失。  \n2. **架构注意事项**：AWS 部署需关注自动扩展策略（如应对流量峰值），并采用按需付费模式控制成本；MongoDB 需优化索引以支持高并发读写。  \n3. **落地建议**：先开发 MVP（最小可行产品）验证核心功能，通过用户测试验证假设后再规模化；团队需涵盖产品、工程和设计角色，并提前评估本地数据保护法规（如哥伦比亚的监管要求）。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Opus 4.8: Benchmarks, Fast Mode, and What Actually Changed",
+      "titleZh": "Claude Opus 4.8：基准测试、快速模式与实际变化",
+      "link": "https://dev.to/owen_fox/claude-opus-48-benchmarks-fast-mode-and-what-actually-changed-24f0",
+      "author": "Owen",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-05-28T18:29:04.000Z",
+      "summaryZh": "## Claude Opus 4.8 更新解读：性能提升与实用技巧\n\n**用户场景**：开发者面临模型升级时最关心的是“实际干活是否更省钱、更高效”。本文针对需要高精度编码、复杂代理任务和长上下文处理的场景，评估 Opus 4.8 的真实价值。\n\n**核心方法**：\n- **定价不变**：保持 $5/百万输入、$25/百万输出，但输出 token 减少约 35%\n- **性能领先**：GDPval-AA 真实工作排行榜 1890 Elo（超 GPT-5.5 达 121 分），SWE-bench Pro 达 69.2%\n- **Fast Mode 预览**：输出速度提升 2.5 倍（溢价收费）\n- **动态工作流**：Claude Code 支持并行子代理编排（如 75 万行 Zig→Rust 迁移，11 天完成，测试通过率 99.8%）\n\n**关键技巧**：\n1. **Effort 参数是核心**：编码/代理场景用 `xhigh`，敏感任务至少 `high`；提高 effort 会显著增加工具调用\n2. **指令遵循更严格**：模型不会自动泛化或推断未明说的需求，提示词需精确\n3. **代码审查陷阱**：若要求“只报高严重性问题”，4.8 会忠实执行，可能漏报低严重性但关键的 bug\n4. **自适应思考**：使用 `thinking: {\"type\": \"adaptive\"}` 替代固定预算，更高效\n5. **中间对话系统消息**：可在用户轮次后插入系统消息，保留之前轮次的 prompt-cache 命中，降低输入成本\n\n**避坑提示**：Terminal-Bench 2.1 上 GPT-5.5 仍领先（78.2% vs 74.6%），重度终端命令场景需谨慎评估。",
       "category": "devto"
     },
     {
@@ -75,29 +86,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T05:02:52.000Z",
-      "summaryZh": "## 印度政府测试Anthropic Mythos AI安全漏洞：开发者视角\n\n**用户场景**：印度政府启动国家级网络安全计划，专门针对Anthropic的Mythos AI模型进行安全漏洞测试。这反映了AI系统（尤其是大语言模型）正成为新型攻击面，传统安全框架难以覆盖。对于金融科技、支付处理等依赖AI的行业，一个模型的安全漏洞可能引发连锁反应，影响全球市场。\n\n**核心方法**：印度安全团队采用主动式威胁评估，而非被动响应。他们重点测试Mythos模型在关键基础设施和政府操作中的潜在利用方式，包括模型操纵、提示注入等攻击向量。这种政府主导的漏洞测试模式，可能成为未来AI安全监管的模板。\n\n**关键技巧**：\n- AI开发者需主动配合政府安全评估，安全验证将成为企业级AI合同的关键差异化因素\n- 跨市场运营的公司应确保AI系统能通过日益严格的政府安全测试\n- 金融科技公司需关注AI在算法交易、客户认证等场景中的系统性漏洞\n- 建议建立国际协调的AI安全标准，避免单一模型漏洞引发全球市场连锁反应\n\n印度此举标志着AI治理从“事后补救”转向“事前预防”，对开发者而言，安全合规将成为AI产品竞争力的核心要素。",
+      "summaryZh": "## 印度政府测试Anthropic Mythos AI模型：AI安全新范式\n\n**用户场景**：印度政府启动国家级网络安全计划，专门针对Anthropic的Mythos AI模型进行安全漏洞测试，以识别AI系统在关键基础设施和政府运营中的潜在攻击面。这一举措反映了各国政府面临的共同挑战：如何在利用AI变革潜力的同时，防范其固有的安全风险。\n\n**核心方法**：印度网络安全团队采用主动式威胁评估，而非被动响应。他们重点测试大型语言模型和高级AI应用可能被利用或操纵的方式，特别是针对金融服务业中AI用于欺诈检测、风险评估和客户服务的场景。测试方法论强调系统性漏洞发现，关注AI模型在支付网络和交易平台中的级联效应。\n\n**关键技巧**：\n- 传统安全框架不足以应对AI新型攻击向量，需建立专门的AI漏洞测试流程\n- 金融科技公司应关注政府级安全测试可能暴露的自身AI实现漏洞\n- AI开发者需与政府安全评估合作，安全验证将成为企业AI合同的关键差异化因素\n- 跨司法管辖区的公司需确保AI系统能通过日益严格的安全评估\n\n该倡议标志着新兴经济体在AI治理和安全领域发挥领导作用，可能成为国际AI安全标准的模板。",
       "category": "devto"
     },
     {
       "title": "Why your Claude API bill is 3x what it should be (and how to fix it)",
-      "titleZh": "为什么你的Claude API账单是应有的3倍（以及如何解决）",
+      "titleZh": "为什么你的Claude API账单是应有金额的3倍（以及如何解决）",
       "link": "https://dev.to/midrelay/why-your-claude-api-bill-is-3x-what-it-should-be-and-how-to-fix-it-4lfo",
       "author": "Shek",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-22T19:24:53.000Z",
-      "summaryZh": "以下是这篇 Dev.to 文章的中文摘要，聚焦于开发者如何优化 Claude API 成本：\n\n**用户场景：** 作者审计了一家 B2B 文档摘要初创公司的 Claude API 账单，发现每月 $4,200 的支出中，仅有 $1,300 产生业务价值，其余 $2,900 均为浪费。这揭示了多数团队在生产环境中使用 LLM API 时常见的成本泄漏问题。\n\n**核心方法：** 作者通过分析请求日志，将 API 调用按用途分类并估算应有成本，识别出三大浪费源头：\n1. **Prompt Caching 未启用**：Claude 4.x 支持缓存，但需手动在请求中设置 `cache_control`。缓存读取成本仅为新鲜输入的 1/10（$0.30 vs $3.00 per million tokens）。只需在 system prompt 中添加 `\"cache_control\": {\"type\": \"ephemeral\"}` 即可，单行改动可节省 90% 的重复调用成本。\n2. **模型过度使用**：默认使用 Opus（4x 输入成本、5x 输出成本）但多数任务 Sonnet 或 Haiku 表现相近。作者通过 A/B 测试发现：JSON 提取 Haiku 最佳（96.4% 准确率，1/13 成本），代码审查 Sonnet 与 Opus 持平（74%），仅复杂多步推理 Opus 明显胜出。\n3. **串行调用未批处理**：非实时任务（如夜间摘要、数据标注）应使用 Anthropic Message Batches API，享受半价优惠（24 小时 SLA）。将 `asyncio.gather` 改为 `client.messages.batches.create` 即可。\n\n**关键技巧：**\n- 检查过去 30 天 API 日志：若 distinct system prompts < 10 但调用 > 10,000，说明缓存未生效\n- 对最昂贵的 3 个端点进行模型降级 A/B 测试，盲评输出质量\n- 所有 cron 任务、周报、异步批量处理均可改用 Batches API\n- 作者还推荐了 MidRelay 代理，可自动注入缓存 hint 并支持多模型路由\n\n最终，这三项改动将账单从 $4,200 降至 $1,540，降幅达 63%，且未影响产品质量。",
+      "summaryZh": "以下是这篇 Dev.to 文章的中文摘要，聚焦于 Claude API 成本优化：\n\n**用户场景：** 作者审计了一家 B2B 文档摘要初创公司的 Claude API 账单，发现月费 $4,200 中仅有 $1,300 产生实际业务价值，其余 $2,900 均为浪费。这揭示了多数团队在生产环境中使用 LLM API 时的常见成本陷阱。\n\n**核心方法：** 通过分析请求日志，作者识别出三大浪费源头并给出针对性方案：\n1. **Prompt Caching 未启用**：Claude 4.x 支持缓存控制（`cache_control: {type: \"ephemeral\"}`），缓存读取成本仅为新鲜输入的 1/10（$0.30 vs $3.00/百万 token）。只需在 system prompt 中添加一行代码，即可对重复内容实现 90% 折扣。作者朋友因此每月节省 $2,400。\n2. **模型过度使用**：默认使用 Opus（成本是 Sonnet 的 4-5 倍）是常见错误。实测显示，Sonnet 在代码审查、客户聊天等任务中与 Opus 表现相当，而 Haiku 在 JSON 提取等场景下性价比极高。通过 A/B 测试将任务匹配到最合适的模型，可将成本降低 80%。\n3. **串行调用可批量处理**：非实时任务（如夜间摘要、数据标注）应使用 Anthropic Message Batches API，享受半价优惠（24 小时 SLA）。将 `asyncio.gather` 改为批量提交，成本直接减半。\n\n**关键技巧：**\n- 检查最近 30 天日志：若系统提示词少于 10 个但调用超万次，则缓存未生效\n- 对最贵的 3 个端点进行模型降级 A/B 测试，盲评输出质量\n- 所有 cron 任务、周报生成等异步工作均可改用 Batch API\n- 可使用 MidRelay 等代理自动注入缓存提示，无需修改 SDK 代码\n\n最终，三项优化将月费从 $4,200 降至 $1,540，降幅达 63%，且产品质量不变。",
       "category": "devto"
     },
     {
       "title": "6 of 6 official MCP servers cluster at 56–60/100 on schema-description density",
-      "titleZh": "6个官方MCP服务器中有6个在schema描述密度上集中在56–60/100区间",
+      "titleZh": "6个官方MCP服务器在模式描述密度上集中于56–60/100区间",
       "link": "https://dev.to/incultnito_llc/6-of-6-official-mcp-servers-cluster-at-56-60100-on-schema-description-density-4f9c",
       "author": "pengspirit",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T07:10:39.000Z",
-      "summaryZh": "## 6个官方MCP服务器在schema描述密度上集体“翻车”\n\n**用户场景**：作者发现Anthropic官方发布的6个MCP参考服务器（如server-sequential-thinking、server-memory、server-filesystem等）在“可发布性”评分中集体卡在56-60/100的低分区间，而协议正确性（Protocol）全部满分100。问题根源在于**工具schema描述质量极差**——平均每个工具的描述仅覆盖5个必要维度中的0.17-1.0个。\n\n**核心方法**：作者提出v1.1.0可发布性评分标准，通过5轴描述密度（Purpose、Mutation signal、Side-effects、Invariants、Examples）量化工具描述质量。使用`mcp-probe`工具一键评分：`npx -y @incultnitollc/mcp-probe score \"<server>\" --full`。当per-tool axis avg低于3.0/5时触发≤60的发布上限。\n\n**关键技巧**：\n1. **描述必须覆盖5轴**：以Puppeteer的`puppeteer_navigate`为例，仅写“Navigate to a URL”只覆盖Purpose（1/5），缺少mutation signal（读写？）、side-effects（网络调用、执行JS）、invariants（是否关闭现有标签页）、examples（示例）。导致LLM planner无法区分`puppeteer_navigate`（可变状态）和`puppeteer_screenshot`（只读）。\n2. **快速修复**：优先补充mutation signal + 一个具体示例，即可将per-tool axis avg从0.17提升到3.0以上，解除发布上限。\n3. **校准锚点**：官方服务器是社区参考基准，若它们仅56-60分，第三方服务器会自然复制这个低标准。`mcp-probe`的作用就是公开这个基准，让作者知道自己的描述质量。\n\n**注意**：`mcp-probe`面向发布前质量检查，安装时安全检测请用`@stephenywilson/mcp-doctor`。",
+      "summaryZh": "## 官方MCP服务器评分仅56-60/100：Schema描述密度成最大短板\n\n**用户场景**  \n作者发现Anthropic官方发布的6个MCP参考服务器（server-sequential-thinking、server-memory等）在v1.1.0可发布性评分中集体卡在56-60/100区间。这些本应作为行业标杆的服务器，其Schema描述质量严重不足，导致LLM规划器无法通过工具描述区分不同API的行为模式（如`puppeteer_navigate`与`puppeteer_screenshot`在Schema上完全一致）。\n\n**核心方法**  \n作者提出**5轴描述密度评估体系**，从Purpose（目的）、Mutation signal（读写信号）、Side-effects（副作用）、Invariants（不变量）、Examples（示例）五个维度量化工具Schema质量。官方服务器平均每工具仅覆盖0.17-1.00/5轴，其中`puppeteer_navigate`的Schema仅满足Purpose轴（\"Navigate to a URL\"），缺失副作用（网络调用/JS执行）、不变量（是否关闭标签页）等关键信息。\n\n**关键技巧**  \n1. 使用`npx -y @incultnitollc/mcp-probe score \"<server>\" --full`一键获取5轴分解评分  \n2. 修复策略：优先补充**mutation signal**（读写标记）+ **一个具体示例**，即可快速将per-tool axis avg从<1.0提升至3.0/5以上  \n3. 注意：官方服务器协议分满分（100/100），问题100%出在Schema描述密度——这是LLM工具调用的核心瓶颈  \n4. 安装安全检测请使用互补工具`@stephenywilson/mcp-doctor`，两者定位不同（发布前质量 vs 安装时安全）",
       "category": "devto"
     },
     {
@@ -108,30 +119,41 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-27T09:15:37.000Z",
-      "summaryZh": "# Karpathy加入Anthropic：用Claude训练Claude\n\n## 用户场景\nAndrej Karpathy（前OpenAI联合创始人、特斯拉AI总监）加入Anthropic，负责组建新团队，核心目标是用Claude加速预训练研究。预训练是模型训练最基础、最昂贵、最慢的阶段，传统上难以自动化——因为被改进的模型在训练时还不存在。Karpathy要解决的是：如何用现有AI工具加速下一代模型的研发科学，而非训练本身。\n\n## 核心方法\nKarpathy构建的是\"研究加速层\"：利用Claude生成实验假设、运行实验、分析结果，比纯人类团队更快迭代。这不是简单的合成数据微调，而是AI辅助AI研究——自动化决定\"训练什么、如何训练\"的前沿决策。Anthropic的赌注是：如果这个递归循环（模型训练下一代模型）建成，将形成纯算力无法匹敌的复合优势。\n\n## 关键技巧\n- **定位差异**：Karpathy不加入产品/安全/微调团队，而是直插预训练核心，说明AI研究自动化已从概念进入实战\n- **人才信号**：Anthropic同时挖来xAI创始成员Ross Nordeen，暗示预训练人才争夺战白热化\n- **实用启示**：开发者可关注\"AI in the loop\"模式——不是替代研究者，而是让Claude成为最难研究环节的协作工具\n- **风险提示**：预训练科学自动化历史上有过不少惊艳demo但未持续，Karpathy的\"可解释性\"天赋（如向全网讲解反向传播）可能是破局关键",
+      "summaryZh": "# Karpathy加入Anthropic：用Claude训练Claude\n\n## 用户场景\n前OpenAI联合创始人、Transformer教程作者Andrej Karpathy加入Anthropic，不是做产品、评估或微调，而是领导一个新团队，专门用Claude加速预训练研究本身。预训练是模型学习的根基阶段，昂贵、缓慢且难以自动化——因为被改进的模型在训练时还不存在。\n\n## 核心方法\nKarpathy构建的是“研究加速层”：让Claude生成假设、运行实验、分析结果，比人类团队更快地推进预训练科学。这不是用合成数据微调（老套路），而是AI辅助AI研究——自动化决定“训练什么、如何训练”的研究决策。目标是在Anthropic的预训练团队（由Nick Joseph领导）中，建立Claude作为研究协作者的递归循环。\n\n## 关键技巧\n1. **递归自动化**：用当前模型加速下一代模型的预训练研究，形成复合优势，纯算力难以匹敌。\n2. **工具而非替代**：Claude不是取代研究员，而是作为“循环中的工具”处理最难的预训练问题。\n3. **可解释性优先**：Karpathy擅长把复杂问题讲清楚——把预训练研究中的模糊点变得可操作，构建工具链让Claude成为协作伙伴。\n4. **人才信号**：Anthropic同时挖来xAI创始成员Ross Nordeen，表明预训练研究是当前最关键的战场。\n\n> 核心洞察：如果这个循环建成，拥有它的团队将获得算力无法轻易复制的复合优势。Karpathy的选择暗示：前沿预训练的最重要工作正在Anthropic发生。",
       "category": "devto"
     },
     {
-      "title": "I built toklock — the only Anthropic rate-limit proxy that queues requests instead of crashing your agents",
-      "titleZh": "我构建了toklock——唯一一个将请求排队而非让代理崩溃的Anthropic速率限制代理",
-      "link": "https://dev.to/tamil89/i-built-toklock-the-only-anthropic-rate-limit-proxy-that-queues-requests-instead-of-crashing-your-5053",
-      "author": "Tamil Selvan",
+      "title": "Self-Healing Kubernetes Clusters",
+      "titleZh": "自愈型Kubernetes集群",
+      "link": "https://dev.to/learn_andgrow_812820891d/self-healing-kubernetes-clusters-48im",
+      "author": "Learn and grow",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-26T13:30:00.000Z",
-      "summaryZh": "## 开发者痛点：多Agent并发调用Anthropic API时遭遇429限流\n\n作者在运营Visibrand（11个Claude自主Agent并行运行）时，所有Agent同时请求导致集体崩溃，返回`429 Too Many Requests`错误。现有工具（Anthropic SDK、Helicone、LiteLLM等）要么重试后抛出异常，要么直接返回429，没有工具能优雅排队等待。\n\n## 核心方案：toklock——智能排队代理\n\ntoklock作为中间代理层，位于Agent和`api.anthropic.com`之间。核心机制：\n1. **请求序列化**：所有请求进入队列\n2. **Token预算预估**：发送前根据请求体估算token消耗\n3. **智能等待**：读取Anthropic响应头`anthropic-ratelimit-tokens-remaining`和`anthropic-ratelimit-tokens-reset`，精确等待到容量恢复\n4. **429重入队**：遇到429时等待`Retry-After`头后重试\n\n## 关键技巧与实操\n\n**3行bash启动**：\n```bash\nnpx toklock  # 启动代理\nexport ANTHROPIC_BASE_URL=http://127.0.0.1:4000  # 重定向\nclaude  # 或任何Anthropic SDK调用\n```\n\n**核心价值**：无需多API密钥负载均衡（成本高），单预算内智能排队，零浪费。开源Apache 2.0，Docker部署：`docker run -p 4000:4000 ghcr.io/tamilselvan89/toklock`。GitHub: [toklock](https://github.com/tamilselvan89/toklock)",
+      "pubDate": "2026-05-28T05:16:04.000Z",
+      "summaryZh": "## 自愈型Kubernetes集群：基于Claude AI Agent的自动化运维方案\n\n**用户场景**  \n解决K8s运维人员凌晨被告警惊醒的痛点，应对集群高可用性管理复杂、人工干预频繁的挑战。目标是通过AI Agent实现零人工干预的自动化故障修复。\n\n**核心方法**  \n1. **部署Claude AI Agent**：通过`kubectl apply -f claude-agent.yaml`一键安装，利用AI持续监控集群状态。  \n2. **规则驱动自愈**：在ConfigMap中定义阈值规则（如CPU/内存超80%自动扩容），Agent根据规则执行`scaleUp`等操作。  \n3. **多AI工具协同**：集成ChatGPT分析日志预判故障，结合Cursor/GitHub Copilot生成修复脚本，形成“预测-诊断-修复”闭环。\n\n**关键技巧**  \n- **规则定义需精准**：避免阈值过高导致频繁扩容，过低则无法及时响应。建议结合历史数据动态调整。  \n- **生产前必须沙箱测试**：模拟CPU突增、Pod崩溃等场景，验证Agent的修复逻辑是否符合预期。  \n- **日志分析前置**：用ChatGPT对`kubectl logs`进行异常模式识别，提前触发Agent的预防性操作。  \n- **避免单点依赖**：Claude Agent本身需高可用部署，建议配合Cluster Autoscaler和PodDisruptionBudget使用。  \n\n**避坑指南**  \n- 勿直接复制YAML示例中的固定阈值，需根据业务负载定制。  \n- 集成外部AI工具时注意API限流和延迟，建议本地部署轻量模型。  \n- 定期审计Agent操作日志，防止自动扩容导致云成本失控。",
       "category": "devto"
     },
     {
-      "title": "great_cto v2.17 - no more tambourine dance",
-      "titleZh": "great_cto v2.17 - 不再跳铃鼓舞",
-      "link": "https://dev.to/great_cto/greatcto-v217-no-more-tambourine-dance-1p5p",
-      "author": "Alexander Velikiy",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-22T15:03:35.000Z",
-      "summaryZh": "## great_cto v2.17 更新：告别繁琐配置，一键启动AI开发助手\n\n**用户场景**：开发者在使用Claude Code时，常需手动安装Superpowers、Beads等多个插件，配置过程耗时且易出错。great_cto v2.17解决了这一痛点，实现“一次安装，全部就绪”。\n\n**核心方法**：\n- **一键安装**：运行 `npx great-cto install` 即可自动安装Superpowers和Beads插件，无需手动克隆仓库、配置settings.json\n- **智能合规**：新增jurisdictions模块，自动检测项目所属地区（EU/US/CA/UK/AU等），激活对应监管审查代理（如欧盟金融产品自动启用EU reviewer）\n- **前置审查**：在代码编写前引入Architecture critic（架构审查）、Spec critic（规格审查）、Schema critic（模式审查），提前发现结构性缺陷、错误问题定义和数据库迁移风险\n- **llm-leash UI**：本地Web管理面板新增16项功能，包括Cmd-K全局命令面板、安全合规问题汇总、会话时间线、代理依赖拓扑图、HITL差异审查、OPA策略集成、SOC2一键导出等\n\n**关键技巧**：\n- Superpowers插件提供 `/brainstorm`、`/write-plan` 等结构化工作流，避免Claude“凭感觉”开发\n- Beads作为git原生任务追踪器，任务以commit形式存在，支持依赖和阻塞关系，跨会话持久化\n- 三大前置审查代理可捕获“O(n²)循环在规模下崩溃”、“NOT NULL列无默认值导致50M行表死锁”等隐蔽问题\n- 若git缺失，great_cto会友好提示而非静默失败",
-      "category": "devto"
+      "title": "v2.1.154",
+      "titleZh": "v2.1.154",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.154",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-05-28T18:00:55.000Z",
+      "summaryZh": "## Claude Code v2.1.154 更新说明\n\n**新功能亮点：**\n- **Opus 4.8 正式上线！** 默认使用高努力模式，/effort xhigh 应对最复杂任务\n- **动态工作流（Dynamic Workflows）**：Claude 可创建并协调数十至数百个后台代理，处理更大规模复杂任务，通过 /workflows 查看运行状态\n- **Opus 4.8 快速模式**：成本大幅降低，标准费率2倍即可获得2.5倍速度\n- **精简系统提示**现为所有模型默认（Haiku、Sonnet 及 Opus 4.7 及更早版本除外）\n- Claude 现在仅在无法自行决策时才使用多选题提示，而非在已有足够上下文时仍提问\n- /simplify 改为仅运行清理审查（复用、简化、效率、高度）并自动修复\n- /effort 滑块标签从\"速度/智能\"改为\"更快/更智能\"\n- **后台 Shell 命令**：claude agents 中输入 `! <command>` 可运行可附加/分离的后台会话，也支持 `claude --bg --exec '<command>'`\n- **Chrome 浏览器选择**：通过 /chrome → \"Select browser…\" 选择连接的浏览器\n- **插件可声明 defaultEnabled: false**，通过 /plugin 或 `claude plugin enable` 手动启用\n- **流式工具执行**始终启用（包括遥测禁用或 Bedrock/Vertex/Foundry 环境）\n- Stdio MCP 服务器子进程现在接收 CLAUDE_CODE_SESSION_ID 和 CLAUDECODE=1 环境变量\n- /remote-control 自动补全现显示\"断开远程控制\"选项\n- 新增 Claude Opus 4.8 支持及 4.7→4.8 迁移指南\n\n**问题修复：**\n- 修复 `rm -rf $HOME` 在 HOME 带尾部斜杠时未被阻止的危险路径问题\n- 修复 $TMPDIR 在沙箱与非沙箱 Bash 命令中解析不同目录的问题\n- 修复后台代理完成通知在某些 1M 上下文模型上触发过早\"超出上下文\"行为\n- 修复固定后台会话在 Claude Code 更新后每分钟重生导致进程空转的问题\n- 修复后台会话卡在\"阻塞\"/\"运行中\"/\"工作中\"状态不自动回收的问题\n- 修复子代理绕过工作树隔离保护写入共享检出目录的问题\n- 修复 macOS 上 `claude --bg-pty-host` 进程在守护进程退出后 CPU 100% 空转\n- 修复选项对话框中分隔线下方选项的数字键快捷键失效问题\n- 修复 worktree.baseRef: \"head\" 在链接工作树内生成子代理时解析错误\n- 修复 VS Code 中终端渲染间歇性损坏（限制思考旋转器颜色数量）\n- 修复计划文件名包含 [Image #N]/[Pasted text #N] 占位符的问题\n- 修复 managed settings 中单个无效 allowedMcpServers/deniedMcpServers 条目导致整个策略失效的问题\n- 修复 CLAUDE_CODE_ALWAYS_ENABLE_EFFORT 设置时 API 400 错误\n- Windows：修复 claude.exe 被占用时更新失败显示通用错误而非提示关闭其他会话\n\n**其他改进：**\n- 改进自动模式分类器对数据外泄（特别是批量传输仓库内容）的检测\n- 修复终端中彩色工具输出的虚假展开/点击提示\n- 移除快捷键帮助面板中过时的\"& 用于后台\"提示\n- [VSCode] 自动模式不再需要绕过权限设置即可出现在模式选择器中\n- 修复 /mcp tools list 和 tool detail 在 MCP 服务器工具名过长时的渲染问题\n- 修复 /model 选择器在快速模式开启时未显示按量付费用户的定价信息\n\n**弃用与移除：**\n- **CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE 已弃用**，将于 2025年6月1日移除。Opus 4.6 快速模式请使用 `/model claude-opus-4-6[1m]` 后 `/fast on`",
+      "category": "github-release"
+    },
+    {
+      "title": "v2.1.153",
+      "titleZh": "v2.1.153",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.153",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-05-28T00:52:08.000Z",
+      "summaryZh": "## Claude Code v2.1.153 更新说明\n\n**新功能：**\n- GitHub/Git插件市场源新增 `skipLfs` 选项，可在克隆/更新时跳过 Git LFS 下载\n- npm全局安装无法自动更新时显示一次性提示；`/doctor` 列出修复方法\n- 状态行命令现在接收 `COLUMNS` 和 `LINES` 环境变量，脚本可适配终端宽度\n- Claude Agents：调度输入自动补全新增原生斜杠命令和内置技能建议\n- Claude Agents：PR列现显示 `PR #N`（单个）或 `N PRs`（多个）\n- macOS：后台代理在隐私与安全中显示为\"Claude Code\"，升级后保留权限授权\n\n**Bug修复：**\n- 修复状态MCP服务器无GET SSE流时循环重连工具列表（v2.1.147回归）\n- 修复自定义API网关可能收到用户Anthropic OAuth凭据而非网关令牌\n- 修复子代理MCP服务器忽略 `--strict-mcp-config`、`--bare`、远程模式等配置\n- 修复Windows PowerShell安装器失败仍显示\"安装完成\"\n- 修复 `claude update` 安装错误版本（npm安装）\n- 修复恢复大量会话时的内存占用过高（数GB）\n- 修复流JSON模式下stdin关闭无EOF导致CLI挂起\n- 修复 `/bg` 在Claude响应时继续后台会话而非丢弃\n- 修复 `/btw` 快捷键在后台会话任务运行时失效\n- 修复Windows更新失败后恢复原始可执行文件\n\n**破坏性变更：**\n- `/model` 现在默认保存选择为新会话默认（匹配IDE）。按 `s` 仅切换当前会话。若自定义了 `modelPicker:setAsDefault` 快捷键，需重命名为 `modelPicker:thisSessionOnly`（`d` 操作已替换为 `s`）",
+      "category": "github-release"
     },
     {
       "title": "v2.1.152",
@@ -141,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-05-27T01:30:59.000Z",
-      "summaryZh": "## Claude Code v2.1.152 更新说明\n\n**新功能：**\n- `/code-review --fix` 现在可在审查后自动将优化建议应用到工作区\n- `/simplify` 命令现已集成 `/code-review --fix` 功能\n- 技能和斜杠命令支持在 frontmatter 中设置 `disallowed-tools` 以禁用特定工具\n- 新增 `/reload-skills` 命令，无需重启会话即可重新扫描技能目录\n- `SessionStart` 钩子支持返回 `reloadSkills: true` 以在同一会话中加载新安装的技能，并支持设置会话标题\n- 新增 `MessageDisplay` 钩子事件，可转换或隐藏助手消息文本\n- 新增 `pluginSuggestionMarketplaces` 管理设置，允许管理员白名单插件市场\n- Claude Code 现在在主模型不可用时自动切换到 `--fallback-model`，避免每次请求失败\n- Vim 模式下 `/` 在 NORMAL 模式中打开反向历史搜索\n- `/usage` 现在包含大型会话文件的流式读取分析\n- 折叠组中的思考摘要保持至少3秒可读，支持 Markdown，最多显示10行\n\n**修复：**\n- 修复长会话中终端样式退化问题\n- 修复沙盒启用警告在紧凑启动模式下不显示的问题\n- 修复加载动画在工具运行时显示错误状态\n- 修复焦点模式中显示虚假的隐藏消息计数\n- 修复点击展开工具结果内的链接时折叠区域的问题\n- 修复 Markdown 表格边框颜色继承问题\n- 修复插件 MCP 服务器重复去重错误\n- 修复远程 MCP 服务器在启用出口代理时的连接失败问题\n- 修复 `cache_creation_input_tokens` 报告为0的问题\n- 修复会话在模型切换后卡住的问题\n\n**破坏性变更：**\n- 自动模式不再需要选择加入同意\n- 插件市场移除命令 `remove` 现在支持 `--scope` 参数",
+      "summaryZh": "## Claude Code v2.1.152 更新说明\n\n**新功能：**\n- `/code-review --fix` 现在可在审查后自动应用修改建议到工作树\n- `/simplify` 命令现调用 `/code-review --fix`\n- 技能和斜杠命令支持在 frontmatter 中设置 `disallowed-tools` 移除工具\n- 新增 `/reload-skills` 命令，无需重启即可重新扫描技能目录\n- `SessionStart` 钩子支持返回 `reloadSkills: true` 和设置会话标题\n- 新增 `MessageDisplay` 钩子事件，可转换或隐藏助手消息文本\n- 新增 `pluginSuggestionMarketplaces` 管理设置，允许管理员白名单插件市场\n- 插件市场移除命令 `remove` 现支持 `--scope` 参数\n- 主模型不可用时自动切换至 `--fallback-model`，不再每次请求失败\n- Vim 模式下 `/` 在 NORMAL 模式打开反向历史搜索\n- `/usage` 现在包含大型会话文件，采用流式读取保持内存稳定\n- 思考摘要至少显示3秒，渲染为Markdown，最多10行（`Ctrl+O` 查看完整内容）\n- 全屏模式下思考计时器实时更新，中断时保留数值\n- 简化工作流工具的内联进度显示\n- 新增会话入口点作为 OpenTelemetry 指标属性\n\n**Bug修复：**\n- 修复超长会话中终端样式退化问题\n- 修复沙盒启用警告在紧凑启动模式下不显示\n- 修复加载旋转器在工具运行时显示错误状态\n- 修复焦点模式中错误显示隐藏消息计数\n- 修复展开工具结果内链接点击导致折叠的问题\n- 修复Markdown表格样式继承问题\n- 修复插件MCP服务器重复去重错误\n- 修复 `/doctor` 报告市场/插件未找到的错误\n- 修复远程MCP服务器在出口代理启用时连接失败\n- 修复努力级别切换确认对话框错误出现\n- 修复 `cache_creation_input_tokens` 报告为0的问题\n- 修复模型切换后会话卡死问题\n\n**破坏性变更：**\n- 自动模式不再需要选择加入同意",
       "category": "github-release"
     }
   ]
