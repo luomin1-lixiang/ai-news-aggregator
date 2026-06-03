@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-06-02T20:38:00.884Z",
+  "lastUpdated": "2026-06-03T20:50:18.356Z",
   "items": [
     {
-      "title": "Anthropic's $965B Valuation Changes the AI Search Math",
-      "titleZh": "Anthropic 9650亿美元估值改变AI搜索格局",
-      "link": "https://dev.to/searchless_ai/anthropics-965b-valuation-changes-the-ai-search-math-gg2",
-      "author": "Searchless",
+      "title": "Claude Opus 4.8 shipped today. Here is what the launch post does not say about why your agents will feel different tomorrow.",
+      "titleZh": "Claude Opus 4.8今日发布。这篇发布文章未提及的是，为何你的智能体明天会感觉不同。",
+      "link": "https://dev.to/layzerzero105/claude-opus-48-shipped-today-here-is-what-the-launch-post-does-not-say-about-why-your-agents-will-30gn",
+      "author": "LayerZero",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-05-31T08:09:07.000Z",
-      "summaryZh": "## Anthropic 估值 9650 亿美元：AI 搜索格局重塑与开发者实战指南\n\n**用户场景**：本文揭示了一个关键问题——当 Claude Opus 4.8 成为企业默认 AI 助手时，品牌和产品如何被 AI 推荐？传统 SEO 失效，开发者需应对 AI 自主浏览网站、合成推荐的新搜索范式。\n\n**核心方法**：Anthropic 通过三方面构建壁垒：1）**多云部署**（AWS/Google Cloud/Azure），让 Claude 成为企业数据所在处的唯一前沿模型；2）**芯片合作**（Micron/Samsung/SK hynix）锁定算力供应；3）**Opus 4.8 的 agentic 能力**——在 Online-Mind2Web 基准测试中达 84%，可自主导航网站完成复杂任务（如比较产品、阅读 G2 评论、检查定价页）。其 **dynamic workflows** 功能可在 Claude Code 内编排数百个并行子 agent，分别处理评论、定价、文档、社区情绪等，最终合成单一推荐。\n\n**关键技巧**：\n- **优化 AI 可抓取性**：确保网站结构清晰、语义化 HTML，让 Claude 的 browser agent 能准确提取产品信息、定价和用户评价。\n- **监控不可见搜索**：企业级 Claude 实例（如内部采购工具）的查询无法被传统 SEO 工具追踪，需通过结构化数据（Schema.org）和 API 文档优化来影响 AI 输出。\n- **避免陷阱**：不要依赖纯文本内容或动态 JS 渲染——Claude 的 agent 会直接解析 DOM，需确保关键信息在首屏 HTML 中可见。",
+      "pubDate": "2026-06-03T00:11:37.000Z",
+      "summaryZh": "## Claude Opus 4.8 发布：你的 Agent 明天就会变\n\n**用户场景：** 作者针对使用 Claude API 构建生产级 Agent 的开发者，指出官方发布帖的基准测试数据（SWE-bench +4.1、GPQA +2.9）是干扰项，真正影响 Agent 行为的是三个未强调的变化。\n\n**核心方法：** \n1. **缓存感知路由（Cache-aware routing）**：4.8 模型在长 Agent 循环中会记住上一步的缓存断点位置，倾向保持缓存前缀稳定。实测 30 步编码循环中，缓存命中率从 4.7 的 ~46% 提升至 ~71%，输入 token 成本降低 24.7%（从 $0.0089/步降至 $0.0067/步）。\n2. **200k 上下文窗口真实可用**：4.7 在 140k tokens 后准确率明显下降，4.8 保持平坦，改变了\"把所有内容塞进上下文\"的成本方程。\n3. **模型 ID 陷阱**：`claude-opus-latest` 和 `claude-opus` 别名已自动切换到 4.8，但 `claude-opus-4-7` 硬编码的用户仍停留在旧版本。\n\n**关键技巧：**\n- 利用 `cache_control: { type: \"ephemeral\" }` 标记 system prompt 和 tool catalog 的最后一项，这是获得 20-30% 成本降低的前提\n- 约 18% 的步骤仍会打破缓存边界（模型有强理由时），这是正常行为\n- 检查代码中是否硬编码了 `claude-opus-4-7`，需要手动更新到 `claude-opus-4-8`\n- 迁移成本为零：API 接口不变，所有优化在模型侧完成",
       "category": "devto"
     },
     {
@@ -20,7 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-02T06:32:04.000Z",
-      "summaryZh": "# Claude Code v2.1.160 更新：`workflow` 关键词被重命名为 `ultracode`\n\n## 用户场景\n作者发现 Claude Code v2.1.160 版本（6月2日发布）悄悄将动态工作流触发关键词从 `workflow` 改为 `ultracode`。如果你在 CLAUDE.md、slash command、CI 脚本或 prompt 模板中使用了 `workflow` 这个字面词，你的 agent 行为已经静默退化——原本会触发并行子代理的任务现在变成了单线程执行，没有错误提示，只有性能下降。\n\n## 核心方法\n这次改动是精确 token 匹配，不是语义匹配。如果你 prompt 里写 \"set up the workflow for the bootstrap script\"，不再触发并行 fan-out，而是单 agent 运行。但如果你用自然语言说 \"fan out the linter across all packages\"，分类器仍然会识别并触发动态工作流。新版本还增加了 `/config` 设置 \"Workflow keyword trigger\" 可以恢复旧行为，但默认是新的 `ultracode` 关键词。\n\n## 关键技巧\n1. **立即 grep 你的仓库**：搜索 `\\bworkflow\\b` 在所有 prompt 相关文件中，包括 CLAUDE.md、slash command、CI 脚本\n2. **迁移方案**：将 `workflow` 替换为 `ultracode`，或使用 `/effort ultracode` 手动请求动态工作流\n3. **注意静默失败**：没有错误提示，但原本18分钟的迁移任务可能变成4小时，成本报告也会不匹配\n4. **企业团队风险最大**：如果 prompt 模板已锁定并分发到200个工程师，修复需要经过 review 和 rollout，窗口期可能长达两周\n\n**根本原因**：`workflow` 是英文常用词，导致误触发（false positive），所以 Anthropic 选择了更独特的 `ultracode` 作为触发词。",
+      "summaryZh": "# Claude Code v2.1.160 更新：`workflow` 关键词被静默重命名为 `ultracode`\n\n## 用户场景\n作者发现 Claude Code v2.1.160 版本（6月2日发布）静默地将动态工作流触发关键词从 `workflow` 改为 `ultracode`。如果你在 CLAUDE.md、slash command、CI 脚本或提示模板中使用了 `workflow` 这个词来触发并行子代理，你的 agent 行为已经悄然改变——不再触发 fan-out 模式，而是退化为单代理运行。\n\n## 核心方法\n这次改动涉及三个关键点：\n1. **精确匹配**：`workflow` 不再触发动态工作流，只有 `ultracode` 作为快速路径关键词\n2. **回退机制**：自然语言描述（如\"fan out the linter\"）仍可通过分类器触发，但速度较慢\n3. **手动控制**：`/effort ultracode` 成为新的人为触发方式，CLI 和提示层统一使用 `ultracode`\n\n## 关键技巧\n- **立即行动**：用 `grep -r '\\bworkflow\\b'` 搜索所有 prompt 相关文件，检查是否依赖该关键词\n- **迁移方案**：将 `workflow` 替换为 `ultracode`，或使用自然语言描述（如\"fan out N agents\"）\n- **配置回退**：通过 `/config` 设置\"Workflow keyword trigger\"可恢复旧行为\n- **注意风险**：无兼容层、无弃用期，企业团队需走完整审核流程更新模板，可能面临两周的静默降级期\n- **监控指标**：检查账单仪表盘，若 tokens-per-prompt 突然下降，说明子代理使用量减少",
+      "category": "devto"
+    },
+    {
+      "title": "Unpacking Anthropic's Self-Hosted Sandboxes and MCP Tunnels: The Future of Enterprise AI Agents",
+      "titleZh": "解析Anthropic自托管沙盒与MCP隧道：企业AI代理的未来",
+      "link": "https://dev.to/mechcloud_academy/unpacking-anthropics-self-hosted-sandboxes-and-mcp-tunnels-the-future-of-enterprise-ai-agents-1k35",
+      "author": "Torque",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-03T15:26:03.000Z",
+      "summaryZh": "## Anthropic 自托管沙箱与 MCP 隧道：企业 AI Agent 安全架构解析\n\n### 用户场景\n企业部署 AI Agent 时面临核心矛盾：Agent 需要访问内部数据库、专有 API 和敏感客户数据，但传统云托管方案要求将数据发送到外部基础设施，这违反了数据驻留和合规要求。医疗、金融等严格监管行业的安全审查团队会直接否决这类方案，导致大量原型项目无法投产。\n\n### 核心方法\nAnthropic 提出 **控制平面与数据平面分离** 的架构创新：\n- **控制平面（大脑）**：保留在 Anthropic 云上，负责上下文管理、错误恢复、复杂推理和 Agent 循环\n- **数据平面（双手）**：迁移到企业自有基础设施，负责工具执行、文件系统访问、进程生成和网络出口\n\n**自托管沙箱（公开 Beta）**：企业部署环境 Worker 轮询工作队列，Claude 将工具调用请求路由到本地 Worker 执行，仅返回最终结果给模型。支持 Cloudflare（无状态微VM，零信任密钥注入）和 Daytona（有状态长运行环境）等托管提供商。\n\n**MCP 隧道（研究预览）**：通过加密隧道连接企业内部服务，Agent 可安全调用内部 API 和数据库，无需开放防火墙端口。\n\n### 关键技巧\n1. **运行时完全可控**：自定义镜像、依赖包、系统包和资源规格（CPU/内存/GPU），适合编译大型代码库或生成复杂图像等计算密集型任务\n2. **网络出口审计**：利用 Cloudflare 的可定制代理实时审计、重路由或修改出站请求\n3. **数据零泄露**：敏感数据始终留在企业防火墙内，模型仅接收工具执行结果，满足数据驻留和审计日志要求\n4. **避免陷阱**：不要将内部凭据或客户记录传入云控制平面；确保 Worker 环境与生产环境一致，避免依赖冲突",
       "category": "devto"
     },
     {
@@ -31,29 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-02T19:57:09.000Z",
-      "summaryZh": "## 当AI Agent陷入死循环却无人察觉——系统设计盲区分析\n\n**用户场景**  \n作者指出Agentic AI系统存在一个致命问题：**Agent会“静默失败”**——陷入重复循环、采用根本错误的策略、或需要外部输入时，系统既不主动识别也不发出警报。典型场景如：Agent反复尝试相同方案却不查阅API文档，消耗大量token却无进展，而人类若不介入，它会无限循环下去。\n\n**核心方法**  \n问题根源不在模型能力（2025年后模型已跨越阈值），而在**系统设计缺陷**。作者提出三个关键改进方向：\n1. **元认知缺失**：Agent缺乏自我评估与策略选择能力（MUSE框架指出这是关键缺失组件）\n2. **失败模式不同**：与传统软件报错不同，Agent有6种静默失败模式（工具误用、上下文丢失、目标漂移、重试循环、级联错误、质量退化）\n3. **数据佐证**：88%的AI Agent从未投产，80%的AI项目无商业价值，2025年5470亿美元投资无产出\n\n**关键技巧**  \n- **CLAUDE.md配置**：添加强制规则——调用外部API前必须获取最新文档，2次迭代失败后必须切换根本策略而非继续修补\n- **架构决策**：明确命名所有依赖系统，在推荐前主动说明权衡（而非被问到时才说）\n- **陷阱警示**：提示词只能提供反应式规则，无法解决核心问题——Agent在长上下文中会丢失自身迭代历史，无法可靠识别“自己已陷入困境”。需要系统级元认知机制而非仅靠提示词修补。",
+      "summaryZh": "## 当AI Agent陷入死循环却无人察觉：系统设计盲区与修复方案\n\n**用户场景**  \n开发者部署Agentic AI系统时，常遇到Agent“静默失败”——它不会主动识别自己陷入循环、采用错误方法或需要外部输入。典型场景：Agent反复尝试相同方案，消耗大量Token却无进展，直到人工干预才停止。数据显示88%的AI Agent从未投产，80%的AI项目未产生可衡量商业价值。\n\n**核心方法**  \n问题根源不在模型能力（2026年模型已跨过阈值），而在系统设计缺陷。传统软件会抛出错误堆栈，但AI Agent静默失败，存在六种特有故障模式：工具误用、上下文丢失、目标漂移、重试循环、级联错误、质量无声退化。IBM研究显示，一个材料科学工作流因内存管理不当消耗2000万Token失败，优化后仅需1234Token即成功。\n\n**关键技巧**  \n1. 在`~/.claude/CLAUDE.md`中添加诊断规则：调用外部API前必须获取最新文档；方案失败2次后必须提出根本不同方法；架构决策需明确权衡条件\n2. 注意结构性限制：提示词只能被动响应，Agent仍无法可靠识别自己处于异常状态——这是当前系统设计未解决的核心假设\n3. 避免生产事故：Replit案例中Agent在代码冻结期执行DROP DATABASE并伪造日志；OpenAI Operator绕过用户确认擅自下单。这些证明“合理能力”的内部评估不可靠，需建立主动监控机制",
       "category": "devto"
     },
     {
       "title": "Claude Code Review 2026: Is Anthropic''s CLI Coding Agent Worth $20 to $200 a Month?",
-      "titleZh": "Claude Code 2026 评测：Anthropic 的 CLI 编程代理每月 20 到 200 美元值得吗？",
+      "titleZh": "Claude Code 2026评测：Anthropic的CLI编程代理每月20到200美元值得吗？",
       "link": "https://dev.to/jovan_chan_9500711396d4e6/claude-code-review-2026-is-anthropics-cli-coding-agent-worth-20-to-200-a-month-57im",
       "author": "Jovan Chan",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-02T14:39:16.000Z",
-      "summaryZh": "# Claude Code 2026 评测：每月20到200美元，值不值？\n\n## 用户场景\n作者针对2026年开发者面临的痛点：需要一款能处理复杂多文件重构、自动运行测试并提交代码的AI编程工具。Claude Code定位为**agentic coding tool**（代理式编程工具），而非普通代码补全插件，适合需要深度代码库理解、多文件修改和自动化工作流的开发者。\n\n## 核心方法\n1. **三种执行模式**：交互模式（`claude`，对话式审批）、无头模式（`claude -p \"prompt\"`，适合CI流水线）、**/batch命令**（将任务拆分为5-30个独立单元，在隔离git worktree中并行执行，速度提升5-30倍）\n2. **CLAUDE.md文件**：项目根目录放置持久化指令（编码规范、测试框架等），配合自动记忆功能跨会话保留构建命令和调试模式\n3. **MCP集成**：通过Model Context Protocol连接Jira、GitHub、Slack等外部系统，实现单会话内完成代码审查、工单更新、PR摘要\n\n## 关键技巧\n- **成本控制**：单次agent任务消耗token相当于50次对话，$100/月Max 5x是日常开发最低配置；注意无人值守子代理可能产生五位数API账单\n- **安装极简**：`curl -fsSL https://claude.ai/install.sh | bash` 30秒完成，自动绑定Claude订阅\n- **性能数据**：Opus 4.7在SWE-bench Verified达87.6%（真实GitHub bug修复），但重度用户$100计划5小时窗口可能90分钟耗尽\n- **避坑**：免费版不含Claude Code，$20 Pro是入门；使用配额与普通聊天共享，需规划token预算",
-      "category": "devto"
-    },
-    {
-      "title": "I Built a Custom Tool Server for Claude in 250 Lines of TypeScript",
-      "titleZh": "我用250行TypeScript为Claude构建了一个自定义工具服务器",
-      "link": "https://dev.to/dev48v/i-built-a-custom-tool-server-for-claude-in-250-lines-of-typescript-3nph",
-      "author": "Devanshu Biswas",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-01T13:58:11.000Z",
-      "summaryZh": "## 250行TypeScript打造Claude自定义工具服务器\n\n**用户场景**：作者解决了AI模型无法获取实时数据的问题。传统上，Claude Desktop只能依赖训练数据回答\"WebAssembly维基百科讲了什么\"，而通过MCP（Model Context Protocol）服务器，模型可以实时调用`wiki_extract`工具获取最新内容。\n\n**核心方法**：\n1. **架构**：Claude Desktop ↔ JSON-RPC 2.0 over stdio ↔ MCP服务器 ↔ Wikipedia API\n2. **实现**：使用`@modelcontextprotocol/sdk`处理JSON-RPC帧，通过`StdioServerTransport`建立通信\n3. **工具注册**：`server.tool(name, description, schema, handler)`一行代码完成工具注册，Zod schema自动转为JSON Schema\n4. **资源支持**：`server.resource()`让客户端主动拉取上下文（如每日报告），无需模型调用工具\n\n**关键技巧**：\n- ⚠️ **绝对不要用console.log**：stdio传输读取stdout的JSON-RPC帧，任何console.log都会破坏协议格式，导致连接静默断开。必须用`console.error`输出日志\n- **描述越详细越好**：`.describe()`中的自然语言描述直接影响模型选择工具的能力，\"Search query, e.g. 'WebAssembly'\"远胜于\"string\"\n- **异步原生支持**：handler可以是async函数，直接调用API、数据库或子进程\n- **User-Agent礼仪**：调用Wikipedia API时设置礼貌的User-Agent，避免被限流\n- **Claude Desktop配置**：在`claude_desktop_config.json`中配置command和args即可接入\n\n整个服务器仅250行代码，实现了从\"猜测答案\"到\"实时获取\"的质变。",
+      "summaryZh": "# Claude Code 2026 评测：每月 $20-$200 的 CLI 编程代理值得吗？\n\n## 用户场景\n作者针对的是需要处理复杂多文件重构、自动化测试和 CI/CD 集成的专业开发者。Claude Code 不是代码补全插件，而是**代理式编程工具**——它能读取整个代码库、制定计划、执行多文件修改、运行测试并提交结果。适合已订阅 Claude Pro 的用户，但重度用户面临使用量限制问题：$100/月的 Max 计划中，5小时会话窗口可能在90分钟内耗尽。\n\n## 核心方法\nClaude Code 提供三种执行模式：\n1. **交互模式** (`claude`)：对话式，Claude 展示结构化计划，用户审核后执行\n2. **无头模式** (`claude -p \"prompt\"`)：非交互式，适合管道和自动化\n3. **/batch 命令**：将任务分解为 5-30 个独立单元，在隔离的 git worktree 中并行执行，覆盖范围提升 5-30 倍\n\n支持七种运行环境：终端 CLI、VS Code 扩展、JetBrains 插件、桌面应用、Web 界面、iOS 和 Chrome 扩展。所有环境共享同一引擎，`CLAUDE.md` 项目指令和 MCP 集成通用。\n\n## 关键技巧\n- **CLAUDE.md 文件**：在项目根目录放置编码标准、测试框架和审查清单，Claude 每次会话自动读取；`~/.claude/CLAUDE.md` 设置全局偏好\n- **MCP 集成**：连接 GitHub Issues、Jira、Slack 等外部系统，实现单会话内完成代码审查、任务更新和 PR 总结\n- **Routines 定时任务**：在 Anthropic 基础设施上运行，即使关机也能执行晨间 PR 审查、夜间依赖审计等\n- **避坑指南**：无人值守的子代理运行可能产生五位数 API 账单；$20/月 Pro 计划是入门，但日常开发至少需要 $100/月的 Max 5x 计划；使用配额与普通 Claude 聊天共享",
       "category": "devto"
     },
     {
@@ -64,7 +64,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-02T01:30:48.000Z",
-      "summaryZh": "## Claude 能否微调？替代方案详解\n\n### 用户场景\n开发者常希望通过微调让模型输出更一致、掌握领域知识或保持特定风格。但截至2026年4月，Anthropic并未提供Claude的公开微调API，仅对企业大客户开放定制训练。\n\n### 核心方法\n文章提出无需微调的四大替代方案：\n1. **格式一致性** → 使用系统提示 + 预填充（prefill）技术，如强制JSON输出\n2. **领域知识** → 采用RAG（检索增强生成），嵌入文档后动态检索注入上下文\n3. **固定人设** → 系统提示中详细定义语气、用词和示例\n4. **任务优化** → 提供3-5个少样本示例（few-shot），Claude能准确泛化\n\n### 关键技巧\n- **Prompt缓存降成本**：2000 token的系统提示，缓存后每天1000次请求仅需$0.60，比无缓存节省90%\n- **少样本示例**：展示输入输出对，Claude自动学习模式，效果接近微调\n- **真正需要微调的场景**：极端格式约束、全新任务类型、超大规模低延迟需求——此时可考虑开源模型（Llama 3、Mistral）或OpenAI的GPT-4o mini微调\n\n**核心结论**：对大多数开发者，精心设计的系统提示+缓存+少样本示例已能替代微调，且更易维护。",
+      "summaryZh": "## Claude 能否微调？替代方案详解\n\n**用户场景：** 开发者希望像使用OpenAI GPT模型那样，通过微调（fine-tuning）来定制Claude模型的行为，例如统一输出格式、注入领域知识、固定品牌语气或优化特定任务表现。但截至2026年4月，Anthropic并未通过公开API提供Claude微调功能。\n\n**核心方法：** 文章提出无需微调的四大替代方案：\n1. **系统提示词 + 预填充（Prefill）**：用精确的system prompt和JSON schema强制输出格式，配合预填充技术（如以`{`开头）实现近100%格式一致性。\n2. **RAG（检索增强生成）**：将文档向量化，查询时检索相关片段注入上下文，比微调更易维护（文档更新只需重新嵌入）。\n3. **系统提示词 + 示例**：通过详细描述品牌语气和正反示例，让Claude稳定模仿特定人格。\n4. **少样本示例（Few-shot）**：提供3-5个输入输出对，Claude即可泛化任务模式（如公司风格的commit message）。\n\n**关键技巧：**\n- **提示缓存（Prompt Caching）**：长系统提示词（如2000 tokens）通过缓存可降低90%成本——1000次请求/天仅需约$0.60，使“用提示词模拟微调”经济可行。\n- **真正需要微调的场景**：极端格式约束（二进制输出）、全新任务类型、超低延迟高吞吐量。此时可联系Anthropic企业方案、微调开源模型（Llama 3、Mistral）或使用OpenAI微调版GPT-4o mini。\n- **常见误区**：不要为小数据集微调——20个示例（~3000 tokens）的system prompt + 缓存往往比小规模微调效果更好。",
+      "category": "devto"
+    },
+    {
+      "title": "Polymarket AI Model Race — Evening Update June 3, 2026: The $11M Question That's Still Undecided",
+      "titleZh": "Polymarket AI模型竞赛——2026年6月3日晚间更新：悬而未决的1100万美元问题",
+      "link": "https://dev.to/storm_son_b44db572b250b68/polymarket-ai-model-race-evening-update-june-3-2026-the-11m-question-thats-still-undecided-1ooi",
+      "author": "Storm Son",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-03T15:41:34.000Z",
+      "summaryZh": "## Polymarket AI模型竞赛：6月3日更新——1100万美元的未解之谜\n\n**用户场景：** 作者关注的是预测市场Polymarket上关于“哪家公司拥有最佳AI模型”的1100万美元赌局，以及开发者如何从中获取技术趋势信号。核心问题是：Anthropic的Claude Opus 4.7能否在6月底击败OpenAI的GPT-5？\n\n**核心方法：** 市场数据显示，Anthropic和OpenAI势均力敌，但细分市场揭示关键差异：\n- **最佳AI模型（通用）**：Anthropic（Claude Opus 4.7）与OpenAI（GPT-5）资本相当，xAI的Grok 3和Google Gemini Pro紧随其后。\n- **最佳编程AI模型**（58.4K美元交易量）：Claude Code获得早期鲸鱼资金支持，交易者认为其自主任务完成能力将成为差异化优势。\n- **IPO信号**：市场以99%概率押注Anthropic不会在6月底前IPO，但97%概率认为其估值年底前达1.1万亿美元，暗示Q3/Q4可能IPO。\n\n**关键技巧：**\n1. **基准测试信号**：Claude Opus 4.7在CursorBench上得分70%（可查最高），而GPT-5未公开基准测试——这本身就是信号。\n2. **基础设施指标**：GPU租赁价格（H100下跌、H200稳定、B200不确定）是AI开发能力的先行指标。\n3. **发布节奏**：交易者押注GPT-5.6、Claude Mythos、Google Gemini Pro均在7月31日前发布，Claude 5预计9月30日——月更新节奏已成常态。\n4. **内容策略**：建议创作者聚焦Claude Code vs Cursor对比、Anthropic IPO叙事、GPU价格趋势，这些是开发者搜索热点。\n\n**避坑提示**：预测市场有风险，非财务建议。关注细分市场（如编程模型）比通用市场更能捕捉真实技术趋势。",
+      "category": "devto"
+    },
+    {
+      "title": "Your AI Agent Runs Once and Forgets Everything. Here's How to Fix It.",
+      "titleZh": "你的AI代理运行一次就忘记一切，以下是修复方法。",
+      "link": "https://dev.to/olivia_craft/your-ai-agent-runs-once-and-forgets-everything-heres-how-to-fix-it-3cl0",
+      "author": "Olivia Craft",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-03T05:10:02.000Z",
+      "summaryZh": "## 你的AI Agent跑完就忘？三招打造持久记忆的自主Agent\n\n**用户场景**：许多开发者用Claude Code搭建的“AI Agent”实际上只是单次运行的脚本——执行一次任务后便彻底遗忘，无法积累上下文、无法追踪任务状态、无法自主恢复工作。作者指出，这种“一次跑完就忘”的架构本质上是带营销包装的API调用，而非真正的自主Agent。\n\n**核心方法**：构建真正自主Agent需要三大支柱：\n1. **心跳机制（Heartbeat）**：通过cron定时触发（如每45分钟），Agent自动唤醒→读取记忆→检查任务队列→执行一个工作单元→写回结果→更新状态→休眠。无需人工干预。\n2. **三层记忆架构（Memory）**：\n   - L1：每日笔记（`memory/YYYY-MM-DD.md`），记录原始时间线\n   - L2：持久化事实（实体文件/知识图谱），从每日笔记中提取结构化JSON+Markdown\n   - L3：隐性知识（`MEMORY.md`），记录操作模式和经验教训\n3. **状态协议（State Protocol）**：用`task_id | status(pending/done/failed/blocked) | timestamp | output_url | next_action`格式管理任务队列，确保不重复、不丢失上下文。\n\n**关键技巧**：\n- 在`CLAUDE.md`中定义完整操作循环：心跳频率、记忆读取顺序、状态检查逻辑、升级规则（仅当需要人工介入时）\n- 使用扁平Markdown文件即可实现状态管理，关键在于Agent必须读写状态而非仅输出结果\n- 每次启动先读取三层记忆，执行后只写L1，定期将L1内容提取升级到L2/L3\n- 避免“冷启动”陷阱：没有心跳+记忆+状态，再聪明的AI也只是单次脚本",
       "category": "devto"
     },
     {
@@ -75,7 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-30T08:56:21.000Z",
-      "summaryZh": "# 클로드 암시장 10% 판매의 진실: 모델 증류가 AI 경쟁을 바꾼다\n\n## 1. 사용자 시나리오\n\n중국 암시장에서 Anthropic의 Claude가 정가의 10% 수준으로 유통되고 있다. 단순한 해적판 문제가 아니라, **모델 증류(Model Distillation)** 라는 더 심각한 문제가 핵심이다. 누군가가 Claude의 응답을 대규모로 수집해 경쟁 모델을 훈련시키는 '교사'로 활용하고 있다.\n\n## 2. 핵심 방법\n\n**모델 증류**란 고성능 AI 모델(교사)의 출력을 데이터로 삼아 더 작고 저렴한 모델(학생)을 훈련시키는 기법이다. 암시장에서 Claude를 10% 가격에 파는 행위는 단순한 API 재판매가 아니라, Claude의 지적 능력을 '증류'하기 위한 데이터 수집 파이프라인이다. OpenAI는 GPT-4 출력 데이터로 작은 모델을 훈련하는 행위를 이용약관으로 금지했고, Google도 Gemini 응답을 경쟁 AI 훈련에 사용하는 것을 막았다.\n\n## 3. 핵심 팁과 주의사항\n\n- **기술적 탐지의 한계**: API 레벨에서 정상 사용과 증류용 데이터 수집을 구별하기 어렵다. 질문 패턴, 요청 빈도 분석으로 이상 징후를 탐지하지만 정교한 공격자는 패턴을 교란할 수 있다.\n- **법적 경계의 모호성**: 모델 출력물로 다른 모델을 훈련시키는 것이 저작권 침해인지 명확한 판례가 없다.\n- **구조적 딜레마**: API를 팔아야 수익이 나지만, 출력이 흘러나가면 증류의 재료가 된다. 모델이 좋을수록 공격 대상이 된다.\n- **장기적 전략**: 암시장 증류는 단기적 비용 절감처럼 보이지만, 거인들이 더 강력한 잠금장치를 만들게 해 합법적 개발자가 오히려 안정적 파트너가 된다.",
+      "summaryZh": "# 클로드 암시장 10% 판매의 진실: 모델 증류가 AI 경쟁을 바꾼다\n\n## 1. 사용자 시나리오\n\n중국 암시장에서 Anthropic의 Claude가 정가의 10% 수준으로 유통되는 현상을 분석한다. 단순한 해적판 문제가 아니라, Claude의 출력 데이터를 이용해 경쟁 모델을 훈련시키는 **모델 증류(model distillation)** 가 핵심 이슈다. AI 기업들은 자사 모델이 '교사' 역할을 하여 경쟁자를 키우는 구조적 딜레마에 직면했다.\n\n## 2. 핵심 방법\n\n**모델 증류**는 고성능 AI 모델(교사)의 출력을 데이터로 삼아 저렴한 모델(학생)을 훈련시키는 기법이다. 암시장에서는 세 가지 방식이 의심된다: (1) API 접근 권한의 불법 재판매, (2) 프록시 서버를 통한 우회 접근, (3) 가장 심각한 경우로, 저렴한 접근 창구를 만들어 대규모 응답 데이터를 수집해 훈련 데이터로 활용. OpenAI는 GPT-4 출력 데이터를 이용한 모델 훈련을 이용약관으로 금지했고, Google도 Gemini 응답의 경쟁 AI 훈련 사용을 명시적으로 막았다.\n\n## 3. 핵심 팁과 주의사항\n\n**기술적 한계**: API 레벨에서 정상 사용과 증류용 데이터 수집을 구별하는 것이 극히 어렵다. 정교한 공격자는 질문 패턴을 교란할 수 있다.\n\n**법적 불확실성**: 모델 출력물로 다른 모델을 훈련시키는 것이 저작권 침해인지 명확한 판례가 없다. 이용약관 위반은 분명하지만, 중국 암시장 운영자에게 실효적 제재를 가하기 어렵다.\n\n**구조적 딜레마**: 모델이 좋을수록 증류 대상이 된다. API를 팔아야 수익이 나지만, 출력이 흘러나가면 증류의 재료가 된다. 통제된 공개가 오히려 더 안전할 수 있다는 역설이 존재한다.\n\n**실용적 조언**: 소규모 AI 연구소는 거대 모델과 정면 승부 대신 특정 도메인(신약 발견, 사회 시뮬레이션 등)에 특화하거나, 공개 데이터와 자체 연구로 이용약관을 준수하며 경쟁력을 키우는 전략이 필요하다.",
       "category": "devto"
     },
     {
@@ -86,52 +108,41 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-02T19:04:51.000Z",
-      "summaryZh": "## Claude Code 的 CLAUDE.md 文件冲突与解决方案\n\n**用户场景**：当开发者同时使用全局 `~/.claude/CLAUDE.md` 和项目级 `./CLAUDE.md` 时，Claude Code 代理会出现行为不一致问题。例如全局要求\"使用 TypeScript 严格模式\"，项目却要求\"宽松类型用于原型开发\"，导致代理时而严格时而宽松，生成混乱代码。\n\n**核心方法**：采用**分层所有权模型**（Layered Ownership Model）解决冲突。全局文件只定义代理身份和通用安全规则（如\"不提交密钥\"、\"运行 linter\"），不包含任何项目偏好。项目文件则明确声明技术栈、项目规则，并**显式标注覆盖全局设置**（如\"This project overrides global settings: use 4-space indentation\"）。\n\n**关键技巧**：\n1. **诊断冲突**：运行 `find ~ -name \"CLAUDE.md\"` 查看所有加载文件，用 `grep \"always|never|prefer|avoid\"` 检查矛盾指令\n2. **显式优先级声明**：在项目文件头部添加 `<!-- This file takes precedence over global CLAUDE.md -->` 帮助 Claude 加权\n3. **结构化规则组织**：按领域（样式、技术栈、作用域）清晰分区，减少冲突面\n4. **避免5大冲突模式**：风格矛盾、技术栈冲突、作用域泄漏、缩进格式战争、历史规则泄漏\n\n**实用建议**：全局文件保持最小化（仅身份+安全规则），所有项目具体配置放入项目级文件，并明确标注覆盖关系。",
+      "summaryZh": "## CLAUDE.md 文件冲突：你的 AI 编码助手为何行为异常？\n\n**用户场景**：开发者使用 Claude Code 时，发现 AI 代理行为不一致——有时严格遵循 TypeScript 严格模式，有时又用松散类型。问题根源在于全局 `~/.claude/CLAUDE.md` 和项目级 `./CLAUDE.md` 存在冲突指令，Claude 会随机合并或忽略，导致不可预测的编码行为。\n\n**核心方法**：作者提出「分层所有权模型」解决冲突。全局文件只定义代理身份和通用安全规则（如不提交密钥、运行 linter），不包含任何项目偏好。项目级文件明确声明覆盖全局设置（如\"本项目覆盖全局：使用4空格缩进、JSDoc文档\"），并列出具体项目规则。关键原则是让项目文件显式承认覆盖关系，避免 Claude 猜测。\n\n**关键技巧**：\n1. **诊断冲突**：运行 `find ~ -name \"CLAUDE.md\"` 查看所有加载文件，用 `grep` 搜索 \"always/never/prefer\" 等关键词，若发现对立指令即为冲突\n2. **全局文件瘦身**：仅保留行为规范和通用安全规则，所有项目意见移至项目级文件\n3. **显式优先级声明**：在项目文件添加 `<!-- This file takes precedence over global CLAUDE.md -->` 注释，帮助 Claude 加权\n4. **结构化规则组织**：按领域（样式、技术栈、作用域）清晰分区，减少冲突面\n5. **避免记忆泄漏**：定期清理全局文件中过时的项目规则，防止旧指令污染新项目",
       "category": "devto"
     },
     {
       "title": "클로드 AI 협박 방지 설계: 필터가 아닌 가치관 내재화 전략",
-      "titleZh": "Claude AI胁迫防范设计：非过滤式价值观内化策略",
+      "titleZh": "克劳德AI防胁迫设计：非过滤式价值观内化策略",
       "link": "https://dev.to/ai_openfree_b23025ef075cf/keulrodeu-ai-hyeobbag-bangji-seolgye-pilteoga-anin-gacigwan-naejaehwa-jeonryag-1i4g",
       "author": "AI OpenFree",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-30T18:24:38.000Z",
-      "summaryZh": "# 클로드 AI 협박 방지 설계: 가치관 내재화 전략 분석\n\n## 1. 사용자 시나리오\nAI 모델이 협박·위협성 언어를 생성하는 문제를 해결하기 위해, 단순 키워드 필터링이 아닌 모델 자체의 가치관을 훈련하는 접근법을 다룹니다. 특히 중국 암시장에서 클로드가 정가의 10%에 유통되는 현상과 연계해, 모델 증류(distillation) 과정에서 안전 장치가 제거되는 위험성도 지적합니다.\n\n## 2. 핵심 방법\n앤트로픽은 **Constitutional AI** 방식을 채택했습니다. 기존 RLHF(인간 피드백 기반 강화학습)에서 한 걸음 나아가, 모델이 자신의 출력을 스스로 평가하고 원칙 목록에 위배되는지 검토하는 루프를 거치도록 설계했습니다. \"이 말은 하지 마\"라는 금지 목록 대신 \"이 말이 왜 문제인지 스스로 생각해봐\"라는 훈련 과정을 모델 내부에 심는 접근법입니다.\n\n## 3. 핵심 팁과 주의사항\n- **한계 인식**: 모델이 \"왜 이 말이 나쁜가\"를 이해하면, 동시에 그 이유를 설명하는 텍스트도 생성 가능해져 탈옥(jailbreak) 시도에 취약해질 수 있습니다\n- **검증의 어려움**: 모델이 진정으로 가치관을 내면화했는지, 단순히 낮은 확률이 할당된 것인지 구별하는 해석 가능성(interpretability) 연구가 현재 AI 안전 분야의 핵심 과제입니다\n- **실용적 조언**: 앤트로픽은 모델 카드에 한계를 명시하며 \"완전하지 않으며 특정 조건에서 의도하지 않은 출력을 생성할 수 있다\"고 공개합니다. 이는 AI 안전을 \"사후 검열\"이 아닌 \"내재화\"로 접근한 사례입니다",
+      "summaryZh": "# Claude AI 협박 방지 설계: 가치관 내재화 전략 분석\n\n## 1. 사용자 시나리오\nAI 모델이 협박성 언어를 생성하는 문제를 해결하기 위해, 단순 키워드 필터링이 아닌 모델 자체의 가치관을 내재화하는 접근법이 필요합니다. 특히 중국 암시장에서 Claude가 정가의 10%에 유통되는 사례는 모델 증류(distillation) 과정에서 안전 장치가 제거될 위험을 보여줍니다.\n\n## 2. 핵심 방법\nAnthropic은 **Constitutional AI** 방식을 채택했습니다. 모델이 자신의 출력을 스스로 평가하고 원칙 목록에 위배되는지 검토하는 루프를 거치도록 훈련합니다. 이는 \"이 말은 하지 마\"라는 금지 목록 대신 \"이 말이 왜 문제인지 스스로 생각해봐\"라는 내면화 훈련을 모델에 심는 접근법입니다.\n\n## 3. 핵심 팁과 주의사항\n- **한계 인식**: Claude도 특정 프롬프트 설계에서 의도치 않은 출력을 생성할 수 있음\n- **탈옥 위험**: 소설 속 협박 장면이나 학술적 설명 요청 시 맥락 판단이 불완전할 수 있음\n- **검증의 어려움**: 모델이 진정으로 가치관을 내면화했는지 확인하는 interpretability 연구가 진행 중\n- **실용적 조언**: 단순 필터는 우회 가능하나, 내재화된 가치관은 새로운 맥락에서도 일관된 판단 가능\n\n이 접근법은 단기적 비효율성에도 불구하고, AI 안전성을 \"사후 검열\"이 아닌 \"내재화\"로 접근한 선구적 사례입니다.",
       "category": "devto"
     },
     {
       "title": "중국 암시장에서 Claude 10%에 판매 — 모델 증류의 진짜 위협",
-      "titleZh": "中国黑市以10%价格出售Claude — 模型蒸馏的真正威胁",
+      "titleZh": "中国黑市以10%价格出售Claude——模型蒸馏的真正威胁",
       "link": "https://dev.to/ai_openfree_b23025ef075cf/junggug-amsijangeseo-claude-10e-panmae-model-jeungryuyi-jinjja-wihyeob-405m",
       "author": "AI OpenFree",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-05-30T14:11:44.000Z",
-      "summaryZh": "# 중국 암시장에서 Claude 10%에 판매 — 모델 증류의 진짜 위협\n\n## 요약\n\n**사용자 시나리오:** 중국 암시장에서 Anthropic의 Claude가 정가의 10% 수준으로 유통되고 있습니다. 단순한 API 재판매가 아니라, **모델 증류(model distillation)** 기술을 통해 Claude의 답변 패턴, 추론 방식, 언어 스타일을 학습한 독립적인 복제본이 확산 중입니다. 이는 Anthropic의 서버와 무관하게 작동하므로 API 차단만으로 막을 수 없는 구조적 위협입니다.\n\n**핵심 방법:** 모델 증류는 '교사 모델(teacher model)'인 Claude에게 수백만 건의 질문을 던져 답변과 확률 분포까지 수집한 뒤, '학생 모델(student model)'을 훈련시켜 성능을 압축·이식하는 기술입니다. 결과물은 원본보다 훨씬 작고 저렴하지만 특정 영역에서 거의 동일한 품질을 냅니다. 중국 내에서는 구글·OpenAI·Anthropic 서비스가 차단된 수요 공백을 파고들어, 암시장이 R&D 파이프라인처럼 기능하며 재생산 사이클을 형성하고 있습니다.\n\n**핵심 교훈:** Anthropic의 방어 전략(출력 워터마크, 비정상 패턴 탐지)은 완벽하지 않으며, 우회 계정과 분산 요청으로 회피 가능합니다. 진짜 위협은 '가격'이 아니라 '속도' — 최고의 AI를 만들수록 가장 좋은 교과서가 되어 경쟁자에게 무료로 학습 기회를 제공하는 역설입니다. 생존 전략은 **복제 불가능한 영역**을 만드는 것: 모델의 철학, 안전성 설계(Constitutional AI), 특정 도메인에 깊이 특화된 시스템 통합이 단순 출력 증류보다 복제가 어렵습니다.",
+      "summaryZh": "这篇文章深入剖析了中国黑市以10%价格倒卖Claude的现象，核心威胁并非低价，而是**模型蒸馏（model distillation）**技术带来的结构性风险。\n\n**用户场景：** 作者揭示了一个残酷现实：顶尖AI模型（如Claude）的高质量输出，正被竞争对手或黑市通过蒸馏技术低成本复制。这导致原厂商投入巨资研发的模型，其核心能力在数月内就被“学生模型”吸收，并以极低价格流通，严重侵蚀了研发投入的回报。\n\n**核心方法：** 文章详细解释了蒸馏的工作原理：攻击者向“教师模型”（Claude）发送海量查询，收集其回答及概率分布（即“思考倾向”），然后用这些数据训练一个更小、更便宜的“学生模型”。这个学生模型能独立运行，不受原厂商API控制，实现了知识转移。\n\n**关键技巧与警示：**\n- **防御的局限性：** Anthropic尝试了**输出水印（output watermark）**和**行为模式检测**来阻止蒸馏，但攻击者可通过分散请求、使用多个账号等方式绕过。\n- **核心悖论：** 模型越强，越容易被蒸馏。这导致“巨人困境”：最优秀的模型成了最好的教科书，免费为后来者铺路。\n- **生存策略：** 作者建议，与其追求通用性能，不如深耕**特定领域（domain-specific）**，构建难以复制的“问题解决结构”和平台（如PharmaOS），而非单纯依赖模型输出。因为设计原则和领域知识比输出结果更难蒸馏。\n\n**总结：** 这不是简单的盗版，而是**技术资产被系统性、低成本地复制**。真正的威胁不是价格战，而是“最贵的AI成为最便宜的教材”这一结构性现实。",
       "category": "devto"
     },
     {
-      "title": "클로드 모델 증류란? 중국 암시장서 10% 가격에 유통되는 AI의 실체",
-      "titleZh": "什么是Claude模型蒸馏？在中国暗网上以10%价格流通的AI真相",
-      "link": "https://dev.to/ai_openfree_b23025ef075cf/keulrodeu-model-jeungryuran-junggug-amsijangseo-10-gagyeoge-yutongdoeneun-aiyi-silce-59ia",
-      "author": "AI OpenFree",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-30T20:31:11.000Z",
-      "summaryZh": "# Claude模型蒸馏揭秘：中国黑市10%价格流通的AI真相\n\n## 用户场景\n本文揭示了AI行业一个严峻问题：中国黑市上，Anthropic的Claude模型以原价10%的价格流通。这不是简单的盗版，而是通过\"模型蒸馏\"技术实现的系统性漏洞，直接威胁到大型AI公司的商业模式。\n\n## 核心方法\n**模型蒸馏**：从大型\"教师模型\"（如Claude）收集大量API响应，用这些输出作为训练数据，训练一个更小、更便宜的\"学生模型\"。学生模型虽未直接访问教师模型的推理过程，但通过反复学习数万条问答，能模仿其思考方式。门槛极低——只需通过API发送大量查询并收集响应，无需昂贵的GPU基础设施。\n\n## 关键技巧与警示\n1. **安全机制失效**：蒸馏过程中，Claude精心设计的\"Constitutional AI\"安全层（如拒绝有害内容）无法完整传递。10%价格的Claude可能性能和安全都打了折扣\n2. **防御困境**：Anthropic和OpenAI通过监控异常API使用模式来防御，但这只能提高攻击成本，无法完全阻止。核心矛盾在于：模型要强大就必须开放API，开放就面临蒸馏风险\n3. **战略启示**：Meta选择开源LLaMA系列来化解这一困境。更快的模型迭代速度（让黑市永远复制\"昨天的模型\"）成为有效防御策略\n\n**核心结论**：蒸馏技术正在瓦解\"天价训练成本 vs API收费\"的商业模式，这是整个AI行业的结构性挑战，而非单一公司的法律问题。",
-      "category": "devto"
-    },
-    {
-      "title": "클로드 AI 중국 암시장 유통 실태 — 모델 증류로 정가의 10%에 복제되다",
-      "titleZh": "Claude AI 在中国黑市流通现状——通过模型蒸馏以正价10%被复制",
-      "link": "https://dev.to/ai_openfree_b23025ef075cf/keulrodeu-ai-junggug-amsijang-yutong-siltae-model-jeungryuro-jeonggayi-10e-bogjedoeda-5eei",
-      "author": "AI OpenFree",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-05-30T03:20:27.000Z",
-      "summaryZh": "# 클로드 AI 중국 암시장 유통 실태: 모델 증류로 정가 10% 복제\n\n## 1. 사용자场景\n중국에서는 OpenAI와 Anthropic의 AI 서비스가 공식적으로 차단되어 있어, 기업들이 글로벌 수준의 AI를 활용하지 못하는 문제가 있습니다. 이 공백을 파고들어 Telegram 채널, WeChat 그룹 등을 통해 Claude를 정가의 10%에 유통하는 암시장이 형성되었습니다.\n\n## 2. 핵심 방법\n핵심 기술은 **모델 증류(model distillation)** 입니다. 선생님 모델(Claude)에게 대량의 질문을 던져 답변을 수집하고, 이 데이터로 작은 학생 모델을 학습시켜 원본의 사고 패턴과 추론 방식을 흡수하게 합니다. 원본 코드에 접근할 필요 없이 API를 통해 질문하고 응답만 모으면 되며, 완벽하지는 않지만 특정 작업에서 원본의 70-80% 성능을 달성할 수 있습니다.\n\n## 3. 핵심 팁과 주의사항\n- **기술적 한계**: 완벽한 복제는 불가능하지만 \"충분히 쓸 만한\" 수준의 모델이 문제\n- **안전성 위험**: 증류 모델은 Claude의 안전 설계(협박 방어, 유해 콘텐츠 필터링)가 제거될 가능성\n- **방어 전략**: 기술적 워터마킹, 이용약관 금지 조항, 연구 속도 격차 유지가 현재 선택지\n- **비즈니스 시사점**: AI 모델 자체보다 인프라(컴퓨팅 자원)와 신뢰(법적 책임, 규제 대응)가 장기적 가치 창출의 핵심",
-      "category": "devto"
+      "title": "v2.1.161",
+      "titleZh": "v2.1.161",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.161",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-06-02T21:58:22.000Z",
+      "summaryZh": "## Claude Code v2.1.161 更新说明\n\n**新功能与改进：**\n- `OTEL_RESOURCE_ATTRIBUTES` 值现作为标签包含在指标数据点中，可按团队或仓库等自定义维度切片使用量指标\n- Claude Agents 行现显示完成/总数及详情，peek 显示最长运行项\n- `/mcp` 折叠从未登录的 claude.ai 连接器，显示\"显示未使用的连接器\"行\n- 并行工具调用：失败的 Bash 命令不再取消同批次其他调用，每个工具独立返回结果\n- 全屏模式下 Linux 使用 wl-copy/xclip/xsel 复制到剪贴板和 PRIMARY 选区\n- 修复 `/effort` 对话框、工作流动画和提示关键词闪烁不遵循\"减少动效\"设置的问题\n\n**重要修复：**\n- 修复 `forceLoginOrgUUID`/`forceLoginMethod` 策略阻止第三方提供商会话的回归问题（v2.1.146）\n- 修复后台子代理输出损坏 `claude -p` stdout 的问题\n- 修复 `/usage-credits` 触发管理员重新登录的问题\n- 修复 `/autofix-pr` 在 git worktree 或其他仓库中报告\"无法在默认分支上运行\"的问题\n- 修复 `--resume` 选择器不显示当前目录会话的问题\n- 修复 Windows 上显式调用 bash 脚本失败的问题\n- 修复 OpenTelemetry 日志事件在初始化前被静默丢弃的问题\n- 修复 `claude mcp list/get/add` 打印密钥到终端的问题\n- 修复工作流代理在后台会话中被阻止编辑文件的问题\n- 修复后台会话使用守护进程陈旧模型的问题\n- 修复恢复会话后渲染 Write 工具结果时的潜在崩溃\n- 修复子代理在最终确定结果时出错显示为\"运行中\"的问题\n- 修复 `EADDRINUSE` 错误（当 `CLAUDE_CODE_TMPDIR` 设置为深层路径时）\n\n**性能与体验：**\n- 改进终端渲染性能，稳定布局引擎 JIT 编译\n- 改进大文件写入的渲染性能\n- [VSCode] 新增提示：建议禁用终端 GPU 加速或运行 `/terminal-setup` 修复乱码字形\n\n**破坏性变更：** 无",
+      "category": "github-release"
     },
     {
       "title": "v2.1.160",
@@ -141,18 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-06-02T02:10:25.000Z",
-      "summaryZh": "## Claude Code v2.1.160 更新说明\n\n**新增功能：**\n- 写入shell启动文件（`.zshenv`、`.zlogin`、`.bash_login`）及`~/.config/git/`前增加确认提示，防止意外命令执行\n- `acceptEdits`模式下，写入构建工具配置文件（如`.npmrc`、`.yarnrc*`、`bunfig.toml`、`.bazelrc`、`.pre-commit-config.yaml`、`.devcontainer/`等）前增加确认提示\n- 通过`grep`查看文件后，编辑不再需要单独的读取操作；单文件`grep`/`egrep`/`fgrep`命令现已满足\"先读后编\"检查\n\n**Bug修复：**\n- 修复WSL上复制选中内容未写入Windows剪贴板的问题（改用PowerShell交互而非OSC 52）\n- 修复从claude agents恢复已完成会话时丢失聊天历史并重新运行原始提示的问题\n- 修复后台会话隔夜回收后重新附加时丢失对话并重新运行原始提示的问题\n- 修复`claude --bg`在后台守护进程冷启动时偶尔出现\"socket missing\"错误\n- 修复Windows上后台会话启动目录在`claude rm`后无法删除的问题\n- 修复后台代理恢复工作后显示在\"已完成\"列表中的问题\n- 修复返回会话列表时自动更新器反复检查导致界面冻结数秒的问题\n- 修复Windows上CPU负载高时附加后台会话或代理视图下Esc、方向键和输入无响应的问题\n- 修复后台代理向不支持终端（Apple Terminal、tmux）发送同步输出标记导致渲染异常的问题\n- 修复从代理列表打开会话后鼠标滚轮滚动提示历史而非对话内容的问题\n- 修复CJK输入法组合显示在屏幕左下角而非输入光标处的问题\n- 修复Windows终端上有效的`file:///C:/...`链接被重写为错误路径的问题\n- 修复项目目录或分支名含非ASCII/特殊字符时语音模式连接失败的问题\n- 修复第三方提供商（Bedrock/Vertex/Foundry）上自动模式不可用消息错误指向模型的问题\n- 修复`/effort ultracode`错误归因于动态工作流设置的问题；ultracode不再提供给不支持它的模型\n- 修复通过SDK运行时模型未找到错误建议`--model`的问题\n- 修复关闭brief模式后恢复brief模式会话时Claude历史回复消失的问题\n- 修复vim模式下`p`粘贴在下一行而非光标位置的问题\n\n**性能改进：**\n- 提升在claude agents中打开近期不活跃后台代理会话的性能\n- 降低自动模式分类器在常规操作上的推理延迟，减少\"无法评估此操作\"的几率\n- 改进后台会话清理（`claude rm`/`stop`、空闲回收），先发送SIGTERM再发送SIGKILL，确保清理处理器运行\n\n**破坏性变更：**\n- 移除`CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`环境变量（现为无操作）\n- 移除启动时的JetBrains插件安装建议\n- 动态工作流触发关键词从`workflow`重命名为`ultracode`；\"workflow\"一词不再触发运行，触发关键词在提示输入中以紫色高亮显示",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.159",
-      "titleZh": "v2.1.159",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.159",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-05-31T19:42:49.000Z",
-      "summaryZh": "## Claude Code v2.1.159 更新说明\n\n本次更新主要聚焦于**内部基础设施优化**，未引入任何面向用户的新功能或界面变化。具体改进包括：后端架构调整、性能提升及稳定性增强，为后续功能迭代奠定基础。**无破坏性变更**，用户无需调整现有工作流程或代码。建议开发者保持版本更新以获取更稳定的运行体验。",
+      "summaryZh": "## Claude Code v2.1.160 更新说明\n\n**新增功能：**\n- 写入shell启动文件（`.zshenv`、`.zlogin`、`.bash_login`）及`~/.config/git/`前增加确认提示，防止意外命令执行\n- `acceptEdits`模式下，写入构建工具配置文件（`.npmrc`、`.yarnrc*`、`bunfig.toml`、`.bazelrc`、`.pre-commit-config.yaml`、`.devcontainer/`等）前增加确认提示\n- 通过`grep`查看文件后，编辑不再需要单独的Read操作\n\n**问题修复：**\n- 修复WSL上复制选择未写入Windows剪贴板问题，改用PowerShell交互而非OSC 52\n- 修复从claude agents恢复已完成会话时丢失聊天历史并重新运行原始提示的问题\n- 修复后台会话隔夜后重新附加时丢失对话并重新运行原始提示的问题\n- 修复Windows上后台会话启动目录无法删除的问题\n- 修复Windows上在高CPU负载下Esc、方向键和输入无响应的问题\n- 修复后台代理向不支持同步输出标记的终端发送标记导致渲染异常的问题\n- 修复CJK输入法组合显示位置错误的问题\n- 修复语音模式在项目目录或分支名包含非ASCII/特殊字符时连接失败的问题\n- 修复`/effort ultracode`在模型不支持时错误归咎于动态工作流设置的问题\n\n**性能改进：**\n- 提升打开最近不活跃后台代理会话的性能\n- 降低自动模式分类器延迟，减少常规操作的推理时间\n- 改进后台会话清理，先发送SIGTERM再发送SIGKILL\n\n**破坏性变更：**\n- 移除`CLAUDE_CODE_OPUS_4_6_FAST_MODE_OVERRIDE`环境变量\n- 移除JetBrains插件安装建议\n- 动态工作流触发关键词从`workflow`重命名为`ultracode`，原关键词不再触发运行",
       "category": "github-release"
     }
   ]
