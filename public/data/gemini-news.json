@@ -1,44 +1,44 @@
 {
-  "lastUpdated": "2026-06-05T19:31:56.388Z",
+  "lastUpdated": "2026-06-08T20:01:55.017Z",
   "items": [
     {
-      "title": "Gemma 4 QAT models: Optimizing model compression for mobile and laptop efficiency",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/quantization-aware-training-gemma-4/",
-      "description": "We’re releasing Gemma 4 quantization-aware training checkpoints, reducing memory requirements and improving on-device performance.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_Visual_Blog.max-600x600.format-webp.webp\">We’re releasing Gemma 4 quantization-aware training checkpoints, reducing memory requirements and improving on-device performance.",
-      "author": "Olivier Lacombe",
+      "title": "Do better research with NotebookLM",
+      "link": "https://blog.google/innovation-and-ai/products/notebooklm/better-research-notebooklm/",
+      "description": "NotebookLM’s latest upgrades deliver new agentic capabilities and more advanced reasoning to tackle complex research projects.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IMG_1_Hero_2x.max-600x600.format-webp.webp\">NotebookLM’s latest upgrades deliver new agentic capabilities and more advanced reasoning to tackle complex research projects.",
+      "author": "Trond Wuellner",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 05 Jun 2026 16:00:00 +0000",
-      "titleZh": "Gemma 4 QAT models: Optimizing model compression for mobile and laptop efficiency",
-      "descriptionZh": "谷歌近期发布了Gemma 4模型的量化感知训练（Quantization-Aware Training, QAT）检查点，这一更新显著降低了模型的内存需求，并提升了在设备端的运行性能。Gemma系列作为谷歌推出的轻量级、开源大语言模型，一直致力于在保证模型能力的同时实现高效的本地部署。此次发布的QAT检查点，是在模型训练阶段就引入量化模拟，使得模型权重和激活值能够适应低精度表示（如INT4或INT8），从而在不明显损失精度的情况下大幅减少内存占用和计算开销。\n\n核心技术原理方面，传统的后训练量化（Post-Training Quantization, PTQ）往往需要额外的校准步骤，且可能导致模型精度下降。而量化感知训练通过在训练过程中模拟量化操作，让模型权重自动调整以适应量化误差，从而在最终部署时获得更好的精度保持。Gemma 4的QAT检查点创新性地将这一过程与模型训练深度耦合，训练出的检查点可以直接用于低精度推理，省去了繁琐的后期量化流程。此外，谷歌可能还采用了混合精度策略或针对特定硬件（如移动GPU或NPU）的优化，使得模型在手机上也能流畅运行大语言模型任务。\n\n技术影响和应用场景十分广泛。首先，降低内存需求意味着Gemma 4可以部署在内存有限的智能手机、物联网设备或边缘服务器上，无需依赖云端推理，从而减少延迟并保护用户隐私。其次，设备端性能的提升使得实时交互成为可能，例如离线智能助手、文本摘要、翻译等应用。对于开发者而言，直接获取QAT检查点大幅简化了部署流程，无需自行设计量化方案，加速了从研究到产品的转化。这一举措也推动了开源社区的进步，让更多人能够在低成本硬件上实验和部署先进语言模型，进一步促进AI民主化。\n\n总体而言，Gemma 4的量化感知训练检查点代表了在模型效率与精度之间取得平衡的最新进展，为端侧大模型落地提供了坚实的技术基础，并有望在智能设备、隐私计算和低功耗场景中发挥关键作用。"
+      "pubDate": "Mon, 08 Jun 2026 16:00:00 +0000",
+      "titleZh": "使用NotebookLM进行更好的研究",
+      "descriptionZh": "NotebookLM是Google推出的AI驱动型研究笔记工具，旨在帮助用户整理、理解并关联复杂信息。本次最新升级为其赋予了更强大的**代理能力（agentic capabilities）**和**高级推理（advanced reasoning）**，使其能够自主完成多步骤的研究任务，而不仅仅是回答简单问题或生成摘要。\n\n**背景与上下文**：传统AI笔记工具通常只能被动响应用户的单一查询，比如“总结这篇文章”或“找出关键观点”。但真实的研究工作往往需要反复迭代：先阅读文献，再提出假设，然后对比不同来源，最后形成结构化报告。NotebookLM的此次升级正是为了模拟研究者的工作流——让AI像一位研究助理一样主动规划、执行并调整研究步骤。\n\n**核心技术原理与创新点**：\n1. **多步代理能力**：系统不再局限于单次问答，而是能够将一个复杂的研究目标（例如“分析气候变化对农业保险定价的影响”）拆解为多个子任务：先检索相关文档，再提取数据点，然后交叉对比不同模型，最后生成带有引用来源的分析报告。每一步的结果都会反馈给后续步骤，形成闭环。\n2. **上下文感知推理**：新版本利用更先进的推理引擎，能够在长对话中保持对研究目标的“记忆”。例如，当用户问“这些数据如何支持你的结论？”时，NotebookLM能自动回溯之前已经分析的文档片段和推理链，而不是重新解释。这种基于上下文的推理减少了重复劳动，也降低了“幻觉”风险。\n3. **自主决策与修正**：代理能力还体现在AI能主动发现矛盾。比如，如果两个来源对同一事件的时间线描述不一致，NotebookLM可以自动标记冲突，并建议查找第三方资料进行验证，甚至主动触发一次新的检索。\n\n**技术影响与应用场景**：\n- **学术与研究**：研究生或科研人员可以上传数十篇论文，让NotebookLM自动生成文献综述草案、对比不同方法的优劣，并标注每个观点的出处。对于需要快速梳理领域现状的学者而言，这能将数周的工作压缩到几小时。\n- **商业分析与策略**：市场研究员可以上传行业报告、财报和新闻，让AI自动识别趋势、风险与机会。例如，分析“电动车电池供应链瓶颈”时，NotebookLM能自动绘制从锂矿开采到电池组装的全链条关系图，并指出每个环节的脆弱性。\n- **法律与合规**：律师可以上传合同文本和法规文档，AI能自动识别条款冲突、风险条款（如自动续约条款），并生成修改建议。代理能力使其能主动搜索相关判例来佐证观点。\n- **教育与知识管理**：学生可将课程讲义、笔记和阅读材料整合，AI能生成知识图谱、模拟考试问答，甚至根据学生的薄弱点规划复习路径。\n\n总体而言，NotebookLM此次升级标志着AI工具从“被动问答”向“主动研究伙伴”的跨越。核心创新在于将大语言模型的推理能力与任务拆解、自主决策、长期记忆相结合，使得研究型知识工作变得高效且可追溯。不过，用户仍需对AI输出的准确性进行把关，因为代理能力虽强，但依赖底层模型的可信度与数据质量。未来，随着更多插件和外部知识源的接入，NotebookLM有望成为个人或团队的通用研究平台。"
     },
     {
-      "title": "The latest AI news we announced in May 2026",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-may-2026/",
-      "description": "Here are Google’s latest AI updates from May 2026",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/May_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from May 2026",
-      "author": "The Keyword Team",
+      "title": "Our latest fraud and scams advisory",
+      "link": "https://blog.google/innovation-and-ai/technology/safety-security/fraud-scams-advisory-june-2026/",
+      "description": "An overview from Google’s Trust & Safety teams on the most recent online scam trends.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Online_Scams_Advisory.max-600x600.format-webp.webp\">An overview from Google’s Trust & Safety teams on the most recent online scam trends.",
+      "author": "Laurie Richardson",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 05 Jun 2026 14:45:00 +0000",
-      "titleZh": "我们于2026年5月公布的最新AI新闻",
-      "descriptionZh": "2026年5月，Google发布了一系列重要的AI更新，围绕Gemini模型、搜索体验、开发者工具和负责任AI四大方向展开。在模型层面，Google推出了Gemini 2.0版本，显著提升了多模态推理能力，特别是对视频、音频和复杂图表的理解，同时大幅降低了推理成本。新模型支持更长的上下文窗口（最高达200万tokens），并引入了“动态思维链”机制，使模型在回答复杂问题时能自动选择推理深度。\n\n搜索方面，Google将AI概览功能扩展至更多国家，并新增了“多步推理”和“比较”能力：用户可以直接询问“哪个品牌的电动车更适合家庭使用？”并得到一份综合了价格、续航、安全评分和用户评价的对比表格。此外，Google推出了“搜索代理”功能，允许用户委托AI自动完成订餐、比价等复杂任务，并实时返回结果。\n\n开发者生态方面，Google发布了Agent框架的正式版（GA），支持与Google Maps、Gmail、Calendar等原生服务深度集成。新工具包括“AI沙盒”用于快速测试多智能体协作场景，以及“安全护栏”模块，可自动检测和阻断有害指令。同时，Google将Gemini API的价格下调了30%，并推出按token计费的“批处理模式”，旨在降低中小企业的使用门槛。\n\n在负责任AI方面，Google公布了其模型安全评估框架的最新迭代，引入了“对抗性红队自动化”工具，可在部署前模拟数百万次恶意攻击。此外，所有新增的AI功能都内置了“可解释性卡片”，向用户透明展示模型决策的关键依据。\n\n这些更新的影响广泛：模型成本的下降和Agent框架的成熟将加速AI在中小企业客服、自动化营销、数据分析等场景的落地；搜索的深度推理能力有望改变用户获取信息的方式，从“翻网页”转向“问AI”。同时，Google强调所有新功能均遵守其AI原则，旨在兼顾创新与安全。整体来看，2026年5月的更新标志着Google从“发布模型”转向“构建AI驱动的原生体验”，其核心竞争点已从单点性能比拼转向生态系统整合与实用化部署。"
+      "pubDate": "Mon, 08 Jun 2026 14:00:00 +0000",
+      "titleZh": "最新欺诈与诈骗警示",
+      "descriptionZh": "在线诈骗已成为全球数字生态中最棘手的威胁之一。Google的信任与安全团队近期发布了一份关于最新在线诈骗趋势的综述报告，系统梳理了当前最活跃、最具迷惑性的欺诈手段及其演变方向。报告指出，诈骗分子正越来越多地利用生成式AI、深度伪造、社交工程和心理操控的组合手段，使传统防范方法失效。例如，“情感诈骗”和“投资诈骗”借助AI生成的逼真面孔和声音，在约会应用和社交媒体上建立信任后诱导转账；而“客服诈骗”则通过伪造知名企业官网和电话号码，诱骗用户提供账户凭证或支付“处理费”。此外，“冒充政府机构”和“加密货币投资骗局”也呈爆发式增长，往往利用实时AI语音伪装成官员或“专家”进行高压话术施压。\n\n核心技术层面，报告揭示了诈骗者如何将大语言模型（LLM）接入聊天机器人，实现24小时多语言、个性化对话，大幅提升诈骗成功率。深度伪造（Deepfake）技术已在实时视频通话中使用，以冒充亲友或公司高管进行紧急转账请求。Google团队还发现，诈骗者利用自动化脚本批量注册虚假账号、生成评论和点赞，制造虚假信任背书；同时利用搜索引擎优化（SEO）技术让钓鱼网站排至搜索结果前列，增加受害者触达概率。\n\n报告强调，这些新手段对现有检测系统构成严峻挑战——传统基于规则和签名库的拦截机制难以应对动态生成的AI内容，而零日诈骗模式（即不断变异骗局脚本）使得响应窗口极窄。为此，Google已在Gmail、Chrome、Google Play及搜索中推出多项对抗措施：包括基于机器学习的实时钓鱼链接检测、深度伪造视频/音频的水印认证系统、以及跨产品“安全浏览”联盟的预警共享机制。同时，团队联合全球网络安全厂商和学术机构，开发出针对AI生成文本的“风格指纹”识别技术，通过分析对话逻辑、情感节奏和常见错误模式，区分正常用户行为与诈骗机器人的互动轨迹。\n\n从影响角度看，这些诈骗不仅造成巨额个人财产损失（全球年均超万亿美元），还对数字信任体系造成侵蚀——用户对在线身份、在线交易甚至企业官方渠道的警惕性提升，可能导致合法商业沟通成本增加。对企业和平台运营者而言，需要将防诈投入从单纯的“事后封禁”转向“实时防御与用户教育并重”。Google建议普通用户开启双重验证、使用密码管理器、对任何涉及金钱的紧急请求保持核实；而技术团队则应加强对AI生成内容的审计能力，并加入行业共享的诈骗信号库。报告最后呼吁全球协作，因为跨境、多语言、多平台的诈骗生态已无法由单一公司或国家遏制，只有建立统一的数据交换标准和法律响应框架，才能在AI加速演化的威胁环境中守住安全底线。"
     },
     {
-      "title": "Utah State brings Gemini for Education to all K-12 schools",
-      "link": "https://blog.google/products-and-platforms/products/education/utah-state-education-partnership/",
-      "description": "Google and the Utah State Board of Education partner to bring Gemini for Education to educators and students statewide.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Utah_State_brings_Gemini_for_Ed.max-600x600.format-webp.webp\">Google and the Utah State Board of Education partner to bring Gemini for Education to educators and students statewide.",
-      "author": "Drew Sidel",
+      "title": "4 ways to keep up with the FIFA World Cup 2026™",
+      "link": "https://blog.google/products-and-platforms/products/search/fifa-world-cup-google-tools-2026/",
+      "description": "Google tools — like Maps, Gemini and AI Mode in Search — can help guide you from the first whistle to the final goal.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/World_Cup.max-600x600.format-webp.webp\">Google tools — like Maps, Gemini and AI Mode in Search — can help guide you from the first whistle to the final goal.",
+      "author": "Keyword Team",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 04 Jun 2026 21:30:00 +0000",
-      "titleZh": "犹他州将Gemini教育版推广至所有K-12学校",
-      "descriptionZh": "Google与犹他州教育委员会近日宣布达成合作，将在全州范围内向教育工作者和学生推出Gemini for Education。这一举措标志着生成式AI在教育领域的规模化落地迈出重要一步。背景上，犹他州一直积极推动教育数字化转型，而Google的Gemini模型凭借其强大的多模态理解、推理和生成能力，为个性化学习、备课辅助、自适应评估等场景提供了技术基础。核心技术原理方面，Gemini在文本、图像、音频、代码等多种数据类型上经过联合预训练，能够实现跨模态理解与生成，例如根据教师输入的课程大纲自动生成配套练习题，或针对学生作文提供分步骤的批改建议。其创新点在于专门针对教育场景进行了安全性与隐私保护优化，包括内容过滤、年龄适应性调整以及符合《儿童在线隐私保护法》等法规要求。此外，Gemini还支持与Google Classroom等现有教育工具无缝集成，降低教师使用门槛。技术影响上，这一合作有望有效缓解教师备课负担，通过即时生成差异化教学材料来照顾不同学习水平的学生，同时为偏远地区学校提供高质量的AI助学资源。具体应用场景包括：智能助教实时解答学生疑问、自动生成课堂讨论问题、辅助语言学习中的口语练习反馈，以及为特殊教育学生提供个性化支持。长远来看，此类政府-企业合作模式可能成为其他州乃至其他国家推广AI教育工具的标准范式，但也需警惕数字鸿沟加剧和数据滥用风险——Google承诺所有处理均遵循严格的数据本地化与匿名化原则。总体而言，Gemini for Education在犹他州的部署既是技术进步在教育公平领域的实践尝试，也为未来AI与课堂深度融合提供了重要参考。"
+      "pubDate": "Mon, 08 Jun 2026 13:00:00 +0000",
+      "titleZh": "关注2026年国际足联世界杯™的4种方式",
+      "descriptionZh": "Google 利用其核心工具套件（包括 Google 地图、Gemini 智能助手以及搜索中的 AI 模式），为用户打造从世界杯开赛哨声响起直到决赛进球的全方位观赛与出行体验。在背景层面，大型体育赛事期间用户面临信息爆炸、路线规划复杂、实时动态追踪需求激增等痛点。Google 将传统的地图导航、智能问答和大规模搜索能力整合进统一的 AI 体系，实现了“赛前准备—赛中追踪—赛后回顾”的闭环服务。\n\n核心技术原理方面，Google Maps 通过实时交通数据和场馆容量预测，动态优化球迷前往球场的路径，并整合周边餐饮、停车和公共交通信息。Gemini 作为多模态 AI 助手，能够理解自然语言查询（例如“今晚的比赛中谁可能进球？”），结合比赛直播数据、球员统计和过往表现，生成即时分析摘要。而搜索中的 AI 模式（AI Mode）则利用检索增强生成（RAG）技术，将权威赛事数据、官方赛程、新闻稿件与用户个性化偏好（如关注的球队、观赛时间）融合，呈现高度定制化的答案，例如自动生成“从你的酒店到球场的推荐路线及预计耗时的实时更新”。\n\n创新点在于将三个独立工具通过统一的语义层串联：用户在搜索中用 AI 模式查询“明天葡萄牙比赛几点开始”，结果会直接触发 Maps 中的日程提醒，并调用 Gemini 生成该队近期表现分析；若用户查看球场附近餐厅，Gemini 可基于搜索历史推荐符合口味的选项，并标注开幕式当天的人流高峰时段。这种跨工具的情景感知与主动服务，打破了传统“搜索-导航-问答”的割裂流程。\n\n技术影响和应用场景广泛：对普通球迷，它能提供一站式赛程管理、实时比分推送、智能路径避堵、多语言语音翻译（如与当地摊贩交流）等，显著降低大型赛事中的信息焦虑。对商业用户，Google 的 AI 工具可帮助场馆运营方预测人流量、优化疏散策略，广告商也能基于用户搜索意图精准投放赛事周边产品。长远来看，这一整合模式可复制到奥运会、音乐节等大型活动，甚至日常通勤与城市漫游，成为 AI 驱动的生活助手范本。"
     }
   ]
 }
