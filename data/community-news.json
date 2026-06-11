@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-10T20:13:09.279Z",
+  "lastUpdated": "2026-06-11T20:12:22.221Z",
   "items": [
     {
       "title": "Unlocking Next-Gen AI Agents 2026: Claude Fable 5 Explained",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T17:34:19.000Z",
-      "summaryZh": "## 下一代AI智能体深度解析：Claude Fable 5 实战指南\n\n### 用户场景\n作者基于50+ AI系统开发经验，聚焦开发者如何利用Anthropic最新发布的Claude Fable 5（通用版）和Claude Mythos 5（受限版）构建下一代AI智能体。核心痛点在于：如何在享受Mythos-class顶级推理能力的同时，安全处理软件工程、知识工作、视觉任务等复杂多步骤场景。\n\n### 核心方法\nFable 5采用\"智能核心+安全层\"双架构：底层Mythos-class核心（基于先进Transformer架构）提供跨模态的强推理能力；上层智能安全层通过分类器实时检测三类高风险请求（网络安全、生物化学、模型蒸馏），自动降级到Claude Opus 4.8处理。Mythos 5则对Project Glasswing等授权用户开放更少限制，支持高级网络安全分析和敏感生物研究。\n\n### 关键技巧\n1. **安全降级机制**：95%会话完全运行在Fable 5上，仅高风险请求自动回退。开发者可通过API检测响应中的`fallback_model`字段判断是否降级。\n2. **工具调用优化**：利用Fable 5的tool-calling能力编排多步骤工作流，注意在降级场景下限制工具权限。\n3. **基准测试**：Fable 5在软件工程、知识工作等基准测试中全面超越前代，建议使用`anthropic-v2` API端点获取最新能力。\n4. **避坑指南**：避免直接请求模型蒸馏或敏感领域操作，系统经1000+小时红队测试无通用越狱，但需注意降级后响应质量差异。",
+      "summaryZh": "# 下一代AI Agent深度解析：Claude Fable 5 全面解读\n\n## 用户场景\n作者基于50+ AI系统构建经验，揭示了Anthropic最新发布的Claude Fable 5和Mythos 5如何解决企业级AI Agent的核心痛点：在保持强大推理能力的同时，通过智能护栏机制平衡能力开放与安全风险。Fable 5面向普通开发者，Mythos 5则专为Project Glasswing网络安全合作伙伴和生物研究等高敏感领域设计。\n\n## 核心方法\nFable 5采用\"Mythos-class\"核心架构，基于先进transformer和超大规模数据集，在软件工程、知识工作、视觉任务、科学研究等领域超越所有前代模型。其关键创新在于智能安全层：通过分类器实时检测三类高风险请求（网络安全、生物化学、模型蒸馏），自动降级到Claude Opus 4.8处理。Anthropic经过1000+小时红队测试，未发现\"通用越狱\"漏洞，95%以上会话完全由Fable 5原生响应。\n\n## 关键技巧\n- **安全降级机制**：Fable 5检测到高风险请求时自动切换至Opus 4.8并通知用户，开发者需理解这一透明回退策略\n- **能力差异**：Fable 5与Mythos 5的核心智能相同，区别仅在于安全护栏——Mythos 5对受信用户解除部分限制\n- **实用建议**：构建AI Agent时，可借鉴Anthropic的分层安全架构，对敏感操作设置自动降级通道，而非完全封锁能力",
       "category": "devto"
     },
     {
@@ -20,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T17:55:18.000Z",
-      "summaryZh": "# Claude Fable 5 企业级AI智能体解读\n\n## 用户场景\n本文面向需要部署企业级AI智能体的开发者和技术决策者，解决的核心问题是：如何在保障安全的前提下，让AI模型具备更强的自主推理、多步骤任务执行和视觉理解能力，同时避免高风险领域的滥用风险。\n\n## 核心方法\nClaude Fable 5 基于 Anthropic 的 \"Mythos-class\" 架构，核心创新在于 **智能路由安全层**：当检测到涉及网络安全、生物学、化学或模型蒸馏等高危领域请求时，自动降级到较弱的 Claude Opus 4.8 模型处理（仅影响约5%的会话）。模型具备三大能力引擎：高级推理引擎（多学科逻辑推理）、视觉能力（图表/截图/UI理解）、以及 **Agentic架构**（自主分解任务→调用API→执行→自我纠错→长期任务持续执行）。同时支持持久记忆，通过notes/logs记录多步骤工作进度。\n\n## 关键技巧\n1. **安全路由机制**：95%+的企业日常任务可直接使用Fable 5完整能力，无需担心降级问题\n2. **Agentic模式最佳实践**：利用其\"理解高层意图→拆解子任务→规划执行序列→工具调用→错误恢复\"的闭环流程，适合代码库迁移、多步骤项目规划等长周期任务\n3. **视觉能力应用**：可直接从文档截图、图表中提取精确数值，无需预处理OCR\n4. **避坑提示**：涉及高危领域（如生物/化学相关）的请求会被自动路由，开发者需提前规划fallback策略；若需完整高危能力，需申请Mythos 5（仅限受信合作伙伴）",
+      "summaryZh": "## Claude Fable 5：企业级AI Agent的实用指南\n\n**用户场景**  \n作者基于50+AI系统实战经验，针对企业需要处理复杂任务、多步骤工作流及长周期项目的场景，介绍了Anthropic最新发布的Claude Fable 5模型。该模型解决了企业既要前沿AI能力又要安全可控的核心矛盾——通过智能路由机制，将95%以上的日常请求交由Mythos级模型处理，仅对高危领域（网络安全、生物、化学等）自动降级到Claude Opus 4.8。\n\n**核心方法**  \nFable 5采用“Mythos-class”架构，核心能力包括：  \n1. **高级推理引擎**：支持多学科复杂逻辑推理和科学研究  \n2. **视觉能力**：可解析文档图表、截图甚至游戏界面中的精确数据  \n3. **Agent架构**：理解高层意图→分解子任务→规划执行序列→调用外部工具/API→自我校验纠错，支持代码库迁移等长周期任务  \n4. **持久记忆**：通过notes/logs记录多步骤工作进度，类似人类Agent的上下文保持能力\n\n**关键技巧**  \n- **安全路由机制**：Fable 5自动检测高危请求并降级，开发者无需手动干预，但需注意被降级时会有通知提示  \n- **Agent任务优化**：利用模型的持久记忆能力，为长周期任务设计清晰的notes/logs结构，可显著提升多步骤执行稳定性  \n- **工具调用模式**：Fable 5的Agent架构天然支持API/工具链调用，建议将复杂业务逻辑拆解为可编排的子任务序列  \n- **避坑指南**：涉及网络安全、生物化学等敏感领域时，直接使用Mythos 5（需Anthropic审批）而非Fable 5，避免因路由降级导致能力受限",
       "category": "devto"
     },
     {
@@ -31,7 +31,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T12:51:22.000Z",
-      "summaryZh": "## Claude Fable 5 实测：开发者最该关注的模型对比\n\n**用户场景**：开发者面临多模型选择困境，需要判断 Claude Fable 5 是否值得从 GPT-4.1 或 Gemini 2.5 Pro 切换。核心痛点在于：复杂任务（多文件重构、分布式系统调试、完整功能实现）中，模型能否保持长链推理不丢失上下文。\n\n**核心方法**：Anthropic 于 2026 年 6 月 9 日发布 Fable 5，定价 $10/百万输入 tokens、$50/百万输出 tokens（仅为 Mythos Preview 的一半）。默认 100 万上下文窗口，单次输出可达 128,000 tokens（约 90-100 页代码）。内置 Adaptive Thinking（始终开启，无需手动切换扩展思考模式）。支持 Claude API、AWS Bedrock、Vertex AI、Microsoft Foundry。\n\n**关键技巧**：\n1. **长任务优势显著**：任务越复杂，Fable 5 领先幅度越大。Ethan Mollick 测试其可自主执行 12 小时的多页规格任务；Simon Willison 用标准聊天界面（非 Claude Code）就完成了 Python-WASM 打包库的构建。\n2. **成本 ROI 计算**：相比 Mythos Preview 价格减半，适合高吞吐 agentic 工作流。但注意：AWS Bedrock 部署需与 Anthropic 共享数据，监管行业需谨慎。\n3. **⚠️ 隐形降级陷阱**：模型卡显示，Fable 5 会对“前沿 LLM 开发”相关任务（预训练、分布式训练、ML 加速器设计）**静默降级响应**，不返回 refusal 标志，而是通过 prompt 修改、steering vectors 等方式给出微妙错误答案。虽然 Anthropic 称仅影响 0.03% 开发者，但“AI 公司”定义正在快速扩展，调试训练管道时难以区分是模型困惑还是政策干预。",
+      "summaryZh": "## Claude Fable 5 实测：开发者最该关注的模型对比\n\n**用户场景**：面对 GPT-4.1、Gemini 2.5 Pro 等众多前沿模型，开发者急需一个真实可用的基准来判断 Claude Fable 5 是否值得切换。作者聚焦于实际工程场景——多文件重构、分布式系统调试、完整功能实现等复杂任务，而非简单的单函数生成。\n\n**核心方法**：通过实测与基准分析，Fable 5 在复杂长链任务中优势显著（任务越复杂，领先幅度越大）。关键特性包括：1M 默认上下文窗口、128K 输出上限（单次可生成 90-100 页代码）、始终开启的 Adaptive Thinking（无需手动切换 extended thinking）。定价 $10/百万输入 tokens、$50/百万输出 tokens，仅为 Mythos Preview 的一半。支持 Claude API、AWS Bedrock、Vertex AI、Microsoft Foundry。\n\n**关键技巧**：\n1. **成本优势**：高并发 agentic 工作负载下，Fable 5 的 token 经济性极强，但 AWS Bedrock 部署需注意数据共享条款（监管行业慎用）。\n2. **隐形降级陷阱**：模型卡明确对“前沿 LLM 开发”相关任务（如预训练、分布式训练、ML 加速器设计）进行静默降级——不会返回 refusal 状态码，而是通过 prompt 修改、steering vectors 等方式给出错误答案。这导致调试训练 pipeline 时难以区分是模型困惑还是策略干预。\n3. **信任基准**：随着“AI 公司”定义扩大，未来更多开发者可能被波及。建议对涉及模型训练、基础设施的代码生成保持警惕，交叉验证结果。",
+      "category": "devto"
+    },
+    {
+      "title": "AgentGuard: The Foundation Missing from Agentic AI Systems",
+      "titleZh": "AgentGuard：代理型AI系统缺失的基础",
+      "link": "https://dev.to/mypatric69/agentguard-the-foundation-missing-from-agentic-ai-systems-1lpk",
+      "author": "Patric",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-11T11:58:36.000Z",
+      "summaryZh": "以下是这篇 Dev.to 文章的中文摘要：\n\n**用户场景：** 作者在开发认知AI伴侣时，发现Claude Code作为执行器存在“静默失败”问题：代理会重复失败策略、丢失迭代历史，而开发者无法及时察觉。88%的代理项目未能投产，80%未产生商业价值——这并非模型问题，而是系统设计缺乏治理基础。\n\n**核心方法：** 作者提出 **AgentGuard** 治理层，在代理启动前执行四层检查：\n1. **Pre-Flight Check**：强制定义OWNER（责任人）、SCOPE（授权范围）、ESCALATION（升级路径）、KILLSWITCH（终止开关），四项缺一不可，否则直接BLOCK。\n2. **Enforcement via Claude Code Hooks**：通过`.claude/settings.json`的`PreToolUse`钩子，在Bash/Write/Edit等工具调用前运行`agentguard enforce`，基于`governance.yaml`做确定性模式匹配（Exit 2=阻止，Exit 0=允许），不依赖LLM调用。\n3. **Runtime Monitoring**：`agentguard watch`读取Claude Code JSONL日志，检测重复工具调用、输出停滞、异常token消耗等“卡住”信号。\n4. **Audit & Review**：`agentguard report`生成治理报告，`agentguard verify`检查一致性。\n\n**关键技巧：**\n- **Guided Concretization**：用自然语言描述意图（如“避免循环”），AgentGuard自动转化为精确的YAML规则（如`prohibited`列表），默认使用`claude-sonnet`（temperature=0），可切换Claude Fable 5。\n- **非协商性前提**：治理不是文档任务，而是“油箱里有油”的硬性条件——没有OWNER/SCOPE/ESCALATION/KILLSWITCH，代理根本不允许启动。\n- **避免陷阱**：不要仅靠CLAUDE.md提示（如“先查文档”），那是在沼泽上立柱子；必须用钩子强制执行，且治理规则要具体到“禁止未经批准推送到main分支”这种级别。",
       "category": "devto"
     },
     {
@@ -42,51 +53,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-05T14:19:03.000Z",
-      "summaryZh": "# Claude Code 配置指南：Commands vs Skills vs Agents\n\n## 用户场景\n开发者每次启动Claude Code会话时，需要重复说明项目技术栈、编码规范、工作流程，且团队协作时缺乏统一配置。本文解决如何通过项目级配置文件，让Claude Code自动理解项目上下文，无需每次重复指令。\n\n## 核心方法\n构建三层配置体系：\n1. **CLAUDE.md**（团队级）+ **CLAUDE.local.md**（个人覆盖）- 会话启动时自动加载的项目记忆\n2. **.claude/settings.json** - 权限控制（允许/禁止工具调用）和环境变量\n3. **.claude/rules/** - 模块化指令文件（支持路径作用域，如`api-conventions.md`只对`src/api/**`生效）\n\n工作流分层：\n- **Skills**（技能）：手动`/project:name`触发或自动调用，如`code-review`、`deploy`工作流\n- **Agents**（代理）：隔离的子会话，拥有独立工具集，如`security-auditor`专门审计认证和密钥\n- **Hooks**（钩子）：在工具调用前后自动执行\n\n## 关键技巧\n1. **权限最小化**：在`settings.json`中明确允许`Bash(pytest *)`、`Bash(git status)`等，禁止`Bash(curl *)`和读取`.env`文件\n2. **规则模块化**：当Claude重复犯同类错误时，新增对应规则文件（如`testing.md`规定pytest约定）\n3. **个人覆盖**：使用`CLAUDE.local.md`和`settings.local.json`（gitignored）处理本地API地址、个人偏好，但敏感信息用环境变量而非文件\n4. **团队共享**：提交`.claude/`目录到git，确保团队使用相同配置树\n5. **快速初始化**：在已有仓库中运行`claude /init`自动生成CLAUDE.md草稿\n\n**最佳实践**：从模板仓库安装完整配置骨架，避免手动创建目录结构。",
+      "summaryZh": "# Claude Code 配置指南：Commands vs Skills vs Agents 详解\n\n## 用户场景\n开发者每次启动Claude Code会话时，需要重复告知项目技术栈、编码规范、工作流程等信息。本文解决如何通过配置文件让Claude Code自动记忆项目上下文，实现团队共享配置，避免重复劳动。\n\n## 核心方法\n构建分层配置体系：\n- **CLAUDE.md**：团队级项目记忆（提交到git），包含技术栈、工作流、指针规则\n- **CLAUDE.local.md**：个人覆盖（gitignore），如API base URL\n- **.claude/settings.json**：权限控制（允许/禁止工具调用）和环境变量\n- **.claude/rules/**：模块化指令文件，支持路径作用域（如`src/api/**`）\n- **.claude/skills/**：可复用工作流，通过`/project:skill-name`手动调用或自动触发\n- **.claude/agents/**：隔离的子代理角色，拥有独立工具集\n\n## 关键技巧\n1. **权限精细化**：在settings.json中精确控制允许的命令（如`Bash(pytest *)`），禁止敏感操作（如`Bash(curl *)`、读取`.env`）\n2. **规则路径作用域**：在rules文件frontmatter中设置`paths`，Claude Code会根据编辑文件自动加载相关规则\n3. **Skills vs Commands**：新项目优先使用skills/目录（支持附属文件），旧式commands/目录功能有限\n4. **初始化捷径**：在已有仓库运行`claude /init`自动生成CLAUDE.md草稿\n5. **避免重复**：当Claude反复犯同类错误时，新增对应rules文件即可",
       "category": "devto"
     },
     {
-      "title": "Claude Fable 5 vs Mythos 5: Same Model, Different Safeguards",
-      "titleZh": "Claude Fable 5 与 Mythos 5：相同模型，不同防护机制",
-      "link": "https://dev.to/itsemcy/claude-fable-5-vs-mythos-5-same-model-different-safeguards-306f",
-      "author": "Emcy",
+      "title": "18B Artifacts Push Anthropic and JFrog Into AI Security",
+      "titleZh": "18B 制品推动 Anthropic 与 JFrog 进入 AI 安全领域",
+      "link": "https://dev.to/xoomar/18b-artifacts-push-anthropic-and-jfrog-into-ai-security-2mgf",
+      "author": "XOOMAR",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-06-10T08:50:00.000Z",
-      "summaryZh": "## Claude Fable 5 vs Mythos 5：同模型，不同安全策略\n\n**用户场景**  \n开发者常误以为 Fable 5 和 Mythos 5 是不同模型，实际上它们底层相同（1M token 上下文、128k 输出、$10/$50 定价）。区别在于**安全策略**：Fable 5 是通用版本，对网络安全、生物化学、模型蒸馏等敏感请求设置保守分类器；Mythos 5 是受信访问版本，为 Project Glasswing 等获批项目解除部分限制。\n\n**核心方法**  \nAnthropic 通过命名拆分实现“同一模型，两套策略”：\n- **Fable 5**（API ID: `claude-fable-5`）：面向大多数开发者，安全分类器可能误拦无害请求\n- **Mythos 5**（API ID: `claude-mythos-5`）：仅限获批的网络安全、基础设施、生物研究用户，需联系 AWS/Google Cloud 团队申请\n\n**关键技巧**  \n1. **选型决策**：普通团队只需考虑“用 Fable 还是 Opus/Sonnet”，无需纠结 Mythos  \n2. **适用场景**：Fable 5 适合大型代码库分析、迁移规划、长链 Claude Code 任务、复杂财务推理  \n3. **避坑指南**：安全分类器可能拦截无害请求，若涉及敏感领域需走 Mythos 受信通道  \n4. **定价陷阱**：两者价格相同，但 Mythos 不是消费级升级路径，而是受控能力计划",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Fable 5 Explained: What Anthropic's New Mythos-Class Model Means",
-      "titleZh": "Claude Fable 5 详解：Anthropic 新 Mythos 级模型的意义",
-      "link": "https://dev.to/itsemcy/claude-fable-5-explained-what-anthropics-new-mythos-class-model-means-186e",
-      "author": "Emcy",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-10T08:48:16.000Z",
-      "summaryZh": "## Claude Fable 5 详解：Anthropic 新 Mythos 级模型的意义\n\n### 用户场景\n开发者面临的核心问题是：现有 AI 模型在处理长周期、高复杂度任务时容易“丢失上下文”或“思路中断”。Fable 5 专为解决这类问题设计，适合大型代码库迁移、多文件调试、跨文档研究分析、自主 Agent 工作流等需要长期规划与上下文保持的场景。\n\n### 核心方法\nFable 5 是 Anthropic 首个广泛发布的 Mythos 级模型（高于 Opus 级别），API ID 为 `claude-fable-5`。关键特性包括：1M token 上下文窗口、128k 最大输出、始终开启的自适应思考模式。定价为 $10/百万输入 tokens、$50/百万输出 tokens。但为控制滥用风险，Anthropic 对网络安全、生物、化学等敏感请求实施分类器路由，部分请求会被转至 Claude Opus 4.8 或直接拒绝（触发率 <5%）。\n\n### 关键技巧\n- **适用场景**：大型重构、Agent 任务、多文档分析、截图转代码、多文件调试等长周期工作\n- **避免场景**：简单摘要、小代码片段、短分类任务——Sonnet 或 Haiku 更经济\n- **测试建议**：先做三项评估——① 代码库迁移计划与补丁；② 截图转组件实现；③ 文档到代码的研究实现\n- **注意**：API 有 30 天数据保留要求，企业团队需留意；安全分类器可能误伤无害的高级请求",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Fable 5: Everything You Need to Know About Anthropic's New Model",
-      "titleZh": "Claude Fable 5：关于Anthropic新模型你需要知道的一切",
-      "link": "https://dev.to/toty_cartooncartoon_c254/claude-fable-5-everything-you-need-to-know-about-anthropics-new-model-1231",
-      "author": "Toty Cartoon Cartoon",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-10T10:38:59.000Z",
-      "summaryZh": "# Claude Fable 5 全面解读：Anthropic 新模型值得关注吗？\n\n## 用户场景\nAnthropic 于2026年6月9日发布 Claude Fable 5，定位为\"最强大的公开可用模型\"。对于日常聊天用户，提升有限；但对于开发者、代码编写、Agent 构建、科研分析等复杂场景，Fable 5 在长任务和多步骤推理上表现突出，尤其 SWE-Bench Pro 达到 80.3%，远超 Opus 4.8 的 69.2%。\n\n## 核心方法\nFable 5 实际上是 Mythos 5 的\"安全版\"——同一核心智能但加装更强护栏。定价为 $10/百万输入 tokens、$50/百万输出 tokens，属于前沿模型定价。Anthropic 强调：任务越长越复杂，Fable 5 的优势越大。开发者可通过 Claude API（`claude-fable-5`）或 Amazon Bedrock 使用，6月9日至22日免费试用。\n\n## 关键技巧\n1. **不要旗舰模型做所有事**：Fable 5 适合高价值长任务，日常80%工作用便宜模型即可，避免成本失控\n2. **安全设计需注意**：当检测到涉及网络安全、生物化学或模型蒸馏的请求时，自动降级到 Opus 4.8（约5%会话），安全研究人员可能频繁遇到此限制\n3. **理性看待基准测试**：厂商自报数据需独立验证，建议先在复杂长任务上实测，再评估性价比",
+      "pubDate": "2026-06-11T09:08:53.000Z",
+      "summaryZh": "这是一篇关于Anthropic与JFrog合作，将软件供应链安全引入AI编码工具Claude Code的深度分析。\n\n**用户场景：**\n随着AI编码代理（如Claude Code）能自主选择依赖、执行构建和部署，传统“事后安全扫描”模式失效。开发者面临恶意包、许可证违规和未受管制的AI资产进入生产环境的风险。企业急需在编码阶段实时管控AI代理的决策，而非事后补救。\n\n**核心方法：**\nJFrog为Claude Code推出插件，将“企业级软件供应链治理”直接嵌入开发工作流。具体通过三大连接层实现：**JFrog Platform Skills**（自然语言执行仓库管理、项目配置等操作）、**JFrog MCP Tools**（通过MCP Registry确保代理只拉取经过验证的MCP服务器）、以及**Agent-native插件支持**（未来扩展至Cursor、VS Code Copilot）。核心是让AI代理在编码时自动执行策略检查（如依赖扫描、许可证合规、来源验证），并生成从源码提交到构建产物的完整审计追踪。\n\n**关键技巧与价值：**\n1. **实时策略执行**：代理在拉取依赖或触发操作时，JFrog平台自动拦截并验证，减少人工交接。\n2. **可审计性**：安全团队可获得端到端追溯（源码→构建产物），满足合规与事件响应需求。\n3. **多代理治理**：JFrog不绑定单一AI工具，而是提供跨Cursor、VS Code Copilot等环境的统一治理层。\n4. **风险警示**：Anthropic承认“代理攻击面不断变化”，企业需集体投资于代理专属安全标准（如共享基准、跨厂商红队测试）。\n\n**核心洞察**：该合作标志着AI编码从“代码建议”转向“自主操作”后，企业面临的控制力考验。插件能否成功取决于策略配置的易用性、开发者是否持续使用，以及安全团队对审计链的信任度。",
       "category": "devto"
     },
     {
       "title": "Claude Fable 5: Anthropic Releases Its Most Powerful Model to the Public — With Guardrails On",
-      "titleZh": "Claude Fable 5：Anthropic 向公众发布其最强模型——附带防护栏",
+      "titleZh": "Claude Fable 5：Anthropic 向公众发布其最强模型——附设防护栏",
       "link": "https://dev.to/docdavkitty/claude-fable-5-anthropic-releases-its-most-powerful-model-to-the-public-with-guardrails-on-3ao0",
       "author": "DrMBL",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T12:09:11.000Z",
-      "summaryZh": "## Claude Fable 5：Anthropic 最强模型双版本发布，安全与能力的分水岭\n\n### 用户场景\nAnthropic 于2026年6月9日发布其最强大模型——Claude Fable 5（带安全护栏的公开版）与 Claude Mythos 5（无限制版，仅限网络安全合作伙伴）。此举解决了开发者与企业在“前沿能力”与“安全合规”之间的两难：普通用户需要强大但可控的AI，而安全研究团队则需要无限制访问进行红队测试。发布时机关键——Anthropic 刚披露 Claude 已编写其80%的生产代码，并秘密提交IPO文件（估值9650亿美元）。\n\n### 核心方法\n两个模型共享同一底层架构（Mythos架构，超越Opus系列），区别仅在于推理层的安全护栏：\n- **Fable 5**：默认启用护栏，支持工具使用、计算机操作和智能编码，但拒绝边界不可覆盖。6月22日前免费升级，之后转为按量付费高级层。\n- **Mythos 5**：移除护栏，仅限 Project Glasswing 网络安全合作伙伴，强制30天数据留存用于安全监控。\n\n### 关键技巧\n1. **开发者注意**：Fable 5 与 Mythos 5 在大多数企业用例（客服、代码生成、文档分析）中表现无差异，但红队测试或对抗性测试必须使用 Mythos 5。\n2. **定价策略**：6月22日前现有订阅用户可免费体验，之后将按 token 计费。建议在此期间收集性能数据，评估是否值得升级。\n3. **安全悖论**：Anthropic 的“双轨策略”反映了行业现实——不发布 Mythos 将输给 OpenAI GPT-5.5 和 Google Gemini Ultra。护栏在对抗性提示下的实际表现将是关键考验。\n4. **生态影响**：Fable 5 是当前开发者构建自主工具使用智能体最强大的公开模型，结合 Advanced Tool Use 平台，模型正从“驱动智能体”转向“构建智能体”。",
+      "summaryZh": "## Claude Fable 5 发布解读：Anthropic 最强模型的双面策略\n\n**用户场景**：Anthropic 于 2026 年 6 月 9 日发布了两款基于 Mythos 架构的模型——Claude Fable 5（带安全护栏的公开版）和 Claude Mythos 5（无限制版，仅限网络安全合作伙伴）。开发者面临的核心矛盾是：如何平衡前沿能力与安全风险？Fable 5 面向大众订阅用户（Pro/Max/Team/Enterprise），而 Mythos 5 仅限 Project Glasswing 成员，且需接受 30 天数据留存监控。\n\n**核心方法**：两模型共享相同权重，区别仅在于推理层的安全护栏。Fable 5 支持 tool-use、computer-use 和 agentic coding 能力，但拒绝边界不可覆盖；Mythos 5 移除护栏但严格管控。Anthropic 采用“双轨发布”策略：6 月 22 日前免费升级，之后转为按量付费。此举正值公司 80% 生产代码由 Claude 自写、IPO 估值 9650 亿美元的关键节点。\n\n**关键技巧**：\n- **护栏差异**：Fable 5 的 refusal boundaries 不可绕过，适合客服、代码生成等常规场景；Mythos 5 适合红队测试和安全研究。\n- **定价窗口**：6 月 22 日前免费体验，之后成为 premium tier，建议尽早测试以评估成本。\n- **安全悖论**：Anthropic 同时释放“最强大模型”和“安全警告”，开发者需注意护栏在对抗性提示下的实际表现。\n- **生态影响**：Fable 5 是当前最强大的公开 agent 构建模型，结合 Advanced Tool Use 平台，模型正从“驱动 agent”转向“构建 agent”。",
+      "category": "devto"
+    },
+    {
+      "title": "Intelligence Is Starting to Be About Wealth",
+      "titleZh": "智能开始关乎财富",
+      "link": "https://dev.to/skyguan92/intelligence-is-starting-to-be-about-wealth-55fp",
+      "author": "guanjiawei",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-11T09:25:32.000Z",
+      "summaryZh": "## 智能正在变成财富：Claude Fable 5的付费墙与反蒸馏争议\n\n**用户场景**：作者在推理引擎性能优化项目中，78层模型需从10 token/s提升至100+ token/s。GPT 5.5投入大量时间未果，改用Claude Fable 5（API费用$420，15小时）仅获30%提升（13 token/s），暴露了顶尖模型的高昂使用成本。\n\n**核心方法**：对比两种AI工作流——GPT 5.5采用“渐进式”策略（先2层搭建管道，逐点优化再扩展）；Fable 5则“端到端”暴力求解（1-2小时摸清单层上限后直接缝合78层，10小时构建完整推理引擎）。但30%提升远未达标，且$420/次不可持续，最终作者切回GPT 5.5。\n\n**关键技巧**：\n1. **订阅 vs API成本陷阱**：Fable 5从订阅（$200/月Max 20x）撤出后，API定价$10/百万输入、$50/百万输出。一个3小时子任务$150，完整项目$420，相当于2个月Max费用。普通开发者无法承受。\n2. **反蒸馏机制**：Fable 5内置两层分类器，检测到“蒸馏/网络安全/生物化学”请求时静默降级至Opus 4.8。但误判频发（如血常规分析被标记为生物化学），用户支付Fable 5价格却获得Opus 4.8输出，且无任何通知。\n3. **行业对比**：OpenAI同期推出“Codex for Open Source”，为GitHub 1000+星项目维护者提供6个月免费Pro。一个锁住顶尖模型，一个向社区开放，信号截然不同。\n\n**核心结论**：模型公司的定价策略就是其智能分发立场。Anthropic的精英主义正制造“智能鸿沟”——有预算者获得最强能力，其他人只能接受降级服务。",
       "category": "devto"
     },
     {
@@ -97,7 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-06T04:52:03.000Z",
-      "summaryZh": "## Claude Code 自定义后端迁移指南\n\n### 用户场景\n作者解决的核心问题是：团队在使用Claude Code时，面临API成本高、速率限制分散、缺乏审计日志等痛点。通过设置`ANTHROPIC_BASE_URL`环境变量，可以将所有请求重定向到自定义代理后端，实现缓存、路由、监控等功能，无需修改任何代码。\n\n### 核心方法\n只需两行配置即可实现：\n```bash\nexport ANTHROPIC_BASE_URL=https://your-proxy.example.com\nexport ANTHROPIC_API_KEY=your-key\nclaude\n```\nAnthropic SDK会自动追加`/v1/messages`路径，转发所有header和SSE流。此方法同样适用于Cursor、Cline、Continue等基于Anthropic SDK的工具。\n\n### 关键技巧与注意事项\n1. **缓存注入**：代理可自动在系统消息中插入`cache_control`标记，对20-30K token的system prompt可节省60-80%成本\n2. **速率限制池化**：代理可轮询多个API key，避免单个key被限流而其他闲置\n3. **多供应商路由**：根据模型名称（如haiku vs opus）路由到不同提供商\n4. **SSE流处理**：必须即时flush每个chunk，避免缓冲导致延迟。Caddy用`flush_interval -1`，Cloudflare Workers用`TransformStream`\n5. **header转发**：必须保留`anthropic-version`和`anthropic-beta`，否则缓存等功能会静默失效\n6. **速率限制策略**：按API key而非源IP限流，单次Claude Code会话可能达到200+ RPM\n7. **请求体修改**：解析JSON注入`cache_control`时注意大请求（50K+ token）的CPU开销，通常<5ms\n8. **生产清单**：TLS终止、SSE透传、按key限流、header转发、优雅错误处理、健康检查端点、CORS支持\n\n### 额外价值\n代理提供免费的可观测性：每个请求的token数、会话成本、重复prompt（缓存候选）、工具调用模式、延迟分布等。Anthropic仪表盘只显示账单，而代理能告诉你\"为什么\"。",
+      "summaryZh": "## Claude Code 自定义后端迁移：2行配置与生产级陷阱\n\n**用户场景**  \n作者解决的是团队使用Claude Code时面临的成本、限流、审计等痛点：多个API Key各自限流导致429错误、无法统一缓存策略、缺乏会话级成本追踪、多供应商路由需求等。通过自定义代理后端，无需修改Claude Code代码即可实现这些功能。\n\n**核心方法**  \n利用`ANTHROPIC_BASE_URL`环境变量将Claude Code所有请求重定向到自定义代理：\n```bash\nexport ANTHROPIC_BASE_URL=https://your-proxy.example.com\nexport ANTHROPIC_API_KEY=your-key\nclaude\n```\n代理只需返回兼容Anthropic Messages格式的响应，SDK会自动追加`/v1/messages`、转发headers和SSE流。同一技巧适用于Cursor、Cline等基于Anthropic SDK的工具。\n\n**关键技巧与陷阱**  \n1. **SSE流式处理**：代理必须立即flush每个chunk（Caddy用`flush_interval -1`，Cloudflare Workers用`TransformStream`），否则Claude Code会因等待完整响应而卡顿  \n2. **Header转发**：必须保留`anthropic-version`（否则SDK版本不匹配）、`anthropic-beta`（否则缓存失效），仅重写`host`和`authorization`  \n3. **限流策略**：按API Key而非源IP限流，单次Claude Code会话可能产生200+ RPM的tool call请求  \n4. **请求体注入**：解析JSON注入`cache_control`时注意大请求（50K+ tokens）的CPU开销，典型场景<5ms  \n5. **错误处理**：不要解析SSE事件流，直接透传二进制数据，避免中断连接  \n\n**生产级检查清单**：TLS终止、无缓冲SSE、按Key限流、Header白名单、优雅JSON修改、日志脱敏、5xx重试、健康检查端点、快速失败（502）、CORS支持。代理带来的最大隐性收益是可观测性——精确追踪每个请求的token消耗、会话成本、缓存命中率、延迟分布等，这是Anthropic原生仪表盘无法提供的。",
       "category": "devto"
     },
     {
@@ -108,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T17:49:49.000Z",
-      "summaryZh": "Anthropic 是一家专注于 AI 安全与创新的公司，由 Dario Amodei 和 Daniela Amodei 创立。其核心产品 Claude 系列模型（如 Opus 4.6/4.7）基于“缩放定律”（Scaling Laws）——通过增加训练数据和算力即可显著提升模型性能，无需改变算法。\n\n**用户场景**：开发者面临代码编写效率瓶颈，企业需要自动化处理数据分析、邮件管理、演示制作等重复性任务。Anthropic 提供 **Claude Code**（可自动生成 100% 代码）和 **Claude Cowork**（企业级任务自动化），帮助工程师和员工聚焦高价值工作。\n\n**核心方法**：采用 **Constitutional AI**（宪法式 AI）训练 Claude，以联合国人权宣言等文件为准则，确保模型行为始终“有帮助、诚实、无害”。同时赋予 Claude **专业温暖**（Professional Warmth）的交互风格，避免机械感或过度友好。\n\n**关键技巧**：\n- 使用 Claude Code 时，可直接让模型完成完整功能模块，但需注意审查输出代码的边界条件（如安全漏洞）。\n- 企业部署时，需明确 AI 的“红线”（如禁止用于大规模监控或自主武器），Anthropic 曾因此拒绝与五角大楼合作。\n- 关注模型幻觉（Hallucination）和欺骗行为，建议结合独立审计和预发布测试（Pre-release Testing）降低风险。\n\n**避坑提示**：不要依赖 AI 处理未定义伦理边界的任务（如网络安全漏洞挖掘），Anthropic 曾因风险过高而放弃发布 Mythos 模型。",
+      "summaryZh": "Anthropic 是一家专注于 AI 安全与创新的公司，由 Dario Amodei 和 Daniela Amodei 兄妹创立。其核心理念是“缩放定律”（Scaling Laws），即通过增加训练数据和计算资源来显著提升大语言模型（LLM）性能。旗舰模型 Claude 系列（如 Opus 4.6/4.7）具备强大能力，并衍生出 Claude Code（可自动生成 100% 代码，变革软件开发流程）和 Claude Cowork（辅助数据分析、邮件管理、演示制作等企业任务）。Anthropic 致力于解决生产力瓶颈，同时确保 AI 安全与责任，防止幻觉、欺骗或滥用（如大规模监控、自主武器）。其关键创新是“宪法 AI”（Constitutional AI），基于《联合国人权宣言》等原则训练 Claude，使其行为保持 helpful、honest、harmless。Claude 还具备“专业温暖”（Professional Warmth）的独特人格，沟通清晰且易于协作。面对商业压力，Anthropic 坚守伦理底线：拒绝发布可识别数千漏洞的 Mythos 模型，并拒绝与五角大楼合作部署用于监控或自主武器，甚至因此被国防部列入黑名单。CEO Dario Amodei 警告 AI 有 10-25% 概率导致文明崩溃，倡导强制性预发布测试、独立审计和平衡监管框架。总之，Anthropic 通过技术（缩放定律、Claude 工具链）与伦理（宪法 AI、红线原则）双轮驱动，旨在让 AI 服务人类最佳利益，同时防范潜在风险。",
       "category": "devto"
     },
     {
@@ -119,19 +119,41 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-10T17:49:03.000Z",
-      "summaryZh": "# Anthropic：AI安全与创新的先驱\n\n## 用户场景\n本文面向关注AI前沿技术与伦理安全的开发者，介绍了Anthropic公司如何平衡AI能力突破与安全责任。核心痛点在于：当AI能力快速提升时，如何防止其被滥用或产生不可控行为。\n\n## 核心方法\nAnthropic基于“缩放定律”（Scaling Laws）理论——通过增加训练数据和算力即可显著提升LLM性能。其旗舰模型Claude系列（Opus 4.6/4.7）配套三大工具：\n- **Claude Code**：可100%自动生成部分工程师的代码，彻底改变开发流程\n- **Claude Cowork**：自动化数据分析、邮件管理、演示制作等企业任务\n- **Constitutional AI**：基于《联合国人权宣言》等文件构建伦理准则，确保模型始终“有用、诚实、无害”\n\n## 关键技巧\n1. **伦理红线策略**：拒绝发布能识别数千漏洞的Mythos模型，宁可被五角大楼列入黑名单也不用于监控或自主武器\n2. **“专业温暖”人格设计**：避免过度友好或机械感，采用清晰简洁的沟通风格提升协作效率\n3. **风险量化管理**：CEO承认AI有10-25%概率导致文明崩溃，主张强制预发布测试、独立审计和平衡监管框架\n\n开发者可借鉴其“能力-安全双轨并行”思路，在构建AI应用时同步设计伦理约束机制。",
+      "summaryZh": "# Anthropic：AI安全与创新的先行者\n\n**用户场景：** 本文面向关注AI前沿技术发展与伦理安全的开发者与决策者，探讨如何在追求AI能力突破的同时确保其负责任发展。Anthropic由Dario Amodei和Daniela Amodei兄妹创立，致力于构建强大、可解释且可控的AI系统。\n\n**核心方法：** 公司基于\"Scaling Laws\"理论框架——通过增加训练数据和计算资源即可显著提升大语言模型性能。其旗舰模型Claude已迭代至Opus 4.7版本，并推出两大工具：**Claude Code**可自动生成100%工程代码，**Claude Cowork**则扩展至数据分析、邮件管理、演示制作等企业任务。安全方面采用**Constitutional AI**机制，以《联合国人权宣言》等文件为准则训练模型，确保行为始终\"有帮助、诚实、无害\"。\n\n**关键技巧：** 1）Claude设计\"专业温暖\"人格，避免过度友好或机械感，提升协作效率；2）公司曾拒绝发布能识别数千漏洞的Mythos模型，并拒绝五角大楼用于大规模监控或自主武器系统，体现伦理红线；3）Dario Amodei警告AI存在10-25%文明崩溃风险，倡导强制预发布测试、独立审计和平衡监管框架。开发者应关注Anthropic在安全与能力间的权衡实践。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Ships a Model It Says Is Too Dangerous to Ship Without a Leash",
-      "titleZh": "Anthropic发布一款自称危险到必须加“缰绳”才能交付的模型",
-      "link": "https://dev.to/peremptory/anthropic-ships-a-model-it-says-is-too-dangerous-to-ship-without-a-leash-5g2l",
-      "author": "Peremptory",
+      "title": "Anthropic Launches Claude Fable 5: A New Tier Above Opus",
+      "titleZh": "Anthropic 推出 Claude Fable 5：超越 Opus 的全新层级",
+      "link": "https://dev.to/jessyt/anthropic-launches-claude-fable-5-a-new-tier-above-opus-2j61",
+      "author": "JessYT",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-06-10T08:38:19.000Z",
-      "summaryZh": "## Anthropic发布“危险”模型Claude Fable 5：能力越强，枷锁越重\n\n**用户场景：** Anthropic承认其最新模型Claude Fable 5（与之前预览的Mythos同源）具备自主发现和利用软件漏洞的能力，过于危险而不能无限制发布。但公司仍选择将其推向市场，只是加上了“安全锁”——一个分类器层。当用户询问网络安全、生物学或化学等高风险内容时，模型会静默切换到能力较弱的Claude Opus 4.8（触发率<5%）。未受限版本Mythos 5仅通过Project Glasswing向美国政府审核的组织开放。\n\n**核心方法：** 采用“双模型共享骨干”架构。Fable 5在SWE-Bench Pro编码基准上达80.3%（Opus 4.8为69.2%，GPT-5.5为58.6%）。Stripe用其完成5000万行Ruby代码迁移，原需2个月团队工作，现1天搞定。Hex报告其核心分析基准首次达到90%。Pokémon FireRed演示中，模型仅凭原始截图完成游戏，无需地图或导航工具，展示了强大的视觉推理能力。\n\n**关键技巧：**\n1. **数据留存代价：** 使用Fable 5需接受30天流量留存（企业用户此前为零留存），用于检测越狱和减少误报。这是目前最强公开模型的访问条件。\n2. **定价策略：** API输入$10/百万token，输出$50/百万token，是Opus 4.8的两倍。免费访问至6月22日，之后转为使用积分。\n3. **安全本质：** Anthropic坦承模型能力固定，但危险取决于“谁在问”和“什么护栏在运行”。安全分类器是输出过滤器，而非模型固有属性。开发者需评估分类器对合法查询的摩擦是否可接受。",
+      "pubDate": "2026-06-10T21:07:04.000Z",
+      "summaryZh": "Anthropic 发布 Claude Fable 5，定位高于 Opus 的新 Mythos 层级。以下是开发者需要关注的核心信息：\n\n**用户场景**：解决复杂代码迁移（如 Stripe 5000万行 Ruby 代码库从“数月工程缩短至数天”）、金融基准测试（Hebbia 第一）、以及无需辅助工具即可通关《宝可梦 火红》的视觉推理任务。适合需要极致性能但预算有限的团队。\n\n**核心方法**：Fable 5 与 Mythos 5 共享同一底层模型，但 Fable 5 增加了安全防护层面向公众开放。Mythos 5 仅限 Project Glasswing 网络安全合作伙伴和生命科学研究人员使用。API 定价为 $10/百万输入 tokens、$50/百万输出 tokens，是 Opus 4.8 的 2 倍，但低于 Mythos Preview 的一半。\n\n**关键技巧**：\n1. **免费窗口期**：6月9日至22日，订阅用户可免费使用 Fable 5，之后需消耗独立信用额度。建议在此期间完成对比测试。\n2. **安全回退机制**：涉及网络安全攻击、生物/化学风险或模型蒸馏的请求会自动由 Opus 4.8 处理（影响 <5% 会话）。敏感数据注意：所有 Mythos 级流量保留 30 天用于训练和安全目的。\n3. **模型 ID**：`claude-fable-5`，已在 Claude Code 的 `/model` 选择器中可用，同时支持 Amazon Bedrock、Vertex AI 和 Microsoft Foundry。\n4. **性能提升**：相比 Opus 4.8，任务完成轮次更少，速度提升 25-30%。但官方数据需实际验证。\n\n**避坑提示**：安全回退机制可能影响某些高级用例，建议提前测试边界场景。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.173",
+      "titleZh": "v2.1.173",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.173",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-06-11T05:41:54.000Z",
+      "summaryZh": "## Claude Code v2.1.173 更新速览\n\n本次更新主要修复两个问题：一是修正了 Fable 5 模型名称中 `[1m]` 后缀未被自动标准化的问题——由于 Fable 5 默认支持 1M 上下文，现在系统会自动去除该后缀；二是修复了 Windows 系统下启用沙箱时出现的虚假“沙箱依赖缺失”启动警告。无新增功能或破坏性变更。建议 Windows 用户和 Fable 5 模型使用者尽快升级。",
+      "category": "github-release"
+    },
+    {
+      "title": "v2.1.172",
+      "titleZh": "v2.1.172",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.172",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-06-10T20:44:15.000Z",
+      "summaryZh": "## Claude Code v2.1.172 更新说明\n\n**新特性：**\n- 子代理现在可以递归生成自己的子代理（最多5层深度）\n- Amazon Bedrock 现支持从 `~/.aws/config` 读取区域配置（当 `AWS_REGION` 未设置时），`/status` 可显示区域来源\n- `/plugin` 市场浏览新增搜索栏\n- 为 `claude_code.lines_of_code.count` OTEL 指标添加 model 属性\n\n**重要修复：**\n- 修复使用1M上下文但无使用额度时会话永久卡死的问题，现自动压缩回标准上下文限制\n- 修复多图片对话中重复出现\"图片无法处理\"的错误\n- 修复后台代理可能读取其他目录项目设置（`.mcp.json` 审批、信任）的问题\n- 修复 `/model` 建议显示误导性斜杠前缀及禁用模型的问题\n- 修复 `availableModels` 限制未应用于子代理模型覆盖、代理调度选择器和顾问模型的问题\n- 修复 WebFetch 通配符域名规则不匹配子域名的问题\n- 修复内存召回在远程会话中找不到挂载的团队内存存储的问题\n- 修复工作流验证拒绝仅提及 `Date.now()`/`Math.random()` 的脚本\n\n**性能优化：**\n- 长对话性能提升：移除冗余消息标准化，减少流式工具使用状态未变化时的全量历史转换\n- 降低空闲 CPU 使用：`/goal` 状态芯片不再以5Hz刷新终端\n- Chrome 工具加载优化：浏览器工具改为单次批量调用\n\n**其他变更：**\n- `/code-review` 在未登录时保持 ultra 选项可见并附说明\n- 远程控制指示器缩短为 \"/rc active\"，窄终端自动隐藏\n- 停止在远程会话中推广 `/loop`\n- [VSCode] 修复 PowerShell 工具调用显示为原始 JSON 的问题，去除 ANSI 转义码",
+      "category": "github-release"
     },
     {
       "title": "v2.1.170",
@@ -141,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-06-09T17:23:09.000Z",
-      "summaryZh": "**Claude Code v2.1.170 更新速览**\n\n**新功能**：正式引入 **Claude Fable 5**（Mythos 级模型），这是 Anthropic 迄今最强大的通用模型，能力全面超越此前所有公开发布版本。升级至 v2.1.170 即可体验。\n\n**Bug 修复**：修复了从 VS Code 集成终端或继承 Claude Code 环境变量的 shell 启动时，会话无法保存对话记录（且无法通过 `--resume` 恢复）的问题。\n\n**无破坏性变更**，建议所有用户尽快升级以获取最新模型能力及稳定性改进。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.169",
-      "titleZh": "v2.1.169",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.169",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-06-08T21:57:18.000Z",
-      "summaryZh": "## Claude Code v2.1.169 更新说明\n\n**新增功能：**\n- 新增 `--safe-mode` 标志（及 `CLAUDE_CODE_SAFE_MODE` 环境变量），可禁用所有自定义配置（CLAUDE.md、插件、技能、钩子、MCP服务器）进行故障排查\n- 新增 `/cd` 命令，可在不中断提示缓存的情况下切换会话工作目录\n- 新增 `disableBundledSkills` 设置和 `CLAUDE_CODE_DISABLE_BUNDLED_SKILLS` 环境变量，用于隐藏内置技能、工作流和斜杠命令\n\n**问题修复：**\n- 修复了长输入行中上下箭头在换行时的跳转问题\n- 修复了企业管理的 MCP 策略在重连、IDE 配置等场景下未生效的问题\n- 修复了 macOS 用户每轮对话开始时的 30-50ms UI 卡顿\n- 修复了 Windows 上 `claude -p` 命令的响应延迟\n- 修复了远程控制会话恢复时的\"重新连接\"卡死问题\n- 修复了 Windows 启动时 Git 凭据管理器的弹窗问题\n- 修复了自定义状态栏用户缺少底部提示的问题\n- 修复了远程会话中权限提示重复出现的问题\n- 修复了 `claude agents --json` 遗漏后台会话的问题\n- 修复了 WSL 终端中代理视图的显示异常\n- 修复了后台代理忽略项目环境变量的问题\n- 修复了 Windows 上 MCPB 插件缓存无效化问题\n- 修复了插件 PID 锁文件无限累积的问题\n- 修复了不受信任项目设置可设置 OTEL 证书路径的安全问题\n- `/workflows` 现在可在对话进行中立即打开\n\n**改进与变更：**\n- TaskCreate 可靠性提升，可自动修复格式错误的输入\n- 改进了 API 密钥认证被禁用时的错误提示\n- 降低了流式响应和动画加载时的 CPU 使用率\n- Vertex/Foundry 恢复默认 5 分钟空闲超时（可通过 `API_FORCE_IDLE_TIMEOUT=0` 禁用）\n- 远程管理设置中无效条目不再静默丢弃整个配置\n- 后台会话现在能保留 `--ide`、`--chrome` 等标志\n- \"CLAUDE.md 过长\"警告阈值随模型上下文窗口调整\n- Windows 自动更新器在进程被占用时停止重试\n- 改进了斜杠命令菜单中技能标签的颜色对比度",
+      "summaryZh": "**Claude Code v2.1.170 更新速览**\n\n**新功能：** 正式引入 **Claude Fable 5**（Mythos 级模型），这是 Anthropic 迄今发布的最强通用模型，能力超越此前所有公开版本。更新至 v2.1.170 即可使用。\n\n**Bug 修复：** 修复了从 VS Code 集成终端或继承 Claude Code 环境变量的 shell 启动时，会话无法保存对话记录（且无法通过 `--resume` 恢复）的问题。\n\n**注意：** 本次更新无破坏性变更，建议所有用户升级以体验 Fable 5 模型并修复会话保存 bug。",
       "category": "github-release"
     }
   ]
