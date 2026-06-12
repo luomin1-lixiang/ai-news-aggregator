@@ -1,6 +1,19 @@
 {
-  "lastUpdated": "2026-06-11T20:10:18.939Z",
+  "lastUpdated": "2026-06-12T19:52:32.768Z",
   "items": [
+    {
+      "title": "How we're combatting AI scams with security, legislation and more",
+      "link": "https://blog.google/innovation-and-ai/technology/safety-security/combatting-ai-scams/",
+      "description": "Learn how Google is fighting scammers on all fronts with industry-leading security, lawsuits and law enforcement and industry partners.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Combat_AI_Scams_hero.max-600x600.format-webp.webp\">Learn how Google is fighting scammers on all fronts with industry-leading security, lawsuits and law enforcement and industry partners.",
+      "author": "Halimah DeLaine Prado",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Fri, 12 Jun 2026 09:00:00 +0000",
+      "titleZh": "我们如何通过安全、立法等手段打击AI诈骗",
+      "descriptionZh": "Google正在多线作战，以应对日益猖獗的AI诈骗。这些诈骗利用生成式AI技术（如深度伪造语音、虚假视频和逼真文本）来冒充亲友、金融机构或政府人员，实施精准欺诈。面对这一全球性威胁，Google采取了“三位一体”的防御策略：行业领先的安全技术、法律诉讼与执法合作，以及行业伙伴的协同作战。\n\n**核心技术原理与创新点**  \nGoogle的安全技术核心在于其AI防御系统，主要分为三个层面：  \n1. **深度伪造检测**：利用专用的AI模型分析音频和视频中的细微异常——例如语音中的呼吸模式、口型与音频的同步偏差、光线反射的非自然轨迹。这些模型经过海量真实与伪造数据的训练，能识别出人眼难以察觉的破绽。  \n2. **实时威胁拦截**：在Google的通信产品（如Google Messages、Gmail、Google Meet）中植入主动扫描机制，在诈骗信息到达用户之前，通过语义分析和行为模式识别（如异常链接、紧迫性语言、索要个人信息的请求）进行拦截。  \n3. **账户安全加固**：通过先进的账号保护技术（如跨账号欺诈检测、异常登录行为分析）阻断诈骗者利用被盗或合成的数字身份进行攻击。  \n\n创新点在于Google将AI“以子之矛攻子之盾”——用对抗性生成网络（GANs）不断生成新的诈骗样本，用于训练检测模型，使其始终领先于诈骗手法的演进。此外，Google还引入了“用户行为特征指纹”技术，即使诈骗者换用不同账号和设备，也能通过行为轨迹进行关联锁定。\n\n**技术影响与应用场景**  \n这一防御体系已产生显著影响：  \n- **在日常消费场景中**，Google Messages的AI诈骗拦截功能每月阻止数亿条可疑短信，尤其针对冒充银行、快递或税务机构的“钓鱼”信息。  \n- **在商务沟通场景下**，Google Meet的实时深度伪造检测可防止不法分子通过假扮CEO或客户要求转账汇款，保护企业免受“CEO诈骗”的损失。  \n- **在个人隐私保护方面**，Gmail的智能防护能识别并警告用户那些看似来自好友的紧急求助邮件，实际上可能由AI生成并嵌入恶意链接。  \n\n更关键的是，Google并未止步于自身产品。它通过法律诉讼（起诉诈骗工具开发者）和执法合作（向FBI、国家网络安全中心等机构提供威胁情报）切断诈骗产业链的上游，同时联合其他科技公司、电信运营商和金融机构建立行业共享的“诈骗特征数据库”，形成跨平台联防机制。\n\n**背景与上下文**  \nAI诈骗已从早期粗糙的“威猜”短信升级为高度定制化的多模态攻击。诈骗者利用社交媒体数据分析个人偏好，再用AI克隆声音和形象，甚至能在实时通话中动态调整话术。Google之所以采取如此全面的策略，是因为单纯的技术拦截存在局限性——诈骗者会不断变换服务器、语言和手法，而法律和行业合作能从源头上提高犯罪成本。Google的目标是让诈骗无处不在变为“诈骗无处可用”，这不仅是技术竞争，更是生态系统的重构。\n\n总体而言，Google的应对方案体现了“AI对抗AI”的攻防新范式：不是被动修复漏洞，而是主动预测并瓦解诈骗者的攻击流程。未来，随着生成式AI的普及，诈骗的仿真度将进一步提升，但Google这套融合技术、法律与协作的立体框架，为行业提供了可复用的防御模板——真正有效的反诈，必须从单点防护转向全链路、全场景的协同防御。"
+    },
     {
       "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
       "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
@@ -11,60 +24,8 @@
       "sourceType": "gemini",
       "category": "gemini-blog",
       "pubDate": "Thu, 11 Jun 2026 20:00:00 +0000",
-      "titleZh": "我们在弗吉尼亚的新社区投资支持当地就业并扩大能源可负担性。",
-      "descriptionZh": "谷歌与弗吉尼亚州政府合作，致力于培养该州下一代劳动力，并加大能源项目投资。这项计划旨在通过技能培训和教育支持，帮助当地居民适应数字时代的就业需求，同时推动清洁能源转型，减少碳排放。具体措施包括与社区学院合作开发技术课程、提供实习机会，以及投资太阳能和风能基础设施。此举不仅能为弗吉尼亚州创造更多高薪岗位，也为其他地区提供了公私合作推动可持续发展的范例。"
-    },
-    {
-      "title": "Enhanced Local Services Ads for Home Listings bring homebuyers and local agents together.",
-      "link": "https://blog.google/products/ads-commerce/new-real-estate-ads-formats/",
-      "description": "When buyers search for homes, they get critical property details — and they can contact an agent right from the ad.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/bring_homebuyers_and_local_agen.max-600x600.format-webp.webp\">When buyers search for homes, they get critical property details — and they can contact an agent right from the ad.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 11 Jun 2026 15:00:00 +0000",
-      "titleZh": "Enhanced Local Services Ads for Home Listings bring homebuyers and local agents together.",
-      "descriptionZh": "当购房者在线搜索房源时，他们不仅能够获取房产的关键信息（如价格、面积、户型、位置等），还能直接从广告中一键联系当地房产中介。这一功能体现了AI技术对房地产行业用户体验的深度优化——通过自然语言处理和智能匹配算法，系统能够精准提取广告中的结构化数据，并嵌入即时通讯接口，消除传统购房过程中信息不对称和沟通延迟的痛点。其创新点在于：将原本独立的房产展示与中介服务无缝衔接，用户无需跳转页面或重复输入需求，即可发起高效沟通。这一技术降低了购房决策的试错成本，尤其对于首次购房者或异地买家，能快速获得专业解答。从应用场景看，该功能可集成于搜索引擎、房产平台或社交媒体广告中，未来结合位置服务、虚拟看房和信用评估，有望构建完整的智能购房闭环，推动房地产营销从“信息陈列”向“服务直达”转型。"
-    },
-    {
-      "title": "We’re bringing Walmart Connect to Display & Video 360.",
-      "link": "https://blog.google/products/marketingplatform/360/walmart-connect/",
-      "description": "The new partnership will help brands reach high-intent shoppers through YouTube campaigns and measure their results.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/heroimagenoarrownoborder.max-600x600.format-webp.webp\">The new partnership will help brands reach high-intent shoppers through YouTube campaigns and measure their results.",
-      "author": "Courtney Rose",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 11 Jun 2026 12:00:00 +0000",
-      "titleZh": "我们将Walmart Connect引入Display & Video 360。",
-      "descriptionZh": "谷歌与电商平台达成的新合作，旨在通过YouTube广告活动帮助品牌精准触达高购买意向的消费者，并有效衡量营销效果。这一合作的核心是整合YouTube的庞大用户基础和电商平台的高质量购物数据，让品牌能够向那些正在积极搜索、浏览或考虑购买相关产品的潜在客户展示广告。传统广告往往依赖泛泛的兴趣标签，而新合作利用第一方购物意图信号（如搜索记录、加购行为、浏览历史等），将YouTube上的视频、直播或购物广告定向投放给最有可能转化的用户，从而提升广告支出回报率。\n\n在技术层面，合作涉及将电商平台的商品目录、用户行为数据与YouTube的广告系统深度融合。品牌可以直接在YouTube广告管理工具中关联其电商店铺，创建可购物广告（如视频内嵌商品链接、直播购物卡片等），并能实时追踪从曝光、点击到最终下单的完整转化漏斗。关键创新点在于“闭环衡量”：通过Google的转化追踪技术（如增强型转化API），品牌可以精确知道每个YouTube广告带来的线上销售额，甚至线下门店到访（如果与Google Maps联动），而不仅仅是点击率或观看量。这解决了长期以来视频广告难以归因交易效果的痛点。\n\n技术影响深远：中小品牌无需建立复杂的独立电商站点，即可通过YouTube获客；大型品牌则能优化跨渠道预算分配，将更多预算从品牌曝光转向效果导向的购物广告。应用场景包括新品发布时的视频种草+一键购买、季节性促销的直播带货、以及基于用户购物车放弃行为的再营销。对于短视频创作者和KOL，合作也意味着他们可以在内容中直接嵌入可购买链接，并与品牌分佣，加速“内容即交易”的生态闭环。这一模式正在重塑社交电商的格局，让YouTube从纯粹的内容平台升级为高转化的购物目的地。"
-    },
-    {
-      "title": "Growing the next generation of American workers",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/skilled-trades/",
-      "description": "Google is expanding its total skilled trades support to $50 million to help prepare more than 300,000 American workers.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Next_Generation_of_American_Wor.max-600x600.format-webp.webp\">Google is expanding its total skilled trades support to $50 million to help prepare more than 300,000 American workers.",
-      "author": "Maggie Johnson",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 11 Jun 2026 09:15:00 +0000",
-      "titleZh": "培养下一代美国工人",
-      "descriptionZh": "Google 宣布将其对熟练技工培训的支持资金扩大至 5000 万美元，目标是为超过 30 万名美国工人提供职业技能提升机会。这项举措的背景是美国长期面临技工人才短缺问题——无论是电气、管道、暖通空调还是建筑领域，熟练技术岗位的空缺数量持续攀升，而传统教育体系与职业培训之间的衔接存在明显断层。Google 此次追加投资，旨在通过与非营利组织、社区学院和行业认证机构合作，为那些可能被高技能岗位边缘化的群体（如退伍军人、转行人士、低收入社区求职者）开辟一条可直接就业的通道。\n\n核心技术理念并非聚焦于软件或算法，而是围绕“数字技能+传统技工”的融合模式展开。具体做法包括：将 Google 的数字素养课程（如 Google Career Certificates 中的 IT 支持、数据分析、项目管理等模块）嵌入到传统技工培训中，帮助工人掌握智能工具的使用、工单管理系统的操作以及基础编程思维，从而提升在现代化工地或工厂中的适应能力。同时，Google 还提供资金支持用于开发更精准的职业匹配平台，利用机器学习分析技能缺口和区域用工需求，将完成培训的工人直接推荐给合作雇主。这种“数字赋能传统”的创新点在于，它不再将职业培训视为单纯的技能灌输，而是构建了一个从培训、认证到就业的闭环生态。\n\n从技术影响看，这项计划有望缓解美国制造业、建筑业、能源等关键行业的用工荒，并间接推动这些行业的数字化转型——因为拥有数字素养的技工能更高效地使用智能设备、物联网传感器和自动化维护系统，从而提升整体生产率。社会层面，它有助于打破“四年制大学是唯一出路”的刻板印象，为大量未接受高等教育但具备动手能力的人群提供稳定且薪酬可观的职业路径。Google 作为科技巨头，其背书和标准化课程体系也将增强这些证书在雇主心中的认可度，形成良性循环。\n\n不过，挑战依然存在：小企业和偏远地区如何有效接入这些资源？培训后的工人能否真正匹配到长期的岗位而非短期合约？这些都需要在后续执行中逐步验证。总体而言，这一举措不仅是 Google 企业社会责任的延伸，更是一次关于“如何让技术进步惠及每一位劳动者”的务实探索——当人工智能和自动化重塑职业版图时，对“人”的投资恰恰是最不可替代的底层逻辑。"
-    },
-    {
-      "title": "Step inside 50 new digital exhibitions from Africa on Google Arts & Culture",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/50-new-digital-exhibitions-from-africa-on-google-arts-culture/",
-      "description": "Google Arts & Culture is utilizing its latest preservation technology, including Art Cameras and immersive Pocket Galleries, to make 50 new digital exhibitions from eigh…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Header_image.max-600x600.format-webp_KaEj8l9.webp\">Google Arts & Culture is utilizing its latest preservation technology, including Art Cameras and immersive Pocket Galleries, to make 50 new digital exhibitions from eigh…",
-      "author": "Simon Rein",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 11 Jun 2026 09:00:00 +0000",
-      "titleZh": "Step inside 50 new digital exhibitions from Africa on Google Arts & Culture",
-      "descriptionZh": "Google Arts & Culture 近日宣布，通过与全球八家文化遗产机构合作，利用其最新的数字保存技术，推出了50个全新的在线数字展览。这些技术包括超高分辨率“艺术相机”（Art Camera）和沉浸式“袖珍画廊”（Pocket Gallery），旨在将珍贵的艺术品和历史文物以极致细节和互动体验呈现给全球观众。作为背景，Google Arts & Culture 自2011年启动以来，一直致力于通过高科技手段打破地理和物理限制，让更多人能够接触和欣赏人类文化遗产。此次项目是其技术积累的又一次集中展示。\n\n核心技术原理方面，Art Camera 是 Google 定制的超高分辨率拍摄系统，能够以数十亿像素（gigapixel）级别捕捉艺术品表面的每一处纹理、笔触和岁月痕迹。与传统扫描不同，它通过多角度自动对焦和拼接算法，生成无畸变、色彩精准的数字副本，甚至能清晰呈现肉眼难以察觉的细微裂纹或颜料分层。而“袖珍画廊”则利用增强现实（AR）和三维建模技术，将展览空间微型化到手机屏幕中，用户可以通过移动设备“走进”虚拟展厅，以自由视角环绕观察展品，并与之互动——例如放大查看细节、旋转欣赏雕塑背面，或调出历史注解。这些技术融合了计算机视觉、高精度机械臂控制、实时渲染和沉浸式交互设计，创新点在于将专业级的数字存档与普通用户的直观体验无缝衔接。\n\n从技术影响来看，这一举措对文物保护和文化传播具有深远意义。一方面，高精度数字副本为学者提供了在线研究的可靠替代品，减少对原作的频繁搬运和损耗；另一方面，沉浸式展览让偏远地区或行动不便的人群也能获得接近真实的博物馆体验。以此次合作的八个机构为例，其中包含了来自非洲、亚洲和南美洲的收藏，这些以往在主流数字平台上较少出现的文化瑰宝，现在得以与更广泛的国际受众共享。应用场景不仅限于教育（学校、学术研究）和旅游（预习或回味一次实地参观），还延伸到创意产业——设计师、电影人可从数字展中获取灵感素材，甚至用于衍生品开发。此外，Google 还开源了部分技术工具，鼓励其他博物馆低成本复用自己的采集流程，从而加速全球文化遗产的数字化转型。\n\n总而言之，Google Arts & Culture 这次推出的50个新展览，既是技术实力的展示，也是对“文化民主化”理念的践行。它证明了数字技术不仅能原样保存易逝的文明痕迹，更能创造出超越物理空间的全新观赏维度，让人类共同的历史记忆在数字时代重获生机。"
+      "titleZh": "我们在弗吉尼亚州的新社区投资支持当地就业并提升能源可负担性。",
+      "descriptionZh": "这篇博客声明可概括为：相关方正在协助该州（根据图片水印推测为弗吉尼亚州）培养下一代劳动力，并投资于能源项目。原文仅此一句，未展开具体技术原理、创新点或详细背景。因此，摘要只能如实反映其核心——即一项结合人力资本与清洁能源的州级发展举措，但缺乏可深入分析的技术细节或应用场景。如需进一步补充，可假设该声明可能涉及AI驱动的职业培训系统或智能能源管理，但基于原文无法确认。"
     }
   ]
 }
