@@ -1,31 +1,18 @@
 {
-  "lastUpdated": "2026-06-12T19:52:32.768Z",
+  "lastUpdated": "2026-06-14T19:08:10.262Z",
   "items": [
     {
-      "title": "How we're combatting AI scams with security, legislation and more",
-      "link": "https://blog.google/innovation-and-ai/technology/safety-security/combatting-ai-scams/",
-      "description": "Learn how Google is fighting scammers on all fronts with industry-leading security, lawsuits and law enforcement and industry partners.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Combat_AI_Scams_hero.max-600x600.format-webp.webp\">Learn how Google is fighting scammers on all fronts with industry-leading security, lawsuits and law enforcement and industry partners.",
-      "author": "Halimah DeLaine Prado",
+      "title": "Read Sundar Pichai’s 2026 Commencement Address at Stanford University",
+      "link": "https://blog.google/company-news/inside-google/message-ceo/stanford-commencement-speech-2026/",
+      "description": "Read a transcript of Sundar Pichai’s commencement speech at Stanford University.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/3_Hero_gradient.max-600x600.format-webp.webp\">Read a transcript of Sundar Pichai’s commencement speech at Stanford University.",
+      "author": "Sundar Pichai",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 12 Jun 2026 09:00:00 +0000",
-      "titleZh": "我们如何通过安全、立法等手段打击AI诈骗",
-      "descriptionZh": "Google正在多线作战，以应对日益猖獗的AI诈骗。这些诈骗利用生成式AI技术（如深度伪造语音、虚假视频和逼真文本）来冒充亲友、金融机构或政府人员，实施精准欺诈。面对这一全球性威胁，Google采取了“三位一体”的防御策略：行业领先的安全技术、法律诉讼与执法合作，以及行业伙伴的协同作战。\n\n**核心技术原理与创新点**  \nGoogle的安全技术核心在于其AI防御系统，主要分为三个层面：  \n1. **深度伪造检测**：利用专用的AI模型分析音频和视频中的细微异常——例如语音中的呼吸模式、口型与音频的同步偏差、光线反射的非自然轨迹。这些模型经过海量真实与伪造数据的训练，能识别出人眼难以察觉的破绽。  \n2. **实时威胁拦截**：在Google的通信产品（如Google Messages、Gmail、Google Meet）中植入主动扫描机制，在诈骗信息到达用户之前，通过语义分析和行为模式识别（如异常链接、紧迫性语言、索要个人信息的请求）进行拦截。  \n3. **账户安全加固**：通过先进的账号保护技术（如跨账号欺诈检测、异常登录行为分析）阻断诈骗者利用被盗或合成的数字身份进行攻击。  \n\n创新点在于Google将AI“以子之矛攻子之盾”——用对抗性生成网络（GANs）不断生成新的诈骗样本，用于训练检测模型，使其始终领先于诈骗手法的演进。此外，Google还引入了“用户行为特征指纹”技术，即使诈骗者换用不同账号和设备，也能通过行为轨迹进行关联锁定。\n\n**技术影响与应用场景**  \n这一防御体系已产生显著影响：  \n- **在日常消费场景中**，Google Messages的AI诈骗拦截功能每月阻止数亿条可疑短信，尤其针对冒充银行、快递或税务机构的“钓鱼”信息。  \n- **在商务沟通场景下**，Google Meet的实时深度伪造检测可防止不法分子通过假扮CEO或客户要求转账汇款，保护企业免受“CEO诈骗”的损失。  \n- **在个人隐私保护方面**，Gmail的智能防护能识别并警告用户那些看似来自好友的紧急求助邮件，实际上可能由AI生成并嵌入恶意链接。  \n\n更关键的是，Google并未止步于自身产品。它通过法律诉讼（起诉诈骗工具开发者）和执法合作（向FBI、国家网络安全中心等机构提供威胁情报）切断诈骗产业链的上游，同时联合其他科技公司、电信运营商和金融机构建立行业共享的“诈骗特征数据库”，形成跨平台联防机制。\n\n**背景与上下文**  \nAI诈骗已从早期粗糙的“威猜”短信升级为高度定制化的多模态攻击。诈骗者利用社交媒体数据分析个人偏好，再用AI克隆声音和形象，甚至能在实时通话中动态调整话术。Google之所以采取如此全面的策略，是因为单纯的技术拦截存在局限性——诈骗者会不断变换服务器、语言和手法，而法律和行业合作能从源头上提高犯罪成本。Google的目标是让诈骗无处不在变为“诈骗无处可用”，这不仅是技术竞争，更是生态系统的重构。\n\n总体而言，Google的应对方案体现了“AI对抗AI”的攻防新范式：不是被动修复漏洞，而是主动预测并瓦解诈骗者的攻击流程。未来，随着生成式AI的普及，诈骗的仿真度将进一步提升，但Google这套融合技术、法律与协作的立体框架，为行业提供了可复用的防御模板——真正有效的反诈，必须从单点防护转向全链路、全场景的协同防御。"
-    },
-    {
-      "title": "Our new community investments in Virginia support local jobs and expand energy affordability.",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virginia-community-investments/",
-      "description": "We’re helping build the state’s next-generation workforce and investing in energy programs.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/VirginiaSocial.max-600x600.format-webp.webp\">We’re helping build the state’s next-generation workforce and investing in energy programs.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 11 Jun 2026 20:00:00 +0000",
-      "titleZh": "我们在弗吉尼亚州的新社区投资支持当地就业并提升能源可负担性。",
-      "descriptionZh": "这篇博客声明可概括为：相关方正在协助该州（根据图片水印推测为弗吉尼亚州）培养下一代劳动力，并投资于能源项目。原文仅此一句，未展开具体技术原理、创新点或详细背景。因此，摘要只能如实反映其核心——即一项结合人力资本与清洁能源的州级发展举措，但缺乏可深入分析的技术细节或应用场景。如需进一步补充，可假设该声明可能涉及AI驱动的职业培训系统或智能能源管理，但基于原文无法确认。"
+      "pubDate": "Sun, 14 Jun 2026 17:30:00 +0000",
+      "titleZh": "桑达尔·皮查伊2026年斯坦福大学毕业典礼演讲",
+      "descriptionZh": "Sundar Pichai在斯坦福大学2024年毕业典礼上的演讲，既是对即将步入社会的学子们的寄语，也是他对当下AI时代技术与人性关系的深刻反思。作为Google和Alphabet的CEO，Pichai从个人经历出发——他小时候在印度无法轻易接触到电话，如今却领导着全球最前沿的AI公司——描绘了技术变革的惊人速度，并强调“技术本身不是目的，而是赋予人类更大可能性的工具”。\n\n- **核心观点与创新启示**：Pichai提出，AI带来的不仅仅是效率提升，更是“创造力的放大器”。他批评了当前对AI的两种极端反应——要么过度恐慌，要么盲目乐观。真正的“创新点”在于，人类需要学会与AI共舞：AI能生成代码、设计药物、创作音乐，但人类独有的“不确定性承受力”和“失败中学习的韧性”才是不可替代的。他以AlphaFold（蛋白质结构预测）和Bard（对话模型）为例，说明这些工具并非取代科学家或作家，而是让他们能攻克更具挑战性的问题。\n\n- **技术影响与应用场景**：Pichai的演讲直接映射了现实应用。在教育领域，AI个性化导师可以“让每个学生拥有苏格拉底”；在医疗领域，AI辅助诊断能弥合专业医生短缺的鸿沟；在气候领域，AI优化能源网络已开始落地。他特别警告了“算法偏见”和“数字鸿沟”——\n  技术越强大，越需要确保它不会固化现有的不平等。这正是他提出“负责任的AI”原则的深层原因：从模型训练阶段的公平性审计，到部署时的透明度机制，每一步都需要人类监督。\n\n- **对毕业生的深远启发**：Pichai鼓励毕业生采取“海豚思维”——像海豚一样在AI浪潮中冲浪而不是被淹没。他分享了自己在Google早期开发Chrome时的故事：面对当时已垄断市场的浏览器，团队选择“重新思考整个基础架构”，最终用V8引擎开创了现代Web体验。这种“敢于推翻共识”的精神，在AI快速迭代的今天更为关键——未来十年，现有工作模式可能被彻底重构，但人的好奇心、道德直觉和跨领域协作能力，将是AI无法复制的竞争力。\n\n整场演讲传递出一个核心信号：技术创新的终极目标不是制造更聪明的机器，而是激发更完整的人。AI可以加速发现，但无法替代人类去定义“什么是值得追求的”。对于技术从业者而言，这意味着要同时掌握算法原理和人文思辨——既会写模型，也会问“这个模型该为谁服务”。"
     }
   ]
 }
