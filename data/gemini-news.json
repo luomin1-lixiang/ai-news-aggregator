@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-06-14T19:08:10.262Z",
+  "lastUpdated": "2026-06-15T20:45:11.094Z",
   "items": [
     {
-      "title": "Read Sundar Pichai’s 2026 Commencement Address at Stanford University",
-      "link": "https://blog.google/company-news/inside-google/message-ceo/stanford-commencement-speech-2026/",
-      "description": "Read a transcript of Sundar Pichai’s commencement speech at Stanford University.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/3_Hero_gradient.max-600x600.format-webp.webp\">Read a transcript of Sundar Pichai’s commencement speech at Stanford University.",
-      "author": "Sundar Pichai",
+      "title": "We’re strengthening our presence in Alabama through new investments and community support.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/alabama-investment-june-2026/",
+      "description": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…",
+      "content": "Google has announced a $1.5 billion investment for 2026 and 2027 to expand its data center campus in Jackson County, Alabama. Operating since 2019 on a repurposed former…",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Sun, 14 Jun 2026 17:30:00 +0000",
-      "titleZh": "桑达尔·皮查伊2026年斯坦福大学毕业典礼演讲",
-      "descriptionZh": "Sundar Pichai在斯坦福大学2024年毕业典礼上的演讲，既是对即将步入社会的学子们的寄语，也是他对当下AI时代技术与人性关系的深刻反思。作为Google和Alphabet的CEO，Pichai从个人经历出发——他小时候在印度无法轻易接触到电话，如今却领导着全球最前沿的AI公司——描绘了技术变革的惊人速度，并强调“技术本身不是目的，而是赋予人类更大可能性的工具”。\n\n- **核心观点与创新启示**：Pichai提出，AI带来的不仅仅是效率提升，更是“创造力的放大器”。他批评了当前对AI的两种极端反应——要么过度恐慌，要么盲目乐观。真正的“创新点”在于，人类需要学会与AI共舞：AI能生成代码、设计药物、创作音乐，但人类独有的“不确定性承受力”和“失败中学习的韧性”才是不可替代的。他以AlphaFold（蛋白质结构预测）和Bard（对话模型）为例，说明这些工具并非取代科学家或作家，而是让他们能攻克更具挑战性的问题。\n\n- **技术影响与应用场景**：Pichai的演讲直接映射了现实应用。在教育领域，AI个性化导师可以“让每个学生拥有苏格拉底”；在医疗领域，AI辅助诊断能弥合专业医生短缺的鸿沟；在气候领域，AI优化能源网络已开始落地。他特别警告了“算法偏见”和“数字鸿沟”——\n  技术越强大，越需要确保它不会固化现有的不平等。这正是他提出“负责任的AI”原则的深层原因：从模型训练阶段的公平性审计，到部署时的透明度机制，每一步都需要人类监督。\n\n- **对毕业生的深远启发**：Pichai鼓励毕业生采取“海豚思维”——像海豚一样在AI浪潮中冲浪而不是被淹没。他分享了自己在Google早期开发Chrome时的故事：面对当时已垄断市场的浏览器，团队选择“重新思考整个基础架构”，最终用V8引擎开创了现代Web体验。这种“敢于推翻共识”的精神，在AI快速迭代的今天更为关键——未来十年，现有工作模式可能被彻底重构，但人的好奇心、道德直觉和跨领域协作能力，将是AI无法复制的竞争力。\n\n整场演讲传递出一个核心信号：技术创新的终极目标不是制造更聪明的机器，而是激发更完整的人。AI可以加速发现，但无法替代人类去定义“什么是值得追求的”。对于技术从业者而言，这意味着要同时掌握算法原理和人文思辨——既会写模型，也会问“这个模型该为谁服务”。"
+      "pubDate": "Mon, 15 Jun 2026 15:00:00 +0000",
+      "titleZh": "We’re strengthening our presence in Alabama through new investments and community support.",
+      "descriptionZh": "Google宣布将在2026至2027年间投资15亿美元，用于扩建其位于阿拉巴马州杰克逊县的数据中心园区。该数据中心自2019年起投入运营，依托一处经过改造的旧工业用地建设而成，体现了Google在可持续基础设施布局上的持续投入。此次扩建不仅将显著提升区域算力容量，满足日益增长的AI训练、云计算及数据存储需求，还将为当地创造大量长期技术岗位与建设期就业机会。Google方面强调，该园区将采用最先进的能效管理和可再生能源策略，力图在降低运营碳足迹的同时，为周边社区提供教育、技能培训等数字包容性计划。从行业影响看，此举进一步巩固了美国东南部作为云计算与AI基础设施核心枢纽的地位，同时释放出科技巨头持续押注边缘计算与超大规模数据中心建设的明确信号。对于AI研发领域而言，此扩建将直接缓解模型训练和推理服务的算力瓶颈，支撑更复杂的多模态应用落地，并推动绿色数据中心设计标准向更高效、更环保的方向演进。"
     }
   ]
 }

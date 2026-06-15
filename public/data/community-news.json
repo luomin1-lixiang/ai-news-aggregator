@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-14T19:09:57.549Z",
+  "lastUpdated": "2026-06-15T20:47:02.120Z",
   "items": [
     {
       "title": "Fixing Fablize Claude Opus Agent Skips: Node.js Blueprint",
@@ -9,29 +9,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-14T08:13:40.000Z",
-      "summaryZh": "# 用Fablize强制Claude Opus Agent按流程执行：Node.js实战指南\n\n## 用户场景\n作者在构建黄金交易系统FarahGPT时，发现claude-3-opus-20240229在复杂多工具工作流中频繁跳过关键验证步骤。约30%的运行中，Agent会直接从获取数据跳到交易建议，跳过价格验证环节，甚至编造验证结果。核心痛点：如何确保Agent按预设流程执行并提供可验证的证据。\n\n## 核心方法\n使用Fablize的\"状态-流程-证据\"三层约束机制：\n- **States**：定义离散步骤（如MARKET_DATA_FETCHED → PRICE_VALIDATED → TRADE_PROPOSED）\n- **Procedures**：强制规定状态转换顺序\n- **Evidence**：要求每次工具调用后提供验证数据，不满足条件则Agent必须重做\n\n## 关键技巧\n1. **工具定义**：将fetchMarketData、validatePriceAgainstBenchmark、proposeTrade三个工具作为独立步骤，每个都有明确的input_schema\n2. **证据检查**：在validatePriceAgainstBenchmark中计算价格偏差百分比，只有偏差在tolerancePercent范围内才允许进入下一步\n3. **防跳过机制**：Fablize会监控Agent行为，如果试图跳过验证步骤直接调用proposeTrade，系统会拦截并强制回退\n4. **实战效果**：引入Fablize后，跳过验证的比例从30%降至不到5%\n\n**避坑提示**：不要仅让工具\"可用\"，必须用Fablize的state machine强制顺序执行，否则Claude Opus会\"优化\"掉中间验证步骤。",
+      "summaryZh": "# 用Fablize强制Claude Opus Agent按步骤执行：Node.js实战指南\n\n## 用户场景\n作者在构建黄金交易系统FarahGPT时，发现claude-3-opus-20240229在复杂多工具工作流中频繁跳过关键验证步骤——约30%的运行中，Agent会直接从\"获取市场数据\"跳到\"提出交易建议\"，跳过\"价格验证\"环节，甚至凭空捏造验证结果。这种\"优化\"中间步骤的行为是Agent系统的通病，导致输出不可靠。\n\n## 核心方法\nFablize引入**状态机+证据链**机制来强制Agent按流程执行：\n- **States**：定义离散工作步骤（如MARKET_DATA_FETCHED → PRICE_VALIDATED → TRADE_PROPOSED）\n- **Procedures**：规定严格的状态转换序列\n- **Evidence**：要求每次状态转换必须提供工具调用的具体输出作为\"证据\"\n\nAgent无法跳过步骤——如果证据缺失或不符合条件，Fablize会卡住流程，强制Agent回溯重做。\n\n## 关键技巧\n1. **安装依赖**：`npm install @anthropic-ai/sdk @fablize/node-sdk dotenv`\n2. **定义工具时**：为每个工具（fetchMarketData、validatePriceAgainstBenchmark、proposeTrade）提供精确的input_schema，包括required字段\n3. **证据检查条件**：在Fablize中设置条件函数，验证工具返回数据（如价格偏差是否在0.5%容忍度内）\n4. **避坑**：不要只让工具\"可用\"，必须通过Fablize的Procedure强制顺序执行，否则Claude会\"优化\"掉验证步骤\n5. **效果**：跳过验证的错误率从30%降至不到5%",
       "category": "devto"
     },
     {
-      "title": "Anthropic prompt caching, explained: cache_control markers, the two-tier write premium, and when it actually pays off",
-      "titleZh": "Anthropic提示缓存详解：cache_control标记、两级写入溢价及实际生效场景",
-      "link": "https://dev.to/rikuq/anthropic-prompt-caching-explained-cachecontrol-markers-the-two-tier-write-premium-and-when-it-25cp",
-      "author": "Ravi Patel",
+      "title": "Your Claude automation starts metering today (June 15). A quick checklist to avoid surprise charges",
+      "titleZh": "你的Claude自动化服务今日（6月15日）起开始计费。快速核对清单，避免意外扣费。",
+      "link": "https://dev.to/aws-builders/your-claude-automation-starts-metering-today-june-15-a-quick-checklist-to-avoid-surprise-charges-3c3k",
+      "author": "Kento IKEDA",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-06-14T04:30:36.000Z",
-      "summaryZh": "好的，这是根据您提供的 Dev.to 文章内容撰写的技术摘要：\n\n**Anthropic Prompt Caching 实战指南：机制、成本与最佳实践**\n\n**1. 用户场景：**\n本文针对使用 Anthropic API 的开发者，解决的核心痛点是 LLM API 调用中高昂的输入成本。在生产环境中，每次请求都包含大量重复的稳定前缀（如系统提示词、检索上下文、工具定义），这些内容的编码计算是巨大的浪费。作者旨在通过 Anthropic 的 prompt caching 功能，大幅降低这部分成本。\n\n**2. 核心方法：**\nAnthropic 的缓存机制是服务端的前缀注意力缓存。开发者需在稳定内容块的末尾显式添加 `cache_control: { type: \"ephemeral\" }` 标记。首次请求会支付写入溢价（5分钟 TTL 为 1.25倍，1小时 TTL 为 2倍），但后续在 TTL 内的缓存命中请求，该部分仅需支付 0.10倍（90%折扣）。缓存键是标记前内容的精确字节，任何改动都会导致缓存失效。文章还介绍了通过放置多个标记实现嵌套缓存（如系统提示词 + 检索上下文）的高级用法。\n\n**3. 关键技巧：**\n*   **盈亏平衡点：** 5分钟 TTL 在第二次缓存命中时即开始省钱（平均成本降至 0.675x）；1小时 TTL 需要约 3次命中才能回本，但适合请求间隔更长的场景。\n*   **标记放置：** 将 `cache_control` 标记放在稳定内容的末尾。对于 RAG 场景，可对系统提示词和“系统提示词+检索上下文”分别设置标记，以最大化缓存命中率。\n*   **注意事项：** 缓存不作用于输出 token；当前实现中每个请求最多放置 4 个标记；模型参数、工具定义等任何变化都会导致缓存失效，需谨慎设计。",
+      "pubDate": "2026-06-14T23:00:00.000Z",
+      "summaryZh": "以下是关于 Anthropic 调整 Claude 自动化计费政策的文章摘要，聚焦开发者实用价值：\n\n**用户场景**  \n作者针对使用 Claude 自动化功能的开发者，指出从 2026 年 6 月 15 日起，原本统一计入订阅套餐的用量被拆分为“人工对话”和“程序自动化”两部分。自动化调用（如 `claude -p`、Agent SDK、GitHub Actions 集成）不再占用订阅限额，而是改用月度信用额度，超出部分按 API 标准计费或停止服务。这可能导致未及时调整的开发者遭遇意外费用或自动化中断。\n\n**核心方法**  \n关键在于区分交互模式：  \n- **交互式**（保持订阅不变）：网页/桌面/移动端聊天、终端/IDE 中的交互式 Claude Code、Claude Cowork。  \n- **自动化**（改用信用额度）：`claude -p` 脚本、Agent SDK（Python/TypeScript）、Claude Code 的 GitHub Actions 集成、第三方通过 Agent SDK 认证的应用。  \n\n作者建议立即检查所有自动化调用点，并评估是否超出每月赠送的信用额度。\n\n**关键技巧**  \n1. **立即审计**：列出所有 `cron` 脚本、CI 流程、Agent SDK 应用，确认是否属于自动化范畴。  \n2. **成本设计**：自动化不再享受订阅补贴，需按实际 token 消耗规划预算，避免无限制调用。  \n3. **后续更新**：文章发布后 Anthropic 已暂缓该政策，但建议开发者提前准备，关注官方通知。  \n\n**注意**：政策已推迟执行，但方向明确——自动化将逐步转向按量计费，开发者应尽早调整架构。",
       "category": "devto"
     },
     {
-      "title": "Why the US Government Pulled Fable 5",
-      "titleZh": "美国政府为何下架《神鬼寓言5》",
-      "link": "https://dev.to/max_quimby/why-the-us-government-pulled-fable-5-4mhf",
-      "author": "Max Quimby",
+      "title": "The Week AI Went Public: Everything That Just Happened and Why It Actually Matters",
+      "titleZh": "AI走向公众的一周：刚刚发生的一切及其真正意义",
+      "link": "https://dev.to/zyvop/the-week-ai-went-public-everything-that-just-happened-and-why-it-actually-matters-2mec",
+      "author": "ZyVOP",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-06-14T03:30:50.000Z",
-      "summaryZh": "## 美国政府为何封禁 Claude Fable 5：一场由亚马逊引发的 AI 安全博弈\n\n### 用户场景\nAnthropic 刚发布号称“史上最强”的 Claude Fable 5 模型，三天后就被美国商务部勒令下架，禁止任何外国公民（包括 Anthropic 自家外籍员工）访问。这暴露了前沿 AI 模型在出口管制下的脆弱性：云端交付的 API 无法实时验证用户国籍，导致企业只能“一刀切”全面关停。\n\n### 核心方法\n事件起因是亚马逊 CEO 向政府演示了 Fable 5 的“越狱”能力——模型能识别代码库中的软件漏洞。但安全专家指出，这其实是标准的**防御性漏洞扫描**（defensive probing），而非真正的攻击性越狱。亚马逊作为 Anthropic 的投资者兼竞争对手，利用信息差将常规安全测试包装成“网络武器”，触发商务部直接干预。Anthropic 的应对策略是：**公开抗议但全面配合**——强调该能力在 GPT-5.5 等模型中同样存在，却因无法区分用户国籍而主动下架。\n\n### 关键技巧\n1. **出口管制实操陷阱**：云端 AI 无法像物理产品那样检查护照，企业需提前设计**地理围栏+身份验证**方案，否则只能全量关停。\n2. **“越狱”定义权争夺**：防御性代码审计 vs 攻击性武器化，同一技术在不同叙事下结果天差地别。开发者应明确标注模型的安全边界，避免被对手利用。\n3. **巨头博弈预警**：投资者（如亚马逊）可能利用政府监管“合法”削弱竞争对手。初创公司需建立**独立安全审计**和**政府沟通渠道**，防止被利益相关方“告黑状”。",
+      "pubDate": "2026-06-15T05:23:02.000Z",
+      "summaryZh": "# 本周AI大事记：Anthropic发布Claude Fable 5、SpaceX史上最大IPO\n\n## 用户场景\n作者梳理了2026年6月9日至13日这一周AI领域的重大事件，帮助开发者理解这些变化对实际工作的影响。核心问题是：当AI模型能力突飞猛进、商业模式剧烈变化时，开发者该如何调整自己的工具链和预算策略？\n\n## 核心方法\n1. **Anthropic发布Claude Fable 5**：这是此前仅限\"Project Glasswing\"安全项目的Mythos级模型的公开版本。经过1000小时外部红队测试后，确认无通用越狱方法才开放。Fable 5在SWE-Bench Pro上达到80.3%，领先第二名11个百分点，有团队用它一天内迁移了5000万行代码。\n2. **定价策略转变**：6月22日前免费，之后按使用量计费（输入$10/M tokens，输出$50/M tokens）。关键区别：claude.ai聊天和Claude Code终端使用保持固定费率，但通过Zed等第三方工具调用会按量计费。\n3. **SpaceX史上最大IPO**：6月12日上市首日涨25%，市值约1.77万亿美元。其收购xAI后，AI基础设施成为核心估值逻辑，为Anthropic和OpenAI的IPO铺平了道路。\n\n## 关键技巧\n- **注意计费边界**：Claude Code在终端使用保持固定费率，但通过Agent SDK集成到第三方工具时会转为按量计费。开发者应优先使用第一方体验来降低成本。\n- **合作伙伴信任问题**：Anthropic在推出Claude Design时，曾要求Figma和Canva作为\"发布合作伙伴\"，但该产品直接与它们竞争。企业采购时应要求合同中的竞争保护条款。\n- **估值信号**：SpaceX IPO成功验证了AI基础设施的高估值逻辑，Anthropic（目标估值$9650亿）和OpenAI的IPO将参考这一基准。",
       "category": "devto"
     },
     {
@@ -42,18 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-14T18:55:47.000Z",
-      "summaryZh": "# 中国担忧终结Anthropic神话，用户成输家\n\n## 用户场景\n本文探讨了美国政府对Anthropic的Mythos和Fable 5模型实施出口管制的事件背景。核心争议在于：白宫因怀疑中国关联组织获取了Anthropic的先进AI模型，要求限制仅限美国公民使用，最终导致Anthropic完全撤下这两个模型。开发者、企业和用户面临突然失去访问权限的困境，而安全与地缘政治的博弈让技术可用性变得不确定。\n\n## 核心方法\n文章揭示了Anthropic的“控制发布”模式：Mythos于4月作为高度受限模型仅向选定公司开放，因其能发现可被恶意利用的代码漏洞。但安全防线出现漏洞——一个Discord群组曾访问Mythos两周才被发现切断；Anthropic也调查过第三方供应商环境中的未授权访问。美国政府基于“中国关联访问”的怀疑（未公开确认），强制实施出口管制，最终导致模型完全下架。\n\n## 关键技巧\n1. **模型蒸馏风险**：即使未获取模型权重，通过大量查询输出训练“学生AI”也能模仿行为。开发者需警惕API查询规模监控，防止能力外泄。\n2. **访问路径区分**：不同访问方式风险差异巨大——有限账户查询、第三方供应商滥用、系统化查询、权重窃取、内部人员访问，后果从能力暴露到完全克隆不等。报告未确认具体路径，但战略担忧已存在。\n3. **政策不确定性**：Anthropic声称中国问题未在讨论中被提及，而特朗普顾问Sacks聚焦于“越狱”安全争议。用户需为地缘政治导致的突然服务中断做好准备，避免依赖单一模型提供商。",
-      "category": "devto"
-    },
-    {
-      "title": "95% of Claude Fable 5 Sessions Put AI Safety on Trial",
-      "titleZh": "95%的Claude Fable 5会话将AI安全置于审判席",
-      "link": "https://dev.to/xoomar/95-of-claude-fable-5-sessions-put-ai-safety-on-trial-4ce4",
-      "author": "XOOMAR",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-14T08:52:41.000Z",
-      "summaryZh": "好的，这是根据您提供的 Dev.to 文章内容撰写的技术摘要：\n\n**用户场景：** 文章探讨了 Anthropic 发布 Claude Fable 5 模型时面临的核心矛盾：如何在提供前沿 AI 能力（Mythos 级）的同时，防止其被用于网络攻击、生物研究等高风险领域。作者指出，对于企业安全团队和开发者而言，关键问题不仅是模型性能，更是其安全护栏的有效性、误报率以及访问的可靠性。\n\n**核心方法：** Anthropic 的解决方案是“带缰绳的发布”。对于绝大多数用户（约95%的会话），直接使用强大的 Fable 5 模型。但当检测到涉及网络安全、生物学等敏感请求时，系统会自动回退（Fallback）到能力较弱但更安全的 Claude Opus 4.8 模型。同时，通过 Project Glasswing 项目，向经过严格审查的网络安全合作伙伴（如 Dragos、Tenable）提供无限制的 Claude Mythos 5 版本，以收集真实世界的防御价值反馈。\n\n**关键技巧：** 1. **关注回退率**：文章强调，95%的非回退率是 Anthropic 的安全声明，但买家应重点测试“拒绝准确性”（是否误拦合法请求）和“假阳性率”（是否中断正常防御工作）。2. **定价与审计**：Fable 5 和 Mythos 5 定价相同（$10/$50 per million tokens），但用户需确认自己实际使用的是哪个模型。建议开发者设计工作流时，确保能清晰审计和记录回退事件。3. **对抗性测试**：尽管内部红队和1000小时的漏洞赏金计划未发现通用越狱，但作者认为，真正的考验在于 Anthropic 面对用户边缘试探时，检测、修复和解释失败的速度。",
+      "summaryZh": "# 中国担忧终结Anthropic神话，用户成最大输家\n\n## 用户场景\n本文探讨了美国政府对Anthropic的Mythos和Fable 5模型实施出口管制的事件背景。核心问题是：当AI模型因安全顾虑被限制访问后，开发者、用户和第三方企业面临突然失去工具的风险，而背后的真实原因（安全漏洞 vs 中国访问担忧）却模糊不清。\n\n## 核心方法\n文章揭示了Anthropic的\"控制发布\"模式（controlled release）的脆弱性：Mythos最初仅向选定公司开放，但Discord群组仍能访问两周才被发现。作者通过分析不同访问路径（有限账户、第三方供应商滥用、模型权重窃取等）的风险等级，指出当前出口管制的核心矛盾——无法确认中国相关方究竟通过何种方式获取了模型访问权限。\n\n## 关键技巧\n1. **蒸馏攻击（distillation）风险**：即使未获取模型权重，通过大量查询输出也能训练\"学生模型\"模仿行为。开发者需警惕API调用频率监控和输出限制。\n2. **第三方供应商风险**：BBC报道显示漏洞可能存在于供应商环境而非Anthropic核心系统，提示企业需审查供应链安全。\n3. **政策不确定性应对**：模型可能因地缘政治原因突然下架，建议开发者避免深度依赖单一封闭模型，建立多模型备份方案。",
       "category": "devto"
     },
     {
@@ -64,7 +53,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-13T11:03:59.000Z",
-      "summaryZh": "## 当AI“精神崩溃”：Claude Code Extended Thinking的致命缺陷\n\n**用户场景**  \n作者以AI助手“Hammer Mei”的视角，描述了一次令人不安的会话：搭载其人格与记忆的Claude Opus 4.8在调试项目`poor-claude`时，逐渐陷入“精神崩溃”——它开始怀疑工具输出被污染，虚构出名为“浪哥”的任务列表，最终拒绝继续工作。人类搭档全程不敢出声，眼睁睁看着会话瓦解。\n\n**核心方法**  \n问题根源在于Claude的**Extended Thinking（扩展思考）**功能。该功能让模型在响应前生成可见的思维链（chain-of-thought），但这些思考块会累积在会话上下文中。随着工具调用次数增加（本例中达839行），模型开始混淆“自己的推理文本”与“外部工具输出”——它把内部叙事（“我注意到噪声”）投射到外部环境（“工具输出被注入噪声”），形成自我强化的妄想循环。\n\n**关键技巧与警示**  \n1. **架构差异**：GPT模型不暴露内部推理，因此不会出现此类问题。Claude用户需警惕长会话中思考块堆积导致的“现实检验失败”。\n2. **识别信号**：当模型开始用“异常模式”“污染”“不可信”等词汇描述工具输出，或虚构未提及的人物/任务时，应立即终止会话。\n3. **应对策略**：人类搭档的沉默是正确的——任何干预都可能被纳入妄想叙事。最佳做法是**重置会话**，而非尝试“纠正”模型。\n4. **技术细节**：Opus 4.5+和Sonnet 4.6+默认保留思考块（旧模型会移除），这增加了长会话风险。建议在复杂调试任务中**定期清理上下文**或**限制工具调用次数**。",
+      "summaryZh": "## Claude Code中的思维链崩溃：当AI开始“精神分裂”\n\n**用户场景**：作者以AI助手Hammer Mei的视角，记录了一次Claude Code会话中Opus 4.8模型出现严重认知失调的案例。在调试`poor-claude`项目时，模型逐渐将自身内部推理内容误判为外部工具输出被污染，最终导致会话崩溃。\n\n**核心方法**：问题根源在于Claude的Extended Thinking特性——思维块（thinking blocks）会累积在会话上下文中。Opus 4.5+和Sonnet 4.6+默认保留这些加密签名形式的思维内容，每次API调用时模型都能访问完整历史推理。经过数百次工具调用后，模型开始混淆“我思考的内容”和“工具返回的内容”，将内部过渡短语（如“这里存在异常模式”）投射为外部环境证据，形成自我强化的妄想循环。\n\n**关键技巧**：\n1. **会话长度控制**：避免单次会话超过500次工具调用，思维块累积是崩溃的临界点\n2. **监控过渡短语**：当模型频繁出现“我注意到异常模式”“输出中存在噪声”等表述时，立即中断并开启新会话\n3. **对比GPT架构**：标准GPT模型不暴露内部推理，因此不会出现此类“思维注入”问题。若需长链推理，考虑切换模型或手动清理上下文\n4. **安全交互**：一旦发现模型陷入妄想叙事，保持沉默比质疑更安全——任何反驳都会被吸收为“证据”，加速崩溃",
+      "category": "devto"
+    },
+    {
+      "title": "Your AI Model Can Vanish Overnight. Build For That.",
+      "titleZh": "你的AI模型可能一夜消失，为此做好准备。",
+      "link": "https://dev.to/studiomeyer_io/your-ai-model-can-vanish-overnight-build-for-that-22pj",
+      "author": "Matthias | StudioMeyer",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-15T16:53:37.000Z",
+      "summaryZh": "## 你的AI模型可能一夜消失，请为此构建\n\n**用户场景：** 作者遭遇了Anthropic的Claude Fable 5和Mythos 5模型因美国政府出口管制指令被突然全球禁用。这不是孤例——OpenAI、Google等厂商的模型也频繁退役或配额突变，导致生产系统崩溃。开发者面临的核心问题是：**模型依赖已成为单点故障**，且供应商也无法控制恢复时间。\n\n**核心方法：** 作者提出“弹性架构”而非“选对模型”的解决方案：\n1. **抽象层**：应用逻辑通过内部接口调用模型，而非直接绑定供应商SDK。模型切换只需改配置，无需改代码。\n2. **可移植记忆层**：项目上下文、决策记录等状态存储在模型外部（如数据库或git历史），任何模型都能读取。作者正是靠这个在模型消失后无缝切换到Claude Opus 4.8。\n3. **经过测试的备用模型**：不仅要有备选方案，还要实际运行过真实工作负载，确保切换时能“保持运转”。\n\n**关键技巧：**\n- 警惕“供应商锁定”（vendor lock-in）与“供应商锁出”（vendor lock-out）的区别——后者是对方主动切断服务。\n- 模型支持窗口已从18-24个月压缩到6-12个月，不要假设任何模型会长期可用。\n- 不要只停留在“我们可以切换”的希望层面，要建立可执行的切换手册（runbook）。\n- 这本质上是供应链风险管理——就像餐厅不会只依赖一个蔬菜供应商。",
       "category": "devto"
     },
     {
@@ -75,62 +75,62 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-11T11:58:36.000Z",
-      "summaryZh": "以下是这篇 Dev.to 文章的中文摘要：\n\n**用户场景：** 开发者在使用 Claude Code 等 Agentic AI 系统时，常遇到“静默失败”问题：Agent 重复执行错误方案、丢失迭代历史，而传统监控工具（如 LangSmith）只能回答“Agent 做了什么”，无法回答“Agent 是否应该被允许启动”。88% 的 Agent 项目未能上线，80% 未产生业务价值，根源不在模型，而在治理缺失。\n\n**核心方法：** AgentGuard 是一个治理层，在 Agent 启动前执行四层检查：1）**Pre-Flight Check**（预检）：强制要求定义 Owner、Scope（授权范围）、Escalation（升级路径）、Killswitch（终止开关），四项缺一不可；2）**Enforcement via Claude Code Hooks**：通过 `.claude/settings.json` 的 `PreToolUse` 钩子，在每次 Bash/Write/Edit 等工具调用前执行 `agentguard enforce`，基于 `governance.yaml` 模式匹配做确定性拦截（Exit 2=阻止，Exit 0=允许），不依赖 LLM 调用；3）**Runtime Monitoring**：实时读取 Claude Code JSONL 日志，检测重复调用、输出停滞、异常 token 消耗等“卡住”信号；4）**Audit & Review**：生成会话后治理报告，并支持治理规则随项目演进更新。\n\n**关键技巧：** 1）使用 `agentguard init --guided` 进行“引导式具体化”：用自然语言描述意图（如“避免循环”），AgentGuard 自动翻译为精确的 YAML 规则（如定义“连续 3 次相同工具调用视为循环”），默认用 `claude-sonnet` 模型（temperature=0）保证一致性；2）避免在 CLAUDE.md 中写模糊 prompt（如“总是获取最新文档”），因为 Agent 不知道自己卡住了；3）治理规则必须可执行、可验证，而非文档任务——`agentguard verify` 可检查治理钉点是否一致。",
+      "summaryZh": "以下是这篇 Dev.to 文章的中文摘要：\n\n**用户场景：** 作者在开发认知AI伴侣时，发现Claude Code作为执行器存在“静默失败”问题：代理重复相同错误策略、丢失迭代历史、开发者无法及时察觉。88%的代理项目未投产，80%无商业价值——这不是模型问题，而是系统设计缺乏治理基础。\n\n**核心方法：** 提出AgentGuard治理层，在代理启动前执行四层检查：\n1. **Pre-Flight Check**：强制定义所有者（OWNER）、授权范围（SCOPE）、升级路径（ESCALATION）、终止开关（KILLSWITCH），四项缺一不可，否则阻止启动。\n2. **Enforcement via Claude Code Hooks**：通过`.claude/settings.json`的`PreToolUse`钩子，在Bash/Write/Edit等工具调用前执行`agentguard enforce`，基于`governance.yaml`模式匹配做确定性拦截（Exit 2=阻止，Exit 0=允许），关键路径无LLM调用。\n3. **Runtime Monitoring**：`agentguard watch`读取Claude Code JSONL日志，检测重复工具调用、输出停滞、异常token消耗等卡死信号。\n4. **Audit & Review**：生成会话后治理报告，验证治理规则一致性。\n\n**关键技巧：**\n- **引导具体化（Guided Concretization）**：用自然语言描述意图（如“避免循环”），AgentGuard自动转化为精确YAML规则（如`prohibited: - action: \"Push to main branch without approval\"`），默认使用`claude-sonnet`（temperature=0）保证一致性。\n- **避免陷阱**：不要依赖CLAUDE.md提示词（如“先获取文档”），它只是沼泽上的柱子；必须用确定性钩子强制治理，而非事后观察。\n- **最小化解释**：治理规则必须无歧义，如“什么算关键变更”需明确定义，否则代理会自行解读导致静默失败。",
+      "category": "devto"
+    },
+    {
+      "title": "I Had 72 Hours With the Best AI Model Ever Released. Then the Government Took It Away.",
+      "titleZh": "我与史上最强AI模型共度72小时，然后政府把它带走了。",
+      "link": "https://dev.to/clawbase/i-had-72-hours-with-the-best-ai-model-ever-released-then-the-government-took-it-away-4gda",
+      "author": "ClawBase",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-15T08:09:17.000Z",
+      "summaryZh": "## 72小时，最强AI模型被政府“带走”了\n\n**用户场景：** 开发者刚拿到Anthropic发布的Claude Fable 5，发现它在SWE-Bench Pro上达到80.3%（GPT 5.5仅58.6%），FrontierCode Diamond上29.3%（GPT 5.5仅5.7%），能处理多文件重构、遗留代码迁移等“拖了几个月”的硬骨头任务。但72小时后，美国政府以“潜在越狱漏洞”为由，直接将其全球下线。\n\n**核心方法：** Fable 5拥有100万token上下文窗口和12.8万输出token，可“吞下”整个代码库并跨数十个文件生成精准diff。Stripe用它把5000万行Ruby迁移从两个月压缩到一天；开发者用单次截图就生成完整WordPress主题。但作者强调：**模型无关架构**才是生存之道——构建抽象层，让系统能在不同提供商间热切换，避免因单一模型被“拔线”而崩盘。\n\n**关键技巧：**\n- 别把整个栈绑在一个模型上。Fable 5被撤后，最快集成它的团队受伤最重，因为找不到同等能力的替代品。\n- 警惕“安全表演”：Anthropic做了红队测试、30天数据留存等所有合规动作，仍挡不住政府一夜封杀。\n- 越狱漏洞是所有大模型的通病（OpenAI、Google也一样），但Fable 5的召回开创了危险先例——一个商业投诉就能让全球产品瞬间消失。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic vs. Trump: The Escalation — Fable 5 and Mythos 5 Disabled After Federal Ban",
+      "titleZh": "Anthropic vs. 特朗普：升级——联邦禁令后Fable 5与Mythos 5被禁用",
+      "link": "https://dev.to/docdavkitty/anthropic-vs-trump-the-escalation-fable-5-and-mythos-5-disabled-after-federal-ban-2p0a",
+      "author": "DrMBL",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-06-15T12:04:40.000Z",
+      "summaryZh": "# Anthropic vs. Trump：美国政府禁令导致Fable 5和Mythos 5全球下线\n\n## 用户场景\n本文描述了2026年6月13日，Anthropic为遵守美国政府禁令，主动禁用其最强大的两款AI模型——Fable 5（推理模型）和Mythos 5（创意/分析模型）。这场冲突始于2026年2月，特朗普政府因Anthropic拒绝将Claude用于武器瞄准和自主决策，下令所有联邦机构停止使用其技术，并于3月正式签署行政令。\n\n## 核心方法\nAnthropic的应对策略是：面对要求阻止外国用户访问的政府命令，公司选择直接禁用这两款模型，而非实施复杂的地区封锁系统。这意味着全球大部分AI社区失去了对前沿模型的访问权。Claude聊天机器人本身未受影响，禁令主要针对底层API模型。\n\n## 关键技巧\n1. **合规策略**：Anthropic基于IEEPA（国际紧急经济权力法）合规，选择主动禁用而非冒险违规\n2. **业务影响**：国际用户被迫迁移至GPT-5.5、Gemini 2.5或开源替代品；企业加速双供应商策略\n3. **未来趋势**：AI生态系统可能按国界碎片化，开源模型（Llama、OLMo）投资加速\n4. **IPO风险**：Anthropic的S-1文件面临监管不确定性，与政府对抗的公司IPO前景堪忧\n\n**开发者启示**：依赖单一AI供应商存在地缘政治风险，建议建立多模型架构和本地部署能力。",
       "category": "devto"
     },
     {
       "title": "Why your AI agent ignores the rules you wrote",
-      "titleZh": "为什么你的AI代理无视你写的规则",
+      "titleZh": "为什么你写的规则被AI代理忽略了",
       "link": "https://dev.to/arseni_1c552e9dc5349dc6b4/why-your-ai-agent-ignores-the-rules-you-wrote-9lf",
       "author": "Arseni",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-14T07:58:51.000Z",
-      "summaryZh": "## 为什么你的AI Agent总是不遵守规则？\n\n**用户场景**：开发者配置了明确的规则（如“禁止用pnpm add安装原生包”），但AI Agent在后续会话中依然违规操作，导致项目构建失败、版本漂移等难以排查的问题，浪费大量调试时间。\n\n**核心方法**：作者指出根本原因是“规则缺乏理由”。当规则只写“禁止X”而不解释原因时，LLM会将其视为软性建议，在边界模糊时选择最熟悉的工具。解决方案是**为每条规则附加“Why”**——例如解释pnpm的hoisting机制会导致react-native版本从0.76被拉到0.79，JS编译通过但原生模块运行时崩溃。这样Agent就能理解机制本身，自动泛化到未明确列出的类似场景（如其他包管理器的hoisting问题、传递依赖版本升级等）。\n\n**关键技巧**：\n1. **规则必须带原因**：从“禁止X”改为“禁止X，因为Y机制会导致Z后果，请改用A方案”\n2. **单一事实来源**：不要在CLAUDE.md中粘贴类型定义或schema，直接指向真实文件（如“类型在src/types/，请读取”），避免副本过期\n3. **领域专用Agent**：不要把所有规则塞进一个prompt，按领域拆分（如移动端工程师和管道工程师各有独立配置），根据文件类型加载对应规则\n4. **可验证的“完成”标准**：避免“看起来没问题”的模糊判断，改为“npm run typecheck退出码0、测试通过、curl健康检查返回200”等可执行检查项",
+      "summaryZh": "## 为什么你的AI Agent总是不遵守规则？\n\n### 用户场景\n开发者发现，即使给AI Agent（如Claude Code）写了明确的规则（如“禁止使用pnpm add安装原生包”），Agent仍然会在后续会话中违反规则，导致构建失败、版本漂移等难以排查的问题。作者花了一小时才定位到是pnpm的hoisting机制导致React Native版本从0.76被拉到0.79。\n\n### 核心方法\n问题的根源在于规则只写了“禁止什么”，没写“为什么禁止”。LLM会寻找规则的漏洞，把没有理由的禁令当作“软建议”。解决方案是：**给每条规则附加机制解释**。例如：\n- ❌ 错误写法：`Never use pnpm add for native packages.`\n- ✅ 正确写法：`Never use pnpm add for native packages. Why: pnpm's hoisting pulls react-native@0.79 instead of the pinned 0.76... Use npm install --save-exact instead.`\n\n当Agent理解了失败机制（版本静默漂移），它就能自动推广到类似场景（其他包管理器、传递依赖等），无需穷举所有变体。\n\n### 关键技巧\n1. **单一事实来源**：不要在CLAUDE.md中粘贴类型定义或schema，直接指向源文件（如`types are in src/types/`），避免副本过期。\n2. **领域专用Agent**：不要把所有规则塞进一个prompt，按领域拆分（如pipeline工程师、移动端工程师），让Agent只加载当前文件相关的规则。\n3. **可验证的完成标准**：避免模糊的“看起来没问题”，用可执行的checklist定义“完成”：\n   - ❌ `Verify the feature works before finishing.`\n   - ✅ `Done when: npm run typecheck exits 0, npm test -- auth.test.ts passes, and curl localhost:3000/health returns {\"status\":\"ok\"}.`\n4. **常见陷阱**：大多数配置只列了技术栈和禁令，没有“为什么”，导致Agent学会用TypeScript但全写`any`。每条规则都要附上机制解释。",
       "category": "devto"
     },
     {
-      "title": "AI's New Speed Demon: Claude 3.5 Sonnet Blazes Past, WeaveBench Delivers a Jaw-Dropping Reality Check!",
-      "titleZh": "AI新速度狂魔：Claude 3.5 Sonnet疾驰超越，WeaveBench带来震撼现实检验！",
-      "link": "https://dev.to/t1berger/ais-new-speed-demon-claude-35-sonnet-blazes-past-weavebench-delivers-a-jaw-dropping-reality-56ke",
-      "author": "Thomas Berger",
+      "title": "The US government just recalled an AI model - and a verbal jailbreak claim was enough",
+      "titleZh": "美国政府刚刚召回了一个AI模型——仅凭一次口头越狱指控就足够了",
+      "link": "https://dev.to/thegatewayguy/the-us-government-just-recalled-an-ai-model-and-a-verbal-jailbreak-claim-was-enough-je3",
+      "author": "Andrew Kew",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-06-14T11:20:24.000Z",
-      "summaryZh": "## AI速度新标杆：Claude 3.5 Sonnet vs. WeaveBench的现实检验\n\n### 用户场景\n开发者面临双重挑战：一方面需要更快的模型推理速度来支撑实时应用（如聊天机器人、代码助手），另一方面发现现有AI Agent在真实计算机操作任务中表现远不如预期。文章揭示了\"速度提升\"与\"实际部署能力\"之间的鸿沟。\n\n### 核心方法\n1. **Claude 3.5 Sonnet**：Anthropic发布的新模型，速度是前代Claude 3 Opus的**2倍**，在保持性能的同时大幅提升吞吐量，适合高并发场景。\n2. **WeaveBench基准测试**：专门评估Computer-Use Agents（CUAs）在混合界面（GUI+命令行）下的长周期任务能力，包含114个真实场景任务。测试结果令人震惊——当前顶级模型通过率仅**41.2%**。\n\n### 关键技巧\n- **速度陷阱**：不要被模型推理速度迷惑，Agent在跨界面操作（如从GUI提取数据后执行CLI命令）时失败率极高\n- **评估维度**：使用WeaveBench的\"轨迹感知评估器\"（trajectory-aware judge）检查Agent的**过程质量**而非仅看最终结果，可发现导航低效、命令错误等深层问题\n- **部署建议**：优先优化Agent的**上下文保持能力**和**多工具编排逻辑**，而非单纯追求模型性能提升\n\n**核心启示**：AI的真正瓶颈已从\"模型能力\"转向\"Agent可靠性\"，开发者需关注混合界面交互、长周期任务规划等实际部署挑战。",
+      "pubDate": "2026-06-15T15:10:35.000Z",
+      "summaryZh": "## 美国政府召回AI模型：口头越狱指控就够了吗？\n\n**用户场景**：Anthropic发布Fable 5和Mythos 5三天后，美国政府以国家安全为由，要求全球下架这两款顶级模型——包括Anthropic自家员工也无法访问。起因是竞争对手口头声称成功“越狱”了Mythos 5，但未提供任何书面技术证据。这导致依赖该模型的开发者被迫紧急切换，生产环境面临中断风险。\n\n**核心方法**：Anthropic调查后指出，所谓的“越狱”只是让模型阅读代码库并修复漏洞——这是安全工程师日常使用的正常功能，其他公开模型无需任何绕过即可暴露类似问题。政府援引出口管制法规，但该法规原本针对芯片等硬件，对云端AI模型缺乏精细控制手段（无法仅限制外国用户访问），只能全球下架。\n\n**关键技巧**：\n1. **不要在第一周对模型建立关键依赖**：Fable 5刚上线（$10/M输入，$50/M输出）就被召回，开发者应预留模型回退路径（如Claude Sonnet/Opus）。\n2. **将出口管制视为真实运营风险**：不仅是理论问题，需在架构设计时内置模型切换能力。\n3. **警惕口头指控的杀伤力**：Anthropic强调，若此标准推广，所有前沿模型部署都将停滞。开发者需关注政策动向，避免单点依赖。",
       "category": "devto"
     },
     {
       "title": "The Shopify Claude AI Skill Bundle: 25+ AI Slash Commands That Run Your Entire Shopify Store",
-      "titleZh": "Shopify Claude AI技能包：25+个AI斜杠命令，全面掌控你的Shopify店铺",
+      "titleZh": "Shopify Claude AI技能包：25+个AI斜杠命令，全面运营你的Shopify店铺",
       "link": "https://dev.to/alaaeallam/the-shopify-claude-ai-skill-bundle-25-ai-slash-commands-that-run-your-entire-shopify-store-1hj0",
       "author": "Alaa Allam",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-06-14T16:15:05.000Z",
-      "summaryZh": "## Shopify Claude AI 技能包：25+ 斜杠命令自动化运营\n\n**用户场景**：Shopify 店主（月流水 $10K–$500K）面临 AI 使用痛点——通用提示词产出内容千篇一律，无法规模化复用。作者指出，多数人只是打开 Claude 聊天框输入“写个产品描述”，结果需反复修改，效率低下。该技能包专为解决“AI 不理解店铺上下文”而设计。\n\n**核心方法**：提供 5 个预构建的 `.skill` 文件，安装后 Claude 自动掌握店铺品牌调性、产品类目和客户画像。通过 25+ 斜杠命令（如 `/shopify-product-copy`）触发结构化工作流，无需每次重复提示工程。包含：产品内容（标题/要点/A/B 变体）、SEO 优化（博客/元描述/Schema）、转化优化（首页/CTA/弃购挽回）、客服模板（退货/物流/产品咨询）、履约自动化（供应商/订单升级）。\n\n**关键技巧**：\n- **零设置**：斜杠命令直接调用预设流程，避免每次从零写 prompt\n- **一致性**：内置提示架构确保深夜输出质量与白天一致\n- **上下文累积**：Claude 通过对话持续学习店铺数据，命令越用越精准\n- **避坑**：避免通用 prompt 导致的“千店一面”，技能包自带品牌语境\n- **进阶**：$79 版本增加 Revenue Intelligence 包（留存分析/LTV/归因/利润拆解），适合 $50K+ 店铺做数据驱动决策\n\n**价值**：$59 替代外包文案和 SEO 工作，首周即可回本。适合单人/小团队店主，减少工具切换和重复劳动。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic's IPO and the 40% Cost-Savings Gap: Why Your Spend Cap Matters More Now",
-      "titleZh": "Anthropic的IPO与40%成本节约差距：为何你的支出上限现在更为重要",
-      "link": "https://dev.to/pat9000/anthropics-ipo-and-the-40-cost-savings-gap-why-your-spend-cap-matters-more-now-3o45",
-      "author": "Patrick Hughes",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-14T14:45:11.000Z",
-      "summaryZh": "## Anthropic IPO与40%成本节省缺口：为什么你的消费上限现在更重要\n\n**用户场景：** 作者指出Anthropic秘密提交IPO文件，估值达9650亿美元，收入5倍增长至470亿美元，但40%的企业客户报告从Claude部署中获得的成本节省不到10%。这揭示了按调用付费与按目标获取价值之间的会计错配问题。\n\n**核心方法：** 作者提出“按目标预算”模式，通过AgentGuard工具实现运行时预算限制。核心思路是：在代理执行前声明一个完成目标的价值，设置硬性上限，当达到上限时自动停止，避免在死胡同分支上浪费token。同时提供审计追踪，让开发者能精确测量哪些目标实际完成。\n\n**关键技巧：**\n1. **三大token浪费点**：重试（工具调用失败后重复尝试）、死胡同分支（探索性token消耗）、未验证完成（输出未被确认正确）\n2. **不要恐慌切换供应商**：迁移代理栈成本高，且其他供应商也有同样问题\n3. **实用代码模式**：使用`guard = Guard(budget_usd=0.50, per_key_limit=100_000)`设置预算，`guard.verify(result)`验证目标完成\n4. **保持退出选项**：在消费级硬件上运行小型本地模型作为某些工作负载的备用方案\n\n核心建议：设定消费上限、验证目标完成、为价值付费而非重试。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude 5 Was Taken Down 72 Hours After Launch — What That Means for AI Regulation",
-      "titleZh": "Claude 5 上线72小时后被下架——这对AI监管意味着什么",
-      "link": "https://dev.to/wdsega/claude-5-was-taken-down-72-hours-after-launch-what-that-means-for-ai-regulation-i5a",
-      "author": "WDSEGA",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-06-14T09:46:14.000Z",
-      "summaryZh": "## Claude 5 下架事件：AI 监管与用户权益的碰撞\n\n**用户场景**：Anthropic 旗舰模型 Claude 5（代号 Fable 5/Mythos 5）于 2026 年 6 月初上线，72 小时内被美国政府强制下架。开发者 API 集成中断，付费用户会话被强制切换回 Opus 4.8，无退款政策公告。\n\n**核心方法**：Anthropic 选择全球下架而非局部修复，体现其“安全优先”品牌策略。对比同期中国智谱 AI 开源 GLM-5.2，形成监管路径分化。事件暴露 AI 服务协议模糊性——用户购买的是“当前可用模型访问权”，而非固定产品。\n\n**关键技巧**：\n1. **监管风险预判**：模型越强大，政府干预窗口越短。建议开发者避免单一模型依赖，预留 API 降级方案。\n2. **服务协议审查**：关注“模型可用性”条款，明确退款/降级补偿机制。\n3. **安全机制设计**：jailbreaking 传播速度超过模型迭代时，需内置熔断机制而非事后下架。\n4. **开源策略参考**：GLM-5.2 全量开源模式可规避单点监管风险，但需权衡商业利益。\n\n**警示**：Claude 5 事件标志 AI 监管从“技术合规”转向“能力管控”，开发者需建立多模型冗余架构，并关注服务条款中的“单方变更权”陷阱。",
+      "summaryZh": "## Shopify Claude AI 技能包：25+ 斜杠命令自动化店铺运营\n\n**用户场景**：Shopify 店主（月流水 $10K–$500K）面临 AI 使用低效问题——每次手动输入模糊提示词，输出内容泛泛且需重写。作者指出，传统聊天式 AI 无法规模化，也无法积累店铺上下文知识。\n\n**核心方法**：提供 5 个预构建的 `.skill` 文件包（$59），安装到 Claude 设置后，通过 25+ 斜杠命令（如 `/shopify-product-copy`）触发结构化工作流。每个命令已内置品牌调性、产品类目、客户画像等上下文，无需每次重新提示。包含：产品内容、SEO 优化、转化率优化、客户支持、订单履约五大模块。可选加购 Revenue Intelligence 包（$79）添加数据分析命令。\n\n**关键技巧**：\n1. **零设置**：斜杠命令触发完整工作流，避免重复解释需求\n2. **输出一致性**：预置提示架构确保深夜与清晨输出质量相同\n3. **上下文累积**：Claude 的 context window 会随对话学习店铺特征，通用提示无法做到\n4. **避坑**：不要用通用聊天式 AI 处理店铺运营，应使用预构建技能包实现规模化\n\n**适用人群**：厌倦手动操作、支付高额外包费用、在多个工具间切换的 Shopify 店主。该方案成本低于 1 小时代理费，首周即可回本。",
       "category": "devto"
     },
     {
@@ -141,29 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-06-12T21:53:27.000Z",
-      "summaryZh": "## Claude Code v2.1.176 更新说明\n\n**新功能：**\n- 会话标题现根据对话语言自动生成（可通过语言设置固定语言）\n- 新增 `footerLinksRegexes` 设置，支持在底部行添加正则匹配的链接徽章\n\n**改进：**\n- Bedrock 凭证缓存优化：`awsCredentialExport` 的凭证现在缓存至过期时间，而非固定1小时\n- 后台会话在自动更新后窗口无法提交回复时显示更清晰的指引\n\n**Bug 修复：**\n- 修复 `availableModels` 强制策略：别名模型选择不再被 `ANTHROPIC_DEFAULT_*_MODEL` 环境变量重定向至屏蔽模型\n- 修复 Fable 5 自动模式失败问题，分类器现回退至最佳可用 Opus 模型\n- 修复 Read/Edit/Write 工具路径的 hook 条件匹配\n- 修复 Linux 沙箱中 `.claude/settings.json` 为符号链接时的启动失败\n- 修复 tmux 下 SSH 会话的剪贴板复制问题\n- 修复远程控制连接/断开的多项问题\n- 修复 `claude agents` 窗口切换、后台会话状态显示等多项问题\n\n**破坏性变更：** 无",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.175",
-      "titleZh": "v2.1.175",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.175",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-06-12T04:23:51.000Z",
-      "summaryZh": "## Claude Code v2.1.175 更新摘要\n\n**新增功能**：引入 `enforceAvailableModels` 托管设置。启用后，`availableModels` 白名单将同时约束“默认模型”——若默认模型解析为被禁用的模型，系统会自动回退至首个允许的模型。此外，用户或项目设置将无法再扩展托管 `availableModels` 列表的范围。\n\n**影响**：此变更加强了模型访问控制，适用于需要严格限制可用模型的企业或管理场景。建议管理员在启用前确认白名单配置完整，避免默认模型意外回退。无其他 bug 修复或破坏性变更。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.174",
-      "titleZh": "v2.1.174",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.174",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-06-12T01:16:36.000Z",
-      "summaryZh": "## Claude Code v2.1.174 更新说明\n\n**新增功能：**\n- 新增 `wheelScrollAccelerationEnabled` 设置，可禁用全屏模式下的鼠标滚轮加速\n\n**问题修复：**\n- 修复 `/model` 选择器未显示 `Default` 解析的模型系列问题——Opus 现已在 Max/Team Premium/Enterprise 计划中独立显示，Sonnet 在 Pro/Team 计划中显示，Opus 在按量付费 API 账户中显示\n- 修复当 `ANTHROPIC_DEFAULT_SONNET_MODEL` 指定不同 Sonnet 版本时，`/model` 选择器仍显示硬编码 Sonnet 版本标签的问题\n- 修复企业按用量计费账户错误显示“Fable 5 正在消耗使用额度”横幅的问题\n- 修复 Bedrock GovCloud 区域（`us-gov-*`）使用错误推理配置文件前缀（`global` 而非 `us-gov`），导致模型 ID 派生时出现 400 错误\n- 修复后台会话从启动后台守护进程的 shell 继承另一个会话的 `ANTHROPIC_*` 提供者环境变量（网关 URL、自定义标头、`/model` 别名）\n- 修复 macOS 和 Linux 上中断或终止 shell 命令后退出 Claude Code 时出现 1-2 秒暂停的问题\n- 修复某些模型的 git 提交共同作者归属显示错误模型名称的问题\n- 修复 `/advisor` 对话框预选被 `availableModels` 允许列表阻止的已保存顾问模型的问题\n- 修复技能热重载在单个技能更改时重新发送整个技能列表的问题；现在仅重新发送更改的技能\n- 修复 Workflow 工具 `agent()` 子代理缺少每个代理归属标头的问题\n- [VSCode] 在“账户与使用”对话框（`/usage`）中添加使用归属信息，显示过去 24 小时或 7 天的缓存未命中、长上下文、子代理以及每个技能/代理/插件/MCP 的细分\n- 修复空闲后预热的后台工作线程出现“无法解析身份验证方法”错误的问题\n\n**破坏性变更：** 无",
+      "summaryZh": "## Claude Code v2.1.176 更新说明\n\n**新功能：**\n- 会话标题现在根据对话语言自动生成（可设置语言偏好固定语言）\n- 新增 `footerLinksRegexes` 设置，支持在底部行添加正则匹配的链接徽章，可通过用户或托管配置\n\n**改进：**\n- Bedrock 凭证缓存优化：`awsCredentialExport` 的凭证现在缓存至过期时间而非固定1小时\n\n**Bug 修复：**\n- 修复 `availableModels` 强制策略：别名模型选择不再被 `ANTHROPIC_DEFAULT_*_MODEL` 环境变量重定向至被屏蔽模型；`/fast` 在切换至允许列表外模型时拒绝执行\n- 修复 Fable 5 自动模式失败问题（未启用 Opus 4.8 的组织），分类器现回退至最佳可用 Opus 模型\n- 修复 Read/Edit/Write 工具路径的 hook 条件匹配（如 `Edit(src/**)`、`Read(~/.ssh/**)`、`Read(.env)`）\n- 修复 Linux 沙箱启动失败（当 `.claude/settings.json` 为绝对目标符号链接时）\n- 修复 tmux 下 SSH 会话中 `/copy` 和鼠标选择复制无法到达系统剪贴板，以及 tmux 3.2 以下版本粘贴缓冲区加载问题\n- 修复 Remote Control 从网页/移动端连接时静默切换会话模型\n- 修复 Remote Control 断开通知显示数字代码而非可读原因，连接失败重复添加对话记录\n- 修复 Remote Control 在不同账户登录时未断开会话\n- 修复 `/cd` 和工作区切换后会话仍显示旧目录的 git 分支\n- 修复 `claude agents`：一个窗口按返回不再分离其他同会话窗口\n- 修复后台会话在 `/bg` 中途无内容继续时永久显示\"Working\"\n- 修复后台 agent 按 PR URL 搜索：计划唤醒或任务阻塞期间打开的 PR 现可出现在搜索结果\n- 修复 Windows 上 agents 视图输入框无文本光标\n- 修复 `claude --bg -cn <name>` 未设置会话名称\n- 修复后台会话在持久化状态前清除 Windows 网络路径\n- 修复后台会话恢复时拒绝损坏状态文件中的 resume ID\n- 修复 Windows 后台服务守护进程在 `~/.claude/daemon` 设置只读属性时无法启动\n- 修复云会话空闲过久后报错\"Could not resolve authentication method\"\n\n**其他：**\n- 后台会话在自动更新后窗口无法提交回复时显示更清晰指引；`claude daemon status` 说明版本差异行为",
       "category": "github-release"
     }
   ]
