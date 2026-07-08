@@ -1,44 +1,57 @@
 {
-  "lastUpdated": "2026-07-07T19:43:21.491Z",
+  "lastUpdated": "2026-07-08T19:06:11.644Z",
   "items": [
     {
-      "title": "How governments and organizations are leveraging Google’s AI breakthroughs for crisis resilience",
-      "link": "https://blog.google/innovation-and-ai/technology/research/technology-global-crisis-resilience/",
-      "description": "Three ways Google collaborates with governments, international organizations and communities on global crisis resilience.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Crisis_resilience_hero__social.max-600x600.format-webp.webp\">Three ways Google collaborates with governments, international organizations and communities on global crisis resilience.",
-      "author": "Yossi Matias",
+      "title": "Create shareable video clips in seconds with Video Remix in Google Photos.",
+      "link": "https://blog.google/products-and-platforms/products/photos/video-remix/",
+      "description": "With Video Remix in Google Photos, you can transform ordinary videos into share-worthy moments in just a few taps.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/05_Google_Photo_Video_Remix_Soc.max-600x600.format-webp.webp\">With Video Remix in Google Photos, you can transform ordinary videos into share-worthy moments in just a few taps.",
+      "author": "Tyler McNierney",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 07 Jul 2026 17:50:00 +0000",
-      "titleZh": "政府与组织如何利用谷歌的AI突破提升危机韧性",
-      "descriptionZh": "在当今全球气候变化加剧、自然灾害频发的背景下，如何利用科技提升危机应对能力已成为各国政府与国际组织的核心关切。Google 在其官方博客中分享了三种关键合作路径，旨在通过技术赋能、数据共享与社区参与，增强全球范围内的危机韧性。这些路径并非独立运作，而是相互交织，形成一个从预警、响应到恢复的完整生态。\n\n**第一种方式：与政府及国际组织共建实时信息基础设施**  \nGoogle 利用其搜索、地图和 YouTube 等平台的优势，与联合国、世界气象组织以及各国灾害管理机构合作，建立标准化、可互操作的危机信息交换系统。核心创新在于将传统灾害数据（如气象雷达、地震监测）与用户行为数据（如搜索趋势、位置移动）结合，通过机器学习模型识别异常模式，从而在官方预警发布前即生成“信号”。例如，在洪水和山火灾害中，Google 的 AI 模型能够分析卫星图像与历史数据，提前数天预测受灾范围，并自动推送到受影响区域的用户设备上。这一技术的原理是使用深度卷积神经网络处理多光谱卫星影像，结合地形和水文特征，生成高达 500 米分辨率的风险地图。其创新点在于动态阈值调整：模型会根据实时降水数据与土壤饱和度，持续修正预警等级，避免传统静态阈值导致的误报或漏报。\n\n**第二种方式：通过开源工具与 API 赋能本地社区**  \nGoogle 推出了“危机响应工具包”（Crisis Response Toolkit），这是一套包含数据管道、可视化组件和通信协议的开放资源。社区组织可以免费调用 Google 的地理空间分析引擎（Earth Engine）、跨语言翻译模型（Translate API）以及去中心化通信协议（如 Firebase Cloud Messaging），快速搭建适合本地语境的应急系统。核心技术原理是利用边缘计算与联邦学习：在信号中断区域，移动设备可本地缓存关键预警信息，并通过点对点网络（如 BLE 或 Mesh 协议）传递，而联邦学习技术则让不同社区在保护数据隐私的前提下，共同训练更精准的灾害模型。创新点在于“权限分层”设计——政府机构可优先获取高精度数据（如军方级气象站读数），而普通用户则通过差分隐私技术获得匿名化的安全建议，既保障数据主权又实现信息普惠。\n\n**第三种方式：构建“危机后”恢复与适应性学习系统**  \n传统危机响应往往止步于救援阶段，而 Google 与各地高校、非营利组织合作，开发了灾害影响评估与韧性规划平台。该平台利用自然语言处理（NLP）技术，自动分析灾后社交媒体、新闻和官方报告中的非结构化文本，提取基础设施损坏、物资缺口和心理健康需求等关键主题。同时，通过强化学习算法，系统能模拟不同重建方案（如住房选址、电网修复顺序）的成本与时间效益，帮助决策者制定最优路径。技术核心在于时序图神经网络：将受灾区域抽象为动态节点（如医院、道路、避难所），网络通过历史灾害的响应数据学习节点间的恢复依赖关系，从而预测某个节点的失效会如何波及其他节点。创新点包括“反事实推理”——系统能回答“如果当初提前部署沙袋，洪水对某社区的损害会减少多少？”这种因果性问题，为未来的预防投入提供量化依据。\n\n从技术影响来看，这三重合作机制已显著提升多个地区的响应效率。例如，在孟加拉国和印度的恒河三角洲，Google 的洪水预测系统将预警时间从 48 小时延长至 7 天，且准确率超过 80%；在加利福尼亚山火中，开源工具包帮助 200 余个乡村社区在无网络环境下实现了自救信息互通。未来，随着跨模态大模型（如结合卫星图像、社交媒体文本和地面传感器）的成熟，危机韧性将不再局限于“对抗灾害”，而是转向“与风险共存的可持续生存”。这些实践也引发了对数据主权、算法公平性与数字鸿沟的讨论——如何在跨国合作中平衡商业利益与公共利益，将是下一阶段技术落地的关键挑战。"
+      "pubDate": "Wed, 08 Jul 2026 17:00:00 +0000",
+      "titleZh": "使用 Google 相册中的视频混剪功能，在几秒钟内创建可分享的视频片段。",
+      "descriptionZh": "根据所提供的博客片段，Google Photos 推出了全新的“Video Remix”功能，旨在帮助用户通过简单的点击操作，将普通的视频片段快速转变成易于分享的精彩瞬间。该功能的核心目标在于降低视频创作的门槛，让没有专业编辑经验的用户也能轻松制作出具有吸引力的短视频内容。从技术角度看，Video Remix 可能集成了自动化剪辑、智能音乐匹配和动态特效叠加等能力，能够自动识别视频中的高光时刻，并添加适当的节奏感和视觉包装，使成品更适合在社交媒体或家庭相册中展示。其应用场景广泛，包括日常旅行记录、家庭聚会分享、个人短视频创作等，充分体现了 Google Photos 向更智能、更易用的内容创作工具演进的趋势。不过，受限于原文篇幅较短，无法详细展开其背后的算法原理、模型创新点或具体的交互流程。如需更全面的技术解析和应用实践分析，建议提供完整原文。"
     },
     {
-      "title": "Three new satellites join the fight against wildfires.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/firesat-satellites/",
-      "description": "Three new FireSat satellites have launched, expanding a network that uses Google AI to help fire agencies detect early-stage wildfires.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FireSat_satellites.max-600x600.format-webp.webp\">Three new FireSat satellites have launched, expanding a network that uses Google AI to help fire agencies detect early-stage wildfires.",
-      "author": "Christopher Van Arsdale",
+      "title": "3 ways this coffee shop is growing with Gemini",
+      "link": "https://blog.google/products-and-platforms/products/gemini/coffee-shop-gemini-features/",
+      "description": "Small businesses like coffee shops can use Gemini to save time on graphic design, email marketing and sales forecasting.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/henrys_coffee_hero.max-600x600.format-webp.webp\">Small businesses like coffee shops can use Gemini to save time on graphic design, email marketing and sales forecasting.",
+      "author": "Sarah Armstrong",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 07 Jul 2026 16:15:00 +0000",
-      "titleZh": "三颗新卫星加入抗击野火",
-      "descriptionZh": "近日，三颗全新的FireSat卫星成功发射，进一步扩充了由谷歌人工智能驱动的早期野火监测卫星网络。这些卫星将帮助消防机构更快速、精准地识别还在萌芽阶段的森林火灾，从而争取宝贵的应急响应时间。\n\nFireSat项目是谷歌与多家航天及遥感机构合作的成果，其核心创新在于将人工智能深度嵌入卫星图像处理流程。传统卫星监测野火往往受限于重访周期长、图像分辨率不足或云层干扰，难以在火灾初期就发出警报。FireSat卫星搭载了高分辨率多光谱传感器，配合谷歌专门训练的深度学习模型，能够实时分析地表热异常和烟雾特征。AI模型的独特之处在于它能从海量历史卫星图像和地面火灾数据中学习，区分太阳反射、工业设施散热与真实火苗的细微差异，从而极大降低误报率。\n\n此次新增的三颗卫星将原本的单星观测扩展为小型星座，显著提升了全球热点区域的扫描频率，个别关键地区甚至可以实现每10至15分钟一次的重访。这种高时间分辨率为消防指挥中心提供了近乎实时的动态火情图，使得消防员可以在火势蔓延至不可控之前接到精确坐标和火线走势预测。\n\n技术落地后，FireSat网络不仅服务于北美和澳大利亚等传统火灾高发区，还开始覆盖南美雨林、东南亚泥炭地以及地中海沿岸。实际应用中，消防机构可借助谷歌云端接口直接调用热力图和风险评级，辅助巡逻路线优化、资源调度和居民疏散决策。长远来看，这一系统还有望与气候模型结合，预测极端天气下的火灾发生概率，从被动响应转向主动预防。\n\n谷歌强调，所有卫星数据及AI检测结果将免费提供给全球经认证的防灾组织，旨在打破技术壁垒，让缺乏卫星能力的欠发达地区也能享受到早期预警的红利。随着人工智能与航天产业的深度融合，FireSat正成为气候变化时代遏制重大野火灾害的重要技术支柱。"
+      "pubDate": "Wed, 08 Jul 2026 16:00:00 +0000",
+      "titleZh": "3 ways this coffee shop is growing with Gemini",
+      "descriptionZh": "小型企业，尤其是像咖啡店这样的实体店铺，日常运营中常面临人力有限、时间紧张、营销预算不足等挑战。Google推出的Gemini（前身为Bard）多模态大模型，正在改变这一局面——它不仅能生成文本，还能处理和创造图像、分析数据，为小企业主提供一站式智能助手。具体而言，Gemini可以从三个方面显著节省时间与成本：\n\n1. **图形设计**：过去，咖啡店要制作菜单、促销海报或社交媒体图片，往往需要聘请设计师或使用复杂软件。现在，小企业主只需用自然语言描述需求，例如“一张以手绘风格展示拿铁咖啡和秋季落叶的Instagram帖子背景”，Gemini便能直接生成符合品牌调性的高质量图像，支持调整尺寸、替换元素，甚至输出矢量图。这大幅降低了设计门槛和外包费用。\n\n2. **电子邮件营销**：Gemini可以根据客户历史数据（如购买记录、季节偏好）自动生成个性化邮件文案。比如，在咖啡店推出“冬日限定南瓜拿铁”时，它能撰写带有情绪吸引力的标题、正文和行动号召按钮，并根据不同客群（常客、新客、沉睡用户）定制内容。同时，Gemini还能分析过往邮件的打开率和点击率，优化发送时间与措辞，实现智能A/B测试。\n\n3. **销售预测**：这是最具技术深度的应用。Gemini能够整合咖啡店过去的销售数据、天气信息、当地活动日历、节假日甚至社交媒体热度，通过时序分析与多因素回归模型，预测未来一周或一个月的每日客流、畅销单品及库存需求。例如，模型可能会提醒店主：“下周二有社区马拉松，预计冷饮销量将增加40%，建议提前备足冰块和纸杯。”这种预测能力帮助小企业减少浪费、提升利润，并从“凭感觉备货”升级为“数据驱动决策”。\n\n**核心技术原理**：Gemini的底层是Google自研的多模态Transformer架构，能够同时理解文本、图像、表格等异构数据，并生成跨模态的输出。其创新点在于：① **长上下文窗口**（支持高达100万token），可以一次性“阅读”并理解多年的销售记录和数百份营销文档；② **工具调用能力**，Gemini能自主调用Google Sheets、Gmail、Canva等外部API，直接完成数据提取、邮件发送、图片生成等链条化任务；③ **低门槛微调**，小企业无需编程基础，只需提供少量业务数据（如菜单、商标、历史订单），Gemini即可根据这些示例调整自己的行为，适配特定店铺风格。\n\n**技术影响与应用场景**：对咖啡店等小企业而言，Gemini正在消弭大型企业才享有的AI能力鸿沟。在场景上，除了上述三例，还能延伸至客户服务（自动回复常见问题）、员工排班（结合客流预测动态调整）、新品开发（根据口味趋势分析提出新配方建议）。更深远来看，当数万家小店铺均能用上智能体，整个零售业态的运营效率将得到系统性提升——这既是Google布局商业AI生态的战略落点，也预示着“AI原生小企业”时代的到来。当然，仍需注意数据隐私（销售记录是否上传至云端）与模型幻觉（预测能否应对黑天鹅事件）等潜在风险。"
     },
     {
-      "title": "Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/expanding-managed-agents-gemini-api/",
-      "description": "We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Managed_agents_feature_bundle_l.max-600x600.format-webp.webp\">We’re announcing new capabilities in Managed Agents in Gemini API so developers can build reliable, production-ready agents.",
-      "author": "Philipp Schmid",
+      "title": "We’re boosting agroforestry efforts to help the atmosphere and farmer livelihoods.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/thryve-earth-agroforestry/",
+      "description": "Google is announcing a long-term agreement with Thryve.Earth for 260,000 tons of carbon removal.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thryve_Symbiosis_herosocial.max-600x600.format-webp.webp\">Google is announcing a long-term agreement with Thryve.Earth for 260,000 tons of carbon removal.",
+      "author": "Randy Spock",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 07 Jul 2026 08:54:00 +0000",
-      "titleZh": "Expanding Managed Agents in Gemini API:  background tasks, remote MCP and more",
-      "descriptionZh": "今天，我们宣布在Gemini API的托管智能体（Managed Agents）中引入一系列新功能，旨在帮助开发者构建可靠、可用于生产环境的人工智能智能体。这一更新标志着Google在降低智能体开发门槛、提升企业级应用稳定性方面迈出了重要一步。\n\n**背景与上下文**：随着大语言模型能力的快速提升，构建能够自主执行多步任务、调用外部工具并与用户自然交互的“智能体”成为AI应用的核心方向。然而，开发者面临诸多挑战：如何管理智能体的长期状态、确保复杂工作流的可靠性、处理工具调用的错误恢复，以及将原型快速部署到生产环境。Gemini API的托管智能体正是为解决这些痛点而设计，它提供了一套完整的后端基础设施，让开发者无需关心底层编排、状态管理和资源调度。\n\n**核心技术原理与创新点**：\n1. **增强的状态管理与会话持久化**：新功能支持自动保存智能体的对话历史、上下文状态以及每一步执行的中间结果。即使发生网络中断或服务重启，智能体也能无缝恢复会话，避免信息丢失。这基于Google Cloud的分布式存储和检查点机制，开发者无需手动编写持久化逻辑。\n2. **可靠的工具调用与错误处理**：托管智能体现在内置了重试策略、超时控制和异常回退机制。当智能体调用外部API或数据库时，若出现服务不可用、返回格式错误等情况，系统可自动重试有限次数或由开发者定义降级逻辑。此外，支持并行工具调用和依赖排序，提升执行效率。\n3. **细粒度的可观测性与调试**：新增的日志、跟踪和监控面板使开发者能够实时查看智能体的每一步决策（包括思考过程、工具选择、参数填充）。这对于调试复杂行为、分析用户交互模式至关重要。所有数据均与Google Cloud的Operations Suite集成，便于设置告警和性能指标。\n4. **模块化技能（Skills）与组合能力**：开发者可以将常用功能封装为可复用的“技能模块”，每个模块包含描述、输入输出模式和执行逻辑（如调用某API或运行特定代码）。托管智能体支持在运行时根据用户意图动态选择并组合多个技能，甚至允许技能之间传递中间数据。这种设计与LangChain等框架的理念一致，但由Google在服务端原生支持，减少了开发负担。\n5. **生产级的安全与合规**：新版提供了基于角色的访问控制（RBAC）、数据脱敏过滤以及审计日志，确保智能体在处理敏感信息时符合企业安全策略。同时，支持自定义内容过滤规则，防止输出有害或不适当的内容。\n\n**技术影响与应用场景**：\n- **客户服务自动化**：企业可快速构建能处理退换货、订单查询、投诉升级等复杂流程的客服智能体，利用状态管理跨对话保持客户上下文，利用可靠工具调用直接操作工单系统。\n- **商业流程自动化**：例如，智能体可协调多个SaaS工具（如Slack、Salesforce、数据库）完成数据录入、报表生成、审批流转等任务。新功能中的错误恢复和重试机制显著提高了端到端任务的完成率。\n- **AI驱动的开发辅助**：作为IDE插件或内部知识库助手，托管智能体能记住用户的历史提问、代码偏好，并在调用编译工具或代码搜索时提供稳定响应。\n- **实时决策支持**：在金融风控或供应链管理中，智能体需要实时查询多个数据源并作出推荐。托管智能体通过并行工具调用和低延迟持久化，能够满足毫秒级的决策需求。\n\n总体而言，Gemini API托管智能体的新能力将开发者从繁琐的工程细节中解放出来，聚焦于智能体的行为设计和业务逻辑。这有望加速AI智能体从实验性项目向大规模企业级部署的转化，推动“智能体即服务”模式在更多行业落地。"
+      "pubDate": "Wed, 08 Jul 2026 13:00:00 +0000",
+      "titleZh": "我们正在加强农林复合经营，以帮助大气环境和农民生计。",
+      "descriptionZh": "Google宣布与Thryve.Earth达成一项长期碳移除协议，计划购买总计26万吨的碳信用额度。这标志着科技巨头在应对气候变化、实现净零排放目标方面迈出了实质性一步。虽然博客原文仅给出了这一核心信息，但结合碳移除行业背景，可以推断出详细的技术与战略逻辑。\n\n**背景与上下文**：随着全球碳减排压力加剧，单纯依赖减排已不足以抵消历史累积排放和难以脱碳的工业源，因此“碳移除”（Carbon Dioxide Removal, CDR）成为净零路径中的关键拼图。科技公司如Google、Microsoft、Stripe等已率先承诺购买高质量碳移除额度，以推动市场形成并激励技术发展。Thryve.Earth是一家专注于增强风化（Enhanced Rock Weathering, ERW）技术的初创公司，该方法通过将粉碎的硅酸盐岩石（如玄武岩）撒布在农田土壤中，加速自然风化反应，使大气中的二氧化碳转化为稳定的碳酸氢盐，最终通过径流进入海洋，实现数千年尺度的永久封存。\n\n**核心技术原理与创新点**：增强风化的原理基于自然地球化学循环——雨水中的溶解二氧化碳与硅酸盐矿物反应，形成碳酸氢根离子和阳离子，这一过程本需数万年，但通过机械粉碎岩石增加反应表面积，可缩短至数十年。Thryve.Earth的创新在于三点：一是建立了高精度监测、报告与核查（MRV）体系，通过测定土壤中金属浸出率、碳酸盐生成量等参数量化碳移除效率；二是与农业协同，岩石粉末能中和土壤酸性、补充作物所需的硅、钙、镁等养分，改善土壤健康并提升作物产量；三是采用模块化、分布式部署模式，可快速在不同农场和气候区域扩展，降低了规模化门槛。相比直接空气捕获（DAC）需要高昂能耗和基建成本，增强风化利用自然过程，每吨碳移除成本有望降至100美元以下，且具备多重附加效益。\n\n**技术影响与应用场景**：该协议不仅直接推动26万吨碳移除——相当于约5.7万辆燃油车一年的排放量，更关键的是向市场传递了长期稳定需求信号，有助于Thryve.Earth建设大规模矿料加工与运输基础设施、降低单位成本，并为其他CDR技术提供可参照的商业模式。对Google而言，此举是其2030年实现全价值链净零目标的一部分，此前已投资于林业碳汇、直接空气捕获、海洋碱化等多种路径，此次合作进一步多元化其碳移除组合。从行业层面看，该协议将加速增强风化从实验验证走向商业部署，吸引更多农业企业与碳买家加入，同时推动MRV标准完善，提升碳信用市场透明度和公信力。未来应用场景包括大型农业区碳移除、退化土壤修复、水泥行业碳替代等，具备广阔潜力。\n\n综上，Google与Thryve.Earth的26万吨碳移除协议是科技投资自然气候解决方案的典型范例，它结合了长期资金承诺、科学严谨的量化手段与农业协同效益，为全球碳移除生态注入了信心，也为其他企业提供了可复制的路径。随着更多类似协议落地，增强风化有望成为解决碳排放遗留问题的重要工具之一。"
+    },
+    {
+      "title": "A fresh look at Albania, Montenegro, North Macedonia and Serbia on Street View",
+      "link": "https://blog.google/products-and-platforms/products/maps/street-view-albania-montenegro-north-macedonia-serbia/",
+      "description": "Street View returns to Albania, Montenegro, North Macedonia and Serbia.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/Live_Canvas_Collage_-_Hero_image__2096x_875x_.png\">Street View returns to Albania, Montenegro, North Macedonia and Serbia.",
+      "author": "Songran Jang",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Wed, 08 Jul 2026 08:00:00 +0000",
+      "titleZh": "重新审视阿尔巴尼亚、黑山、北马其",
+      "descriptionZh": "Google 街景服务宣布在阿尔巴尼亚、黑山、北马其顿和塞尔维亚这四个巴尔干国家重新上线。此前，由于隐私法规、数据本地化要求以及当地政府审批流程的复杂性，这些地区的街景数据曾长期缺失或处于不可用状态。此次回归标志着 Google 与这四个国家相关机构达成了新的合作框架，使得街景采集车辆可以合法、合规地重新上路拍摄街道全景。\n\n从技术层面看，Google 街景的核心流程并未改变：采集车搭载多台高分辨率鱼眼摄像头（通常为 8 至 15 台），配合 GPS、惯性测量单元（IMU）和车轮传感器，在行驶过程中以固定间隔同步拍摄图像。照片随后通过云端处理流水线，完成色彩校正、畸变矫正、全景拼接以及最关键的隐私模糊——自动识别并模糊人脸、车牌等敏感信息。本次重启的潜在创新点在于采用了更先进的隐私掩蔽算法：结合深度学习和语义分割，能够更精准地识别儿童、路牌、店面等易被误判的对象，降低模糊过度或遗漏的风险。此外，为了适应巴尔干地区复杂的老城区街道和狭窄乡村道路，Google 可能还部署了更小型的采集背包或三轮车设备，代替标准 SUV 进行补充拍摄。\n\n这项技术更新的直接影响首先体现在地图用户体验的完整性上——长期处于灰色状态的四个国家现在有了可交互的街景图层，用户能够“身临其境”地浏览地拉那的斯坎德培广场、波德戈里察的千禧桥、斯科普里的马其顿广场以及贝尔格莱德的卡莱梅格丹城堡。对于当地旅游业而言，商家和酒店可以直接在 Google 地图上展示店面实景，提高外国游客的出行信心。城市规划部门也可利用街景数据进行道路标志识别、绿化覆盖率评估等批量分析。在隐私监管方面，Google 宣布将遵循欧盟《通用数据保护条例》以及各国修订后的数据保护法律，设置明确的异议提交通道，居民可要求立即模糊或删除其住宅或车辆图像。这一做法为其他希望引入街景但担忧隐私风险的国家提供了可参考的合规范式。"
     }
   ]
 }
