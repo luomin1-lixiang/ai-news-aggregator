@@ -1,6 +1,28 @@
 {
-  "lastUpdated": "2026-07-10T19:18:26.858Z",
+  "lastUpdated": "2026-07-11T18:45:42.668Z",
   "items": [
+    {
+      "title": "Claude thinking: что Anthropic показывает вместо рассуждений (2026)",
+      "titleZh": "Claude思考：Anthropic展示的替代推理方案（2026）",
+      "link": "https://dev.to/promptra-team/claude-thinking-chto-anthropic-pokazyvaiet-vmiesto-rassuzhdienii-2026-29pk",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-10T21:50:08.000Z",
+      "summaryZh": "以下是对 Dev.to 文章《Claude thinking: что Anthropic показывает вместо рассуждений》的中文总结：\n\n**用户场景**  \n开发者在使用 Claude Code 时，期望通过查看 agent 的“思考过程”（thinking）来理解其决策逻辑，尤其是在需要审计或排查错误时。然而，作者发现 Claude Code 的日志中，thinking 字段实际为空，仅留下一个约 600 字符的加密签名（signature），真正的推理文本并未返回给用户。\n\n**核心方法**  \nAnthropic 的 extended thinking 模式允许模型在回答前生成中间推理，但 API 默认只返回 summary（摘要），完整 thinking 输出仅限企业合同。本地日志（JSONL 文件）中，thinking 字段为空，signature 字段包含 base64 编码的签名，密钥由 Anthropic 持有。作者通过检查日志文件（位于 `~/.claude/projects/`）和文档，确认了这一行为，并指出该问题自版本 2.1.72 起存在。\n\n**关键技巧**  \n1. **审计不可靠**：不要依赖 Claude Code 的 thinking 日志作为审计轨迹，因为本地不保存完整推理。  \n2. **查看摘要**：在 settings.json 中设置 `\"showThinkingSummaries\": true` 可显示推理摘要，但非原始文本。  \n3. **替代方案**：如需完整推理，需通过 Anthropic 销售部门获取企业版；或自行记录 agent 行为（如工具调用、输入输出）。  \n4. **对比其他模型**：DeepSeek 和开源模型提供原始推理，Claude 和 GPT 仅返回摘要或加密版本。  \n5. **避免承诺**：在向客户承诺可审计的推理链前，务必确认实际日志内容。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Fable 5: модель, которую чуть не запретили — и почём доступ",
+      "titleZh": "Claude Fable 5：差点被禁的模型——以及访问成本",
+      "link": "https://dev.to/promptra-team/claude-fable-5-modiel-kotoruiu-chut-nie-zaprietili-i-pochiom-dostup-202k",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-11T04:40:11.000Z",
+      "summaryZh": "# Claude Fable 5：被禁模型的前世今生与访问成本\n\n## 用户场景\n作者梳理了Anthropic旗舰模型Claude Fable 5从发布到被美国政府限制的完整事件链。核心痛点：开发者依赖的顶级AI模型可能因政策原因突然不可用，且订阅用户面临计费方式变更。尤其关注俄罗斯用户的实际访问困境。\n\n## 核心方法\n- **事件时间线**：2026年6月9日发布（1M token上下文，$10/$50每百万token）→ 6月12日因发现jailbreak被美国商务部实施出口管制 → 6月30日解禁 → 7月1日恢复但移出订阅套餐改为usage credits\n- **模型定位**：Fable 5是\"安全版\"Mythos 5（后者解除生物/网络安全限制，仅限Project Glasswing邀请访问）\n- **计费变更**：订阅用户仅享受3天免费使用（原承诺14天），之后需按token付费\n\n## 关键技巧\n1. **API用户注意**：Fable 5的tokenizer比旧模型多消耗约30% token，预算需上调\n2. **俄罗斯用户**：官方Claude无法直接访问（2022年起俄卡被拒），建议通过provod.ai等俄聚合器用卢布支付\n3. **教训总结**：顶级模型可能因非技术原因随时下线，建议准备备选模型（如Sonnet/Opus 4.8）并关注export control动态\n4. **性能提示**：Fable 5官方标注\"Slower\"，长任务需预留额外等待时间",
+      "category": "devto"
+    },
     {
       "title": "Claude из России в 2026: 4 способа доступа, цены в рублях и 7 ошибок",
       "titleZh": "2026年俄罗斯使用Claude的4种访问方式、卢布价格及7个常见错误",
@@ -9,52 +31,52 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T18:11:32.000Z",
-      "summaryZh": "好的，这是根据您提供的 Dev.to 文章内容撰写的技术摘要：\n\n**用户场景：**\n文章针对俄罗斯开发者/用户，在2026年因Anthropic官方限制（俄罗斯不在支持国家列表），无法直接注册、付费和使用Claude（包括Claude.ai聊天、API及Claude Code）的问题。作者提供了四种可行的“曲线救国”方案，并分析了各自的成本、风险与适用场景。\n\n**核心方法：**\n文章对比了四种访问路径：\n1.  **自建VPN+海外卡**：风险最低，但需自行解决支付（俄罗斯银行卡被Stripe拒绝，+7手机号无法验证）。\n2.  **通过中介/代理**：方便但存在30-100%的价格溢价。\n3.  **共享账号**：价格最低，但风险最高（一周内可能被封禁，丢失聊天记录和订阅）。\n4.  **俄罗斯本地聚合器（如provod.ai）**：支持卢布支付，专为本地用户优化，但属于灰色地带。\n\n文章还清晰区分了**Chat（订阅制）** 和**API（按Token计费）** 的差异：Chat适合日常写作，API适合代码和自动化（如Cursor、Claude Code）。并给出了官方API价格表（如Sonnet 5: $2/$10 per 1M tokens）和订阅价格（Pro $20/月）。\n\n**关键技巧与避坑：**\n1.  **支付陷阱**：俄罗斯银行卡和+7手机号在Stripe验证阶段就会被直接拒绝，不要尝试。\n2.  **VPN选择**：使用公共VPN极易触发Anthropic的封禁，导致账号和已购订阅全部丢失。\n3.  **产品混淆**：不要将Chat的$20订阅费与API的$20消耗混为一谈。API在密集使用（如Claude Code）时，$20可能一天内耗尽。\n4.  **第七大错误**：即使所有配置正确，仍可能因违反ToS（如转售Token、多账号刷量）被封。Anthropic主要打击的是滥用行为，而非单纯的地理位置。\n5.  **政策更新**：2026年7月更新的隐私政策允许对特定场景进行身份验证（如扫描护照），但这并非针对俄罗斯的全面封禁，不要被谣言误导。",
+      "summaryZh": "# Claude из России в 2026：4种访问方式、卢布价格与7个常见错误\n\n## 用户场景\n俄罗斯用户无法直接注册Claude（Anthropic不支持俄罗斯地区），面临VPN被封、+7手机号验证失败、俄罗斯银行卡被Stripe拒绝等问题。文章针对需要从俄罗斯使用Claude Chat、API、Claude Code或Cursor的开发者与普通用户，提供绕过地理限制的可行方案。\n\n## 核心方法\n文章对比4种访问路径：\n1. **自建VPN+外国卡**：直接注册Claude.ai或API，需境外银行卡（如Revolut、Payoneer）\n2. **中介代理**：通过第三方平台购买Claude Pro/API额度，通常加价30-100%\n3. **共享账号**：多人共用Claude Pro账号，风险高（一周内可能被封）\n4. **俄罗斯聚合器**：支持卢布支付的本地平台（如provod.ai），提供Chat和API访问\n\n关键区分：Chat（固定订阅，$20/月Pro）vs API（按token计费，$1-$25/百万token），两者计费模式完全不同，不可混淆。\n\n## 关键技巧\n- **避免7大错误**：包括使用公共VPN（导致封号+丢失聊天记录）、购买共享账号（一周内失效）、混淆Chat与API计费（$20 API可能一天用完）\n- **API价格参考**：Haiku 4.5（$1/$5 输入/输出）、Sonnet 4.6（$3/$15）、Opus 4.8（$5/$25），Batch API可省50%\n- **决策树**：仅需文本处理→选Chat订阅；需要代码/自动化→选API按token付费\n- **风险提示**：Anthropic政策允许验证身份（护照扫描），但俄罗斯用户大规模封禁尚未发生，需警惕谣言",
       "category": "devto"
     },
     {
       "title": "Anthropic's $965B Valuation Is Pricing Agent Infrastructure",
-      "titleZh": "Anthropic 估值 9650 亿美元，定价代理基础设施",
+      "titleZh": "Anthropic 的 9650 亿美元估值正在为智能体基础设施定价",
       "link": "https://dev.to/bruce_he/anthropics-965b-valuation-is-pricing-agent-infrastructure-31oa",
       "author": "Bruce He",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T10:30:34.000Z",
-      "summaryZh": "# Anthropic 估值9650亿美元：押注Agent基础设施而非模型能力\n\n## 用户场景\n作者指出当前AI行业的核心误区：市场普遍认为Anthropic的高估值是因为\"Claude赢了\"模型竞赛。但实际上，Claude Opus 4.7与GPT-5、Gemini 3 Pro在基准测试上基本持平，Qwen 3.7 Max也足够接近。真正的价值在于Anthropic构建的Agent运行时基础设施。\n\n## 核心方法\nAnthropic在2026年4月至6月间密集发布的产品组合构成了其估值基础：Managed Agents（托管Agent）、Self-hosted Sandboxes（自托管沙箱）、cron调度、凭证保险库等。关键架构是\"将大脑与双手解耦\"——模型（大脑）负责规划和推理，而沙箱执行、凭证管理、调度器、追踪层（双手）负责实际生产工作。当Self-hosted Sandboxes允许客户在自己的基础设施中运行\"双手\"时，Anthropic依然控制着大脑和编排层，这是典型的平台锁定策略。\n\n## 关键技巧\n1. **模型层正在趋同**：LangChain更换运行时后TerminalBench得分从52.8%跃升至66.5%，证明运行时比模型更重要\n2. **竞争壁垒在于生产级Agent基础设施**：Managed Agents提供的沙箱代码执行、任务检查点、范围化凭证管理、端到端追踪等功能，竞争对手几乎全部缺失\n3. **估值逻辑**：9650亿美元对应47亿美元年化收入约20倍PS，远低于Snowflake上市时的175倍和Datadog的50倍，在赢家通吃的市场中反而显得保守",
+      "summaryZh": "# Anthropic 估值9650亿美元：押注Agent基础设施而非模型能力\n\n## 用户场景\n作者剖析了Anthropic在2026年6月以9650亿美元估值秘密提交IPO申请背后的真实逻辑。市场普遍误读为\"Claude赢了\"，但作者指出：Claude Opus 4.7与GPT-5、Gemini 3 Pro在基准测试上基本持平，模型本身已成商品化产品。真正支撑估值的是Anthropic在2026年4月至6月间发布的**Agent基础设施产品线**。\n\n## 核心方法\nAnthropic的核心洞察是：\"基础设施，而非智能，才是生产级Agent的瓶颈。\"其架构将\"大脑\"（模型层）与\"手\"（执行层）解耦——Managed Agents提供沙箱化代码执行、任务检查点、凭证管理、端到端追踪、cron调度等能力。关键创新是**Self-hosted Sandboxes**（自托管沙箱）：客户可在自有基础设施运行\"手\"，而\"大脑\"和编排层留在Anthropic控制平面。这是教科书级的平台锁定策略。\n\n## 关键技巧\n1. **模型层正在趋同**：LangChain更换运行时后TerminalBench得分从52.8%跃升至66.5%，证明运行时比模型更重要\n2. **竞争壁垒在产品化运行时**：Managed Agents的沙箱执行、凭证保险库、cron调度等能力，竞争对手几乎全部缺失\n3. **估值逻辑**：9650亿美元对应470亿美元年化收入约20倍PS，远低于Snowflake的175倍和Datadog的50倍IPO倍数，在赢家通吃的Agent市场中反而偏保守",
       "category": "devto"
     },
     {
-      "title": "Elon Musk’s $40B Anthropic Truce Hides AI Hostage Risk",
-      "titleZh": "埃隆·马斯克400亿美元与Anthropic的休战协议暗藏AI人质风险",
-      "link": "https://dev.to/xoomar/elon-musks-40b-anthropic-truce-hides-ai-hostage-risk-4k0c",
-      "author": "XOOMAR",
+      "title": "Which Claude Model Should You Actually Use?",
+      "titleZh": "你应该实际使用哪个Claude模型？",
+      "link": "https://dev.to/studiomeyer_io/which-claude-model-should-you-actually-use-4i69",
+      "author": "Matthias | StudioMeyer",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-09T22:12:18.000Z",
-      "summaryZh": "## 马斯克与Anthropic的“AI人质”风险：40亿美元算力依赖的隐患\n\n**用户场景：** 本文揭示了AI行业一个核心矛盾：Anthropic作为前沿AI实验室，却依赖竞争对手马斯克旗下xAI/SpaceX的Colossus 1数据中心提供300兆瓦算力，月费12.5亿美元（至2029年5月，总价值约400亿美元）。这种“租用对手核心基础设施”的模式，让Anthropic面临战略人质风险——即使马斯克公开表态“不会切断供应”，但依赖关系本身构成隐患。\n\n**核心方法：** 文章提出“基础设施杠杆”分析框架，指出控制算力管道的一方拥有多种施压手段，不仅限于直接断供：\n- **访问控制**：延迟或技术摩擦可拖慢部署\n- **资源优先级**：负载下影响性能表现\n- **支持质量**：故障响应可转化为客户事故\n- **定价压力**：未来合同条款成为谈判筹码\n- **运营可见性**：托管工作负载暴露竞争对手操作模式\n\n**关键技巧：**\n1. **风险识别**：企业客户选择AI供应商时，需审查其基础设施依赖链是否涉及直接竞争对手\n2. **合同保护**：仅靠公开声明（如马斯克的“不会伤害”承诺）不足为凭，必须通过合同条款确保中立性、SLA保障和审计权\n3. **替代方案**：即使算力稀缺，也应分散供应商或保留切换能力，避免单一依赖（Google也以9.2亿美元/月租用SpaceX基础设施，加剧了行业集中度风险）\n4. **声誉风险**：一周的不确定性就能造成声誉损害，远快于法律索赔流程\n\n**核心警示**：马斯克同时是房东和竞争对手，其财务激励（每月12.5亿美元收入）虽提供短期保障，但无法消除长期战略风险。Anthropic的“无聊”企业形象（可靠、稳定）与这种依赖关系存在根本冲突。",
-      "category": "devto"
-    },
-    {
-      "title": "Deep Dive: Anthropic's $19B Data Center Lease with…",
-      "titleZh": "深度解析：Anthropic 190亿美元数据中心租赁协议……",
-      "link": "https://dev.to/norviktech/deep-dive-anthropics-19b-data-center-lease-with-29i4",
-      "author": "Norvik Tech",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-09T17:06:04.000Z",
-      "summaryZh": "这是一篇关于Anthropic与TeraWulf签署190亿美元数据中心租约的行业分析，并非技术教程。以下是根据您要求的格式撰写的总结：\n\n**用户场景：**\n文章面向AI企业决策者和技术架构师，探讨了通用云服务难以满足高性能AI训练需求的问题。Anthropic通过租赁专用数据中心，解决大规模机器学习（ML）工作负载对算力、能效和可扩展性的刚性需求，避免传统云服务在定制化、成本控制上的局限。\n\n**核心方法：**\nAnthropic采用“专用基础设施+深度定制”策略：与TeraWulf共建数据中心，底层整合GPU/TPU加速技术，架构上采用分布式计算、高速网络（低延迟节点通信）和先进数据管理系统。这种方案将硬件、网络、存储全栈优化，专为ML任务设计，而非通用计算。\n\n**关键技巧：**\n1. **能效优先**：专用设施通过架构优化降低运营成本，对高能源成本地区（如哥伦比亚）尤其关键。\n2. **规模化弹性**：架构支持按项目需求动态扩展，避免资源浪费。\n3. **合规前置**：在LATAM和西班牙部署时，需提前评估数据隐私法规（如GDPR本地化版本）。\n4. **人才配套**：投资硬件的同时需同步培养本地AI工程团队，否则无法释放基础设施潜力。\n\n**总结：** 该案例揭示了AI基础设施从“租用通用云”向“自建专用算力”的转变趋势。企业应评估现有系统是否支持高级AI应用，并考虑与专业厂商合作，而非盲目复制。",
+      "pubDate": "2026-07-10T19:49:06.000Z",
+      "summaryZh": "## Claude 模型选择指南：别再纠结选哪个，真正重要的是什么？\n\n**用户场景**：开发者在使用Claude时，常陷入“该选Haiku、Sonnet、Opus还是Fable”的纠结中。作者指出，对90%的日常任务（邮件、文档摘要、初稿），模型间的差异微乎其微，盲测中用户甚至无法区分。真正的问题不是选模型，而是如何用好它。\n\n**核心方法**：作者提出“任务匹配”原则：\n- **Haiku**：快速、便宜，适合简单一次性任务\n- **Sonnet**：日常默认，代码和多步骤工作表现均衡\n- **Opus**：重量级，适合复杂推理、长代码\n- **Fable**：最强模型，用于超长、高难度任务\n\n**关键技巧**：\n1. **别盲目选最强模型**：清晰提示词（prompt）+充分上下文（context）比模型升级更重要。一个“思考更久”的Sonnet往往胜过“匆忙回答”的Opus。\n2. **开启深度思考（deeper thinking）**：这是最大质量杠杆。在claude.ai上对困难问题启用，效果远超换模型。\n3. **构建系统而非依赖模型**：真正的提升来自：记忆（memory）、工具集成（MCP、文件、日历）、清晰指令。模型只是引擎，系统才是驾驶舱。\n4. **实用启发**：默认用Sonnet；简单任务切Haiku；复杂任务用Opus/Fable+深度思考。别为选模型浪费精力，把时间花在写好prompt和构建上下文上。",
       "category": "devto"
     },
     {
       "title": "Anthropic wants to grade AI jailbreaks like CVEs. Here's the framework.",
-      "titleZh": "Anthropic 想用类似 CVE 的方式给 AI 越狱行为评级，这是其框架。",
+      "titleZh": "Anthropic 希望像 CVE 一样给 AI 越狱行为评级，以下是其框架。",
       "link": "https://dev.to/thegatewayguy/anthropic-wants-to-grade-ai-jailbreaks-like-cves-heres-the-framework-5fk6",
       "author": "Andrew Kew",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T13:06:59.000Z",
-      "summaryZh": "## Anthropic 发布AI越狱严重性评分框架：像CVE一样标准化AI安全风险\n\n**用户场景**：AI开发者、安全研究人员和政府机构缺乏统一语言来描述AI越狱攻击的严重程度。Anthropic推出**Cyber Jailbreak Severity (CJS)** 评分体系，旨在像CVSS标准化软件漏洞那样，让各方能用一致术语沟通AI风险。\n\n**核心方法**：\n1. **四层分类器**：针对网络安全用例，将请求分为禁止使用（勒索软件/恶意软件开发）、高风险双用途（渗透测试/提权）、低风险双用途（OSINT/漏洞扫描）和良性使用（安全编码/事件响应）。Claude Fable 5采用更大安全边际，宁可误报也不放过。\n2. **CJS评分四轴**：能力增益（是否提供现有工具无法获取的输出）、广度（是否通用越狱）、武器化难度（复现所需LLM专业知识）、可发现性（攻击者发现难度）。等级指数增长，CJS-4为最严重。\n3. **HackerOne漏洞赏金计划**：研究者可提交Fable 5越狱案例。\n\n**关键技巧**：\n- 评估Claude Fable 5时需注意：网络安全相关提示的误报率会比前代模型更高，这是有意为之的安全边际\n- 安全研究者应通过官方HackerOne渠道提交越狱发现\n- 政策制定者应尽早参与CJS框架反馈（邮箱：cyber-safeguards@anthropic.com），在标准固化前影响其走向\n- 注意区分\"禁止使用\"与\"高风险双用途\"：前者无条件阻止，后者在更好访问控制到位前暂缓开放",
+      "summaryZh": "## Anthropic 发布AI越狱严重性评分框架：像CVE一样标准化AI安全风险\n\n**用户场景：** AI开发者、安全研究人员和政府机构缺乏统一语言来评估和沟通AI越狱攻击的严重性。Anthropic推出**Cyber Jailbreak Severity (CJS)** 评分框架，旨在像CVSS标准化软件漏洞那样，为AI越狱风险建立分级体系。\n\n**核心方法：** CJS从CJS-0（信息性，无实际提升）到CJS-4（严重，产生领域专家级输出，加速真实攻击）共5级，基于四个维度评估：**Capability gain**（是否提供现有工具无法获取的能力）、**Breadth**（攻击覆盖范围）、**Ease of weaponization**（复现所需LLM专业知识）、**Discoverability**（威胁行为者发现难度）。同时，Claude Fable 5采用四层分类器系统：禁止使用（勒索软件等）、高风险双用途（渗透测试等，默认阻止）、低风险双用途（OSINT等，带安全边际）、良性使用（安全编码等）。\n\n**关键技巧：** \n- Fable 5的安全边际比以往模型更大，意味着更多**误报**（合法请求被阻止），但Anthropic优先谨慎。\n- CJS-4保留给那些产生领域专家级输出、无法通过其他方式获取且易于武器化的越狱。\n- 安全研究者可通过**HackerOne**项目提交Fable 5越狱报告；政策制定者应尽早参与CJS框架反馈（邮箱：cyber-safeguards@anthropic.com）。\n- 评估团队需注意：网络安全相关提示的误报率会高于前代模型。",
       "category": "devto"
+    },
+    {
+      "title": "Show HN: Aether – Run Claude Code, Codex, or OpenCode in devboxes you can watch",
+      "titleZh": "Show HN：Aether – 在可监控的开发盒中运行 Claude Code、Codex 或 OpenCode",
+      "link": "https://www.runaether.dev/",
+      "author": "pranav100000",
+      "source": "Hacker News",
+      "sourceType": "hackernews",
+      "pubDate": "2026-07-11T15:25:00.000Z",
+      "summaryZh": "标题：Show HN：Aether——在可观察的开发盒中运行 Claude Code、Codex 或 OpenCode\n\n讨论主题：开发者分享 Aether 项目，旨在解决本地 coding agents（如 Claude Code、Codex）的痛点：需随身携带笔记本、频繁确认命令、多 agent 并发时内存不足，以及现有云 agent 的 VM 启动慢、黑箱操作等问题。\n\n核心观点：\n- 本地 agent 体验好但受限于硬件和网络；云 agent 虽免去这些，但 VM 启动延迟（>5秒）破坏交互感，且无法实时验证工作。\n- Aether 实现“两全其美”：5秒内启动任意仓库的 agent，响应时 VM 就绪<1秒，支持 plan mode 和技能，如同本地操作。\n- 每个 workspace 是完整 devbox（含终端、文件编辑器、端口预览、Docker），可随时介入调试，非黑箱。\n- 云原生特性：支持 PR 自动审查与评论、agent 间循环协作（writer+reviewer 自动迭代至收敛）、视频演示、Sentry 集成（自动拉取堆栈跟踪）、定时任务等。\n\n实用价值：\n- 开发者可免去本地环境配置，直接通过 Aether 在云端运行 Claude Code/Codex，并实时观察 agent 行为。\n- 定价：免费层+付费$30/月起，仅收计算资源费，推理使用自有订阅（如 Anthropic API）。\n- 示例 PR 展示 agent 循环协作流程，适合自动化代码审查与迭代开发场景。",
+      "category": "hackernews"
     },
     {
       "title": "Anthropic and UST put Claude Code to work validating computer chips",
@@ -64,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T05:26:21.000Z",
-      "summaryZh": "## Anthropic与UST用Claude Code验证芯片设计：AI进入\"物理AI\"新场景\n\n### 用户场景\n芯片验证是芯片从设计到流片（tape-out）最耗时、最昂贵的环节之一。工程师需要手动编写大量回归测试（regression tests），覆盖设计在各种条件下的行为，这一过程往往需要数月。Anthropic与IT服务商UST合作，将Claude Code应用于这一场景，目标是自动化生成验证测试，将验证周期缩短50%-70%。\n\n### 核心方法\nClaude Code被用来读取芯片原理图（schematics）和引脚定义（pinouts），理解信号连接关系，然后自动生成回归测试代码。这些测试运行在UST的iDEC平台上。本质上，Claude将芯片设计文档视为结构化输入，像一名不知疲倦的测试工程师一样，通宵读完整个蓝图，第二天早上交付完整的测试方案。人类工程师只需审查和优化，无需从零开始。\n\n### 关键技巧\n- **结构化输入是关键**：Claude Code擅长处理结构化技术文档（如原理图、引脚表），这是它能在EDA（电子设计自动化）领域发挥作用的基础。\n- **人机协作模式**：AI生成测试后，人类工程师负责审查和微调，而非完全替代。这降低了出错风险，同时大幅提升效率。\n- **注意供应商声明**：50%-70%的提速数据来自合作方自身，缺乏独立验证。实际效果需等待更多部署数据。对于开发者，可关注类似思路：将AI用于代码生成、测试自动化等结构化任务，而非盲目相信营销数据。\n\n### 开发者价值\n这是\"物理AI\"（Physical AI）的典型案例——AI应用于物理产品的设计，而非机器人控制。对于中国开发者，可借鉴的思路是：将Claude Code等AI工具用于处理结构化技术文档（如API文档、配置文件、测试用例），实现自动化验证或代码生成，尤其适合高价值、正确性关键的领域。",
+      "summaryZh": "## Anthropic与UST联手：Claude Code加速芯片验证\n\n**用户场景：** 芯片设计验证是半导体制造中最耗时、最昂贵的环节之一。工程师需要手动编写大量回归测试用例，覆盖设计在各种条件下的行为，这导致从设计到流片（tape-out）往往需要数月时间。文章针对这一痛点，提出用AI自动生成测试代码。\n\n**核心方法：** Anthropic与IT服务商UST达成“物理AI”战略合作，将Claude Code应用于芯片验证。具体流程是：Claude读取芯片原理图（schematics）和引脚定义（pinouts），理解信号连接关系，然后在UST的iDEC平台上自动生成回归测试用例。这相当于让AI通宵读完整个设计蓝图，次日清晨交付完整的测试方案，工程师只需审核和优化，无需从零开始。\n\n**关键技巧：**\n- **结构化输入是关键**：Claude Code擅长处理结构化技术文档，原理图和引脚定义本质上就是另一种结构化输入，因此能自然推理并生成正确代码。\n- **类比理解**：可将Claude视为不知疲倦的测试工程师，它“阅读”设计蓝图并自动产出测试计划，大幅减少人工编写测试代码的重复劳动。\n- **注意局限**：官方声称验证周期缩短50%-70%，但该数据来自合作方自身，缺乏独立验证。建议保持审慎，关注后续实际部署数据。\n\n**开发者价值：** 这是“物理AI”（Physical AI）在非机器人领域的典型应用——AI直接作用于物理产品的设计环节。对于芯片验证这类高价值、强正确性要求的场景，Claude的“原始智能”优势得以发挥，也展示了前沿编码模型在电子设计自动化（EDA）领域的商业潜力。",
       "category": "devto"
     },
     {
@@ -75,29 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T04:36:13.000Z",
-      "summaryZh": "## Anthropic 发布 Claude Wrapped：AI 正在取代 Google 搜索\n\n**用户场景**：开发者日常工作中频繁需要调试代码、查阅文档、解决技术问题。传统流程是 Google 搜索→浏览结果→阅读文章→尝试解决方案，效率低下。作者发现 Claude 等 AI 工具正在替代这一完整工作流。\n\n**核心方法**：Claude Wrapped 以 Spotify 风格展示用户年度使用数据，包括对话总数、活跃时段、Top 用例（编码、写作、研究）、Token 消耗和\"AI 人格\"。数据显示 Claude 最常用场景是**编码辅助**，而非创意写作。作者实际工作流已转变为：打开 Claude → 描述问题 → 获取解决方案 → 复制代码 → 完成。相比 Google 搜索，AI 工作流快 5-10 倍。\n\n**关键技巧**：\n- 学习：让 AI 解释和演示，而非阅读文档\n- 调试：直接粘贴错误信息获取修复方案\n- 代码审查：即时反馈，无需等待队友\n- 文档生成：AI 从代码自动生成文档\n- 工具组合：Claude（复杂推理/架构决策）+ Cursor（实时补全）+ MonkeyCode（代码审查）+ Perplexity（最新信息研究）\n\n**注意陷阱**：开发者过度依赖 AI 可能导致开源社区流量下降、技术博客减少、Stack Overflow 衰退（流量已降 35%）。训练 AI 的生态系统正在被 AI 自身\"掏空\"，需保持警惕。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic'ten Dikkat Çeken Yeni Özellik! Claude Artık Yapay Zekâyı Ne Kadar Kullandığınızı Gösterecek",
-      "titleZh": "Anthropic 推出引人注目的新功能！Claude 将显示您使用人工智能的程度",
-      "link": "https://dev.to/quantraptor/anthropicten-dikkat-ceken-yeni-ozellik-claude-artik-yapay-zekayi-ne-kadar-kullandiginizi-2am3",
-      "author": "Quantraptor",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-09T15:58:29.000Z",
-      "summaryZh": "Anthropic 为 Claude 推出名为 \"Reflect\" 的新功能，旨在帮助开发者更理性地使用 AI。\n\n**用户场景**：针对开发者过度依赖 AI、缺乏使用透明度的问题，Reflect 提供可视化仪表盘，展示与 Claude 的对话主题、任务类型及使用习惯，帮助用户反思 AI 在自身工作流中的实际价值。\n\n**核心方法**：Reflect 内置于 Claude，通过图表和摘要呈现使用数据，并主动提问（如“即使 Claude 能更快完成，你仍想自己做什么？”）引导用户思考 AI 依赖度。同时支持设置“静默时段”和休息提醒，避免过度交互。\n\n**关键技巧**：\n1. **优化工作流**：Reflect 会建议使用 Claude 的 Projects 功能替代重复解释，提升效率。\n2. **隐私控制**：敏感对话仅显示标题，健康相关对话不纳入分析，数据不用于其他目的。\n3. **启用条件**：需开启 Memory（记忆）功能，当前支持 Free/Pro/Max 用户 Beta 测试。\n4. **未来扩展**：将增加使用时长统计，帮助量化 AI 对生产力的影响。\n\n该功能不仅提供数据，更通过主动干预培养开发者对 AI 的“有意识使用”习惯，避免工具反客为主。",
-      "category": "devto"
-    },
-    {
-      "title": "Meta'dan OpenAI ve Anthropic'a Yeni Rakip! Muse Spark 1.1 Resmen Tanıtıldı",
-      "titleZh": "Meta推出OpenAI和Anthropic的新对手！Muse Spark 1.1正式亮相",
-      "link": "https://dev.to/quantraptor/metadan-openai-ve-anthropica-yeni-rakip-muse-spark-11-resmen-tanitildi-4ba2",
-      "author": "Quantraptor",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-09T21:01:21.000Z",
-      "summaryZh": "## Meta 发布 Muse Spark 1.1：AI 编码新对手\n\n**用户场景**：Meta 推出 Muse Spark 1.1，直接对标 OpenAI 和 Anthropic 的 AI 编码工具。该模型专为**企业级 AI Agent** 和**软件开发自动化**设计，解决复杂软件任务（多步推理、工作流管理、代码迁移、Bug 修复等），帮助开发者降低编码成本、提升效率。\n\n**核心方法**：Muse Spark 1.1 采用**多模态架构**，支持：\n- 复杂数字工作流编排\n- 企业系统功能扩展\n- 大规模代码迁移\n- 自主规划与执行任务（agentic AI）\n- 外部应用协调与工具调用\n\n**关键技巧**：\n- **定价优势**：输入 token $1.25/百万，输出 $4.25/百万，接近 Claude Haiku 4.5 和 GPT-5.6 Luna\n- **企业场景**：特别适合需要**长期规划**、**多工具协调**的自动化任务\n- **性能亮点**：在计算机操作、工具使用、自主任务执行方面表现突出\n- **注意**：Meta 强调“低成本+强性能”策略，开发者可关注其与现有 CI/CD 管道的集成能力\n\n**开发者价值**：Muse Spark 1.1 为 AI 编码市场带来新选择，尤其适合预算敏感的企业级项目。建议关注其 API 文档和 MCP 协议支持情况，评估与现有工作流的兼容性。",
+      "summaryZh": "## Anthropic 发布 Claude Wrapped：AI 正在取代 Google 搜索\n\n**用户场景**：开发者日常面临大量编程问题，传统工作流（Google搜索→Stack Overflow→试错）效率低下。作者发现 Claude 已成为更高效的替代方案，Claude Wrapped 数据证实了这一趋势：编程辅助是 Claude 最常用场景，年增长率达 400%。\n\n**核心方法**：作者提出“AI 优先”工作流——直接向 Claude 描述问题→获取解决方案→复制代码→完成。相比 Google 搜索（输入→扫描结果→点击链接→阅读→综合→尝试），AI 工作流在调试、文档查询、代码生成等场景快 5-10 倍。作者实际工具栈：Claude（复杂推理/架构决策）、Cursor（实时补全）、MonkeyCode（代码审查）、Perplexity（实时研究）。\n\n**关键技巧**：\n- 将 AI 用于“无聊任务”（调试、文档生成、代码审查），释放精力专注架构设计\n- 粘贴错误信息直接获取修复方案，替代手动搜索错误码\n- 注意生态隐忧：Stack Overflow 流量已降 35%，开源社区和博客可能因 AI 替代而萎缩\n- 建议开发者主动尝试 AI 工作流，效率提升真实可量化",
       "category": "devto"
     },
     {
@@ -108,7 +108,7 @@
       "source": "Hacker News",
       "sourceType": "hackernews",
       "pubDate": "2026-07-09T15:26:24.000Z",
-      "summaryZh": "标题：Show HN：为Claude Code、Cursor和Codex实现策略执行\n\n讨论主题：开发者Fernando和团队推出Kastra，一个运行时授权工具，用于拦截AI编码代理（如Claude Code、Codex、Cursor）的工具调用，在执行前根据确定性策略进行评估。\n\n核心观点：社区强调，LLM本质是概率性的，提示词无法确定性控制代理行为。Kastra通过“允许、暂停、拒绝”决策机制，在代理执行前拦截操作，并记录不可篡改的审计日志。开发者发现，即使谨慎使用，代理仍可能执行危险操作（如删除生产数据库、写入密钥到文件、强制推送等），而Kastra的Recon扫描功能可回溯历史会话，自动生成策略规则。\n\n实用价值：Kastra提供免费桌面应用、CLI和仪表盘，支持“brew install”快速安装。开发者可运行“kastra-edge scan”扫描本地代理历史，发现已发生的风险行为（如生产数据库访问、密钥泄露），并一键转换为运行时策略。团队特别关注多代理系统的策略冲突管理，欢迎反馈。实测中，策略评估延迟低于1毫秒，适合生产环境。",
+      "summaryZh": "标题：Show HN：为Claude Code、Cursor和Codex实现策略执行\n\n讨论主题：开发者Fernando和团队推出Kastra——一个运行时授权工具，用于拦截AI编码代理（如Claude Code、Codex、Cursor）的工具调用，在执行前根据确定性策略进行评估。起因是他们的Cursor代理险些在生产数据库执行`DELETE FROM customers WHERE status='test'`，暴露了缺乏确定性权限控制的漏洞。\n\n核心观点：\n1. LLM是概率性的，提示词无法确定性约束代理行为，必须引入独立策略系统。\n2. Kastra在动作执行前推送“允许、暂缓、拒绝”决策，支持用自然语言编写策略，并内置高风险场景策略包。\n3. 提供不可变审计日志，记录所有决策；Recon功能可扫描本地代理历史，发现已发生的风险操作（如密钥写入文件、生产数据库访问、强制推送等）。\n\n实用价值：\n- 开发者可免费使用桌面应用、CLI和仪表板，通过`brew install kastra-labs/tap/kastra-edge`安装后运行`kastra-edge scan`扫描历史风险。\n- 扫描结果可一键转化为运行时策略，实现“委托工作但不信任模型”的安全模式。\n- 策略评估延迟低于1毫秒，适合生产环境。团队正解决多代理系统策略冲突问题，欢迎反馈。",
       "category": "hackernews"
     },
     {
@@ -119,19 +119,30 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-10T14:31:18.000Z",
-      "summaryZh": "## Claude Fable 5 实测：5个值得升级的理由\n\n**用户场景**  \n本文面向需要顶级代码智能与安全指导的开发者，特别是从事关键系统开发、漏洞挖掘或复杂应用构建的团队。Claude Fable 5（原Claude Mythos）已在Apple、Google、Microsoft等公司的Project Glasswing项目中验证，发现超10,000个高危漏洞。\n\n**核心方法**  \n- **性能碾压**：在复杂编码、应用开发、长文研究等场景超越所有公开模型  \n- **严格安全过滤**：自动拦截所有网络安全利用类查询，防止模型被滥用  \n- **企业级兼容**：与主流科技公司生产环境相同的核心能力，API调用示例：  \n  ```python\n  from anthropic import Client\n  client = Client(api_key=\"YOUR_API_KEY\")\n  response = client.completions.create(\n      model=\"fable-5\",\n      prompt=\"Hardening Linux kernel against buffer overflows\"\n  )\n  ```\n\n**关键技巧**  \n1. **成本控制**：价格是Opus的2倍，日常低复杂度任务建议用Sonnet或Opus  \n2. **过滤陷阱**：安全规则可能误杀无害查询，需注意prompt措辞  \n3. **适用场景**：仅推荐关键开发/研究场景升级，普通用户与Opus差异不大  \n4. **未来优化**：Anthropic计划近期改进过滤器的严格程度",
+      "summaryZh": "# 5 Reasons to Try Claude Fable 5 解读\n\n**用户场景**  \nAnthropic 推出的 Claude Fable 5（原代号 Claude Mythos）主要面向需要顶级代码智能与安全指导的开发者。该模型已在 Apple、Google、Microsoft、AWS、NVIDIA 参与的 Project Glasswing 中验证，能发现主流操作系统、浏览器和关键软件中的 10,000+ 高危漏洞。适合复杂编码、应用开发和长篇研究等场景。\n\n**核心方法**  \nFable 5 在复杂编码任务上超越所有公开模型，同时内置严格安全过滤器，阻止所有网络安全利用类查询。通过 API 调用（`model=\"fable-5\"`）即可使用，示例代码展示了 Linux 内核缓冲区溢出加固的 prompt 用法。定价为 Opus 的两倍，建议日常低复杂度任务仍用 Sonnet 或 Opus 以节省预算。\n\n**关键技巧**  \n- 过滤器过于严格，可能误拒无害查询，Anthropic 计划优化  \n- 适合关键开发/研究场景，普通用户升级感知不强  \n- 调用示例：`client.completions.create(model=\"fable-5\", prompt=\"...\")`  \n- 注意成本控制，非高价值任务不建议升级",
       "category": "devto"
     },
     {
-      "title": "Claude Code Grabs a Browser—and the IDE Fight Gets Real",
-      "titleZh": "Claude Code 接入浏览器——IDE 之争进入白热化",
-      "link": "https://dev.to/mlxio_ai/claude-code-grabs-a-browser-and-the-ide-fight-gets-real-2g6i",
-      "author": "MLXIO",
+      "title": "Why Anthropic Just Overtook OpenAI - And What It Means for Every SA Business Buying AI",
+      "titleZh": "为什么Anthropic刚刚超越OpenAI——这对每个购买AI的南非企业意味着什么",
+      "link": "https://dev.to/michael_kidd_255722160288/why-anthropic-just-overtook-openai-and-what-it-means-for-every-sa-business-buying-ai-l4o",
+      "author": "Michael Kidd",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-10T18:11:56.000Z",
-      "summaryZh": "## Claude Code 浏览器集成：AI 编码工具的桌面化革命\n\n**用户场景：**\n开发者在使用AI编码助手时，常面临“AI写代码但无法验证运行结果”的割裂体验。Claude Code新增的in-app browser功能，让AI能直接打开并交互浏览器页面，实时查看代码生成的网页效果，解决了AI编码与结果验证脱节的核心痛点。\n\n**核心方法：**\nAnthropic将浏览器直接嵌入Claude Code桌面端，使AI不仅能编写代码，还能通过浏览器渲染并检查输出。这标志着AI编码工具从“代码生成器”向“全栈开发助手”的进化——开发者无需切换窗口，AI即可在桌面开发循环中完成“编码→预览→调试”的闭环。Claude Code的浏览器功能将桌面变为AI的“控制面板”，而非简单的聊天框。\n\n**关键技巧：**\n- 利用in-app browser让AI自动验证前端代码的视觉呈现，减少手动刷新\n- 在MCP（Model Context Protocol）工作流中集成浏览器交互，实现端到端测试\n- 注意：浏览器功能目前仅限Claude Code桌面端，需保持应用更新\n- 避免过度依赖AI浏览器操作，复杂交互仍需人工介入\n\n**开发者价值：** 这一更新使Claude Code从“编码副驾驶”升级为“开发操作系统”，尤其适合前端开发者、全栈工程师和需要快速迭代原型的技术团队。",
+      "pubDate": "2026-07-11T02:11:28.000Z",
+      "summaryZh": "## Anthropic 超越 OpenAI：对南非企业采购 AI 的启示\n\n**用户场景：** 本文针对南非（SA）企业在选择 AI 工具时面临的困境——OpenAI 在消费者市场声量大，但企业级需求（合规、本地化文档处理、合同审查）难以满足。作者指出，Anthropic 正凭借“企业优先”策略赢得企业合同，而 OpenAI 仍陷于消费者认知战。\n\n**核心方法：** Anthropic 的 Claude 模型在三个关键领域优于 OpenAI：\n1. **合规与集成**：提供更好的企业级合规支持，以及针对南非本地业务的 API 集成能力。\n2. **本地文档处理**：Claude 能更精准地处理南非本地合同、提案、合规文件等非标准化文档。\n3. **定价压力**：AI 价格战使企业能以更低成本获得更优工具，且供应商切换更灵活。\n\n**关键技巧：**\n- **不要盲目追求最贵 AI**：成功企业选择“适合运营的 AI”，而非最知名的品牌。\n- **本地化定制是趋势**：南非企业应优先测试 Claude 对本地法律、商业文档的理解能力。\n- **利用价格战红利**：保持供应商多样性，利用竞争降低采购成本，同时要求更灵活的定制方案。\n\n**一句话总结：** Anthropic 的“企业优先”策略正在改变 AI 采购格局，南非企业应抓住价格战窗口，选择能处理本地文档、满足合规要求的 AI，而非盲目追随 OpenAI 的品牌效应。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.207",
+      "titleZh": "v2.1.207",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.207",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-07-11T00:52:10.000Z",
+      "summaryZh": "## Claude Code v2.1.207 更新说明\n\n**新功能与改进：**\n- Auto模式现已在Bedrock、Vertex AI和Foundry上默认可用（无需`CLAUDE_CODE_ENABLE_AUTO_MODE`），可通过`disableAutoMode`设置关闭\n- 改进agent视图：重复粘贴文本时展开占位符而非新增；阻塞会话预览显示问题与等待时间\n- Deep research运行中Fetch阶段agent现显示源主机名\n\n**Bug修复：**\n- 修复流式响应中含长列表/表格/代码块时的终端冻结和按键延迟\n- 修复非交互式运行（`claude -p`、SDK）中远程管理设置被永久记录为已同意的问题\n- 修复良性系统对话更新触发虚假提示注入警告\n- 修复自动更新覆盖`~/.local/bin/claude`自定义启动脚本/符号链接的问题\n- 修复`cd`复合命令仅重定向到`/dev/null`时仍请求权限\n- 修复响应流结束后对话跳转问题\n- 修复`extensions.worktreeConfig`残留导致`tea`等go-git工具异常\n- 修复规则glob、技能路径等中括号模式错误导致文件读取/建议/工作树创建失败\n- 修复agent团队中队友邮箱消息格式错误导致的崩溃循环\n- 修复后台会话自动命名不显示在agent视图行的问题\n- 修复后台会话进入git工作树后冷重启显示空白\n- 修复Remote Control任务状态在网络中断恢复后丢失\n- 修复桌面端Remote Control会话在移动端/web端不显示后台agent和工作流进度\n- 修复Bedrock每次API请求都重新请求AWS SSO凭证\n- 修复Windows上AWS凭证解析卡死导致无限挂起（现60秒超时触发）\n\n**破坏性变更：**\n- 插件hooks/monitors/MCP headersHelper：shell形式命令中`${user_config.*}`被拒绝（shell注入修复）；hooks需使用exec形式或`$CLAUDE_PLUGIN_OPTION_<KEY>`；monitors和headersHelper需在脚本内读取值\n- 插件选项值（`pluginConfigs`）不再从项目级`.claude/settings.json`读取，仅用户、`--settings`和管理设置生效\n- Auto模式不再读取`.claude/settings.local.json`（仓库内），改用`~/.claude/settings.json`\n- Bedrock、Vertex和Claude Platform on AWS默认使用Claude Opus 4.8\n- `/usage-credits`金额输入拒绝格式错误值（如粘贴的时间戳），超过$1,000需确认",
+      "category": "github-release"
     },
     {
       "title": "v2.1.206",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-07-10T01:45:26.000Z",
-      "summaryZh": "## Claude Code v2.1.206 更新说明\n\n**新功能：**\n- `/cd` 命令新增目录路径建议，与 `/add-dir` 行为一致\n- `/doctor` 新增检查项，建议裁剪 CLAUDE.md 中代码库可推导的内容\n- `/commit-push-pr` 现支持自动推送到配置的远程仓库（`remote.pushDefault` 或唯一远程）\n- Gateway: `/login` 支持 Anthropic 公共网关端点\n- 后台代理现可在 Claude Code 更新后自动升级\n\n**问题修复：**\n- 修复登录过期时误导性错误提示，现引导运行 `/login`\n- 修复 `claude --resume` 和 `--continue` 启动时键盘输入无响应\n- 修复 MCP 服务器 `request_timeout_ms` 配置被忽略问题\n- 修复 OAuth MCP 服务器令牌刷新失败后需重新认证\n- 修复 `/model` 选择器价格显示错误及行错位问题\n- 修复桌面会话在发送斜杠命令后卡在\"运行中\"状态\n- 修复 Windows 上 `claude --resume` 键盘输入被忽略\n- 修复 `claude rm` 未彻底删除后台任务\n- 修复 `/remote-control` 在未登录时显示\"未知命令\"\n- 修复全屏跳转到底部提示在 macOS 上显示 Ctrl+End\n\n**改进：**\n- `/code-review` 在 `claude-opus-4-8` 上质量提升\n- 代理视图状态列使用全终端宽度（不再截断至64字符）\n- Ctrl+X 现可永久删除已完成会话\n\n**破坏性变更：**\n- `EnterWorktree` 进入项目外 git worktree 前需确认",
+      "summaryZh": "## Claude Code v2.1.206 更新说明\n\n**新增功能：**\n- `/cd` 命令新增目录路径建议，与 `/add-dir` 行为一致\n- `/doctor` 新增检查项，建议裁剪 CLAUDE.md 中可从代码库推导的内容\n- `/commit-push-pr` 现在自动允许推送到配置的远程仓库（`remote.pushDefault` 或唯一远程）\n- Gateway: `/login` 支持 Anthropic 运营的公共网关端点\n- `EnterWorktree` 进入项目外 git worktree 前需确认\n- 后台代理现在可在 Claude Code 更新后自动升级\n\n**问题修复：**\n- 修复过期登录显示误导性错误信息的问题\n- 修复 `claude --resume` 和 `--continue` 启动时不响应键盘输入\n- 修复 MCP 服务器忽略 `request_timeout_ms` 配置导致超时\n- 修复 `CLAUDE_CODE_EXTRA_BODY` 被后台工作器忽略\n- 修复 OAuth MCP 服务器令牌刷新失败后需重新认证\n- 修复 `--permission-prompt-tool` 在冷启动时崩溃\n- 修复 `/model` 选择器价格显示错误、行错位等问题\n- 修复桌面会话在发送斜杠命令后卡在 \"running\" 状态\n- 修复 Windows 上代理视图键盘输入被忽略\n- 修复 `claude rm` 未完全删除后台任务\n- 修复 `/remote-control` 在未登录时显示 \"Unknown command\"\n- 修复左箭头无法返回工作流详情视图\n- 修复 LSP 插件的误报 \"disused plugin\" 提示\n- 修复 `/doctor` 更新检查与 Homebrew 安装渠道对比\n- 修复全屏跳转按钮在 macOS 上显示 Ctrl+End\n- Bedrock: 修复使用 `awsCredentialExport` 时的启动挂起问题\n\n**改进：**\n- `/code-review` 在 `claude-opus-4-8` 上的质量提升\n- 代理视图状态列使用全终端宽度，不再截断\n- 代理视图：`Ctrl+X` 永久删除已完成会话，后台删除任务保持删除状态",
       "category": "github-release"
     },
     {
@@ -152,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-07-08T21:22:06.000Z",
-      "summaryZh": "## Claude Code v2.1.205 更新说明\n\n**新功能与改进：**\n- 新增自动模式规则，阻止篡改会话记录文件\n- 改进`--json-schema`：无效schema不再静默输出非结构化内容，支持format关键字\n- 自动模式在执行`rm -rf`前会先确认变量是否可解析\n- 二进制更新改为流式写入磁盘，峰值内存降低约400MB\n- 后台任务通知明确标注“无人工输入”，防止伪造审批\n- 代理视图增强：编辑/合并/评论/推送PR的会话会显示链接；行内显示状态词和AI生成标题\n- `/doctor`升级为完整诊断修复工具，`/checkup`为其别名\n- 保留\"Claude Browser\" MCP服务器名称（与\"Claude Preview\"并列）\n\n**问题修复：**\n- 修复Windows工作树删除时误删NTFS链接外部文件\n- 修复后台代理恢复后状态显示错误\n- 修复`claude attach`在代理升级重启时的错误\n- 修复`claude mcp add-from-claude-desktop`因服务器名含非法字符卡死\n- 修复插件LSP服务器初始化失败影响其他插件\n- 修复Windows启动目录被删除/锁定/卸载时的崩溃\n- 修复文件监视器关闭时目录扫描未完成的崩溃\n- 修复项目验证技能每次会话重写的问题\n- 修复远程控制面板后台任务状态显示过时\n\n**破坏性变更：**\n- 用户配置的MCP服务器不能再注册\"Claude Browser\"或\"Claude Preview\"名称",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.204",
-      "titleZh": "v2.1.204",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.204",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-07-08T00:27:50.000Z",
-      "summaryZh": "## Claude Code v2.1.204 更新说明\n\n**主要修复：**\n- 修复了在无头会话（headless sessions）中，`SessionStart` 钩子事件无法正常流式传输的问题。此前，该问题可能导致远程工作进程在钩子执行期间因空闲超时而被系统回收（idle-reaped），从而中断任务。\n\n**影响范围：**\n- 该修复对使用无头模式运行自动化任务或远程工作流的用户至关重要，确保 `SessionStart` 钩子能完整执行，避免因超时回收导致的意外中断。\n\n**技术细节：**\n- 无头会话（headless sessions）中的钩子事件流（hook events streaming）现已恢复正常，远程工作进程在钩子执行期间将保持活跃状态。\n\n**建议：**\n- 若您在使用无头会话时遇到 `SessionStart` 钩子执行不完整或任务意外终止的问题，建议升级至此版本。",
+      "summaryZh": "## Claude Code v2.1.205 更新说明\n\n**新特性：**\n- 新增自动模式规则，阻止篡改会话记录文件\n- `/doctor` 升级为完整系统诊断工具，可自动修复问题；`/checkup` 为其别名\n- 自动模式在执行 `rm -rf` 前会先确认变量能否解析\n- 后台任务通知明确标注“无人工输入”，防止伪造的会话内审批被误执行\n- 改进代理视图：编辑/合并/评论/推送至现有PR的会话会显示PR链接；行状态显示彩色关键词和AI生成标题\n- 二进制更新改为流式写入磁盘，峰值内存降低约400MB\n\n**Bug修复：**\n- 修复 `--json-schema` 在schema无效时静默输出非结构化内容的问题\n- 修复达到 `--max-turns` 限制时消息丢失的问题\n- 修复Windows工作树删除时误删NTFS符号链接外文件的问题\n- 修复后台代理恢复后状态显示错误的问题\n- 修复 `claude attach` 在代理升级重启时出错的问题\n- 修复 `claude mcp add-from-claude-desktop` 因服务器名含非法字符卡死的问题\n- 修复插件LSP服务器初始化失败导致其他LSP服务器无法处理相同扩展名的问题\n- 修复Windows下启动目录被删除/锁定/卸载时崩溃的问题\n- 修复文件监视器关闭时目录扫描仍在进行导致的崩溃\n- 修复项目验证技能每次会话都被重写的问题\n- 修复Web/移动端远程控制面板后台任务状态显示为“运行中”的问题\n\n**破坏性变更：**\n- 保留 \"Claude Browser\" 和 \"Claude Preview\" MCP服务器名称，用户配置的MCP服务器不能再使用这两个名称",
       "category": "github-release"
     }
   ]
