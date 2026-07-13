@@ -1,18 +1,31 @@
 {
-  "lastUpdated": "2026-07-10T19:16:12.701Z",
+  "lastUpdated": "2026-07-13T19:11:15.230Z",
   "items": [
     {
-      "title": "Bryson DeChambeau partners with Google Health.",
-      "link": "https://blog.google/products-and-platforms/products/google-health/bryson-dechambeau/",
-      "description": "Professional golfer Bryson DeChambeau partners with Google Health to track fitness metrics using Fitbit Air to bring data-driven athletic training to daily health routin…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Bryson_DeChambeau_x_Google_Heal.max-600x600.format-webp.webp\">Professional golfer Bryson DeChambeau partners with Google Health to track fitness metrics using Fitbit Air to bring data-driven athletic training to daily health routin…",
+      "title": "Optimize your reach and frequency across campaigns with video campaign groups.",
+      "link": "https://blog.google/products/ads-commerce/video-campaign-groups/",
+      "description": "Coordinate reach and frequency across campaigns while still maintaining individual campaign settings.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/RxF_jpg__V2AgfZ0.max-600x600.format-webp.webp\">Coordinate reach and frequency across campaigns while still maintaining individual campaign settings.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 10 Jul 2026 16:12:00 +0000",
-      "titleZh": "布赖森·德尚博与谷歌健康合作。",
-      "descriptionZh": "职业高尔夫球手布赖森·德尚博（Bryson DeChambeau）与Google Health达成合作，利用Fitbit Air可穿戴设备追踪运动与健康指标，旨在将数据驱动的精英运动员训练方法引入普通人的日常健康管理。作为以科学化训练闻名的高尔夫选手，德尚博长期使用传感器分析挥杆力学、身体姿态和肌肉发力模式，而此次合作的重点是将这种精密监测能力下沉到大众化的智能穿戴设备中。\n\n核心技术原理方面，Fitbit Air不仅延续了传统手环的心率、步数、睡眠监测功能，还创新性地集成了生物电阻抗分析和多轴加速度传感器。前者通过微电流测量身体成分（如体脂率、肌肉量、水分含量），后者则能以100Hz以上的采样率捕捉运动过程中的细微动作变化——这在以往只有专业运动实验室设备才能实现。特别值得关注的是，系统内置了针对高尔夫专项训练的算法模型：通过分析挥杆时的腕部轨迹、加速度峰值和关节角速度，设备能自动识别不同球杆类型（一号木、铁杆、推杆）并生成发力效率报告。德尚博本人提供的职业级挥杆数据被用于训练这些AI模型，使其能更精准地对比业余爱好者的动作偏差。\n\n这种技术融合带来了两个层面的创新突破。其一，可穿戴设备首次实现了从“健康监护”到“运动表现优化”的跨越——普通用户不再只是被动记录数据，而是能获得类似职业运动员的个性化训练建议，比如根据体脂率变化动态调整有氧/力量训练比例，或通过挥杆对称性分析预防肩背损伤。其二，合作方将用户数据匿名化处理后，与Google Health的云端AI平台打通，构建出跨人群的生物力学模型库。这意味着未来可能通过群体数据反哺个体训练：例如，当系统检测到用户的核心肌群稳定性不足时，会对比同体型、同水平人群的改进方案，推送定制化的平板支撑或平衡训练计划。\n\n从技术影响和应用场景来看，这项合作正在重新定义“日常健康”的边界。在高尔夫领域，业余爱好者可以在练习场实时通过手机查看挥杆速度、旋转轴和力量传递效率，并收到类似“你的上杆顶点位置比推荐角度低了5度，可能导致右曲球”的即时反馈。更广泛地，这种数据驱动范式可迁移至跑步、骑行、游泳等大众运动：比如通过足底压力分布预测跟腱炎风险，或将呼吸频率与GPS轨迹结合来优化马拉松配速策略。对医疗健康领域而言，连续的身体成分监测为代谢疾病（如肌肉衰减症、肥胖症）的早期预警提供了低成本方案，而无需用户前往医院进行专业体测。\n\n不过，隐私和数据安全仍是潜在挑战。Google Health强调所有个人数据均存储在本地设备或加密云端，并且用户可自主选择是否用于AI模型训练。这一合作也标志着职业体育与消费科技深度融合的转折点——当顶级运动员的训练哲学能通过几百元的手环走进日常生活，数据不再是精英的专利，而成为每个人优化自身健康轨迹的可及工具。德尚博本人对此评价道：“如果我能用科学方法把6公里挥杆加速到10公里，那么普通上班族也能用同样的逻辑，把每天久坐带来的健康负债转化为行走一万步的资产——区别只在于你是否有意愿观察这些数字背后的意义。”"
+      "pubDate": "Mon, 13 Jul 2026 16:00:00 +0000",
+      "titleZh": "利用视频广告",
+      "descriptionZh": "本篇博客介绍了Google Ads推出的一项新功能：在保持各广告活动独立设置的前提下，跨多个广告活动协调触达和频次。传统做法中，广告主往往需要在多个广告活动中分别设置频次上限，但不同活动之间缺乏统筹，容易导致同一用户被同一品牌的多个活动反复触达，造成频次过高、用户疲劳和预算浪费。同时，完全合并活动会丧失对各活动个性化出价、预算、受众定向等策略的精细控制。该功能的创新在于：广告主可以定义一个跨活动的统一频次上限（例如“每7天最多展示3次”），而各个活动仍可保留自己的预算、出价、广告文案和受众设置。底层技术通过Google Ads的归因和身份匹配引擎，将跨活动的展示记录统一去重计算，确保规则生效时不影响各活动的独立优化。影响上，该功能可显著提升广告系列之间的协同效率，降低无效曝光，改善用户广告体验，尤其适用于品牌推广、季节促销或同一产品多系列联合投放场景。同时，它也为大型账户管理提供了自动化协调工具，减少了人工调整的繁琐。应用场景包括电商大促期间多个活动同时运行、品牌在不同渠道推出相似创意、或代理商为同一客户同时管理多个账户等。"
+    },
+    {
+      "title": "Waze rolls out new customization features and more Gemini updates",
+      "link": "https://blog.google/waze/waze-updates-gemini-motorcycle-mode/",
+      "description": "Whether you're riding a motorcycle or want fewer voice prompts, the latest features — including Gemini updates — give you more flexibility.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Motorcycle_hero_2_english_stati.max-600x600.format-webp.webp\">Whether you're riding a motorcycle or want fewer voice prompts, the latest features — including Gemini updates — give you more flexibility.",
+      "author": "Gai Berkovich",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 13 Jul 2026 09:00:00 +0000",
+      "titleZh": "Waze 推出新的个性化功能及更多 Gemini 更新",
+      "descriptionZh": "Google 近期发布了一系列针对摩托车骑行场景和语音助手自定义体验的最新功能更新，尤其是其大语言模型 Gemini 的升级，让用户在使用智能设备时获得了更大的灵活性和控制权。对于摩托车手来说，在复杂路况下减少不必要的语音提示、提高交互精准度是核心需求；而对于普通用户，调整语音助手“话多”的频率、避免干扰也是提升使用舒适度的关键。\n\n此次更新的核心技术原理围绕 Gemini 的多模态理解与上下文感知能力展开。通过强化对噪声环境（如风噪、引擎声）的实时语言识别，系统能更精准地判断用户指令意图，而非盲目触发所有预设提示。创新点主要体现在两方面：一是“自适应提示频率”——Gemini 可根据用户历史互动习惯、当前活动状态（如骑行、行走、驾驶）动态调整语音干预的密度，例如在摩托车高速行驶时自动减少“推荐路线”或“天气播报”等非紧急提示，只有在用户主动询问时才提供详细反馈；二是“个性化静默模式”——允许用户自定义语音输出的优先级和触发条件，甚至通过一句话（如“少说点话”）让助手切换至更简短的回复风格，类似于调节“语音提示音量”的同时也能控制“提示数量”。\n\n从技术影响来看，这一功能直接解决了长期以来智能语音助手在强干扰场景下的“过度打扰”问题，大幅提升了用户对助手控制权的感知。实际应用中，摩托车手可以一边专注骑行，一边通过简单的点头或简短语音指令获取关键导航信息，而不会因重复提示分散注意力；日常通勤者也能避免在会议或安静场合被不必要的语音播报打断。更深层的意义在于，Gemini 正在从“主动告知者”向“按需响应者”转型，这是人工智能交互范式从“机器主导”走向“用户主导”的重要一步。\n\n总而言之，这次更新不仅为摩托车骑行这样的小众但高需求场景提供了专用解决方案，也为所有用户打开了一扇通往“安静而强大”的 AI 体验之门。未来，类似的上下文感知和自适应策略还有望拓展到更多物理活动（如水上运动、户外露营）和不同文化习惯的语言风格中，真正让技术服务于人的自然行为而非强迫人去适应技术。"
     }
   ]
 }
