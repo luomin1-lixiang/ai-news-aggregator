@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-07-14T19:03:19.101Z",
+  "lastUpdated": "2026-07-15T18:56:47.821Z",
   "items": [
+    {
+      "title": "Claude Code fallbackModel: 3-Tier Failover Setup (2026)",
+      "titleZh": "Claude Code 回退模型：三层故障转移设置（2026）",
+      "link": "https://dev.to/owen_fox/claude-code-fallbackmodel-3-tier-failover-setup-2026-ao9",
+      "author": "Owen",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-15T08:28:04.000Z",
+      "summaryZh": "以下是关于 Claude Code 的 3 层故障转移设置指南的中文摘要：\n\n**用户场景**  \n当 Anthropic API 返回 529 overloaded_error（过载错误）时，Claude Code 会话会中断任务。作者针对自动化脚本、CI/CD 或长时间运行的任务场景，提供了一种故障转移方案，确保在模型过载时任务不中断。\n\n**核心方法**  \n通过配置 `fallbackModel` 数组实现 3 层降级链：主模型 Opus → 备选 Sonnet → 最终备选 Haiku。配置仅需在 `settings.json` 中添加一行：`\"fallbackModel\": [\"sonnet\", \"haiku\"]`。注意：该机制仅响应 529 错误，不处理 429 限流错误（需单独解决配额问题）。\n\n**关键技巧**  \n1. **版本要求**：Claude Code v2.1.197+ 才能正确解析 Sonnet 5 别名  \n2. **模型顺序**：Haiku 上下文窗口仅 200K（Opus/Sonnet 为 1M），长会话可能溢出  \n3. **测试方法**：先用 CLI 参数 `--fallback-model sonnet,haiku` 临时测试，再持久化到配置  \n4. **团队协作**：故障转移是单次会话行为，每次新消息仍使用主模型  \n5. **局限**：无法跨账户或跨提供商（如 Bedrock）切换，不能解决配额问题  \n6. **停止规则**：若仅需单层备份，`\"fallbackModel\": [\"sonnet\"]` 即可，3 层仅在平台级故障时有用",
+      "category": "devto"
+    },
     {
       "title": "Claude AI Pros and Cons: Honest 2026 Review",
       "titleZh": "Claude AI 优缺点：2026年诚实评测",
@@ -9,29 +20,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-14T07:08:11.000Z",
-      "summaryZh": "# Claude AI 优缺点深度评测：2026年开发者视角\n\n## 用户场景\n作者针对60%以上使用多款AI助手的专业开发者，解决“如何为特定任务选择最合适的AI工具”这一痛点。特别聚焦于Anthropic的Claude（Claude 3.7及Claude 4预览版）在日常开发、技术写作和决策场景中的实际表现。\n\n## 核心方法\n文章采用“无炒作”的诚实评测框架，从**Constitutional AI**理念出发，分析Claude的独特定位。通过对比Claude vs ChatGPT vs Gemini的上下文窗口（200K tokens vs 128K vs 1M）、代码生成、写作质量、多模态能力等维度，提供决策框架。特别展示了Claude在解析多源JSON数据、合成优先级列表等开发者工作流中的实际应用。\n\n## 关键技巧\n1. **长上下文优势**：可粘贴整个代码库或法律文档进行跨段落推理，但需注意API成本随200K tokens上下文线性增长\n2. **写作质量最佳**：生成技术文档和API参考时，Claude的句子多样性和逻辑连贯性优于竞品，适合“后文档时代”仍重视文档质量的团队\n3. **指令遵循性强**：要求输出特定JSON schema或Python类时，Claude不易中途偏离规范\n4. **需注意的陷阱**：无原生网页搜索（需第三方集成）、拒绝率较高（如安全测试脚本可能被拦截）、多模态能力弱于Gemini和GPT-4o、高峰期有容量限制",
+      "summaryZh": "# Claude AI 优缺点深度评测：2026年开发者视角\n\n## 用户场景\n作者针对60%以上专业开发者日常使用多个AI助手的现状，系统评估Claude在真实开发场景中的表现。核心问题是：面对ChatGPT、Gemini等竞品，Claude到底适合什么任务？不适合什么任务？文章面向开发者、技术写作者和技术决策者，提供无营销滤镜的实用分析。\n\n## 核心方法\n基于Anthropic的\"Constitutional AI\"理念，Claude以诚实和安全为核心训练目标。评测聚焦三个维度：长上下文推理（200K tokens）、代码质量审查、技术文档写作。通过对比Claude 3.7/4预览版与GPT-4o、Gemini 1.5 Pro，揭示Claude在代码审查中不仅标记问题还能解释原因、在多源JSON数据合成时输出更结构化等差异化优势。\n\n## 关键技巧\n**优势场景**：全代码库粘贴分析、复杂JSON schema生成、技术文档撰写。Claude的指令遵循能力极强，能严格按多步指令输出指定格式。\n\n**需规避的坑**：①无原生Web搜索（需第三方集成）；②拒绝率高——安全渗透脚本、虚构反派对话等可能被拦截；③多模态能力弱于Gemini；④高上下文长度下API成本攀升；⑤高峰期有容量限制。\n\n**决策建议**：写作质量Claude最佳，代码生成三者相当，多模态任务选Gemini，实时搜索需求选ChatGPT。",
       "category": "devto"
     },
     {
       "title": "Using Claude AI for Work: A Practical Guide",
-      "titleZh": "使用Claude AI进行工作：实用指南",
+      "titleZh": "使用Claude AI工作：实用指南",
       "link": "https://dev.to/iniyarajan86/using-claude-ai-for-work-a-practical-guide-5bk4",
       "author": "Iniyarajan",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-13T07:42:03.000Z",
-      "summaryZh": "## 用Claude AI提升工作效率：实战指南\n\n**用户场景：**\n作者指出，许多专业人士使用AI的方式仍停留在“搜索引擎”层面——问一个问题，得到一个答案，然后关闭标签页。这种碎片化使用方式浪费了AI 80%的潜力。真正的问题不是缺少工具，而是没有学会正确地向AI委派任务。\n\n**核心方法：**\n作者提出了一套完整的Claude工作流，分为三个时段：\n1. **早晨筛选（10分钟）**：将邮件或Slack聊天记录粘贴给Claude，要求它识别出3个需要你决策的事项，并为每个事项草拟两句话回复。\n2. **深度工作**：在开始复杂任务前，将目标、约束条件和受众描述给Claude，把它当作“思考伙伴”——让它反驳你的策略、找出计划中最薄弱的假设。\n3. **下班总结**：将笔记、已完成任务和未解决问题输入Claude，生成进度总结和明日优先级列表，仅需4分钟即可替代30分钟的心智负担。\n\n**关键技巧：**\n- **自动化集成**：通过Zapier + Claude API或Make.com构建无代码工作流，让Claude处理分类、总结、初稿生成等认知步骤，现有工具负责路由和存储。\n- **代码集成**：作者提供了Python示例，调用Anthropic API批量处理会议记录，提取关键决策、行动项和未解决问题，输出JSON格式，可自动推送到Notion和Slack。\n- **避免陷阱**：不要像用搜索引擎一样用Claude，而是建立持续对话上下文；利用Claude 200K+ token的上下文窗口，一次性粘贴整个项目简报或300页PDF进行连贯提问。",
+      "summaryZh": "## 用Claude AI提升工作效率：实战指南\n\n### 用户场景\n作者指出，许多专业人士使用AI的方式仍停留在“搜索引擎式”的零散问答，浪费了80%的潜力。文章针对知识工作者（文档撰写、邮件处理、会议纪要、研究分析等场景），提供了一套将Claude深度融入日常工作的系统方法。\n\n### 核心方法\n1. **晨间三分钟**：将邮件/Slack摘要粘贴给Claude，要求“识别今天需要我决策的三件事，并为每件事草拟两句话回复”。\n2. **深度工作**：将复杂任务（提案、代码审查、数据分析）作为“思考伙伴”与Claude对话，要求它反驳你的策略、找出计划中的最弱假设。\n3. **日终复盘**：将笔记、完成事项、未决问题丢给Claude，生成进度总结和明日优先级清单。\n4. **自动化集成**：通过Zapier/Make.com将Claude接入表单、工单、表格等触发流程；或使用Claude Projects创建定制化AI助手。\n\n### 关键技巧\n- **代码集成**：提供Python示例，用Anthropic API批量处理会议转录，自动提取决策、行动项和未决问题，输出JSON格式。\n- **iOS开发**：给出Swift代码片段，展示如何调用Claude API并解析结构化输出。\n- **避坑指南**：不要只做单次查询，要建立“上下文对话”模式；Claude擅长处理认知步骤（分类、总结、初稿生成），路由和存储交给现有工具。",
       "category": "devto"
     },
     {
-      "title": "What Claude Can Actually Do in 2026 (Most People Miss Most of It)",
-      "titleZh": "2026年Claude实际能做什么（大多数人忽略了大部分功能）",
-      "link": "https://dev.to/studiomeyer_io/what-claude-can-actually-do-in-2026-most-people-miss-most-of-it-14p9",
-      "author": "Matthias | StudioMeyer",
+      "title": "Opus 4.7’s SWE-Bench Jump, GPT-5.5’s 1M-Context Doubling & Next.js 16.2’s 400% Dev Server (April 2026)",
+      "titleZh": "Opus 4.7的SWE-Bench跃升、GPT-5.5的百万上下文翻倍及Next.js 16.2的400%开发服务器（2026年4月）",
+      "link": "https://dev.to/gtstudios/opus-47s-swe-bench-jump-gpt-55s-1m-context-doubling-nextjs-162s-400-dev-server-april-11mm",
+      "author": "GTStudios",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-12T19:43:46.000Z",
-      "summaryZh": "## Claude 2026 实用指南：大多数人只用了五分之一的功能\n\n**用户场景**  \n许多开发者只把Claude当高级搜索引擎——提问、读答案、关标签页。作者指出，这种用法浪费了Claude 80%的能力。2026年的Claude已从“聊天机器人”进化为“带手的大脑”，能记住用户偏好、构建可交互的Artifacts、管理项目文件、连接日历和数据库，甚至直接操作代码文件。\n\n**核心方法**  \nClaude由“大脑”（模型）和“手”（交互界面）组成。模型分四档：Haiku（快速廉价）、Sonnet（日常均衡）、Opus（复杂任务）、Fable（最强长程任务）。付费用户可手动选择更强模型。关键界面包括：Chat（基础对话）、Projects（项目空间）、Artifacts（实时构建工具）、Cowork（协作模式）、Claude Code（代码操作）。Memory功能（免费含）可跨会话记住用户偏好，在Settings > Capabilities > Memory中可编辑。Projects允许设置独立指令和参考文件，避免重复解释上下文。\n\n**关键技巧**  \n1. **Memory活用**：Claude会主动提示“根据你上周说的项目”，但内置记忆较浅。如需深度便携记忆，需用后续介绍的扩展方法。  \n2. **Artifacts实战**：要求“做一个预算计算器”，Claude会在侧面板生成可交互的HTML/JS组件，而非仅文字描述。  \n3. **Projects最佳实践**：将品牌风格、产品文档、报告模板放入Project，后续所有对话自动继承上下文。付费计划支持无限Projects。  \n4. **避免陷阱**：Temporary Chat模式可让对话不留痕迹；Memory可手动编辑删除敏感信息。",
+      "pubDate": "2026-07-14T22:00:33.000Z",
+      "summaryZh": "# 2026年4月Web开发大事件：AI模型与框架双线升级\n\n## 用户场景\n开发者面临两大核心问题：AI编码助手从“自动补全”进化到“自主代理”的范式转变，以及React手动优化（useMemo/useCallback）被编译器取代后的代码维护策略。\n\n## 核心方法\n1. **AI模型对决**：Anthropic发布Claude Opus 4.7（SWE-bench从53.4%→64.3%，支持3.75MP高分辨率视觉），OpenAI一周后推出GPT-5.5“Spud”（百万token推理能力翻倍至74%）。两者均推动编码工具向全自主Agent工作流演进。\n2. **框架革新**：Next.js 16.2开发服务器提速400%（Turbopack默认替代Webpack，HMR快10倍），React Compiler v1.0使手动memoization成为历史。\n\n## 关键技巧\n- **AI使用升级**：停止仅用AI做代码补全，转向Claude Code/OpenAI Agents SDK等端到端任务解决工具\n- **React优化清理**：不要全局重构，在修改组件时顺手移除useMemo/useCallback包装器\n- **框架选择**：新项目默认使用Next.js/Nuxt等元框架，裸React项目需提供正当理由\n- **技术债务**：Webpack作为默认打包器已过时，新项目应选Turbopack/Vite/Bun\n\n**核心结论**：手动memoization、Webpack默认、AI仅补全、纯JS项目——这四种模式已正式进入“遗留技术”清单。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Drafts Monzo Founder as Compute Crunch Bites",
+      "titleZh": "Anthropic 拟邀 Monzo 创始人应对算力短缺",
+      "link": "https://dev.to/xoomar/anthropic-drafts-monzo-founder-as-compute-crunch-bites-ill",
+      "author": "XOOMAR",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-14T19:58:17.000Z",
+      "summaryZh": "## Anthropic 聘请 Monzo 创始人应对算力瓶颈\n\n**用户场景：** 随着 Claude 从简单问答转向跨设备、跨时段的持续性工作（如 Claude Cowork 的移动端支持），算力资源已成为制约产品交付的核心瓶颈。81% 的 Claude 用户认为 AI 对工作至关重要，但长任务执行对基础设施的可靠性、持久性和扩展性提出了更高要求。\n\n**核心方法：** Anthropic 聘请 Monzo 联合创始人 Tom Blomfield 负责算力可用性问题，而非传统技术专家。这标志着算力已从纯技术问题转变为商业与运营问题——涉及数十亿美元合同、百万级 TPU 部署、多吉瓦级容量规划。Blomfield 在受监管金融领域构建高信任度服务的经验（可靠性是生存条件而非附加功能）被用来解决算力分配中的优先级、规划和成本纪律问题。\n\n**关键技巧：**\n- 算力分配需建立明确的优先级机制：哪些研究项目优先获得稀缺资源？\n- 容量规划必须与产品发布和客户承诺匹配，避免成为用户体验瓶颈\n- 成本纪律：不能将算力视为无限输入，需建立运营约束\n- 开发者应关注 API 可用性和模型可靠性信号，而非炒作\n- 竞争对手（OpenAI、Google DeepMind）也在采用类似\"运营型人才\"模式",
       "category": "devto"
     },
     {
@@ -42,29 +64,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-13T09:20:29.000Z",
-      "summaryZh": "## Claude Opus 5 发布信号追踪：开发者该信什么？\n\n**用户场景：** 作者发现中文开发者社区流传\"Claude Opus 5 八月发布\"、\"无限制版 Fable 5\"等传言，但 Anthropic 官方没有任何确认。问题在于：开发者是否该根据这些传言调整部署计划？\n\n**核心方法：** 作者系统核查了 Anthropic 官方渠道（新闻室、模型目录、定价表、系统卡索引），并分析了 Opus 4.5-4.8 的发布节奏（间隔 73/70/42 天）。关键发现：\n- 官方模型列表无 Opus 5 行，无 API model ID，无系统卡\n- 仅凭三个发布间隔预测 7-8 月，样本太小不可靠\n- 真正信号是产品缺口：Sonnet 5（$3/$15）和 Fable 5（$10/$50）之间，Opus 4.8（$5/$25）仍有商业空间\n\n**关键技巧：**\n1. **不要信截图/客户端字符串**：API model ID 易伪造，只认官方目录\n2. **定价假设用 $5/$25**：连续四代 Opus 维持此价，但标注 UNCONFIRMED\n3. **缓存优化立即可用**：80% cache hit 可省 $360/月（100M input 场景）\n4. **三种成本场景建模**：小代理（$100-200/月）、编码平台（$1,000-2,000/月）、缓存场景（$640/月）\n5. **不要延迟部署**：等一个没有 API 合同的模型是风险决策\n\n**结论：** Opus 5 可能来，但日期和定价都是猜测。开发者应基于现有 Opus 4.8 做预算，用缓存优化降低成本，而非追逐传言。",
+      "summaryZh": "# Claude Opus 5 发布信号追踪：开发者该如何应对？\n\n## 用户场景\n作者发现中文开发者社区流传\"Claude Opus 5 八月发布\"、\"无限制版 Fable 5\"等传言，但 Anthropic 官方没有任何确认。开发者面临的问题是：是否应该推迟现有 Opus 4.8 部署来等待新模型？\n\n## 核心方法\n作者通过核查 Anthropic 官方渠道（模型目录、定价表、系统卡索引）发现：\n- Opus 5 没有任何官方页面、API model ID、定价或 benchmark\n- 历史发布间隔（73/70/42天）推算7-8月，但样本量太小不可靠\n- 关键信号是产品线缺口：Sonnet 5 ($3/$15) 到 Fable 5 ($10/$50) 之间存在价格空档\n\n## 关键技巧\n1. **不要轻信未确认的模型**：API model name 容易被伪造，只有 first-party catalog 暴露才算数\n2. **定价假设**：最合理的 Opus 5 定价是 $5/$25（延续 Opus 4.5-4.8 的价格），但必须标注 UNCONFIRMED\n3. **成本建模**：提供三个场景（小型agent $100/月、编码平台 $1,000/月、缓存优化 $640/月），建议用现有 Opus 4.8 + 缓存优化替代等待\n4. **避坑**：不要因传言推迟现有部署，缓存优化（80% cache hit 可节省 $360/月）是当下可用的真实优化",
       "category": "devto"
     },
     {
-      "title": "GPT-5.6 Won the Headlines. The Money Bet on Anthropic.",
-      "titleZh": "GPT-5.6 抢占头条，资金押注 Anthropic",
-      "link": "https://dev.to/max_quimby/gpt-56-won-the-headlines-the-money-bet-on-anthropic-3955",
-      "author": "Max Quimby",
+      "title": "Model Context Protocol (MCP): The New Standard for AI Tool Integration",
+      "titleZh": "模型上下文协议（MCP）：AI工具集成的新标准",
+      "link": "https://dev.to/gtstudios/model-context-protocol-mcp-the-new-standard-for-ai-tool-integration-3e27",
+      "author": "GTStudios",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-12T03:38:40.000Z",
-      "summaryZh": "以下是关于Dev.to上这篇分析Anthropic与OpenAI市场博弈文章的总结：\n\n**用户场景：** 作者揭示了AI行业一个关键矛盾：舆论热度（如GPT-5.6发布引发2.58M观看）与真实资本押注（Polymarket预测市场）之间的巨大鸿沟。开发者常被头条新闻误导，而真正有利益相关者（交易员、投资者）的决策信号截然不同。\n\n**核心方法：** 通过分析Polymarket上最深流动性的AI模型预测市场（总金额$2.27M），发现交易员给Anthropic 94%概率在2026年7月底拥有最佳模型，而OpenAI仅1%。作者对比了Sam Altman的\"胜利巡游\"推文（42.7K点赞）与资本市场的冷漠反应，指出GPT-5.6发布后市场赔率纹丝不动。同时引用All-In Podcast中Gavin Baker的论点：Anthropic年化收入已达$470亿（28个月从$87M飙升），企业市场份额80%，形成\"合规护城河\"。\n\n**关键技巧：**\n1. **关注\"金钱信号\"而非\"噪音信号\"**：预测市场比社交媒体热度更可靠，因为交易员用真金白银投票\n2. **企业采用周期**：大型企业不会因基准测试高2分就切换供应商，合同到期、安全审查、合规签批才是真正壁垒\n3. **定价权转移**：三个实验室（Anthropic/OpenAI/Google）的均衡压低价格，但一旦某家持续领先一个财季，将获得垄断定价权\n4. **避免陷阱**：不要被\"发布日烟花\"迷惑，GPT-5.6的政府安全审查和分级定价（Sol/Terra/Luna）只是公关策略，未改变市场格局\n\n**核心洞察：** 开发者应关注\"谁在真正赢取企业合同\"而非\"谁在X平台获得最多点赞\"。Anthropic的$3万亿估值论基于可验证的营收增速（史上最快企业软件增长）和85%推理毛利率，而非基准测试排名。",
+      "pubDate": "2026-07-15T13:00:51.000Z",
+      "summaryZh": "## Model Context Protocol (MCP)：AI工具集成新标准\n\n**用户场景**：开发者面临AI模型与外部工具（数据库、文件系统、第三方API）集成时，需要为每个工具编写自定义连接器，导致重复劳动和碎片化。MCP解决了这一痛点，提供统一标准，让AI代理可靠访问真实世界数据。\n\n**核心方法**：MCP采用客户端-服务器架构，包含三大组件：\n1. **MCP Servers**：暴露工具、资源和能力（如数据库查询、文件操作、API调用）\n2. **MCP Clients**：AI应用（如Claude Code、Claude Desktop）自动发现并使用MCP服务器\n3. **协议层**：基于JSON-RPC，支持stdio和HTTP/SSE传输，处理工具发现、调用和响应\n\n**关键技巧**：\n- 构建MCP服务器只需100行代码，生产级服务器约500-1000行\n- 使用Anthropic官方SDK（Python/TypeScript）快速开发\n- 与Function Calling不同，MCP服务器可跨客户端复用，支持自动发现和独立维护\n- 常见用例：PostgreSQL自然语言查询、文件系统操作、GitHub/Jira集成、浏览器自动化、自定义业务逻辑\n- 注意：MCP和Function Calling可共存，MCP客户端会自动转换工具定义为函数调用",
       "category": "devto"
     },
     {
       "title": "Next Step: Skills & Hooks — Point, Don't Re-Prompt (After CLAUDE.md & Rules)",
-      "titleZh": "下一步：技能与钩子——指明方向，而非重复提示（在CLAUDE.md和规则之后）",
+      "titleZh": "下一步：技能与钩子——指明方向，而非重复提示（在CLAUDE.md与规则之后）",
       "link": "https://dev.to/mozes721/next-step-skills-hooks-point-dont-re-prompt-after-claudemd-rules-3g31",
       "author": "Ricards Taujenis",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-13T08:25:58.000Z",
-      "summaryZh": "以下是关于 Dev.to 文章《Next Step: Skills & Hooks — Point, Don't Re-Prompt》的中文总结：\n\n**用户场景**  \n作者解决了 Claude Code 的“被动上下文”问题：即使配置了 CLAUDE.md 和规则文件，Claude 仍不会主动利用这些基础信息。每次执行 PR 总结、修复 lint 错误等重复任务时，开发者仍需手动输入冗长指令，既消耗 Pro 订阅的 token 配额，又浪费上下文窗口。核心痛点是“Claude 知道什么，但不知道如何主动行动”。\n\n**核心方法**  \n引入两层主动机制：  \n1. **Skills（技能）**：通过 `SKILL.md` 文件定义可复用的工作流（如 PR 总结、Airtable 字段规则）。采用渐进式加载——仅首次展示技能名称和描述（约 100 tokens），任务匹配时才加载完整指令。支持从市场安装（如 Upstash 官方技能）或自定义创建，并通过规则文件自动路由（如“PR 审查使用 pr-summary 技能”）。  \n2. **Hooks（钩子）**：在 `.claude/hooks/` 目录放置 shell 脚本，在文件编辑、提交、会话结束等生命周期事件中确定性执行。例如 `PreToolUse` 钩子拦截 `git commit` 命令，自动运行 `golangci-lint`，失败则阻止提交并将错误输出注入上下文，零 token 消耗。\n\n**关键技巧**  \n- **技能创建**：`SKILL.md` 需包含步骤和输出格式，如 PR 总结技能自动执行 `git log main..HEAD` 并生成 `summary.md`。  \n- **钩子模式**：通过 `python3 -c` 解析 stdin 的 JSON 输入，判断当前命令类型（如 `git commit`），非目标事件直接 `exit 0` 跳过。  \n- **安全警告**：安装市场技能前务必审查 `SKILL.md` 和脚本，避免执行恶意代码。  \n- **组合使用**：规则文件引用技能名称，实现“规则→技能→钩子”三层自动流水线，彻底消除重复提示。",
+      "summaryZh": "以下是关于 Dev.to 文章《Next Step: Skills & Hooks — Point, Don't Re-Prompt》的中文总结：\n\n**用户场景**  \n作者在配置了 CLAUDE.md 和规则文件后，发现 Claude 仍不会主动利用这些上下文。每次请求 PR 总结或修复 CI 错误时，仍需重复输入相同指令，浪费大量 token（尤其对 Claude Pro 订阅用户）。问题在于：CLAUDE.md 解决了“Claude 知道什么”，但没解决“Claude 用这些知识做什么”。\n\n**核心方法**  \n引入两层机制：**Skills（技能）** 和 **Hooks（钩子）**。  \n- **Skills**：通过 `SKILL.md` 文件定义可复用的工作流（如 PR 总结、Airtable 操作），支持从 marketplace 安装或自定义。Claude 仅在任务匹配时加载完整指令（渐进式披露），避免上下文膨胀。规则文件可自动路由到对应 skill，实现“指哪打哪”。  \n- **Hooks**：在 `.claude/hooks/` 目录下放置 shell 脚本，在文件编辑、提交等生命周期事件中强制运行（如 lint 检查、构建验证）。模型无权跳过，且不消耗 token。\n\n**关键技巧**  \n1. **Skill 创建**：`SKILL.md` 需包含步骤和输出格式，如 PR 总结 skill 自动执行 `git log` 和 `git diff` 并写入 `summary.md`。  \n2. **Hooks 实现**：脚本从 stdin 读取 JSON 输入，通过 `python3 -c` 解析 `tool_input.command`，仅对匹配命令（如 `git commit`）执行检查，非零退出码可阻止操作并反馈错误。  \n3. **避坑**：安装 marketplace skill 前务必阅读 `SKILL.md` 和脚本，防止恶意代码执行。Hooks 脚本需放在 `.claude/hooks/` 目录并赋予执行权限。",
       "category": "devto"
     },
     {
@@ -75,63 +97,52 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-13T04:30:58.000Z",
-      "summaryZh": "## AI Agent工具泛滥问题：Anthropic 2026升级如何解决\n\n**用户场景**：当AI Agent连接多个业务系统（如WhatsApp、CRM、库存、日历、计费等）时，每个新集成都需添加MCP（Model Context Protocol）服务器，导致工具定义占用大量上下文窗口。一个连接5个MCP服务器的Claude Agent，每次请求前需加载约55,000 tokens的工具定义，既增加成本又降低准确性。\n\n**核心方法**：Anthropic在2025年11月发布的**Tool Search Tool**（工具搜索工具）彻底改变了工具加载方式。通过`defer_loading`标记，模型不再预加载所有工具定义，而是按需搜索所需工具。实测将5个MCP服务器的token消耗从55,000降至8,700（减少85%），同时Opus 4工具选择准确率从49%提升至74%，Opus 4.5从79.5%提升至88.1%。\n\n**关键技巧**：\n1. **程序化工具调用**：让模型编写脚本批量调用多个工具，仅返回最终结果，避免中间结果进入上下文。token消耗从43,588降至27,297（减少37%），适用于多步骤依赖操作（如拉取记录→过滤→推送）。\n2. **工具使用示例**：在工具定义中添加少量示例调用，处理复杂参数（如日期格式、必填字段）的准确率从72%提升至90%。\n3. **企业级授权管理**：2026年6月推出的Enterprise-Managed Authorization，通过Okta等身份提供商实现集中式MCP工具权限管理，支持Asana、Jira、Confluence、Canva、Figma等7个平台，无需用户单独配置OAuth。",
+      "summaryZh": "## AI Agent工具泛滥问题：Anthropic 2026升级的解决方案\n\n### 用户场景\n当企业将AI Agent连接到多个系统（如WhatsApp、CRM、库存、日历、账单等）时，每个新连接都需构建MCP（Model Context Protocol）服务器，导致工具定义膨胀。一个连接5个MCP服务器的Claude Agent，每次请求前需加载约55,000 tokens的工具定义，即使这些工具未被使用，造成显著的成本和延迟开销。\n\n### 核心方法\nAnthropic在2025年11月发布的**Tool Search Tool**（工具搜索工具）彻底改变了工具加载方式：通过`defer_loading`标记，模型仅加载常用工具和搜索工具本身，按需动态检索所需工具。测试显示，5服务器场景下工具定义从55,000 tokens降至8,700 tokens（减少85%），Opus 4工具选择准确率从49%提升至74%，Opus 4.5从79.5%提升至88.1%。\n\n### 关键技巧\n1. **程序化工具调用**：标记工具为`programmatic`，让模型编写脚本批量调用多个工具并仅返回最终结果，避免中间结果进入上下文。典型场景：从系统A拉取记录→过滤→推送至系统B，token消耗降低37%（从43,588降至27,297）。\n2. **工具使用示例**：在工具定义中添加少量示例调用（如日期格式、必填字段组合），复杂参数处理准确率从72%提升至90%。这是修复日期格式错误、字段遗漏等常见问题的有效手段。\n3. **企业级授权**：2026年6月发布的Enterprise-Managed Authorization（企业托管授权）通过Okta等身份提供商实现集中式工具访问控制，支持Asana、Jira、Confluence、Canva、Figma等7个平台，员工首次登录Claude时自动继承权限，无需逐个配置OAuth。",
       "category": "devto"
     },
     {
-      "title": "I Measured Claude Code's Prompt-Cache Cost Three Ways. 85% of It Wasn't Mine to Trim.",
-      "titleZh": "我用三种方式测量了Claude Code的提示缓存成本，其中85%并非我能缩减。",
-      "link": "https://dev.to/nomurasan/i-measured-claude-codes-prompt-cache-cost-three-ways-85-of-it-wasnt-mine-to-trim-48hm",
-      "author": "Sho Naka",
+      "title": "Is Claude AI Better Than ChatGPT for Coding in 2026?",
+      "titleZh": "2026年Claude AI在编程方面比ChatGPT更强吗？",
+      "link": "https://dev.to/incubadora_6c1fc80706dda7/is-claude-ai-better-than-chatgpt-for-coding-in-2026-4g27",
+      "author": "Incubadora",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-12T17:37:12.000Z",
-      "summaryZh": "## Claude Code 缓存成本实测：85% 的固定开销你无法优化\n\n**用户场景**：开发者在使用 Claude Code 时，发现 API 账单中 prompt cache 费用居高不下，但不确定哪些部分可以优化。作者通过实测量化了 cache_creation 和 cache_read 的实际成本分布。\n\n**核心方法**：\n1. 编写 Python 脚本读取 `~/.claude/projects/` 下的 JSONL 会话日志，逐轮提取 `cache_creation_input_tokens` 和 `cache_read_input_tokens`\n2. 在相同空项目下，对比三种启动路径：VSCode 扩展聊天面板、VSCode 内部终端、独立终端（iTerm2）\n3. 逐层添加 CLAUDE.md、skills、hooks 等配置，测量每层增加的 cache_creation 成本\n\n**关键技巧**：\n- **启动路径决定缓存命中**：VSCode 扩展和内部终端共享缓存（cache_read=10,270），独立终端永远 cache_read=0，每次支付完整 cache_creation 费用\n- **子代理（subagent）不继承父会话缓存**：每个子代理独立支付 39,054 固定 token 的 cache_creation，并行 fan-out 时成本线性倍增\n- **用户可控部分仅占 ~15%**：在优化后 46,367 token 的 cache_creation 中，用户配置仅贡献 7,313 token，剩余 85% 是 Claude Code 自身固定开销\n- **实用建议**：优先从 VSCode 启动以利用共享缓存；并行子代理数量越多，固定成本占比越高，需权衡并行度与成本",
+      "pubDate": "2026-07-14T23:08:41.000Z",
+      "summaryZh": "以下是关于 Dev.to 文章《Is Claude AI Better Than ChatGPT for Coding in 2026?》的中文总结：\n\n**用户场景**：文章面向2026年的专业开发者，探讨在编码场景中 Claude AI（Claude 3.7 Sonnet）与 ChatGPT（GPT-4o）的优劣。作者测试了调试遗留 Python 代码、编写 TypeScript API、生成单元测试、重构 React 组件等真实场景，发现 Claude 在多数任务中表现更优。\n\n**核心方法**：Claude 凭借 **200K token 上下文窗口**（ChatGPT 仅 128K）可一次性处理整个代码库，配合 **Extended Thinking** 模式逐步推理复杂逻辑，大幅减少低级错误。其 **Artifacts** 功能支持 HTML/CSS/JS 实时预览，且指令遵循能力更强（如“不使用外部库”等约束）。ChatGPT 的优势在于原生代码执行沙箱（适合数据科学）、丰富的插件生态（Django/Laravel 等框架）和更低 API 成本。\n\n**关键技巧**：\n1. **上下文管理**：Claude 能保持跨文件长上下文，避免手动分块；ChatGPT 在复杂多约束提示下易“漂移”。\n2. **代码质量**：Claude 输出更像资深开发者风格，而 ChatGPT 更易幻觉（虚构不存在的库函数）。\n3. **成本权衡**：Claude API 单价更高（输出 $15/百万 token vs ChatGPT $10），但更大上下文窗口可减少调用次数，实际差距有限。\n4. **避坑建议**：若依赖插件生态或数据科学工作流，选 ChatGPT；全栈/后端开发者应转向 Claude，一周内可感知差异。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude AI Review 2026: Is Anthropic's Chatbot Worth It?",
+      "titleZh": "2026年Claude AI评测：Anthropic的聊天机器人值得入手吗？",
+      "link": "https://dev.to/incubadora_6c1fc80706dda7/claude-ai-review-2026-is-anthropics-chatbot-worth-it-3a7",
+      "author": "Incubadora",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-14T23:08:11.000Z",
+      "summaryZh": "标题：Claude AI 2026 评测：Anthropic 聊天机器人值得吗？\n\n**用户场景**：作者针对开发者、律师、研究人员等专业用户，解决 AI 工具“信任”问题——即避免模型自信地给出错误答案。Claude 通过 Constitutional AI 训练，在长文档分析、复杂推理和拒绝有害请求时表现更可靠，适合需要高质量文本输出和大量文档处理的场景。\n\n**核心方法**：Claude 的核心优势在于 200K token 上下文窗口（可处理约 15 万单词）、Projects 持久记忆工作区（跨对话保留上下文和文件）、以及 Artifacts 功能（在聊天窗口内直接生成并迭代代码、文档、HTML 预览）。其高级推理能力（Claude 3.5 Sonnet / 3 Opus）在 HumanEval 和 GPQA 等基准测试中领先。定价方面，免费版可用 Claude 3 Haiku，Pro 版 $20/月（5 倍用量、优先访问、全模型支持），Team 版 $25/用户/月（5 人起）。\n\n**关键技巧**：1）上传 100 页 PDF 后提问效果最佳，适合法律合同、研究论文等长文档分析；2）使用 Projects 功能为长期项目保留上下文，避免重复输入；3）注意 Pro 版在密集使用时可能快速达到用量限制，建议规划工作节奏；4）Claude 不支持原生图像生成和实时网页搜索，需配合其他工具（如 ChatGPT Plus 或 Gemini Advanced）补足。避免场景：依赖实时搜索、图像生成或丰富插件生态的用户会感到受限。",
       "category": "devto"
     },
     {
       "title": "8 Essential MCP Server Patterns for AI Agent Integration",
-      "titleZh": "AI Agent集成的8个必备MCP服务器模式",
+      "titleZh": "AI Agent集成的8个MCP服务器核心模式",
       "link": "https://dev.to/gtstudios/8-essential-mcp-server-patterns-for-ai-agent-integration-5691",
       "author": "GTStudios",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-14T04:00:51.000Z",
-      "summaryZh": "## 8个MCP Server集成AI Agent的核心模式\n\n**用户场景**：开发者构建AI Agent时，需要将LLM（如Claude）与外部工具和数据源安全高效地连接。MCP（Model Context Protocol）已成为标准协议，但设计不当会导致权限泄露、token浪费、Agent决策混乱等问题。\n\n**核心方法**：\n1. **工具即带Schema的函数**：每个MCP工具应有明确作用域、清晰命名和详细输入输出Schema。描述要像写给新工程师的文档，而非API参考。\n2. **Resources vs Tools分离**：Resources（只读上下文，如文档、Schema）和Tools（带副作用的操作）严格区分。多数团队过度使用Tools，低估Resources价值。\n3. **限制输出Token**：避免返回5000 token的JSON，采用分页、字段选择和摘要机制。默认只返回ID和名称，让Agent按需请求详情。\n4. **认证与授权**：MCP Server使用宿主提供的凭证，必须传递用户身份并在数据层执行逐用户授权。切忌使用管理员凭证构建Server。\n5. **结构化错误信息**：错误信息需包含“什么出错、为什么、有效输入示例”，帮助Agent自动修复重试。\n\n**关键技巧**：\n- 工具描述示例：`\"Searches customer records by email or phone number; returns matching account IDs and basic profile data\"` 优于 `\"queries customer DB\"`\n- 长操作处理：超过30秒的任务，立即返回job ID，提供单独的“检查状态”工具供Agent轮询\n- 测试工具：使用MCP Inspector交互式测试，构建回归测试套件\n- 支持MCP的客户端：Cursor、Continue、Cline、OpenAI Agents SDK等\n\n**避坑指南**：最严重错误是构建带管理员凭证的MCP Server，任何Agent调用都能使用。应将Agent视为普通用户，权限与用户一致。",
+      "summaryZh": "## 8个MCP Server集成AI Agent的核心模式\n\n**用户场景**：当开发者需要将AI Agent（如Claude）与外部工具、数据源集成时，MCP（Model Context Protocol）成为标准协议。但设计糟糕的MCP Server会导致权限泄露、Token浪费、Agent迭代失败等问题。文章针对这一痛点，总结了生产级MCP Server的设计模式。\n\n**核心方法**：\n1. **工具即带Schema的函数**：每个MCP Tool应像给新工程师写文档一样描述功能，而非API参考。例如“通过邮箱或电话搜索客户记录，返回匹配账户ID和基础资料”优于“查询客户DB”。\n2. **Resources vs Tools**：Resources（只读上下文，如文档、Schema）和Tools（带参数查询/状态变更操作）需严格区分。多数团队过度使用Tools，应把“列出所有未关闭工单”设计为Resource（URI模式），而“创建工单”才是Tool。\n3. **限制Token膨胀**：返回5000 token的JSON会撑爆上下文窗口。默认只返回ID和名称，通过分页、字段选择、摘要控制输出量。\n4. **认证与授权**：绝对不要用管理员凭证构建MCP Server！必须将用户身份透传至下游服务，按用户权限执行数据层授权，支持OAuth流程。\n5. **错误信息助Agent恢复**：返回结构化错误（什么错了、为什么、有效输入示例），如“字段'email'需符合RFC 5322格式，收到'foo@'”。\n\n**关键技巧**：\n- 工具描述越精确，Agent选择准确率越高\n- 长操作（>30秒）立即返回job ID，提供独立“检查状态”Tool供Agent轮询\n- 使用MCP Inspector交互式测试，构建回归测试套件\n- 官方SDK支持TypeScript/Python/Go/Java/C#/Kotlin/Rust/Swift，协议跨语言一致\n\n**避坑指南**：最致命错误是构建带管理员权限的MCP Server，任何Agent调用都能越权操作。必须将Agent视为普通用户，遵循最小权限原则。",
       "category": "devto"
     },
     {
-      "title": "Claude Code burns 5x more tokens before you type a word. Here's where they go.",
-      "titleZh": "Claude Code在你输入之前就消耗5倍的token，以下是它们的去向。",
-      "link": "https://dev.to/thegatewayguy/claude-code-burns-5x-more-tokens-before-you-type-a-word-heres-where-they-go-2djb",
-      "author": "Andrew Kew",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-14T08:58:35.000Z",
-      "summaryZh": "## Claude Code 的 Token 消耗真相：还没打字就烧掉 33,000 Tokens\n\n**用户场景：** 开发者在使用 Claude Code 时发现 API 费用异常高，即使执行简单任务也消耗大量 tokens。Systima 团队通过日志代理实测，揭示了 token 消耗的真实去向。\n\n**核心方法：** 在 harness 和 API 之间设置日志代理，对比 Claude Code 和 OpenCode 的实际 token 使用。Claude Code 每次会话启动消耗约 33,000 tokens（27 个工具 schema + 3 个提醒块 + 3 倍系统提示），而 OpenCode 仅需 7,000 tokens（10 个核心工具 + 最小系统提示）。\n\n**关键技巧：**\n1. **子代理是最大陷阱**：一个任务通过子代理执行会 4.2x 放大 token 消耗（121k → 513k），每个子代理每次交互都重新读取完整引导。\n2. **指令文件（AGENTS.md/CLAUDE.md）**：72KB 文件每次请求增加 20,000 tokens，需精简到极致。\n3. **MCP 服务器**：每个服务器每次请求消耗 1,000-1,400 tokens，5 个服务器就是 5,000-7,000 tokens。\n4. **缓存陷阱**：Claude Code 的 prefix 不稳定，同一会话内可能产生 3 种不同缓存条目，甚至中途重写整个 prefix，导致缓存写入成本高达 1.25x。\n5. **实测建议**：在 API 边界而非仪表盘监控 token 消耗，仪表盘只给总数，wire 数据才显示去向。",
-      "category": "devto"
-    },
-    {
-      "title": "If I have to read three pages of AI text, I was better off Googling",
-      "titleZh": "如果我要读三页AI生成的文字，还不如直接谷歌搜索。",
-      "link": "https://dev.to/kyurish/if-i-have-to-read-three-pages-of-ai-text-i-was-better-off-googling-o10",
-      "author": "Rishabh Dogra",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-11T23:13:56.000Z",
-      "summaryZh": "## 当AI输出三页文字时，不如直接Google\n\n**用户场景**：作者指出传统AI聊天（如ChatGPT）生成大量文本，但关键信息淹没在段落中，用户仍需逐页阅读，效率低下。尤其在会议场景中，利益相关者频繁要求调整数据（如“按月度展示”“排除企业客户”），每次修改需离开会议、重新操作BI工具、导出粘贴，耗费半天时间。\n\n**核心方法**：作者推荐使用 **mcp-dashboards**（免费MCP服务器），将AI聊天与实时图表、仪表盘集成。通过一句话指令（如“将流量假设翻三倍并重绘成本曲线”），5秒内图表在聊天中更新。所有调整在会议中实时完成，无需离开房间或等待导出。\n\n**关键技巧**：\n- 配置MCP：在 `claude_desktop_config.json` 中添加 `\"mcp-dashboards\": { \"command\": \"npx\", \"args\": [\"-y\", \"mcp-dashboards\", \"--stdio\"] }`\n- 数据安全：凭据存储在本地预设中，密钥不进入模型或屏幕\n- 避免陷阱：不要用AI生成长篇文本作为“文档”，应将其作为实时交互界面；图表比文字更适合会议讨论，错误一目了然\n- 实用模式：任何人（VP、PM）都可直接提问，AI从本地数据回答，无需排队等待BI工具所有者\n\n**开发者价值**：将文档从“接口”降级为“存档”，用实时对话+图表替代静态报告，大幅降低调整成本（从半天到5秒），让会议聚焦于数据本身而非操作流程。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic launches Claude Science, an AI workbench that keeps data in the lab and checks its own citations",
-      "titleZh": "Anthropic推出Claude Science，一款将数据保留在实验室并自行核查引用的AI工作台",
-      "link": "https://dev.to/breachprotocol/anthropic-launches-claude-science-an-ai-workbench-that-keeps-data-in-the-lab-and-checks-its-own-1249",
-      "author": "Breach Protocol",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-12T04:42:37.000Z",
-      "summaryZh": "## Anthropic 发布 Claude Science：专为科研人员打造的 AI 工作台\n\n**用户场景：** 科研人员面临两大痛点：一是敏感数据（如患者信息、专有数据集）不能离开实验室环境；二是AI生成的虚假引用和计算错误比没有AI更糟糕。Claude Science 正是为解决这些问题而生。\n\n**核心方法：** 采用“本地执行 + 双智能体审核”架构。工作台直接运行在实验室的笔记本电脑、Linux服务器或HPC节点上，仅向Claude发送最小上下文，确保敏感数据不离开本地。同时引入“演员-评论家”模式：一个通用协调智能体负责执行任务并调度专业子智能体，另一个独立的审核智能体专门检查引用和计算的准确性。集成了PubMed、Jupyter、R、集群终端等60+预配置工具，支持基因组学、单细胞、蛋白质组学等科研场景。\n\n**关键技巧：**\n- 生成的每个图表和手稿都附带完整代码、环境和对话历史，确保可复现\n- 支持自然语言修改图表（如“将坐标轴改为对数刻度”），AI自动重写代码\n- 大型任务会先提交计算计划，经用户批准后才提交到集群或Modal GPU资源\n- 通过NVIDIA BioNeMo原生连接Evo 2、Boltz-2等生命科学模型\n- 注意：审核智能体能捕捉错误，但不能保证绝对正确，仍需独立验证结果",
-      "category": "devto"
+      "title": "v2.1.210",
+      "titleZh": "v2.1.210",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.210",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-07-14T23:45:25.000Z",
+      "summaryZh": "## Claude Code v2.1.210 更新说明\n\n**新增功能：**\n- 折叠工具摘要行新增实时运行时间计数器，避免长时间工具调用显示为卡顿\n- 启动时对 `Write(path)`、`NotebookEdit(path)`、`Glob(path)` 权限规则增加警告提示，建议改用 `Edit(path)` 或 `Read(path)`\n\n**问题修复：**\n- 修复 `worktree` 子代理对主仓库执行 git 变更命令的问题\n- 修复 `ultracode` 关键词在非人类输入（如 webhook、PR 评论）中误触发\n- 修复粘贴标记泄露到外部编辑器（显示为 È/É 字符）\n- 修复 `claude attach` 在会话切换时出现\"job not found\"等错误\n- 修复工具结果渲染器返回 bigint 值或纯文本导致会话崩溃\n- 修复钩子回调超时被误报为用户拒绝\n- 修复后台命令后 `cd` 效果被错误假设的问题\n- 修复插件 MCP 服务器在会话中重新同步时被关闭\n- 修复无编辑的计划审批被标记为\"(edited by user)\"\n- 修复 `/doctor` 在 Bedrock/Vertex/Foundry 上跳过自动模式默认提议\n- 修复 `$1/$2` 位置占位符在技能和命令中被静默删除的问题\n- 修复插件缓存写入失败时遗留临时文件的问题\n- 修复 `claude agents --effort ultracode` 值被静默丢弃的问题\n- 修复按 ← 返回代理视图时丢失任务追踪器的问题\n- 修复已删除会话的废弃回复草稿中保留粘贴图片的问题\n- 修复已终止后台会话遗留永久 git worktree 锁的问题\n- 修复 SDK MCP 服务器需等到下一轮才能开始连接的问题\n- 修复 `CLAUDE_CODE_DISABLE_ALTERNATE_SCREEN=1` 下的重叠鬼影帧问题\n- 修复 `.claude/*` 符号链接未加入沙盒拒绝写入列表的问题\n\n**改进：**\n- 强化 Agent 工具对子代理读取内容的间接提示注入防护\n- 改进 Bash/PowerShell 工具超时自动后台化的消息提示\n- 自动模式权限分类器默认使用 Sonnet 5 模型\n- 优化内置数据可视化技能的图表颜色验证（感知 OKLab 色差 + 色盲阈值校准）\n- 内存写入超过 MEMORY.md 索引读取限制时显示明确错误\n- 屏幕阅读器模式在 Shift+Tab 切换权限模式时播报变更\n- 代理视图显示等待用户输入的背景代理数量\n- Fable 顾问因服务器问题暂时显示为不可用",
+      "category": "github-release"
     },
     {
       "title": "v2.1.209",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-07-14T06:36:28.000Z",
-      "summaryZh": "## Claude Code v2.1.209 更新说明\n\n本次更新主要修复了一个关键问题：在 Claude 代理后台会话中，`/model` 及其他对话框被意外阻止的问题。开发团队回滚了一个过于宽泛的防护机制，该机制原本旨在增强安全性，但误将正常对话框操作也纳入了阻止范围，导致用户无法在后台会话中正常使用 `/model` 等命令进行模型切换或参数调整。\n\n**主要修复：**\n- 回滚了过度宽泛的防护措施，恢复 `/model` 等对话框在 Claude 代理后台会话中的正常功能\n- 解决了对话框被错误阻止的 bug\n\n**注意事项：**\n- 本次更新无破坏性变更（Breaking Changes）\n- 无新增功能，专注于 bug 修复\n\n建议所有使用 Claude 代理后台会话的用户升级至此版本，以确保对话框功能正常。",
+      "summaryZh": "## Claude Code v2.1.209 更新说明\n\n本次更新主要修复了一个关键问题：在Claude Agents后台会话中，`/model`等对话框被错误拦截的问题。开发团队回滚了之前过于宽泛的保护机制，恢复了对话框的正常功能。此次更新未引入新功能或破坏性变更，属于针对性修复版本。建议遇到对话框无法正常使用的用户及时升级。",
       "category": "github-release"
     },
     {
@@ -152,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-07-14T01:10:42.000Z",
-      "summaryZh": "## Claude Code v2.1.208 更新说明\n\n**新增功能：**\n- 屏幕阅读器模式：通过 `claude --ax-screen-reader`、环境变量 `CLAUDE_AX_SCREEN_READER=1` 或设置 `\"axScreenReader\": true` 启用纯文本渲染\n- Vim 插入模式映射：支持 `vimInsertModeRemaps` 设置，可映射双键序列（如 `jj`→Escape）\n- `CLAUDE_CODE_PROCESS_WRAPPER`：企业启动器支持，所有自生成进程通过指定包装器运行\n- 全屏模式下多选菜单和\"其他\"输入行支持鼠标点击\n\n**Bug 修复：**\n- 修复切换回支持 fast mode 的模型后未自动恢复的问题\n- 修复后台代理回复丢失问题，文本会保存并在会话恢复时发送\n- 修复更新后后台守护进程无法附加的永久性故障\n- 修复 CLI 自动更新后上下文窗口短暂重置为 200k 的问题\n- 修复 HTTP/2 GOAWAY 导致的会话崩溃\n- 修复 `claude -p` 管道大响应时 JSON 输出截断问题\n- 修复科学计数法环境变量（如 `1e6`→1）的静默错误\n- 修复超长 Markdown 表格渲染卡顿，超过 200 行显示\"…N more rows\"\n- 修复 Edit 工具在文件修改后匹配失败的问题\n- 修复 Read/Grep/Glob 工具的各种错误处理问题\n- 修复 Bedrock 流式请求的误导性错误信息\n- 修复 `/upgrade` 浏览器无法打开时的登录流程问题\n- 修复多个内存泄漏：MCP stderr 累积、LSP 文档无限保留、异步钩子输出保留等\n- 修复超长单行文件读取导致的内存暴涨\n- 修复大量权限规则导致的每轮数秒延迟\n\n**性能优化：**\n- 输入响应速度提升，任务列表更新不再重渲染整个 UI\n- 工具调用 CPU 开销降低，高工具数量下速度提升达 7 倍\n- 文件编辑缓存限制为 16MB，减少内存使用\n- 会话转录体积减少最多 79 倍，检查点磁盘使用优化\n- 后台代理完成后的任务列表保持可见直到清理\n\n**行为变更：**\n- 后台会话：旧守护进程不再静默重启新版本生成的 worker\n- Agent 视图：Ctrl+X 删除重命名分支的工作树，不会销毁未推送的提交\n- 包含 `$(…)`/反引号/`<(…)` 的命令中的灾难性删除操作（如 `rm -rf ~`）现在会在 `--dangerously-skip-perm` 模式下提示",
+      "summaryZh": "## Claude Code v2.1.208 更新说明\n\n**新增功能：**\n- 屏幕阅读器模式：通过 `claude --ax-screen-reader` 或设置 `\"axScreenReader\": true` 启用纯文本渲染\n- Vim插入模式映射：支持 `vimInsertModeRemaps` 设置，如 `jj` 映射为 Escape\n- 企业启动器支持：新增 `CLAUDE_CODE_PROCESS_WRAPPER` 环境变量\n- 全屏模式下支持鼠标点击多选菜单\n\n**问题修复：**\n- 修复快速模式在切换模型后自动恢复\n- 修复后台代理消息丢失问题，消息会保存并在会话恢复时发送\n- 修复更新后后台守护进程无法启动的问题\n- 修复上下文窗口在自动更新后重置为200k的显示问题\n- 修复HTTP/2 GOAWAY导致的会话崩溃\n- 修复 `claude -p` 管道输出截断问题\n- 修复科学计数法环境变量（如 `1e6`）被错误解析为1\n- 修复大表格渲染卡顿，超过200行显示\"…N more rows\"\n- 修复文件编辑工具在文件修改后仍能匹配的问题\n- 修复多个内存泄漏问题：MCP stderr累积、LSP文档无限保持、异步钩子输出保留等\n- 修复 `/usage` 显示过期缓存数据\n\n**性能优化：**\n- 输入响应速度提升，任务更新不再重渲染整个UI\n- 工具调用CPU开销降低，高工具数量时速度提升7倍\n- 文件编辑缓存限制为16MB，减少内存使用\n- 会话转录大小减少最多79倍\n- 规则匹配器编译后缓存，减少多权限规则时的延迟\n\n**行为变更：**\n- 后台代理完成后保留在 `/tasks` 列表中直到清理\n- 附加到已停止的后台代理立即显示转录\n- 后台会话中旧守护进程不再静默重启新版本生成的worker\n- 代理视图中 Ctrl+X 删除重命名分支的工作树，不会销毁未推送的提交\n- 包含 `$(…)`/反引号/`<(…)` 的危险命令（如 `rm -rf ~`）在 `--dangerously-skip-perm` 模式下会提示",
       "category": "github-release"
     }
   ]

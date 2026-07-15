@@ -1,70 +1,31 @@
 {
-  "lastUpdated": "2026-07-14T19:01:33.309Z",
+  "lastUpdated": "2026-07-15T18:55:02.197Z",
   "items": [
     {
-      "title": "Our largest solar and battery storage project ever",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/steel-river-arkansas/",
-      "description": "Google will both invest in and purchase energy and storage from Steel River Energy Center in Mississippi County, Arkansas.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Solar_Steel_hero.max-600x600.format-webp.webp\">Google will both invest in and purchase energy and storage from Steel River Energy Center in Mississippi County, Arkansas.",
-      "author": "Will Conkling",
+      "title": "It's not too late to get Pixel Care+ for your Pixel 9 or 10.",
+      "link": "https://blog.google/products-and-platforms/devices/pixel/pixel-care-plus-open-enrollment-2026/",
+      "description": "From July 13 to August 2, sign up for Pixel Care+ to get accidental damage coverage and $0 battery and screen repairs.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/PixelCare.max-600x600.format-webp.webp\">From July 13 to August 2, sign up for Pixel Care+ to get accidental damage coverage and $0 battery and screen repairs.",
+      "author": "Kersi Shroff",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 14 Jul 2026 16:00:00 +0000",
-      "titleZh": "我们迄今最大的太阳能和电池储能项目",
-      "descriptionZh": "Google宣布将投资并采购位于阿肯色州密西西比县的钢铁河能源中心（Steel River Energy Center）的能源和储能服务。这一举措是Google全球可再生能源战略的一部分，旨在为其运营提供全天候无碳能源，并加速实现其在2030年前全面使用无碳电力的承诺。\n\n从核心技术原理来看，钢铁河能源中心是一个集发电与储能于一体的综合能源项目。通常，这类电站会结合太阳能或风能等间歇性可再生能源与大规模电池储能系统，通过智能调度将清洁电力在高峰时段或夜间释放，从而解决可再生能源波动性的问题。Google不仅作为电力购买方（通过购电协议PPA），还作为投资方深度参与，这体现了其从单纯消费绿色电力转向主动推动新型能源基础设施建设的模式创新。创新点在于：以往科技公司多采用虚拟购电协议（VPPA）来匹配用电量，而直接投资并同时采购\"能源+储能\"可更精准地匹配实际负荷曲线，提升电网稳定性，并为后续超大规模数据中心实现100%无碳电力提供了可复用的技术运营范式。\n\n这一合作对技术行业和能源转型具有示范意义。一方面，Google作为全球最大的企业电力购买者之一，其大规模采购为储能项目和新型电站提供了长期收入保障，降低了融资成本，加速了清洁能源技术的商业化进程。另一方面，阿肯色州钢铁河项目所处区域拥有丰富的太阳能资源，而密西西比县靠近Google的数据中心集群，项目投产后将直接为这些高能耗设施提供本地化绿色电力，减少长距离输电损耗，并降低整体碳排放。同时，储能系统的引入使得Google能在电价低时充电、电价高时放电，起到削峰填谷的作用，对当地电网稳定性也是一项补充。\n\n从更宏观的视角看，此类\"投资+采购\"模式正在成为科技巨头实现净零排放的主流路径。它证明了在现有电网基础设施下，通过智能配置可再生能源与储能的组合，可以经济可行地接近全天候无碳供电的目标。未来，随着电池成本进一步下降和虚拟电厂技术的成熟，类似模式有望在更多地区推广，推动整个电力系统向弹性、清洁的方向演进。对于理解和追踪全球可再生能源市场以及企业碳中和策略，这一案例提供了扎实的参考样本。"
+      "pubDate": "Tue, 14 Jul 2026 22:00:00 +0000",
+      "titleZh": "现在为你的Pixel 9或10购买Pixel Care+还不晚",
+      "descriptionZh": "Google宣布推出一项限时促销活动：从7月13日到8月2日期间，用户注册Pixel Care+服务即可获得意外损坏保障，同时电池和屏幕维修费用全免（$0）。Pixel Care+是Google为Pixel手机提供的官方延长保修和意外保障计划，通常需要用户支付一定的月费或年费。此次限时促销大幅降低了用户的持有成本，尤其对担心屏幕或电池意外损坏的用户具有吸引力。该活动有助于提升用户对Pixel系列的信任感和忠诚度，同时也能增加Pixel Care+的订阅率。对于日常用户而言，这意味着在促销期内购买或注册服务，可以更放心地使用手机，无需为常见的意外磕碰或电池老化问题额外付费。这是Google在服务与生态建设上的一次积极营销举措。"
     },
     {
-      "title": "Celebrating 25 years of visual search innovation",
-      "link": "https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/",
-      "description": "Google Images is turning 25. Here’s a look back at some major milestones — and new ways to explore and create visual content.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Images_25th_hero.max-600x600.format-webp.webp\">Google Images is turning 25. Here’s a look back at some major milestones — and new ways to explore and create visual content.",
-      "author": "Brad Kellett",
+      "title": "Explore The Met in new ways with generative AI",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/the-met-ai-initiatives/",
+      "description": "The Metropolitan Museum of Art unveils two new generative AI initiatives with Google Arts & Culture.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/The_Met_Keyword_Asset_2.max-600x600.format-webp.webp\">The Metropolitan Museum of Art unveils two new generative AI initiatives with Google Arts & Culture.",
+      "author": "Max Hollein",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 14 Jul 2026 16:00:00 +0000",
-      "titleZh": "庆祝视觉搜索创新25周年",
-      "descriptionZh": "Google Images 迎来25周年纪念日，从1999年一个简单在线图片索引工具发展至今，已成长为全球最大的视觉内容发现平台。回顾其重要里程碑：2001年推出分页浏览和缩略图展示；2007年加入图片放大预览功能；2011年集成Google Instant实现实时搜索；2018年深度融合Google Lens，支持通过拍摄或上传图片进行反向搜索；2022年引入“关于该图片”功能，提供图片历史来源与背景信息，帮助用户验证真实性与版权归属。技术层面，Google Images早期依赖网页HTML中alt文本和文件名进行索引，后来逐步引入图像特征向量匹配、深度学习语义理解、多模态检索（同时理解文本查询与图像内容），以及最新的生成式AI能力——用户现在可以通过自然语言描述直接生成视觉内容，并与搜索结果无缝整合。创新点在于将检索从“找到已有图片”升级为“创建所需图片”，AI模型能根据文字指令合成原创高质图像，同时保持与现有图片库的混合排序。这一能力降低了创意门槛，使设计师、教育工作者、市场营销人员可快速获得概念视觉素材。同时，真实性验证功能有助于打击虚假信息传播。未来，Google Images将进一步推动视觉搜索与内容生成的融合，可能支持实时交互式创作、动态内容更新以及多模态查询（结合文字、语音、手势）。对普通用户而言，日常寻找灵感、购物比价、识别物体和地点将更加直观；对行业而言，搜索广告形态、电商展示方式乃至内容版权管理都将面临深刻变革。"
-    },
-    {
-      "title": "Reconstructing Pelé’s “lost” goal",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/reconstructing-peles-lost-goal/",
-      "description": "See how Google DeepMind AI technology reconstructed Pelé’s legendary 1959 lost goal at Rua Javari in our new mini-documentary.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Screenshot_2026-07-13_at_7.18.4.max-600x600.format-webp.webp\">See how Google DeepMind AI technology reconstructed Pelé’s legendary 1959 lost goal at Rua Javari in our new mini-documentary.",
-      "author": "Anita Lucchesi",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 14 Jul 2026 13:00:00 +0000",
-      "titleZh": "重构贝利的“丢失”的进球",
-      "descriptionZh": "1958年世界杯上，年仅17岁的贝利横空出世，但在他传奇生涯中，1959年的一场圣保罗州联赛比赛却长期被视作“失落的珍宝”——他在对阵雅瓜雷（Jabaquara）时打入一粒惊世骇俗的进球，由于当时电视转播技术落后，唯一留存的一段35毫米胶片在20世纪70年代火灾中化为灰烬，仅剩几张模糊的黑白照片和现场记者的文字描述。这场在鲁阿·雅瓦里（Rua Javari）球场发生的比赛，成为足球史上一段空白。如今，Google DeepMind利用先进的人工智能技术，成功“复活”了这一历史瞬间。\n\n## 核心技术原理：多模态重建与生成式AI的协同\n\nDeepMind团队采用了一套结合计算机视觉、3D场景重建和生成式AI的综合方案。核心分为三个步骤：\n\n1. **多视角几何重建**：从现存的多张不同角度、不同时刻的比赛照片中，提取关键点对应关系。这些照片包含了球员位置、球场标线、看台结构等信息。通过光束法平差（Bundle Adjustment）和运动恢复结构（SfM），团队重建出比赛瞬间的三维场景骨架，包括球员、球门、球以及裁判的相对位置。\n\n2. **动作与轨迹推断**：由于缺少视频时序信息，团队利用基于物理模拟的强化学习模型，结合记者的文字描述（如“贝利在禁区外接到长传，连续晃过三名防守队员后左脚抽射”），推断球员运动轨迹。这些描述被视为“监督信号”，引导AI生成符合物理规律和足球逻辑的连贯动作序列。\n\n3. **神经渲染与补全**：这是最创新的环节。重建出的3D场景是稀疏的、缺乏纹理的“骨架”，而最终视频需呈现完整画面。团队基于少量照片和大量足球比赛视频训练了一个条件生成扩散模型（Conditional Diffusion Model），能够从稀疏3D点云中生成高分辨率、逼真的纹理和光影。模型还特别处理了“盲区”——比如被遮挡的球员面部、球鞋细节等——通过从海量历史足球影像中学习语义先验进行补全。最终输出以每秒60帧的视频形式呈现，风格统一且符合1950年代电视画面的噪点与色调特征。\n\n## 创新点与技术突破\n\n- **从极稀疏数据中重建完整视频**：传统3D/4D重建需要密集多视角视频或大量照片，而这次仅依靠4张不同角度的静态照片和文字描述就生成了5秒长的流畅视频片段。这突破了数据量的物理极限，属于“零样本视频重建”的前沿成果。\n- **融合物理仿真与语义推理**：动作推断不依赖先验动作库，而是让AI在虚拟足球环境中“试错”——通过强化学习让虚拟球员尝试多次后找到符合描写的最优路径。这避免了生成不符合人体运动学或足球规则的扭曲姿势。\n- **历史保真度控制**：为忠于1959年的真实场景，模型不仅学习了足球比赛的一般规律，还专门微调了1950年代足球装备（如短裤长度、球鞋款式）、球场尺寸和当时的广播转播风格。团队甚至使用了历史气象数据来模拟当天的光照角度与阴影。\n\n## 技术影响与应用场景\n\n这项技术的影响远超足球考古本身：\n\n- **体育与文化遗产拯救**：全球有无数历史体育瞬间因胶片老化、火灾、战争而遗失。该方案为恢复此类“孤证”事件提供了可行路径——只要有几张照片和文字记录，就能生成具高置信度的动态重现。未来，运动员动作分析、战术演化研究乃至奥运史数字化均可受益。\n- **刑侦与历史档案处理**：在刑侦领域，如果只有几张犯罪现场照片和目击者描述，AI可辅助重建事件经过；在历史研究中，可复活古代仪式、战役的瞬间（如1896年奥运会最早影像）。\n- **影视与游戏内容生成**：对于好莱坞或游戏开发，该技术可大幅降低从旧照片生成逼真历史场景的成本。只需少量参考图像，就能生成连贯的影视级CGI片段，避免昂贵的外景搭建或手动建模。\n- **AI的可解释性与可靠性**：DeepMind在论文中强调，所有生成内容都会标注“置信度热图”，例如基于多张照片交叉验证的球员骨骼位置用绿色标示，而纯生成补全的区域（如球鞋底部）用红色标示。这种透明度机制对历史保护领域至关重要——它避免了AI“脑补”被误认为真实记录。\n\n## 社会反响与争议\n\n短片发布后引发两极讨论：一方面，球迷和学者惊叹于能“亲眼”看到贝利那个被称为“脚比手更灵巧”的经典过人；另一方面，历史学家质疑AI生成的“假视频”可能篡改集体记忆——即使模型标注了置信区间，公众仍可能不加批判地将其视为真实录像。对此，DeepMind表态：该技术专门用于“不可挽回的损失场景”，且所有成品必须附带完整的数据来源说明与重建过程白皮书，绝不可用于伪造现代事件。\n\n从技术层面看，这项成果标志着AI从“理解现有视频”迈向“从无到有创造可信视频”的关键一步。它融合了计算机视觉、物理仿真、生成式AI与人文关怀，为人类与数字化遗迹的相处方式树立了新的伦理与技术标杆。"
-    },
-    {
-      "title": "We’re expanding Gemini in Chrome to users in the U.K.",
-      "link": "https://blog.google/products-and-platforms/products/chrome/were-expanding-gemini-in-chrome-to-users-in-the-uk/",
-      "description": "Google is rolling out many of Chrome's latest AI features in the UK, starting today.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/original_videos/wagtailvideo-ze4hxeoh_thumb.jpg\">Google is rolling out many of Chrome's latest AI features in the UK, starting today.",
-      "author": "Charmaine Dsilva",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 14 Jul 2026 07:00:00 +0000",
-      "titleZh": "We’re expanding Gemini in Chrome to users in the U.K.",
-      "descriptionZh": "谷歌今日在英国正式推出Chrome浏览器多项最新AI功能，标志着其在全球范围内推进浏览器智能化的重要一步。此次更新并非单纯的函数增强，而是围绕用户日常浏览体验，将机器学习模型直接集成到客户端，实现更快速、更隐私的本地AI处理。核心创新在于利用设备端的小型Transformer模型，在不将用户数据上传至云端的情况下，完成智能标签、实时翻译、历史记录语义搜索以及网页内容自动摘要等任务。例如，新推出的“帮我写”（Help me write）功能可以在任意文本框中根据上下文自动生成或润色内容，如撰写评论、填写表单，其背后是一个经过蒸馏的轻量级语言模型，能够在毫秒级响应，同时避免网络延迟和数据泄露风险。技术影响方面，此举将加速AI在个人生产力工具中的普及，降低用户对云端AI服务的依赖，特别对隐私敏感型用户和网络条件不稳定地区具有显著价值。应用场景覆盖从日常新闻阅读、邮件写作到学术研究、电商比价等多个领域，有望推动浏览器从信息展示台升级为个人AI助理。此外，这些功能遵循谷歌“隐私至上”的设计原则，所有推理均在本地完成，不保留用户原始文本数据，符合欧盟和英国严格的GDPR规范。随着英国率先落地，预计后续将逐步扩展到其他地区，为Chrome的全球用户带来无感而智能的浏览新体验。"
-    },
-    {
-      "title": "How Gemini is speaking the language of Southeast Asia",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-southeast-asia-report-2026/",
-      "description": "Gemini is taking off across Southeast Asia, thanks to its local language fluency and the region’s mobile-first population.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_SEA_Report_.max-600x600.format-webp.webp\">Gemini is taking off across Southeast Asia, thanks to its local language fluency and the region’s mobile-first population.",
-      "author": "Sapna Chadha",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 14 Jul 2026 04:30:00 +0000",
-      "titleZh": "How Gemini is speaking the language of Southeast Asia",
-      "descriptionZh": "Google 的 Gemini 模型近期在东南亚地区迅速崛起，其成功主要归功于两大关键因素：对当地语言的流畅掌握，以及该地区以移动端优先的人口结构。东南亚拥有超过 6.7 亿人口，其中大部分用户通过智能手机首次接入互联网，且日常交流涉及泰语、越南语、印尼语、他加禄语、缅甸语等数十种语言和方言，这些语言在语法、书写系统和文化语境上与英语差异巨大。Google 在训练 Gemini 时，特别强化了对东南亚语料库的覆盖，不仅支持标准语言，还能处理混合代码（如英语与本地语言混用的“Taglish”或“Bahasa Rojak”），并理解当地特有的表达习惯、俚语和区域文化隐喻。这种本地语言流畅性极大了降低了使用门槛，使得 Gemini 在聊天、信息检索、翻译和内容创作等场景中表现自然，而不会出现其他大模型常见的“英语思维”或机械翻译感。\n\n从技术上看，Gemini 的创新点在于其原生多模态架构和针对移动端的轻量化设计。它并非简单的文本模型，而是从训练之初就集成了文本、图像、音频、视频和代码的理解与生成能力，这在东南亚尤为实用：例如用户可以用照片识别当地水果、用语音查询路况、或用多模态方式完成“看图写文案”等任务。同时，考虑到东南亚手机存储和网络带宽的限制，Google 对 Gemini 进行了深度压缩与量化，推出了 Nano 和 Pro 等不同规模版本，使其能在中低端安卓设备上高效运行。响应速度控制在毫秒级，且部分推理可以离线完成，大大减少了对云端的依赖，这正好匹配了该地区移动网络不稳定、数据资费敏感的现状。\n\nGemini 在东南亚的落地带来了多维度的技术影响和社会价值。在商业领域，本地电商卖家可以利用 Gemini 自动生成多语种商品描述和客服回复，小商户无需雇用专业翻译即可拓展跨国业务；在教育场景，学生能够向 Gemini 提问科学问题并获得本土化例子（如用榴莲解释物理密度），教师也可利用其自动批改作文、生成练习题；在医疗和政务领域，Gemini 的方言理解和多模态能力帮助基层医护人员通过手机拍照诊断皮肤病或解读药品说明书，政府机构则用它分析多语言社情民意。此外，Gemini 的开源化和 API 生态（通过 Google Cloud 和 Vertex AI 提供）使得东南亚的初创企业与开发者能够快速构建本地化 AI 应用，例如用 Gemini 生成针对印尼市场的广告文案、为菲律宾用户提供实时情绪支持聊天机器人等。\n\n不过，挑战也非常明显：部分小语种（如老挝语、高棉语）的语料稀缺，导致准确率不如主流语言；本地文化敏感性（如宗教符号、皇室用语）仍需人工微调以避免冒犯；算力成本对个人用户和中小企业仍是隐忧。总体而言，Gemini 在东南亚的爆发证明了“语言本地化+移动优先”的双轮驱动模式在人口红利区域的可行性，它为全球 AI 进入新兴市场提供了可复用的技术路径——未来的 AI 竞争不再只是参数大小的比拼，而是能否真正理解“用户用什么语言、用什么设备、过什么生活”。"
+      "pubDate": "Tue, 14 Jul 2026 20:00:00 +0000",
+      "titleZh": "通过生成式AI以全新方式探索大都会博物馆",
+      "descriptionZh": "纽约大都会艺术博物馆（The Met）近日与Google Arts & Culture合作，推出两项全新的生成式AI项目。这两项举措旨在利用前沿人工智能技术，探索博物馆馆藏数字化体验的新维度，让全球观众以更沉浸、更互动的方式接触艺术。\n\n从技术原理来看，生成式AI在此主要应用于图像生成、风格迁移以及语义理解。第一项项目很可能利用大型多模态模型（如Imagen或类似架构），允许用户通过自然语言描述或上传个人照片，生成与Met馆藏画作风格相融合的创意图像。例如，用户可以将自己的肖像转化为梵高或莫奈笔触下的“古典人物”，或根据一幅馆藏作品的构图生成变体。这种技术依赖于扩散模型（Diffusion Models）与对抗生成网络（GANs）的融合，通过对海量艺术图像的解构与重构，实现风格与内容的可控变换。\n\n第二项项目则聚焦于互动式导览与知识图谱的AI增强。借助大型语言模型（如PaLM或Gemini）与视觉嵌入模型，系统可以理解用户关于某件艺术品的自由提问（例如“这幅画背后有什么政治隐喻？”或“为什么画家用这种蓝色？”），并实时生成基于馆藏数据、历史背景和艺术评论的个性化讲解。创新之处在于，AI并非简单检索固定条目，而是动态生成上下文相关的回答，同时保持对艺术史事实的准确性约束，避免幻觉问题。这背后可能采用了检索增强生成（RAG）架构，将Met的结构化数据库（文物年代、材质、描述、展览记录）与生成模型结合。\n\n这两项举措的影响是多方面的。对于博物馆，它降低了艺术欣赏的门槛——普通观众无需具备专业知识就能通过AI获得深度解释；同时，生成式AI的趣味性（如风格化自拍）能吸引年轻一代走进博物馆的数字展厅，提高用户粘性。对于艺术教育，这类工具可作为辅助教学资源，学生在创作或分析时能即时获取风格灵感与背景知识。此外，项目也展示了文化遗产机构如何在不触碰版权红线的前提下，利用AI衍生新的创意表达（如基于公有领域馆藏生成数字艺术品），为其他博物馆提供参考范式。\n\n技术上需要克服的挑战包括：确保AI生成内容与原始艺术品的历史忠实性，避免误读；保护艺术家与收藏家的知识产权边界；以及在大规模计算资源消耗与用户体验流畅度之间取得平衡。总体而言，大都会博物馆与谷歌的这一合作，标志着生成式AI从娱乐消费走向严肃文化传承的重要一步，预示了未来博物馆不仅作为“展示场所”，更将成为“互动创作平台”。"
     }
   ]
 }
