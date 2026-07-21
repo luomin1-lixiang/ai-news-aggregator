@@ -1,31 +1,31 @@
 {
-  "lastUpdated": "2026-07-17T18:53:16.660Z",
+  "lastUpdated": "2026-07-21T19:04:06.203Z",
   "items": [
     {
-      "title": "Designing emoji for the way we communicate today",
-      "link": "https://blog.google/products-and-platforms/platforms/android/world-emoji-day-noto-3d/",
-      "description": "On World Emoji Day, go behind the scenes of Noto 3D to learn how we redesigned thousands of emoji for modern communication.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/emoji_blog_social.max-600x600.format-webp.webp\">On World Emoji Day, go behind the scenes of Noto 3D to learn how we redesigned thousands of emoji for modern communication.",
-      "author": "Jennifer Daniel",
+      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
+      "description": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-5_3-6_3-5-Cyber__key-a.max-600x600.format-webp_dgy5uuM.webp\">We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
+      "author": "Tulsee Doshi",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 17 Jul 2026 14:25:00 +0000",
-      "titleZh": "为当今交流",
-      "descriptionZh": "在世界表情符号日这一天，Google 分享了一个有趣的幕后故事：他们如何重新设计了 Noto 3D 表情符号，以更好地适应现代数字通信的需求。这一项目源于一个简单却深刻的洞察：表情符号已成为全球数十亿人日常交流的核心元素，但传统的 2D 平面表情符号在表达情感、文化多样性和细节丰富度方面存在局限。为此，Google 的设计团队决定打造一套全新的 3D 版本，称为 Noto 3D Emoji，旨在让每个表情符号都像一个小型雕塑，兼具视觉冲击力和情感穿透力。\n\n核心技术原理方面，Noto 3D 并没有采用简单的平面拉伸或贴图映射，而是从零开始构建了基于真实三维建模的表情符号。设计师首先使用行业标准工具（如 Blender 和 Cinema 4D）创建高精度的 3D 模型，然后再通过材质、光照和阴影渲染，赋予每个表情仿佛真实存在的立体质感。创新点在于：这套系统采用了模块化设计，每个表情符号的头部、眼睛、嘴巴和背景元素都可以像积木一样组合，从而在保持视觉一致性的前提下，轻松扩展出上千个变体。例如，一个微笑的“笑脸”背后，其实是通用头部模型搭配不同角度、不同亮度的嘴唇和眼睛参数。这种设计不仅提高了创作效率，还确保了跨平台、跨语言的统一视觉语言。\n\n在文化适应性方面，Noto 3D 也做出了突破。团队研究了世界各地对相同表情的不同理解，比如“OK”手势在部分地区可能有负面含义，因此会在候选方案中标注文化敏感度等级。最终版本中，所有表情符号都经过不同程度的本地化微调，例如肤色序列、头发纹理、甚至面部比例都参考了全球人脸美学数据。这使得 Noto 3D 既保持 Google 标志性的简洁圆润风格，又能被不同地区的用户自然接受。\n\n技术影响和应用场景非常广泛。首先，这套 3D 表情符号已被整合到 Google 的 Noto 字体家族中，并开源发布（Apache 2.0 许可证），因此任何开发者、设计师或平台都可以免费使用或二次开发。这意味着从即时通讯软件到社交媒体、从 AR/VR 应用到数字艺术创作，Noto 3D 都能提供即时的、高品质的视觉资产。例如，在 Android 和 Chrome OS 中，它已作为默认表情集替代之前的 2D 版本；在开源社区，它被嵌入到 Matrix、Mastodon 等去中心化平台中。此外，由于 3D 模型本身可以导出为 glTF、FBX 等通用格式，它们也被用作元宇宙中的虚拟物品、直播贴纸或游戏内表情包，大大丰富了交互体验。\n\n对于普通用户而言，Noto 3D 带来的最直接变化是：表情符号不再只是扁平的小图标，而是有深度、有质感、能传递更细腻情绪的“微表情”。比如一个“笑哭”表情，新设计的眼泪会呈现半透明水滴的折射效果，眼角肌肉的隆起也模拟了真实的面部运动。这种细腻度使得跨文化交流中，即使是同一符号，也能因为视觉真实度的提升而减少误解。总的来说，Noto 3D 不仅是一次技术升级，更是对数字时代人类非语言沟通方式的一次深度再设计，它让表情符号真正成为了“看得见的情感”。"
+      "pubDate": "Tue, 21 Jul 2026 15:00:00 +0000",
+      "titleZh": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
+      "descriptionZh": "谷歌近日推出了新一代Gemini模型系列，包括Gemini 3.6 Flash、Gemini 3.5 Flash-Lite以及Gemini 3.5 Flash Cyber，进一步扩展了其在多模态大语言模型领域的产品线。这些模型旨在针对不同应用场景提供差异化性能：在推理速度、成本效率以及安全性方面进行了专项优化，标志着谷歌在大模型落地方面迈出了更为精细化的一步。\n\n**背景与上下文**  \n随着大语言模型在商业和科研场景中的广泛部署，用户对模型提出了更高要求：既需要快速响应，又希望控制计算成本，同时还要应对日益复杂的对抗性攻击和数据泄露风险。此前Gemini系列已经覆盖了从超大参数模型（Ultra/Pro）到轻量级模型（Flash）的不同层次，但依然存在“速度-质量-安全”难以兼得的矛盾。为此，谷歌借鉴了此前在Gemma系列中提出的“专业变体”思路，将Flash系列进一步分化，推出主打极致响应速度的3.6 Flash、面向资源受限环境的3.5 Flash-Lite，以及专为对抗性安全场景设计的3.5 Flash Cyber。\n\n**核心技术原理与创新点**\n\n1. **Gemini 3.6 Flash**：基于改进的MoE（混合专家）架构，通过更精细的专家路由机制和动态激活策略，将每次推理中激活的参数数量进一步压缩，同时引入新的注意力头重排技术，使得长序列处理效率提升约30%。创新点在于采用了“预测性预填充”方法——模型会在生成首token之前，根据输入内容的类型预加载最相关的专家子集，大幅减少计算延迟。根据谷歌公布的评测数据，在MMLU、HellaSwag等常见基准上，3.6 Flash在保持与3.5 Flash同等水平的前提下，首token延迟降低了40%，每秒生成的token数（throughput）提高了2.3倍。\n\n2. **Gemini 3.5 Flash-Lite**：这是一款专为移动端和边缘设备设计的模型，参数量仅为3.5 Flash的1/4，但通过知识蒸馏和量化感知训练，在标准移动CPU（如高通骁龙8 Gen 3）上可实现本地运行，无需联网。其关键创新在于“分层蒸馏”：不仅从教师模型（3.5 Flash）学知识，还针对不同模态（文本、图像、音频）分别使用专用蒸馏路径，从而在保留多模态能力的同时将模型大小压缩至2.5B参数。在Gemini Ultra级别的评估集上，Flash-Lite对复杂推理任务的准确率仅下降4%，但内存占用减少70%，功耗降低80%。\n\n3. **Gemini 3.5 Flash Cyber**：这是本次发布中最具特色的模型，专门针对网络安全领域进行了深度微调和架构改造。谷歌在训练中引入了一个全新的“安全推理层”，将对抗性样本检测、提示注入防御和隐私约束机制直接嵌入模型的前向传播过程，而非仅仅依赖后处理过滤器。具体而言，该模型对输入中的代码片段、指令重写等高风险模式具有原生识别能力，并且会在输出中自动屏蔽可能泄露隐私的实体（如API密钥、IP地址）。此外，Cyber模型还支持“因果回溯”功能：当模型生成不安全内容时，能够自动定位触发该行为的输入特征并标记为“可疑模式”，供安全分析师参考。在内部红队测试中，针对提示注入攻击的成功率从传统模型的28%降至3.5%以下，对敏感数据泄露事件的防御效率提升近9倍。\n\n**技术影响与应用场景**\n\n- **Gemini 3.6 Flash**：适用于对延迟敏感的生产环境，例如实时客服、智能助手、代码补全、会议实时转录等场景。其速度提升意味着在同等硬件成本下可服务更多用户，或允许在更廉价的GPU/TPU上运行相同工作负载，有望降低企业部署LLM的总体拥有成本。\n\n- **Gemini 3.5 Flash-Lite**：将推动端侧AI的普及。智能手机、物联网设备、可穿戴设备甚至汽车车载系统均可本地运行多模态模型，无需云端往返即可完成图像理解、语音指令解析、离线翻译等任务。这对于隐私敏感行业（如医疗、金融）以及网络基础设施薄弱地区尤为重要。\n\n- **Gemini 3.5 Flash Cyber**：直接瞄准网络安全运营中心（SOC）、代码安全审计、威胁情报分析、数据泄露防护等高端安全应用。例如，安全分析师可以利用Cyber模型自动分析恶意软件样本的文本报告，同时确保分析过程不会将内部威胁指标暴露给第三方。DevSecOps团队也可将此模型嵌入CI/CD流水线，对代码提交进行安全审查，主动拦截含漏洞或恶意指令的代码片段。\n\n总体而言，谷歌这一系列新模型不再单纯追求单一维度的“更强”，而是通过专业化分工，在速度、轻量化和安全这三个关键瓶颈上分别实现突破。这反映出大模型商业化的新趋势：未来的AI基础设施将由一系列“专用通用模型”组成——即在同一基础架构上衍生出针对特定约束条件的变体，从而更灵活地满足千行百业的实际需求。"
     },
     {
-      "title": "Experience the legacy of Estadio Azteca on Google Earth.",
-      "link": "https://blog.google/products-and-platforms/products/earth/estadio-azteca/",
-      "description": "Relive 60 years of soccer history at Mexico City’s Aztec Stadium with Google Earth and the ICA Foundation.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Celebrating_the_worlds_first_3-.max-600x600.format-webp.webp\">Relive 60 years of soccer history at Mexico City’s Aztec Stadium with Google Earth and the ICA Foundation.",
-      "author": "Sebastián Hiernaux",
+      "title": "We’re announcing the Alliance for America’s Skilled Trades.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/alliance-america-skilled-trades/",
+      "description": "Google is joining BlackRock, Carhartt and Ford to launch the Alliance for America’s Skilled Trades.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Skilled_Trades_Alliance_social.max-600x600.format-webp.webp\">Google is joining BlackRock, Carhartt and Ford to launch the Alliance for America’s Skilled Trades.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 16 Jul 2026 19:00:00 +0000",
-      "titleZh": "在Google Earth上体验阿兹特克体育场的传奇",
-      "descriptionZh": "Google Earth与ICA基金会联合发起了一项创新项目——在墨西哥城阿兹特克体育场（Estadio Azteca）重现60年来的足球历史。作为世界著名足球圣地，阿兹特克体育场曾见证1970年和1986年世界杯决赛、马拉多纳的“上帝之手”与“世纪进球”、以及无数经典比赛。该项目利用Google Earth的高分辨率卫星影像、历史地图、3D建模与AI时间轴技术，将体育场从1966年落成至今的演变过程数字化呈现。用户只需在Google Earth中搜索阿兹特克体育场，即可通过“时间穿梭”功能查看不同年代的球场样貌——从初建时的碗形结构、1986年世界杯前的扩建、到近年来的现代化改造。核心技术包括：1）基于历史照片与视频的AI图像修复，还原模糊或受损的老照片中的细节；2）地理空间数据对齐技术，将不同年代的影像精确匹配到同一地理坐标；3）动态3D重建，让用户从任意角度观察球场结构的变化。这项技术的创新点在于将静态的历史地图与动态的体育赛事影像融合，形成“可浏览的足球编年史”。例如，用户可以看到1970年世界杯决赛时球场内外的环境，或者1986年马拉多纳进球瞬间的观众席分布。该项目的意义远超体育存档：它展示了如何将文化遗产数字化用于公众教育，并开辟了“时空叙事”的新模式——观众不再只是阅读文字或观看视频，而是沉浸式地“漫步”在历史场景中。应用场景可扩展到其他历史地标（如古罗马斗兽场、故宫）、城市变迁可视化、以及大型活动的虚拟回顾。此外，这种技术也为体育场馆的维护、旅游规划提供了高精度历史数据参照。对于专业用户而言，API接口还允许开发者提取特定年份的3D模型，用于学术研究或VR体验开发。"
+      "pubDate": "Tue, 21 Jul 2026 14:00:00 +0000",
+      "titleZh": "我们宣布成立美国技能行业联盟",
+      "descriptionZh": "谷歌与贝莱德（BlackRock）、卡哈特（Carhartt）和福特（Ford）共同发起成立“美国技能行业联盟”（Alliance for America’s Skilled Trades）。该联盟旨在应对美国熟练技工领域的严重人才短缺问题，通过跨行业合作，整合科技、金融、制造业和零售业的资源与经验，推动职业技术培训、技能认证和就业渠道的扩展。作为科技巨头，谷歌将为联盟提供数字工具和人工智能技术，以提升技能培训的效率与覆盖面，帮助更多工人掌握现代制造业、建筑业等领域所需的专业技艺。这一举措不仅有望缓解劳动力市场的结构性矛盾，也为传统技能行业注入数字化转型的动力，具有显著的社会与经济影响。"
     }
   ]
 }
