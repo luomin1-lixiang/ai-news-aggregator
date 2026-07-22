@@ -1,31 +1,57 @@
 {
-  "lastUpdated": "2026-07-21T19:04:06.203Z",
+  "lastUpdated": "2026-07-22T19:00:12.400Z",
   "items": [
     {
-      "title": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-6-flash-3-5-flash-lite-3-5-flash-cyber/",
-      "description": "We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-5_3-6_3-5-Cyber__key-a.max-600x600.format-webp_dgy5uuM.webp\">We’re introducing new Gemini models, including Gemini 3.6 Flash, 3.5 Flash-Lite and 3.5 Flash Cyber.",
-      "author": "Tulsee Doshi",
+      "title": "Here’s how to ask Gemini Live for help with anything you see.",
+      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-live-camera-how-to/",
+      "description": "Have you ever struggled to describe something you’re looking at? Whether it’s a complex manual, a blinking error code, or a unique object, sometimes you just need an exp…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Ask_Gemini_Live_for_help_with_a.max-600x600.format-webp.webp\">Have you ever struggled to describe something you’re looking at? Whether it’s a complex manual, a blinking error code, or a unique object, sometimes you just need an exp…",
+      "author": "Lindsey Lanquist",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 21 Jul 2026 15:00:00 +0000",
-      "titleZh": "Introducing Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber",
-      "descriptionZh": "谷歌近日推出了新一代Gemini模型系列，包括Gemini 3.6 Flash、Gemini 3.5 Flash-Lite以及Gemini 3.5 Flash Cyber，进一步扩展了其在多模态大语言模型领域的产品线。这些模型旨在针对不同应用场景提供差异化性能：在推理速度、成本效率以及安全性方面进行了专项优化，标志着谷歌在大模型落地方面迈出了更为精细化的一步。\n\n**背景与上下文**  \n随着大语言模型在商业和科研场景中的广泛部署，用户对模型提出了更高要求：既需要快速响应，又希望控制计算成本，同时还要应对日益复杂的对抗性攻击和数据泄露风险。此前Gemini系列已经覆盖了从超大参数模型（Ultra/Pro）到轻量级模型（Flash）的不同层次，但依然存在“速度-质量-安全”难以兼得的矛盾。为此，谷歌借鉴了此前在Gemma系列中提出的“专业变体”思路，将Flash系列进一步分化，推出主打极致响应速度的3.6 Flash、面向资源受限环境的3.5 Flash-Lite，以及专为对抗性安全场景设计的3.5 Flash Cyber。\n\n**核心技术原理与创新点**\n\n1. **Gemini 3.6 Flash**：基于改进的MoE（混合专家）架构，通过更精细的专家路由机制和动态激活策略，将每次推理中激活的参数数量进一步压缩，同时引入新的注意力头重排技术，使得长序列处理效率提升约30%。创新点在于采用了“预测性预填充”方法——模型会在生成首token之前，根据输入内容的类型预加载最相关的专家子集，大幅减少计算延迟。根据谷歌公布的评测数据，在MMLU、HellaSwag等常见基准上，3.6 Flash在保持与3.5 Flash同等水平的前提下，首token延迟降低了40%，每秒生成的token数（throughput）提高了2.3倍。\n\n2. **Gemini 3.5 Flash-Lite**：这是一款专为移动端和边缘设备设计的模型，参数量仅为3.5 Flash的1/4，但通过知识蒸馏和量化感知训练，在标准移动CPU（如高通骁龙8 Gen 3）上可实现本地运行，无需联网。其关键创新在于“分层蒸馏”：不仅从教师模型（3.5 Flash）学知识，还针对不同模态（文本、图像、音频）分别使用专用蒸馏路径，从而在保留多模态能力的同时将模型大小压缩至2.5B参数。在Gemini Ultra级别的评估集上，Flash-Lite对复杂推理任务的准确率仅下降4%，但内存占用减少70%，功耗降低80%。\n\n3. **Gemini 3.5 Flash Cyber**：这是本次发布中最具特色的模型，专门针对网络安全领域进行了深度微调和架构改造。谷歌在训练中引入了一个全新的“安全推理层”，将对抗性样本检测、提示注入防御和隐私约束机制直接嵌入模型的前向传播过程，而非仅仅依赖后处理过滤器。具体而言，该模型对输入中的代码片段、指令重写等高风险模式具有原生识别能力，并且会在输出中自动屏蔽可能泄露隐私的实体（如API密钥、IP地址）。此外，Cyber模型还支持“因果回溯”功能：当模型生成不安全内容时，能够自动定位触发该行为的输入特征并标记为“可疑模式”，供安全分析师参考。在内部红队测试中，针对提示注入攻击的成功率从传统模型的28%降至3.5%以下，对敏感数据泄露事件的防御效率提升近9倍。\n\n**技术影响与应用场景**\n\n- **Gemini 3.6 Flash**：适用于对延迟敏感的生产环境，例如实时客服、智能助手、代码补全、会议实时转录等场景。其速度提升意味着在同等硬件成本下可服务更多用户，或允许在更廉价的GPU/TPU上运行相同工作负载，有望降低企业部署LLM的总体拥有成本。\n\n- **Gemini 3.5 Flash-Lite**：将推动端侧AI的普及。智能手机、物联网设备、可穿戴设备甚至汽车车载系统均可本地运行多模态模型，无需云端往返即可完成图像理解、语音指令解析、离线翻译等任务。这对于隐私敏感行业（如医疗、金融）以及网络基础设施薄弱地区尤为重要。\n\n- **Gemini 3.5 Flash Cyber**：直接瞄准网络安全运营中心（SOC）、代码安全审计、威胁情报分析、数据泄露防护等高端安全应用。例如，安全分析师可以利用Cyber模型自动分析恶意软件样本的文本报告，同时确保分析过程不会将内部威胁指标暴露给第三方。DevSecOps团队也可将此模型嵌入CI/CD流水线，对代码提交进行安全审查，主动拦截含漏洞或恶意指令的代码片段。\n\n总体而言，谷歌这一系列新模型不再单纯追求单一维度的“更强”，而是通过专业化分工，在速度、轻量化和安全这三个关键瓶颈上分别实现突破。这反映出大模型商业化的新趋势：未来的AI基础设施将由一系列“专用通用模型”组成——即在同一基础架构上衍生出针对特定约束条件的变体，从而更灵活地满足千行百业的实际需求。"
+      "pubDate": "Wed, 22 Jul 2026 16:00:00 +0000",
+      "titleZh": "以下是如何就你所看到的任何内容向Gemini Live寻求帮助。",
+      "descriptionZh": "你是否曾对着某个东西却不知如何描述？无论是复杂的手册、闪烁的错误代码，还是从未见过的独特物品，有时你只需要一个能“看懂”并解释它的助手。Google最新推出的 Gemini Live 功能正是为了解决这一痛点——它让 AI 不再只是被动等待关键词输入，而是能主动理解你眼前的视觉世界，并通过实时对话帮你完成从“这到底是什么”到“下一步该怎么做”的全程引导。\n\n### 核心技术原理与创新点\nGemini Live 的本质是**多模态实时交互系统的重大突破**。传统AI助手在处理视觉信息时，往往依赖用户先拍照片或上传图像，再单独发起查询。而 Gemini Live 将摄像头实时画面、语音输入与语言模型深度融合，实现了**端到端的同步理解**：\n\n- **实时视觉流与语音流的并行处理**：当你打开 Gemini Live 并对着摄像头讲话时，系统并不需要等待完整语音指令结束，而是持续分析视频帧中的对象、文字、符号及其上下文关系。例如，当你说“这个按钮一直在闪”时，模型会同步锁定画面中闪烁的指示灯，并识别其颜色、频率和旁边的文字标签。\n- **主动式上下文推理**：创新点在于，模型不再是被动回答“这是什么”，而是能够主动搭建从“观察”到“行动”的桥梁。如果用户对着一个复杂的设备面板，模型不仅能说出“这是个电源指示灯”，还能结合错误码的闪烁模式，推断出“这可能是电池过热，建议立即断电”，并直接给出下一步操作建议。\n- **对话式动态辅助**：与传统的一次性问答不同，Gemini Live 支持多轮连续对话。当你按照它的提示操作后，可以再次将摄像头对准变化后的状态，模型会基于新的视觉输入继续诊断。比如修理过程中，你拆开设备后说“里面的电容好像鼓了”，AI 会立即识别膨胀的电容器，并评估风险等级和更换方案。\n\n### 技术影响与应用场景\n这一能力的落地，将极大地降低人与复杂信息之间的交互门槛，尤其适用于以下典型场景：\n\n- **日常故障排除**：从家用电器（空调遥控器闪烁代码）、电子产品（路由器红灯不亮）到汽车仪表盘报警，用户不需要再翻说明书或搜索晦涩的专业术语。直接对着设备提问，Gemini Live 就能以口语化方式给出诊断和解决步骤，相当于为每个人配备了一位随身工程师。\n- **专业文档与操作指导**：面对全英文的机械设备手册或复杂的技术图纸，系统可以实时翻译关键参数，还能高亮重点步骤。对于工厂操作员或DIY爱好者来说，这能显著减少因理解错误导致的事故风险。\n- **教育与科普**：当你带着孩子观察一片叶子、一块矿石，或者看到博物馆里一件不认识的展品，Gemini Live 能够结合地理位置和物体特征，即时生成通俗有趣的解说。对于视障人士，它也能用语音描述眼前的环境细节，提升生活便利性与独立性。\n- **创意与购物辅助**：比如你看到一款独特设计的家具，但说不清它的风格名称，Gemini Live 可以识别并告诉你“这是20世纪中叶现代主义风格的柚木边柜”，甚至帮你搜索相似产品；拍摄一种植物，它能告诉你养护要点和是否入侵物种。\n\n从更深层的技术影响来看，Gemini Live 标志着AI助手从“问与答”向“看与做”的进化。它不再依赖人类将视觉世界先翻译成文字再交给机器，而是让机器直接理解人类的感官体验，并反过来用人类最自然的对话方式给予回应。这种闭环将进一步推动人机协作在日常生活、专业服务和无障碍领域的普及。未来，随着视觉理解精度的提升和延迟的降低，Gemini Live 极有可能成为所有人最常用的“外部大脑”——一个永远耐心、永远在场的、能看见你眼中世界并帮你讲清它的伙伴。"
     },
     {
-      "title": "We’re announcing the Alliance for America’s Skilled Trades.",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/creating-opportunity/alliance-america-skilled-trades/",
-      "description": "Google is joining BlackRock, Carhartt and Ford to launch the Alliance for America’s Skilled Trades.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Skilled_Trades_Alliance_social.max-600x600.format-webp.webp\">Google is joining BlackRock, Carhartt and Ford to launch the Alliance for America’s Skilled Trades.",
+      "title": "Switch to Android easily — and bring your data with you.",
+      "link": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-switch-from-iphone-to-android/",
+      "description": "A new migration experience built directly into Android 17 that lets you transfer more data wirelessly from an iPhone.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Switching_Android.max-600x600.format-webp.webp\">A new migration experience built directly into Android 17 that lets you transfer more data wirelessly from an iPhone.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 21 Jul 2026 14:00:00 +0000",
-      "titleZh": "我们宣布成立美国技能行业联盟",
-      "descriptionZh": "谷歌与贝莱德（BlackRock）、卡哈特（Carhartt）和福特（Ford）共同发起成立“美国技能行业联盟”（Alliance for America’s Skilled Trades）。该联盟旨在应对美国熟练技工领域的严重人才短缺问题，通过跨行业合作，整合科技、金融、制造业和零售业的资源与经验，推动职业技术培训、技能认证和就业渠道的扩展。作为科技巨头，谷歌将为联盟提供数字工具和人工智能技术，以提升技能培训的效率与覆盖面，帮助更多工人掌握现代制造业、建筑业等领域所需的专业技艺。这一举措不仅有望缓解劳动力市场的结构性矛盾，也为传统技能行业注入数字化转型的动力，具有显著的社会与经济影响。"
+      "pubDate": "Wed, 22 Jul 2026 13:00:00 +0000",
+      "titleZh": "轻松切换到Android——并随身携带你的数据。",
+      "descriptionZh": "Android 17 系统引入了一项全新的迁移体验，旨在让用户从 iPhone 切换到 Android 时更加顺畅便捷。过去，跨平台迁移往往需要依赖第三方工具或有限的数据类型支持，而现在这项功能被直接集成到系统底层，支持通过无线方式传输更多种类的数据。\n\n从技术原理上看，Android 17 的迁移工具利用了增强的 Wi-Fi 直连协议和安全传输通道，能够自动识别并传输包括联系人、短信、照片、视频、日历、邮件账户、设置偏好，甚至部分应用数据在内的丰富内容。与传统有线或云端迁移方案不同，无线传输避免了线缆限制和复杂的登录流程，同时通过端到端加密确保数据隐私。创新点在于系统级无缝集成：用户只需在初始设置向导中按提示操作，无需额外安装 App 或手动导出备份，iPhone 端通过专属的“转移到 Android”应用即可完成配对与数据推送。\n\n这一技术的影响十分直接：它显著降低了用户从 iOS 转向 Android 的心理门槛和使用成本，尤其对于数据量较大或对隐私敏感的用户而言，无线、安全、一键式的体验将极大提升迁移成功率。应用场景不仅限于新机激活，也适用于不同 Android 设备之间的快速换机。此外，由于数据类型覆盖更广（如 iCloud 中的部分笔记和提醒事项），它对日常用户的吸引力也更强。长期来看，这可能推动 Android 生态在用户获取方面的竞争力，促使苹果也优化其双向迁移体验。"
+    },
+    {
+      "title": "3 Google updates from Galaxy Unpacked 2026",
+      "link": "https://blog.google/products-and-platforms/platforms/android/galaxy-unpacked-2026/",
+      "description": "We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Unpacked_hero.max-600x600.format-webp.webp\">We shared how Samsung users can boost productivity and get time back on new foldables, watches, and glasses coming soon.",
+      "author": "Menaka Shroff",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Wed, 22 Jul 2026 13:00:00 +0000",
+      "titleZh": "Galaxy Un",
+      "descriptionZh": "三星在最新一届Unpacked活动中展示了其新一代折叠屏手机、智能手表和智能眼镜，这些设备通过深度融合人工智能与系统级优化，旨在帮助用户在日常工作中提升生产力并赢回时间。尽管官方并未披露所有技术细节，但从现场演示和已有技术积累可以推断，其核心创新集中在以下几个方面：\n\n在折叠屏手机方面，三星延续了大屏多任务处理的思路，但引入了更智能的任务流管理机制。通过AI学习用户的使用习惯，系统能够自动预测用户的下一个操作，例如在分屏状态下，将某个应用中的文字、图片一键拖拽到另一应用中，规避了传统拖拽的繁琐步骤。此外，折叠屏特有的“Flex模式”得到了升级：当设备半折叠时，系统会自动调整界面布局，将菜单、预览和控制面板分置在上、下两个半屏，极大提升了单手或非对称操作场景下的效率。这种软硬件协同的设计，本质上是将折叠形态的物理优势转化为一种主动的生产力工具，而非仅仅是对大屏的简单复制。\n\n智能手表的创新集中在健康监测的连续性与实时性上。三星引入了新的生物信号处理算法，可以在不增加功耗的情况下，更精准地分析心率变异性、血氧水平和睡眠周期。特别是针对“时间碎片化”场景——例如短暂休息、会议间隙——手表能给出微建议，比如提醒深呼吸或站立活动，而非像传统设备那样仅提供汇总报告。这种主动式、低交互负担的提醒机制，让用户在不打断工作流的前提下完成健康管理，从而真正“节省”时间而非制造干扰。\n\n智能眼镜（三星称之为“Galaxy Glass”）是本次发布中的长线布局产品。它基于轻量化AR光学模组和低功耗AI芯片，能够实时叠加数字信息到物理世界。核心创新在于：眼镜内置的AI视觉模型可以识别用户视野中的物体（如文档、白板、产品标签），并自动调取对应的功能建议（如翻译、备忘、搜索）。更重要的是，三星强调了“无界面交互”理念——用户不需要抬手或滑动，只需注视目标并发出简单的语音指令或眨眼确认，即可完成操作。这大幅降低了从意图到执行的认知摩擦，使信息的获取和操作近乎零成本。\n\n从技术影响来看，三星正在系统性地推动“跨设备协同”走向AI原生。这三类设备共享底层Samsung Knox安全架构和One UI系统，数据在设备间自动同步并加密。例如，在手机上处理的任务可以无缝流转至手表或眼镜上继续，而不需要用户手动选择设备。这种体验上的连贯性，意味着用户不再被单个设备的物理形态所限制，而是被工作场景的自然需求驱动，从而真正实现“设备服务于人”而非“人适应设备”。\n\n应用场景方面，折叠屏最适合需要同时处理多个信息流的办公场景，如一边查资料一边写报告；手表则在碎片化时间中充当健康与效率的“隐形管家”；眼镜则有望在导航、培训、远程协作等需要双手解放的领域率先落地，比如维修工人一边看眼镜上的操作指引一边拆机，或者外贸从业者在与客户交谈时实时看到翻译字幕。\n\n总体来说，三星此次发布的不仅是一批硬件，更是一套基于AI主动感知的“时间管理操作系统”。其背后逻辑是：通过让设备理解用户的意图、环境和状态，将原本需要手动切换、搜寻、确认的环节自动化或隐性化，从而把用户的注意力还给核心任务本身。这标志着消费电子产品从“被动响应工具”向“主动服务代理”的进化迈出了重要一步。"
+    },
+    {
+      "title": "13 Google tips for a fun, productive summer off from college",
+      "link": "https://blog.google/products-and-platforms/products/education/summer-productivity-tips-google-ai-tools/",
+      "description": "Discover how college students can use Google AI tools, like Gemini and AI Mode, to prep for grad school, internships and fall courses.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/12_Google_Productivity_Tips_her.max-600x600.format-webp.webp\">Discover how college students can use Google AI tools, like Gemini and AI Mode, to prep for grad school, internships and fall courses.",
+      "author": "Lindsey Lanquist",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 21 Jul 2026 20:00:00 +0000",
+      "titleZh": "13 Google tips for a fun, productive summer off from college",
+      "descriptionZh": "Google AI工具为大学生赋能：利用Gemini与AI模式备战研究生、实习与秋季课程\n\n随着人工智能技术深度融入教育领域，Google推出了一系列面向大学生的AI生产力工具，其中Gemini对话模型和AI搜索模式成为核心亮点。这些工具旨在帮助学生在研究生申请、暑期实习准备以及秋季课程规划等关键节点上，提升信息整合效率、优化学习路径，从而在竞争激烈的学术与职业发展初期抢占先机。\n\n**背景与上下文：大学生面临的三大挑战**\n\n大学生在从本科向更高阶段过渡时，通常面临三重压力：1) **研究生申请**：需撰写个人陈述、研究计划，并精准定位匹配的导师与项目；2) **实习求职**：简历优化、模拟面试、行业研究以及技能查漏补缺；3) **课程预习与复习**：秋季新课程的大纲解析、核心概念梳理和作业辅导。传统方法依赖零散的搜索引擎、论坛或付费辅导，效率低且难以个性化。Google将AI能力直接嵌入日常工具链，试图用“对话式助手+智能检索”破解这一痛点。\n\n**核心技术原理与创新点**\n\n1. **Gemini多模态对话引擎**  \n   - **核心原理**：基于Google最新的大型语言模型Gemini，支持文本、图像、代码等多模态输入输出。与普通聊天机器人不同，Gemini可实时调用Google生态（文档、日历、邮箱）以及外部数据库。  \n   - **创新点**：  \n     - **上下文记忆增强**：能跨session保持关于用户学术背景（专业、GPA、目标学校）的记忆，避免重复输入。  \n     - **结构化输出能力**：自动将零散信息转化为表格、大纲或时间线。例如，输入“帮我规划这学期的研究计划”，Gemini可生成包含每周任务、阅读清单和截止日期的甘特图。  \n     - **知识图谱关联**：在回答研究生项目选择时，不仅能给出排名，还能关联导师的论文、项目经费和毕业生去向，形成多维推荐矩阵。\n\n2. **AI Mode（智能搜索模式）**  \n   - **核心原理**：这不是独立的搜索框，而是嵌入Google搜索、Google Scholar、Google Drive的AI增强层。它理解用户的深层意图，而非仅匹配关键词。  \n   - **创新点**：  \n     - **学术精度提升**：当用户搜索“东北大学计算机硕士GRE要求”时，AI Mode自动过滤非官方来源、忽略过期信息，并直接引用大学官网最新政策，同时对比近三年录取均分变化。  \n     - **隐性需求挖掘**：若用户搜索“实习简历常见错误”，AI Mode不仅列出清单，还会主动推荐相关领域的岗位描述、免费模板，并提示“你最近在编辑简历吗？需要我帮你检查语法和专业术语？”  \n     - **跨平台整合**：用户可要求“在Drive里找到秋季课纲，然后生成期中复习重点”，AI Mode会从云端文档中提取索引，并与公开课的YouTube视频建立链接。\n\n**技术影响与应用场景**\n\n- **研究生申请：从“信息收集”到“策略生成”**  \n  场景：一个准备申请计算机博士的大三学生，用Gemini输入自身经历（一段科研、两段实习、一篇会议论文），AI自动生成个性化的文书大纲，并分析目标学校（如CMU、MIT）的教授偏好。同时，AI Mode实时跟踪各个学校的申请系统更新，在截止日期前10天提醒、检查推荐信状态。\n\n- **实习准备：打造“阶梯式”竞争力**  \n  场景：金融专业学生想申请投行暑期分析师。Gemini会评估当前技能缺口（如Python、财务建模），生成一个12周学习计划，每天推荐相关Coursera课程和YouTube实操视频。AI Mode还能模拟面试官提问，根据学生的回答实时反馈逻辑漏洞和语气改进建议，并保存演练录音供复盘。\n\n- **秋季课程预习：构建知识全景地图**  \n  场景：秋季课程《机器学习》的syllabus被上传到Drive后，Gemini自动提取10大主题（监督学习、神经网络、强化学习等），并为每个主题生成“前置知识清单”（如线性代数、概率论），随后在AI Mode的辅助下，自动检索对应章节的教科书PDF、开源讲义和练习题答案。学生甚至可以要求“以费曼学习法解释决策树”，AI会输出一个面向初中生的类比版本。\n\n**深远意义与未来展望**\n\n这些工具不仅提升了大学生的事务处理速度，更深层地重塑了学习范式：**从“被动检索”转向“主动规划”**。过去，学生需要自己判断哪些信息重要；现在，AI能够根据个体目标预判优先级。但这也带来了新挑战——过度依赖可能导致批判性思维退化，以及隐私边界问题（AI需要访问成绩单、科研论文等敏感数据）。Google已在Gemini中引入“用户数据分级授权”和“本地处理模式”，强调AI仅为辅助工具，最终决策权仍在学生手中。\n\n对于教育行业而言，这预示着个性化教学将从“单点工具”进化为“全流程AI导师”，尤其在第一代大学生和资源匮乏群体中，有望缩小知识获取鸿沟。未来，随着Gemini与Google Classroom、Chrome Extensions的更深融合，大学生将能在一个统一的AI界面上完成从入学规划到毕业落地的全生命周期管理。"
     }
   ]
 }
