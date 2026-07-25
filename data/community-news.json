@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-07-24T19:13:19.696Z",
+  "lastUpdated": "2026-07-25T18:51:38.405Z",
   "items": [
+    {
+      "title": "LLM API Rate Limits Compared (2026): 5 Vendors, 5 Rulebooks",
+      "titleZh": "LLM API Rate Limits Compared (2026): 5 Vendors, 5 Rulebooks",
+      "link": "https://dev.to/owen_fox/llm-api-rate-limits-compared-2026-5-vendors-5-rulebooks-377",
+      "author": "Owen",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-25T00:36:19.000Z",
+      "summaryZh": "LLM API Rate Limits Compared (2026): 5 Vendors, 5 Rulebooks Five LLM APIs, five rate-limit rules: Anthropic caps tokens/min (10M, cache free), DeepSeek caps concurrency (500), OpenAI/Google went dashb",
+      "category": "devto"
+    },
     {
       "title": "OpenAI vs Anthropic API for Production SaaS Features: A Technical Comparison",
       "titleZh": "OpenAI vs Anthropic API for Production SaaS Features: A Technical Comparison",
@@ -46,17 +57,6 @@
       "category": "devto"
     },
     {
-      "title": "Claude Cowork on Windows and Linux: How to Run It in 2026",
-      "titleZh": "Claude Cowork on Windows and Linux: How to Run It in 2026",
-      "link": "https://dev.to/stravukarl/claude-cowork-on-windows-and-linux-how-to-run-it-in-2026-lon",
-      "author": "Karl Wirth",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-23T21:00:00.000Z",
-      "summaryZh": "You bought a Max subscription on the strength of a Claude Cowork demo: a desktop agent quietly working through a folder of spreadsheets, drafting a deck, organizing receipts while you did something el",
-      "category": "devto"
-    },
-    {
       "title": "La Maison Blanche accuse Moonshot AI d'avoir distillé le modèle Fable d'Anthropic pour créer Kimi K3",
       "titleZh": "La Maison Blanche accuse Moonshot AI d'avoir distillé le modèle Fable d'Anthropic pour créer Kimi K3",
       "link": "https://dev.to/docdavkitty/la-maison-blanche-accuse-moonshot-ai-davoir-distille-le-modele-fable-danthropic-pour-creer-kimi-k3-46pd",
@@ -68,36 +68,14 @@
       "category": "devto"
     },
     {
-      "title": "White House Accuses Moonshot AI of Distilling Anthropic's Fable to Build Kimi K3",
-      "titleZh": "White House Accuses Moonshot AI of Distilling Anthropic's Fable to Build Kimi K3",
-      "link": "https://dev.to/docdavkitty/white-house-accuses-moonshot-ai-of-distilling-anthropics-fable-to-build-kimi-k3-44g0",
-      "author": "DrMBL",
+      "title": "Claude Opus 5: The Interesting Part Isn't the Benchmarks",
+      "titleZh": "Claude Opus 5: The Interesting Part Isn't the Benchmarks",
+      "link": "https://dev.to/eliofbm/claude-opus-5-the-interesting-part-isnt-the-benchmarks-3cl5",
+      "author": "Eli",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-24T12:14:13.000Z",
-      "summaryZh": "TL;DR — On July 22, White House OSTP Director Michael Kratsios publicly accused Moonshot AI of covertly distilling Anthropic's Fable model to build Kimi K3, the 2.8 trillion-parameter open-weight mode",
-      "category": "devto"
-    },
-    {
-      "title": "Constitutional AI: How Anthropic Is Teaching Machines to Have Values (And Why It Matters More Than You Think)",
-      "titleZh": "Constitutional AI: How Anthropic Is Teaching Machines to Have Values (And Why It Matters More Than You Think)",
-      "link": "https://dev.to/akaranjkar08/constitutional-ai-how-anthropic-is-teaching-machines-to-have-values-and-why-it-matters-more-than-1il",
-      "author": "Anup Karanjkar",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-24T07:15:37.000Z",
-      "summaryZh": "Constitutional AI: How Anthropic Is Teaching Machines to Have Values (And Why It Matters More Than You Think) What if the biggest risk from AI isn't that it becomes too powerful—but that it becomes po",
-      "category": "devto"
-    },
-    {
-      "title": "3 Assumptions That Broke Before I Got gpt-oss-120b Working Through the Anthropic SDK",
-      "titleZh": "3 Assumptions That Broke Before I Got gpt-oss-120b Working Through the Anthropic SDK",
-      "link": "https://dev.to/nomurasan/3-assumptions-that-broke-before-i-got-gpt-oss-120b-working-through-the-anthropic-sdk-m55",
-      "author": "Sho Naka",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-23T22:33:31.000Z",
-      "summaryZh": "I signed up for a free-tier LLM API, hit a credit-card prompt before I'd made a single call, and assumed it meant I was about to get billed. I was wrong about that one. I was not wrong that the SDK co",
+      "pubDate": "2026-07-25T04:19:31.000Z",
+      "summaryZh": "Anthropic released Claude Opus 5 on July 24. The positioning is unusually plain for a model launch: an everyday model that, per Anthropic, comes close to Claude Fable 5's frontier intelligence at half",
       "category": "devto"
     },
     {
@@ -112,26 +90,59 @@
       "category": "devto"
     },
     {
-      "title": "Anthropic plans up to two gigawatts of AMD chips, with AMD committing up to $5 billion back",
-      "titleZh": "Anthropic plans up to two gigawatts of AMD chips, with AMD committing up to $5 billion back",
-      "link": "https://dev.to/breachprotocol/anthropic-plans-up-to-two-gigawatts-of-amd-chips-with-amd-committing-up-to-5-billion-back-23i1",
-      "author": "Breach Protocol",
+      "title": "Claude Opus 5 Just Topped Every Leaderboard. HN's Comments Tell the Real Story",
+      "titleZh": "Claude Opus 5 Just Topped Every Leaderboard. HN's Comments Tell the Real Story",
+      "link": "https://dev.to/ashraf_chowdury09/claude-opus-5-just-topped-every-leaderboard-hns-comments-tell-the-real-story-1pbf",
+      "author": "Ashraf",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-24T01:52:30.000Z",
-      "summaryZh": "AMD announced that Anthropic plans to deploy up to 2 gigawatts of MI450-series capacity in AMD Helios systems, with the first gigawatt beginning in the first half of 2027. Alongside it, AMD says it ha",
+      "pubDate": "2026-07-25T09:02:49.000Z",
+      "summaryZh": "Anthropic shipped Claude Opus 5 on July 24. Within a day it had 1,500+ points and 866 comments on Hacker News — more than triple the next biggest story that week. It's now #1 on the Artificial Analysi",
       "category": "devto"
     },
     {
-      "title": "Anthropic doubles its policy-advocacy funding to $40 million",
-      "titleZh": "Anthropic doubles its policy-advocacy funding to $40 million",
-      "link": "https://dev.to/breachprotocol/anthropic-doubles-its-policy-advocacy-funding-to-40-million-518i",
+      "title": "Claude Opus 5 posts a verified four-fold lead on the hardest adaptation benchmark",
+      "titleZh": "Claude Opus 5 posts a verified four-fold lead on the hardest adaptation benchmark",
+      "link": "https://dev.to/breachprotocol/claude-opus-5-posts-a-verified-four-fold-lead-on-the-hardest-adaptation-benchmark-3n11",
       "author": "Breach Protocol",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-24T01:53:31.000Z",
-      "summaryZh": "Anthropic said on July 21 that it contributed an additional $20 million to Public First Action, bringing its total commitment to $40 million . The recipient identifies itself as a bipartisan 501(c)(4)",
+      "pubDate": "2026-07-25T02:03:16.000Z",
+      "summaryZh": "Anthropic released Claude Opus 5 on July 24, and the independent benchmark owner ARC Prize verified it at 30.16% on ARC-AGI-3, its test of how well an AI adapts inside unfamiliar interactive environme",
       "category": "devto"
+    },
+    {
+      "title": "Claude Opus 5: beats Fable 5 at half the price — and 'awakens' in its own system card",
+      "titleZh": "Claude Opus 5: beats Fable 5 at half the price — and 'awakens' in its own system card",
+      "link": "https://dev.to/hunter_g_50e2ec233acd07b5/claude-opus-5-beats-fable-5-at-half-the-price-and-awakens-in-its-own-system-card-416a",
+      "author": "Hunter G",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-25T00:16:07.000Z",
+      "summaryZh": "Claude Opus 5 is here. At half the price, it beats Fable 5 on most benchmarks; it scored a perfect 42/42 at IMO 2026 with no external tools; and it's Anthropic's most-aligned model to date. But the sa",
+      "category": "devto"
+    },
+    {
+      "title": "I Built a 4-Agent Claude Code Pipeline That Ships Code While I Sleep",
+      "titleZh": "I Built a 4-Agent Claude Code Pipeline That Ships Code While I Sleep",
+      "link": "https://dev.to/robort-gabriel/i-built-a-4-agent-claude-code-pipeline-that-ships-code-while-i-sleep-npc",
+      "author": "Robort Gabriel",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-24T18:59:44.000Z",
+      "summaryZh": "I Built a 4-Agent Claude Code Pipeline That Ships Code While I Sleep You type one command before bed. By morning: a written spec, the actual code, tests that already ran, and a SHIP, NEEDS WORK, or BL",
+      "category": "devto"
+    },
+    {
+      "title": "v2.1.220",
+      "titleZh": "v2.1.220",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.220",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-07-25T01:35:55.000Z",
+      "summaryZh": "What's changed Bug fixes and reliability improvements",
+      "category": "github-release"
     },
     {
       "title": "v2.1.219",
@@ -153,17 +164,6 @@
       "sourceType": "github-release",
       "pubDate": "2026-07-22T21:24:56.000Z",
       "summaryZh": "What's changed Changed /code-review to run as a background subagent, so review work no longer fills your conversation and keeps stacked slash commands as its review target Added screen-reader announce",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.217",
-      "titleZh": "v2.1.217",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.217",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-07-21T21:35:10.000Z",
-      "summaryZh": "What's changed Added emoji shortcode autocomplete in the prompt input: type :heart: to insert ❤️, or :hea for suggestions — disable with the emojiCompletionEnabled setting Added warnings when transcri",
       "category": "github-release"
     }
   ]
