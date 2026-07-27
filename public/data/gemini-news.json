@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-07-24T19:10:30.551Z",
+  "lastUpdated": "2026-07-27T19:10:44.900Z",
   "items": [
     {
-      "title": "Google is signing the EU AI Act Code of Practice on Transparency of AI-Generated Content.",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/public-policy/eu-ai-act-transparency-code-of-practice/",
-      "description": "Signing the code reinforces our commitment to transparency and responsible AI development in Europe.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GoogleG_FullColor_White_RGB.max-600x600.format-webp.webp\">Signing the code reinforces our commitment to transparency and responsible AI development in Europe.",
-      "author": "Karen Massin",
+      "title": "NOAA and Google Cloud collaborate to advance weather forecasting.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/noaa-google-cloud-weather-forecasting/",
+      "description": "Google Cloud is now providing high-performance computing infrastructure for NOAA’s supercomputing system.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hurricane-Melissa_header.max-600x600.format-webp.webp\">Google Cloud is now providing high-performance computing infrastructure for NOAA’s supercomputing system.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 24 Jul 2026 14:00:00 +0000",
-      "titleZh": "Google is signing the EU AI Act Code of Practice on Transparency of AI-Generated Content.",
-      "descriptionZh": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GoogleG_FullColor_White_RGB.max-600x600.format-webp.webp\">Signing the code reinforces our commitment to transparency and responsible AI development in Europe."
+      "pubDate": "Mon, 27 Jul 2026 17:00:00 +0000",
+      "titleZh": "NOAA与谷歌云合作推进天气预报",
+      "descriptionZh": "Google Cloud近期为美国国家海洋和大气管理局（NOAA）的超级计算系统提供了高性能计算基础设施。这项合作的核心在于利用云计算的弹性扩展能力，支持NOAA在飓风等极端天气事件中开展高分辨率数值模拟。传统上，NOAA依赖本地超级计算机进行气象预测，但面对日益复杂的天气模型和实时数据的需求，本地算力难以在峰值时段快速扩展。Google Cloud通过部署专门的高性能计算（HPC）集群，采用最新CPU与GPU加速技术，显著缩短了模型运行时间。技术创新方面，Google采用了定制化网络架构（如GPUDirect RDMA）以降低数据通信延迟，并结合WekaFS分布式文件系统优化I/O性能，使得大规模并行计算效率提升数倍。此外，云计算还提供了弹性伸缩能力，允许NOAA在飓风活跃季动态增加计算资源，而在非高峰期释放资源以降低成本。从应用场景看，该基础设施首先用于新一代全球天气预报系统（GFS）和飓风模型（HWRF）的验证与运行，重点包括：更高分辨率的网格模拟（从13公里降至3公里级别）、集合预报的成员数扩展、以及实时数据同化处理。技术影响上，这一合作将推动气象预测从“基于经验统计”转向“高分辨率物理模拟”，从而提升飓风路径和强度预报的准确率，特别是对快速增强事件的预测能力。同时，云原生工具链（如Kubernetes编排、Cloud Storage归档）也为NOAA后续的数据共享、多机构协作建模奠定了基础。总体而言，Google Cloud与NOAA的联合不仅强化了灾害预警能力，也证明了公有云在国家级超算负载中的可行性，为其他气象机构（如ECMWF）及气候研究项目提供了可参考的混合云架构范例。"
     }
   ]
 }

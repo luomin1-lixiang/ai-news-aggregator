@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-07-26T18:57:00.941Z",
+  "lastUpdated": "2026-07-27T19:12:20.099Z",
   "items": [
+    {
+      "title": "claude-security Beta: Cost, Output, Accuracy — 189 Agents, 2 Hours, Measured",
+      "titleZh": "claude-security Beta：成本、输出、准确性——189个代理，2小时，实测",
+      "link": "https://dev.to/shimo4228/claude-security-beta-cost-output-accuracy-189-agents-2-hours-measured-1eji",
+      "author": "Tatsuya Shimomoto",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-27T13:00:04.000Z",
+      "summaryZh": "## Claude Security Beta 实测：189个Agent、2小时、20个发现\n\n**用户场景**  \n作者针对Anthropic官方安全扫描插件`claude-security`（v0.10.0）的\"黑盒\"问题进行了实测：成本不透明（只说\"可能用很多token\"）、输出质量未知（与静态分析有何不同）、结果处理无指引。作者扫描了整个`~/.claude`配置集（hooks、skills、agents、权限设置），189个子Agent运行2小时，返回20个发现。\n\n**核心方法**  \n插件采用六阶段流水线：Inventory（分区树为11个组件）→ Threat Model（每个组件1个）→ Research（组件×类别，42个Agent）→ Sweep（补漏）→ Panel（3视角对抗验证，135个投票）→ Adversarial（仅max级别）。`--effort`参数控制搜索广度而非验证深度，验证面板固定为3个投票者。作者使用`medium`级别，通过`journal.jsonl`日志解析Agent类型分布。\n\n**关键技巧**  \n1. 安装需先执行`/plugin marketplace add anthropics/claude-plugins-official`  \n2. 接受成本提示时需明确包含\"我理解可能耗时且消耗大量token\"的语句  \n3. 可通过`python3`脚本解析`journal.jsonl`统计Agent类型（panel votes 135、researchers 42、threat models 11、inventory 1）  \n4. 扫描期间必须保持Claude Code窗口打开，但无需交互可离开  \n5. 结果处理建议：优先处理panel验证后的高置信度发现，利用`Suggest patches`功能生成补丁文件",
+      "category": "devto"
+    },
     {
       "title": "Claude Opus 5 for coding agents: index 61 at half Fable 5's cost (2026)",
       "titleZh": "Claude Opus 5 编码代理：以Fable 5一半成本达到61指数（2026）",
@@ -9,7 +20,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T04:53:46.000Z",
-      "summaryZh": "## Claude Opus 5 发布：编码代理的新性价比之王\n\n**用户场景**：工程团队使用 Claude Code 等编码代理时，面临模型选择困境——旗舰模型 Fable 5 性能强但成本高，而 Opus 5 能否在保证质量的同时降低账单？Anthropic 于 2026 年 7 月 24 日发布 Opus 5，定位为“接近 Fable 5 前沿智能但价格减半”的解决方案。\n\n**核心方法**：Opus 5 在 Artificial Analysis Intelligence Index 上以 61 分超越 Fable 5（60 分）和 GPT-5.6 Sol（59 分），但每任务成本仅 $2.03，比 Fable 5 的 $2.75 低 26%。定价与 Opus 4.8 持平（输入 $5/M，输出 $25/M），支持 1M token 上下文窗口。关键创新是 **effort 设置**（low/medium/high/xhigh/max），允许同一模型在不同任务上动态调整 token 消耗（输出 token 用量跨度达 8 倍），实现“按需付费”。\n\n**关键技巧**：\n1. **编码基准表现**：CursorBench 3.2 上 Opus 5 与 Fable 5 差距仅 0.5%，但成本减半；Frontier-Bench 超越所有模型，性能是 Opus 4.8 的两倍以上。\n2. **成本优化**：不要对所有任务使用 max effort——简单编辑用 low/medium，复杂重构用 xhigh/max，否则会浪费 token。缓存策略同样重要：cache hit 可享 90% 折扣（$0.50/M）。\n3. **避坑指南**：Opus 5 在 offensive security 领域非最优（设计限制）；Fable 5 仅在需要最高事实知识时保留。Fast 模式（2.5 倍速度，双倍价格）适合延迟敏感场景。",
+      "summaryZh": "## Claude Opus 5 发布：编码 Agent 的高性价比新选择\n\n**用户场景**：Anthropic 于 2026 年 7 月 24 日发布 Claude Opus 5，针对运行编码 agent 的工程团队。核心痛点：如何在保持代码质量的同时降低 agent 运行成本？Opus 5 在 Artificial Analysis Intelligence Index 上得分 61（略超 Fable 5 的 60），但每任务成本仅 $2.03，比 Fable 5 的 $2.75 低 26%。\n\n**核心方法**：Opus 5 定价与 Opus 4.8 持平（输入 $5/百万 tokens，输出 $25/百万 tokens），但性能大幅提升。关键创新是**五档 effort 设置**（low/medium/high/xhigh/max），允许在同一模型内按任务复杂度动态调整 token 消耗（输出 token 用量跨度约 8 倍）。在 CursorBench 3.2 上，max effort 下性能仅比 Fable 5 低 0.5%，成本却减半。Fast 模式（2 倍价格，2.5 倍速度）适用于延迟敏感场景。\n\n**关键技巧**：\n- **effort 设置是省钱关键**：简单编辑用 low/medium，复杂重构用 xhigh/max，避免为所有任务支付 max 价格\n- **缓存策略**：利用 cache write（$6.25/百万 tokens，25% 溢价）和 cache hit（$0.50/百万 tokens，90% 折扣），对频繁读取仓库或 system prompt 的 agent 可大幅降本\n- **注意安全限制**：Opus 5 在 offensive security 领域非最优，这是 Anthropic 的设计选择\n- **迁移建议**：从 Fable 5 迁移时，务必重新调整 effort 级别，否则可能浪费成本",
+      "category": "devto"
+    },
+    {
+      "title": "api claude free и реальные условия доступа к моделям: как не привязать план к временной квоте",
+      "titleZh": "API Claude Free与模型访问的真实条件：如何避免将计划绑定到临时配额",
+      "link": "https://dev.to/promptra-team/api-claude-free-i-riealnyie-usloviia-dostupa-k-modieliam-kak-nie-priviazat-plan-k-vriemiennoi-kvotie-4623",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-27T17:02:57.000Z",
+      "summaryZh": "# Claude API免费访问的真相：如何避免产品依赖临时配额\n\n## 用户场景\n作者指出一个常见陷阱：开发者误以为Claude API有永久免费方案，导致产品功能悄然依赖临时配额，一旦配额过期，功能突然失效而团队毫无准备。\n\n## 核心方法\n提出 **access-register**（访问注册表）工程实践——一个YAML文件记录每项功能依赖的模型、访问类型（trial-credit / Claude.ai Free / startup-credit）、条件原文、检查日期、触发重新评估的事件及备用方案。关键区分三种“free”：\n1. **trial-credit**：一次性测试额度，用完即止\n2. **Claude.ai Free**：仅限Web/移动端聊天，无API访问\n3. **startup-credit**：限时免费额度，到期自动转为付费\n\n## 关键技巧\n- 任何“免费API”请求必须强制澄清属于哪种类型\n- 注册表必须包含 `checked` 日期和 `review_trigger`（如 credits_exhausted 或 deprecation_notice），否则无效\n- 用户常混淆 `claude pro api` 等消费订阅与API访问——订阅不提供API key，需单独pay-as-you-go\n- Anthropic对退役模型至少提前60天通知，过期后请求直接失败\n- 建议为关键功能准备备用路由（如 provod.ai），但需作为独立条件记录",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Code в VS Code и первая настройка IDE",
+      "titleZh": "在VS Code中使用Claude Code及首次IDE配置",
+      "link": "https://dev.to/promptra-team/claude-code-v-vs-code-i-piervaia-nastroika-ide-1i4g",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-27T14:47:26.000Z",
+      "summaryZh": "# Claude Code在VS Code中的配置指南\n\n## 用户场景\n作者指出开发者常犯的错误：认为安装VS Code扩展就能直接使用Claude Code终端代理。实际上，这涉及三个独立步骤：CLI安装、扩展安装和授权配置。作者特别警告：**不要在工作项目中进行首次配置**，因为工具在开发者完全理解其权限前就已获得代码访问权。\n\n## 核心方法\n1. **扩展安装**：需要VS Code 1.98.0+和付费Anthropic账户（Pro/Max/Team/Enterprise），扩展自带私有CLI副本但仅限聊天面板\n2. **独立CLI安装**：通过npm（`npm install -g @anthropic-ai/claude-code`）、Homebrew、WinGet或原生安装器，**禁止使用sudo**\n3. **验证命令**：`claude --version` 和 `claude doctor`（只读诊断）\n\n## 关键技巧\n- 权限分离：扩展和CLI需分别授权，终端代理需要PATH中有独立CLI\n- 授权方式：浏览器登录（默认）或设置`ANTHROPIC_API_KEY`环境变量\n- 版本注意：v2.1.198+需要Node.js 22+，不同小版本行为有差异\n- 安全风险：Linux凭据存储在`~/.claude/.credentials.json`（权限0600），Windows在`%USERPROFILE%\\.claude\\.credentials.json`\n- 团队管理：Console中角色分为\"Claude Code\"（仅创建CLI密钥）和\"Developer\"（创建任意密钥）",
       "category": "devto"
     },
     {
@@ -20,29 +53,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-25T23:15:34.000Z",
-      "summaryZh": "## Claude Opus 5 定价分析：你的账单可能纹丝不动\n\n**用户场景**：作者针对开发者关心的“模型降价能否真正降低生产环境成本”问题，以实际客服Agent（每月2000次对话）为例，揭示了价格幻觉——Opus 5定价虽降至Fable 5的一半（$5/M输入，$25/M输出），但实际账单仅节省$55/月。\n\n**核心方法**：作者提出“每任务成本”而非“每token价格”才是真实账单指标。通过对比Fable 5（$110/月）、Opus 5（$55/月）、Sonnet 5（$22/月）和Haiku 4.5（$11/月）的月度总成本，证明模型层级选择比版本升级影响更大。关键发现：缓存命中率（Cache Hit）才是最大杠杆——Opus 5缓存输入仅$0.50/M，是基础价格的1/10。\n\n**关键技巧**：\n1. **缓存优先**：将系统提示、政策文档等稳定前缀缓存，输入成本可从$35降至$8，效果远超版本升级\n2. **自动回退机制**：生产环境中安全拒绝不再导致中断，可自动路由到其他模型\n3. **审计而非升级**：对通用业务负载，应先检查当前缓存命中率，再决定是否升级模型层级\n4. **注意Fast模式陷阱**：2.5倍速度但双倍价格，对客服场景（4秒vs10秒响应）无实际转化价值\n\n**核心结论**：Anthropic并未降价，而是将Fable级能力下放至Opus价格带。真正的成本优化杠杆是缓存配置和模型层级选择，而非追逐最新旗舰。",
+      "summaryZh": "## Claude Opus 5 定价分析：你的账单可能纹丝不动\n\n**用户场景：** 作者针对开发者关心的“模型降价能否真正降低生产环境成本”问题，以每月2000次对话的客服Agent为例，拆解了Claude Opus 5定价减半背后的实际影响。\n\n**核心方法：** Opus 5定价为$5/百万输入token、$25/百万输出token，与Opus 4.8相同，仅为Fable 5的一半。但Anthropic强调的是“每任务成本”而非“每token价格”。作者通过实际账单计算发现：从Fable 5切换到Opus 5每月仅省$55，而改用Haiku 4.5可再省$44。**缓存命中**才是真正杀手锏——Opus 5缓存命中仅$0.50/百万，是基础输入价的1/10，通过稳定前缀缓存系统提示和策略文档，输入成本可从$35降至约$8。\n\n**关键技巧：**\n1. **先检查缓存命中率，再关注模型升级**——缓存配置变更比模型升级省得更多\n2. **自动回退机制**是生产环境隐藏亮点：安全拒绝不再导致服务中断，而是自动路由\n3. 对通用业务负载，**审计当前模型层级比盲目升级更重要**——Haiku 4.5在客服场景下月费仅$11，远低于Opus 5的$55\n4. 注意不同媒体对发布日期的矛盾报道（TechCrunch正确标注为7月24日周五）",
       "category": "devto"
     },
     {
-      "title": "How Much Does Claude Cowork Cost in 2026? Free on Every Paid Plan",
-      "titleZh": "2026年Claude Cowork费用是多少？每个付费计划均免费",
-      "link": "https://dev.to/nishilbhave/how-much-does-claude-cowork-cost-in-2026-free-on-every-paid-plan-3pig",
-      "author": "Nishil Bhave",
+      "title": "I Grepped My Own Claude Code Logs and Found the Hidden Tag Anthropic Never Shows You",
+      "titleZh": "我搜索了自己的Claude Code日志，发现了Anthropic从未展示给你的隐藏标签",
+      "link": "https://dev.to/nomurasan/i-grepped-my-own-claude-code-logs-and-found-the-hidden-tag-anthropic-never-shows-you-17c0",
+      "author": "Sho Naka",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-25T22:53:11.000Z",
-      "summaryZh": "以下是关于 Claude Cowork 定价的总结：\n\n**用户场景：** 作者解答了开发者最关心的问题：Claude Cowork 到底要花多少钱？以及不同付费计划下，能否真正日常使用这个桌面端 Agent 工具。对于经常使用 Claude Code 的开发者来说，token 消耗是实际痛点。\n\n**核心方法：** Claude Cowork 免费包含在所有付费计划中（Pro $20/月、Max 5x $100/月、Max 20x $200/月、Team $25/席位），无需单独订阅。但 Agent 任务消耗约 4 倍于普通聊天的 token 量（Anthropic 工程团队数据），因此真正的成本是 token 配额而非订阅费。\n\n**关键技巧：**\n- Pro 计划适合偶尔试用 Cowork，但日常使用会频繁触达限制\n- Max 5x 是实际\"日常驾驶\"的最低门槛，5 倍配额可支撑多文件任务\n- Max 20x 适合全天候重度 Agent 工作负载\n- 注意：仅 8.7% 的 Cowork 会话用于软件开发（VentureBeat 数据），它更多面向非编码知识工作\n- 选择计划时，应根据你实际运行 Agent 任务的频率，而非功能列表",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Opus 5 and PrestaShop: When a More Powerful Model Becomes Truly Useful",
-      "titleZh": "Claude Opus 5与PrestaShop：当更强大的模型真正变得有用时",
-      "link": "https://dev.to/ndabene/claude-opus-5-and-prestashop-when-a-more-powerful-model-becomes-truly-useful-3g68",
-      "author": "Nicolas Dabene",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-25T22:15:03.000Z",
-      "summaryZh": "## Claude Opus 5 + PrestaShop：高阶模型的精准应用指南\n\n**用户场景**  \n作者聚焦PrestaShop电商开发中的复杂问题：大型代码库的根因分析、跨层级的Bug追踪、多模块重构验证、以及迁移/支付模块等高影响操作。普通模型或规则引擎难以处理这些需要多步推理、交叉验证的场景。\n\n**核心方法**  \nOpus 5的价值不在于生成更多代码，而在于**减少过早结论**。作者提出“先映射执行路径再修改”的工作流：入口点→相关hooks→调用服务→数据读取→缓存影响→缺失测试。模型需配合**显式假设+可证伪证据**使用，而非直接输出补丁。对于重构任务，Opus 5能维持跨文件/跨prompt的长期一致性，避免将复杂任务拆解成数十个微prompt。\n\n**关键技巧**  \n1. **成本意识**：商品描述、工单摘要等高频低价值任务用小型模型或规则引擎，Opus 5仅用于支付/订单/库存等高失败成本场景  \n2. **Agent框架**：必须配置仓库只读权限、显式测试命令、隔离staging环境、操作日志，模型能力不豁免任何工程纪律  \n3. **审查方法论**：对高风险PR，要求模型输出“剩余风险、未测试案例、缺失证据”而非简单代码质量评分  \n4. **陷阱**：模型生成的测试台只覆盖其验证范围，不能替代业务验收测试和生产监控",
+      "pubDate": "2026-07-27T15:03:20.000Z",
+      "summaryZh": "## Claude Code 隐藏系统标签揭秘：开发者如何自行验证\n\n**用户场景：** 作者在日常使用Claude Code时，意外发现了一个从未公开的系统提示标签 `<ip_reminder>`，该标签会出现在对话中但用户不可见。作者想验证这个标签的真实存在及其对token消耗的影响。\n\n**核心方法：** 作者通过分析Claude Code本地日志文件（位于 `~/.claude/projects/<project-key>/` 的JSONL格式），使用 `grep` 命令直接搜索 `ip_reminder` 字符串。关键发现：在单个会话文件中，有151行匹配、437次出现、17个开标签但0个闭标签——说明系统会在工具输出截断时丢失标签闭合部分。\n\n**关键技巧：**\n1. 日志路径：`PROJECT_KEY=$(pwd | tr '/' '-')`，日志目录为 `$HOME/.claude/projects/$PROJECT_KEY`\n2. 使用 `grep -c \"ip_reminder\"` 统计匹配行数，`grep -o \"<ip_reminder>\" | wc -l` 统计实际出现次数\n3. 通过Python解析JSONL中的 `usage` 字段，可精确计算token消耗：作者发现98.51%的输入token来自缓存读取（cache_read），而非新鲜输入\n4. 注意：GitHub上已有4个相关Issue（#17601、#21214、#22955、#50516），状态均为CLOSED且NOT_PLANNED，说明Anthropic不计划修复此问题\n\n**实用价值：** 开发者可自行审计Claude Code的token使用情况，验证系统提示的实际开销，无需依赖第三方报告。",
       "category": "devto"
     },
     {
@@ -53,29 +75,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T04:33:50.000Z",
-      "summaryZh": "## Claude Opus 5 API 完整指南：半价获得 Fable 5 级能力\n\n**用户场景**：开发者需要高性能 AI 模型处理复杂 agentic 编码和企业级任务，但 Fable 5 的 $10/$50 定价过高。Opus 5 以 $5/$25（半价）提供接近 Fable 5 的智能水平，适合预算敏感但需要前沿能力的场景。\n\n**核心方法**：\n- 模型 ID 为 `claude-opus-5`，支持 1M token 上下文窗口和 128K 输出（通过 Message Batches API 可扩展至 300K）\n- 通过 ofox.ai 调用：OpenAI 兼容端点使用 `anthropic/claude-opus-5`，Anthropic 原生端点使用 `claude-opus-5`\n- 支持完整 effort 阶梯（low/medium/high/xhigh/max），默认 high\n\n**关键技巧**：\n1. **Adaptive thinking 默认开启**：从 Opus 4.8 迁移时，需重新检查 `max_tokens` 设置，或传入 `thinking: {\"type\": \"disabled\"}` 恢复旧行为\n2. **禁用 thinking 的 effort 限制**：`thinking: {\"type\": \"disabled\"}` 与 `effort: \"xhigh\"` 或 `max` 组合会触发 400 错误，需降至 high 或以下\n3. **缓存阈值降至 512 tokens**：短 system prompt 现在自动创建缓存条目，无需修改代码\n4. **行为调整**：移除显式 \"double-check\" 指令（Opus 5 已自动验证），并主动要求简洁输出以控制响应长度",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Opus 5 Is a Real Coding Upgrade",
-      "titleZh": "Claude Opus 5 是一次真正的编码升级",
-      "link": "https://dev.to/simon_paxton/claude-opus-5-is-a-real-coding-upgrade-1hil",
-      "author": "Simon Paxton",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-25T20:09:28.000Z",
-      "summaryZh": "# Claude Opus 5 开发者实战解读：百万Token上下文与默认思考模式\n\n## 用户场景\n作者针对需要处理大型代码库、多步骤编辑、代码审查或长周期分析任务的开发者。核心痛点在于：传统模型需要频繁重置上下文、精心编排提示词，且难以处理跨文件/跨步骤的复杂编码任务。\n\n## 核心方法\nClaude Opus 5 的关键升级是 **1M token 上下文窗口** 和 **默认思考模式**（thinking enabled by default）。这意味着模型能一次性容纳整个大型代码库、日志、规格文档，并自动进行任务分解、自我验证和持续执行。Anthropic 将其定位为“高级模型”，更接近**智能体（agent）**而非简单聊天机器人。\n\n## 关键技巧\n1. **提示词需调整**：默认思考模式会导致输出更冗长，开发者需明确要求简洁性（如“用最简代码实现”）\n2. **版本管理纪律**：模型行为变化影响生产环境，需关注 Anthropic 的版本支持变更\n3. **安全风险**：更大上下文和自主性意味着工具使用失败或提示注入的后果更严重\n4. **适用场景**：大型仓库/多步骤编辑/代码审查 → 选 Opus 5；需要简洁答案或抽象推理 → 谨慎选择\n5. **定价不变**：与 Opus 4.8 同价，降低迁移门槛\n\n**核心取舍**：更强的持久性和推理能力 vs 更高的冗长度和提示调优成本。",
+      "summaryZh": "## Claude Opus 5 API 完整指南：半价获得 Fable 5 级能力\n\n**用户场景**：开发者需要高性能 AI 模型处理复杂 agentic 编码和企业级任务，但 Fable 5 的 $10/$50 定价过高。Opus 5 以 $5/$25 的半价提供接近 Fable 5 的智能水平，适合预算敏感但需要前沿能力的场景。\n\n**核心方法**：\n- 模型 ID 为 `claude-opus-5`，支持 1M token 上下文、128K 输出（通过 Message Batches API 可扩展至 300K）\n- 通过 ofox.ai 调用：OpenAI 兼容接口使用 `anthropic/claude-opus-5`，Anthropic 原生接口使用 `claude-opus-5`\n- 基准测试：CursorBench 3.2 仅差 Fable 5 0.5%，OSWorld 2.0 超越 Fable 5 且成本仅 1/3\n\n**关键技巧**：\n1. **adaptive thinking 默认开启**：从 Opus 4.8 迁移需调整 `max_tokens`，或传入 `thinking: {\"type\": \"disabled\"}` 恢复旧行为\n2. **禁用 thinking 的 effort 限制**：`disabled` 模式下 effort 不能设为 `xhigh` 或 `max`，否则返回 400 错误\n3. **缓存阈值降至 512 tokens**：短 system prompt 现在自动缓存，节省成本\n4. **提示词优化**：移除显式\"double-check\"指令（模型已内置自检），降低 effort 可缩短思考但不会减少输出长度，需显式要求简洁输出",
       "category": "devto"
     },
     {
       "title": "The open-weights letter doubled to 50 signatories - Google and OpenAI signed, Anthropic did not",
-      "titleZh": "开放权重公开信签署人数翻倍至50人——谷歌与OpenAI已签署，Anthropic未签署",
+      "titleZh": "开放权重联名信签署方翻倍至50家——谷歌与OpenAI已签署，Anthropic未参与",
       "link": "https://dev.to/breachprotocol/the-open-weights-letter-doubled-to-50-signatories-google-and-openai-signed-anthropic-did-not-3dp8",
       "author": "Breach Protocol",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T01:56:41.000Z",
-      "summaryZh": "## 开源权重联名信增至50家签署方：Google与OpenAI加入，Anthropic缺席\n\n**用户场景**：AI行业围绕“开源权重”模型监管产生分歧。一封致华盛顿政策制定者的联名信，呼吁不要过早限制可下载、可自托管运行的开放权重AI模型，避免将AI生态集中于少数封闭提供商。\n\n**核心方法**：联名信主张“防御性多元主义”——让更多独立方能够审计、红队测试、适配和自托管模型，从而增强生态韧性，而非依赖少数封闭提供商（它们可能成为集中失效点）。信中指出，权重一旦发布便超出原始开发者控制，修改版本难以追踪。关键段落区分了“基于输出的蒸馏”（合法改进）与“从封闭系统非法提取”（应受针对性法律制裁），这使OpenAI得以签署而不自相矛盾。\n\n**关键技巧**：\n- **定义先行**：信中将“开放权重”定义为“可下载、检查、修改并在自有基础设施上运行”的分布事实，而非许可证或哲学标签。\n- **政策诉求**：扩大算力访问、共享训练资源，避免全面限制。\n- **Anthropic立场**：其担忧在于未来前沿模型——一旦模型能辅助严重滥用，下载的权重文件将脱离其监控、分类器、客户审查等部署控制。Anthropic主张独立测试和狭义阈值，而非全面开放。\n- **注意**：xAI、Amazon、Apple同样缺席，因此“所有主要实验室对抗Anthropic”的框架不成立。",
+      "summaryZh": "## 开源权重联名信增至50家签署方：Google与OpenAI加入，Anthropic缺席\n\n**用户场景**：本文聚焦AI行业政策博弈——一封致华盛顿的公开信，呼吁不要过早限制开源权重模型（open-weight models）。签署方从25家增至50家，包括Google、OpenAI、AMD、GitHub等，但Anthropic、xAI、Amazon、Apple缺席。开发者需理解这一政策动向对AI生态的影响。\n\n**核心方法**：信件的核心主张是“防御性多元化”（defensive pluralism）：让更多独立方审计、红队测试、适配和自托管模型，避免将能力集中在少数封闭提供商手中。政策诉求包括扩大算力访问、共享训练资源，同时避免对可下载模型的全面限制。信件明确承认权重发布后无法控制，修改版难以追踪——这是其自身立场的最强反论。\n\n**关键技巧**：\n1. **蒸馏条款（distillation clause）**：区分合法的输出蒸馏（用于改进、评估）与非法从封闭系统提取，后者应受针对性法律制裁而非全面限制。这解释了为何OpenAI能签署而不自相矛盾。\n2. **Anthropic的立场**：认为当前AI系统开源安全，但未来前沿模型一旦能辅助严重滥用，权重下载将绕过其监控、分类器、客户审查等安全控制。其ASL-3保护机制运行超100项安全控制防止权重被盗。\n3. **政策启示**：开源权重本身被视为安全控制（更多审计者、更少集中风险），而Anthropic认为可控部署在能力跨越阈值后不可或缺。两者均为善意但不可调和。",
       "category": "devto"
     },
     {
@@ -86,7 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T01:55:40.000Z",
-      "summaryZh": "## Anthropic官方数据揭示：Opus 5编码最佳成绩在“中等努力”而非最高档\n\n### 用户场景\n开发者普遍认为AI模型的“推理努力度”调得越高，智能表现越好。但Anthropic官方系统卡显示，Claude Opus 5在Cognition FrontierCode编码评测中，**中等努力（Medium Effort）** 得分最高（主集53.4，扩展集63.6），更高档位反而下降。这颠覆了“努力度=智商”的直觉。\n\n### 核心方法\nAnthropic的“努力度”本质是**token预算控制**，影响思考、工具调用和输出长度。官方文档指出：最高档适合“最复杂任务”，但“简单任务会过度思考”——重复检查、探索替代方案、浪费工具调用。ARC-AGI-3评测仅用高努力（30.16%），因测试窗口短未测最高档。社区质疑的“97.5%”等高分属于旧静态基准。\n\n### 关键技巧\n1. **不要继承旧模型设置**：每个模型需重新做“努力度扫描”，找到最优档位。\n2. **警惕“过度思考”陷阱**：简单任务用高努力会降低效率，中等档位可能更优。\n3. **基准分数≠通用推理能力**：ARC承认无法排除训练集泄露，分数仅代表“基准族内泛化”，非通用智能。\n4. **配置即结果**：没有“Opus 5分数”，只有“Opus 5在X努力度下的分数”。\n\n**核心教训**：努力度是工作负载配置，不是智商滑块。开发者应针对自身任务做A/B测试，而非盲目拉满。",
+      "summaryZh": "## Anthropic Opus 5 编码能力：中等推理努力反而最佳\n\n**用户场景**：开发者在使用 Claude Opus 5 时，常默认将“推理努力”（reasoning effort）调到最高以获取最强能力。但 Anthropic 官方系统卡显示，在 Cognition's FrontierCode 编码评测中，**中等努力（medium effort）得分最高**（主集 53.4，扩展集 63.6），而非更高设置。这打破了“调高努力=更智能”的常见假设。\n\n**核心方法**：推理努力控制模型在思考、工具调用和输出上的 token 消耗。Anthropic 文档指出，最高设置“在最复杂任务上可能有收益”，但“在简单任务上容易过度思考”，导致**收益递减**。关键发现：模型在不需要高努力的任务上会持续检查已正确的工作、探索替代方案，甚至浪费工具调用在重新探索而非执行上。因此，**努力设置是工作负载配置，而非智商滑块**。\n\n**关键技巧**：\n1. **不要继承旧模型的设置**：Anthropic 建议针对自己的评估任务**重新扫描努力级别**，找到最佳点。\n2. **警惕“过度思考”陷阱**：在简单编码任务上，高努力会导致不必要的重构和工具调用浪费。\n3. **基准测试需附努力级别**：没有努力级别的“Opus 5 得分”是不完整的声明。\n4. **ARC-AGI-3 争议澄清**：30.16% 得分来自高努力（非最高），且 ARC 承认无法排除训练数据泄露，但分数本身已验证无误。开发者应关注**配置而非模型本身**的基准表现。",
       "category": "devto"
     },
     {
@@ -97,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T02:02:46.000Z",
-      "summaryZh": "## Anthropic 删除 Claude Code 80% 系统提示词：核心要点与开发者启示\n\n**用户场景**：开发者在使用 Claude Code 时，常面临系统提示词过长、指令矛盾、上下文窗口被占满的问题。Anthropic 声称在 Opus 5 和 Fable 5 模型中删除了超过 80% 的系统提示词，且内部编码评估无性能损失。\n\n**核心方法**：删除的提示词并未消失，而是迁移到更高效的位置：\n- 工具 schema（Tool Schemas）：指令从自然语言规则转为工具契约，schema 在调用点强制生效\n- 按需技能（Skills）：代码审查、深度研究等变为后台子代理，仅在需要时调用\n- 自动记忆（Auto-memory）和工件（Artifacts）：替代静态指令文档\n\n**关键技巧**：\n1. **提示词精简原则**：用短局部启发式规则（如“匹配周围代码的注释密度”）替代冗长风格指南\n2. **工具 schema 优先**：一个定义良好的 schema 胜过一段描述性文字——schema 在调用点强制，而文字只是建议\n3. **上下文预算管理**：将上下文窗口视为预算而非容器，通过子代理隔离大文件读取并返回摘要\n4. **安全边界**：必须强制执行的规则应放在 hooks 或托管设置中，而非指令文件或记忆——后者是行为指导，不是强制\n\n**注意事项**：Anthropic 未公开提示词 diff、评估集或方法论。开发者报告了回归问题，说明该优化可能不通用。对于需要审计性的场景，自动记忆的透明性仍是挑战。",
+      "summaryZh": "## Anthropic 删除了 Claude Code 80% 的系统提示词，性能未受影响\n\n**用户场景：** 开发者在使用 Claude Code 时，常面临系统提示词过长、指令矛盾、上下文窗口被占满的问题。Anthropic 发现，随着模型能力提升，大量静态规则反而限制了模型判断力。\n\n**核心方法：** Anthropic 将原本写在系统提示词中的指令，迁移到更高效的载体中：\n- 工具 schema（用简洁描述替代长篇示例）\n- 按需调用的技能（如代码审查、深度研究）\n- 自动记忆和 artifacts\n- 可执行 hooks（用于强制约束）\n\n关键变化：通用风格规则 → 单条局部启发式（匹配周围代码的注释密度、命名习惯）；重复指令 → 合并到工具描述中；始终加载的审查指导 → 仅在需要时激活的技能。\n\n**关键技巧：**\n1. **指令迁移原则**：将静态规则转化为工具 schema 的契约式描述，schema 在调用点强制执行，比自然语言提示更可靠\n2. **上下文预算管理**：使用子代理隔离大文件读取，返回摘要而非原始内容；深度研究等任务手动触发，避免占用主对话窗口\n3. **安全约束**：必须强制执行的控制（如权限限制）应放在 hooks 或托管设置中，而非指令文件或记忆——后者是行为指导而非强制手段\n\n**注意**：Anthropic 未公开删除的提示词内容、评估集和方法论，用户报告了回归问题。该结论可能不适用于其他代码库或模型。",
       "category": "devto"
     },
     {
@@ -108,7 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-26T14:18:59.000Z",
-      "summaryZh": "## Claude Opus 5 评测：性能登顶，价格不变\n\n**用户场景**：开发者面临AI模型选择困境——既要顶尖推理能力，又需控制成本。作者通过独立基准测试，验证Claude Opus 5是否值得替换现有模型（如GPT-5.6、Fable 5）。\n\n**核心方法**：基于Artificial Analysis Intelligence Index（综合智能指数）和Agentic Index（代理能力指数）进行双维度评测。Opus 5以61分和55.3分双料第一，超越Fable 5和GPT-5.6。关键对比指标：Frontier-Bench v0.1（终端编码）达43.3%（Opus 4.8仅18.7%），ARC-AGI-3（新颖推理）约30%（是次优模型的3倍），OSWorld 2.0（计算机操作）以1/3成本超越Fable 5。\n\n**关键技巧**：\n- **成本优势**：$5/$25 per million tokens（输入/输出），与Opus 4.8同价，仅为Fable 5的一半\n- **技术参数**：1M token上下文窗口、128K最大输出、2026年5月知识截止（Claude系列最新）\n- **避坑建议**：基准测试只是快照，建议用实际工作流（你的prompt、deadline）对比测试Fable 5、GPT-5.6、Gemini和Grok，而非盲目信任排名\n- **实用工具**：推荐使用Gangsta AI进行30+模型同prompt对比（免费，无需登录）\n\n**结论**：Opus 5在“更好更便宜”组合上无可争议，但最终需用户亲自验证。",
+      "summaryZh": "## Claude Opus 5 评测：性能登顶，价格不变\n\n**用户场景**：开发者面临AI模型选择困境——既要顶尖推理能力（如复杂编码、Agent任务），又需控制成本。作者对比了Claude Opus 5与GPT-5.6、Fable 5等模型的实际表现。\n\n**核心方法**：通过三大基准测试验证：\n- **Frontier-Bench v0.1**（终端编码Agent）：43.3%成功率，是Opus 4.8的2倍+，超Fable 5近10%\n- **ARC-AGI-3**（新颖推理）：约30%准确率，是次优模型的3倍\n- **OSWorld 2.0**（计算机操作）：以Fable 5三分之一的成本取得更好成绩\n\n**关键技巧**：\n1. **性价比优势**：Opus 5定价$5/$25（输入/输出百万token），与旧版Opus 4.8相同，仅为Fable 5的一半\n2. **实用参数**：100万token上下文窗口 + 128K最大输出 + 2026年5月知识截止（最“新鲜”的Claude）\n3. **避坑建议**：基准测试只是快照，建议用实际工作流（如同一prompt对比GPT-5.6、Gemini、Grok）验证真实表现\n\n**开发者价值**：在Agentic Index和AI Intelligence Index双榜登顶，且价格未涨，是当前性价比最高的“准旗舰”模型。",
       "category": "devto"
     },
     {
@@ -119,18 +130,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-24T18:59:44.000Z",
-      "summaryZh": "## Claude Code 四智能体流水线：睡觉时自动交付代码\n\n**用户场景**：开发者在使用AI编码时，常陷入“手动传递上下文”的困境——需要不断告诉Claude下一步做什么，一旦停止输入，整个流程就中断。作者解决了这个架构问题，实现“一键触发、自动交付”。\n\n**核心方法**：构建4个专业智能体（Planner/Coder/Tester/Reviewer），通过`.pipeline/`共享文件夹自动交接。每个智能体只负责单一任务，输出到固定文件（spec.md→changes.md→test-results.md→review.md），下一个智能体读取文件继续工作。Orchestrator封装为`/ship`命令，一次输入即可触发完整流水线。\n\n**关键技巧**：\n1. **严格职责分离**：Planner只写spec不写代码，Coder只按spec实现，Tester只运行测试不修bug，Reviewer只读不写（防止“自己批改作业”）\n2. **文件化上下文**：用文件而非共享context window传递信息，任何环节出问题都可直接查看对应文件\n3. **测试失败即停**：Tester遇到失败直接报告，不尝试修补，避免智能体“过度帮助”导致scope creep\n4. **三档裁决机制**：Reviewer输出SHIP/NEEDS WORK/BLOCK，让开发者从“监督AI”变为“审核成品”",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Opus 5 leads on agentic work — and undercuts Fable 5 on cost",
-      "titleZh": "Claude Opus 5在代理工作方面领先——并在成本上低于Fable 5",
-      "link": "https://dev.to/thegatewayguy/claude-opus-5-leads-on-agentic-work-and-undercuts-fable-5-on-cost-4b02",
-      "author": "Andrew Kew",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-25T21:42:47.000Z",
-      "summaryZh": "## Claude Opus 5 发布：Agent 工作负载的新标杆，成本更低\n\n**用户场景：** 开发者面临选择前沿模型的困境——既要强大的 agent 能力（自动化编程、终端操作、知识工作），又要控制成本。Claude Opus 5 解决了这一矛盾：在 agentic 基准测试中超越 Fable 5，且每任务成本低 26%。\n\n**核心方法：** \n- **Agent 性能领先**：在 GDPval-AA v2 上 Elo 1861，比 Fable 5 和 GPT-5.6 Sol 高 100+ 分；AA-Briefcase（agentic 知识工作）+146 Elo。\n- **编码能力并列第一**：Claude Code 在 Artificial Analysis Coding Index 登顶，SWE-Atlas-QnA 最高分；Terminal-Bench v2.1 达 89%。\n- **成本优势**：最大努力模式每任务 $2.03 vs Fable 5 的 $2.75（-26%）；支持 5 级努力设置（low→max），1M token 上下文窗口。\n\n**关键技巧：**\n1. **Agent 管道优先选 Opus 5**：从 high/xhigh 努力级别开始测试，再决定是否用 max，避免过度消耗。\n2. **Claude Code 用户直接受益**：已自动获得编码 Agent Index 第一的性能。\n3. **成本敏感场景**：max 模式比 Fable 5 便宜 26%，重新计算成本模型。\n4. **避免事实性任务**：幻觉率升至 50%（+14 点），知识密集型场景仍用 Fable 5。\n5. **注意**：Opus 5 在不确定时更自信地猜测，检索/精确度任务需谨慎。",
+      "summaryZh": "## 4-Agent Claude Code 流水线：睡前一条命令，醒来代码已就绪\n\n**用户场景**：开发者使用AI写代码时，常陷入“手动传递上下文”的困境——每次都要人工指挥AI从规划→编码→测试→审查，一旦停止输入，整个流程就卡住。作者解决了这个“架构问题”，而非“提示词问题”。\n\n**核心方法**：构建4个专业Agent的自动接力流水线，通过`.pipeline/`共享文件夹传递产物（spec.md→changes.md→test-results.md→review.md），每个Agent只读前一个输出，写入自己的结果。Orchestrator（`/ship`命令）按顺序调度：Planner写技术规格→Coder按规格编码→Tester写测试并运行→Reviewer给出SHIP/NEEDS WORK/BLOCK最终裁决。\n\n**关键技巧**：\n- **严格职责隔离**：Planner不写代码，Coder不修改未指定的文件，Tester不自动修复失败测试，Reviewer只读不写——防止“帮倒忙”的scope creep\n- **失败即停止**：Tester遇到测试失败直接报告，不尝试自我修复，避免AI“自批自改”\n- **单命令触发**：将Orchestrator保存为`.claude/skills/ship/SKILL.md`，输入`/ship add rate limiting to the login endpoint`即可启动全流程\n- **可调试性**：每个Agent的输出独立文件，出问题直接查看对应阶段产物\n\n**实践价值**：开发者从“手动连接各环节”转变为“审查已完成的工作”，真正实现“睡前一条命令，醒来代码已就绪”。完整配置包可在作者博客免费获取，10分钟即可部署到自己的仓库。",
       "category": "devto"
     },
     {
@@ -141,18 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-07-25T01:35:55.000Z",
-      "summaryZh": "## Claude Code v2.1.220 更新说明\n\n本次更新主要聚焦于**错误修复与可靠性提升**，未引入重大新功能或破坏性变更。具体改进包括：\n\n- 修复了若干已知Bug，提升工具稳定性\n- 优化了代码执行与任务处理的可靠性\n- 改进了错误处理机制，减少意外中断\n\n建议所有用户升级以获得更稳定的使用体验。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.219",
-      "titleZh": "v2.1.219",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.219",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-07-24T17:14:23.000Z",
-      "summaryZh": "## Claude Code v2.1.219 更新说明\n\n**新增功能：**\n- 新增 **Claude Opus 5**（`claude-opus-5`）模型，默认Opus模型，支持1M上下文，快速模式定价$10/$50每百万token\n- 新增 `sandbox.network.strictAllowlist` 设置，可禁止非白名单主机访问沙箱命令\n- 新增 `DirectoryAdded` 钩子，在`/add-dir`或SDK注册新工作目录后触发\n- 子代理嵌套深度从1提升至3（可通过 `CLAUDE_CODE_MAX_SUBAGENT_SPAWN_DEPTH=1` 禁用）\n- 新增 `workflowSizeGuideline` 设置键，可在任意配置文件中调整工作流大小指南\n\n**问题修复：**\n- 修复 `claude -p` 在API错误时丢失已生成答案的问题\n- 修复自托管运行器重启时权限批准被丢弃的问题\n- 修复Vim模式下空提示行按←键无法返回代理视图的问题\n- 修复屏幕阅读器模式每次按键重写整行的问题\n- 修复GNU screen中复制选择输出base64的问题\n\n**重要变更：**\n- 动态工作流默认改为中等大小指南（目标少于15个代理）\n- 移除Opus 4.7的快速模式支持，`/fast` 现适用于Opus 5和Opus 4.8\n- MCP配置中的 `${VAR}` 条目现在从启动环境解析而非设置文件环境",
+      "summaryZh": "### Claude Code v2.1.220 更新说明\n\n本次更新主要聚焦于**错误修复与可靠性提升**，未引入重大新功能或破坏性变更。具体改进包括：\n\n- **修复了多个已知Bug**，提升了工具调用的稳定性\n- **优化了代码生成与执行流程**，减少意外中断\n- **改进了错误处理机制**，提供更清晰的反馈信息\n\n建议所有用户升级以获得更稳定的使用体验。",
       "category": "github-release"
     }
   ]
