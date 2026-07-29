@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-28T19:08:27.537Z",
+  "lastUpdated": "2026-07-29T18:57:27.975Z",
   "items": [
     {
       "title": "Multi-Agent Orchestration Patterns: What Actually Works and Where They Break",
@@ -9,7 +9,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-28T05:49:15.000Z",
-      "summaryZh": "# 多智能体编排模式：实际有效与失效场景分析\n\n## 用户场景\n作者指出，市面上所有多智能体框架（Anthropic、OpenAI Agents SDK、Google ADK等）本质上只有四种协调拓扑结构：顺序/流水线、并行/扇出扇入、层级/编排器-工作者、辩论/共识。开发者常被营销术语迷惑，难以找到每种模式在**生产环境**中具体如何传递状态、以及**哪里会出问题**的实操指南。\n\n## 核心方法\n1. **顺序模式**：Agent A输出完整传入B的context，Google ADK用`SequentialAgent`实现，OpenAI SDK通过`handoff()`传递完整对话历史，需用`input_filter`手动裁剪。\n2. **并行模式**：拆分器将任务分给N个独立Agent并发执行，聚合器收集摘要。Anthropic系统让每个子Agent用独立context窗口，只返回1000-2000 token摘要，牺牲原始推理可见性。\n3. **层级模式**：有状态的“老板”Agent（如Claude Opus 4）制定计划并写入**外部记忆**（非context窗口），再派生子Agent（Sonnet 4）执行。关键：context超200K token会截断，必须外部持久化计划。\n4. **辩论模式**：多轮对称交互，context随轮次和Agent数量**乘法增长**，是唯一非加性的模式。\n\n## 关键技巧\n- **顺序模式**：默认传递全部历史是性能陷阱，必须用`input_filter`（OpenAI SDK的`HandoffInputData`对象）显式裁剪。\n- **并行模式**：聚合器是瓶颈——它看不到子Agent的原始推理，只接收摘要，易丢失关键细节。\n- **层级模式**：老板Agent的context window是最大风险点，必须将计划写入外部存储（如数据库），否则截断后整个流程崩溃。\n- **辩论模式**：多轮交互导致context爆炸，且研究显示辩论可能**消除正确答案**（2025/2026两篇论文直接测量了失败率）。",
+      "summaryZh": "# 多智能体编排模式：实际有效与失效场景分析\n\n## 用户场景\n作者指出，所有多智能体框架（Anthropic、OpenAI Agents SDK、Google ADK等）本质上只有四种协调拓扑结构：顺序/流水线、并行/扇出扇入、分层/编排器-工作者、辩论/共识。开发者常被营销术语迷惑，难以找到每种模式在**生产环境**中具体如何传递状态、以及**明确失效方式**的实战指南。\n\n## 核心方法\n文章通过**原始工程文档**（Anthropic内部研究系统、OpenAI SDK、Google ADK）和两篇研究论文，详细拆解四种模式的状态传递机制：\n- **顺序模式**：Agent A完整输出流入B的context，OpenAI SDK默认传递全部历史，需用`input_filter`修剪\n- **并行模式**：Google ADK的`ParallelAgent`并发执行，每个worker获得隔离context，只返回1000-2000 token摘要\n- **分层模式**：Anthropic系统要求编排器将计划写入**外部内存**（非context window），避免200K token截断导致计划丢失\n- **辩论模式**：每轮所有agent的完整响应互相输入，context随轮次和agent数量**乘数增长**\n\n## 关键技巧\n1. **顺序模式陷阱**：默认传递全部历史导致token爆炸，必须显式使用`HandoffInputData`的`input_filter`函数修剪\n2. **并行模式瓶颈**：聚合器只看到结论看不到推理过程，适合独立子任务（如广度研究），不适合需要交叉验证的场景\n3. **分层模式关键**：编排器必须写外部存储，不能依赖context window——Anthropic实测200K token后计划丢失\n4. **辩论模式风险**：2025-2026年论文直接测量了辩论导致**正确答案消失**的失败率，context增长是其他模式的指数级",
+      "category": "devto"
+    },
+    {
+      "title": "Claude: токены, стоимость API и оплата из России",
+      "titleZh": "Claude：令牌、API费用及俄罗斯支付方式",
+      "link": "https://dev.to/promptra-team/claude-tokieny-stoimost-api-i-oplata-iz-rossii-274a",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-29T17:13:18.000Z",
+      "summaryZh": "这是一篇面向俄罗斯开发者的 Claude API 成本分析文章，核心价值在于**精准预算而非猜测**。\n\n**用户场景**：作者解决一个常见痛点——同样 1 万次 API 调用，因上下文长度不同，费用可能相差数倍（短上下文约 $70，长上下文约 $1,000+）。财务审批者仅凭“每百万 token 单价”无法做出准确预算。\n\n**核心方法**：将成本拆解为三个变量：**输入 tokens**、**输出 tokens** 和 **重复调用次数**。强调必须使用 Anthropic 官方 `/v1/messages/count_tokens` 端点（免费，独立速率限制）预先计算输入 tokens，而非肉眼估算。同时指出不同模型家族（如 Opus 4.7+ vs Sonnet 4.6）使用不同 tokenizer，同一文本 token 数可能差 30%，不能跨代机械换算。\n\n**关键技巧**：\n1. **价格时效性**：Sonnet 5 有引入期优惠（$2/$10 per MTok），2026年9月后自动涨至 $3/$15，预算必须标注日期。\n2. **隐藏成本**：Tool use 每次调用会额外消耗 290-410 个系统 prompt tokens（取决于 tool_choice），且随 agent 循环累积。\n3. **折扣机制**：Batch API 可享 50% 折扣；Prompt caching 写入成本 1.25x-2x，但命中读取仅 0.1x。\n4. **支付隔离**：俄罗斯开发者需将支付问题与 Anthropic 条款分开处理，避免因地域限制影响 API 使用。",
       "category": "devto"
     },
     {
@@ -20,18 +31,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-28T11:38:58.000Z",
-      "summaryZh": "# Opus 5 规则审计指南：告别旧模型时代的冗余指令\n\n**用户场景：** 长期使用 Claude Code 的开发者面临一个棘手问题——为弥补旧模型（如 Opus 4）弱点而编写的 CLAUDE.md 和 rules 文件，在 Opus 5 时代可能反而有害。Anthropic 官方建议\"减少规则，信任模型判断\"，但盲目删除所有规则可能导致行为退化，开发者陷入\"不敢删、不知删哪些\"的困境。\n\n**核心方法：** 作者提出了一套可复现的\"运行时层审计\"流程。核心洞察是：真正与自定义规则共享上下文的不是官方文档，而是**系统提示词（system prompt）和工具描述（tool descriptions）**。审计分两步：1）从活跃会话中捕获当前运行时层（通过让 Claude 逐主题引用自身提示词，而非仅检查配置文件）；2）将自定义规则与捕获内容交叉比对，分为三类——**冲突**（与运行时层矛盾）、**冗余**（已被覆盖）、**漂移**（仅与官方建议不符，无实际冲突）。\n\n**关键技巧：** \n- 捕获工具描述时用 `Quote the description of [ToolName] verbatim. Do not summarize.` 防止模型总结\n- 按主题（planning/commits/review）分批查询系统提示词，避免\"打印全部\"导致遗漏\n- 发现冲突后，需在另一个会话中复现确认再执行删除/反转操作\n- 注意：运行时层可能来自配置文件之外（如插件注入），必须从活跃会话捕获而非仅 grep 本地文件",
+      "summaryZh": "# Opus 5 时代规则编写指南：审计你的 CLAUDE.md\n\n## 用户场景\n长期使用 Claude Code 的开发者面临一个棘手问题：为弥补旧模型缺陷而积累的 CLAUDE.md 和规则文件（作者有 5,789 字），在 Opus 5 时代可能不仅多余，还会与模型自身指令冲突。官方建议\"减少规则，信任模型判断\"，但盲目删除所有规则又担心行为退化。\n\n## 核心方法\n作者提出\"运行时层审计\"流程：从实时会话中捕获系统提示和工具描述（而非仅检查配置文件），与自定义规则逐条比对。关键发现：运行时层包含来自 harness 或插件的隐藏指令（如\"除非用户要求，否则不要调用 AgentTool\"），这些在配置文件中根本找不到。按主题（规划、提交、审查等）分批查询，避免遗漏。\n\n## 关键技巧\n1. **捕获运行时层**：用\"quote verbatim\"指令获取工具描述和系统提示，防止模型总结\n2. **分类处理**：冲突（需删除/反转）、冗余（可移除）、漂移（与官方建议不符但无运行时冲突）\n3. **双重验证**：在另一个会话中复现相同措辞后再执行删除，避免误删\n4. **审计结果**：作者将规则从 5,789 字砍至 2,463 字，核心是决策流程而非单纯减量",
       "category": "devto"
     },
     {
-      "title": "MCP 协议实现指南:从零构建生产级 AI 工具生态",
-      "titleZh": "MCP协议实现指南：从零构建生产级AI工具生态",
-      "link": "https://dev.to/_fd4c731d8fc551b91150a/mcp-xie-yi-shi-xian-zhi-nan-cong-ling-gou-jian-sheng-chan-ji-ai-gong-ju-sheng-tai-1pl",
-      "author": "李春川",
+      "title": "Claude Sonnet 5 migration: the September 1, 2026 price cliff and the 30% tokenizer jump to plan for",
+      "titleZh": "Claude Sonnet 5 迁移：2026年9月1日的价格悬崖与30%分词器跃升需规划",
+      "link": "https://dev.to/mr_manushukla/claude-sonnet-5-migration-the-september-1-2026-price-cliff-and-the-30-tokenizer-jump-to-plan-for-4m9p",
+      "author": "Manu Shukla",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-28T05:38:23.000Z",
-      "summaryZh": "## MCP 协议实现指南：从零构建生产级 AI 工具生态\n\n### 用户场景\n当 LLM 需要调用数据库、发送邮件、操作内部 API 时，传统 function calling 存在「集成地狱」——每个应用需为每个工具写适配代码，复杂度 O(M×N)。Anthropic 开源的 MCP (Model Context Protocol) 旨在标准化 AI 应用与外部工具的连接，解决多 agent 平台中动态工具发现、跨厂商兼容、权限隔离和审计日志等生产级需求。\n\n### 核心方法\nMCP 定义三大原语：**Tools**（可调用函数）、**Resources**（只读数据源）、**Prompts**（可复用模板）。传输层支持 **stdio**（本地进程）和 **HTTP+SSE**（远程通信）。通过引入标准协议层，复杂度从 O(M×N) 降至 O(M+N)。Python 实现使用 `fastmcp` 库，通过 `@mcp.tool()` 装饰器自动生成 JSON Schema；TypeScript 使用 `@modelcontextprotocol/sdk`，通过 `setRequestHandler` 处理 `ListToolsRequestSchema` 和 `CallToolRequestSchema`。\n\n### 关键技巧\n1. **工具描述写给 LLM 看**：docstring 要清晰说明工具用途，帮助 LLM 判断何时调用\n2. **参数 schema 严格**：使用 `required`/`enum`/`pattern` 减少 LLM 猜测\n3. **错误信息可读**：返回结构化错误（如 `{\"error\": \"tenant_id missing\"}`）而非抛异常\n4. **幂等设计**：相同参数返回相同结果，便于重试\n5. **安全防护**：TypeScript 实现中必须做 path traversal 防护（如 `sanitizePath`）\n6. **多租户隔离**：强制要求 `tenant_id` 参数，确保数据隔离",
+      "pubDate": "2026-07-29T02:54:54.000Z",
+      "summaryZh": "# Claude Sonnet 5 迁移指南：2026年9月1日价格悬崖与30% Tokenizer跳变\n\n## 用户场景\n作者针对计划从 Claude Sonnet 4.6 迁移到 Sonnet 5 的工程团队，揭示了一个隐蔽的财务陷阱：2026年8月31日优惠价到期后，9月1日账单可能突然飙升50%，且实际成本比 Sonnet 4.6 高出约30%。问题根源在于新 tokenizer 使相同文本多消耗约30% tokens。\n\n## 核心方法\n- **价格时间线**：6月30日-8月31日优惠价（$2/$10 per million tokens），9月1日起恢复标准价（$3/$15），与 Sonnet 4.6 相同\n- **Tokenizer 变化**：相同文本 token 数增加1.0-1.35倍（平均30%），影响预算、上下文窗口（1M tokens 实际容纳更少文本）、max_tokens 截断风险\n- **三大破坏性变更**：旧参数发送会返回400错误，需更新代码\n\n## 关键技巧\n1. **成本控制杠杆**：使用 Prompt Caching 和 Batch Processing 降低有效输入成本；通过 effort 参数控制思考 token 消耗（思考 token 计入输出计费）\n2. **迁移清单**：重新校准所有 token 计数检查、调整 max_tokens 限制、更新 API 参数避免400错误\n3. **财务预警**：8月看似省钱（比 Sonnet 4.6 低13%），9月实际成本飙升50%（月环比），比原模型高30%——务必提前规划预算缓冲",
+      "category": "devto"
+    },
+    {
+      "title": "Claude API и первый запрос по актуальной документации",
+      "titleZh": "Claude API 及基于最新文档的首次请求",
+      "link": "https://dev.to/promptra-team/claude-api-i-piervyi-zapros-po-aktualnoi-dokumientatsii-3j0",
+      "author": "Promptra Team",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-29T09:41:30.000Z",
+      "summaryZh": "# Claude API 初探：基于最新文档的首次请求指南\n\n## 用户场景\n许多开发者在使用 Claude API 时，常因依赖过时的代码片段或缓存示例而踩坑——端点未变但模型 ID 已废弃，导致请求失败却误以为是密钥问题。本文针对这一痛点，强调必须基于 Anthropic 官方最新文档（而非旧教程）构建首个 API 请求。\n\n## 核心方法\n- **Messages API** 是主要入口：`POST https://api.anthropic.com/v1/messages`\n- 必需字段：`model`、`max_tokens`、`messages`（含 `role` 和 `content` 的数组）\n- 请求头：`x-api-key`、`anthropic-version`（当前稳定版 `2023-06-01`）、`content-type: application/json`\n- 官方 Python SDK 自动处理版本头，推荐使用 `pip install anthropic` 并创建 `Anthropic` 客户端\n\n## 关键技巧\n1. **版本验证**：SDK 每周更新（如 v0.117.0），务必记录安装版本号；协议层稳定，但 SDK 层变化快\n2. **调试利器**：保存 `_request_id` 属性（来自响应头 `request-id`），用于追踪具体调用和故障排查\n3. **避坑指南**：不要信任半年前的代码片段——每个字段都需与当前文档比对；区分 `claude.ai`（聊天产品）和 `api.anthropic.com`（开发者 API）\n4. **替代方案**：若无法使用海外支付或 VPN，可考虑兼容路由如 provod.ai\n\n**核心原则**：代码示例只是假设，官方文档才是契约。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Enterprise cost controls in 2026: spend limits, budget alerts, and the Admin API",
+      "titleZh": "2026年Claude Enterprise成本控制：支出限额、预算警报与Admin API",
+      "link": "https://dev.to/mr_manushukla/claude-enterprise-cost-controls-in-2026-spend-limits-budget-alerts-and-the-admin-api-3a3h",
+      "author": "Manu Shukla",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-29T09:07:57.000Z",
+      "summaryZh": "# Claude Enterprise 成本控制功能详解（2026）\n\n## 用户场景\n企业级AI代理（agentic AI）打破了传统按座计费模式，代理会编辑文件、调用技能、连接外部工具和启动子代理，导致使用量在不同人员和团队间极不均衡。管理员面临两大痛点：**成本不可见**（无法按组/用户查看费用）和**控制缺失**（无法限制个人支出）。\n\n## 核心方法\nAnthropic 在2026年7月2日推出了一套分层成本控制体系：\n- **支出限额层级**：组织级 → 席位层级 → RBAC组级 → 用户级，金额以最小货币单位存储（如\"50000\"=$500.00），按月重置\n- **预算警报**：管理员在75%/90%触发通知，用户在75%/95%收到应用内提醒并可申请增加额度\n- **Spend Limits Admin API**：8个端点，支持列出/设置/删除限额、审批/拒绝增加请求，速率限制60次/分钟/组织\n\n## 关键技巧\n1. **部署顺序**：先设置组织默认限额，再配置组级默认值，最后为用户设置个性化覆盖\n2. **API使用**：需要 `read:spend_limits` 和 `write:spend_limits` 作用域的Admin API密钥，使用 `x-api-key` 头传递\n3. **避免陷阱**：`period_to_date_spend` 可能临时返回\"0\"，不可作为计费依据；被拒绝的请求会隐藏用户的申请按钮30天\n4. **成本分析**：使用Analytics API将数据流式传输到Datadog Cloud Cost Management或CloudZero，按SCIM组和用户维度查看",
       "category": "devto"
     },
     {
@@ -42,62 +75,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-28T08:06:07.000Z",
-      "summaryZh": "# Claude企业级部署：代理团队落地前的关键检查清单\n\n## 用户场景\n作者指出企业引入AI代理（Claude Agent）时的核心痛点：团队急于购买企业版、连接工具、授权模型访问邮件和数据库，却忽略了**每个自主行动必须绑定具体责任人**。没有明确的责任归属、权限边界和预算限制，代理在获得工具的瞬间就开始行动，而规则却还没写好——这种“责任真空”是大多数企业试点失败的根本原因。\n\n## 核心方法\n作者提出**五层解构框架**，必须在试点启动前完成：\n1. **Owner（责任人）**：谁对代理的每个行动负责\n2. **Right（权限）**：哪些操作允许，哪些需人工确认\n3. **Data（数据边界）**：代理能访问哪些数据，哪些禁区\n4. **Budget（预算）**：硬性token和费用上限（组织级+用户级）\n5. **Escalation（升级路径）**：代理越界时决策流向何处\n\n## 关键技巧\n- **Enterprise版管理杠杆**：利用SCIM provisioning、审计日志、Compliance API实现实时监控；通过六类管理域（Identity & Access、Billing等）设置自定义角色，权限可叠加但不可互撤\n- **Claude Code策略**：对Team/Enterprise计划，通过“Managed Policies”强制绑定工具权限、文件访问限制和MCP服务器配置，并利用Compliance API实时拉取使用数据（如代码采纳率）\n- **MCP服务器管理**：这是代理工具的边界，需在试点前明确每个connector的权限模式（always allow / needs approval / blocked）\n- **避坑指南**：不要先买权限再定规则——工具数量不等于组织准备度；每个自主行动必须同时绑定责任人、数据边界和预算上限，缺一不可",
+      "summaryZh": "# Claude企业级Agent团队落地指南\n\n## 用户场景\n作者指出企业引入AI Agent的核心矛盾：团队急于购买工具权限、连接数据库和邮件，却忽视了**责任归属**问题。当Agent获得工具后立即开始自主行动，而企业尚未制定规则，导致“有行动无负责人”的失控状态。\n\n## 核心方法\n提出**五层解构框架**，在启动前必须明确：\n1. **Owner**：谁为Agent行为负责\n2. **Right**：哪些操作允许/需审批\n3. **Data**：Agent可访问的数据边界\n4. **Budget**：Token和费用的硬性上限\n5. **Escalation**：越界时的决策路径\n\n## 关键技巧\n- **Claude Enterprise**提供审计日志、SCIM、自定义数据存储、Compliance API等管控工具\n- **权限机制**：按组分配角色（Identity & Access/Billing等6个域），支持always allow/needs approval/blocked三级控制\n- **Claude Code**（2025年8月发布）支持：组织级消费限额、强制MCP策略、实时Compliance API监控\n- **陷阱**：工具数量≠就绪程度；必须区分“个人API Key”和“企业管控环境”；权限叠加规则（可授权但不可撤销他人权限）",
       "category": "devto"
     },
     {
-      "title": "api claude free и реальные условия доступа к моделям: как не привязать план к временной квоте",
-      "titleZh": "API Claude Free 及模型访问的真实条件：如何避免将计划绑定到临时配额",
-      "link": "https://dev.to/promptra-team/api-claude-free-i-riealnyie-usloviia-dostupa-k-modieliam-kak-nie-priviazat-plan-k-vriemiennoi-kvotie-4623",
-      "author": "Promptra Team",
+      "title": "Claude AI Crypto Vulnerability Scan: The Padding Oracle It Found",
+      "titleZh": "Claude AI加密漏洞扫描：发现的填充预言机",
+      "link": "https://dev.to/umair24171/claude-ai-crypto-vulnerability-scan-the-padding-oracle-it-found-2hkn",
+      "author": "Umair Bilal",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-27T17:02:57.000Z",
-      "summaryZh": "# Claude免费API的真相：别让产品依赖临时配额\n\n## 用户场景\n作者指出开发者常误以为Claude API有永久免费方案，导致产品功能在免费额度到期后突然失效。问题核心是：团队把“临时试用额度”当成了“永久免费能力”。\n\n## 核心方法\n提出**access-register（访问注册表）**机制——一个YAML文件，记录每个功能依赖的模型、访问类型、条件原文、检查日期、触发重新评估的事件和备用方案。关键区分三种“free”：\n1. **trial-credit**：一次性试用额度，用完即止\n2. **Claude.ai Free**：仅限网页/App聊天，无API访问\n3. **Startup credits**：有时间限制的临时额度\n\n## 关键技巧\n- 任何“免费API”请求必须先明确属于哪种类型\n- 注册表必须包含`checked`日期和`review_trigger`（如额度耗尽或弃用通知）\n- Anthropic对模型弃用至少提前60天通知，到期后请求直接失败\n- 用户常混淆`claude pro api`等订阅名与API密钥——订阅不提供API访问\n- 模型名称需标准化（如`claude opus 4.7 api`可能是无效名称），避免自动匹配错误模型",
+      "pubDate": "2026-07-29T06:28:09.000Z",
+      "summaryZh": "## Claude AI 密码学漏洞扫描：它发现的填充预言机漏洞\n\n**用户场景：** 传统静态分析工具（如SAST）擅长检测SQL注入、XSS等常见漏洞，但在处理密码学侧信道攻击（如填充预言机攻击、时序攻击）时往往力不从心。作者通过构建一个故意存在缺陷的AES-CBC实现，测试Claude 3.5 Sonnet能否发现这些细微漏洞。\n\n**核心方法：** 作者创建了`FlawedAES`类，在`decrypt_data`方法中故意引入嵌套try-except结构：内层捕获`ValueError`（填充错误）并返回特定错误信息\"PaddingError\"，外层捕获其他异常返回通用\"DecryptionFailed\"。这种错误信息差异化正是填充预言机攻击的典型特征——攻击者可通过观察不同错误响应来逐字节破解密文。\n\n**关键技巧：**\n1. **错误处理即侧信道**：避免在密码学操作中暴露不同错误类型，应统一返回通用错误信息\n2. **时序攻击防范**：即使统一错误信息，不同代码路径的执行时间差异也可能泄露信息，需使用恒定时间比较\n3. **Claude提示词技巧**：明确指定库版本（`cryptography 42.0.7`）和关注点（padding oracles, timing attacks），引导模型进行上下文推理而非简单模式匹配\n4. **LLM安全审计优势**：Claude能理解代码逻辑流程，推断攻击者意图，发现传统工具无法关联的漏洞链（如错误处理→信息泄露→填充预言机）",
       "category": "devto"
     },
     {
       "title": "claude fable api: какой fallback нужен до планирования неподтверждённой модели",
-      "titleZh": "claude fable API：在规划未确认模型前需要何种回退方案",
+      "titleZh": "Claude Fable API：在规划未确认模型前需要何种回退方案",
       "link": "https://dev.to/promptra-team/claude-fable-api-kakoi-fallback-nuzhien-do-planirovaniia-niepodtvierzhdionnoi-modieli-mb0",
       "author": "Promptra Team",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-28T11:06:46.000Z",
-      "summaryZh": "## Claude Fable API：未确认模型的风险与Fallback策略\n\n**用户场景**：作者指出开发团队常犯的错误——在未确认模型是否存在、可用性及价格的情况下，就将其写入路线图并承诺用户功能。典型例子：团队在内部聊天中看到“Claude Fable 5”名称，便将其作为依赖项规划，但从未实际验证过该模型是否真实存在或可用。\n\n**核心方法**：提出“先设计功能，再验证模型”的逆向工作流。核心是分离两个任务：1）模型名称验证（通过API查询）；2）功能设计（不依赖特定模型）。关键在于构建运行时fallback机制，而非静态假设模型存在。\n\n**关键技巧**：\n1. 使用Anthropic的`GET /v1/models`端点程序化验证模型ID是否可用，而非相信传闻或截图\n2. 捕获`NotFoundError`异常（HTTP 404），实现自动降级到已验证的备用模型\n3. 代码模式：`resolve_model(preferred, fallback)`函数将首选模型作为选项而非依赖，运行时动态切换\n4. 注意模型生命周期（Active→Legacy→Deprecated→Retired），即使已确认的模型也有过期日期，需预留至少60天缓冲期\n5. 使用`provod.ai`（俄罗斯版OpenRouter）等统一API网关管理多供应商fallback，减少手动配置\n\n**核心教训**：承诺用户的是功能可用性，而非特定模型名称。功能设计应能承受“目标模型永远不存在”的最坏情况。",
+      "summaryZh": "## Claude Fable API：如何为未确认的模型设计降级方案\n\n### 用户场景\n作者指出一个常见陷阱：团队在 roadmap 中承诺使用“claude-fable-5”等未发布模型开发功能，但从未验证其实际可用性。这导致预算虚假、开发延期，最终用户功能可能因模型不存在而崩溃。\n\n### 核心方法\n**分离“模型验证”与“功能设计”**。先设计功能在目标模型不可用时的行为，再检查模型是否存在。使用 Anthropic 的 `GET /v1/models` 端点实时确认模型 ID 和 capabilities，而非依赖传闻或文档。\n\n### 关键技巧\n- **运行时降级**：用 `client.models.retrieve()` 检查模型，捕获 `NotFoundError` 后自动切换到已验证的 fallback（如 `claude-opus-4-8`），避免硬编码依赖。\n- **生命周期管理**：模型有 Active/Legacy/Deprecated/Retired 状态，需定期检查。Anthropic 对公开模型提供 60 天退役通知，但 AWS/GCP 平台时间线独立。\n- **代码模式**：`resolve_model(preferred, fallback)` 函数将目标模型视为可选选项，而非必需依赖，确保功能在模型缺失时仍可用。\n\n**核心原则**：用户只关心功能是否工作，而非底层模型名称。",
       "category": "devto"
     },
     {
-      "title": "Claude Code в VS Code и первая настройка IDE",
-      "titleZh": "VS Code中的Claude Code及IDE首次配置",
-      "link": "https://dev.to/promptra-team/claude-code-v-vs-code-i-piervaia-nastroika-ide-1i4g",
-      "author": "Promptra Team",
+      "title": "Disabling thinking can 400 your Opus 5 calls",
+      "titleZh": "禁用思考可能导致你的Opus 5调用返回400错误",
+      "link": "https://dev.to/creeta/disabling-thinking-can-400-your-opus-5-calls-29oi",
+      "author": "Creeta",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-27T14:47:26.000Z",
-      "summaryZh": "# Claude Code 在 VS Code 中的配置指南\n\n## 用户场景\n作者指出开发者首次配置 Claude Code 时常见的误区：认为“在 VS Code 中使用 Claude Code”是一个单一操作，实际上它包含三个独立步骤——CLI 安装、VS Code 扩展安装和授权认证。作者特别强调**不要在生产项目中首次测试**，因为工具在开发者完全理解其权限前就已获得代码访问权。\n\n## 核心方法\n1. **VS Code 扩展**：需 VS Code 1.98.0+ 和付费 Anthropic 账户（Pro/Max/Team/Enterprise），扩展自带私有 CLI 副本但**不加入系统 PATH**\n2. **独立 CLI 安装**：通过 `npm install -g @anthropic-ai/claude-code`（需 Node.js 22+）、Homebrew、WinGet 或原生安装脚本\n3. **验证命令**：`claude --version` 检查版本，`claude doctor` 进行只读诊断\n4. **授权方式**：浏览器登录或设置 `ANTHROPIC_API_KEY` 环境变量\n\n## 关键技巧\n- ⚠️ **不要用 `sudo npm install -g`**，会导致权限和安全问题\n- 记录 `claude --version` 输出，不同小版本（v2.1.198-211）行为有差异\n- 面板聊天和终端代理是**两个独立功能**，需分别配置\n- 授权凭证存储位置：macOS 用 Keychain，Linux 用 `~/.claude/.credentials.json`（权限 0600）\n- 团队通过 Console 分配角色：`Claude Code`（仅创建 Claude Code 密钥）vs `Developer`（可创建任意类型密钥）",
+      "pubDate": "2026-07-29T15:40:26.000Z",
+      "summaryZh": "## 当禁用思考遇上高努力级别：Opus 5 API 调用 400 错误解析\n\n**用户场景**：开发者从 Opus 4.1 迁移到 Opus 5 时，沿用旧习惯禁用 thinking（思考功能）以节省 token，却遭遇 HTTP 400 错误。问题出在 Opus 5 的 effort（努力级别）与 thinking 存在耦合约束。\n\n**核心方法**：Opus 5 的 API 要求 effort 和 thinking 必须协同配置。当 thinking 设为 `disabled` 时，effort 只能设为 `high` 或更低级别（`low`、`medium`、`high`），若设为 `xhigh` 或 `max` 则会触发 400 错误。迁移时不能简单替换模型名称，需重新测试 effort、thinking、tool use 等行为。\n\n**关键技巧**：\n- 禁用 thinking 可能影响 tool call 行为，使工具调用显示为可见文本而非结构化调用\n- 迁移前需验证 Opus 5 在目标渠道（Claude API、AWS Bedrock、GCP 等）的可用性\n- 利用 Claude Code 的模型选择机制（`/model`、环境变量、settings）分任务类型路由：复杂任务用 Opus 5，常规编辑用 Sonnet/Haiku\n- Opus 5 支持 1M token 上下文和 128k 同步输出，fast mode 仅限 Claude API 且价格更高",
       "category": "devto"
     },
     {
-      "title": "Google Exposed Claude Chats Users Thought Were Private",
-      "titleZh": "谷歌曝光了用户以为私密的Claude聊天记录",
-      "link": "https://dev.to/xoomar/google-exposed-claude-chats-users-thought-were-private-16ik",
-      "author": "XOOMAR",
+      "title": "Is the Claude API Free? Real Rate Limits & Costs in 2026",
+      "titleZh": "Claude API 免费吗？2026年实际速率限制与费用",
+      "link": "https://dev.to/hirak8/is-the-claude-api-free-real-rate-limits-costs-in-2026-3c6d",
+      "author": "Hirak",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-07-28T03:25:12.000Z",
-      "summaryZh": "## Google 曝光了用户以为私密的 Claude 对话\n\n### 用户场景\n用户将 AI 聊天（Claude）视为私人工作空间，分享对话链接给特定同事或朋友，却未料到这些链接可能被 Google 搜索引擎索引，导致敏感内容（法律策略、技术问题、健康记录、API 密钥等）公开暴露。核心问题是用户对“分享”功能的隐私预期与实际技术行为不匹配。\n\n### 核心方法\n问题源于 Claude 的“share link”功能：用户生成公开分享链接后，若该链接出现在论坛、社交媒体等可爬取位置，搜索引擎会索引对话页面。Anthropic 声明链接本身不可猜测，但一旦被发布到公开网络，就会像普通网页一样被第三方存档。Google 表示只索引网站所有者公开的页面，并尊重 robots.txt 指令。\n\n### 关键技巧\n1. **立即审计**：登录 Claude → Settings → Privacy → Shared Chats，检查所有已分享对话。\n2. **撤回链接**：删除分享链接可立即撤销公开访问，但无法保证内容未被复制或存档。\n3. **避免敏感内容**：不要在 AI 聊天中粘贴工作文档、个人身份信息、代码凭证、法律策略等，除非确认永不分享。\n4. **理解隐私边界**：Claude 警告“Anyone with the link can view”，但未明确告知链接可能被搜索引擎索引。用户应假设分享即公开。\n5. **注意数据留存**：即使删除对话，Anthropic 可能保留数据 30 天用于模型训练（除非明确 opt-out）。",
-      "category": "devto"
-    },
-    {
-      "title": "I Grepped My Own Claude Code Logs and Found the Hidden Tag Anthropic Never Shows You",
-      "titleZh": "我搜索了自己的Claude Code日志，发现了Anthropic从未展示给你的隐藏标签",
-      "link": "https://dev.to/nomurasan/i-grepped-my-own-claude-code-logs-and-found-the-hidden-tag-anthropic-never-shows-you-17c0",
-      "author": "Sho Naka",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-27T15:03:20.000Z",
-      "summaryZh": "## Claude Code 隐藏系统标签真相：开发者亲测日志分析\n\n**用户场景**：作者在日常使用 Claude Code 时，发现对话中突然出现 `<ip_reminder>` 标签，怀疑是 Anthropic 隐藏的系统提示注入。为了验证真相，他决定不依赖他人报告，而是亲自分析本地日志。\n\n**核心方法**：Claude Code 每次会话都会在 `~/.claude/projects/<project-key>/` 下生成 JSONL 日志文件。作者通过 `grep` 和 Python 脚本直接解析原始日志，统计标签出现次数和 token 消耗。关键发现：在 432 个 assistant 轮次中，`cache_read` 占比高达 **98.51%**，意味着几乎所有输入都是缓存读取而非新鲜内容。\n\n**关键技巧**：\n1. 使用 `grep -c \"ip_reminder\"` 和 `grep -o \"<ip_reminder>\" | wc -l` 分别统计匹配行数和标签出现次数\n2. 注意 JSONL 中 `usage` 字段包含 `cache_creation_input_tokens`、`cache_read_input_tokens` 等关键数据\n3. 发现 `<ip_reminder>` 标签常被截断（17 个开标签但 0 个闭标签），说明工具输出摘要阶段会丢失部分内容\n4. 相关 GitHub Issue（#17601、#21214 等）均被标记为 `CLOSED, NOT_PLANNED`，表明 Anthropic 不打算修复\n\n**实用建议**：开发者可通过本地日志自行验证 AI 工具行为，避免依赖第三方报告。",
+      "pubDate": "2026-07-29T14:30:03.000Z",
+      "summaryZh": "以下是关于 Dev.to 文章《Is the Claude API Free? Real Rate Limits & Costs in 2026》的中文摘要：\n\n**用户场景**  \n开发者常问“Claude API 是否免费”，实际是寻找低成本或固定费用的使用方式。文章针对原型验证、轻量调用、以及需要长期使用 Claude 但不想按 token 计费的场景，澄清了 Anthropic 的定价结构。\n\n**核心方法**  \nClaude API 没有永久免费层，新账号仅获一次性试用额度（足够原型，不足产品）。正式使用为按量付费：按输入/输出 token 分别计费（输出更贵），模型分 Haiku（最便宜）、Sonnet（主流）、Opus（最贵）。关键降本手段：1）Prompt Caching：重复上下文（系统提示、长文档）享折扣；2）Batch API：异步任务半价；3）订阅替代 API：Claude Pro/Max 或 Claude Code 按月固定费用，适合交互式使用；4）云市场（AWS Bedrock、GCP Vertex）可用新用户赠金。\n\n**关键技巧**  \n- 选择能完成任务的最小模型是最大预算决策。  \n- 上下文长度是隐性成本：无状态 API 每次调用需重发历史，20轮对话第20次需支付19轮输入。Agent 工具（如 Claude Code）因大量文件上下文和长输出，单次会话可达数美元。  \n- 新账号有速率限制（每分钟请求/token数），随使用和付费自动升级，可通过 Console 申请提升。  \n- 避免陷阱：不要依赖一次性试用额度运行产品；输出 token 成本远高于输入，短输入长输出场景需谨慎。",
       "category": "devto"
     },
     {
@@ -108,29 +130,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-07-28T10:25:01.000Z",
-      "summaryZh": "# CCAF认证910分通关指南：开源备考秘籍全解析\n\n## 用户场景\n作者面临Claude Certified Architect Foundations (CCAF)认证考试，该考试以场景题为主（如Agent上下文丢失、通用工具误触发、客户升级处理等），官方指南内容密集但缺乏重点提炼。作者以910/1000高分通过后，将备考资料开源，帮助开发者高效备考。\n\n## 核心方法\n开源仓库（github.com/ahmdhsn-dev/ccaf-study-guide）提供双重视角学习框架：\n- **正向模式**：30个考试任务的概念地图（Concept Map）\n- **反向陷阱**：错误选项分析（Trap Taxonomy）和反模式目录（Anti-patterns Catalog）\n- **五领域权重**：Agent架构(27%)、工具设计与MCP(18%)、Claude Code配置(20%)、提示词与结构化输出(20%)、上下文与可靠性(15%)\n\n## 关键技巧\n1. **备考流程**：先做模拟考（推荐CyberSkill）→ 官方指南读3遍 → 用仓库补漏 → 模拟考稳定900+再报名\n2. **高频陷阱**：上下文填满时用Progressive Summarization而非结构化数据层；通用工具拆分为特定用途工具（如`extract_data_points`替代`analyze_document`）；客户升级用结构化交接摘要而非引用ID\n3. **反模式TOP5**：避免启发式客户选择、滑动窗口丢弃已解决线程、通用工具+自由文本模式、批量API用于阻塞检查、给合成Agent网页搜索工具\n4. **实战建议**：边学边用真实项目实践（构建Agent循环、配置MCP工具），场景记忆更牢固",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic says it never asked to ban open-weight models, and names what it does want instead",
-      "titleZh": "Anthropic称从未要求禁止开源权重模型，并明确其实际诉求",
-      "link": "https://dev.to/breachprotocol/anthropic-says-it-never-asked-to-ban-open-weight-models-and-names-what-it-does-want-instead-3mgd",
-      "author": "Breach Protocol",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-28T00:01:00.000Z",
-      "summaryZh": "## Anthropic 澄清立场：从未主张全面禁止开源权重模型，而是聚焦能力阈值管控\n\n### 用户场景\n针对近期媒体误读 Anthropic 主张“全面禁止开源权重模型”的争议，该公司首席科学家 Dario Amodei 亲自发文澄清立场。核心矛盾在于：开源社区担忧 Anthropic 试图扼杀开源生态，而实际分歧聚焦于“危险能力阈值”而非模型类别。\n\n### 核心方法\nAnthropic 提出三项具体管控主张：\n1. **芯片出口管制**：对先进芯片及制造设备实施出口限制，配合反走私执法，作为遏制中国前沿能力的核心杠杆\n2. **蒸馏攻击防御**：区分普通蒸馏（小模型学习大模型）与工业级蒸馏（通过 2.4 万个欺诈账户发起 1600 万次 Claude 对话），后者可能使中国仅落后美国前沿数月\n3. **能力触发测试**：对达到危险阈值（网络攻击、生物风险、对齐风险）的模型（无论开源/闭源）强制预发布安全测试，初创/学术模型豁免\n\n### 关键技巧\n- **不可逆性陷阱**：Anthropic 核心论据是“权重发布即永久失控”——API 可更新/撤销/监控，而开源权重一旦发布无法撤回。英国 AI 安全研究所证实前沿开源模型已接近闭源水平\n- **NVIDIA 反论**：安全应存在于完整代理栈（身份/权限/护栏/评估），而非权重可下载性。开源社区认为 Anthropic 的三项主张仍维护闭源优势\n- **务实建议**：开发者应关注能力阈值而非模型类别，对高危场景优先使用 API 而非本地部署，并警惕大规模蒸馏攻击的合规风险",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic deleted 80% of Claude Code's system prompt. No regression.",
-      "titleZh": "Anthropic删除了Claude Code 80%的系统提示，未出现性能回退。",
-      "link": "https://dev.to/thegatewayguy/anthropic-deleted-80-of-claude-codes-system-prompt-no-regression-1ieg",
-      "author": "Andrew Kew",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-28T08:55:18.000Z",
-      "summaryZh": "## Anthropic删减80% Claude Code系统提示词：零回归的启示\n\n**用户场景**：开发者在使用Claude Code时，习惯为弱模型（如GPT-3.5、早期Claude）编写冗长的系统提示词和CLAUDE.md文件，包含大量“禁止”“必须”等约束规则。这种做法在Claude Opus 5和Fable 5等前沿模型上反而成为负担——模型需要花费token解析矛盾指令（如“适当留文档”vs“禁止加注释”），影响实际任务执行效率。\n\n**核心方法**：Anthropic发现，过度约束会强制模型在冲突规则间消耗推理资源。新策略是**删除80%+系统提示词**，信任模型自身的判断力。CLAUDE.md不再是唯一上下文机制，需结合memory、artifacts、skills等新工具。关键命令`/doctor`可审计当前配置是否过度工程化。\n\n**关键技巧**：\n1. **立即行动**：在Claude Code中运行`/doctor`，审计CLAUDE.md和skills中的过度规范（如“do not”“always”开头的规则优先删除）\n2. **API用户**：从最小化、结果导向的提示词开始，仅通过eval验证逐步添加必要规则\n3. **注意**：新规则不向后兼容——旧模型仍需保留原有提示词，仅迁移到Claude 5系列时适用\n4. **核心原则**：前沿模型不需要“别做明显坏事”的指导，每token解释常识都会成为推理负担",
+      "summaryZh": "# CCAF认证910分通关指南：开源备考秘籍全解析\n\n## 用户场景\n作者分享通过Claude Certified Architect Foundations (CCAF)认证的实战经验，针对开发者备考时面临的三大痛点：官方指南内容密集难消化、场景题陷阱多（如Agent忘记上下文、通用工具误触发、客户升级处理）、mock测试与真实考试差距大。\n\n## 核心方法\n开源了完整备考仓库（github.com/ahmdhsn-dev/ccaf-study-guide），采用**双视图学习法**：\n- **正向模式**：30个考试任务的概念地图（5大领域权重：Agent架构27%、Tool Design & MCP 18%、Claude Code配置20%、Prompt输出20%、上下文可靠性15%）\n- **反向陷阱**：反模式目录（官方指南中所有\"avoid/do not/instead of\"警告的映射）\n\n## 关键技巧\n1. **Mock策略**：先用CyberSkill摸底（作者首考850），每次错题映射到陷阱分类→重读官方指南→重考直到稳定950+\n2. **高频陷阱**：上下文填满用渐进式摘要（非结构化数据层）、通用工具拆分为专用工具（如`extract_data_points`替代`analyze_document`）、客户升级用结构化交接（非仅reference ID）\n3. **反模式TOP3**：禁止启发式客户选择（必须问标识符）、禁止滑动窗口丢弃已解决线程（用渐进式摘要）、禁止给合成Agent网页搜索工具（限定为`verify_fact`）\n4. **学习路径**：官方4门Academy课程（Building with Claude API → Claude Code in Action → Agent Skills → MCP）+ 真实项目实践（构建Agent循环、配置MCP工具）\n\n**核心建议**：把仓库当\"最后冲刺笔记\"而非教材，先mock定位弱点，再针对性补漏。考试感觉永远准备不足，但`stop_reason: end_turn`会先于你的信心到来。",
       "category": "devto"
     }
   ]
