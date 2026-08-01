@@ -1,44 +1,18 @@
 {
-  "lastUpdated": "2026-07-31T19:10:23.177Z",
+  "lastUpdated": "2026-08-01T18:52:28.568Z",
   "items": [
     {
-      "title": "Find out what’s new in the Gemini app in July's Gemini Drop.",
-      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-drop-july-2026/",
-      "description": "Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Drops_Social.max-600x600.format-webp.webp\">Gemini Drops is our regular monthly update on how to get the most out of the Gemini app.",
+      "title": "Simplify your morning with this vibe-coded schedule app.",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/glanceboard-gemini-flash-nano-banana/",
+      "description": "Tired of starting your morning staring at bright screens and stressful notifications? Raph, a creative technologist at Google, built a custom app called Glanceboard with…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Glanceboard_socialshare.max-600x600.format-webp.webp\">Tired of starting your morning staring at bright screens and stressful notifications? Raph, a creative technologist at Google, built a custom app called Glanceboard with…",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 31 Jul 2026 16:00:00 +0000",
-      "titleZh": "Find out what’s new in the Gemini app in July's Gemini Drop.",
-      "descriptionZh": "谷歌近日推出了名为\"Gemini Drops\"的定期更新栏目，这是一个按月发布的全新系列内容，旨在帮助用户更充分地利用Gemini应用程序的各项功能。作为谷歌在人工智能领域的重要布局，Gemini代表了其在多模态大模型方向上的最新探索成果，而Gemini应用则是将这一技术能力落地为普通用户可感知、可操作的产品形态。在这个背景下，Gemini Drops的推出具有明显的产品运营策略意义——它不再将版本更新视为一次性的功能发布事件，而是构建了一套持续性的用户教育机制，让用户能够及时掌握新功能的用法和使用场景。\n\n从技术角度看，Gemini应用本身融合了文本理解、图像识别、代码生成等多模态能力，其核心创新在于将大规模预训练模型的通用智能与具体应用场景进行了深度整合。Gemini Drops这类月度更新内容，实际上承担了技术产品与最终用户之间的桥梁角色，通过系统化地展示如何高效使用这些底层技术能力，降低了普通用户接触前沿AI技术的门槛。这种模式也反映了AI产品商业化落地的一个趋势：技术突破本身只是第一步，如何让用户真正理解并善用这些能力，同样决定了产品的实际价值和用户留存。\n\n在应用场景层面，Gemini应用覆盖了日常信息查询、创意写作辅助、编程问题解答、图像内容分析等多个方向，而Gemini Drops通过每月定期推送使用技巧和功能解读，帮助用户在这类场景中更加得心应手。对于企业用户和深度使用者而言，这种持续更新的形式也保证了他们能够第一时间获取功能变化信息，从而相应调整自己的工作流。整体来看，Gemini Drops的推出不仅是一次产品更新公告，更体现了谷歌在AI产品用户生态建设上的系统性思考——通过定期内容输出培养用户习惯，强化产品粘性，在竞争日益激烈的AI应用市场中建立差异化优势。"
-    },
-    {
-      "title": "Experience the magic of Kosovo from anywhere with Street View",
-      "link": "https://blog.google/products-and-platforms/products/maps/google-street-view-kosovo/",
-      "description": "Google Maps brings Street View to Kosovo, offering a virtual tour of its vibrant cities, UNESCO World Heritage site, and natural beauty.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Kosovo_Hero_image.max-600x600.format-webp.webp\">Google Maps brings Street View to Kosovo, offering a virtual tour of its vibrant cities, UNESCO World Heritage site, and natural beauty.",
-      "author": "Songran Jang",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Fri, 31 Jul 2026 08:00:00 +0000",
-      "titleZh": "Experience the magic of Kosovo from anywhere with Street View",
-      "descriptionZh": "谷歌地图正式将街景服务引入科索沃，标志着这个巴尔干半岛国家在地理信息数字化进程中迈出重要一步。此前，科索沃是欧洲少数几个无法使用谷歌街景的国家之一，当地用户和全球旅行者只能依赖静态地图或第三方影像来了解这个国家的城市面貌。此次上线后，用户可通过谷歌地图的街景功能，沉浸式浏览科索沃主要城市的街道实景，包括首都普里什蒂纳繁华的市中心、热闹的商业区和具有历史感的街区建筑。\n\n科索沃地处巴尔干腹地，拥有丰富的历史文化遗产。其中，位于佩奇的中世纪修道院群是被联合国教科文组织列入世界遗产名录的重要古迹，以其精美的拜占庭-罗马式壁画和独特的东西方建筑融合风格著称。随着街景服务的接入，全球用户无需亲临现场，即可在虚拟环境中近距离观察这些文化瑰宝的外观与周边环境，为文化遗产的数字化保护与传播提供了新的渠道。\n\n此外，街景还覆盖了科索沃多样化的自然风光，包括连绵的山脉、河谷和乡村景观。对于计划前往科索沃旅游的游客而言，这一功能极大便利了行前路线规划和目的地预览；对于地理教育、城市研究等专业领域，也提供了真实、可交互的影像数据资源。谷歌此次行动延续了其持续扩大全球街景覆盖范围的战略，同时也为科索沃在数字地图领域与全球接轨创造了条件。"
-    },
-    {
-      "title": "Gemini Spark now integrates with Chrome",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-spark-updates-july-2026/",
-      "description": "An overview of the latest Gemini Spark updates, including new Chrome web browsing capabilities.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_2784x1566_Option_1.max-600x600.format-webp.webp\">An overview of the latest Gemini Spark updates, including new Chrome web browsing capabilities.",
-      "author": "Adam Coimbra",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 30 Jul 2026 20:00:00 +0000",
-      "titleZh": "Gemini Spark now integrates with Chrome",
-      "descriptionZh": "谷歌近期发布了Gemini Spark的最新更新，核心亮点在于其与Chrome浏览器的深度整合，为用户带来了全新的网页浏览交互体验。这一更新标志着AI助手从单纯的对话工具向主动式浏览代理的关键转变。\n\n在技术层面，Gemini Spark通过与Chrome的底层集成，能够实时理解用户当前浏览的网页内容，并在不打断浏览流程的前提下提供上下文相关的智能辅助。这意味着它不再局限于用户在对话框中的显式提问，而是能够主动感知页面中的文本、链接和多媒体元素，根据用户的浏览意图给出即时摘要、关键信息提取或相关推荐。这种能力的实现依赖于Gemini模型对长上下文窗口的高效处理，使其可以在内存中保留整个页面的语义信息，进而以对话形式与用户进行关于当前页面的多轮交互。\n\n此次更新的另一项重要创新在于行动能力的扩展。Gemini Spark不再仅仅提供被动建议，而是能够通过浏览器接口执行具体操作，例如帮助用户填写表单、比较多个标签页中的商品价格，或自动汇总研究资料。这种从\"信息输出\"到\"任务执行\"的跨越，显著提升了AI助手的实用价值。\n\n从应用场景来看，这一功能对研究工作者、在线购物者以及需要频繁进行信息核对的用户尤为实用。研究人员可以在阅读长文档时快速获取要点；消费者可以在多页面比价时避免繁琐的手动切换；普通用户则能在不熟悉某一主题时获得即时的背景知识补充，大幅降低了信息获取的认知负担。\n\n值得注意的是，这类浏览器集成功能的推出，也预示着AI助手竞争正从模型参数竞赛转向应用生态的构建。谁能更好地融入用户日常的数字工作流，谁就更可能占据下一代人机交互的入口。随着Gemini Spark持续迭代，我们有望看到更多浏览器原生AI能力的释放，从根本上重塑用户与互联网的互动方式。"
+      "pubDate": "Fri, 31 Jul 2026 19:00:00 +0000",
+      "titleZh": "用这款氛围编码日程",
+      "descriptionZh": "每天清晨醒来，第一件事就是面对刺眼的屏幕和铺天盖地的通知提醒——这种数字时代的\"起床焦虑\"想必许多人都不陌生。Google的创意技术专家Raph正是基于这一痛点，亲手打造了一款名为Glanceboard的定制应用，试图重新定义人们与信息交互的方式。\n\nGlanceboard的核心设计理念源于\"一瞥式交互\"（glanceable interaction）这一人机交互领域的前沿方向。与传统智能手机应用不同，Glanceboard并非要求用户主动解锁手机、打开应用、逐条查看信息，而是通过常驻显示的智能面板，让用户只需轻轻一瞥即可获取所需的关键信息。这种设计哲学背后是对注意力经济时代的深刻反思：在信息过载的当下，真正有价值的技术不应该制造更多干扰，而应该成为环境的自然延伸，在需要时悄无声息地提供帮助，在不需要时保持低调的存在感。\n\n从应用场景来看，Glanceboard尤其适合那些\"轻量级、高频率\"的信息获取需求——天气状况、日程安排、待办事项、重要邮件提醒等，这些本不需要深度阅读的信息，在传统应用模式下却往往要求用户在明亮的屏幕上进行解锁、查找、阅读的完整操作链条。Glanceboard将这一繁琐过程压缩为一次自然的视线转移，极大降低了信息获取的认知成本和视觉负担。\n\n这一创新也折射出更广泛的行业趋势：科技巨头们正在从\"以应用为中心\"的设计范式，转向\"以人为中心\"的主动式计算体验。无论是智能手表表盘、车载HUD抬头显示，还是各类桌面信息面板，都在探索如何在不过度打扰用户的前提下提供恰到好处的信息。Glanceboard的价值不仅在于这款应用本身，更在于它为\"环境智能\"（ambient intelligence）这一未来计算形态提供了一个富有启发性的实践样本。当屏幕不再是人们必须直视的对象，而成为可以自然\"瞥见\"的环境组成部分时，科技与日常生活的融合也将变得更加丝滑与人性化。"
     }
   ]
 }
