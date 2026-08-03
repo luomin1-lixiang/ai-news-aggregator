@@ -1,18 +1,31 @@
 {
-  "lastUpdated": "2026-08-01T18:52:28.568Z",
+  "lastUpdated": "2026-08-03T19:18:49.794Z",
   "items": [
     {
-      "title": "Simplify your morning with this vibe-coded schedule app.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/glanceboard-gemini-flash-nano-banana/",
-      "description": "Tired of starting your morning staring at bright screens and stressful notifications? Raph, a creative technologist at Google, built a custom app called Glanceboard with…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Glanceboard_socialshare.max-600x600.format-webp.webp\">Tired of starting your morning staring at bright screens and stressful notifications? Raph, a creative technologist at Google, built a custom app called Glanceboard with…",
-      "author": "Google Blog",
+      "title": "Welcome to Sail Tower, our newest Austin office",
+      "link": "https://blog.google/company-news/inside-google/company-announcements/austin-office-sail-tower/",
+      "description": "Our new Austin office, Sail Tower, features flexible workspace for Googlers and a Google.org nonprofit venue for community members.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Austin_mural_thumbnail.max-600x600.format-webp.webp\">Our new Austin office, Sail Tower, features flexible workspace for Googlers and a Google.org nonprofit venue for community members.",
+      "author": "Scott Foster",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 31 Jul 2026 19:00:00 +0000",
-      "titleZh": "用这款氛围编码日程",
-      "descriptionZh": "每天清晨醒来，第一件事就是面对刺眼的屏幕和铺天盖地的通知提醒——这种数字时代的\"起床焦虑\"想必许多人都不陌生。Google的创意技术专家Raph正是基于这一痛点，亲手打造了一款名为Glanceboard的定制应用，试图重新定义人们与信息交互的方式。\n\nGlanceboard的核心设计理念源于\"一瞥式交互\"（glanceable interaction）这一人机交互领域的前沿方向。与传统智能手机应用不同，Glanceboard并非要求用户主动解锁手机、打开应用、逐条查看信息，而是通过常驻显示的智能面板，让用户只需轻轻一瞥即可获取所需的关键信息。这种设计哲学背后是对注意力经济时代的深刻反思：在信息过载的当下，真正有价值的技术不应该制造更多干扰，而应该成为环境的自然延伸，在需要时悄无声息地提供帮助，在不需要时保持低调的存在感。\n\n从应用场景来看，Glanceboard尤其适合那些\"轻量级、高频率\"的信息获取需求——天气状况、日程安排、待办事项、重要邮件提醒等，这些本不需要深度阅读的信息，在传统应用模式下却往往要求用户在明亮的屏幕上进行解锁、查找、阅读的完整操作链条。Glanceboard将这一繁琐过程压缩为一次自然的视线转移，极大降低了信息获取的认知成本和视觉负担。\n\n这一创新也折射出更广泛的行业趋势：科技巨头们正在从\"以应用为中心\"的设计范式，转向\"以人为中心\"的主动式计算体验。无论是智能手表表盘、车载HUD抬头显示，还是各类桌面信息面板，都在探索如何在不过度打扰用户的前提下提供恰到好处的信息。Glanceboard的价值不仅在于这款应用本身，更在于它为\"环境智能\"（ambient intelligence）这一未来计算形态提供了一个富有启发性的实践样本。当屏幕不再是人们必须直视的对象，而成为可以自然\"瞥见\"的环境组成部分时，科技与日常生活的融合也将变得更加丝滑与人性化。"
+      "pubDate": "Mon, 03 Aug 2026 16:00:00 +0000",
+      "titleZh": "Welcome to Sail Tower, our newest Austin office",
+      "descriptionZh": "谷歌在奥斯汀的新办公室“帆塔”（Sail Tower）正式亮相，成为该公司在当地拓展版图的又一重要里程碑。这座办公空间不仅为谷歌员工提供了灵活开放的工作环境，还特别设立了由Google.org（谷歌的慈善公益部门）运营的非营利性活动场地，面向社区成员开放使用。这一设计体现了谷歌将企业办公空间与社区服务深度融合的理念：一方面，灵活的工作区域能够适应不同团队协作和专注工作的多样需求；另一方面，Google.org的非营利场地则为当地公益组织、社区活动和非正式集会提供了宝贵的实体空间支持。在科技企业不断重塑城市天际线的背景下，Sail Tower的落成不仅是谷歌在奥斯汀深耕的标志性动作，也反映出大型科技公司在办公场所规划中愈发重视公共价值和社会连接，试图通过空间设计将企业资源回馈给更广泛的城市社区。"
+    },
+    {
+      "title": "Inside our 353,000-person vibe coding course",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/",
+      "description": "Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Vibe_coding_course_hero.max-600x600.format-webp.webp\">Kaggle’s AI Agents Intensive with Google brought learners together in a no-cost course to build and deploy the next frontier of AI.",
+      "author": "Anant Nawalgaria",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 03 Aug 2026 15:00:00 +0000",
+      "titleZh": "Inside our 353,000-person vibe coding course",
+      "descriptionZh": "Kaggle与Google联合推出的“AI Agents Intensive”课程，是一次面向全球学习者的免费开放教育活动，聚焦于AI智能体（AI Agents）从构建到部署的完整实践链路。这一课程的出现，恰逢AI技术范式从“被动对话”转向“主动执行”的关键节点——传统的大语言模型只能回答问题，而AI智能体能够自主规划任务、调用工具、与环境交互并达成具体目标。课程的核心创新点在于其“实战导向”的设计理念：不是停留在理论讲解，而是让学习者直接上手搭建可运行的智能体系统，涵盖提示词工程、工具调用（Function Calling）、多智能体协作、记忆机制等核心技术模块，并通过Kaggle这一全球最大的数据科学社区平台，为学习者提供了真实的算力环境和数据集资源。从技术影响来看，这一课程降低了AI智能体开发的门槛，使得具备基础编程能力的人群也能快速掌握这一前沿方向，有助于推动智能体技术在各行各业的落地应用——无论是自动化数据处理、智能客服系统，还是复杂的多步骤工作流编排。同时，通过Kaggle社区天然的竞赛和协作文化，学习者之间可以相互交流、分享成果，形成一个良性循环的技能提升生态。总体而言，这是一次将前沿AI技术大规模普惠化的有益尝试，预示着AI应用开发正在从“专家专属”走向“人人可及”的新阶段。"
     }
   ]
 }
