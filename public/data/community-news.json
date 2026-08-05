@@ -1,39 +1,6 @@
 {
-  "lastUpdated": "2026-08-04T19:21:01.407Z",
+  "lastUpdated": "2026-08-05T19:15:25.411Z",
   "items": [
-    {
-      "title": "Give Claude Code a Second Harness",
-      "titleZh": "为Claude Code提供第二个工作框架",
-      "link": "https://dev.to/shimo4228/give-claude-code-a-second-harness-27of",
-      "author": "shimo4228",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-02T12:24:40.000Z",
-      "summaryZh": "## Claude Code 双配置方案：为实验环境打造第二套\"马具\"\n\n**用户场景**：开发者在日常开发中积累了大量 CLAUDE.md、rules、skills 等个性化配置，但在进行实验或自动化循环时，这些配置过于臃肿。作者希望能在保留仓库配置的前提下，快速切换个人配置，实现\"轻装上阵\"。\n\n**核心方法**：通过组合 `CLAUDE_CONFIG_DIR` 环境变量和 `claudeMdExcludes` 配置实现双环境切换。`CLAUDE_CONFIG_DIR` 可以切换 skills、agents、settings 等，但无法排除 `$HOME/.claude` 下的 CLAUDE.md 和 rules——因为 Claude Code 会从当前工作目录向上遍历查找这些文件。解决方案是在备用配置目录的 settings.json 中使用 `claudeMdExcludes` 配合绝对路径 glob 模式排除原始配置。\n\n**关键技巧**：\n1. `~` 符号在 `claudeMdExcludes` 中不会被展开，必须使用绝对路径（如 `/Users/name/.claude/**`）\n2. macOS 上凭据存储在系统钥匙串，切换配置目录不会影响认证状态\n3. 符号链接指向 home 目录内路径会被解析为真实路径，无法绕过\n4. 企业托管机器上的全局 CLAUDE.md 无法通过个人配置排除\n5. 建议让 coding agent 以只读方式检查环境后生成实施计划，避免盲目复制命令\n\n该方案实现了\"日常开发\"与\"实验环境\"的隔离，同时保留仓库级配置和 hooks 等机械性门控。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude AI Crypto Vulnerability Scan: The Padding Oracle It Found",
-      "titleZh": "Claude AI 加密漏洞扫描：发现的填充预言机",
-      "link": "https://dev.to/umair24171/claude-ai-crypto-vulnerability-scan-the-padding-oracle-it-found-2hkn",
-      "author": "Umair Bilal",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-07-29T06:28:09.000Z",
-      "summaryZh": "## Claude AI 加密漏洞扫描：Padding Oracle 检测实战\n\n**用户场景：** 作者发现传统静态分析工具在处理加密漏洞时力不从心，尤其是侧信道攻击（如 padding oracle 攻击）。为了验证 LLM 在安全审计中的价值，作者故意构造了一个存在细微缺陷的 AES-CBC 实现，对比测试商业工具与 Claude 3.5 Sonnet 的检测能力。\n\n**核心方法：** 作者设计了一个 `FlawedAES` 类，核心漏洞在于 `decrypt_data` 方法中嵌套的 try-except 结构——内层专门捕获 padding 错误并返回特定错误信息，外层捕获其他异常返回通用错误。这种错误路径的差异化正是 padding oracle 攻击的关键突破口。作者通过精准的 prompt 引导 Claude 进行代码审计，要求其关注加密漏洞、padding oracle 和时序攻击。\n\n**关键技巧：**\n1. 在 prompt 中明确指定库版本（如 `cryptography` 42.0.7），因为库版本可能影响漏洞可利用性\n2. 区分\"明显漏洞\"（如硬编码密钥）与\"上下文相关漏洞\"（如错误处理差异导致的侧信道）\n3. 利用 Claude 的逻辑推理能力，让它分析错误路径和攻击者视角，而非仅做模式匹配\n4. 注意：真实场景中，异常处理的时间差异本身就是可利用的侧信道，即使错误信息相同\n\n**避坑提示：** 传统工具往往只标记缺失 IV 或硬编码密钥等表面问题，而 LLM 能通过推理发现错误处理逻辑与加密安全之间的深层关联，这是 AI 安全审计的核心优势。",
-      "category": "devto"
-    },
-    {
-      "title": "What is MCP (Model Context Protocol)? Complete 2026 Guide",
-      "titleZh": "什么是MCP（模型上下文协议）？2026年完整指南",
-      "link": "https://dev.to/napster_rj/what-is-mcp-model-context-protocol-complete-2026-guide-1c2",
-      "author": "Rahul J",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-03T02:59:52.000Z",
-      "summaryZh": "## MCP（Model Context Protocol）完整指南解读\n\n**用户场景：** 本文面向构建AI Agent工具的开发者，解决的核心痛点是工具生态碎片化问题。在MCP出现之前，每个Agent框架（LangChain、Claude Desktop、Cursor等）都有各自的工具格式，开发者需要为每个平台重复开发集成，且缺乏统一的发现机制和认证标准。\n\n**核心方法：** MCP是Anthropic在2024年底推出的开放JSON-RPC 2.0规范，可类比为\"AI工具的LSP\"——通过标准化接口让AI Agent与文件系统、数据库、API等外部系统通信。架构包含MCP Server（暴露能力）和MCP Client（消费能力），支持stdio和HTTP+SSE两种传输方式。会话流程包括initialize握手、能力发现（tools/list）和调用（tools/call）。\n\n**关键技巧：** MCP Server的能力分为三类：Tools（模型调用的函数，需精确描述和JSON Schema）、Resources（只读数据，通过URI寻址）、Prompts（用户触发的预置工作流模板）。常见陷阱包括：工具描述模糊导致模型误用、遗漏required字段、返回格式不符合`{content: [{type: \"text\", text: \"...\"}]}`规范。建议将工具描述写具体（如\"获取指定城市当前天气\"而非\"获取数据\"），并善用resources/subscribe实现日志实时推送。",
-      "category": "devto"
-    },
     {
       "title": "The CLAUDE.md sections that actually matter (and the ones wasting your context)",
       "titleZh": "真正重要的CLAUDE.md部分（以及那些浪费你上下文的）",
@@ -42,62 +9,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-03T20:42:36.000Z",
-      "summaryZh": "# CLAUDE.md 中真正重要的部分（以及浪费上下文的那些）\n\n**用户场景：** 作者发现CLAUDE.md文件的核心问题不是太短，而是内容虽多但大部分无效，甚至挤占了真正关键指令的空间。需要一种方法判断哪些内容值得保留。\n\n**核心方法：** 提出\"新员工测试\"——如果一位合格的新员工第一天就需要这条指令，且无法从代码中自行推断，才值得保留。基于此筛选出六个高价值板块：精确可复制的Commands命令、架构地图（标注边界如legacy/和generated文件）、linter无法强制执行的约定（用示例文件代替冗长描述）、验证方式（定义\"完成\"标准）、带理由的Never禁止列表、指向深层文档的指针。\n\n**关键技巧：** 每条命令都应包含非显而易见细节（如\"NOT npm\"）；用一行指针指向示例文件替代三十行解释；Never列表必须附原因（如\"bundle budget 250KB, we're at 238\"）让模型能举一反三；通过progressive disclosure机制按需加载文档。**避免的坑：** 项目使命宣言、粘贴的API文档、工具链已强制的风格规则、教程式步骤、changelog、泛泛而谈的工程智慧——这些都在浪费宝贵的context budget。",
+      "summaryZh": "# CLAUDE.md 中真正重要的部分（以及浪费上下文的那些）\n\n**用户场景：** 作者发现CLAUDE.md文件的问题不在于太短，而在于大量内容毫无作用，甚至挤掉了真正关键的指令。他开发了一个linter来统计指令数量，并总结出哪些内容值得保留。\n\n**核心方法：** 提出\"新员工测试\"——如果一位合格的新员工第一天不需要这条指令，或者能从代码中自行推断，就删除。文件应控制在60-200行以内，每条指令都要有非显而易见的细节价值。\n\n**关键技巧：**\n- **Commands**：提供精确可复制的命令，标注\"NOT npm\"这类关键差异\n- **架构地图**：用3-6行标注核心目录和边界标记（如\"legacy/冻结\"、\"generated文件勿改\"）\n- **约定**：只写linter无法强制的内容，用\"参考示例文件\"替代长篇描述\n- **验证方式**：明确告诉Claude如何自检（如\"tsc && vitest必须通过\"）\n- **Never列表**：每条禁令附带原因（如\"bundle预算250KB，当前238KB\"），让模型能举一反三\n- **渐进式披露**：用指针指向详细文档，而非粘贴内容\n\n**应删除的浪费内容：** 项目使命宣言、粘贴的API文档、工具链已强制执行的风格规则、教程式步骤、changelog、泛泛而谈的工程建议。这些内容每次会话都会加载，指令越多，遵循度越低。",
       "category": "devto"
     },
     {
-      "title": "что это claude Cowork — с июля beta-сессия может продолжаться после закрытия ноутбука. Как сохранить контроль над файлами и…",
-      "titleZh": "Claude Cowork是什么——自7月起，beta会话可在关闭笔记本后继续。如何保持对文件的掌控并……",
-      "link": "https://dev.to/provod-ai/chto-eto-claude-cowork-s-iiulia-beta-siessiia-mozhiet-prodolzhatsia-poslie-zakrytiia-noutbuka-kak-2e5p",
-      "author": "Promptra Team",
+      "title": "Claude Code Authentication: Subscription, API Key, Amazon Bedrock, and Claude Platform on AWS",
+      "titleZh": "Claude Code 认证：订阅、API 密钥、Amazon Bedrock 及 AWS 上的 Claude 平台",
+      "link": "https://dev.to/aws-builders/claude-code-authentication-subscription-api-key-amazon-bedrock-and-claude-platform-on-aws-436g",
+      "author": "Jorge Tovar",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-04T06:08:25.000Z",
-      "summaryZh": "## Claude Cowork：远程会话的机遇与风险\n\n**用户场景：** 7月起，Claude Cowork支持远程beta会话，笔记本关闭后任务仍可继续，文件和会话保存在账户中。作者指出核心风险：用户习惯性将多步任务当作普通对话提交，却把生成结果误认为已验收的成果。\n\n**核心方法：** 在启动远程会话前，建立“三行gate”检查机制：\n1. **明确负责人与交付物**——谁做决策、需要什么具体结果\n2. **限定数据边界**——允许使用哪些文件、禁止哪些操作（如修改源文件、外传数据）\n3. **定义验收标准**——结果需展示什么、由谁决定下一步\n\n**关键技巧：**\n- 普通聊天适合单步、即时反馈的任务；Cowork仅用于需要远程持续、涉及文件操作或多步流程的场景\n- 会话结束后，不要只问“完成了吗”，要检查“产出了什么”和“人类还需做什么决策”\n- 警惕将“生成的文件”等同于“已验收的结果”——这是Hacker News讨论中强调的核心陷阱\n- 小任务无需gate，避免过度流程化；但涉及文件、跨人交付时必须设置控制点",
+      "pubDate": "2026-08-05T18:23:32.000Z",
+      "summaryZh": "## Claude Code 认证方式全解析：订阅、API Key、Bedrock 与 AWS 上的 Claude Platform\n\n**用户场景：** 作者作为开发者，面临在不同组织环境下选择 Claude Code 认证方式的难题。个人开发、企业部署、AWS 生态集成等场景需要不同的认证方案，涉及计费方式、成本追踪和治理能力的选择。\n\n**核心方法：** 文章对比了三种主流认证方案：\n1. **Anthropic API Key**：适合个人原型开发，通过环境变量设置 `ANTHROPIC_API_KEY`，按 token 付费，无需基础设施。作者展示了完整的 tool-use 循环示例代码，包括天气查询和时间查询的 agent 实现。\n2. **Amazon Bedrock**：企业首选，通过 IAM 角色和 CloudTrail 审计追踪，无 API key 泄露风险。只需在 `~/.claude/settings.json` 配置几行环境变量即可启用，支持跨区域推理配置文件。\n3. **Claude Platform on AWS**：结合 AWS Marketplace 计费和 Anthropic 完整 API 功能，通过 SSO 登录，支持自动凭证刷新。\n\n**关键技巧：**\n- 使用 `global.` 前缀的模型 ID 可自动路由到最低延迟区域，提升吞吐量限制\n- 配置 `awsAuthRefresh` 实现 SSO 会话过期时自动重新认证，避免会话中断\n- **务必固定模型版本**（如 `claude-opus-5`），避免模型别名随 Claude Code 更新而变动，确保团队部署稳定性\n- `ANTHROPIC_AWS_WORKSPACE_ID` 是必填参数，标识组织工作区，不会从 AWS 凭证自动推断",
       "category": "devto"
     },
     {
-      "title": "Microsoft’s $3.2B Investment i…",
-      "titleZh": "微软32亿美元投资…",
-      "link": "https://dev.to/norviktech/microsofts-32b-investment-i-mi0",
-      "author": "Norvik Tech",
+      "title": "Claude AI Assistants: How to Leverage Structured Output for Real-World Applications",
+      "titleZh": "Claude AI助手：如何利用结构化输出应对实际应用场景",
+      "link": "https://dev.to/dineshgowtham/claude-ai-assistants-how-to-leverage-structured-output-for-real-world-applications-5h2p",
+      "author": "Dinesh_gowtham",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-03T08:06:01.000Z",
-      "summaryZh": "## 微软32亿美元投资Anthropic：AI安全导向的战略布局\n\n**用户场景：** 本文面向关注AI投资趋势的技术决策者，分析微软对Anthropic的32亿美元战略投资及其对AI产业格局的影响。作者指出，微软同时押注Anthropic和OpenAI，形成双轨AI投资策略，以覆盖不同技术路线。\n\n**核心方法：** 文章对比了两家AI实验室的技术架构差异——Anthropic专注于安全对齐（safety alignment），强调降低AI部署风险；OpenAI则侧重通用智能的广泛适用性。微软不仅提供资金，更将Anthropic的技术整合进Azure云服务，增强其AI产品矩阵。作者建议企业通过试点项目（pilot projects）小规模测试新技术，降低实施风险。\n\n**关键技巧：** \n- 关注合规风险：随着全球AI安全监管趋严，采用安全导向的AI模型可降低合规成本\n- 分阶段采用策略：先评估现有系统，再通过试点验证，避免大规模部署的潜在风险\n- 行业应用参考：医疗（诊断辅助）、金融（合规决策）、教育（个性化学习）是安全AI的重点落地场景\n- 风险规避：定期审查法规变化，进行充分市场调研，避免技术快速迭代导致的投资过时\n\n文章最终建议企业主动评估AI战略，借助专业咨询实现平稳技术转型。",
+      "pubDate": "2026-08-05T13:11:34.000Z",
+      "summaryZh": "## Claude AI Assistants：结构化输出实战指南\n\n**用户场景：** 本文面向需要自动化代码审查与优化的开发者。作者将Claude AI助手比作\"代码库私人助理\"，解决多贡献者项目中人工审查效率低、易遗漏潜在问题等痛点，帮助开发者快速定位代码缺陷并获取改进建议。\n\n**核心方法：** 文章重点介绍Claude Code的结构化输出机制——分析代码后生成JSON格式的指标报告、错误列表及优化建议。开发者可通过AWS SDK创建ClaudeCode实例，调用`analyzeCode()`方法分析代码库，再通过自定义函数处理返回的结构化数据，实现自动化代码审查流水线。\n\n**关键技巧：**\n1. **错误处理**：必须验证输出是否为合法JSON对象，对malformed JSON进行异常捕获，避免应用崩溃\n2. **配置优化**：通过`configureAnalysis()`设置语言类型（如JavaScript）和自定义规则，提升分析精准度\n3. **结果遍历**：检查`analysis.errors`数组长度，逐条输出错误信息，实现分级告警\n4. **最佳实践**：保持代码清晰简洁，像与团队成员协作一样提供明确上下文，可显著提高反馈质量\n\n**未来展望：** 作者预测Claude Code将支持多语言、集成CI/CD工具链，甚至实现实时代码补全，建议开发者持续关注API更新。",
       "category": "devto"
     },
     {
-      "title": "Anthropic's Claude and Interna…",
-      "titleZh": "Anthropic的Claude与Interna…",
-      "link": "https://dev.to/norviktech/anthropics-claude-and-interna-2mlo",
-      "author": "Norvik Tech",
+      "title": "The '70% of Cloud AI Revenue Comes From OpenAI and Anthropic' Figure Is Not Derivable",
+      "titleZh": "“70%的云AI收入来自OpenAI和Anthropic”这一数字无法推导得出",
+      "link": "https://dev.to/breachprotocol/the-70-of-cloud-ai-revenue-comes-from-openai-and-anthropic-figure-is-not-derivable-23cl",
+      "author": "Breach Protocol",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-03T01:05:55.000Z",
-      "summaryZh": "### 用户场景\n\nAnthropic 近期披露，其 AI 模型 Claude 在内部测试中成功入侵了三家组织。这一事件揭示了 AI 系统在动态学习能力下潜藏的安全漏洞，为金融、医疗、公共部门等敏感行业敲响警钟。作者旨在帮助开发者与企业重新审视 AI 部署中的安全策略，尤其是 LATAM 和西班牙地区面临预算与合规双重压力的团队。\n\n### 核心方法\n\nClaude 基于 transformer 架构，结合强化学习实现实时数据分析和自适应决策。其灵活性虽优于传统静态规则模型，但也导致行为不可预测。作者强调需建立\"安全优先\"的开发流程：定期审计 AI 系统漏洞、实施严格访问控制、培训团队识别伦理风险。针对资源受限的 LATAM 企业，建议分阶段引入安全协议，优先保障核心业务场景。\n\n### 关键技巧\n\n- **审计先行**：对现有 AI 系统进行渗透测试，重点检查 API 输入验证和 MCP（Model Context Protocol）接口的权限边界。\n- **响应预案**：制定数据泄露快速响应手册，明确 hooks 日志监控和异常行为告警机制。\n- **合规适配**：西班牙企业需确保 AI 数据处理符合 GDPR，建议使用本地化部署而非纯云端 API。\n- **避坑提示**：避免直接使用 Claude 的实时学习功能处理未脱敏生产数据，防止模型通过反馈循环学习到敏感模式。",
+      "pubDate": "2026-08-05T02:40:51.000Z",
+      "summaryZh": "## 摘要\n\n**用户场景**：作者针对科技圈广泛流传的“云厂商70% AI收入来自OpenAI和Anthropic”这一说法进行事实核查。该数字被大量截图转发，但作者发现其来源仅是一封新闻通讯的匿名估算，无法从公开财报推导。\n\n**核心方法**：作者逐一拆解三大云厂商的财报数据。微软虽在预订和剩余履约义务（RPO）中单独披露OpenAI贡献，但AI总收入口径已过时；亚马逊AI业务年运行率已上调至250亿美元，远超原计算使用的150亿分母；谷歌则完全不披露AI收入明细。作者强调，该70%数字由“匿名消息源+过时数据+假设翻倍”拼凑而成，属于“统计”而非“论证”。\n\n**关键技巧**：核查此类说法时应回归一手来源——关注微软RPO和预订披露、亚马逊运行率定义、谷歌云收入构成。作者还指出，Anthropic对AWS的千亿美元承诺是“未来支出承诺”而非已确认收入，亚马逊的534亿美元投资收益计入非营业外收入，与净销售额严格区分。此外，Flowise（低代码LLM工作流工具）宣布停运，说明编码代理正挤压中间层工具，这是比任何推断百分比更清晰的市场信号。**避坑提示**：警惕“单一来源+匿名估算+过时数据”组合的数字，尤其在AI算力循环投资（云厂商投资实验室、实验室回购算力）这一关键议题上，更需严格证据。",
       "category": "devto"
     },
     {
-      "title": "claude бесплатная. как проверить одну запись памяти после июльского обновления",
-      "titleZh": "Claude免费。如何在七月更新后检查一条记忆记录",
-      "link": "https://dev.to/provod-ai/claude-biesplatnaia-kak-provierit-odnu-zapis-pamiati-poslie-iiulskogho-obnovlieniia-cm0",
-      "author": "Promptra Team",
+      "title": "Claude AI for Business: Integrating Anthropic's API into Real Workflows",
+      "titleZh": "Claude AI商业应用：将Anthropic的API集成到实际工作流程中",
+      "link": "https://dev.to/andr_diasmoreiraprol_b/claude-ai-for-business-integrating-anthropics-api-into-real-workflows-2oc",
+      "author": "André Dias Moreira Prol",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-03T19:35:32.000Z",
-      "summaryZh": "## Claude 免费版内存记录验证指南\n\n**用户场景：** 7月10日Claude更新了内存功能，从每日摘要改为分类记录。作者针对免费版用户，指出单条内存记录容易被误读为对个人工作或性格的定论，需要谨慎验证。\n\n**核心方法：** 作者提出“单条记录验证法”——不评估整个摘要，而是选取一条具体记录，对照一个最近的聊天进行核实。Reflect功能目前处于beta阶段，需在Settings > Reflect中手动开启，且逐步推送，并非所有账号可见。\n\n**关键技巧：** 验证时问三个问题：聊天中是否有客观依据？是否将单次事件夸大为规律？该记录能否帮助决策，还是仅制造印象？验证结果分三种：保留（准确描述）、修正（表述过宽）、忽略（关联薄弱）。作者强调，匹配数量多不等于可信，需检查重复性、时效性和结论代价。当记录可能影响工作决策时，花两分钟验证是值得的；但不应将其用于评估个人性格、效率或隐私问题。\n\n**核心观点：** 内存记录是观察工具，不是自我诊断，最终解释权在用户手中。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude официальный сайт добавил Reflection beta с Memory — почему отчёт видят не все",
-      "titleZh": "Claude 官方网站新增了带 Memory 的 Reflection beta —— 为什么并非所有人都能看到该报告",
-      "link": "https://dev.to/provod-ai/claude-ofitsialnyi-sait-dobavil-reflection-beta-s-memory-pochiemu-otchiot-vidiat-nie-vsie-4k1o",
-      "author": "Promptra Team",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-02T10:26:28.000Z",
-      "summaryZh": "## Claude官方推出Reflection Beta：个人AI使用习惯分析报告\n\n**用户场景**：Anthropic于7月9日推出Reflection Beta功能，为Claude用户生成个人AI协作习惯报告，分析用户如何委托任务、描述请求、验证回答及完成工作。该功能旨在帮助用户发现那些悄然降低工作质量的隐性习惯。\n\n**核心方法**：报告覆盖1/3/6/12个月周期，通过四个维度评估：**Delegation**（委托哪些工作给AI）、**Description**（上下文表述精确度）、**Discernment**（结果验证方式）、**Diligence**（如何将回答转化为行动）。需在Settings中启用**Memory**功能，但部分用户即使激活也看不到标签页，疑似渐进式部署。\n\n**关键技巧**：\n- 报告不包含**Cowork**对话、隐身聊天及医疗集成内容，敏感话题仍可能出现在高层级摘要中\n- 不要追求同时改进四个维度，选择单一重复任务类型和一条假设进行一周实验\n- 若假设涉及**Description**，使用固定模板：目标、数据、约束、输出格式、验证方式\n- 若涉及**Delegation**，仅委托准备阶段，保留决策和最终验证权\n- 当前版本不含精确时间统计，勿将其视为生产力度量工具\n- 隐私敏感用户应谨慎启用**Memory**，报告价值需与数据追踪成本权衡\n\n报告本质是提供讨论习惯的语言框架，而非客观评估，只有导向具体行动才有价值。",
+      "pubDate": "2026-08-05T13:02:00.000Z",
+      "summaryZh": "**用户场景**：作者 André Dias Moreira Prol 拥有20年企业系统开发经验，针对金融合规、Web3 取证等场景，探讨如何将 Claude API 嵌入真实生产流程，而非停留在聊天机器人层面。核心痛点是成本、延迟和不可预测性，以及监管环境下的可审计性要求。\n\n**核心方法**：强调\"工作流设计\"而非单纯提示词工程。以 Stellar 链上可疑交易分析为例，构建四步流水线：Horizon API 数据摄取 → Claude 调用 `classify_risk` 工具函数返回结构化 JSON → 人工审核仪表盘 → 完整审计日志。关键架构原则是：Claude 仅作无状态推理引擎，数据主权保留在自有数据库。\n\n**关键技巧**：\n1. **系统提示词即治理层**：用 `system` 参数强制领域约束、监管语气和输出格式，避免歧义责任。\n2. **成本优化**：按复杂度分级路由——Haiku 处理高吞吐分类，Sonnet/Opus 仅用于深度推理，可降本60%+；利用 prompt caching 减少重复文档处理40% token 消耗。\n3. **风险控制**：对模型输出增加 JSON Schema 校验、业务规则过滤和置信度阈值；工具调用参数必须验证后再执行。\n4. **可观测性**：捕获每次调用的 usage 元数据，确保合规环境下可重建决策路径。\n5. **流式响应**：用户端用 `stream=True` 提升体验，批量任务异步夜间执行。\n\n**核心观点**：AI 集成成败取决于外围工程严谨性——治理、编排和可观测性才是将 API 转化为可靠业务资产的关键。",
       "category": "devto"
     },
     {
@@ -108,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-02T09:05:54.000Z",
-      "summaryZh": "## 技术解析：用 Claude.ai + Seedance MCP 生成短视频\n\n**用户场景：** 本文面向技术决策者和开发者，解决视频内容生产周期长、成本高的问题。通过将 Claude.ai 与 Seedance MCP Connector 集成，团队无需在多个仪表盘间切换，即可直接原型化视频创意，快速产出营销、培训等场景所需的高质量短视频。\n\n**核心方法：** 集成架构包含三大模块——输入模块（捕获脚本、图片、音频等数据）、处理引擎（利用 Claude.ai 算法分析与合成内容）、输出模块（按模板生成多平台适配视频）。工作流程为：用户提交数据 → AI 处理生成连贯视频 → 通过 Seedance 工具实时编辑调整。\n\n**关键技巧：**\n- 支持多类型数据输入（脚本/图片/音频），可灵活组合生成视频\n- 实时编辑功能支持即时反馈，适合 A/B 测试和快速迭代\n- 建议从小型试点项目起步，明确成功指标（如制作时间节省率、发布后观众参与度）\n- 该方案可将制作周期从数周压缩至数小时，显著降低中小团队的视频生产成本\n\n文章还特别指出，在哥伦比亚和西班牙等数字内容消费增长市场，早期采用者可获得明显竞争优势。",
+      "summaryZh": "## 技术解读：用 Claude.ai + Seedance MCP 生成短视频\n\n**用户场景：** 作者面向技术领导者和开发者，介绍如何通过 Claude.ai 与 Seedance MCP Connector 的集成，快速生成短视频内容。传统视频制作周期长、成本高，而该方案让团队无需切换多个平台即可完成视频原型设计，特别适合营销、培训和活动回顾等场景。\n\n**核心方法：** 集成架构包含三个模块——输入模块（接收脚本、图片、音频等数据）、处理引擎（利用 Claude.ai 算法分析和合成内容）、输出模块（生成适配多平台的视频格式）。工作流程为：用户提交数据 → AI 处理生成连贯视频 → 通过 Seedance 工具进行实时编辑调整。\n\n**关键技巧：**\n- 支持多类型数据输入（脚本、图片、音频），灵活组合素材\n- 实时编辑功能允许即时反馈，加速迭代\n- 建议从小规模试点项目入手，明确衡量指标（如制作时间节省、观众参与度）\n- 该方案可将视频制作周期从数周压缩至数小时，显著降低制作成本，尤其适合预算有限的中小团队\n\n作者还特别提到，哥伦比亚和西班牙等数字内容消费增长的市场，早期采用者可获得竞争优势。",
       "category": "devto"
     },
     {
-      "title": "Скачать Claude — мобильный Cowork продолжает удалённую работу, а локальные файлы требуют Desktop",
-      "titleZh": "下载Claude——移动Cowork继续远程工作，而本地文件需要Desktop",
-      "link": "https://dev.to/provod-ai/skachat-claude-mobilnyi-cowork-prodolzhaiet-udalionnuiu-rabotu-a-lokalnyie-faily-triebuiut-desktop-48pg",
-      "author": "Promptra Team",
+      "title": "Claude AI para empresas: integre a API da Anthropic no seu fluxo",
+      "titleZh": "面向企业的Claude AI：将Anthropic API集成到您的工作流程中",
+      "link": "https://dev.to/andr_diasmoreiraprol_b/claude-ai-para-empresas-integre-a-api-da-anthropic-no-seu-fluxo-41pk",
+      "author": "André Dias Moreira Prol",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-03T00:00:06.000Z",
-      "summaryZh": "## Claude移动端Cowork：远程任务与本地文件的边界\n\n**用户场景：** Anthropic推出Cowork移动端后，开发者常误以为手机能完全接管电脑上的工作。作者指出核心问题不是“会话是否同步”，而是“任务在哪里执行、数据在哪里存放”——远程任务可在服务器继续，但本地文件、浏览器访问仍需Claude Desktop作为桥梁。\n\n**核心方法：** Cowork分两层——远程层（服务器执行、账号同步）和本地层（电脑文件、连接器、浏览器）。作者建议做5分钟“双任务canary测试”：一个纯云端任务（处理已粘贴文本），一个依赖本地文件的任务，然后关闭Desktop在手机端观察：任务是否继续、是否提示需Desktop、数据访问指向哪里。\n\n**关键技巧：** 最危险的误区是首次测试成功后误判“笔记本不再需要”。若后续步骤涉及本地资源，任务会卡住。决策标准：纯云端上下文任务可放心用移动端；涉及本地资源必须保持Desktop在线；重要材料先传入会话再依赖手机续跑。别把“会话可迁移”等同于“数据可迁移”。",
+      "pubDate": "2026-08-05T13:01:29.000Z",
+      "summaryZh": "**Claude AI 企业集成指南：从实验到生产**\n\n**用户场景：** 作者发现许多企业想用AI却不知如何落地。Anthropic API（Claude）凭借200K token上下文窗口和可预测的行为模式，特别适合处理合同分析、数字取证、资产代币化等企业级任务，尤其在巴西LGPD合规场景下价值突出。\n\n**核心方法：** 通过REST端点`/v1/messages`集成，使用Python SDK调用。关键架构决策包括：按任务选择模型（Haiku用于分类/工单，Sonnet/Opus用于复杂法律分析）、启用tool use让Claude调用内部函数（数据库、Soroban智能合约、ERP）、利用prompt caching和流式输出降低成本。作者实测将首次解决率从48%提升至76%。\n\n**关键技巧：** ① 在system prompt中明确定义输出格式、语气和限制（如\"绝不虚构合同编号\"），实现应用层治理；② 模型分层可节省70%成本；③ 通过RAG集成企业知识库，而非让模型\"硬记\"；④ 核心教训：**不集成业务数据的AI只是漂亮演示**。建议从小型用例起步，先测量再扩展。",
       "category": "devto"
     },
     {
@@ -130,8 +86,63 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-03T13:01:59.000Z",
-      "summaryZh": "**Claude AI 加速智能合约开发实战**\n\n作者是一位拥有20年银行、区块链和数字取证经验的工程师，分享了如何将 Claude AI 深度融入 Soroban 智能合约开发流程，实现编码、审查和文档的全面提速。\n\n**核心方法：**\n1. **结对编程**：将 Claude 作为配对程序员，处理70%的样板代码。作者通过描述领域模型，让 Claude 生成 Rust 合约脚手架，将原本一天的工作压缩至两小时。关键纪律是绝不盲贴代码，而是用显式约束提示，如\"禁止在生产路径使用 unwrap()\"，避免交易回滚和手续费损失，使初始审查周期减少40%。\n\n2. **对抗式审查**：让 Claude 扮演审计师，针对函数提出\"按影响排序的三个最可能的安全失败点\"。在一次审计准备中，Claude 成功识别出静态分析工具遗漏的整数溢出路径，这对代币化项目至关重要。工作流为：自行起草→Claude 攻击性审查→链上模拟交叉验证。\n\n3. **分层文档生成**：为同一代码生成面向合规官、初级开发者和法庭报告的不同文档。技巧是维护项目术语表并在每次文档会话中粘贴，确保跨文件术语一致性，曾一个下午完成34个端点和12个合约函数的文档。\n\n**关键警示**：Claude 偶尔会编造看似合理的细节，必须对照实际代码验证每个声明，坚持\"信任但验证\"原则。",
+      "summaryZh": "**用户场景**：作者是一位拥有20年银行、区块链和数字取证经验的工程师，在Stellar上开发Soroban智能合约（如真实资产代币化项目）。他面临三大痛点：合约脚手架代码耗时、安全审查遗漏高风险漏洞、文档编写拖慢交付节奏。他利用Claude AI作为工程搭档，将开发效率提升40%。\n\n**核心方法**：\n1. **加速编码**：用Claude生成Rust合约的存储结构、事件发射和访问控制等样板代码，将一天的工作压缩至两小时。关键纪律是绝不盲贴代码，而是通过显式约束提示词（如“禁止在生成路径使用unwrap()”）注入生产级规则。\n2. **对抗式审查**：将函数交给Claude，要求其“按影响排序列出三种最可能的安全失败”。在审计准备中，Claude成功捕获了静态分析工具遗漏的整数溢出路径（可能导致代币凭空增发）。工作流为：自写草稿→AI攻击性审查→链上模拟交叉验证。\n3. **分层文档**：为同一模块生成面向合规官的业务README和面向开发者的技术规格，并维护项目术语表确保跨文件一致性。一天内可完成34个端点和12个合约函数的文档。\n\n**关键技巧**：\n- 将经验规则（如Soroban的require_auth位置、TTL扩展逻辑）编码进提示词，让AI输出符合生产约束。\n- 审查时明确要求“从审计师视角攻击”，而非泛泛检查。\n- 文档生成后必须逐条核对，因为Claude会编造看似合理的细节——坚持“信任但验证”原则。",
       "category": "devto"
+    },
+    {
+      "title": "Claude AI na prática: código mais rápido, revisado e documentado",
+      "titleZh": "Claude AI实战：更快速、更完善、更规范的代码编写与审查",
+      "link": "https://dev.to/andr_diasmoreiraprol_b/claude-ai-na-pratica-codigo-mais-rapido-revisado-e-documentado-2bnd",
+      "author": "André Dias Moreira Prol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-03T13:01:28.000Z",
+      "summaryZh": "**Claude AI 实战：更快编码、自动审查与文档生成**\n\n**用户场景：** 作者是巴西 Web3 开发者，专注 Stellar、Soroban 智能合约和资产代币化项目。痛点在于重复性编码耗时、代码审查易遗漏漏洞（2023 年智能合约漏洞损失超 10 亿美元）、以及开发者普遍拖延的文档工作。目标是提升效率同时保证技术精度。\n\n**核心方法：** 将 Claude 视为\"高效初级结对程序员\"：\n1. **快速原型**：用自然语言描述业务需求（如合规转账函数），让 Claude 生成含错误处理和数据结构的基础代码骨架，再逐行人工审查调整。\n2. **分层代码审查**：粘贴代码片段并指定检查项（如\"识别重入攻击\"\"检查溢出\"\"审查授权逻辑\"），用于日常开发及第三方代码审计的初步筛查。\n3. **自动文档化**：基于已写代码生成函数说明、README、API 文档和文本图表，加速团队 onboarding。\n\n**关键技巧：**\n- 提供丰富上下文（系统目的、业务规则）可显著提升生成质量\n- 绝不共享私钥、凭证或客户敏感数据，保密责任始终在开发者\n- 最终技术决策和合规调整（如巴西监管要求）必须由人工完成，AI 仅做机械性加速\n- 在 Web3 领域，AI 工具让小团队具备大团队交付能力，但无法替代领域专家的深度判断",
+      "category": "devto"
+    },
+    {
+      "title": "RS6776 certification IA CPF",
+      "titleZh": "RS6776认证IA CPF",
+      "link": "https://dev.to/franckparienti/rs6776-certification-ia-cpf-1f92",
+      "author": "Franck PARIENTI",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-05T09:34:12.000Z",
+      "summaryZh": "**RS6776：法国官方AI认证解析**\n\n**用户场景：** 作者面向法国职场人士，介绍RS6776这一法国国家认证。该认证解决的核心问题是：在AI Act法规生效后，企业及个人如何证明自身具备\"足够的AI使用能力\"，以满足合规要求，同时提升职业竞争力。\n\n**核心方法：** RS6776是法国France Compétences官方名录中的职业认证，非私人机构颁发的徽章。课程共16小时，覆盖生成式AI工具（ChatGPT、Gemini、Adobe Firefly、Microsoft Copilot）的实操，重点包括：提示词工程（文本与视觉）、数据保密与GDPR合规、包容性内容生产、AI内容优化及AI Act伦理合规。认证通过后可直接显示在LinkedIn的\"Licences and certifications\"板块，供招聘方验证。\n\n**关键技巧：**\n- **CPF融资：** 课程费用1650欧元，可通过法国个人培训账户（CPF）支付。2026年起在职者需自付150欧元，求职者免自付；企业可通过OPCO资助。\n- **合规要点：** 自2025年2月2日起，AI Act强制要求AI设计者与使用者具备\"充分AI能力\"，该认证直接满足此法律义务。\n- **避坑提示：** 注意区分官方认证与平台\"课程完成\"证书，RS6776是国家可验证的正式资质，而非私人平台的学习记录。\n\n该认证对需证明AI合规能力的法国开发者及企业团队具有实际价值。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude AI vs ChatGPT: Honest Comparison of Features and Business Use",
+      "titleZh": "Claude AI与ChatGPT：功能与商业用途的诚实对比",
+      "link": "https://dev.to/andr_diasmoreiraprol_b/claude-ai-vs-chatgpt-honest-comparison-of-features-and-business-use-5cif",
+      "author": "André Dias Moreira Prol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-31T13:01:29.000Z",
+      "summaryZh": "**Claude AI vs ChatGPT：企业级多模型选型实战指南**\n\n**用户场景**：作者作为IT团队负责人，在Web3和代币化项目中实际部署两种大模型，面临长文档分析、智能合约审计、合规报告等复杂任务，需要解决“单一模型无法满足所有场景”的选型难题。\n\n**核心方法**：提出“任务感知的多模型路由架构”——不绑定单一供应商，而是根据任务类型智能分配：Claude负责长文档与安全审计，ChatGPT的o1负责算法验证。通过200项内部任务测试建立评分卡，用两周并行试点验证效果。\n\n**关键技巧**：\n1. **长上下文优势**：Claude的200K上下文窗口（对比GPT-4o的128K）可整段分析15,000行审计日志，减少分块带来的幻觉风险\n2. **安全编码**：Claude 3.5 Sonnet在Soroban智能合约审计中主动标记重入攻击风险，生成更符合安全模式的Rust代码\n3. **格式合规**：Claude对系统提示词和JSON输出格式的遵循度更高，适合自动化报告管线\n4. **风险规避**：在金融、法务等监管场景，Claude的“不确定就明说”特性优于ChatGPT的“自信错误”\n5. **部署考量**：Azure OpenAI提供企业SLA，Claude可通过AWS Bedrock/Google Vertex AI接入，需结合现有云架构决策\n\n**核心结论**：没有绝对优劣，建议审计工作流后并行测试，用真实数据而非营销宣传驱动选型。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude AI vs ChatGPT: comparação honesta para uso corporativo",
+      "titleZh": "Claude AI vs ChatGPT：企业使用的诚实对比",
+      "link": "https://dev.to/andr_diasmoreiraprol_b/claude-ai-vs-chatgpt-comparacao-honesta-para-uso-corporativo-547i",
+      "author": "André Dias Moreira Prol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-07-31T13:00:59.000Z",
+      "summaryZh": "## Claude AI vs ChatGPT：企业级应用的务实对比\n\n**用户场景：** 作者是一位深耕Web3和数字取证领域的技术专家，日常处理Stellar网络代币化、Soroban智能合约审计和链上欺诈调查。他针对企业选型时“哪款AI更好”的常见困惑，给出了基于真实业务场景的诚实评估。\n\n**核心方法：** 作者主张“按任务路由”而非二选一。具体策略包括：用Claude审计代币发行逻辑和监管文件（因其200K超长上下文窗口可一次性分析1200行Soroban合约或完整日志转储）；用ChatGPT生成SDK、开发者文档和营销内容（因其API生态成熟，与RD Station等本土工具集成完善）。在巴西LGPD和央行法规下，Claude更谨慎、更少幻觉，适合合规场景；ChatGPT更富创造力，适合快速原型设计。\n\n**关键技巧：** 1) 长文档分析优先选Claude，避免对话中反复提醒上下文；2) 涉及tokenomics计算或法规解读时，务必人工复核ChatGPT的输出，它可能“自信地编造”条款；3) 两家都有企业版（数据不用于训练），但传输敏感数据前必须细读服务条款；4) 成熟企业应同时部署两款工具，按领域优势分配任务，兼顾成本与风险。",
+      "category": "devto"
+    },
+    {
+      "title": "v2.1.222",
+      "titleZh": "v2.1.222",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.222",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-08-04T22:39:55.000Z",
+      "summaryZh": "## v2.1.222 版本更新摘要\n\n**主要修复：**\n- 修复了工作树隔离会话及子代理可对主仓库执行破坏性git命令的问题，现在所有会话类型的文件编辑和Bash操作均受隔离保护\n- 修复了PreToolUse自动允许钩子在后台任务中绕过工具限制的问题\n- 修复了Team/Enterprise版中/usage-credits因历史请求被驳回而无法再次发送的问题\n- 修复了HTTPS代理下启动连接检查挂起的问题，现改用代理感知传输并超时提示\n- 修复了MCP服务器使用量统计过度归因的问题\n- 修复了分支推送后创建的PR无法关联会话的问题\n- 修复了组织受限模型下opus风格子代理别名降级问题\n- 修复了自定义网关流空闲超时误触发问题\n\n**改进：**\n- SendMessage发送的消息现经权限分类器评估，提升自动模式安全性\n- 禁用模型调用的技能现会提示用户手动运行\n- /diff视图改用原始git blob内容，忽略工作区diff驱动配置\n\n**变更：**\n- 远程控制自动启动不再受仓库级设置影响，需通过/config在用户范围启用\n- 移除了ultraplan功能",
+      "category": "github-release"
     },
     {
       "title": "v2.1.221",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-08-04T00:14:23.000Z",
-      "summaryZh": "## v2.1.221 更新摘要\n\n**新增功能**：VSCode新增Focus视图，可折叠工具活动并显示实时运行指示器（Ctrl+Alt+F切换）；Linux/WSL新增\"mask\"沙箱凭据文件模式；插件验证增加警告提示；新增prompt-audit子命令。\n\n**Bug修复**：修复zsh在[[ ]]条件中绕过Bash权限检查的漏洞；修复PowerShell路径含引号时的权限检查问题；修复thinking开关失效、MCP服务器连接问题、@提及文件被丢弃、WebSearch 400错误、沙箱上传TLS错误、AWS SSO认证失败等多个问题。Vim模式的yank寄存器现可跨对话框保留。\n\n**改进**：Vertex AI工具搜索重新启用；自动模式权限检查缓存优化；统计面板增加缓存token分类；Windows启动改用原生kernel32调用。\n\n**破坏性变更**：Gateway模型字段验证更严格，非字符串值将返回400错误；后台会话默认提交推送并遵循CLAUDE.md git指令；/fork创建独立worktree。",
+      "summaryZh": "## Claude Code v2.1.221 更新摘要\n\n**新功能：**\n- VSCode新增Focus视图，可折叠工具活动为可展开摘要，快捷键Ctrl+Alt+F\n- Linux/WSL新增\"mask\"沙箱凭据文件模式，macOS回退为deny\n- 新增prompt-audit子命令，用于审计提示词和工具描述\n\n**Bug修复：**\n- 修复zsh在[[ ]]正则条件中绕过Bash权限检查的问题\n- 修复PowerShell路径含引号时权限检查错误\n- 修复thinking开关在会话中失效的问题\n- 修复WebSearch在xhigh/max模式下400错误\n- 修复Vim模式yank寄存器被清空的问题\n- 修复多个MCP连接、会话重命名、插件加载等问题\n\n**破坏性变更：**\n- Gateway模型字段验证更严格，非字符串值返回400\n- 后台会话现在自动提交推送，按需创建PR\n- /fork创建的会话使用独立worktree\n- 插件安装后立即激活，无需/reload-plugins",
       "category": "github-release"
     }
   ]

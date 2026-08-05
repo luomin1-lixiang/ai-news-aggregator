@@ -1,18 +1,18 @@
 {
-  "lastUpdated": "2026-08-04T19:19:28.416Z",
+  "lastUpdated": "2026-08-05T19:13:22.630Z",
   "items": [
     {
-      "title": "The latest AI news we announced in July 2026",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-july-2026/",
-      "description": "Here are Google’s latest AI updates from July 2026",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/July_AI_Recap_still.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from July 2026",
-      "author": "News from Google Team",
+      "title": "The next chapter of our AI momentum",
+      "link": "https://blog.google/company-news/inside-google/message-ceo/next-chapter-ai-momentum/",
+      "description": "Today, Google and Alphabet CEO Sundar Pichai shared some changes with Google DeepMind teams.",
+      "content": "Today, Google and Alphabet CEO Sundar Pichai shared some changes with Google DeepMind teams.",
+      "author": "Sundar Pichai",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 04 Aug 2026 13:00:00 +0000",
-      "titleZh": "我们于2026年7月宣布的最新AI新闻",
-      "descriptionZh": "您提供的博客内容仅有标题和一张图片，没有实际的正文内容，因此我无法为您生成有依据的中文摘要。\n\n为了生成准确、完整的中文摘要，请您提供：\n\n1. **博客正文的完整文本**（可复制粘贴）\n2. 或博客的**可访问链接**\n\n一旦收到正文内容，我将按照您的具体要求，完整介绍背景与上下文、详细拆解核心技术原理与创新点、分析技术影响与应用场景，并以专业但易懂的中文输出摘要。"
+      "pubDate": "Wed, 05 Aug 2026 16:00:00 +0000",
+      "titleZh": "我们AI势头的新篇章",
+      "descriptionZh": "您提供的英文博客内容仅有开头一句：“Today, Google and Alphabet CEO Sundar Pichai shared some changes with Google DeepMind teams.”（今天，Google和Alphabet首席执行官桑达尔·皮查伊与Google DeepMind团队分享了一些变动。）\n\n这句话仅交代了背景，并未包含任何具体的技术细节、变动内容或分析素材。为了生成符合您要求的完整中文摘要（涵盖背景、核心技术原理、创新点、影响与应用场景），我需要您提供完整的博客原文，例如皮查伊分享的具体变动内容、涉及的技术方向、团队重组细节等。\n\n请补充完整博客内容，我将为您生成专业、详尽的中文摘要。"
     }
   ]
 }
