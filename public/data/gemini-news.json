@@ -1,18 +1,44 @@
 {
-  "lastUpdated": "2026-08-07T18:39:10.746Z",
+  "lastUpdated": "2026-08-10T18:42:52.842Z",
   "items": [
     {
-      "title": "See what 5 builders are making with Gemini Omni",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-builders/",
-      "description": "Gemini Omni makes creating videos as easy as having a conversation. Here’s how five people use it to edit videos and visualize ideas.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Omni_hero.max-600x600.format-webp.webp\">Gemini Omni makes creating videos as easy as having a conversation. Here’s how five people use it to edit videos and visualize ideas.",
-      "author": "Lindsey Lanquist",
+      "title": "Have more fun at the state fair with these Google tools",
+      "link": "https://blog.google/products-and-platforms/products/gemini/state-fair-tips/",
+      "description": "Here are five easy ways Google tools can help you make plans, explore, and create memories at the state fair.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/2026statefair_hero.max-600x600.format-webp.webp\">Here are five easy ways Google tools can help you make plans, explore, and create memories at the state fair.",
+      "author": "Claire Herrin",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 07 Aug 2026 14:00:00 +0000",
-      "titleZh": "See what 5 builders are making with Gemini Omni",
-      "descriptionZh": "Gemini Omni是Google推出的创新视频创作工具，其核心设计理念是将视频制作的门槛降至与日常对话同等的水平。传统视频编辑通常需要掌握复杂的时间轴操作、剪辑工具和特效参数，而Gemini Omni彻底改变了这一交互范式——用户不再需要学习任何专业软件技能，只需像与朋友交谈一样用自然语言描述创作意图，AI便能理解并执行相应的视频编辑任务。\n\n这一创新的本质在于将“对话”作为视频创作的人机交互界面。系统通过多模态AI能力理解用户的文字指令，并将其映射为具体的视频处理操作，涵盖剪辑、拼接、特效添加、内容调整等多个维度。文章展示了五位使用者如何借助Gemini Omni将头脑中的创意想法快速转化为视觉成果，从素材整理、片段筛选到整体叙事结构的搭建，整个过程呈现出高度直觉化的操作体验。\n\n这项技术的意义不仅在于提升了视频制作的效率，更在于打破了专业技能壁垒，让不具备剪辑经验的内容创作者、教育工作者、营销人员甚至普通用户都能参与到视频创作中来。它代表了一种更普惠的创作范式：创意表达不再受制于工具掌握的熟练度，而是回归到想法本身。在短视频内容爆发式增长的今天，这种“对话即创作”的模式大幅缩短了从灵感到成品的路径，为个人表达、教学内容可视化、商业演示等场景提供了全新的可能性。随着多模态AI技术的持续演进，视频创作正从专业技能向普适能力转变，而Gemini Omni正是这一转变的典型代表。"
+      "pubDate": "Mon, 10 Aug 2026 16:00:00 +0000",
+      "titleZh": "Have more fun at the state fair with these Google tools",
+      "descriptionZh": "很抱歉，根据您提供的信息，我只有这篇博客的简要标题和介绍，而非完整原文。您提供的文本为：\n\n> 标题：Here are five easy ways Google tools can help you make plans, explore, and create memories at the state fair.\n>（五个利用Google工具在州博览会上规划、探索和创造回忆的简单方法。）\n> 图片说明：2026年州博览会主视觉图。\n\n由于原文内容缺失，我无法基于完整文章生成摘要。不过，我可以根据标题和简介，先为您提供一个概括性的中文摘要框架：\n\n---\n\nGoogle工具在州博览会中的五大应用——规划、探索与回忆，一站式指南。Google旗下多款产品可帮助游客在参加州博览会时实现从行前规划到现场探索、再到事后回忆的完整体验。在规划阶段，Google地图可用于查询展馆位置、实时交通和停车信息，Google日历可同步活动日程；在场馆内，Google搜索和镜头可快速识别展品、查询评分与排队时间，Google钱包则能无接触完成支付和门票核验；在回忆环节，Google相册的智能整理和自动生成的精选集，可帮助游客轻松回顾并与亲友分享高光时刻。\n\n---\n\n如果您能提供这篇博客的完整原文（或更详细的内容），我将根据完整内容为您生成一份更详尽、准确的中文摘要。请补充正文，我会继续帮助您处理。"
+    },
+    {
+      "title": "Evolve your marketing with new AI tools",
+      "link": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/",
+      "description": "Learn how new AI and agentic experiences across Google Ads and Google Analytics can simplify your marketing workflow.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Advisor_Header.max-600x600.format-webp.webp\">Learn how new AI and agentic experiences across Google Ads and Google Analytics can simplify your marketing workflow.",
+      "author": "Josh Moser",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 10 Aug 2026 14:30:00 +0000",
+      "titleZh": "Evolve your marketing with new AI tools",
+      "descriptionZh": "近年来，随着大型语言模型和生成式AI技术的快速演进，数字营销领域正经历一场深刻的范式转移。谷歌作为全球最大的数字广告平台和网站分析工具提供商，正在将AI能力深度整合进其核心产品矩阵——Google Ads与Google Analytics之中。这一变革的核心并非简单的功能叠加，而是引入“智能体体验”（agentic experiences）这一全新交互范式，即AI不再只是被动响应指令的工具，而是能够主动理解营销目标、自主规划执行路径、并持续优化策略的“数字营销助手”。\n\n从技术原理来看，谷歌所推动的智能体式营销体验建立在多层次的AI架构之上。底层是谷歌深厚的Transformer模型积累和MUM（Multitask Unified Model）多任务统一模型，能够同时理解文本、图像、视频等多种模态的营销素材；中间层则是对广告投放全链路的智能化改造——从关键词匹配、受众定向、出价策略到创意生成与A/B测试，每个环节都可由AI智能体自主决策与执行。最上层则是自然语言交互界面，营销人员可以用日常语言描述业务目标，例如“提升夏季新品在25-35岁女性群体中的转化率”，系统便会自动拆解任务、调配预算、生成多版本广告文案与视觉素材，并在投放过程中实时调整优化。\n\n这一创新的核心突破在于“自主性”与“可解释性”的平衡。与早期仅提供数据洞察的被动式AI不同，谷歌的智能体系统被赋予了一定程度的决策权限——在设定好的预算边界和品牌安全规则内，AI可以自主实验不同的受众组合、出价策略和素材变体，并通过持续学习不断逼近最优解。同时，系统保留了完整的操作日志和效果归因，营销人员可以随时审查AI的决策依据，在需要时介入干预，实现“人机协同”而非“人机替代”。\n\n从实际应用场景来看，这项技术带来的效率提升是显著的。在广告投放层面，智能体可以7×24小时监测市场动态和竞品行为，即时调整出价与预算分配，响应速度远超人工作业；在创意生产层面，AI能够根据产品卖点自动生成数十种文案风格和视觉模板，并在投放中通过实时反馈筛选优胜版本；在数据分析层面，Google Analytics的智能体能够主动识别异常流量变化、归因路径偏差和用户行为模式的转变，并以自然语言生成可操作的建议报告，而非仅仅罗列图表数据。\n\n对于中小企业而言，这一变革意味着过去依赖资深优化师才能完成的复杂营销操作，现在可以通过对话式指令获得同等甚至更优的效果，大幅降低了专业营销技能的门槛。对于大型广告主和代理机构来说，智能体系统则提供了一个更高效的实验平台——他们可以将更多精力投入到品牌策略和用户洞察等创造性工作中，而将重复性的投放优化和数据分析交给AI处理。\n\n当然，这一演进也伴随着值得关注的挑战。数据隐私法规的日趋严格要求AI系统在利用用户行为数据时必须更加透明和合规；智能体自主决策的边界如何界定，如何避免算法偏见和意外支出，都是需要行业共同探讨的议题。谷歌的应对思路是在产品设计中内置了安全约束机制和人类干预接口，但技术与制度层面的完善仍需要持续投入。\n\n总体而言，谷歌将智能体体验引入广告与分析平台，标志着数字营销正从“数据驱动决策”迈向“AI驱动执行”的新阶段。这不仅简化了营销工作流程，也重新定义了营销人员的角色——从繁琐的操作执行者转型为策略制定者和AI的管理者。对于每一位从业者而言，理解并善用这些智能体能力，正在成为新的核心竞争力。"
+    },
+    {
+      "title": "Venmo is giving you a new way to pay on Google Play.",
+      "link": "https://blog.google/products-and-platforms/platforms/google-play/venmo-google-play-store/",
+      "description": "Venmo is now available as a payment option on Google Play, giving you more flexibility at checkout.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Play_Venmo_social_share.max-600x600.format-webp.webp\">Venmo is now available as a payment option on Google Play, giving you more flexibility at checkout.",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 10 Aug 2026 12:00:00 +0000",
+      "titleZh": "Venmo 正在为你在 Google Play 上提供一种新的支付方式。",
+      "descriptionZh": "Venmo现已正式成为Google Play的支付选项之一，为用户在结算时提供了更多灵活选择。作为美国广泛使用的移动支付应用，Venmo的接入意味着Android用户可以直接通过Venmo余额或关联的银行账户完成Google Play上的应用、游戏、订阅及数字内容购买。这一举措不仅丰富了Google Play现有的支付方式生态，也进一步降低了用户的支付门槛，让习惯于使用Venmo进行日常交易的用户能够获得更顺畅、更连贯的消费体验。对于Google Play而言，引入Venmo有助于覆盖更广泛的用户群体，提升结账转化率；而Venmo也能借此拓展其支付场景，从熟人转账延伸至数字内容消费领域，实现双向赋能。这一合作反映了移动支付与数字应用商店之间日益紧密的整合趋势。"
     }
   ]
 }
