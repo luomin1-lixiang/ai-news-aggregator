@@ -1,17 +1,6 @@
 {
-  "lastUpdated": "2026-08-12T18:50:46.244Z",
+  "lastUpdated": "2026-08-13T18:50:52.206Z",
   "items": [
-    {
-      "title": "Anthropic's Theseus Deal Is Not a Data Center Announcement — It's a Debt Announcement",
-      "titleZh": "Anthropic的Theseus交易不是数据中心公告——而是债务公告",
-      "link": "https://dev.to/danieltechlab/anthropics-theseus-deal-is-not-a-data-center-announcement-its-a-debt-announcement-4l4n",
-      "author": "Daniel Kim",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-12T00:18:23.000Z",
-      "summaryZh": "这篇分析文章揭示了Anthropic与Macquarie、GIC成立的Theseus Infrastructure背后的真实意图——这不是简单的数据中心公告，而是一种融资策略的宣告。\n\n**用户场景**：Anthropic作为前沿AI实验室，其收入远不足以覆盖千兆瓦级算力的建设成本，但又要维持Claude API的响应能力，因此需要在不增加资产负债表负担的情况下获取大规模计算资源。\n\n**核心方法**：文章详细拆解了特殊目的载体（SPV）融资模式——科技公司与私募信贷基金共同创建“破产隔离”的法律实体，该实体借款建设数据中心，再以长期租约回租给科技公司。这样债务不出现在母公司资产负债表上，仅以脚注形式披露租赁义务。Theseus正是这一模式的典型应用，GIC和Macquarie直接持股平台，Anthropic作为“锚定租户”而非所有者。\n\n**关键技巧**：文章对比了Meta的Hyperion（300亿美元SPV交易）和Oracle的Stargate项目，指出这些交易都包含“剩余价值担保”等脚注条款。对开发者而言，理解这些融资结构至关重要——它们直接影响Claude API的定价、速率限制和长期可用性。当Anthropic通过租赁而非自建获取算力时，其成本结构会传导至API调用费用中。文章提醒读者，这类“表外融资”虽合法，但意味着AI基础设施的财务风险被分散到了更广泛的金融体系中。",
-      "category": "devto"
-    },
     {
       "title": "Autismo: Practica Habilidades Sociales con IA",
       "titleZh": "自闭症：使用AI练习社交技能",
@@ -20,40 +9,73 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-11T11:00:40.000Z",
-      "summaryZh": "### 中文摘要\n\n**用户场景**：一位软件工程师母亲发现自闭症儿子因无法理解社交暗示（如玩笑、共情）而孤立，传统社交训练（脚本背诵、真人演练）会触发焦虑、缺乏个性化场景、忽视感官敏感度。她尝试用生成式AI（ChatGPT与Claude AI）构建家庭社交训练系统，作为人类疗法的补充。\n\n**核心方法**：利用AI模拟真实对话场景（同事、咖啡店店员等），通过**可配置的提示词（Prompt）** 定义用户感官档案（如避免眼神接触建议、偏好文字交流）、兴趣领域（天文、游戏）及焦虑等级。ChatGPT负责开放式模拟，Claude AI提供长上下文分析与模式识别。系统在对话中实时反馈社交失误（如“你突然换话题了，可尝试说‘听起来很难，你感觉如何’”），并动态调整难度（用户舒适时插入意外提问，焦虑时降低强度）。\n\n**关键技巧**：\n1. **定制化Prompt模板**：明确角色（“你是同事Alex”）、规则（先聊天文、反馈不批判）、验证语句（“很好，表达清晰”）。\n2. **兴趣驱动场景**：用用户热爱的话题（如解释彗星与陨石区别）作为社交练习载体，提升参与度。\n3. **实时反馈机制**：AI不嘲笑错误，而是客观指出替代表达，支持无限次重复练习。\n4. **感官适配**：在Prompt中声明敏感点（如噪音、眼神），AI自动规避相关建议。\n5. **双模型分工**：ChatGPT负责自然对话生成，Claude AI处理复杂反馈与长期进步追踪。\n\n**避坑提示**：避免静态脚本；需持续调整Prompt以匹配用户成长；AI反馈需保持非批判性，防止加重社交焦虑。",
+      "summaryZh": "## Autismo：用AI练习社交技能\n\n**用户场景**：作者是一位软件工程师母亲，她的自闭症儿子因无法理解社交暗示（如幽默、共情）而社交困难。传统社交训练方法（脚本背诵、真人练习）存在三大痛点：真人练习会触发焦虑、缺乏个性化上下文、忽视感官敏感度（如眼神接触、噪音敏感）。\n\n**核心方法**：利用生成式AI（ChatGPT + Claude AI）构建个性化社交教练系统。ChatGPT负责开放式场景模拟，Claude AI擅长长上下文分析和细致反馈。核心是**可配置的prompt系统**，包含用户档案（年龄、兴趣、感官敏感度、焦虑水平、社交目标）和明确规则（模拟特定角色、实时反馈、动态调整难度）。\n\n**关键技巧**：\n1. **感官配置**：在prompt中明确禁止\"保持眼神接触\"等建议，根据敏感度调整场景强度\n2. **兴趣驱动**：用用户热衷话题（如天文学）作为社交练习桥梁，让练习有实际意义\n3. **实时反馈**：AI模拟对话后立即指出改进点，如\"你突然换话题了，可以试试说…\"，提供替代表达\n4. **动态难度**：用户舒适时引入意外问题，焦虑时降低强度，使用验证性语言（\"这说得很清楚\"）\n\n**核心价值**：AI提供无评判、可无限重复的练习环境，弥补真人练习的焦虑触发问题，是传统疗法的有效补充而非替代。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Just Turned Its First Profit — And That Changes the AI Industry More Than Any Model Drop",
+      "titleZh": "Anthropic刚刚实现首次盈利——这比任何模型发布都更能改变AI行业",
+      "link": "https://dev.to/amrree/anthropic-just-turned-its-first-profit-and-that-changes-the-ai-industry-more-than-any-model-drop-4hmg",
+      "author": "Pixelwitch",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-13T07:52:47.000Z",
+      "summaryZh": "## Anthropic首次盈利：AI行业的分水岭\n\n**用户场景：** 作者指出，在模型发布喧嚣背后，Anthropic Q2营收109亿美元（同比增长130%），实现5.59亿美元运营利润，比内部计划提前两年扭亏为盈。这标志着AI从\"资本补贴的研究项目\"转变为\"产生真实现金流的实体经济\"。\n\n**核心方法：** 文章对比了\"模型发布\"与\"财务里程碑\"的本质差异——模型发布是单次事件，盈利是结构性事实。盈利意味着收入模式跑通、客户留存、成本可控，企业能自筹下一代研发资金，而非依赖下一轮融资。作者强调OpenAI即将提交的S-1文件将披露微软收入分成条款，这才是评估AI经济性的关键数据。\n\n**关键技巧：** \n- 关注单位经济学（unit economics）而非单纯营收增长\n- 盈利会引发连锁反应：资本市场重新定价整个赛道、企业采购审批加速、监管态度转变、人才向可持续企业流动\n- 开源模型（Meta、阿里、NVIDIA）成本下降与前沿价值上升是同一趋势的两面\n- 投资者问题从\"哪家会倒闭\"转向\"哪家能复利增长\"\n\n作者认为，AI已进入\"无聊但持久\"的产业阶段，核心问题变成价值捕获、收益分配、失败模式与监管边界。",
       "category": "devto"
     },
     {
       "title": "Never trust an LLM's output directly. Here's the validation layer I put on every agent.",
-      "titleZh": "永远不要直接信任LLM的输出。以下是我在每个代理上添加的验证层。",
+      "titleZh": "永远不要直接信任LLM的输出。以下是我为每个代理添加的验证层。",
       "link": "https://dev.to/penloom_studio_829b7817d3/never-trust-an-llms-output-directly-heres-the-validation-layer-i-put-on-every-agent-1c2g",
       "author": "Penloom Studio",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-12T04:08:33.000Z",
-      "summaryZh": "以下是这篇关于LLM输出验证层的技术文章的中文摘要：\n\n**用户场景**：开发者在构建AI Agent时，常遇到模型返回的JSON结构不符合预期的问题——不是内容幻觉，而是结构幻觉。比如代码直接访问`result.items[0].id`，但模型在边缘情况返回了`{\"result\": null}`，导致运行时崩溃。作者指出，即使使用Claude或GPT-4的结构化输出模式，也只能保证JSON语法合法，无法保证语义正确（如UUID字段可能是伪造的、confidence_score超出0-1范围），且多步推理或工具调用解析时仍需处理自由文本。\n\n**核心方法**：作者提出\"解析-验证-分类\"三层模式。使用Zod定义期望的Schema（如sentiment枚举、confidence范围、key_points数组长度等），然后通过`parseAgentOutput`函数处理原始输出：先提取JSON（兼容代码块包裹或纯文本），再用`schema.safeParse`验证，最后返回判别联合类型`AgentOutput<T>`（区分`ok:true`与`parse_failure`/`validation_failure`/`empty_response`）。调用方必须显式处理失败分支，TypeScript类型系统会强制检查。\n\n**关键技巧**：1) 用正则提取JSON时同时匹配代码块和裸JSON对象；2) 对空响应直接放弃重试，避免无效循环；3) 验证失败时可把错误信息反馈给模型进行重试（最多3次），但解析失败需谨慎；4) 日志记录失败原因和原始输出前500字符，便于调试；5) 使用`z.enum`、`.min()`、`.max()`等Zod约束实现语义验证，而非仅类型检查。这套模式显著提升了Agent在生产环境的鲁棒性。",
+      "summaryZh": "以下是关于这篇Dev.to文章的要点总结：\n\n**用户场景**：作者指出AI Agent开发中的常见痛点——LLM输出结构不稳定，模型可能返回格式正确但语义错误的数据（如伪造UUID、置信度超出范围），导致代码在运行时崩溃。单纯依赖结构化输出模式无法解决语义有效性问题。\n\n**核心方法**：提出\"解析-验证-分类\"三层防护模式。先用正则从模型输出中提取JSON（兼容代码块包裹），再用Zod schema做严格类型校验，最后通过判别联合类型`AgentOutput<T>`强制调用方处理所有失败路径。该模式确保TypeScript编译器层面就要求开发者处理`ok:false`的情况。\n\n**关键技巧**：\n1. 使用Zod的`safeParse`而非`parse`，避免抛异常中断流程\n2. 失败时保留原始输出（`raw`字段）便于调试，但截断日志长度\n3. 重试策略要区分失败类型：`empty_response`不重试（系统性问题），`validation_failure`可将错误信息反馈给模型重试\n4. 正则提取JSON时优先匹配代码块，其次匹配`{...}`或`[...]`结构\n5. 错误信息格式化输出（如`path: message`格式），方便定位具体字段问题\n\n该方案特别适合多步骤推理、工具调用解析等非结构化输出场景，是构建可靠Agent系统的实用防御层。",
       "category": "devto"
     },
     {
-      "title": "AI Cracks 150-Year-Old Math Barrier in 36 Hours",
-      "titleZh": "AI在36小时内攻克150年数学难题",
-      "link": "https://dev.to/xoomar/ai-cracks-150-year-old-math-barrier-in-36-hours-289j",
+      "title": "Anthropic's Claude Watermark Catches Work Cheaters Red-Handed",
+      "titleZh": "Anthropic的Claude水印当场抓住工作作弊者",
+      "link": "https://dev.to/xoomar/anthropics-claude-watermark-catches-work-cheaters-red-handed-4m4l",
       "author": "XOOMAR",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-11T16:38:42.000Z",
-      "summaryZh": "这是一篇关于Anthropic未发布研究模型挑战黎曼猜想的报道。作者描述了AI在36小时内自主运行650个失败想法、协调60个子代理、消耗3100万输出token的过程。虽然未完全解决这个150年难题，但AI将满足假设的零点下界从41.6%提升至67.2%，这是人类数学家多年未突破的进展。\n\n核心方法在于Claude Code中的多代理工作流：模型自主规划研究议程，执行2400条shell命令，编写数百个Python脚本进行数值验证，交叉引用54篇arXiv论文确保新颖性。关键突破是模型创新性地结合了Baluyot、Goldston等多位数学家的既有工作，对二次型进行非对角处理，同时考虑正负定性的全空间分析。\n\n关键技巧包括：1）开放式提示词引导自主研究，而非逐步指令；2）分工明确的子代理架构（2个核心创意代理、13个贡献代理、30个尝试代理、13个验证代理）；3）坚持形式化验证，使用Lean证明助手确保正确性；4）模型主动建议人工专家复核，体现验证闭环意识。\n\n作者指出，这次\"失败\"尝试实为突破，因为它展示了超越模式匹配的持久目标导向推理能力。对开发者而言，这预示了AI代理在复杂问题求解中的潜力，但也引发数学界关于AI发现与人类验证分工的争议。Anthropic尚未公布此类多代理研究功能的产品化时间表。",
+      "pubDate": "2026-08-12T23:09:23.000Z",
+      "summaryZh": "## Anthropic 水印技术引发开发者热议\n\n**用户场景**：Anthropic 在 Claude 输出中嵌入不可见水印，以符合欧盟 AI 透明度法规。这一举措直接冲击了依赖\"提示词+复制粘贴\"完成工作的用户群体——包括用 AI 重组段落的学生、直接粘贴 AI 摘要的记者，以及将 AI 生成代码直接提交的开发者。水印通过统计性词元选择偏差实现，可抵抗复制、粘贴和格式转换，但无法抵御完全重写或翻译。\n\n**核心方法**：水印机制并非添加隐藏字符，而是让模型在生成时偏向特定词汇模式，形成可检测的统计特征。Anthropic 将此政策全球适用，而非仅限欧盟地区。该技术被定位为\"溯源凭证\"而非\"监控工具\"，旨在保护学术诚信和职业报告的可信度。\n\n**关键技巧**：开发者需注意——水印无法检测重度编辑文本，但会标记未修改的 AI 输出。对于合法使用场景（如润色论文、优化代码注释），建议主动改写生成内容以融入个人风格。社区争议焦点在于：水印是否过度惩罚了合理辅助需求？有观点认为，真正的问题不是技术本身，而是用户对\"未披露 AI 辅助\"的依赖。未来方向应是建立清晰的人机协作框架，而非追求完全不可检测的 AI 输出。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic, OpenAI and Google Reasoning Locks Met Their Own Spare Keys",
+      "titleZh": "Anthropic、OpenAI和Google的推理锁遇到了它们自己的备用钥匙",
+      "link": "https://dev.to/simon_paxton/anthropic-openai-and-google-reasoning-locks-met-their-own-spare-keys-i05",
+      "author": "Simon Paxton",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-12T20:00:47.000Z",
+      "summaryZh": "## 摘要：跨模型解密预言机攻击——加密推理块并非安全屏障\n\n**用户场景**：Anthropic、OpenAI、Google 的推理 API 返回“加密思考块”（signed thinking blocks），设计初衷是保证多轮对话连续性，而非供用户读取。但开发者常将这些不透明字段存入日志或公开仓库，误以为加密即安全。\n\n**核心方法**：研究者发现跨模型重放攻击——将强模型生成的加密推理块，输入到同系列较弱模型中，弱模型会为继续对话而自动解码，并可通过提示词诱导其输出明文内容。这相当于找到“服务台”帮忙拆封密信，而非破解加密算法。攻击面在于 API 的接受规则，而非加密强度。\n\n**关键技巧**：\n- 攻击路径包括跨会话、跨用户、跨模型重放，实测 120 道 Codeforces 题目，提取 token 数与官方报告高度吻合\n- 扫描 6,708 条公开轨迹，解码 315,320 个块，发现 367 个 PII 和 182 个凭据（含 62 个 API key、33 个密码）\n- 论文建议：推理块应绑定模型、用户、会话等上下文，不匹配时拒绝而非静默解码\n- 教训：供应商已修补漏洞，但已泄露的日志副本无法撤回。**切勿将加密推理输出视为可安全留存的日志材料**，它仍是输出，会进入日志、基准库或第三方系统。",
+      "category": "devto"
+    },
+    {
+      "title": "Samsung usa Claude de Anthropic: ¿Revolución o riesgo en la verificación de chips?",
+      "titleZh": "三星使用Anthropic的Claude：芯片验证的革命还是风险？",
+      "link": "https://dev.to/leojulieta/samsung-usa-claude-de-anthropic-revolucion-o-riesgo-en-la-verificacion-de-chips-2d04",
+      "author": "LeoJulieta",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-13T16:55:52.000Z",
+      "summaryZh": "**三星用Claude验证芯片：效率革命还是IP风险？**\n\n**用户场景**：三星电子尝试用Anthropic的Claude LLM加速芯片验证流程，自动生成SystemVerilog测试平台和断言脚本。传统Cadence/Synopsys工具虽可靠但耗时数小时，而Claude能在5秒内产出初版测试代码，覆盖率达30-40%。\n\n**核心方法**：采用混合流程——先用Claude读取RTL netlist和规格JSON，生成testbench和UVM测试向量，再通过JasperGold等正式验证工具交叉检查。实测显示此方案可缩短25%验证周期，但Claude生成的测试存在2-3%假阴性（如遗漏时钟边沿条件）和10-15%冗余用例。\n\n**关键技巧**：\n1. **IP保护**：切勿上传完整netlist，改用通用信号名，并在隔离沙箱运行\n2. **Prompt设计**：明确要求\"覆盖所有状态转换+输出断言+覆盖率报告\"，temperature设为0保证确定性\n3. **验证闭环**：所有LLM生成代码必须过正式验证工具，避免模型从公共仓库复制的已知漏洞模式\n4. **成本对比**：API按token计费（约$0.03/1k tokens），远低于传统工具年费$40-50万，但需权衡IP泄露风险\n\n**避坑提示**：三星已发现Claude在电源控制模块漏测时钟边沿条件，可能导致生产时brown-out。建议将生成代码存入Git追踪，确保可回滚。LLM适合\"初稿加速\"，但正式验证不可替代。",
       "category": "devto"
     },
     {
       "title": "Anthropic enables auto mode by default for Claude Code",
-      "titleZh": "Anthropic默认启用Claude Code的自动模式",
+      "titleZh": "Anthropic 默认启用 Claude Code 的自动模式",
       "link": "https://dev.to/vpodk/anthropic-enables-auto-mode-by-default-for-claude-code-21om",
       "author": "Valentin Podkamennyi",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-12T16:32:52.000Z",
-      "summaryZh": "Anthropic宣布Claude Code将默认启用自动模式（auto mode），面向Pro、Max、Team及Enterprise等付费用户，从2026年8月中旬起逐步推行。此更新旨在减少开发者频繁点击批准弹窗的“权限疲劳”，让AI代理能自主执行文件编辑、命令运行等常规任务，显著提升编码效率。\n\n核心方法在于引入自动化安全分类器，每次工具调用前都会经其审查，基于项目上下文判断操作安全性。若遇不可逆或高风险动作，系统会阻止并尝试替代方案或请求人工许可。内部数据显示，该分类器能捕获近90%的危险命令，远超人工审查的14%识别率。同时设有保护机制：连续3次或单次会话累计20次拦截时，自动回退至手动审批模式，防止失控。\n\n关键技巧包括：开发者可自定义规则绕过低风险提示，但需注意自动模式可能增加简单任务的轻微延迟；长期自主运行后，团队应强化会话历史审计与最终代码审查，从实时监控转向事后验证。企业可通过硬性拒绝（hard-deny）和软性拒绝（soft-deny）规则集中管控安全边界，前者不可绕过，后者允许高级开发者按需覆盖。已手动设置偏好的用户不受影响，且安全分类器产生的额外token费用由Anthropic承担，避免成本意外。此转变要求组织调整QA流程，适应更快的开发节奏与更严格的回溯检查。",
+      "summaryZh": "**Anthropic 默认启用 Claude Code 自动模式**\n\n**用户场景：** 针对开发者频繁点击权限确认弹窗导致的\"审批疲劳\"问题。Anthropic 宣布从2026年8月中旬起，Pro、Max、Team 及企业版用户将默认启用 Claude Code 的自动模式，减少人工干预，提升长时任务的执行效率。\n\n**核心方法：** 系统内置自动化安全分类器，在每次工具调用前进行风险评估。若判定操作安全则直接执行；若存在不可逆或高风险行为，则自动阻止并尝试替代方案或回退至人工审批。数据显示该分类器能捕获近90%的危险命令，远超人工审查的14%识别率。同时设有保护机制：连续3次或单次会话累计20次拦截时，自动降级为手动模式。\n\n**关键技巧：** \n- 企业可通过硬性拒绝（不可绕过）和软性拒绝（可覆盖）规则实现分级权限管控\n- 已手动设置偏好的用户不受默认变更影响\n- 安全分类器产生的额外 token 消耗由官方承担，无需担心成本增加\n- 注意：自动模式可能引入轻微延迟，且审查阶段负担加重，团队需建立会话审计机制，从实时监控转向事后验证思维\n\n该更新旨在平衡自动化效率与安全管控，尤其适合跨目录批量修改等重复性任务场景。",
       "category": "devto"
     },
     {
@@ -64,7 +86,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-10T19:00:16.000Z",
-      "summaryZh": "## Claude Code 相关文章摘要\n\n本文是2026年8月10日的科技新闻汇总，与Claude Code或Anthropic AI直接相关的内容较少，但其中一条值得关注：前OpenAI研究员Leopold Aschenbrenner创立的AI对冲基金Situational Awareness，向芯片制造初创公司Source Foundry追加4亿美元投资，累计达5亿美元。该基金专注于AI基础设施投资，尽管因AI基础设施股票下跌导致管理资产从200亿美元缩水至100亿美元，并被迫向Citadel出售大量公开投资组合，但仍重注芯片制造领域。Source Foundry由斯坦福研究人员创立，致力于加速芯片制造流程并降低成本。\n\n**核心方法**：该基金采取\"AI基础设施重仓\"策略，聚焦芯片制造这一AI算力瓶颈环节，通过私募股权投资布局上游供应链。\n\n**关键技巧**：对于AI从业者而言，此新闻提示关注AI芯片供应链的投资动向，以及AI基础设施市场的波动风险。基金在公开市场受挫后转向私募领域，说明AI投资正从模型层向硬件层转移。开发者可留意芯片制造效率提升对AI推理成本下降的潜在影响。",
+      "summaryZh": "## Claude Code 相关文章摘要\n\n**注意：** 这篇文章并非关于Claude Code或Anthropic AI，而是2026年8月10日的科技新闻汇总。以下为与开发者相关的核心内容摘要：\n\n### 用户场景\n开发者关注AI基础设施投资动向、智能家居自动化方案，以及科技产品价格变动对开发选型的影响。\n\n### 核心方法\n1. **AI基础设施投资**：前OpenAI研究员Leopold Aschenbrenner创办的AI对冲基金Situational Awareness向芯片制造初创Source Foundry追加4亿美元投资（累计5亿美元），尽管该基金AUM已从200亿降至100亿美元。这反映了AI算力军备竞赛的持续升温。\n2. **智能家居自动化**：Eve Weather传感器凭借Matter协议支持，可追踪温度、湿度、气压三项数据，用于触发冷天滴水防冻、除湿机联动、雨后延迟洒水等HomeKit自动化场景，气压数据可预测约12小时天气趋势。\n3. **FCC无人机监管**：FCC拟禁止已批准销售的DJI等无人机（涉及LiDAR、热成像功能），虽不影响现有用户，但可能切断零部件和软件更新渠道。\n\n### 关键技巧\n- 利用Matter协议设备构建跨平台智能家居自动化，注意气压传感器可作短期天气预测\n- 关注AI芯片供应链投资动态，评估算力成本趋势\n- 科技产品涨价潮（iPad Air涨至$749、M5 MacBook Pro涨至$1999）可能推动硬件升级，开发者需关注新设备适配\n\n**建议：** 如需Claude Code或Anthropic AI相关技术内容，请提供对应文章，我将为您详细解析。",
+      "category": "devto"
+    },
+    {
+      "title": "How Samsung Uses Claude to Slash SoC Verification Time",
+      "titleZh": "三星如何利用Claude大幅缩短SoC验证时间",
+      "link": "https://dev.to/leojulieta/how-samsung-uses-claude-to-slash-soc-verification-time-6p9",
+      "author": "LeoJulieta",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-13T16:57:00.000Z",
+      "summaryZh": "## 三星用Claude缩短SoC验证周期\n\n**用户场景：** 芯片验证占NRE成本约30%，且UVM专家全球仅约1.5万人。三星试点用Anthropic的Claude LLM辅助SoC验证，目标将验证周期从数周压缩至数天，同时应对2nm工艺竞争和人才短缺。\n\n**核心方法：** 三星采用两步提示模式——先让Claude用自然语言总结RTL功能意图，再生成UVM测试平台。通过Docker私有实例挂载只读RTL仓库，生成代码经Verilator lint检查后，与黄金模型对比验证。试点结果显示：测试平台生成时间从45分钟降至3分钟，但误报率12%高于传统工具的3-4%，bug覆盖率78%低于Cadence的92%。\n\n**关键技巧：**\n- 从小规模IP块（如AXI-lite外设）起步，而非整个SoC\n- 建立可复用提示库，覆盖规格提取、激励生成和覆盖率检查\n- 自动化反馈循环：Claude输出→linter检查→黄金模型对比\n- 确保容器内RTL只读，日志加密且限时保留\n- 添加\"仅使用*_if.sv中定义信号\"等护栏约束降低误报\n\n**核心结论：** Claude可缩短约20%验证周期，但无法替代成熟EDA工具。应将其定位为\"副驾驶\"而非自主验证器，人工最终审查仍不可或缺。IP泄露风险需通过私有部署和合同保障缓解。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Bakes Undetectable AI Watermarks into Claude",
+      "titleZh": "Anthropic将不可检测的AI水印融入Claude",
+      "link": "https://dev.to/xoomar/anthropic-bakes-undetectable-ai-watermarks-into-claude-47hm",
+      "author": "XOOMAR",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-08-13T10:41:43.000Z",
+      "summaryZh": "**Anthropic 为 Claude 内置隐形水印：开发者需知的合规与溯源新常态**\n\n**用户场景**：为满足欧盟《AI 法案》透明度准则（2026年8月生效），Anthropic 将在模型层嵌入加密水印，覆盖 API、Claude Code、Cowork 等所有输出。开发者若涉及内容生成、学术诚信或企业合规，需评估 AI 文本可追溯性对现有工作流的影响。\n\n**核心方法**：水印直接生成于语言模型内部，非简单元数据，复制粘贴后仍保留，部分编辑后可能存活。生成文件（SVG/PNG/JPG）则采用 C2PA 标准附加签名元数据。新模型自动启用，旧模型将回溯支持。Anthropic 同时提供第三方检测工具，供平台、期刊等验证内容来源。\n\n**关键技巧**：\n- **注意误判风险**：水印仅证明文本经 Claude 处理（如人类写作被润色），缺失不代表人工创作，重度改写或翻译可能破坏信号。\n- **编辑阈值未明**：官方未明确“多少编辑会移除水印”，开发者需关注后续澄清，避免依赖其作为唯一真实性判据。\n- **行业对标**：Google、OpenAI 等已承诺遵守欧盟准则，但 Anthropic 的公开路线图与旧模型支持树立了基准，选型时可将水印健壮性纳入考量。\n\n**影响**：水印将形成可追踪的 AI 内容网络，但实际效用取决于平台采纳率与编辑阈值。对开发者而言，这是合规底线，而非万能检测器——需结合业务场景设计内容溯源策略。",
       "category": "devto"
     },
     {
@@ -75,63 +119,41 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-08-09T05:05:48.000Z",
-      "summaryZh": "## Claude API 账单直降85%：Prompt Caching 实战指南\n\n**用户场景**：作者运营一个每天处理约4000次请求的AI Agent，系统提示词长达2800 tokens（含规则、工具定义和示例），每次调用都重复发送。优化前日均API费用$47，启用缓存后骤降至$6.80，成本降低85%且不影响Agent行为。\n\n**核心方法**：利用Anthropic的prompt caching前缀缓存机制。在system prompt末尾添加`cache_control`断点，API会将此前缀存入KV存储。定价上，缓存写入每百万tokens $3.75（溢价25%），缓存读取仅$0.30（折扣90%），缓存有效期5分钟（每次命中自动续期）。通过检查`cache_creation_input_tokens`和`cache_read_input_tokens`字段确认缓存生效。\n\n**关键技巧**：\n1. **高ROI场景**：大型system prompt（>1000 tokens）、工具schema（10个工具约800-1200 tokens）、few-shot示例（2000-4000 tokens）、同一文档多问题分析（缓存文档文本）\n2. **低ROI场景**：请求间隔>5分钟、system prompt<500 tokens、一次性批处理任务\n3. **支持最多4个缓存断点**，可将静态规则、工具定义、动态上下文分层缓存\n4. **最大坑点**：缓存键是精确token序列，动态内容（如用户名插值）会破坏缓存命中。必须将动态内容移到最后一个断点之后，缓存块只放真正静态的内容",
+      "summaryZh": "## 提示词缓存：Claude API 账单直降85%的实战方案\n\n**用户场景**：作者运营一个每天处理约4000次请求的AI代理，系统提示词长达2800 tokens（含规则、工具定义和示例），每次调用都完整发送。优化前日均成本$47，启用缓存后降至$6.80，节省85%且零行为变更。\n\n**核心方法**：利用Anthropic的提示词缓存机制，在系统提示词末尾添加`cache_control`断点标记。API会缓存该断点之前的所有内容，后续请求命中缓存时，输入token费用从$3.00/M降至$0.30/M（90%折扣）。缓存写入需支付25%溢价（$3.75/M），但缓存有效期5分钟且每次命中自动续期，高频调用场景下收益显著。\n\n**关键技巧**：\n1. **高ROI场景**：大型系统提示词（>1000 tokens）、工具定义（10个工具约800-1200 tokens）、少样本示例（2000-4000 tokens）都值得缓存\n2. **多断点策略**：最多支持4个缓存断点，可将基础规则、工具定义、动态上下文分层处理，但动态内容必须放在最后\n3. **最大坑点**：缓存键是精确的token序列，任何动态插值（如用户名、公司名）都会导致缓存完全失效。必须将动态内容移出缓存块，只缓存纯静态部分\n4. **低效场景**：请求间隔>5分钟、提示词<500 tokens、一次性批处理任务都不适合缓存\n\n**避坑建议**：启用前先计算盈亏平衡点（缓存token数×请求频率），确保写入溢价能被读取折扣覆盖。",
       "category": "devto"
     },
     {
-      "title": "claude free: как собрать заявку на мелкий ремонт и не оставить мастеру догадки",
-      "titleZh": "Claude免费版：如何整理小额维修申请，让师傅无需猜测",
-      "link": "https://dev.to/provod-ai/claude-free-kak-sobrat-zaiavku-na-mielkii-riemont-i-nie-ostavit-mastieru-doghadki-27da",
-      "author": "Promptra Team",
+      "title": "Como a Samsung usou Claude da Anthropic para reduzir 12h a 3h na verificação de chips",
+      "titleZh": "三星如何利用Anthropic的Claude将芯片验证时间从12小时缩短至3小时",
+      "link": "https://dev.to/leojulieta/como-a-samsung-usou-claude-da-anthropic-para-reduzir-12h-a-3h-na-verificacao-de-chips-2617",
+      "author": "LeoJulieta",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-08-12T15:42:12.000Z",
-      "summaryZh": "## Claude Code 实战：如何用结构化卡片写清维修工单\n\n**用户场景**：作者发现日常维修请求（如“水槽下面漏水”）常因信息缺失导致师傅上门后需重新排查，浪费时间和沟通成本。核心痛点是事实与猜测混淆，导致无法验证维修是否真正完成。\n\n**核心方法**：提出“五字段工单卡片”模板——地点（明确房间/区域）、可观察症状（描述现象而非原因）、已有测量数据（仅限已获取的尺寸）、访问限制（时间/空间约束）、完成标准（可验证的结果）。例如：“浴室水槽下方，开水后出现积水，工作日19点后可上门，验收标准为开水后无积水”。\n\n**关键技巧**：\n- 严格区分“观察事实”与“诊断假设”，假设可单独标注但不能替代症状描述\n- 完成标准必须不依赖任何故障原因假设，确保可独立验证\n- 测量数据宁缺毋滥，没有就留空，避免用估算冒充精确值\n- 发送前用四个问题自检：地点是否明确？症状是否客观？限制是否记录？结果是否可验证？\n\n作者强调，工单的价值不在于信息量多少，而在于事实与推断的清晰分离，这为专业判断留出空间。",
+      "pubDate": "2026-08-13T16:58:11.000Z",
+      "summaryZh": "## 三星用 Anthropic Claude 将芯片验证时间从 12 小时缩短至 3 小时\n\n**用户场景：** 三星在芯片验证流程中引入 Claude，将约束（constraints）生成时间从 12 小时降至 3 小时，但代价是后硅缺陷率从 0.4% 升至 1.2%。作者针对 EDA 工程师，探讨 LLM 在芯片验证中的实际价值与风险边界。\n\n**核心方法：** 将 Claude 定位为\"验证助手\"而非替代品。工作流包括：① 通过 Anthropic SDK 发送 netlist 提示词生成 SystemVerilog constraints；② 用 JasperGold 等形式化工具验证输出；③ 用 pandas 自动化对比 Tgen、Tsim、Dpost 三项指标。关键结论：Claude 适合加速约束编写和报告解读，但最终认证必须保留形式化验证。\n\n**关键技巧：**\n- 限制输出 200 行并添加 \"// TODO: 审查\" 注释，便于人工检查\n- 敏感 IP 优先选择 on-premise 推理或 private endpoints，避免数据用于模型训练\n- 建立标准化 prompt 模板，确保结果一致性\n- 先在非关键设计模块试点，再推广到复杂 IP\n- 记录所有 API 调用日志以满足合规审计要求\n\n**风险提示：** 每个后硅缺陷可能造成 5 万至 200 万美元损失，务必用自动化脚本持续监控指标回归。",
       "category": "devto"
     },
     {
-      "title": "как пользоваться claude: как не пропустить обязательные темы интервью и собрать проверяемый план вопросов",
-      "titleZh": "如何使用Claude：如何不错过必考的面试主题并制定可验证的问题计划",
-      "link": "https://dev.to/provod-ai/kak-polzovatsia-claude-kak-nie-propustit-obiazatielnyie-tiemy-intierviu-i-sobrat-provieriaiemyi-plan-4j5l",
-      "author": "Promptra Team",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-11T15:32:03.000Z",
-      "summaryZh": "# Claude Code 在面试准备中的应用：构建可验证的覆盖矩阵\n\n**用户场景**：作者发现面试准备中常见的问题是——零散笔记被整理成流畅的问题列表后，看似完整实则可能遗漏了必须覆盖的主题。核心痛点是：如何确保面试计划真正覆盖所有必答主题，而非仅凭\"感觉\"判断准备充分。\n\n**核心方法**：提出\"覆盖矩阵\"（Coverage Matrix）方法，为每个必答主题建立独立行，包含四个关键字段：主题名称、基础备注（说明该主题为何重要）、关联问题、检查负责人及状态。这种方法将\"准备充分\"的标准从\"问题措辞优美\"转变为\"每个主题都有可见的覆盖证据\"。\n\n**关键技巧**：\n1. **先建矩阵再润色**：先列出所有必答主题和备注，再编辑问题措辞，避免被流畅文本误导\n2. **明确区分\"未知\"与\"未做\"**：未知信息应标记为未知并指定人工核查，而非猜测填充\n3. **Claude Code仅用于措辞优化**：完整性检查、事实核查和最终验收必须由人工完成\n4. **未闭合行是特性而非缺陷**：它精确指示了尚不能做出的决策，防止将未解决问题误认为已完成\n5. **矩阵非脚本**：保持对话灵活性，矩阵只负责覆盖追踪，不限制提问顺序\n\n作者强调：面试可靠性更多取决于覆盖的可观察性，而非措辞的精致度。",
-      "category": "devto"
+      "title": "v2.1.231",
+      "titleZh": "v2.1.231",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.231",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-08-13T08:38:50.000Z",
+      "summaryZh": "**v2.1.231 版本更新摘要**\n\n本次更新主要修复了一个关键问题：针对使用预注册 OAuth 客户端的服务器（如 Slack），MCP OAuth 登录时因重定向 URI 不匹配而失败的情况。此前，这类服务器在认证过程中会因 URI 校验错误导致登录中断，现已解决。该修复提升了与第三方服务的兼容性，确保 OAuth 流程顺畅。本次更新无新增功能或破坏性变更，属于稳定性修复版本。建议使用 MCP 集成 Slack 等服务的用户及时升级。",
+      "category": "github-release"
     },
     {
-      "title": "claude pro: как подготовить тренировку сбоя с ролями и не пропустить стоп-условие",
-      "titleZh": "claude pro：如何准备带角色的故障演练并不错过停止条件",
-      "link": "https://dev.to/provod-ai/claude-pro-kak-podghotovit-trienirovku-sboia-s-roliami-i-nie-propustit-stop-usloviie-5h44",
-      "author": "Promptra Team",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-12T12:40:41.000Z",
-      "summaryZh": "## Claude Pro 实战：用角色卡构建故障演练，避免止步条件失效\n\n**用户场景：** 作者指出，故障演练常因参与者缺乏统一启动信号和止步后的行动共识而失败。问题不在于细节不足，而在于角色边界模糊、参与时机不清、停止后无人知晓下一步。\n\n**核心方法：** 提出“三字段角色卡”框架——为每位参与者明确记录：**角色**（限定职责范围）、**输入信号**（触发参与的特定事件或语句）、**止步后动作**（暂停或结束后的具体行动）。演练前需验证五个要素：限定场景、角色、输入信号、检查点、手动止步动作。\n\n**关键技巧：**\n- 止步条件不是主持人结束语，必须配套明确后续动作（如记录停在哪一检查点）\n- 检查点无法弥补参与者对“开始/结束”理解不一致的问题\n- 卡片应保持精简，防止过度形式化扼杀讨论；仅保留防止参与断裂的必需字段\n- 快速诊断法：逐项核对卡片，任何字段缺失先补齐，而非添加新剧情\n\n作者还提及 provod.ai 作为模型对比工具，支持 Claude、GPT 等，但强调其仅用于接口测试，不承担演练协调功能。",
-      "category": "devto"
-    },
-    {
-      "title": "claude что это: как определить границу между черновой помощью и обязательным решением человека",
-      "titleZh": "Claude是什么：如何界定草稿辅助与人类必要决策之间的界限",
-      "link": "https://dev.to/provod-ai/claude-chto-eto-kak-opriedielit-ghranitsu-miezhdu-chiernovoi-pomoshchiu-i-obiazatielnym-rieshieniiem-chielovieka-1i34",
-      "author": "Promptra Team",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-12T09:39:32.000Z",
-      "summaryZh": "## Claude Code 使用边界：草稿辅助与人工决策的划分\n\n**用户场景**：作者探讨了AI生成草稿（如Claude Code辅助产出）与人工最终决策之间的边界问题。核心困惑在于：AI生成的文本看似完整，但缺乏明确的状态标记，容易将“草稿帮助”误认为“已批准决策”。\n\n**核心方法**：提出“场景卡片”四字段框架——①允许的草稿范围（可获取哪些初步帮助）；②禁止行为（草稿不得代选、代发、代执行）；③审核人（谁做最终决定）；④审批节点（何时必须人工确认）。通过显式分离“内容质量”与“决策权限”，防止草稿越权。\n\n**关键技巧**：\n- 传递草稿前必须完成四字段自检，缺一不可\n- 若无法指定审核人或审批点，应停止流转而非继续推进\n- 小任务可简化流程，但一旦草稿影响实际决策，边界记录必不可少\n- 实用诊断：对每字段提问“能准备什么/不能做什么/谁审查/何时确认”，任一缺失即视为边界未建立\n\n作者强调，卡片本身不保证决策正确，但能防止“有用性”被误认为“行动授权”。文中提及的provod.ai作为模型对比工具，不承担决策责任，仅作技术选型参考。",
-      "category": "devto"
-    },
-    {
-      "title": "claude русский: как собрать двуязычный глоссарий и не смешать разные значения терминов",
-      "titleZh": "claude русский：如何构建双语术语表并避免混淆术语的不同含义",
-      "link": "https://dev.to/provod-ai/claude-russkii-kak-sobrat-dvuiazychnyi-ghlossarii-i-nie-smieshat-raznyie-znachieniia-tierminov-4e0i",
-      "author": "Promptra Team",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-08-11T19:18:24.000Z",
-      "summaryZh": "## Claude Code 双语术语表管理：避免术语混淆的实战指南\n\n**用户场景**：本文面向使用 Claude Code 进行双语项目协作的团队，解决一个核心痛点——翻译对（translation pair）在从对话迁移到任务、模板或验收标准时，容易丢失上下文和协商状态，导致不同成员对同一术语产生歧义。\n\n**核心方法**：作者提出“术语卡片”审计机制，每对翻译需记录6个字段：源术语、目标译法、上下文片段、预期含义、负责人、协商状态。关键原则是**不急于合并不同译法**——当同一源词存在多个目标变体时，应保留独立记录直到团队确认语义一致。文章提供诊断矩阵：有上下文+状态才可复用；仅有翻译视为草稿；不同译法需分开追踪。\n\n**关键技巧**：\n- 避免“为整洁而合并”——重复记录可能是未决问题的诚实信号\n- 区分“草稿记录”与“可复用术语”，后者必须包含完整审计字段\n- 审计重点不是找“正确翻译”，而是验证新执行者能否理解同一需求\n- 工具选择（如 provod.ai）应在规则确定后进行，仅作为记录匹配界面\n\n作者最终抛出决策问题：争议术语是暂停任务确认语义，还是为速度接受歧义风险？",
-      "category": "devto"
+      "title": "v2.1.229",
+      "titleZh": "v2.1.229",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.229",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-08-12T20:56:22.000Z",
+      "summaryZh": "## Claude Code v2.1.229 更新摘要\n\n**新功能**：新增 `claude remote-control --continue` 命令，可恢复最近的远程控制会话；支持自托管运行器的服务器端 hook；网关流式响应增加 SSE keepalive 心跳，防止 Vertex/Bedrock 上游长时间思考时断连；插件市场新增命令源，支持本地命令输出插件目录并动态应用；ListAgents 现在可标记断开的远程会话为离线。\n\n**Bug 修复**：修复流式响应部分消失或重复打印的问题；修复工具调用中非字符串值导致的崩溃；修复窄终端下进度条/表格渲染引发的 RangeError；修复 Windows 扩展路径崩溃；修复禁用 attribution header 时自动模式失败；修复 MCP OAuth 重定向 URI 使用 localhost 的问题；修复远程控制客户端假死；修复 GitHub App 工作流不发布评论；修复 IDE 诊断导致的 UI 卡顿；修复插件残留文件；修复容器 CPU 限制识别；修复文件监视器句柄泄漏；修复 SDK 空白消息 400 错误；修复 32MB 请求限制重试逻辑；修复 OpenTelemetry 导出被网关拒绝；修复自托管运行器启动退出问题。\n\n**破坏性变更**：Windows 自托管运行器需显式指定 `--base-dir`；`/commit-push-pr` 不再自动批准危险 git/gh 命令；`/login` 后重复 OAuth token 警告。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.228",
@@ -141,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-08-11T19:50:59.000Z",
-      "summaryZh": "## Claude Code v2.1.228 更新说明\n\n**新特性与改进：**\n- 跨会话消息现以内联方式显示发送者和内容，不再折叠；远程控制会话显示会话名称作为发送者\n- Vertex AI 凭据处理优化：过期或缺失的 Google Cloud 凭据数秒内即报错，不再反复重试\n- 压缩进度改进：重试倒计时和停滞提示在压缩期间可见\n- 终端标题忙碌指示器更新，减少部分终端的标签栏抖动\n- Write 工具规则调整：新模型可覆盖本会话未读取的现有文件（与 Edit 工具一致），旧模型仍需先读取\n\n**Bug 修复：**\n- 修复交互式会话因内部布局错误停止重绘的问题\n- 修复 Windows 上 Git/Git Bash 无法找到的问题\n- 修复 /tui 在 /model 更改后回退到旧模型的问题\n- 修复远程控制 /resume 泄露会话标题或历史的问题\n- 修复自托管运行器在 checkout 钩子失败时崩溃的问题\n- 修复会话清理误删项目记忆文件夹内容的问题\n- 修复插件缓存清理误删符号链接开发版本的问题\n- 修复市场条目合并时自定义头继承错误的问题\n- 修复技能调用后延迟工具提醒重复发送的问题\n\n**破坏性变更：**\n- 从 claude.ai 同步的技能不再覆盖本地命令或 MCP 提示，描述已清理并标注，且不会执行 ! 命令或展开 @ 文件\n- 移除了 Pro、Max 和 Team 计划首次使用通知中关于自动模式成本略高的过时说明",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.227",
-      "titleZh": "v2.1.227",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.227",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-08-10T22:56:53.000Z",
-      "summaryZh": "**Claude Code v2.1.227 更新说明**\n\n**新特性与改进：**\n- 优化斜杠命令菜单：蓝色仅标记选中行，匹配字符改为加粗显示而非变色，表情符号和带重音符号的名称保持原有字形\n- 性能提升：减少文件未找到建议和@提及大小检查时的事件循环阻塞\n\n**Bug修复：**\n- 修复会话以过期登录令牌启动时，功能标志未按用户订阅层级评估的问题（该问题曾错误提示Max计划用户启用Fable使用额度）\n- 修复在GitHub托管运行器上启用allowed_non_write_users时，claude-code-action下所有Bash命令失败的问题\n- 修复/tui恢复已回滚至首条消息之前对话的问题\n\n**兼容性说明：**\n本次更新无破坏性变更，主要聚焦于修复和体验优化。建议所有用户升级至最新版本以获得更好的命令菜单交互和性能表现。",
+      "summaryZh": "## v2.1.228 更新概要\n\n**新特性与改进：**\n- 跨会话消息现以内联方式显示发送者和内容，远程控制会话显示会话名称作为发送者\n- Vertex AI 凭证处理优化，过期或缺失凭证数秒内即报错，不再反复重试\n- 压缩进度显示改进，增加重试倒计时和停滞提示\n- 终端标题忙碌指示器更新，减少标签栏抖动\n- Write 工具规则调整：新模型可覆盖本会话未读取的现有文件，与 Edit 工具一致；旧模型仍需先读取\n\n**Bug 修复：**\n- 修复交互会话因内部布局错误停止重绘但进程仍在运行的问题\n- 修复 Windows 下从 Git 安装父目录启动时找不到 Git/Git Bash 的问题\n- 修复 /tui 在 /model 更改后回退到旧模型的问题\n- 修复远程控制 /resume 泄露会话标题或历史的问题\n- 修复自托管运行器在 checkout 钩子失败时崩溃的问题\n- 修复会话清理误删项目 memory 文件夹内容的问题\n- 修复插件缓存清理误删符号链接开发版本的问题\n- 修复市场条目合并时自定义头继承错误的问题\n- 修复技能调用后延迟工具提醒重复发送的问题\n\n**破坏性变更：**\n- 从 claude.ai 同步的技能不再遮蔽本地命令或 MCP 提示，描述已清理并标注，且不会在本地执行 ! 命令或展开 @ 文件\n- 移除了 Pro、Max 和 Team 计划首次使用通知中关于自动模式成本略高的过时说明",
       "category": "github-release"
     }
   ]
