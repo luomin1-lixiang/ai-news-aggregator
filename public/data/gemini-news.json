@@ -1,70 +1,18 @@
 {
-  "lastUpdated": "2026-08-13T18:49:02.218Z",
+  "lastUpdated": "2026-08-17T18:22:48.415Z",
   "items": [
     {
-      "title": "Introducing Gemini 3.7 Flash",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
-      "description": "Gemini 3.7 Flash is our most intelligent workhorse model yet for coding and agents.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-3-7-flash.max-600x600.format-webp.webp\">Gemini 3.7 Flash is our most intelligent workhorse model yet for coding and agents.",
-      "author": "Tulsee Doshi",
+      "title": "Get closer to the game with Gemini and Pixel",
+      "link": "https://blog.google/products-and-platforms/products/gemini/google-gemini-pixel-football-club-partnerships/",
+      "description": "Google Gemini and Pixel partner with five global football clubs to elevate the fan matchday experience through AI and  Smartphone Technology.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/football_multi-club_hero_nphU3P.max-600x600.format-webp.webp\">Google Gemini and Pixel partner with five global football clubs to elevate the fan matchday experience through AI and  Smartphone Technology.",
+      "author": "Eileen Mannion",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 13 Aug 2026 17:00:00 +0000",
-      "titleZh": "Introducing Gemini 3.7 Flash",
-      "descriptionZh": "在Google Gemini模型家族的持续演进中，3.7 Flash标志着\"工作型\"（workhorse）模型的一次重要跨越。所谓工作型模型，是相对于追求极限智能的旗舰模型而言的——它们需要在性能、速度、成本和实用性之间找到最佳平衡，真正承担起大规模、高频率的实际生产任务。Gemini 3.7 Flash正是这一定位下的最新力作，被Google官方称为迄今最智能的工作型模型。\n\n这一代产品的核心突破集中体现在两个关键领域：代码生成与AI智能体（agents）。在编程场景中，Gemini 3.7 Flash不仅具备更强的代码理解与生成能力，还能在复杂项目级上下文中保持连贯的推理，应对多文件修改、重构和调试等真实开发任务，而非仅仅处理孤立的代码片段。在智能体应用中，模型的\"工作型\"特质尤为突出——它需要与外部工具、API和运行时环境持续交互，在长链条的任务执行中做出可靠决策。这意味着模型必须具备更强的工具调用准确率、更稳定的多步推理能力，以及在可接受的延迟下维持高性能表现的能力。\n\n从技术架构角度看，3.7 Flash延续了Gemini系列的高效设计理念，在模型参数量与推理成本之间进行了精细的权衡。它的定位清晰地指向开发者生态：无论是集成到IDE中的实时代码补全、自动化测试生成，还是构建能够自主完成任务的AI代理系统，这一模型都旨在成为支撑这些应用的基础算力引擎。\n\nGemini 3.7 Flash的出现，折射出大模型竞争格局中的一个深层转向：行业的关注点正从\"模型能否做到\"转向\"模型能否高效、可靠、大规模地做到\"。对于企业和开发者而言，这意味着一道更务实的选择题——不再单纯追求参数量或基准分数，而是在真实的工程场景中，找到一个既能读懂复杂代码、又能稳定执行任务、同时还能控制成本与响应时间的实干型模型。3.7 Flash正是Google对这一需求的直接回应，也为AI在软件开发全流程中的深度落地提供了新的可能性。"
-    },
-    {
-      "title": "Bring your spreadsheet data to life with Sheets canvas",
-      "link": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/",
-      "description": "Sheets canvas turns data into interactive dashboards, custom study trackers, seating charts, and more, all with a simple prompt.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Sheets_canvas-blog-header-2784x.max-600x600.format-webp.webp\">Sheets canvas turns data into interactive dashboards, custom study trackers, seating charts, and more, all with a simple prompt.",
-      "author": "Eric Birnbaum",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 13 Aug 2026 16:45:00 +0000",
-      "titleZh": "Bring your spreadsheet data to life with Sheets canvas",
-      "descriptionZh": "Google Sheets推出的Canvas功能标志着电子表格工具向AI驱动的可视化交互平台迈出了重要一步。这项新特性允许用户通过简单的自然语言提示，将原始数据自动转化为交互式仪表盘、自定义学习追踪器、座位表等多种可视化形式，彻底改变了传统电子表格的使用体验。\n\n传统上，在电子表格中创建仪表盘或可视化图表需要掌握复杂的公式、数据透视表以及图表配置知识，这构成了相当大的使用门槛。而Canvas功能的核心创新在于其背后的AI理解与生成能力：用户只需要用日常语言描述需求，例如\"制作一个销售趋势仪表盘\"或\"创建一个课堂座位安排表\"，系统即可自动分析数据结构、选择恰当的可视化类型、布局并生成具有交互性的画布界面。这种从\"操作型工具\"到\"对话式生成平台\"的转变，极大地降低了数据可视化的技术门槛。\n\n从技术架构角度看，Canvas功能打通了自然语言处理、数据解析与渲染引擎之间的协作通路。AI不仅解读用户的意图，还能自动识别数据间的关联性，决定哪些字段适合作为指标、哪些作为维度，以及采用何种图表最为直观。生成的画布不再是静态图片，而是支持点击筛选、悬浮查看详情、随数据更新而实时变化的交互式看板，这使数据的洞察过程更加动态和灵活。\n\n这一功能的应用场景十分广泛。在企业环境中，团队可以快速搭建项目进度看板、销售业绩追踪、运营指标监控等管理工具；在教育领域，教师能够便捷地制作学生表现追踪表或互动座位图；在个人生活方面，用户也可用于制定健身计划、预算管理或学习进度跟踪。其本质是将数据呈现的最后一公里交给了AI，让每位用户都能以极低的成本获得专业级别的数据可视化能力。\n\n总而言之，Sheets Canvas不仅是一项功能更新，更代表了办公工具从\"命令驱动\"向\"意图驱动\"演进的方向。随着AI能力的进一步发展，未来的数据工作将更加聚焦于提出问题与决策，而非繁琐的技术执行，这大幅拓展了数据处理工具的受众边界和使用深度。"
-    },
-    {
-      "title": "Get updates while your Pixel 11 Pro is face down with HiLight.",
-      "link": "https://blog.google/products-and-platforms/devices/pixel/pixel-11-pro-hilight/",
-      "description": "HiLight, a new Pixel 11 Pro feature, gently glows to notify you of timely updates — keeping you informed when your phone is down.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/KW_G_HiLite.max-600x600.format-webp.webp\">HiLight, a new Pixel 11 Pro feature, gently glows to notify you of timely updates — keeping you informed when your phone is down.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 13 Aug 2026 16:00:00 +0000",
-      "titleZh": "Get updates while your Pixel 11 Pro is face down with HiLight.",
-      "descriptionZh": "在智能手机日益成为人们生活中心枢纽的今天，通知管理始终是用户体验中的关键痛点。每一次微信消息、邮件提醒或日程提示都会通过响铃或震动强行抢占注意力，而在会议、课堂或专注于深度工作的时刻，用户往往选择将手机屏幕朝下放置以示\"勿扰\"。然而，这种做法带来一个矛盾：虽然阻断了打扰，却也同时屏蔽了所有重要信息，导致关键消息被错过。正是针对这一日常场景中的真实痛点，Google在Pixel 11 Pro上引入了名为HiLight的全新功能。\n\nHiLight的核心设计理念十分优雅——它不再依赖传统的铃声、震动或亮屏来提醒用户，而是让手机在屏幕朝下放置时，通过机身侧边或背部的柔和光晕进行\"发光式\"通知。这种微弱的光效被设计为\"仅够察觉、不至打扰\"的层级：当有重要更新到来时，手机边缘会轻轻亮起一道光，用户即使不拿起手机，也能凭借余光感知\"有事情发生\"，从而自主决定是否需要查看。这种交互模式将通知从\"被动强迫接收\"转变为\"主动选择查看\"，极大地降低了被无关消息打断的频率，同时又确保了重要信息不会因静音而彻底遗漏。\n\n从技术原理上看，HiLight的实现依赖于软硬件的协同创新。在硬件层面，Pixel 11 Pro在机身设计中集成了低功耗的微型LED光源组件，配合环境光传感器来智能调节发光亮度——在暗光环境下光效会更加柔和，避免刺眼；在明亮环境中则增强光晕的可见度。同时，通过加速度计和姿态传感器，手机能够精准识别当前是否处于屏幕朝下的放置状态，从而触发HiLight模式而非常规的锁屏通知。在软件层面，HiLight与Android通知优先级系统深度集成：用户可以自定义哪些应用或联系人能够触发发光提醒，例如仅允许家人、来电或日程提醒点亮光效，而将新闻推送、游戏通知等低优先级消息完全排除在外。\n\n这一功能的创新之处在于它对\"注意力\"这一资源的重新定义。传统手机通知系统的基本假设是\"通知必须被看到\"，因此采用各种强制手段争夺用户视线；而HiLight则把假设转变为\"通知应该被感知\"。光晕是一种近乎本能的感知信号——人眼对视野边缘的亮度变化天然敏感，无需刻意识别内容即可察觉\"有变化发生\"。这种基于人类感知特性的设计，使得信息传递的效率与干扰的强度达到了全新的平衡点。此外，由于LED光效的功耗远低于点亮整块屏幕，HiLight在不牺牲便捷性的前提下，也为用户带来了额外的续航收益——屏幕朝下时无需频繁亮屏检查，电池消耗显著降低。\n\n从应用场景来看，HiLight的价值渗透在日常生活的多个维度。对职场人士而言，在会议室将手机屏幕朝下，既能保持对紧急来电的敏感，又避免了反复查看手机的不礼貌印象；对学生或研究者来说，在专注阅读或实验时，一道光晕足以告知\"重要邮件已到\"，而不会破坏心流状态；在夜间场景中，当手机充电时被放置在床头柜台面上，HiLight可以替代刺眼的屏幕通知灯，以温润的光效提醒清晨的闹钟即将响起或夜间收到的紧急消息。对于听障用户或有听力损失的群体，这一功能更是提供了一种重要的无障碍信息获取通道，弥补了声音提醒的不足。\n\n当然，HiLight也体现出Google对\"设备智能\"更深层的思考——它不仅是单向的通知播报器，而是试图通过学习用户的习惯来优化发光行为。例如，系统可以基于使用模式判断哪些时段和情境下用户倾向于忽略光效，从而自动调整发光频率和强度；也可以与Pixel生态中的\"自适应通知\"协同，为不同联系人赋予不同的光色或闪烁节奏，让用户仅仅通过光晕的颜色和频率就能大致判断信息的来源和紧急程度。这类人性化细节，使HiLight从单一的\"提醒工具\"升维为一套完整的\"注意力管理方案\"。\n\n总体而言，HiLight虽是Pixel 11 Pro众多新功能中的一项细节设计，却折射出智能手机交互设计正在从\"无限连接、时刻打扰\"向\"智能在场、按需连接\"的范式迁移。它不再试图让用户永远盯着屏幕，而是尊重用户与现实世界的互动节奏，用一抹恰到好处的微光，在\"不被打扰\"与\"不错过重要\"之间找到了一条兼具温度与效率的中间路径。这种设计哲学，或许正是未来智能设备与人类关系演进的方向——设备不再喧哗地争夺注意力，而是在恰当的时机，以恰当的方式，安静地发话。"
-    },
-    {
-      "title": "Stay present while taking pictures with Magic Capture on Pixel 11.",
-      "link": "https://blog.google/products-and-platforms/devices/pixel/pixel-11-magic-capture/",
-      "description": "Pixel 11’s new Magic Capture feature finds the best shots from dynamic scenes so you don’t miss precious moments trying to capture them.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MagicCapture.max-600x600.format-webp.webp\">Pixel 11’s new Magic Capture feature finds the best shots from dynamic scenes so you don’t miss precious moments trying to capture them.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 13 Aug 2026 16:00:00 +0000",
-      "titleZh": "Stay present while taking pictures with Magic Capture on Pixel 11.",
-      "descriptionZh": "Google Pixel 11 即将推出的 Magic Capture 功能，源于一个日常生活中普遍存在的痛点：面对充满动态变化的场景——比如孩子们嬉闹、宠物奔跑、或一场精彩的庆祝瞬间——我们往往手忙脚乱地按下快门，结果却常常发现照片模糊、表情欠佳，或是错过了最关键的那一瞬间。传统摄影中，捕捉“决定性瞬间”高度依赖拍摄者的时机判断和运气，而 Magic Capture 的核心理念，正是要将这份运气转化为可依赖的技术能力。\n\n这项功能的关键工作原理并非单纯提升单张照片的成像质量，而是采用了一种“先捕捉，后择优”的计算摄影策略。从技术层面来看，它能够在一个极短的时间窗口内，以高帧率连续拍摄多张照片，从而将一段完整动态过程记录下来。接着，系统会依据一套复杂的算法对连拍序列进行智能分析。这个分析过程并非简单地判断清晰度，而是会综合评估多个维度：对焦准确性和画面锐度是基础，同时算法还会利用机器学习模型进行面部表情的识别与打分，判断人物是否睁眼、笑容是否自然；对于场景中的运动物体，系统也需要评估其姿态是否符合理想的控制点，确保动作流畅且富有美感。在完成对每一帧画面的量化评估后，Magic Capture 会将这些得分进行加权融合，以选出在所有维度上综合表现最佳的那一帧。在某些更复杂的情境下，它还可能会通过像素级的融合技术，将不同帧中各自的优点（例如第一帧的完美表情和第二帧的清晰手势）合成为一张理想图片，这一技术路线与其之前在夜间模式或 HDR+ 中使用的多帧对齐与合成技术一脉相承，但逻辑从“提升画质”转向了“优化瞬间”。\n\n这个功能的落地，背后是整个 Pixel 相机系统的持续演进在提供支撑。它依赖于升级后的影像传感器提供的快速读取速度，也依赖于第四代 Tensor 处理器中集成的神经网络引擎，这些算力是确保在本地完成大量连拍帧数据处理的前提，从而有效解决了传统连拍模式会导致的拍摄延迟和存储压力。从实际影响来看，Magic Capture 对普通用户来说意味着一种“无脑拍”的自信：在家庭聚会或体育赛事等不可复制的场景中，用户只需按住快门，就能确保事后从图库中获得一张完美的抓拍。这也象征着智能手机摄影从“记录”向“创作”的进一步迈进，相机不再仅仅是捕捉光线的工具，更成为能理解场景语义和情感瞬间的智能伙伴。它让摄影变得更加从容，让用户可以放下对参数的焦虑，更专注于享受当下的体验本身。"
-    },
-    {
-      "title": "Omni experts share what excites them most about the model.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-omni-experts-roundtable/",
-      "description": "We interviewed some of the experts behind Gemini Omni to hear what excites them most about the model.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Omni_experts_social.max-600x600.format-webp.webp\">We interviewed some of the experts behind Gemini Omni to hear what excites them most about the model.",
-      "author": "Lindsey Lanquist",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 13 Aug 2026 13:30:00 +0000",
-      "titleZh": "Omni experts share what excites them most about the model.",
-      "descriptionZh": "这篇博客以访谈形式，集结了多位参与Gemini Omni研发的专家，请他们分享对这一模型最感到兴奋的部分。从现有文本来看，文章显然希望借由内部研究者的视角，向读者展现新模型在技术突破与应用前景上的独特价值。Gemini Omni是Google在通用多模态AI方向上的进一步探索，其命名中的“Omni”透露出一种全能定位，即尝试将文本、图像、音频、视频等多种感知形态整合到统一的模型框架中，以更接近人类的方式理解和生成信息。这类模型在技术上往往依托大规模Transformer架构，通过海量多模态数据的联合预训练，把不同模态的输入映射到共享的语义空间，从而实现跨模态的对齐与推理。其关键创新通常体现在原生多模态建模能力上，而不是简单地拼接单模态模块，这使得模型能够在概念层面打通视觉与语言、声音与语义之间的关联，进而在复杂任务中表现出更强的上下文理解与生成能力。对于专家们而言，最令人振奋的地方或许不仅在于基准分数的提升，更在于这些技术能力能够转化为真实世界中的应用体验：更自然的智能助理、更高效的信息检索、实时翻译、无障碍辅助、教育辅导以及自动化内容创作等场景都可能因此发生改变。访谈的意义在于，它让研究者们以第一人称讲述技术背后的热情与愿景，把实验室中的进步与普通人的日常生活联系起来。由于原文仅提供了这一导语性质的引言，没有展示专家们的具体回答细节，因此本摘要只能在技术原理与影响层面做出较为概括性的描述，但足以看出Gemini Omni所承载的期望，以及它在推动多模态AI走向一体化、实用化方面的重要意义。"
+      "pubDate": "Mon, 17 Aug 2026 08:00:00 +0000",
+      "titleZh": "Get closer to the game with Gemini and Pixel",
+      "descriptionZh": "谷歌旗下Gemini人工智能与Pixel智能手机近日宣布与五家全球知名足球俱乐部建立合作关系，旨在通过前沿AI技术和移动设备创新，全面提升球迷的赛事日体验。这一合作标志着科技公司深入体育产业生态、将人工智能融入大众体育消费场景的重要尝试。\n\n**合作背景与核心诉求**\n\n传统赛事日体验长期面临诸多痛点：球迷入场安检排队时间长、场内导航困难、实时数据获取繁琐、互动方式单一，以及赛前赛中赛后的信息割裂。谷歌此次选择足球这一全球受众最广的体育运动作为切入点，正是看中了其庞大的粉丝基数和多元化的消费场景。通过将Gemini大模型的自然语言理解、多模态交互能力与Pixel手机的硬件优势相结合，谷歌希望打造一个贯穿赛事全程的智能化陪伴体验，让科技不再是冰冷的工具，而是球迷情感连接的一部分。\n\n**核心技术原理与创新亮点**\n\n这一合作的技术核心在于Gemini模型与Pixel设备的深度协同。Gemini作为谷歌最新一代多模态大模型，具备强大的上下文理解、图像识别和实时对话能力；而Pixel手机则提供了专属的AI算力支撑和软硬件一体化优化。具体到赛事场景中，球迷可以通过自然语言与手机交互，例如询问“今天主队的首发阵容是什么？”或“离我最近的餐饮摊位在哪里？”，Gemini能够理解语义并结合赛事数据和场馆地图信息，给出精准及时的答复。\n\n在图像与视觉层面，Pixel的相机系统与Gemini的视觉识别能力相结合，可以为球迷提供实时的赛场精彩瞬间捕捉、球员识别和战术分析。例如，用户只需将手机镜头对准球场，系统即可自动识别场上球员、显示其跑动数据或历史比赛统计。这种将AI视觉能力嵌入真实体育场景的做法，刷新了传统观赛的被动信息接收模式，转为主动式的个性化交互体验。\n\n此外，Gemini的多语言能力也在国际化的足球场景中发挥关键作用——来自不同国家、使用不同语言的球迷，都可以用自己的母语获取赛事信息，享受无语言障碍的观赛服务。这种包容性的设计理念，体现了AI技术在全球文化融合中的独特价值。\n\n**技术影响与应用场景展望**\n\n从技术影响来看，这次合作展示了AI大模型在垂直行业落地的可行路径。与以往通用型AI助手不同，Gemini通过与足球赛事这一具体场景的深度融合，证明了人工智能可以成为体育产业数字化转型的基础设施。对于俱乐部而言，这意味着更精准的球迷画像、更高效的场馆运营和更丰富的商业变现渠道；对于球迷而言，则意味着从“到场观看”到“沉浸式参与”的体验升级。\n\n在更广阔的应用前景上，这一合作模式具有很强的可复制性——演唱会、电竞赛事、大型展会等各类文娱活动都可以借鉴类似思路，将AI能力嵌入到用户的实时体验中。同时，这也为智能手机厂商提供了新的差异化竞争方向：在硬件参数趋于同质化的今天，通过与垂直场景的深度绑定来创造独特的用户价值，正成为行业的新趋势。\n\n总体而言，谷歌此次与五大足球俱乐部的合作，不仅是品牌营销层面的一次联动，更是AI技术从工具属性走向情感陪伴属性的重要一步。随着Gemini能力的持续迭代和Pixel硬件生态的不断完善，未来的体育观赛体验将不再是单向的信息输出，而是一场由人工智能驱动的、充满个性化和交互性的数字盛宴。"
     }
   ]
 }
