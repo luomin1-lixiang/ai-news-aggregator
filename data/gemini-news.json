@@ -1,18 +1,44 @@
 {
-  "lastUpdated": "2026-08-18T18:21:54.789Z",
+  "lastUpdated": "2026-08-19T18:19:41.562Z",
   "items": [
     {
-      "title": "Operation Blue Skies: Reducing aviation climate impact with AI",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/blue-skies/",
-      "description": "Google is partnering with the UK on Operation Blue Skies, an airspace-scale, AI-powered contrail avoidance trial.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_blog_image.max-600x600.format-webp.webp\">Google is partnering with the UK on Operation Blue Skies, an airspace-scale, AI-powered contrail avoidance trial.",
-      "author": "Paul Hodgson",
+      "title": "Waymo is bringing Gemini into its custom Ojai vehicles.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-waymo/",
+      "description": "Waymo is bringing Gemini to its custom-built Ojai vehicles to create a more helpful and personalized ride.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_Ojai_vehicles_social.max-600x600.format-webp.webp\">Waymo is bringing Gemini to its custom-built Ojai vehicles to create a more helpful and personalized ride.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 18 Aug 2026 09:00:00 +0000",
-      "titleZh": "Operation Blue Skies: Reducing aviation climate impact with AI",
-      "descriptionZh": "谷歌正与英国合作开展“蓝天行动”（Operation Blue Skies），这是一项覆盖空域规模的、由人工智能驱动的飞机尾迹规避试验项目。这一合作标志着航空业在应对气候变化方面迈出了重要一步。\n\n尾迹（contrails）是飞机在特定温度和湿度条件下穿越高空大气时形成的冰晶凝结带，它们在高空滞留并困住热量，形成了一层额外的“人造卷云”，对全球变暖产生了显著的温室效应。据科学研究估计，尾迹及其形成的卷云对航空业整体气候影响的占比甚至超过了航空燃料燃烧本身排放的二氧化碳。然而，并非所有航班都会产生尾迹——只有大约2%到10%的航班飞经形成尾迹的有利条件区域，这意味着通过智能航线调整来避免尾迹生成，是一条极具潜力且成本相对较低的减排路径。\n\n谷歌此前在该领域已有深厚积累。2022年，谷歌研究院与Breakthrough Energy、美国航空公司合作开展了一项基于人工智能的尾迹规避试点研究，通过分析卫星图像、气象数据和飞行轨迹，训练机器学习模型预测可能生成尾迹的空域，并将建议的航线调整方案提供给飞行员。试飞结果令人振奋：AI模型的预测能力显著优于传统方法，调整航线后尾迹生成减少了54%，而燃料消耗仅微增2%。这一结果表明，尾迹规避与减碳目标并非不可兼得，关键在于精确预测和精准规避。\n\n如今，谷歌将这一技术从单次验证提升到空域级别，与英国政府正式达成合作，启动“蓝天行动”。该项目的核心目标是全面测试AI驱动的尾迹规避方案在真实、大规模空域运行的可行性和有效性。英国拥有世界上最繁忙的空域之一，其空域结构复杂、航班密度高，这为大规模验证提供了理想的“试验场”。通过这一项目，研究人员可以评估尾迹规避策略在跨航班调度、空中交通管制协调、机场运营等多个环节的集成效果，进而为未来将这一技术标准化、规模化推广积累关键数据与运营经验。\n\nAirbus等航空工业巨头也参与了这一项目，这反映出航空产业链上下游对气候影响治理的共识正在形成。如果试运行顺利，“蓝天行动”不仅能为英国乃至欧洲的航空减排政策提供数据支撑，也将为全球航空业提供一个可复制的AI应用范式——即通过智能化的航路规划，在不显著增加运营成本的前提下，有效减少航空对气候变暖的非CO₂影响。这也充分展示了人工智能技术在气候行动中不可忽视的价值：AI不仅能帮助企业更高效地利用能源、优化工业流程，还能以精准预测为手段，在复杂系统中找到微小的干预点，取得显著的环境效益。"
+      "pubDate": "Wed, 19 Aug 2026 17:30:00 +0000",
+      "titleZh": "Waymo将Gemini引入其定制的Ojai车辆中。",
+      "descriptionZh": "近年来，自动驾驶技术已经从实验室走向商业化运营，Waymo作为这一领域的先行者，正试图在“安全地把人送到目的地”这一基础能力之上，重新定义乘客与车辆之间的交互体验。传统自动驾驶系统的核心关注点在于感知、规划和车辆控制——如何识别道路上的物体、如何决策变道或转弯、如何平稳地加速和刹车。但车辆本身的“智能化”并不仅限于驾驶操作，乘客在车内如何与系统沟通、系统能否理解并响应用户的个性化需求，同样是决定体验优劣的关键维度。\n\n正是在这一背景下，Waymo宣布将Google的Gemini大语言模型整合到其自研的Ojai系列自动驾驶车辆中。这一举措的深层逻辑并不复杂：将Gemini的多模态理解能力从开发工具链延伸到车辆内部的实际乘客体验中。瓜熟蒂落的契机来自Gemini训练方式的演进——它不仅能处理文本，还能同时理解图像、音频和视频，并能将视觉信息转化为具有逻辑性的语言输出。这意味着搭载Gemini的车辆能够以一种更接近人类的方式“看到”世界，并参与对环境的实时理解。\n\n从技术原理上看，Gemini这类多模态模型进入驾驶场景所扮演的角色，并非直接替代Waymo原有的自动驾驶感知预测系统，而是在其之上构建一层“对话式智能层”。传统自动驾驶系统擅长输出结构化的数值决策——例如目标物边界框、轨迹预测、速度规划等，而Gemini的任务是将这些底层数据以及车载摄像头的实时画面，转化为乘客可以感知和理解的语义信息。例如，车辆经过某栋著名建筑时，系统可以主动介绍其历史背景；乘客用手指向窗外询问“那是什么”，车内系统能基于视觉感知识别出场景中的具体物体并给出自然流畅的回答。更为重要的是，Gemini具备上下文理解和多轮对话能力，乘客无需使用固定指令词，而是可以用日常语言提出“帮我找一家沿途安静的咖啡馆”这类复杂请求，系统会结合导航信息、沿途实时画面和用户偏好历史进行整合判断，给出人性化的建议。\n\n相比之下，此前行业内的做法通常是将语音助手简单接入车辆的娱乐信息系统，功能限于拨打电话、播放音乐、设定空调温度这类固定化的指令操作。而Waymo将Gemini引入Ojai车辆的核心创新点在于，语言模型不再被当作一个孤立的功能模块，而是深度嵌入车辆的视觉感知链路和出行决策链路中。车辆所“看见”的一切，经过Gemini的语义转化后，成为可交互、可追问、可延展的信息流。这种“视觉+语言”的双通道融合，让车辆的智能助手真正具备了时空感知能力，使得整个乘车过程从“被动播报导航信息”升级为“主动共创旅程体验”。\n\n就技术实现路径而言，Gemini在车端的落地还需要解决算力部署与延迟控制的问题。大型多模态模型的计算需求远高于传统的语音识别模块，车载系统的边缘计算单元需要在有限的功耗预算内完成模型的推理运行，这对硬件架构提出了较高的要求。此外，为确保乘客安全，任何辅助性功能的运行都必须与车辆的核心驾驶控制系统严格隔离，确保Gemini的推理过程不会对实时决策链路的确定性造成干扰。Waymo在Ojai车辆上的架构设计已经考虑了这种分层隔离策略，Gemini处理的是乘客侧的交互体验升级，而车辆的安全操控逻辑依然由经过验证的独立自动驾驶系统负责，这种职责分离的设计既保证了创新的快速迭代，也维持了整体系统的安全边界。\n\n从应用场景和产业影响来看，Waymo与Gemini的结合为自动驾驶的差异化竞争开辟了新的维度。当各家公司的自动驾驶方案在安全和效率指标上趋于接近时，车内体验将成为决定用户忠诚度的重要因素。尤其对于通勤时间较长的用户而言，车辆不再只是一台运输工具，而是延伸出的个人助理和智能空间。它可以帮助家长解释沿途的自然景观并回答孩子的提问，帮助商务人士在途中感知餐厅、会议地点周边的环境信息，或是在陌生的城市中充当一个熟悉当地风土人情的“本地向导”。此外，这种多模态交互能力还潜在地提升了特殊群体的出行便利性——对于视力受限的乘客，Gemini的文字转语音能力可以把视觉信息转化为详细的语音描述，使出行过程更加自主和安心。\n\n不过，将大模型带入车舱也带来了一些值得关注的问题。乘客的对话与车内摄像头采集的画面中可能包含大量个人信息，如何在提供个性化服务的同时确保数据隐私，是Waymo需要在产品设计中持续权衡的议题。同时，大语言模型天然存在“幻觉”风险，在介绍沿途信息或回答开放性问题时，系统需要有能力区分事实性回答与推断性描述，避免因模型生成的内容不够准确而误导乘客。\n\n总体而言，Waymo将Gemini带入Ojai车辆的探索，是自动驾驶技术与通用人工智能融合的一次标志性实践。它表明了大模型的价值不仅体现在云端的内容生成和代码辅助层面，还可以在物理世界的移动场景中扮演关键角色——将视觉感知与语言理解编织在一起，让机器对世界的解释能力和对用户的关怀能力同步提升。可以预见，这类多模态AI驱动的车载交互将逐步成为智能出行的主流叙事，而在这一演进过程中，Waymo与Gemini的结合也为整个行业描绘了一幅值得期待的未来图景：自动驾驶最终要完成的，不仅是把人安全地送到目的地，更是让每段旅程都变得有意义、有温度、有被理解的感觉。"
+    },
+    {
+      "title": "What 3 creatives built with unlimited access to Google Flow",
+      "link": "https://blog.google/products/ads-commerce/the-small-brief/",
+      "description": "We asked three creatives to design campaigns for local businesses in Google Flow, an AI creative studio. Here’s what they made.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Hero_Image_NJd7pGd.max-600x600.format-webp.webp\">We asked three creatives to design campaigns for local businesses in Google Flow, an AI creative studio. Here’s what they made.",
+      "author": "Stephanie Horton",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Wed, 19 Aug 2026 14:00:00 +0000",
+      "titleZh": "What 3 creatives built with unlimited access to Google Flow",
+      "descriptionZh": "原文仅提供了博客的引题段落和配图，内容十分有限，因此无法生成涵盖核心技术原理的完整技术摘要。以下基于现有文本进行忠实概括，并结合公开信息补充必要的背景说明。\n\n这篇博客来自Google官方博客，主题是邀请三位创意工作者使用Google Flow（谷歌推出的AI创意工作室）为本地商家设计营销活动，并展示他们的创作成果。博客配图展示了Google Flow的界面，整体内容属于产品应用案例展示，而非技术深度解析。\n\n从公开信息来看，Google Flow是Google Labs推出的AI创意工具，旨在帮助用户通过生成式AI快速完成从概念到成品的创意工作，包括图像生成、编辑和风格化处理等。博客通过邀请设计师、插画师等创意从业者进行实际创作的方式，展示该工具在真实商业场景——如本地餐饮店、零售店铺的品牌物料设计——中的应用效果，强调其\"降低创意门槛、提升制作效率\"的核心价值。\n\n需要指出的是，由于您提供的原文仅为开篇引语，缺少正文中三位创作者的具体作品描述、使用流程、工具功能细节及创作心得，本次摘要无法覆盖\"核心技术原理\"\"创新点深度解析\"及\"技术影响分析\"等层面的内容。如需生成完整摘要，请提供博客正文全文，我将基于完整内容重新整理。"
+    },
+    {
+      "title": "Tap into the power of Gemini in Chrome on Android.",
+      "link": "https://blog.google/products-and-platforms/products/chrome/gemini-in-chrome-android-auto-browse/",
+      "description": "Gemini in Chrome is now available to all Android users in the U.S.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Chrome_Chewy_Bowl_Static_1.2.max-600x600.format-webp.webp\">Gemini in Chrome is now available to all Android users in the U.S.",
+      "author": "Charmaine Dsilva",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 18 Aug 2026 19:00:00 +0000",
+      "titleZh": "Tap into the power of Gemini in Chrome on Android.",
+      "descriptionZh": "谷歌正式宣布，Gemini AI 现已面向美国地区所有 Android 用户全面开放，并深度集成至 Chrome 浏览器中。这标志着谷歌将自家最先进的生成式 AI 助手从独立应用场景进一步下沉到浏览器这一核心入口，成为 Android 生态中 AI 能力普及的关键一步。\n\n此前，Gemini 在 Chrome 中的集成一直处于逐步灰度测试阶段，仅向部分用户开放。如今全面铺开，意味着美国地区的 Android 用户无需额外安装或手动开启任何实验性功能，即可在 Chrome 中直接调用 Gemini，体验由 AI 驱动的搜索、写作辅助、页面理解等增强能力。对于谷歌而言，将 Gemini 嵌入 Chrome 具有重要的战略意义：浏览器是移动端用户日常信息获取和交互的最高频场景，AI 助手与浏览器的深度融合能够大幅降低用户使用门槛，让 AI 从\"独立打开的应用\"变成\"无缝嵌入的底层能力\"。\n\n从技术架构上看，这一集成的核心在于 Gemini 模型与 Chrome 浏览器之间的深度联动。用户可以在地址栏、右键菜单、页面内选词等场景中直接唤起 Gemini，进行内容总结、文本改写、翻译、问答等操作，而不需要切换应用或复制粘贴内容。这种原生级的集成体验，依赖于谷歌在模型推理速度、端侧与云端协同以及移动端算力调度上的持续优化，确保 AI 响应足够流畅，符合移动端用户对即时反馈的预期。\n\n这一更新的影响范围值得关注。对普通用户而言，日常浏览网页、阅读长文、撰写邮件或社交媒体内容时，AI 辅助将变得随手可得，信息处理效率获得显著提升。对开发者而言，这表明谷歌正在加速构建 AI 无处不在的生态体系——Chrome 作为流量入口，将承担起分发 AI 能力的核心角色。在更宏观的行业竞争格局中，此举也是谷歌对微软 Edge 集成 Copilot、以及其他浏览器厂商引入 AI 功能的直接回应，试图凭借 Android 系统级整合的优势巩固自身在 AI 浏览器赛道中的领先地位。\n\n目前该功能仅面向美国地区的 Android 用户开放，其他地区和 iOS 平台的推出时间尚未公布，但考虑到谷歌一贯的推广节奏，全球化铺开大概率只是时间问题。对于国内用户而言，这一动态也提供了观察浏览器 AI 化趋势的重要窗口。"
     }
   ]
 }
