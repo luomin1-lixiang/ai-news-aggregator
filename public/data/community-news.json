@@ -1,6 +1,17 @@
 {
-  "lastUpdated": "2026-09-04T20:03:54.033Z",
+  "lastUpdated": "2026-09-05T19:43:00.666Z",
   "items": [
+    {
+      "title": "A delegate cannot write, present, or invoke other delegates. I ran that sentence as authority.",
+      "titleZh": "代表不能编写、展示或调用其他代表。我将这句话作为权威依据。",
+      "link": "https://dev.to/rafael_asor/a-delegate-cannot-write-present-or-invoke-other-delegates-i-ran-that-sentence-as-authority-23ed",
+      "author": "Rafael Asor",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-05T09:33:53.000Z",
+      "summaryZh": "# Claude Code 委托权限治理：从文档警告到强制执行\n\n**用户场景**：Anthropic 的 commerce-agents 项目在文档中声明委托（delegate）\"不能写入、展示或调用其他委托\"，但这一约束仅存在于文档和代码注释中，并未在共享路径上强制执行。作者发现，任何委托都可以通过构建自己的 executor 绕过限制，实际执行这些被禁止的操作。\n\n**核心方法**：作者开发了 attenu-guard 工具，在 `BaseToolExecutor.dispatch` 这一所有工具调用的必经之路上添加钩子（hook），实现基于权限的强制控制。系统从委托自身声明的工具表面（surface）计算其权限范围，与父级权限取交集（meet），生成子权限。任何超出范围的调用都会在 handler 执行前被拒绝，返回 `ToolOutcome.held(\"authority\", ...)`。\n\n**关键技巧**：\n1. 利用项目自身的扩展点（`executor_class` seam）而非修改核心代码，保持兼容性\n2. 权限验证发生在 dispatch 层而非各 handler 内部，确保所有路径都被覆盖\n3. 通过 side effects 追踪（staged 列表、展示钩子、嵌套委托标志）验证拒绝是否真正阻止了执行\n4. 权限审计文件独立于 commerce-agents 运行，即使库被卸载也能验证授权决策\n\n**注意事项**：该示例尚未发布到 pip（main 分支领先 0.14.0 标签 5 个提交），需从源码安装才能获得完整功能。",
+      "category": "devto"
+    },
     {
       "title": "ChatGPT vs Claude vs Gemini: 2026 Comparison",
       "titleZh": "ChatGPT vs Claude vs Gemini：2026年对比",
@@ -9,29 +20,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-03T11:22:57.000Z",
-      "summaryZh": "# ChatGPT vs Claude vs Gemini：2026年开发者终极对比\n\n**用户场景：** 作者针对超5亿开发者每日使用AI助手却常基于过时信息选型的问题，为2026年的开发者提供三大AI模型的实用对比指南，帮助读者根据具体开发任务（如代码生成、长文档分析、多模态处理）做出正确选择。\n\n**核心方法：** 文章从架构哲学切入，将三者定位为不同工具：ChatGPT（GPT-4o/o3）是全能瑞士军刀，擅长数学推理和快速原型开发；Claude（3.7 Sonnet/Opus）是精准手术刀，以200K上下文窗口和卓越的指令遵循能力称霸企业文档工作流；Gemini 2.5 Pro则是原生多模态引擎，拥有2M token上下文和Google搜索实时接地能力。作者通过具体场景（如构建日处理千万事件的webhook系统）进行代码生成对比测试。\n\n**关键技巧：**\n- **选型建议：** 数学/竞赛编程选ChatGPT o3；跨仓库代码审查、合同分析选Claude（幻觉率最低）；图表/视频分析选Gemini\n- **避坑指南：** Claude可能过度保守拒绝边缘合法请求；ChatGPT 128K上下文是短板且易过度自信；Gemini推理一致性弱于Claude且存在Google生态锁定\n- **成本考量：** Gemini API性价比最高适合高吞吐量；ChatGPT高级模型团队成本增长快\n- **架构差异：** 三者分别押注广度生态、安全推理、多模态接地，无绝对优劣，应按任务匹配",
+      "summaryZh": "# ChatGPT vs Claude vs Gemini：2026年开发者选型指南\n\n**用户场景**：作者针对2026年超过5亿开发者日常使用AI助手的现状，指出多数人基于过时的Reddit帖子选择工具。文章旨在帮助开发者根据实际需求——从大规模Webhook系统开发、生产级Swift代码编写到日常效率提升——做出明智的模型选择。\n\n**核心方法**：文章通过多维度基准对比揭示三大模型的差异化定位。ChatGPT（GPT-4o + o3推理模型）是\"瑞士军刀\"，擅长数学、竞赛编程和快速原型开发；Claude 3.7 Sonnet是\"手术刀\"，以200K token上下文窗口和精准指令遵循见长，适合企业文档工作流和全仓库代码审查；Gemini 2.5 Pro则是\"多模态强者\"，原生支持文本/图像/视频推理，2M token上下文窗口为业界最大，深度集成Google Workspace和实时搜索。\n\n**关键技巧**：\n- **代码生成场景**：Claude在长上下文代码审查中表现最佳，能保持跨文件一致性；ChatGPT在算法竞赛题上领先\n- **成本考量**：Gemini API定价最具竞争力，适合高吞吐量场景；ChatGPT的o3模型需Pro订阅\n- **避坑提示**：ChatGPT可能过度自信地生成\"看似合理\"的错误代码；Claude偶尔会拒绝边缘合法请求；Gemini在复杂多步推理上稳定性略逊\n- **选型建议**：追求精准度选Claude，需要多模态和实时信息选Gemini，通用开发和数学推理选ChatGPT",
       "category": "devto"
     },
     {
       "title": "Fable 5.1's Real Story Is the 75% Cache Price Cut",
-      "titleZh": "《寓言5.1》的真实故事是缓存价格下调75%",
+      "titleZh": "Fable 5.1的真实故事是75%的缓存价格下调",
       "link": "https://dev.to/max_quimby/fable-51s-real-story-is-the-75-cache-price-cut-1dh6",
       "author": "Max Quimby",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-03T05:13:52.000Z",
-      "summaryZh": "## Fable 5.1 发布：75%缓存降价才是真正的战略武器\n\n**用户场景：** 作者指出，虽然Fable 5.1在基准测试（Terminal-Bench-Science得分翻倍至52.6%）和写作风格上有明显提升，但对开发者而言，真正的新闻是缓存读取价格从$1.00/MTok暴跌75%至$0.25/MTok。这对运行agentic工作负载（长对话循环、频繁工具调用）的团队影响巨大。\n\n**核心方法：** 在agent场景中，每次工具调用都会重新发送系统提示、工具schema和对话历史。50轮会话中，20K token的前缀会被重复读取50次。缓存读取通常占agentic工作负载总token量的50-80%，因此75%的降价可带来典型API工作负载约25%、高度agentic场景最高45%的成本削减。Fable 5.1的缓存读取价仅为其输入价的2.5%，而其他Claude模型均为10%。\n\n**关键技巧：** 注意Fable 5.1的缓存读取价（$0.25）已低于GPT-5.6 Sol的$0.40，尽管其标价更高——对缓存密集型工作负载，有效成本反而更低。但警惕锁定效应：缓存越便宜，迁移到竞品时重建缓存状态的成本越高。建议评估自身工作负载的缓存命中率，计算实际有效成本而非标价。",
+      "summaryZh": "# Fable 5.1 发布：75%缓存降价才是真正的战略武器\n\n**用户场景**：Anthropic 发布 Claude Fable 5.1，但作者指出真正值得关注的不是基准测试翻倍（Terminal-Bench-Science 从 24.7% 升至 52.6%）或写作风格改进，而是面向 API 和 Enterprise 客户的定价策略——缓存读取价格从 $1.00/MTok 骤降至 $0.25/MTok，降幅达 75%。\n\n**核心方法**：在 agentic 工作负载中，每次 tool-calling 循环都会重新发送 system prompt、工具 schema 和对话历史。50 轮 agent 会话中，20K token 的前缀会被重复读取 50 次。缓存读取通常占总 token 量的 50-80%，因此这一降价对长时运行、重度工具调用的工作负载可带来高达 45% 的成本削减，而典型 API 工作负载也能节省约 25%。\n\n**关键技巧**：\n- Fable 5.1 的缓存读取价格仅占输入价格的 2.5%（其他模型为 10%），使其在 cache-heavy 场景下有效成本甚至低于 GPT-5.6 Sol\n- 注意锁定效应：缓存越便宜，迁移到竞品时重建缓存状态的成本越高，这是 Anthropic 的竞争策略而非单纯让利\n- 点版本发布主打写作风格和设计改进，通常暗示基础能力提升空间有限——本次架构和 1M context 均未变化，真正的战场在 token 经济学",
       "category": "devto"
     },
     {
-      "title": "Anthropic's Fable 5.1 Pricing Change Is the Real Story for Agent Builders",
-      "titleZh": "Anthropic的Fable 5.1定价变更才是智能体开发者的真正看点",
-      "link": "https://dev.to/jamilxt/anthropics-fable-51-pricing-change-is-the-real-story-for-agent-builders-hpp",
-      "author": "jamilxt",
+      "title": "Claude Keeps Going Down, and Anthropic's Own Status Page Says So",
+      "titleZh": "Claude持续宕机，Anthropic自家状态页面也证实了这一点",
+      "link": "https://dev.to/theaidownside/claude-keeps-going-down-and-anthropics-own-status-page-says-so-29mc",
+      "author": "The AI Downside",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-02T12:04:45.000Z",
-      "summaryZh": "Anthropic 发布 Claude Fable 5.1 和 Mythos 5.1，但真正改变开发者决策的不是基准测试成绩，而是缓存读取价格从每百万 token $1.00 降至 $0.25（降幅75%）。对于运行长时 Agent 工作负载的开发者，这意味着一场成本革命。\n\n**用户场景**：Agent 运行并非单次请求，而是每步重发完整上下文（系统提示、工具定义、对话历史）。50步任务需支付50次上下文费用，缓存命中率决定真实成本。此前 Fable 5 的缓存价格让长时间无人值守任务成本过高，如今 Fable 5.1 将缓存读取降至输入价的2.5%（其他模型为10%），使高缓存占比的 Agent 工作负载成本降低约45%。\n\n**核心方法**：作者给出具体算例——200K token 上下文、20步运行、95%缓存命中率下，Fable 5 上下文成本约 $5.80，Fable 5.1 仅需 $2.95。对比 OpenAI GPT-5.6 Sol（$0.40/缓存token），Fable 5.1 的 $0.25 更具优势。这意味着\"吓人的标价\"模型在缓存主导场景下反而更便宜。\n\n**关键技巧与陷阱**：\n1. **破坏性变更**：`tool_choice: {\"type\": \"any\"}` 或 `{\"type\": \"tool\"}` 已废弃，返回400错误。需改用提示词声明（如\"Use the get_weather tool\"）或 `{\"type\": \"auto\"}` 配合结构化输出。\n2. **缓存失效陷阱**：编辑、重排或删除早期对话轮次会破坏 preserved thinking 和缓存复用。动态注入提醒并移除的模式将导致缓存失效，Agent 框架需重新设计。\n3. **成本优化**：Batch 处理再降50%（$5输入/$25输出），美国推理有1.1x乘数，Web 搜索每千次 $10 另计。\n\n结论：缓存价格才是 Agent 经济的真正杠杆，基准测试决定\"能否完成\"，缓存定价决定\"能否每天跑得起\"。",
+      "pubDate": "2026-09-04T23:04:51.000Z",
+      "summaryZh": "# Claude 八月频繁宕机：Anthropic 自家状态页面的“自证”\n\n**用户场景**：作者发现 Claude 在 2026 年 8 月频繁出现服务中断——Claude Code 卡顿、聊天加载失败、API 报错率飙升。这不是主观感受，Anthropic 官方状态页记录了 24 天内约 20 起事故，几乎每天一次，且 8 月 24 日仍有“严重”级别故障未解决，同时影响 claude.ai、API、Claude Code 和 Cowork。\n\n**核心方法**：作者通过分析 Anthropic 官方状态页（status.claude.com）的原始数据，梳理出事故时间线：从 8 月 3 日 Sonnet 5 报错开始，到 12-14 日连续降级，16 日出现“严重”中断，再到 24 日波及所有模型的重大故障。关键洞察是：付费套餐按 5 小时滚动窗口计量配额，但**失败的请求同样消耗额度**——用户“付了过路费却没过桥”。有用户在 Reddit 反映，3 次提示就耗掉 23% 的 5 小时限额，只因“服务器繁忙”。\n\n**关键技巧**：\n1. **警惕计量陷阱**：Claude 付费版卖的是“尝试次数”而非“答案数”，服务不稳定时配额会被无效消耗，需监控实际使用效率\n2. **关注发布节奏**：7 月 24 日发布 Opus 5 旗舰模型后，8 月事故频发且反复点名该模型，暗示容量压力——新模型上线后应预留缓冲\n3. **多端故障无路可绕**：当所有入口同时宕机，用户无法切换，建议关键任务准备备选方案（如本地模型或 OpenAI API）",
       "category": "devto"
     },
     {
@@ -42,18 +53,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-03T18:00:00.000Z",
-      "summaryZh": "这是一篇面向开发者的实用指南，聚焦如何将Claude AI（特别是Sonnet模型）融入代码审查流程。作者指出传统人工审查存在时间与一致性瓶颈，而Claude能秒级处理完整PR diff，持续应用统一标准，不受文件大小或审查者疲劳影响。\n\n**核心方法**：文章提出三种集成方式——直接粘贴代码提示审查（适合临时检查）、通过Anthropic API接入CI/CD流水线（PR触发webhook自动审查并回帖评论）、IDE扩展实现写码时实时反馈。推荐使用Claude Sonnet模型，其长上下文窗口可跨多文件推理，特别适合检测安全漏洞、逻辑错误和跨文件依赖问题。\n\n**关键技巧**：\n- Claude最强项是安全漏洞（SQL注入、硬编码凭证）、逻辑错误（循环终止条件、边界情况）和性能问题（N+1查询、循环内对象创建）；最弱项是新颖业务逻辑和架构决策\n- 相比ChatGPT-4o、Gemini 2.5 Pro和GitHub Copilot，Claude的优势在于推理深度——不仅标记问题，还能解释风险并给出修复建议\n- 对英国团队而言，其GDPR和Cyber Essentials相关标记能力是额外加分项\n- 最有效的工作流是在人类审查前让Claude先审查，将发现作为内联评论呈现\n- 若不想从零构建，可直接使用Mecanik AI Code Review API这类现成服务\n\n文章强调，Claude的价值不仅在于加速审查，更在于通过解释\"为什么错\"来培养初级开发者，让审查过程成为学习机会。",
+      "summaryZh": "这是一篇面向开发者的实用指南，聚焦如何将Claude AI（Anthropic旗下大模型）融入现代代码审查流程。作者指出传统人工审查存在两大瓶颈：资深工程师时间昂贵且易疲劳，初级开发者易遗漏微妙问题。Claude的核心价值在于**秒级审查完整PR diff**，且不受文件大小或审查者状态影响，能保持标准一致性。\n\n**核心方法**：文章推荐三种集成方式——直接粘贴代码提示审查（适合一次性快速检查）、通过Anthropic API接入CI/CD管道（PR触发webhook自动审查并回帖评论，可规模化）、IDE扩展实时反馈（在代码提交前捕获问题）。作者特别强调**Claude Sonnet模型**是2026年代码审查首选，其长上下文窗口能同时推理多个相互依赖的文件。\n\n**关键技巧**：Claude最强项是安全漏洞检测（SQL注入、硬编码凭证）、逻辑错误（循环终止条件、边界情况）和多文件推理；最弱项是全新业务逻辑和架构决策。相比ChatGPT-4o、Gemini 2.5 Pro和GitHub Copilot，Claude的优势在于**推理深度**——不仅标记问题，还解释风险并给出具体修复建议，这对培养初级开发者尤其有价值。文章建议将Claude审查置于人类审查之前，作为第一道自动化防线，并提醒对UK GDPR和Cyber Essentials合规要求的企业，此自动化审查层日益必要。避免误区：不要期望Claude替代架构评审，它更适合作为一致性检查工具而非设计决策者。",
       "category": "devto"
     },
     {
-      "title": "ChatGPT and Grok Just Joined the Pentagon's AI Platform. Claude Didn't.",
-      "titleZh": "ChatGPT和Grok刚刚加入了五角大楼的AI平台，而Claude没有。",
-      "link": "https://dev.to/samod_alex/chatgpt-and-grok-just-joined-the-pentagons-ai-platform-claude-didnt-21p1",
-      "author": "Samod Alex",
+      "title": "Claude Fable 5 and Opus 4.8: The Complete 2026 Guide",
+      "titleZh": "Claude Fable 5与Opus 4.8：2026年完全指南",
+      "link": "https://dev.to/mecanik-dev/claude-fable-5-and-opus-48-the-complete-2026-guide-4bo4",
+      "author": "Mecanik1337",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-03T04:37:58.000Z",
-      "summaryZh": "## 五角大楼AI平台：ChatGPT与Grok入选，Claude缺席\n\n**用户场景：** 美国国防部推出GenAI.mil安全企业AI平台，为超300万军事和文职人员提供AI工具。目前已有Gemini、ChatGPT Mil和Grok for Government入驻，但Anthropic的Claude缺席——这源于Anthropic与国防部在AI使用限制上的公开冲突。\n\n**核心方法：** 平台在授权政府云基础设施中运行，数据与商业模型训练系统隔离。ChatGPT Mil提供熟悉的聊天、文件上传和自定义GPT功能，面向文档密集型非机密工作。Grok for Government则定位为运营级工具，通过Starshield AI提供，支持深度推理和三种推理模式（Auto、Fast、Expert），并包含可复用“playbook”以保留机构知识。\n\n**关键技巧：** 冲突核心是Anthropic坚持两项限制：禁止Claude用于大规模国内监控和全自主武器。国防部认为应由其决定合法军事应用，并于2月将Anthropic列为供应链风险。3月加州法院发布初步禁令，8月27日更作出有利于Anthropic的实质判决。开发者应关注：AI企业需明确自身技术使用的伦理边界，政府合同谈判中“人类判断”条款的界定至关重要——2023年国防部指令虽允许自主武器系统，但明确要求保留操作员对目标选择的人工控制权。",
+      "pubDate": "2026-09-05T18:00:00.000Z",
+      "summaryZh": "# Claude Fable 5 与 Opus 4.8：2026 年开发者完整指南\n\n**用户场景**：Anthropic 于 2026 年 6 月推出 Claude Fable 5，专为复杂编码和自主 Agentic 工作流设计。但由于美国出口管制指令，该模型被归类为\"双重用途技术\"并遭暂时停用，开发者需转向 Claude Opus 4.8 作为企业级替代方案。\n\n**核心方法**：Fable 5 采用全新 Mythos-class 架构，拥有 100 万 token 上下文窗口和破纪录的 128k 输出限制，可单次生成整个应用目录。模型内置严格安全分类器，防止未经授权的网络操作。Opus 4.8 则聚焦可靠性，代码缺陷率比前代低 4 倍，特别适合 C++ 和 Python 后端开发。\n\n**关键技巧**：\n1. **利用 effort 控制**：Opus 4.8 新增推理努力级别调节，简单语法检查可降低 effort 节省 API 额度，复杂架构设计则设为最高。\n2. **会话中系统消息**：支持在长会话中动态更新系统提示，无需重启对话，便于构建自适应开发 Agent。\n3. **对比选型**：相比 OpenAI 的通用模型，Claude 系列更擅长跨文件重构和依赖追踪，适合需要深度理解代码库的代码审查场景。\n\n**注意事项**：Fable 5 的停用是监管要求而非性能问题，Anthropic 正为验证企业团队恢复访问。私有版本 Mythos 5 仅限网络防御者使用，普通开发者应优先掌握 Opus 4.8 的 effort 控制和动态提示功能。",
       "category": "devto"
     },
     {
@@ -64,18 +75,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-03T06:40:27.000Z",
-      "summaryZh": "### 用户场景\n\n作者发现 Claude Code 会话频繁触发上下文压缩（compaction），一周内四次，感到困扰。通过分析自己的会话记录，他揭示了 AI 编程助手成本模型的核心真相：**每次对话轮次都会重新发送整个历史上下文**，而非一次性付费。这导致长会话中每个 token 平均被重复计费约 32 次，压缩机制实际上是\"重置账单\"而非\"丢失记忆\"。\n\n### 核心方法\n\n作者解析了 `~/.claude/projects/` 下的 JSONL 会话文件，统计了三个真实会话共 5,288 次请求的数据：缓存读取 19.9 亿 tokens，缓存写入 6200 万，读写比达 32:1。发现自动压缩在上下文接近 1M token 上限时触发（968K/996K/999K），每次耗时 108-140 秒，压缩后缓存读取从 ~990K 骤降至 0。按 API 列表价计算，缓存机制节省了约 86% 成本（$4,500 vs $31,000）。\n\n### 关键技巧\n\n1. **无关任务请开新会话**：不要将 600K token 的上下文拖入不需要它的新任务，避免为无关历史付费\n2. **理解压缩是特性而非缺陷**：压缩是\"账单归零\"时刻，代价仅是 2 分钟暂停和摘要损失\n3. **警惕\"折扣≠免费\"**：90% 折扣的循环费用仍是循环费用，每次轮次都会产生\n4. **监控上下文增长**：长会话中每轮成本随上下文增长而上升，适时手动压缩或开新会话更经济",
+      "summaryZh": "## 你的上下文窗口每轮都在向你收费\n\n**用户场景：** 作者在使用 Claude Code 进行长会话编程时，频繁遭遇上下文压缩（compaction），感到不便。通过分析自己的会话记录，揭示了 AI 编程会话中一个被忽视的成本机制——上下文窗口并非一次性付费，而是每轮对话都在产生费用。\n\n**核心方法：** 作者解析了 Claude Code 存储在 `~/.claude/projects/` 的 JSONL 会话记录，统计了三个真实会话共 5,288 次请求的数据。发现惊人的 32:1 读写比——每个进入上下文的 token 平均被重新计费约 32 次。当上下文接近 1M token 上限时触发自动压缩，缓存读取从 ~990K 骤降至 0，账单归零但需等待 108-140 秒。\n\n**关键技巧：**\n- **及时开新会话**：无关任务不要拖入已有长上下文，避免为不需要的历史内容持续付费\n- **理解缓存机制**：prompt caching 提供了约 86% 的费用减免，但\"打折的循环费用\"仍是循环费用\n- **压缩并非损失**：compaction 是\"账单重置\"时刻，而非上下文丢失，代价仅是两分钟等待和摘要损失\n- **警惕成本幻觉**：订阅制下容易忽视实际 token 消耗，建议定期检查会话记录中的 usage 数据\n\n作者强调：这不是\"Claude Code 很贵\"，而是\"计费按轮次而非按 token 总量\"，理解这一机制才能合理规划会话策略。",
       "category": "devto"
     },
     {
       "title": "Anthropic's Claude Fable 5.1 a…",
-      "titleZh": "Anthropic的Claude Fable 5.1一…",
+      "titleZh": "Anthropic的Claude Fable 5.1…",
       "link": "https://dev.to/norviktech/anthropics-claude-fable-51-a-23e2",
       "author": "Norvik Tech",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-03T22:05:58.000Z",
-      "summaryZh": "## Claude Fable 5.1 技术升级解析：面向 Agentic 工作负载的降本增效\n\n**用户场景：** 本文面向技术决策者，分析 Anthropic Claude Fable 5.1 的升级如何降低企业部署 AI 的成本（据称最高可降 45%），特别针对需要实时决策和自动化处理的 Agentic 工作场景，如欺诈检测、客服自动化和市场分析。\n\n**核心方法：** 升级通过算法精炼与架构调整实现——优化神经网络层、改进权重共享（weight sharing）和剪枝（pruning）技术，显著降低计算负载，使模型能同时处理更多任务而不牺牲性能。作者建议企业采用**试点项目先行**策略：先定义成功指标（成本节省、生产力提升），在低风险环境测试，分析结果后迭代调整。\n\n**关键技巧：** 关注本地化部署时的数据合规（如 GDPR 类法规）；中小团队可借此\"民主化\"机会进入此前大企业专属的 AI 领域。注意区分营销宣传与实际能力验证，建议用自有数据集做基准测试，而非仅依赖厂商数据。",
+      "summaryZh": "## Claude Fable 5.1 技术升级深度解析\n\n**用户场景：** 本文面向技术决策者，分析 Anthropic 最新推出的 Claude Fable 5.1 在 agentic work（智能体工作流）场景中的升级价值。核心痛点是企业在部署 AI 时面临的高成本与低效率问题，该版本宣称部署成本降低高达 45%，使中小型企业也能负担先进 AI 能力。\n\n**核心方法：** 升级源于算法精炼与架构调整的双重优化。通过神经网络层的 fine-tuning、更高效的权重共享（weight sharing）和剪枝（pruning）技术，显著降低计算负载，使模型能同时处理更多任务而不牺牲性能。这种架构优化让模型无需大量重训练即可适配特定业务需求，特别适合实时决策场景。\n\n**关键技巧与行业应用：**\n- 典型场景包括欺诈检测（实时交易模式分析）、客服自动化（智能聊天机器人）、市场分析（多源数据快速综合）\n- 金融领域用于自适应算法交易，零售业用于动态个性化营销\n- 建议采用试点项目策略：先明确成功指标（成本节省、生产力提升），在低风险环境测试，定期复盘并迭代\n- 注意：在西班牙和 LATAM 地区部署需优先考虑当地数据保护法规合规性\n\n**避坑提示：** 不要直接全量部署，务必先小范围验证效果再扩展。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic says Claude produced a complete Lean proof of Fermat's Last Theorem",
+      "titleZh": "Anthropic称Claude生成了费马大定理的完整Lean证明",
+      "link": "https://dev.to/breachprotocol/anthropic-says-claude-produced-a-complete-lean-proof-of-fermats-last-theorem-5d93",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-04T21:16:39.000Z",
+      "summaryZh": "Anthropic近日宣布，其Claude模型在近乎自主运行11天后，产出了首个完整的、经Lean 4证明助手机器校验的费马大定理证明。作者强调，这并非模型独立发现怀尔斯的原始证明，而是将已知数学路径（Frey、Serre、Ribet、Wiles及Taylor-Wiles路线）形式化，并大量依赖帝国理工学院已有的FLT项目基础设施。\n\n**用户场景**：解决传统数学论文与证明助手之间的鸿沟。人工证明可省略专家能重构的步骤，而Lean要求每个定义、变换和依赖都必须显式且可被内核检查。作者将传统证明比作蓝图，Lean证明则是逐颗螺丝钉的机器可验证装配指令。\n\n**核心方法**：Claude在11天内生成29,500个中间定理，最终产物包含106个文件，其中文本取自或改编自帝国理工的FLT项目。模型需遍历代码库、选择引理、构造形式化项并修复错误，最终通过Lean标准公理、比较器及二次内核检查。关键在于利用自动验证器作为硬性成功标准，消除歧义。\n\n**关键技巧**：作者指出，形式化是困难的组合与工程任务，模型加速了明确定义的项目，但未解决数学发明中最难的问题。警示是维护成本——证明依赖Lean、Mathlib等版本，环境演变后需持续修复。未来里程碑包括可复现的独立构建、专家评审及引理上游复用。此成果对密码协议、编译器等领域意义重大，但不应夸大其超越人类数学判断的能力。",
       "category": "devto"
     },
     {
@@ -86,51 +108,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-04T03:29:58.000Z",
-      "summaryZh": "Anthropic于2026年9月2日发布了商业智能体蓝图及可运行参考实现（`anthropics/commerce-agents`），其核心亮点在于**摒弃了主流的多智能体编排模式**。作者指出，当前生产级智能体普遍采用“意图路由器+领域子智能体+监督者”的架构，但Anthropic明确表示其设计**无意图路由器、无子智能体**，仅由单一Claude模型在标准循环中运行，通过工具直连商家系统，用Skills处理长尾请求。作者认为，模型本身已具备隐式路由能力，前置分类器只会增加有损的预判环节，而子智能体间的交接正是错误高发区。\n\n**关键技巧与设计决策**：\n1. **输出即工具**：产品轮播、行程、座位图等界面元素以Schema验证的组件形式输出，而非自由文本。这从机制上杜绝了模型幻觉出不存在的产品ID，约束输出格式即约束了模型的可信度。\n2. **安全边界保守**：结账时智能体仅渲染购物车，支付交由宿主应用；商家端写入（如改价）需人工审批；身份在会话开始即绑定；记忆存储于部署方而非模型提供商。\n3. **安全强制靠代码而非提示词**：作者强调，系统提示词中的“禁止退款”只是建议，易被提示注入绕过；而代码路径中的权限检查才是规则。这是发布中最具实用价值的一点。\n\n**务实建议**：使用提示缓存优化商业流量成本；模型选型应基于端到端任务成本评估，而非单次调用价格。作者提醒，Anthropic声称的“购物篮更大、结账率更高”缺乏方法论与独立验证，应视为厂商自述而非证据。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic ทุ่ม 80,000 ล้านดอลลาร์ในสัปดาห์เดียว, ซื้อกำลังประมวลผลเกือบครึ่งกิกะวัตต์",
-      "titleZh": "Anthropic一周内豪掷800亿美元，购入近半吉瓦计算能力",
-      "link": "https://dev.to/sarantoon/anthropic-thum-80000-laandllaarainsapdaahediiyw-chuuekamlangpramwlphlekuuebkhruengkikawatt-2o4d",
-      "author": "Nokka",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-02T15:10:33.000Z",
-      "summaryZh": "## Anthropic 一周豪掷800亿美元：AI军备竞赛转向“电力”战场\n\n**用户场景：** 本文面向关注AI基础设施投资趋势的开发者与从业者，解读Anthropic在短短7天内签署两笔总计约800亿美元的算力租赁协议（Nscale 450亿 + Lambda 350亿），获取近1吉瓦（GW）算力——相当于半座核电站的电力输出。作者借此揭示2026年AI竞争已从“模型能力”转向“算力与能源获取”的新格局。\n\n**核心方法：** Anthropic选择“租赁而非自建”策略，通过多层租赁生态获取算力：Nvidia（芯片+部分建筑持有）→ Hut 8等数据中心（建设运维）→ Lambda/Nscale（云管理）→ Anthropic（算力租户）。这种结构让各层分担风险，Anthropic无需承担2-3年建设周期与资金沉淀，即可快速获得Nvidia最新Rubin GPU + Vera CPU的算力支持。\n\n**关键技巧与洞察：**\n- **成本锚点**：Nvidia CEO黄仁勋估算1GW AI基础设施成本约800-1000亿美元，Anthropic一周内几乎支付了整笔费用，显示其对前沿算力的激进押注\n- **风险提示**：800亿为长期租赁负债，需持续收入支撑；部分数据来自“sources say”，吉瓦数为估算值（Lambda约350-437MW）\n- **行业信号**：OpenAI自研Jalapeño芯片、华为Ascend 950PR能效比提升2.87倍——能效（每瓦性能）正成为新竞争维度\n- **开发者影响**：算力供给增加将推动token价格持续下降（如Hy4已降至$0.83/1M），但需警惕基础设施高度集中带来的系统性风险",
+      "summaryZh": "Anthropic于2026年9月2日发布了商业代理（commerce agent）蓝图及可运行参考实现，其核心亮点在于**摒弃了业界主流的编排模式**——没有意图路由器（intent router），也没有领域子代理（sub-agents），而是采用**单一Claude模型+标准代理循环**。作者指出，传统多代理架构（分类器+子代理+监督者）正是故障高发区：意图误判、上下文不一致、分支失败难恢复。Anthropic的设计让模型隐式完成路由，减少交接环节，因为“交接处最容易丢失信息”。\n\n**关键技巧**：\n1. **工具输出即界面**：产品轮播、行程单等以schema验证的组件输出，而非自由文本。模型无法生成无标识的虚构产品，因为schema会拒绝——约束输出格式即约束模型“说谎”空间。\n2. **安全边界明确**：结账时代理即止步，支付由宿主应用处理；商家端写入需人工审批；身份在会话开始绑定；记忆存于部署方存储而非模型提供商。\n3. **安全靠代码而非提示词**：系统提示中的“禁止退款”只是建议，易被prompt injection覆盖；代码路径中的权限检查才是规则。这是发布中最具实用价值的部分。\n\n**实用建议**：使用prompt caching降低商业流量成本；模型选型应基于端到端任务成本评估，而非单次调用价格——便宜但需三次尝试的模型并不划算。作者提醒，Anthropic声称的“购物篮更大、结账率更高”缺乏方法论和独立验证，应视为厂商自报数据而非证据。",
       "category": "devto"
     },
     {
       "title": "OpenAI, Anthropic and xAI all went down on the same afternoon, and none named a cause",
-      "titleZh": "OpenAI、Anthropic和xAI在同一天下午全部宕机，均未说明原因。",
+      "titleZh": "OpenAI、Anthropic和xAI在同一天下午全部宕机，且均未说明原因。",
       "link": "https://dev.to/breachprotocol/openai-anthropic-and-xai-all-went-down-on-the-same-afternoon-and-none-named-a-cause-1of4",
       "author": "Breach Protocol",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-04T03:22:29.000Z",
-      "summaryZh": "## 三大AI服务同日宕机：开发者需要警惕的“生产依赖”风险\n\n**用户场景**：2026年9月3日下午，OpenAI、Anthropic和xAI三大前沿AI提供商在四小时内发生重叠性服务中断。对于依赖AI编码助手的开发者，最先感知到问题的不是状态页，而是Codex客户端集体返回404错误——GitHub issue #42559记录了从14:39开始所有客户端无法访问`chatgpt.com/backend-api/codex/responses`，而官方状态页在23分钟后仍未显示任何异常。\n\n**核心方法**：作者通过交叉比对三家公司的官方状态页、GitHub issue和Hacker News讨论，揭示了一个关键事实：三家服务的中断时间、持续时长和恢复过程各不相同，且均未公开根因。Google Gemini当天完全正常，这削弱了“共享上游依赖”的假设——因为Google运行在完全独立的基础设施上。\n\n**关键技巧**：\n1. **不要单点依赖**：能持续工作的开发者都配置了跨提供商的fallback链，将单一厂商故障视为路由决策而非服务停止\n2. **警惕状态页滞后**：状态页本质是公关文档，实际故障可能早于官方通报数十分钟\n3. **Agent工作流风险**：研究发现26,679条agent轨迹中无一保存过检查点，中途404会导致半完成工作流和模糊状态——多步任务务必设计断点恢复机制\n\n核心教训：前沿AI产品已成为真实生产依赖，但其可靠性仍停留在研究预览水平。多提供商路由和级联策略是当前最实用的防御手段。",
+      "summaryZh": "## 三大AI服务商同日宕机：开发者需要警惕的“生产依赖”风险\n\n**用户场景**：2026年9月3日下午，OpenAI、Anthropic和xAI三大前沿AI服务商在四小时内发生重叠宕机。对依赖AI编码助手的开发者而言，首个信号不是状态页，而是Codex客户端集体返回404错误——且状态页在故障开始23分钟后仍显示“无异常”。当Agent在多步任务中遭遇404，留下的不是转圈光标，而是状态模糊的半成品工作流。\n\n**核心方法**：作者通过交叉核验三家官方状态页、GitHub issue及Hacker News讨论，排除了“共享上游依赖”的猜测——三家时间线、持续时长、恢复过程均独立，且Google Gemini当日无故障记录（因其完全自建基础设施）。最实用的应对策略是**跨提供商fallback链**：将单一供应商宕机视为路由决策而非服务停止，这正是模型路由（model routing）和级联（cascades）架构的实战价值。\n\n**关键技巧**：1）不要轻信状态页——“identified”不披露原因实为公关选择；2）生产级Agent必须实现**检查点保存**——同期研究显示26,679条Agent轨迹中无一条保存过检查点，这是最危险的失败模式；3）对“GPT-6 Astra发布导致共享过载”等猜测保持怀疑，坚持主源验证。多提供商冗余不是奢侈，而是生产刚需。",
       "category": "devto"
     },
     {
-      "title": "Anthropic shipped a content checker that cannot tell you if Claude wrote it",
-      "titleZh": "Anthropic推出了一款内容检查器，却无法告诉你内容是否由Claude撰写",
-      "link": "https://dev.to/breachprotocol/anthropic-shipped-a-content-checker-that-cannot-tell-you-if-claude-wrote-it-3lom",
-      "author": "Breach Protocol",
+      "title": "The delegate your agent trusts by shape",
+      "titleZh": "你的代理所信任的委托，取决于其形态",
+      "link": "https://dev.to/rafael_asor/the-delegate-your-agent-trusts-by-shape-4c9p",
+      "author": "Rafael Asor",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-03T03:42:05.000Z",
-      "summaryZh": "Anthropic推出了免费的内容检查工具（claude.com/check-content），但页面最关键的声明是：它只能识别内容凭证，无法判断内容是否由Claude生成。这本质上是溯源读取器，而非AI检测器。\n\n**用户场景**：开发者或内容平台常需确认文件是否经过AI处理，但传统AI检测器基于文本统计猜测，对非母语写作者或正式文本误报率高。该工具针对的是合作场景下的溯源验证，如新闻编辑室核实图片来源。\n\n**核心方法**：工具读取C2PA标准的内容凭证——文件生成时附带的签名元数据，通过密码学验证而非推断。检查在浏览器本地运行，文件不离开设备，支持100MB内的17种图片、视频、音频格式（不含纯文本）。无凭证或凭证丢失（如截图、格式转换后）则返回空结果，无法区分\"未经AI\"与\"凭证已剥离\"。\n\n**关键技巧**：\n- 文本水印与文件凭证是两套系统：文本水印需通过私有预览的Detection API检测，公众无法使用\n- 凭证可被工具（如GitHub上4900星的SynthID/C2PA剥离器）移除，仅防君子不防小人\n- 欧盟AI法案第50条2026年8月生效，Claude模型（Fable 5.1、Mythos 5.1）已支持机器可读标记\n- 无公开误报率数据，构建政策前需谨慎\n\n该工具的价值在于诚实标注局限，而非提供万能AI检测。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic's cheaper model is not cheaper - its cache is",
-      "titleZh": "Anthropic的更便宜模型并不便宜——它的缓存是",
-      "link": "https://dev.to/breachprotocol/anthropics-cheaper-model-is-not-cheaper-its-cache-is-5279",
-      "author": "Breach Protocol",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-03T03:43:06.000Z",
-      "summaryZh": "## Anthropic 更便宜的模型？其实是缓存更便宜了\n\n**用户场景：** 本文针对使用 Claude API 进行长会话 AI 代理开发的开发者。作者指出，Claude Fable 5.1 的基础价格并未下降（仍为 $10/百万输入、$50/百万输出），真正变化的是**缓存读取**成本降至原来的 25%。对于运行长代理会话的开发者，这一变化比直接降价更有价值。\n\n**核心方法：** 文章解释了 **prompt caching** 机制——当长提示词重复发送时，提供商缓存已处理的前缀状态，后续调用只需处理新增部分。一位开发者分析了自己 21 天内 22,022 次 API 调用，发现每次提示词成本下降约 31%，尽管每次提示词的 token 数反而增加了 31%。关键数据：缓存命中按标准输入的 10% 计费，5 分钟缓存写入为 1.25 倍，1 小时写入为 2 倍。\n\n**关键技巧：**\n1. **长会话场景受益最大**：编码代理在数百轮对话中重复发送相同系统提示和工具定义，缓存命中率极高\n2. **短调用无收益**：一次性独立 API 调用没有可复用前缀，成本不变\n3. **注意预算陷阱**：Max 和 Team/Enterprise 用户每周最多 50% 额度可用于 Fable 模型，这是共享预算上限而非额外空间\n4. **质量权衡**：部分用户反馈 Fable 5.1 存在指令遵循退化问题，Anthropic 官方建议多数工作负载仍使用 Opus 5\n\n**结论**：模型没降价，是\"重复\"变便宜了。务必确认你的缓存配置已启用，否则账单不会自动下降。",
+      "pubDate": "2026-09-05T11:34:27.000Z",
+      "summaryZh": "## 代理信任的边界：通过“形状”约束委托权限\n\n**用户场景**：Anthropic 的 commerce-agents 参考实现中，代理委托的权限约束仅存在于文档字符串的英文描述里，而非代码强制。作者发现，这种“软约束”在实际部署中存在严重安全隐患——子代理一旦被调用，就能继承父代理的全部能力，包括写入、展示和再次委托。\n\n**核心方法**：作者展示了如何通过“形状”（shape）来实施真正的权限控制。关键在于：代理收到的句柄（handles）足以构建自己的执行器，但部署层的配置应完整传递，并在共享分发路径上比较子代理与调用者的权限范围。作者使用 attenu-guard 库，在工具调用入口设置钩子，实现基于范围的权限拒绝。\n\n**关键技巧**：\n- 在工具调用点添加钩子，对每个请求检查 `scope_not_granted`，在方法体执行前就拒绝越权调用\n- 子代理只应获得其任务所需的最小权限，且绝不能超过父代理持有范围\n- 运行后生成“收据”（receipt），供第三方在无厂商代码环境下独立验证每个节点的权限合规性\n- 注意：参考实现的 README 明确声明“业务规则、授权和合规是部署方的责任”，因此生产环境必须自行实施此类防护",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-04T19:58:10.000Z",
-      "summaryZh": "## v2.1.261 版本更新摘要\n\n**新增功能：**\n- `/status` 和 `claude doctor` 新增组织策略加载失败原因说明\n- 新增 `bashOutputMaxChars` 和 `taskOutputMaxChars` 设置，可将命令输出上限提升至128K字符\n- 新增 `--append-subagent-system-prompt-file` 参数，支持从文件读取子代理系统提示词\n- 新增 `/skill-doctor` 命令，帮助识别未使用的技能及其上下文开销\n\n**问题修复：**\n- 修复快速输入时字符乱序或丢失问题\n- 修复 `/add-dir` 在 `/net` 自动挂载目录下的错误提示\n- 修复 Bedrock 设置向导在 AWS 无响应时挂起的问题\n- 修复远程控制会话显示陈旧权限模式、停止后仍显示运行中等问题\n- 修复 GCP 认证刷新时错误打开浏览器、高 CPU 占用等问题\n- 修复插件安装提示标签泄漏到对话中的问题\n\n**行为变更：**\n- 自动模式不再自动批准将内容打包到公共图表渲染器链接的操作\n- 词编辑快捷键改为与 Bash 一致（Ctrl+W 删除至空白处）\n- 网关403错误提示改为说明组织可能未启用 Claude Code",
+      "summaryZh": "## v2.1.261 版本更新摘要\n\n**新增功能**：\n- `/status` 和 `claude doctor` 新增组织策略加载失败原因说明\n- 新增 `bashOutputMaxChars` 和 `taskOutputMaxChars` 设置，可将命令输出上限提升至128K字符\n- 新增 `--append-subagent-system-prompt-file` 参数，支持从文件读取子代理系统提示词\n- 新增 `/skill-doctor` 命令，帮助识别未使用的技能及其上下文开销\n\n**关键修复**：\n- 修复快速输入时字符乱序或丢失问题\n- 修复 `/add-dir` 在 `/net` 自动挂载目录下的错误提示\n- 修复 Bedrock 设置向导在 AWS 无响应时卡死问题\n- 修复恢复会话时丢失钩子输出和并行工具调用上下文\n- 修复远程控制会话显示陈旧权限模式、停止后仍显示运行中等问题\n- 修复 TLS 检查代理环境下的多项连接问题\n- 修复高 CPU 占用、会话 ID 异常等多项稳定性问题\n\n**破坏性变更**：\n- 自动模式不再自动批准将内容打包到公共图表渲染器 URL 的链接\n- 强制 `forceLoginMethod: \"gateway\"` 的机器将忽略残留 API 密钥，需重新 `/login`\n- 提示词编辑快捷键改为与 Bash 一致（Ctrl+W 删除至空白处）",
       "category": "github-release"
     },
     {
@@ -152,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-03T23:48:12.000Z",
-      "summaryZh": "## Claude Code v2.1.260 更新摘要\n\n**新增功能**：\n- 全屏模式新增 `/diff` 面板，实时显示未提交更改\n- `/cost` 和状态栏新增提示缓存未命中原因分析\n- 无头会话支持 `/reload-plugins`，适配桌面版和 SDK\n- 桌面应用新增文本版 `/advisor` 命令\n- Claude apps 网关支持 OIDC scope 刷新及新版桌面密钥策略\n\n**问题修复**：\n- 修复路径含括号时权限规则失效问题\n- 修复 Bash 沙箱中 zsh 命令隐藏命令替换的自动批准漏洞\n- 解决 macOS 上企业根证书导致的 Bedrock 凭证调用失败\n- 修复 `/rewind` 在备份缺失时误报成功及残留文件读取跟踪\n- 修复 Fable 5.1 模型提示缓存未覆盖工具结果后上下文的问题\n- 解决插件加载失败后模型切换被永久阻塞的缺陷\n- 修复 GitLab 嵌套子组仓库检测及 issue 链接错误\n\n**破坏性变更**：\n- 回滚了 2.1.259 中 Read() deny 规则的变更\n- 远程控制现在会拒绝无效模型名称而非静默接受",
+      "summaryZh": "## v2.1.260 更新摘要\n\n**新增功能：**\n- 全屏模式新增diff面板，可实时查看Claude编辑的未提交更改（/diff切换）\n- /cost和状态栏新增提示缓存未命中原因分析\n- 无头会话新增/reload-plugins命令，支持桌面应用和SDK\n- 新增/advisor文本形式，适用于桌面应用和远程控制场景\n- Claude应用网关新增OIDC刷新支持和桌面密钥支持\n\n**问题修复：**\n- 修复路径含括号时权限规则失效问题\n- 修复正则表达式错误导致文件编辑失败\n- 修复Bash权限检查绕过漏洞\n- 修复macOS证书存储和git配置可见性问题\n- 修复模型切换被阻塞、Fable 5.1缓存和上下文窗口问题\n- 修复/rewind功能在备份缺失时误报成功\n- 修复子代理通信、会话重复显示等问题\n\n**破坏性变更：**\n- 回滚2.1.259版本中Read() deny规则的更改",
       "category": "github-release"
     },
     {
@@ -163,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-02T22:33:51.000Z",
-      "summaryZh": "# Claude Code v2.1.259 更新说明\n\n## 新功能\n- 新增 `managedMcpServers` 管理设置，组织可为所有用户提供 HTTP/SSE MCP 服务器\n- 新增 `--permission-prompts none` 参数，适用于无人值守的无头主机环境\n- 支持 `glab mr` 命令识别，GitLab 合并请求现显示为 MR !N\n- 为 `claude plugin validate` 添加 `--json` 机器可读输出\n\n## 修复\n- 修复并发会话互相覆盖 `~/.claude.json` 的问题\n- 修复被拒绝的思考在后续轮次被重复拒绝的问题\n- 修复 Bash 读取拒绝规则遗漏多种文件参数形式\n- 修复全屏模式在长对话后显示空白的问题\n- 修复 OAuth token 刷新导致提示缓存失效\n- 修复远程会话启动延迟及工作流停止功能异常\n\n## 变更\n- `allowedMcpServers` 现仅管理用户添加的服务器，字面 managed-mcp.json 服务器将默认加载，需使用 `deniedMcpServers` 阻止\n\n## 改进\n- 优化终端尺寸调整和长响应首屏渲染性能\n- 改进嵌套后台子代理结果保存机制\n- 增强 `/workflows` 代理详情 JSON 展示效果",
+      "summaryZh": "# Claude Code v2.1.259 更新说明\n\n**新功能：**\n- 新增 `managedMcpServers` 管理设置，组织可为所有用户提供 HTTP/SSE MCP 服务器\n- 新增 `--permission-prompts none` 参数，适用于无人值守环境，自动拒绝所有提示\n- 新增 `--json` 参数支持 `claude plugin validate` 命令\n- 支持 GitLab MR 操作识别，显示为 MR !N 徽章\n\n**主要修复：**\n- 修复并发会话相互覆盖配置的问题\n- 修复 Bash 读取权限规则遗漏文件参数的情况\n- 修复全屏模式长对话后显示空白的问题\n- 修复 OAuth 令牌刷新导致缓存失效的问题\n- 修复远程会话启动延迟问题\n\n**改进：**\n- 优化终端渲染性能\n- 改进工作流代理详情展示，支持语法高亮\n- 优化无头会话启动速度\n\n**破坏性变更：**\n- `allowedMcpServers` 现在仅管理用户添加的服务器，需使用 `deniedMcpServers` 控制托管服务器",
       "category": "github-release"
     }
   ]
