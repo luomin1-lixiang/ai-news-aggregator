@@ -1,31 +1,31 @@
 {
-  "lastUpdated": "2026-09-04T20:02:28.265Z",
+  "lastUpdated": "2026-09-07T20:54:58.949Z",
   "items": [
     {
-      "title": "Create your best tracks yet with Lyria 3.5 in Gemini.",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/better-tracks-lyria-gemini/",
-      "description": "Lyria 3.5, our best-sounding music generation model, is now available in the Gemini app and the Gemini API. Lyria 3.5 brings more expressive vocals and richer musical ar…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Lyria_social.max-600x600.format-webp.webp\">Lyria 3.5, our best-sounding music generation model, is now available in the Gemini app and the Gemini API. Lyria 3.5 brings more expressive vocals and richer musical ar…",
-      "author": "Google Blog",
+      "title": "Our new contrail avoidance trial in Asia-Pacific",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/contrail-avoidance-ultra-long-haul-flights/",
+      "description": "We’re partnering with Cathay Pacific to test our AI-powered contrail mitigation technology on ultra-long-haul flights.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Contrails_Hero.max-600x600.format-webp.webp\">We’re partnering with Cathay Pacific to test our AI-powered contrail mitigation technology on ultra-long-haul flights.",
+      "author": "Kemal Armada",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 04 Sep 2026 16:00:00 +0000",
-      "titleZh": "Create your best tracks yet with Lyria 3.5 in Gemini.",
-      "descriptionZh": "您提供的英文博客内容在描述 Lyria 3.5 的改进之处时被截断了——原文停在 \"...richer musical ar…\"（应为 \"arrangements\" 或 \"arrangement\" 一词），后续关于技术细节、模型能力、应用场景与测试表现等关键内容均未包含在内。\n\n基于现有片段，只能确认以下信息：该博客宣布 Google 旗下音质最佳的音乐生成模型 Lyria 3.5 现已正式登陆 Gemini 应用与 Gemini API，并在歌声表现力（expressive vocals）与音乐编曲丰富度（richer musical arrangement）两大维度带来升级。\n\n由于原文不完整，我目前无法生成符合您要求的完整中文摘要。请补充博客全文（完整贴出或提供链接），我将立即基于全部内容为您输出详实、结构化的中文技术摘要。"
+      "pubDate": "Mon, 07 Sep 2026 08:00:00 +0000",
+      "titleZh": "Our new contrail avoidance trial in Asia-Pacific",
+      "descriptionZh": "谷歌与国泰航空宣布合作，将在超长途航班上对基于人工智能的飞机尾迹消减技术进行实测。飞机尾迹（contrails）是高空发动机排放的水蒸气在低温条件下凝结形成的线状云，它们会在夜间捕获地表辐射热量，形成额外的温室效应，其气候影响有时甚至超过航空业直接排放的二氧化碳。谷歌开发的这套AI系统通过整合气象数据、卫星图像与飞行轨迹，预测哪些高度层容易产生持续尾迹，并据此建议飞行员在原航线附近微调飞行高度以避开这些区域。这样可以显著减少尾迹生成，同时不会大幅增加燃油消耗或飞行时间。此次与国泰航空的合作，选择在超长途航线上进行验证，目的是评估该技术在实际运营中的可行性与气候效益。这不仅延续了谷歌此前与多家航司测试的成果，也为未来航空业依靠智能调度降低气候足迹提供了新路径。"
     },
     {
-      "title": "Google Translate rolls out new upgrades for iOS and Android.",
-      "link": "https://blog.google/products-and-platforms/products/translate/google-translate-ios-android-upgrades/",
-      "description": "We’re bringing listening mode to iOS, and on Android, keep live translations running while you’re using other apps or when your screen is locked.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Translate_Blog_Asset_1.max-600x600.format-webp.webp\">We’re bringing listening mode to iOS, and on Android, keep live translations running while you’re using other apps or when your screen is locked.",
-      "author": "Sasha Kapur",
+      "title": "Backing 16 green AI projects in Asia-Pacific",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ai-planet-accelerator-apac/",
+      "description": "We’re supporting 16 organizations across Asia-Pacific using frontier AI to tackle challenges in climate, agriculture, and biodiversity.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IMG_0934.JPG_1.max-600x600.format-webp.webp\">We’re supporting 16 organizations across Asia-Pacific using frontier AI to tackle challenges in climate, agriculture, and biodiversity.",
+      "author": "Spencer Low",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 04 Sep 2026 16:00:00 +0000",
-      "titleZh": "Google Translate rolls out new upgrades for iOS and Android.",
-      "descriptionZh": "谷歌翻译正在进一步打破语言障碍，将实时语音翻译能力覆盖到更广泛的使用场景。此次更新主要围绕两个方向：面向iOS用户首次引入“收听模式”（Listening Mode），并为Android用户扩展了翻译的持久性——允许对话或实时翻译在切换到其他应用时，甚至在锁屏状态下继续保持运行。\n\n在过去的移动端翻译体验中，用户通常需要打开应用，并停留在翻译界面才能进行语音对话或收听实时翻译。这在实际场景中非常不便——比如在会议或讲座中，你需要一边用手机听外语内容，一边记录笔记，或者需要在不同应用之间切换查找资料。此次iOS端的“收听模式”是一项重要的新能力。不同于传统的“对话模式”强调双向交互，收听模式更侧重于单向的、持续性的翻译输出。它可以理解为一个高度自动化的“语音翻译随身听”：设备持续聆听讲话者的语音，通过后台的语音识别和神经机器翻译技术，在屏幕上以文字形式呈现翻译结果，并可通过语音合成的方式朗读出来。这对于参加跨国演讲、课程、电话会议或观看外语音频内容尤其有用，用户无需不断点击“开始”或“结束”，系统会智能识别语音的连续性并持续输出翻译。\n\nAndroid平台的更新则着力于解决“多任务处理”的限制。以往，实时翻译往往绑定在Google Translate应用的前台进程中，一旦切走或锁屏，翻译进程便会被打断。此次更新通过优化系统级服务与翻译引擎的连接，使得实时翻译能够在后台持续稳定地运行。这意味着用户在听讲座时可以打开其他笔记应用，甚至可以收起手机仅凭耳机收听翻译内容，音频服务不会中断，翻译结果也会在通知栏或锁屏界面上持续更新。这项能力在工程层面具备相当的技术含量，要求系统能在后台平衡麦克风持续采集、语音识别的实时性、神经网络的推理性能以及电池寿命之间的关系，体现出Google在端侧AI模型与操作系统深度整合上的积累。\n\n从技术原理看，这一系列功能的核心仍然依赖于Google多年积累的大规模神经机器翻译模型，同时结合了自动语音识别（ASR）和语音合成（TTS）技术。为了提升实时性，系统会在设备端完成部分语音处理和预翻译，将延迟降至人耳能够自然接受的范围内；而在必要时，也会调用云端的大模型资源来确保翻译质量和语言覆盖范围。这种“端云结合”的架构，既保证了离线或弱网环境下基本可用，也能在复杂语料和少资源语言上提供更优的翻译效果。\n\n从应用影响来看，收听模式与后台持续翻译的结合，让手机真正变成一个伴随式的“跨语言听译设备”。对于经常需要参加外语会议、出国旅行、观看外语直播或远程学习的用户来说，它不仅省去了反复切换应用的麻烦，还使翻译体验更接近自然沟通的节奏。尤其是Android锁屏场景下的连续运行，使得用户可以在放下手机、甚至闭上眼睛听音频的同时，依然不漏掉任何重要的外语信息。iOS和Android两个生态的同步适配，也让更多用户可以享受到无障碍的语言交流体验。这些变化背后反映出翻译工具形态的演进方向——从被动的、即时性的工具，逐步演化为主动陪伴在用户日常信息流中的隐形技术层。"
+      "pubDate": "Mon, 07 Sep 2026 01:00:00 +0000",
+      "titleZh": "Backing 16 green AI projects in Asia-Pacific",
+      "descriptionZh": "Google正以“前沿AI”（Frontier AI）为核心工具，在亚太地区展开一项规模宏大的技术与可持续发展融合计划。该计划宣布支持16家分布于亚太各地区的组织，将这些组织作为技术落地的关键支点，共同应对气候变化、农业生产与生物多样性保护这三大全球性紧迫课题。\n\n此次支持的16家组织，业务范围涵盖了从应对极端天气与海平面上升、帮助农民精准预测收成与防治病虫害，到利用AI声学监测与图像识别追踪濒危物种等一系列具体场景。其背后的技术逻辑在于：前沿AI具备处理复杂、非结构化数据的能力，可以从卫星图像、传感器网络、环境DNA等海量数据源中提取有效信息，从而在区域尺度上实现此前难以完成的生态与环境建模。这一技术路径，正是对“用技术解决地球级难题”这一理念的具体实践。\n\n从技术影响力来看，该计划不仅关注AI模型的先进性，更强调技术在真实场景中的适配性与可持续性。亚太地区本身就是全球气候脆弱区和农业、生物多样性热点区域，这类AI应用一旦成功，其技术范式可以被复制到世界其他类似地区，形成可扩展的全球性解决方案。从长远视角看，这也意味着前沿AI正在从通用能力研发走向更负责任、更贴近地球生态需求的行业纵深应用。"
     }
   ]
 }
