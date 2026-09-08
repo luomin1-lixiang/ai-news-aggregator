@@ -1,31 +1,57 @@
 {
-  "lastUpdated": "2026-09-07T20:54:58.949Z",
+  "lastUpdated": "2026-09-08T20:28:20.102Z",
   "items": [
     {
-      "title": "Our new contrail avoidance trial in Asia-Pacific",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/contrail-avoidance-ultra-long-haul-flights/",
-      "description": "We’re partnering with Cathay Pacific to test our AI-powered contrail mitigation technology on ultra-long-haul flights.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Contrails_Hero.max-600x600.format-webp.webp\">We’re partnering with Cathay Pacific to test our AI-powered contrail mitigation technology on ultra-long-haul flights.",
-      "author": "Kemal Armada",
+      "title": "Missouri and Google partner on AI and career training",
+      "link": "https://blog.google/products-and-platforms/products/education/missouri-state-education-partnership/",
+      "description": "Google is partnering with Missouri to provide 1.1 million students free access to Gemini for Education and career certificates. See how to get started.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Missouri_Google_AI__herosocial.max-600x600.format-webp.webp\">Google is partnering with Missouri to provide 1.1 million students free access to Gemini for Education and career certificates. See how to get started.",
+      "author": "Drew Sidel",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 07 Sep 2026 08:00:00 +0000",
-      "titleZh": "Our new contrail avoidance trial in Asia-Pacific",
-      "descriptionZh": "谷歌与国泰航空宣布合作，将在超长途航班上对基于人工智能的飞机尾迹消减技术进行实测。飞机尾迹（contrails）是高空发动机排放的水蒸气在低温条件下凝结形成的线状云，它们会在夜间捕获地表辐射热量，形成额外的温室效应，其气候影响有时甚至超过航空业直接排放的二氧化碳。谷歌开发的这套AI系统通过整合气象数据、卫星图像与飞行轨迹，预测哪些高度层容易产生持续尾迹，并据此建议飞行员在原航线附近微调飞行高度以避开这些区域。这样可以显著减少尾迹生成，同时不会大幅增加燃油消耗或飞行时间。此次与国泰航空的合作，选择在超长途航线上进行验证，目的是评估该技术在实际运营中的可行性与气候效益。这不仅延续了谷歌此前与多家航司测试的成果，也为未来航空业依靠智能调度降低气候足迹提供了新路径。"
+      "pubDate": "Tue, 08 Sep 2026 15:05:00 +0000",
+      "titleZh": "密苏里州与谷歌合作开展人工智能和",
+      "descriptionZh": "谷歌近日宣布与密苏里州建立合作伙伴关系，为该州110万名学生免费提供Gemini for Education（Gemini教育版）访问权限及职业证书课程。这一举措是谷歌持续推进人工智能教育普及战略的重要组成部分，旨在将生成式AI技术实质性融入K-12公立教育体系。\n\n从合作背景来看，这一项目体现了科技巨头与地方政府在教育数字化领域的深度协同。密苏里州成为继加州、伊利诺伊州等地之后，又一获得谷歌AI教育工具大规模部署的州份。覆盖对象包括从小学到高中的在校学生，规模之大在公立教育AI应用项目中具有标志性意义。\n\n核心产品方面，Gemini for Education是基于谷歌Gemini大语言模型打造的教育专属版本，与消费版相比增加了针对教学场景的功能设计，如课堂内容生成、个性化学习辅助、教师备课支持等。与通用AI助手不同，教育版在数据隐私保护、内容安全过滤、年龄适应性设计等方面做了特殊加固，以满足美国联邦及州级教育法规对未成年人数据保护的要求。配套提供的职业证书课程则涵盖了IT支持、数据分析、项目管理等实用技能方向，帮助学生建立与未来劳动力市场需求接轨的数字能力。\n\n这一合作的创新点在于构建了一个从基础教育到职业准备的全链条AI赋能体系。学生不仅能在日常学习中体验和使用前沿生成式AI工具，培养AI素养，还能通过职业证书课程获得被行业认可的技能认证，为升学或就业铺设更明确的路径。对教师群体而言，Gemini教育版能够在一定程度上分担备课、作业批改、差异化教学方案设计等事务性工作，使教师可将更多精力投入个性化教学互动。\n\n从行业影响看，此举标志着科技企业AI教育项目正从单点试点走向规模化普及。谷歌以免费开放在校用户群的方式培育早期AI使用习惯，既有教育公益属性，也隐含着生态布局的长远考量——当学生群体在K-12阶段就熟悉Gemini的操作范式，这种使用惯性可能延续至高等教育和职业生涯，进而转化为一系列产品生态的长期用户价值。此次项目还可能为其他州乃至其他国家提供可参照的落地范式，推动更多区域性教育机构与AI企业建立类似合作。\n\n对于教育工作者和学校管理者而言，这项合作的启动意味着需要同步考虑AI工具与现有课程体系的融合路径、教师培训安排、以及在AI辅助学习背景下重新审视考核评估方式的必要性。后续实施过程中，如何保障不同学区之间的数字资源均衡分配、如何评估学习成效改善程度，都将成为值得持续关注的关键议题。"
     },
     {
-      "title": "Backing 16 green AI projects in Asia-Pacific",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/ai-planet-accelerator-apac/",
-      "description": "We’re supporting 16 organizations across Asia-Pacific using frontier AI to tackle challenges in climate, agriculture, and biodiversity.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IMG_0934.JPG_1.max-600x600.format-webp.webp\">We’re supporting 16 organizations across Asia-Pacific using frontier AI to tackle challenges in climate, agriculture, and biodiversity.",
-      "author": "Spencer Low",
+      "title": "We’re helping put 25 new electric semi trucks on the road in Texas.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/electric-semi-trucks-texas/",
+      "description": "We’re partnering with Nevoya and the Center for Green Market Activation (GMA) to deploy 25 electric semi trucks.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/nevoya_etruck_herosocial.max-600x600.format-webp.webp\">We’re partnering with Nevoya and the Center for Green Market Activation (GMA) to deploy 25 electric semi trucks.",
+      "author": "Jenna Stauffer",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 07 Sep 2026 01:00:00 +0000",
-      "titleZh": "Backing 16 green AI projects in Asia-Pacific",
-      "descriptionZh": "Google正以“前沿AI”（Frontier AI）为核心工具，在亚太地区展开一项规模宏大的技术与可持续发展融合计划。该计划宣布支持16家分布于亚太各地区的组织，将这些组织作为技术落地的关键支点，共同应对气候变化、农业生产与生物多样性保护这三大全球性紧迫课题。\n\n此次支持的16家组织，业务范围涵盖了从应对极端天气与海平面上升、帮助农民精准预测收成与防治病虫害，到利用AI声学监测与图像识别追踪濒危物种等一系列具体场景。其背后的技术逻辑在于：前沿AI具备处理复杂、非结构化数据的能力，可以从卫星图像、传感器网络、环境DNA等海量数据源中提取有效信息，从而在区域尺度上实现此前难以完成的生态与环境建模。这一技术路径，正是对“用技术解决地球级难题”这一理念的具体实践。\n\n从技术影响力来看，该计划不仅关注AI模型的先进性，更强调技术在真实场景中的适配性与可持续性。亚太地区本身就是全球气候脆弱区和农业、生物多样性热点区域，这类AI应用一旦成功，其技术范式可以被复制到世界其他类似地区，形成可扩展的全球性解决方案。从长远视角看，这也意味着前沿AI正在从通用能力研发走向更负责任、更贴近地球生态需求的行业纵深应用。"
+      "pubDate": "Tue, 08 Sep 2026 15:00:00 +0000",
+      "titleZh": "我们正在帮助德克萨斯州新增25辆电动半挂卡车投入使用。",
+      "descriptionZh": "全球货运领域正面临严峻的脱碳挑战，重型卡车作为交通运输中碳排放的重要来源，其电动化转型一直是业界攻坚的难点。在这一背景下，一则重要的合作信号正在释放：科技企业与清洁交通领域的专业机构联合，共同推动电动半挂卡车的规模化落地。\n\n本次合作由三方共同参与：一方是全球领先的科技公司（从博客来源看应指Google），一方是专注电动货运解决方案的Nevoya公司，另一方则是绿色市场激活中心（Center for Green Market Activation, GMA）。合作的核心内容是共同部署25辆电动半挂卡车（electric semi trucks）。这并非一次简单的车辆采购，而是一次典型的需求侧联合行动——通过聚合企业级买家对清洁运力的真实需求，向市场释放明确的采购信号。\n\n从技术与市场机制来看，这一合作模式具有独特的创新意义。电动半挂卡车（即Class 8级别重型卡车）与传统柴油卡车相比，虽然在运行成本和使用寿命周期排放上具备明显优势，但长期以来受制于高昂的购置成本、充电基础设施不足以及车队运营方对续航里程的顾虑，市场渗透率一直不高。此次合作中，GMA的角色尤为关键——该机构专门致力于通过汇聚大型企业的购买承诺，来撬动新兴绿色技术市场的规模化发展。其思路在于，企业层面的确定性需求能够有效降低供应链各环节的投资风险：整车制造商因此更有信心扩大电动卡车的产能，充电运营商也更有动力在货运干线沿途部署大功率充电设施，从而形成\"需求牵引供给、供给反哺需求\"的良性循环。\n\n选择Nevoya作为运力服务商也颇具深意。Nevoya深耕电动货运领域，具备将电动卡车纳入实际物流运营的调度经验和配套设施能力，这意味着25辆电动半挂卡车并非用于示范展示，而是将真实投入货运线路运营。从减排效益上估算，每辆电动半挂卡车相较于传统柴油车，在其运营生命周期内可减少数百吨二氧化碳排放，25辆车的规模足以在区域货运走廊内产生可量化的环境改善效果。同时，这一规模也为运营数据的积累提供了坚实基础——实际运营中的能耗表现、充电频次、载重适配性等一手数据，将为后续更大规模的电动卡车部署提供宝贵参考。\n\n从更宏观的产业视角审视，这一合作向市场传递了多重信号。其一，它展示了科技企业将气候承诺向供应链纵深延伸的决心：电动半挂卡车的部署直接作用于物流环节的碳排放，属于企业碳足迹中范围三（Scope 3）减排的具体实践，而非停留在购买绿电或办公室节能的层面。其二，它为货运电动化探索了一种可复制的商业化路径——不是依赖政府补贴，而是依靠企业间的生态协作和市场化采购机制来推动技术落地。其三，25辆的规模虽然尚不足以彻底改变行业格局，但作为撬动性订单，其示范效应将引导更多货主企业关注并跟进电动运力的采购。\n\n展望应用场景，这批电动半挂卡车有望率先投放在中短途区域货运、港口集疏运以及城市群之间的固定线路运输中。这些场景对续航里程要求相对可控，且便于集中建设充电设施，是当前电动重卡技术条件下最具经济性的切入点。随着电池能量密度的持续提升和兆瓦级充电标准的逐步普及，电动半挂卡车的应用边界还将不断向长途干线延伸。此次合作如同一块关键的拼图，为货运行业的绿色转型提供了一个从承诺走向行动、从试点走向规模的真实范本。"
+    },
+    {
+      "title": "AlphaGenome Atlas: a high-resolution map of human DNA",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/alphagenome-atlas/",
+      "description": "We’re introducing AlphaGenome Atlas, a database predicting the effects of every possible single nucleotide variant in the human genome.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AlphaGenome_Atlas_herosocial.max-600x600.format-webp.webp\">We’re introducing AlphaGenome Atlas, a database predicting the effects of every possible single nucleotide variant in the human genome.",
+      "author": "Pushmeet Kohli",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 08 Sep 2026 14:00:00 +0000",
+      "titleZh": "AlphaGenome Atlas: a high-resolution map of human DNA",
+      "descriptionZh": "人类基因组由约30亿个碱基对构成，其中单个碱基的变化——即单核苷酸变异（SNV）——是导致遗传病、癌症及各种性状差异的重要根源。然而，在人类基因组中每一个可能发生单核苷酸替代的位置上，究竟哪些变异是无害的\"沉默多态性\"，哪些会破坏基因功能、引发疾病，长期以来缺乏系统性的解读工具。针对这一难题，DeepMind推出了AlphaGenome Atlas——一个旨在预测人类基因组中每一个可能单核苷酸变异效应的综合数据库。\n\n该数据库的核心创新在于其前所未有的覆盖规模。理论上，人类基因组的每个位置都可能发生三种替换突变，AlphaGenome Atlas对该变异空间进行了穷尽式的扫描与预测，这意味着它涵盖了远超临床数据库中已知致病变异的范畴，为\"变异组\"提供一个完整的参考图景。数据库的构建建立在深度学习方法之上，延续了DeepMind在蛋白质结构预测与变异效应评估领域的积累——模型通过学习大规模人群基因组数据、进化保守性信号以及蛋白质层面的功能约束，将序列层面的变异映射到功能后果上。\n\n这一资源的应用前景极为广阔。在临床遗传学中，面对一名患有罕见病的患者，医生通常需要在数万至数十万个低频变异中筛选真正的致病突变，AlphaGenome Atlas能大幅缩小候选范围，提高诊断效率和准确率。在药物研发中，它帮助研究者甄别可作为药物靶点的基因中哪些天然变异会影响药物反应，从而指导个体化用药策略。学术研究领域，这一数据库也为理解人类基因的剂量敏感性、功能冗余性以及演化约束提供了系统化的数据基础。\n\n值得注意的是，直接预测效果与真实临床致病性之间仍然存在距离。数据库的预测结果反映的是分子功能层面的影响，而疾病的最终发生还涉及遗传背景、环境因素和复杂的调控网络。但作为一份功能优先级排序的系统性参考资源，AlphaGenome Atlas的意义在于：它从\"针对已知疑问寻找答案\"转向\"为整个变异空间预先建立功能注释\"，为基因组医学从解释已经发生的现象走向预判一切可能的改变提供基础设施，也让人类对自己基因组这部天书中的每一个\"字符替换\"有了可查询、可比较、可参考的解读途径。"
+    },
+    {
+      "title": "Helping small businesses win with AI",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/route-66-small-businesses/",
+      "description": "We took to Route 66 to help Main Street entrepreneurs build confidence with AI. Explore free tools at Grow.Google/SMB.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Helping_Small_Businesses_Win_wi.max-600x600.format-webp.webp\">We took to Route 66 to help Main Street entrepreneurs build confidence with AI. Explore free tools at Grow.Google/SMB.",
+      "author": "Lisa Gevelber",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Tue, 08 Sep 2026 13:00:00 +0000",
+      "titleZh": "Helping small businesses win with AI",
+      "descriptionZh": "在人工智能技术快速渗透各行各业的今天，小型企业（SMB）往往面临一个尴尬的困境：它们深知AI的潜力，却不知从何下手，既缺乏专业的技术人才，也缺少试错的成本预算。Google近期发起了一项别开生面的 outreach 活动——沿着美国最具标志性的66号公路（Route 66）一路向西，将AI赋能的工具和服务直接带到沿途的\"主街\"（Main Street）创业者身边。这条公路不仅承载着美国小商业的历史记忆，也象征着从传统经营向数字化、智能化转型的旅程。\n\n活动的核心目标是帮助这些小微企业主建立对AI的\"信心\"——不是教他们理解底层算法，而是让他们在实际经营场景中切身感受到AI带来的效率提升。Google深知，对于杂货店老板、独立书店店主或手工坊主而言，抽象的AI概念远不如\"自动生成一条营销文案\"\"快速整理客户反馈\"来得直观。因此，整个项目围绕低门槛、场景化的工具应用展开，强调即学即用。\n\nGoogle为此次活动整合了旗下成熟的AI产品矩阵，包括Google Workspace中的智能写作辅助、Google Ads的智能投放建议，以及基于Gemini模型的对话式内容生成工具。这些能力的组合，使小企业主无需编写任何代码，就能完成社交媒体内容策划、客户邮件自动回复、季节性促销方案制定等日常运营任务。最关键的设计理念在于\"渐进式信任\"——先用一个简单场景让用户尝到甜头，再引导他们探索更深层的应用，从而逐步消除对技术的畏难情绪。\n\n从产业影响的角度看，这一举措精准击中了小型企业的数字化转型痛点：它们贡献了美国约44%的经济活动，但在AI采用率上却显著落后于大型企业。Google通过将复杂的AI能力封装成低摩擦、免费可得的工具（访问Grow.Google/SMB即可使用），实质上是在降低AI技术的应用门槛，帮助小企业在人力有限的情况下实现\"以一当十\"的运营效率。这也释放了一个明确的信号：AI竞争的下半场，不再仅仅是技术参数的比拼，而是谁能更快地让最普通的经营者用上并信任这项技术。\n\n对于中国的创业者和中小企业而言，这一案例同样具有参考价值——AI落地的关键不在于模型有多强大，而在于产品设计是否真正理解了目标用户的手忙脚乱与力不从心。66号公路上的这场试验，本质上是AI从实验室走向柜台的一次温柔着陆。"
     }
   ]
 }
