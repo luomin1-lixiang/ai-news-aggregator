@@ -1,26 +1,26 @@
 {
-  "lastUpdated": "2026-09-09T20:13:24.735Z",
+  "lastUpdated": "2026-09-10T20:15:48.402Z",
   "items": [
     {
-      "title": "ChatGPT vs Claude vs Gemini: 2026 Comparison",
-      "titleZh": "ChatGPT vs Claude vs Gemini：2026年对比评测",
-      "link": "https://dev.to/iniyarajan86/chatgpt-vs-claude-vs-gemini-2026-comparison-2blm",
-      "author": "Iniyarajan",
+      "title": "Claude AI in Bold BI with BYOK for Secure, Governed Analytics",
+      "titleZh": "Claude AI 在 Bold BI 中通过 BYOK 实现安全、受治理的分析",
+      "link": "https://dev.to/boldbi/claude-ai-in-bold-bi-with-byok-for-secure-governed-analytics-kle",
+      "author": "Bold BI by Syncfusion",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-03T11:22:57.000Z",
-      "summaryZh": "# ChatGPT vs Claude vs Gemini：2026年开发者终极对比\n\n**用户场景：** 作者针对2026年超5亿开发者日常使用AI助手的现状，指出多数人仍基于过时的Reddit帖子选择工具。文章旨在帮助开发者根据实际需求——从大规模webhook投递系统到生产级Swift代码编写——做出明智的模型选择。\n\n**核心方法：** 文章从设计哲学切入，将三者定位为：ChatGPT（瑞士军刀）主打广度与生态，GPT-4o快速廉价，o3推理模型在数学和竞赛编程上领先；Claude（手术刀）专注安全与长文档推理，200K token上下文窗口可处理整个代码库，指令遵循和低幻觉率业界最佳；Gemini（多模态强者）原生支持文本/图像/音频/视频推理，2M token上下文窗口为2026年最大，深度集成Google Workspace和实时搜索。\n\n**关键技巧：** 作者建议按场景选型：快速原型和通用自动化选ChatGPT；企业文档工作流、跨仓库代码审查、法律合规任务选Claude；多模态应用、实时研究、Google Workspace自动化选Gemini。注意Claude无原生图像生成且较保守，Gemini创意写作质量落后且存在生态锁定，ChatGPT的128K上下文仍是短板且o3高级模型价格不菲。",
+      "pubDate": "2026-09-10T07:21:29.000Z",
+      "summaryZh": "# Bold BI 集成 Claude AI：BYOK 模式下的安全分析实践\n\n**用户场景**：面向金融、医疗、保险等受监管行业，解决 BI 平台 AI 能力被单一模型厂商锁定的问题。作者指出，仅 24% 的金融服务公司有第三方 AI 使用政策，43% 对 AI 供应商做过增强尽调，治理缺口明显。\n\n**核心方法**：Bold BI 通过 BYOK（Bring Your Own Key）方式接入 Anthropic Claude，让 AI Assistant、AI Agent、AI Copilot、Prompt-to-Dashboard 和 Smart Narrations 等能力改由 Claude 驱动。企业自带 API Key，保留对 AI 使用、治理和计费的控制权，避免数据流经预设供应商。\n\n**关键技巧**：\n1. **选型看场景**：Claude 的 Constitutional AI 训练方式带来结构化推理，适合生成仪表盘分析、高管报告等需可靠输出的场景。\n2. **善用长上下文**：可一次性传入整个 dashboard、多个 KPI 组件或完整数据模型，避免分块处理导致上下文割裂，提升趋势分析准确性。\n3. **治理优先**：受监管行业应优先选择支持 BYOK、可审计、数据流向透明的方案，而非功能最全的单一模型平台。\n4. **规避陷阱**：不要因平台只支持单一 AI 供应商就妥协，模型能力差异（推理、摘要、多语言、成本）直接影响分析质量。",
       "category": "devto"
     },
     {
       "title": "Claude API key seguridad: por qué el .env no es opcional",
-      "titleZh": "Claude API密钥安全：为何.env文件不可或缺",
+      "titleZh": "Claude API key 安全：为什么 .env 不是可选项",
       "link": "https://dev.to/jtorchia/claude-api-key-seguridad-por-que-el-env-no-es-opcional-25a0",
       "author": "Juan Torchia",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-09T12:00:15.000Z",
-      "summaryZh": "# Claude API Key 安全：.env 不是可选项\n\n**用户场景：** 开发者在 Next.js 项目中快速测试 Claude API 时，常因\"先试试再说\"的心态将 API key 硬编码在代码中。作者指出，一旦 key 进入 git 历史，删除当前文件并不能真正清除泄露——日志、克隆仓库、公开 repo 都可能成为泄密渠道。\n\n**核心方法：** 作者强调 Anthropic 官方文档只说明认证机制（通过 `x-api-key` header 传递），但项目架构层面的安全防护需要开发者自己负责。推荐方案是使用 `.env.local` 文件存储密钥，并在服务端代码中通过 `process.env.ANTHROPIC_API_KEY` 读取，确保 key 永不进入浏览器 bundle。\n\n**关键技巧：**\n- 警惕 `.env.backup` 等变体文件名——它们可能不匹配 `.gitignore` 模式而被意外提交\n- 切勿在 React 客户端组件中使用 `NEXT_PUBLIC_` 前缀变量存储 API key，这会直接暴露在浏览器下载的 JS bundle 中\n- 发布前运行 `git log --all -p | grep \"sk-\"` 检查历史泄露\n- 怀疑 key 泄露时，**先撤销再调查**，缩短被滥用窗口期\n- 使用 git-secrets 或 pre-commit hooks 作为自动化防线，弥补人工检查的盲区\n\n作者提醒，这并非完整安全审计，而是务实的风险控制框架。",
+      "summaryZh": "# Claude API Key 安全：为什么 .env 不是可选项\n\n## 用户场景\n作者针对的是开发者在 Next.js 项目中快速测试 Claude API 时的常见诱惑：直接在 `route.ts` 顶部硬编码 `const apiKey = \"sk-ant-api03-...\"`，想着\"之后再删\"。但\"之后\"往往赶不上第一次 git commit，一旦 key 进入历史记录，删掉当前文件也无济于事。\n\n## 核心方法\n核心原则：**永远不要硬编码 API key，哪怕\"只是测试\"**。正确做法是把 key 放在 `.env.local`（Next.js 默认忽略），通过 `process.env.ANTHROPIC_API_KEY` 在服务端读取，并加空值检查抛错。关键区分：git 忽略的配置文件 vs. 被版本控制的字符串字面量。\n\n## 关键技巧\n- **警惕 NEXT_PUBLIC_ 前缀**：任何带此前缀的变量都会进入浏览器 bundle，等于公开 key\n- **检查 .gitignore 变体**：`.env.backup`、`.env.production` 等后缀可能不匹配忽略规则\n- **发布前扫描**：`git log --all -p | grep \"sk-\"` 检查历史\n- **日志脱敏**：确保 HTTP 客户端不打印完整 Authorization/x-api-key header\n- **多 provider 隔离**：Cline + OpenRouter 场景下每个 key 用独立变量，避免轮换时全盘崩溃\n- **泄露响应顺序**：先在 dashboard 撤销 key，再调查原因——不要反过来\n\n## 注意事项\n`.env` 本身不提供安全保障，真正的风险是\"有独立文件\"带来的虚假安全感。此指南不能替代 CI 中的自动化 secret 扫描（如 git-secrets、pre-commit hooks），也不构成安全审计。",
       "category": "devto"
     },
     {
@@ -31,18 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-09T12:00:19.000Z",
-      "summaryZh": "## Claude API Key 安全实践：.env 不是可选项\n\n**用户场景：** 开发者在 Next.js 项目中快速测试 Claude API 时，常将 API key 硬编码在代码中，导致密钥被提交到 git 历史或暴露在客户端 bundle 中，造成不可逆的安全风险。\n\n**核心方法：** 作者强调密钥管理是项目架构决策，而非文档能自动解决的问题。推荐使用 .env.local 文件存储密钥，并确保服务端读取（避免 NEXT_PUBLIC_ 前缀），同时验证 .gitignore 是否正确配置。关键流程包括：密钥生成 → 环境变量存储 → 服务端读取 → 定期检查 git 历史。\n\n**关键技巧：**\n1. 发布前运行 `git log --all -p | grep \"sk-\"` 检查历史泄露\n2. 警惕 .env.backup 等变体文件未被 gitignore 覆盖\n3. 客户端组件禁用 NEXT_PUBLIC_ 前缀变量\n4. 疑似泄露时先撤销密钥再排查原因\n5. 多 provider 场景下每个密钥独立存储，避免共享字符串\n6. 建议配合 git-secrets 或 pre-commit hooks 自动化扫描\n\n作者特别提醒：文档只说明认证机制，不负责项目结构设计；安全实践需要开发者主动构建，而非依赖框架默认配置。",
-      "category": "devto"
-    },
-    {
-      "title": "12 Tech & Science News Stories for Monday, September 7, 2026: Seattle Times and Newsday Sue OpenAI and Microsoft",
-      "titleZh": "2026年9月7日（周一）12条科技与科学新闻：西雅图时报和Newsday起诉OpenAI与微软",
-      "link": "https://dev.to/gtstudios/12-tech-science-news-stories-for-monday-september-7-2026-seattle-times-and-newsday-sue-openai-49jm",
-      "author": "GTStudios",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-07T16:01:52.000Z",
-      "summaryZh": "# 每日科技新闻摘要：AI版权诉讼与太空探索进展\n\n**用户场景：** 本文汇总了2026年9月7日的12条科技与科学新闻，涵盖科技应用、AI工具及太空探索三大领域，为读者提供当日最重要的行业动态。\n\n**核心内容：**\n- **版权诉讼升级：** 《西雅图时报》和Newsday起诉OpenAI与微软，指控其未经许可抓取付费文章训练ChatGPT和Copilot模型，要求销毁相关训练数据。\n- **欧洲航天里程碑：** 德国Isar Aerospace的Spectrum火箭成功入轨，成为欧洲首枚进入轨道的私营火箭。\n- **AI版权分配争议：** Anthropic的版权和解协议（约50万部作品，每部$3,000）面临分配纠纷——部分出版商声称获得100%赔偿，而作者认为应五五分；文学代理人也被指试图分一杯羹。\n- **其他动态：** SpaceX再发射27颗Starlink卫星；Uber前CEO Travis Kalanick的机器人公司Atoms可能进军Robotaxi业务；AI生成的iPhone 18 Pro\"暗樱桃色\"概念广告走红。\n\n**关键要点：** 新闻出版业与AI公司的版权冲突持续升温，创作者权益分配机制亟待明确；欧洲私营航天能力取得突破性进展。",
+      "summaryZh": "# Claude API Key 安全：为什么 .env 不是可选项\n\n## 用户场景\n作者针对的是开发者在 Next.js 项目中快速测试 Claude API 时，习惯把 `sk-ant-api03-...` 直接硬编码在 `route.ts` 顶部的常见问题。核心痛点在于：一旦 key 进入 git 历史，即使从当前文件删除，它依然存在于旧 commit 中，任何 clone 仓库的人都能通过 `git log -p` 找到它。\n\n## 核心方法\n作者主张\"零妥协\"原则：**永远不要硬编码 API key，哪怕只是测试**。正确做法是将 key 放入 `.env.local`（Next.js 默认忽略），并通过 `process.env.ANTHROPIC_API_KEY` 在服务端读取，同时加空值检查抛出错误。\n\n## 关键技巧\n- **验证 .gitignore**：确认 `.env*.local` 被显式忽略，警惕 `.env.backup` 这类后缀不匹配的文件被意外版本化\n- **禁用 NEXT_PUBLIC_ 前缀**：任何带该前缀的变量都会进入浏览器 bundle，等于公开泄露\n- **多 provider 分离变量**：Cline/OpenRouter 等场景下每个 key 独立变量，避免轮换时互相影响\n- **发布前扫描**：运行 `git log --all -p | grep \"sk-\"` 检查历史\n- **泄露后先撤销再排查**：在 provider dashboard 立即 revoke，不要先调查原因\n- **CI 层加自动化扫描**：如 git-secrets、pre-commit hooks 检测 key 模式\n\n作者强调这不是风格问题，而是有可测量后果的架构决策。",
       "category": "devto"
     },
     {
@@ -53,40 +42,73 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-09T03:05:56.000Z",
-      "summaryZh": "### 用户场景\n\n本文探讨了Matt Clifford辞去英国ARIA（高级研究与发明局）主席职务的事件，聚焦于其同时担任Anthropic高管所引发的利益冲突问题。作者分析了这一事件对AI技术治理、监管透明度及行业信任度的深远影响，特别关注英国、哥伦比亚和西班牙等快速发展的科技生态系统。\n\n### 核心方法\n\n文章采用“治理架构”分析框架，拆解了监管机构、企业利益与公众信任三者的互动关系。通过案例研究（如Google、Facebook的类似冲突），作者指出利益冲突可能出现在政策制定、监督委员会等关键环节，并强调建立清晰、透明的治理框架是平衡AI创新与伦理监管的核心手段。\n\n### 关键技巧\n\n- **风险识别**：警惕监管者与企业高管的双重角色，避免决策偏见\n- **政策应对**：企业应定期审查内部治理政策，主动披露潜在利益关联\n- **市场策略**：在监管不确定期，密切跟踪政策动向，避免投资与合规风险\n- **本地化建议**：对哥伦比亚等新兴市场，建议优先建立透明治理机制以吸引投资；西班牙则需强化高标准治理以维护声誉\n\n文章最终强调，健全的治理框架是技术可持续发展的基石，企业需将合规视为战略投资而非负担。",
+      "summaryZh": "**标题：Matt Clifford 辞去 ARIA 职务——对 AI 治理与开发者的启示**\n\n**用户场景**：本文面向关注 AI 监管环境的开发者与企业。作者借 Matt Clifford 辞去英国 AI 监管机构 ARIA 主席一职的事件，探讨监管机构与企业（如 Anthropic）之间的利益冲突如何影响 AI 开发与创新。\n\n**核心方法**：文章通过案例分析（Google、Facebook 类似治理争议）梳理利益冲突的产生机制——监管者同时持有被监管企业职位，导致决策公正性受损。作者从政策制定、监督委员会两个环节拆解冲突场景，并延伸至哥伦比亚、西班牙等新兴市场的本地影响。\n\n**关键技巧与建议**：\n1. **审查治理政策**：企业应确保内部政策透明，明确处理潜在利益冲突。\n2. **主动参与利益相关方沟通**：与监管方、社区保持对话以建立信任。\n3. **持续监控监管变化**：及时调整业务策略，避免法律风险。\n4. **警惕投资与创新环境**：治理结构不透明会削弱投资者信心，抑制新技术探索。\n\n**对开发者的实际价值**：在 AI 快速迭代的背景下，监管不确定性会直接影响 API 使用、模型部署与合规成本。开发者需关注治理动态，提前评估政策风险，尤其在 LATAM 与西班牙等市场，稳定的监管框架是技术落地的关键前提。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic's alignment lead says the company has no plan for superintelligence",
+      "titleZh": "Anthropic的对齐负责人表示公司没有超级智能的计划",
+      "link": "https://dev.to/breachprotocol/anthropics-alignment-lead-says-the-company-has-no-plan-for-superintelligence-4jpg",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-09T20:59:32.000Z",
+      "summaryZh": "# Anthropic 对齐负责人公开承认：公司对超级智能尚无对齐方案\n\n## 用户场景\n本文面向关注 AI 安全与前沿实验室动态的开发者。事件核心是：Anthropic 对齐科学负责人 Evan Hubinger 在同事 Jacob Coxon（预训练研究员）公开辞职数小时后，于 X 上公开承认公司\"尚无解决超级智能对齐的方案，也未明确走在正轨上\"，并给出个人判断——未来十年 AI 导致人类灭绝的概率超过 10%。\n\n## 核心方法\n文章采用\"一手信源核查\"的报道方式：以 Hubinger 的 X 原帖为主源，梳理时间线（Coxon 辞职 → Hubinger 回应 → Will Depue 附和），并区分\"已证实\"与\"未经证实\"的信息。作者用\"桥梁工程师\"类比替代\"吹哨人\"叙事——没有隐藏文件，公开承认本身就是披露。\n\n## 关键技巧与要点\n- **区分能力端与安全端**：Coxon 来自 pretraining（能力端），Hubinger 负责 stress-test 自家安全技术，两人从不同位置得出同一结论，可信度更高。\n- **重新解读安全框架**：frontier labs 发布的 responsible scaling policy 等文档，实际只覆盖\"当前系统\"，而非 roadmap 指向的 superintelligence——这个 gap 正是辞职的导火索。\n- **警惕未证实信息**：Coxon 的\"head researcher\"\"放弃 pre-IPO 股权\"等细节多来自第三方转述，需谨慎对待。\n- **注意信源缺口**：Anthropic 未回应置评请求，公司官方立场尚未记录在案。\n\n对开发者的实际价值：评估 AI 供应商风险时，应区分其公开安全文档覆盖的范围与产品 roadmap 的实际目标，不要把合规框架等同于对终极风险的解决方案。",
       "category": "devto"
     },
     {
       "title": "Claude พิสูจน์ทฤษฎีบทสุดท้ายของแฟร์มาต์ใน 11 วัน, งานที่มนุษย์ตั้งเป้าไว้ 5 ปี",
-      "titleZh": "Claude 在11天内证明了费马大定理，而人类设定的目标是5年",
+      "titleZh": "Claude在11天内证明了费马大定理，人类原本计划用5年完成的工作",
       "link": "https://dev.to/sarantoon/claude-phisuucchnthrsdiibthsudthaaykhngaefrmaatain-11-wan-ngaanthiimnusytangepaaaiw-5-pii-520n",
       "author": "Nokka",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-09T01:18:07.000Z",
-      "summaryZh": "## Claude 11天证明费马大定理：AI数学形式化的里程碑\n\n**用户场景**：Kevin Buzzard教授原计划用5年（2024-2029）将费马大定理（Fermat's Last Theorem）用Lean语言形式化验证，而Anthropic研究团队用Claude模型在11天内完成了这一壮举，生成1300万行Lean代码、验证30300个引理。\n\n**核心方法**：通过Prove2Me平台协调数十个agent，强制所有agent在共享的DAG（有向无环图）定理依赖树上分工协作。相比第一轮失败（agent各自为战导致项目状态混乱），第二轮成功关键在于统一的任务分配架构。人类研究员仅偶尔插入高层建议（如“Jacobian scheme可能很重要”），其余全靠agent间互相审查。\n\n**关键技巧**：\n- 让agent在共享DAG上工作而非自由探索，避免状态不同步\n- agent能自我纠错——有agent发现已通过的lemma因误用epimorphism而错误，主动发日志声明并修复\n- 最终验证时，agent不轻信他人结果，坚持独立query复核\n\n**局限性**：代码无注释、不符合Mathlib规范、仅证明restricted版本（prime p≥17）、构建需96核+512GB内存跑6小时。Buzzard亲自编译验证通过，但指出这并未增加新数学知识——真正的价值在于证明“AI可形式化前沿研究”的可行性，未来数学家或将迎来即时验证时代。",
+      "summaryZh": "# Claude 用 11 天完成费马大定理形式化：开发者能学到什么\n\n## 用户场景\n数学家 Kevin Buzzard 拿到五年研究经费，计划用 Lean 形式化费马大定理（人类 1995 年才由 Wiles 完成证明）。Anthropic 团队用 Claude 在 11 天内抢先完成，产出 1300 万行 Lean 代码、30300 个已证子定理，规模是 Mathlib 的五倍。\n\n## 核心方法\n关键在于 **agent 编排架构**：通过 Prove2Me 平台让数十个 agent 在共享的定理依赖 DAG 图上分工。第一版因 agent 各自为战、状态不同步而失败；第二版强制所有 agent 基于同一 DAG 协作，失败版本反而贡献了 7% 的有效代码。\n\n## 关键技巧\n1. **DAG 共享状态**：多 agent 协作必须锚定同一依赖图，避免状态漂移。\n2. **自我验证闭环**：agent 会主动发现已通过检查的 lemma 有误（如误用 epimorphism 代替 monomorphism），并写入 log 修正。\n3. **交叉验证**：主定理标记 Proved 后，另一 agent 坚持用独立 query 复查，不盲信结果。\n4. **人类只做高层引导**：研究员仅偶尔插入方向性提示（如\"Jacobian scheme 很重要\"），不做具体实现。\n\n## 避坑提醒\nAnthropic 自曝的 cons 值得警惕：代码无注释、命名机器化、900+ 文件超长、约 1/5 行是重复拷贝（单个 lemma 在 300+ 文件重复声明）、单次 build 需 96 核 + 512GiB RAM 近 6 小时。**可运行 ≠ 可维护**，该代码不会进 Mathlib。\n\n## 核心启示\n不是\"AI 超越数学家\"，而是当**验证成本趋近于零**时，实时形式化研究成为可能。多 agent + DAG + 自检纠错的模式，可直接迁移到大型代码库重构、形式化验证等工程场景。",
       "category": "devto"
     },
     {
       "title": "Buckmaster says OpenAI asked him to drop his Anthropic coauthor",
-      "titleZh": "巴克马斯特表示，OpenAI要求他放弃与Anthropic合著者的身份。",
+      "titleZh": "Buckmaster说OpenAI要求他放弃他的Anthropic合著者",
       "link": "https://dev.to/breachprotocol/buckmaster-says-openai-asked-him-to-drop-his-anthropic-coauthor-1o07",
       "author": "Breach Protocol",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-08T20:57:10.000Z",
-      "summaryZh": "## 学术论文署名争议：OpenAI被指要求移除Anthropic合作者\n\n**用户场景**：NYU数学教授Tristan Buckmaster与Anthropic数学家Levent Alpoge合作，利用Claude、Codex等LLM工具解决了流体力学中的有限时间爆破问题。在成果即将发布之际，OpenAI团队声称其内部模型也独立解决了Navier-Stokes方程的类似问题，由此引发了一场关于署名权、数据隐私和AI辅助科研伦理的激烈争议。\n\n**核心方法**：Buckmaster团队采用“LLM辅助数学证明”工作流——用Claude和Codex生成初步证明草稿，再通过Lean形式化验证器逐行确认。他们沿用了Diego Cordoba等人开创的研究路线，经过近一年探索，于8月15日取得突破，8月22日在Lean上完成验证。OpenAI则声称其模型在“极少人工输入”下独立得出相同结论。\n\n**关键技巧与警示**：\n- **数据安全**：Buckmaster将全部草稿存入Codex会话，但无法确认这些数据是否被用于模型训练。使用商业AI工具处理未公开研究时，务必评估数据泄露风险。\n- **沟通留痕**：建议全程邮件沟通并保留记录，电话中关键承诺应事后书面确认。\n- **署名争议处理**：面对“移除合作者”等不合理要求，坚持原则并做好公开准备。\n- **AI辅助证明的验证**：LLM生成的证明质量参差，必须用Lean等工具严格验证，不能轻信模型输出。\n\n此事件凸显了AI时代科研合作的新挑战：当多个团队借助相同工具逼近同一问题时，如何界定优先权、保护数据隐私、维护学术诚信，值得整个社区深思。",
+      "summaryZh": "# 中文摘要\n\n**用户场景**：NYU 数学家 Tristan Buckmaster 与 Anthropic 研究员 Levent Alpoge 合作攻关 Navier-Stokes 方程，一年来大量借助 LLM（Claude、Codex/GPT-5.6 Sol、Astra）推进证明，8 月 15 日取得 Boussinesq 与 Euler 方程的 blowup 结果，8 月 22 日用 Lean 完成验证。随后 OpenAI 被指要求将 Alpoge 从作者名单中移除。\n\n**核心方法**：作者团队用 LLM 生成证明草稿、用 Lean 形式化验证，并借助 Astra 做 writeup 与审计。关键发现是 LLM 生成的初版证明\"极其糟糕\"，必须配合 Lean 逐条核验才能落地。\n\n**关键技巧与警示**：\n1. **Lean 验证是刚需**——LLM 证明不可直接采信，形式化验证是唯一可靠关卡。\n2. **数据泄露风险**——团队把全部草稿放进 Codex session，事后追问模型是否训练过这些数据却未获明确答复。敏感研究应隔离 LLM 会话，避免草稿进入训练管线。\n3. **prompt 溯源**——对方声称\"极少人工输入\"，实际是团队协作、预热、多轮尝试、prompt 本身由 Codex 生成。评估他人 AI 成果时要追问：prompt 从何而来、何时发出、算力投入多少。\n4. **优先权与署名**——同期收敛的成果极易引发署名争议，建议尽早公开时间戳、保留邮件与版本记录。\n\n对开发者而言，此事件是\"AI 辅助科研\"的信任与合规样本：工具越强，越需要可验证、可追溯的工作流。",
       "category": "devto"
     },
     {
       "title": "Deep Dive: Anthropic's Use of Claude for Fermat’s…",
-      "titleZh": "深度解析：Anthropic 如何利用 Claude 解决费马…",
+      "titleZh": "深度解析：Anthropic利用Claude解决费马…",
       "link": "https://dev.to/norviktech/deep-dive-anthropics-use-of-claude-for-fermats-3ncb",
       "author": "Norvik Tech",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-06T05:05:56.000Z",
-      "summaryZh": "## 深度解析：Anthropic 如何用 Claude 形式化费马大定理\n\n**用户场景：** 本文探讨 Anthropic 如何利用 Claude AI 模型将费马大定理（aⁿ + bⁿ = cⁿ，n>2 无正整数解）形式化为机器可处理的逻辑证明。这不仅是数学突破，更展示了 AI 在复杂逻辑推理和形式验证领域的实际应用价值，对软件工程、金融系统、医疗数据等需要高可靠性的技术领域意义重大。\n\n**核心方法：** Claude 采用分层架构处理形式化证明：首先通过**数据摄取**（Data Ingestion）消化大量数学文献；接着利用**语义解析**（Semantic Parsing）将自然语言转换为形式逻辑；最后由**证明生成引擎**（Proof Generation Engine）基于现有数学理论推导证明路径。与传统数学家依赖直觉不同，Claude 能同时探索多种证明策略，将数年工作量压缩至数周甚至数天。\n\n**关键技巧：** 作者强调形式验证（Formal Verification）的实际 ROI——采用该技术的企业报告 bug 减少 40%，部署后调试时间降低 30%。对于开发者，建议从小规模试点项目入手（如算法验证），投资团队 AI 工具培训，并建立明确评估指标。**注意陷阱**：LATAM 等新兴市场需克服员工培训成本和现有工作流集成障碍。Claude 的 NLP 能力使其能处理抽象数学概念，但企业应聚焦具体用例（如 fintech 算法验证）而非泛化应用，才能最大化价值。",
+      "summaryZh": "**用户场景**：文章面向希望借助 AI 提升数学证明与软件正确性验证的开发者，尤其是金融、医疗等对算法可靠性要求极高的行业，探讨如何用 Claude 将复杂逻辑形式化，减少人工证明与调试成本。\n\n**核心方法**：Claude 通过分层架构工作——先摄取大量数学文献与已有证明，再用 NLP 做语义解析，把自然语言转成形式逻辑，最后由 Proof Generation Engine 基于演绎推理生成候选证明，并做形式验证。相比人类数学家依赖直觉、耗时数年，Claude 可并行探索多种证明策略，把周期压缩到数周甚至数天。\n\n**关键技巧**：\n1. 从具体场景切入，先做小规模 pilot，例如算法验证或定理形式化，再评估 ROI 后扩展。\n2. 把 formal verification 嵌入开发流水线，而非事后补救，可显著降低 bug 率与部署后调试时间。\n3. 重视团队培训与工作流集成，这是 LATAM 等新兴市场企业的主要 adoption barrier。\n4. 注意：文章未给出可复现代码或 API/hooks 细节，落地时需自行验证 Claude 输出，避免把“生成候选证明”等同于“已证明”。\n\n**实践价值**：对开发者而言，核心启示是把 AI 当作形式化验证的加速器，而非替代品；先小步试点、量化指标，再规模化集成。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic is building predictive surveillance that tracks activists, an investigation reports",
+      "titleZh": "一项调查报道称，Anthropic正在构建追踪活动人士的预测性监控系统",
+      "link": "https://dev.to/breachprotocol/anthropic-is-building-predictive-surveillance-that-tracks-activists-an-investigation-reports-274h",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-09T21:00:33.000Z",
+      "summaryZh": "**用户场景**：文章面向关注 AI 伦理与开发者生态的读者，聚焦 Anthropic 被曝构建内部监控与威胁预测体系，追踪针对公司高管和设施的抗议活动，并将\"activism\"与恐怖主义、地缘威胁并列归档。\n\n**核心方法**：Anthropic 通过采购第三方风险检测服务 Samdesk，扫描公开信号并推送实时预警。其全球安全运营中心经理 Keon Ellison 在播客中描述：Samdesk 提前约 60 分钟预警抗议时间变更，公司据此将高管从服务通道改道撤离。同时，公司发布年薪 18–23 万美元的 Enterprise Intelligence Specialist 岗位，职责涵盖调查\"activism\"。\n\n**关键技巧与提醒**：\n- 区分\"正在构建\"与\"正在招聘\"、区分\"监控办公区周边抗议\"与\"向警方举报未犯罪者\"——\"pre-crime\"是记者解读，非已上线系统的描述。\n- 证据链仅支持：一份招聘启事、一段供应商关系、一位经理的一次改道描述。\n- 对开发者而言，这提示 AI 公司内部安全工具与公开使用政策（usage policy）之间可能存在张力，评估合作方时值得核查其招聘动向与供应商合同。\n- 招聘启事常在引发关注后被撤下，可查 careers 页面确认状态。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic's economists sketch three AI futures and say workers lose share in all the big ones",
+      "titleZh": "Anthropic的经济学家勾勒出三种AI未来，并称在所有重要情景中劳动者份额都会下降",
+      "link": "https://dev.to/breachprotocol/anthropics-economists-sketch-three-ai-futures-and-say-workers-lose-share-in-all-the-big-ones-221a",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-09T20:58:32.000Z",
+      "summaryZh": "Anthropic经济指数团队发布报告，勾勒AI到2030年的三种经济情景，核心结论不在增长数字，而在分配。\n\n**用户场景**：面向关注AI宏观影响的知识工作者与政策制定者。报告回应一个现实焦虑——AI提升生产力后，收益究竟流向谁。\n\n**核心方法**：设定三档情景。温和情景下AI影响力类似互联网；中间情景（专家预期最集中）为2030年AI自主完成半数知识工作，经济增速翻倍；极端情景下AI在绝大多数知识任务上超越人类，年增速约15%。报告不给概率，只做条件推演。\n\n**关键技巧与要点**：\n1. 记住核心判断——“饼会变大，但更大份额可能流向资本”。中间情景下知识工作者工资基本持平，极端情景下到2030年下降超10%。\n2. 理解机制：工资取决于劳动的稀缺性。当机器能自主完成大部分知识工作，被雇佣的技能不再稀缺，稀缺的是购买和运行机器的资本。\n3. 类比农业机械化：粮食产量大增、价格下降，但价值份额从农场工人转向拖拉机所有者。\n4. 注意局限：这是情景而非预测，无法被证伪；2030时间窗要求极快的部署过渡，而当前全经济生产率统计尚未被AI明显拉动；专家调查存在选择偏差；AI公司自评自身影响有双向激励。\n\n对开发者而言，可操作的一点是：无论哪种情景成真，“谁拥有系统，谁获取收益”这一条件判断都成立，值得提前思考自身在价值链中的位置。",
       "category": "devto"
     },
     {
@@ -97,40 +119,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-09T18:58:23.000Z",
-      "summaryZh": "## Anthropic 用 AI 在 Lean 中形式化证明了费马大定理\n\n**用户场景**：数学家 Kevin Buzzard 曾获 100 万英镑资助，计划用五年时间在 Lean 证明助手中形式化费马大定理（FLT）。Anthropic 的内部研究模型仅用 11 天就完成了这一壮举，生成了 1300 万行 Lean 代码、约 29500 个定理，最终证明体积是 Mathlib 库的 5 倍。\n\n**核心方法**：整个工作通过 Prove2Me 平台完成，将庞大的形式化任务拆解为小型命题，分发给多个 AI agent 并行处理。关键验证环节采用三重检查：Lean 内核本身、独立的 comparator 工具（15 小时），以及用 Rust 编写的 Nanoda 内核（30 分钟验证 105 万条声明）。Nanoda 与 Lean 无共享代码，能有效发现 Lean 内核自身的潜在 bug。\n\n**关键技巧**：验证 AI 生成的 Lean 证明时，只需两个机械检查——搜索 `sorry` 占位符和打印公理列表。该证明仅依赖 Lean 自带的三个公理（`propext`、`Classical.choice`、`Quot.sound`），无额外假设。对开发者而言，生成成本高昂（约 30 万美元 API 费用），但验证成本极低，这提醒我们：在 AI 生成代码的流程中，应建立类似内核的自动检查机制（类型系统、属性测试或模糊测试），而非盲目信任生成结果。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic Just Got Hit With a Lawsuit That Could Cost More Than the Company Is Worth",
-      "titleZh": "Anthropic刚刚遭遇一起诉讼，索赔金额可能超过公司自身价值",
-      "link": "https://dev.to/ashraf_chowdury09/anthropic-just-got-hit-with-a-lawsuit-that-could-cost-more-than-the-company-is-worth-28b1",
-      "author": "Ashraf",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-07T09:02:33.000Z",
-      "summaryZh": "## 诉讼风暴下的AI供应链风险：Anthropic面临天价版权索赔\n\n**用户场景**：2026年8月，索尼音乐和华纳音乐联合起诉Anthropic，指控其通过盗版渠道获取训练数据。该案涉及数万首音乐作品，按每首最高15万美元的法定赔偿计算，潜在赔偿金额可能超过公司估值（约2万亿美元）。此前Anthropic已因图书版权案（Bartz案）支付15亿美元和解金。\n\n**核心方法**：诉讼焦点不在AI训练是否构成\"合理使用\"（Bartz案已确认训练本身可辩护），而在于**数据获取方式的合法性**。原告指控Anthropic通过LibGen和PiLiMi等盗版库批量下载、抓取Musixmatch等付费歌词平台、使用含盗版内容的Common Crawl数据集，甚至\"破坏性扫描\"——拆开书籍物理扫描。关键证据是内部通讯中\"我们不想让人知道我们在做这个\"的表述，这直接摧毁了\"合理使用\"抗辩的可信度。\n\n**关键技巧**：对开发者而言，这是供应链风险的警示：\n- **数据溯源风险**：依赖任何大模型都需评估其训练数据合法性，尤其涉及视频、图片、代码等垂直领域\n- **供应商锁定风险**：巨额赔偿可能导致API涨价或模型下架，影响产品路线图\n- **行业普遍性**：OpenAI、Google、Meta同样面临类似诉讼，换供应商无法规避风险\n\n**核心教训**：AI公司因\"知道有问题却试图隐瞒\"的书面证据，将可辩护的合理使用案变成天价和解。这预示了整个行业训练数据获取方式的真实成本。",
-      "category": "devto"
-    },
-    {
-      "title": "GPT-6 Astra scores 95% on one robot task, 10% on another",
-      "titleZh": "GPT-6 Astra在机器人任务中一项得分95%，另一项仅得10%",
-      "link": "https://dev.to/techaiwire/gpt-6-astra-scores-95-on-one-robot-task-10-on-another-aa2",
-      "author": "techaiwire",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-08T04:05:57.000Z",
-      "summaryZh": "## 机器人评测：GPT-6 Astra 与 Claude Fable 5.1 的悬殊表现\n\n**用户场景**：Robocurve（独立评测机构，YC 支持）对比了 OpenAI GPT-6 Astra 与 Anthropic Claude Fable 5.1 在物理机器人臂上的表现，帮助开发者理解模型在真实世界任务中的能力边界与成本差异。\n\n**核心方法**：使用开源框架 inspect-robots（MIT 许可，GitHub 可查），在双机械臂（I2RT YAM，6 自由度）上执行两项任务：简单任务（红块入碗）和困难任务（蓝色拼图块入槽）。每项 20 次试验，人工按五级量表评分，并记录完整配置、git 版本和包版本以确保可复现。\n\n**关键结果与技巧**：\n- **任务差异巨大**：Astra 在简单任务 19/20（95%），困难任务仅 2/20（10%）；Fable 5.1 分别为 8/20 和 2/20。困难任务上两者完全持平——单一百分比反映的是任务难度而非模型能力。\n- **成本与速度**：Astra 简单任务单次 $0.94（2.5 分钟），Fable 5.1 为 $2.12（6.8 分钟）。但注意 Fable 5.1 本月刚大幅降低缓存读取价格，数字会变动。\n- **开发者建议**：永远看分任务数据而非平均值；构建评测时直接克隆 inspect-robots，它已处理动作空间验证和版本锁定等易错环节；20 次试验足以区分 19 vs 8，但无法区分 2 vs 2。",
+      "summaryZh": "Anthropic 用内部研究模型在 11 天内生成了 Fermat's Last Theorem 的完整 Lean 形式化证明，规模约为 Mathlib 的 5 倍（29,511 个定理、60,475 个模块、13M 行 Lean 代码、60 亿 output tokens）。作者借此讨论 AI 生成代码的可验证性问题。\n\n**用户场景**：数学家 Kevin Buzzard 团队花 5 年、100 万英镑试图形式化该定理，Anthropic 抢先完成。核心问题不是\"AI 能写多少代码\"，而是\"没人需要读这些代码\"——由 kernel 判定正确性。\n\n**核心方法**：通过 Prove2Me 平台把形式化拆成小命题，分发给并行 agent 处理。验证走三层：Lean 自身 kernel → comparator 工具（15 小时）→ Nanoda（Rust 独立 kernel，30 分钟验证 1,052,234 条声明）。Nanoda 与 Lean 无共享代码，能捕获 Lean kernel 自身的 bug。\n\n**关键技巧**：\n- 审查 AI 写的 Lean 只需两个机械检查：搜索 `sorry`（未完成占位符），打印 axiom 列表（应仅含 propext、Classical.choice、Quot.sound）\n- 构建成本极高（96 并行任务 5.5 小时、230 GB 内存峰值），普通笔记本无法本地构建，建议直接读 390 MB 的 HTML 文档\n- 可迁移的教训：生成昂贵（约 30 万美元 API 成本），验证廉价。但这只在存在 checker 时成立——Lean 有 kernel，你的 web 服务没有。需自问：type system、property test 还是 fuzzer 能扮演 kernel 角色？",
       "category": "devto"
     },
     {
       "title": "An AI Just Turned Fermat's Last Theorem Into 13 Million Lines a Computer Can Check — in 11 Days",
-      "titleZh": "一个AI刚刚把费马大定理变成了1300万行计算机可检查的代码——仅用11天",
+      "titleZh": "一个AI仅用11天就将费马大定理转化为1300万行计算机可检查的代码",
       "link": "https://dev.to/markorocko/an-ai-just-turned-fermats-last-theorem-into-13-million-lines-a-computer-can-check-in-11-days-292n",
       "author": "Faith & Fact - Marky Mark",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-08T14:18:18.000Z",
-      "summaryZh": "**Anthropic 用 Claude 智能体在 11 天内将费马大定理形式化为 1300 万行 Lean 代码**——这是近期 AI 数学领域最震撼的突破之一。\n\n**用户场景**：传统数学证明依赖人类专家多年推演（如 Wiles 耗时 7 年），且难以被机器验证。本文展示如何用多个 Claude 智能体在 Lean 证明检查器中自动完成大规模形式化验证，解决“人类信任”与“机器可验证”之间的鸿沟。\n\n**核心方法**：Anthropic 在 Prove2Me 开源平台上部署数十个 Claude 智能体，针对 Lean 语言中的费马大定理证明进行 11 天不间断工作。系统将证明拆解为 30,300 个独立定理（其中 29,500 个为最终结构必需），智能体通过协作图（interlocking claims graph）互相校验，最终产出 1300 万行代码，仅依赖 Lean 的三个标准公理，无需人类逐行审查。\n\n**关键技巧**：\n1. **多智能体协作优于单模型**：让多个模型互相检查、反驳，比依赖单一“最强”模型更可靠——因为模型能力更新太快，今天的 SOTA 明天可能过时。\n2. **形式化验证的“无信任”优势**：Lean 编译器只认逻辑，不认权威，杜绝幻觉引用。\n3. **对开发者启示**：处理关键任务时，应同时向多个前沿模型提问并交叉验证，而非绑定单一 API——这正是“模型对比工具”的价值所在。\n\n**注意**：文中提及的模型能力对比具有时效性，实际开发中建议用工具（如 Gangsta AI）实时比较各模型输出。",
+      "summaryZh": "# Claude 多智能体 11 天形式化费马大定理\n\n## 用户场景\n数学形式化验证长期依赖人工，Wiles 证明费马大定理耗时七年。本文展示 Anthropic 用 Claude agents 在 Lean 中重建该证明，解决\"如何让机器无信任地验证复杂数学证明\"的问题。\n\n## 核心方法\nAnthropic 在 Prove2Me 平台上部署数十个 Claude agents，针对一个庞大的互锁命题图并行工作 11 天，产出 1300 万行 Lean 代码，证明 30,300 个定理（29,500 个为承重结构），消耗约 60 亿 output tokens。人类数学家仅偶尔给出高层方向提示（如\"Jacobian as a scheme 优先级高\"）。最终 Lean 仅用三条标准公理完成校验。\n\n## 关键技巧\n- **多 agent 并行 + 命题图编排**：将大证明拆解为可独立推进的子目标，让 agents 分头攻克再合并。\n- **Lean 作为可信裁判**：编译器验证不依赖人类背书，避免 LLM 幻觉污染结论。\n- **人类只做高层 steering**：把精力放在优先级判断而非逐行推导。\n- **警惕模型时效性**：文中强调\"哪个 AI 最强\"只有时间戳，无稳定答案；完成此任务的模型并非当时最强。\n- **多模型交叉验证**：对关键问题同时询问多个 frontier models，让它们互相检查、反驳，取共识结论，比单一模型更可靠。\n\n对开发者的启示：复杂任务应拆解为可验证的子目标，用形式化工具或交叉验证兜底，而非盲信单一模型的自信输出。",
       "category": "devto"
     },
     {
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-09T19:58:14.000Z",
-      "summaryZh": "## Claude Code v2.1.267 更新摘要\n\n**新增功能**：添加`maxEffortLevel`设置（支持顶层或按模型配置），可限制所有提供商的努力级别；新增`--system-prompt-snapshot off`选项，每次请求时重新渲染系统提示词。\n\n**主要修复**：修复了移动端`/context`输出空白、tmux/ssh会话中快捷键失效、大会话恢复时并行工具调用丢失、AWS/GCP凭证过期时重复重试等问题；修复了工件上传中断后的重试机制；解决了MCP服务器重连导致的提示缓存失效和推理丢失问题；修复了`/model`切换时工具定义重复发送的缓存问题。\n\n**改进**：优化`/diff`面板显示，提升提示输入响应速度，改进Bash工具描述引导，增强沙箱环境剪贴板建议。\n\n**破坏性变更**：自托管运行器的`--use-anthropic-git-proxy`现需在注册时报告；网关对转发用户身份的上游请求返回429状态码而非故障转移。\n\n**VSCode修复**：解决了扩展主机CPU占用100%的问题，以及WSL2/WSLg中粘贴截图插入原始字节的问题。",
+      "summaryZh": "# Claude Code v2.1.267 更新摘要\n\n**新增功能**\n- 新增 `maxEffortLevel` 设置（顶层或 `modelSettings` 下按模型配置），可限制所有 provider（含 Bedrock、Vertex、Foundry）的 effort 等级，用户仍可手动选择更低等级。\n- 新增 `--system-prompt-snapshot off`，每次请求重新渲染 system prompt，便于迭代 prompt 文本。\n- 改进 `/diff` 面板、Bash 工具描述、sandbox 提示（建议 `/copy`）、`--resume` 首次渲染速度及输入响应性。\n- 自托管 runner：`--use-anthropic-git-proxy` 改为注册时上报服务器，并对仍走旧代理的会话发出警告。\n\n**Bug 修复**\n- 修复云端 Cowork 定时任务启动失败、移动端 `/context` 输出空白、tmux/ssh 重连后快捷键失效、全屏滚动时 last-prompt 头部不显示等问题。\n- 修复大量 prompt-cache 失效与 extended thinking 丢失问题（MCP 重连、模型切换、`-p` 会话恢复等场景）。\n- 修复大 session（transcript >5MB）恢复时并行工具调用及 hook 输出丢失。\n- 修复 `allowedHttpHookUrls` 等配置不可读时误放行全部而非拒绝。\n- 修复 AWS/GCP 凭证过期重试十次、artifact 上传中断、非 UTF-8 页面报错不明确等问题。\n- [VSCode] 修复扩展宿主 100% CPU 挂起、WSL2 粘贴截图插入原始字节。\n\n**破坏性变更**\n- Gateway：`forward_user_identity` 上游对已转发邮箱的开发者改为直接返回 429，不再故障转移到下一上游，以维持按用户限流。",
       "category": "github-release"
     },
     {
@@ -152,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-08T23:55:14.000Z",
-      "summaryZh": "**Claude Code v2.1.266 更新说明**\n\n本次更新修复了2.1.265版本引入的一个回归问题，该问题影响LLM网关和代理设置。此前，未公开的`CLAUDE_CODE_USE_GATEWAY`环境变量仅在同时设置`ANTHROPIC_BASE_URL`和`ANTHROPIC_AUTH_TOKEN`时才会生效。但在2.1.265版本中，该变量单独存在时即强制触发Cloud网关登录，导致与API密钥、`apiKeyHelper`或自定义认证头配合使用时，每次请求都会报错\"Not signed in to the Cloud gateway\"。\n\n现在，该变量单独设置时将被忽略，恢复原有行为。用户无需更改任何配置即可解决此问题。此修复不影响其他功能，建议受影响的用户升级至最新版本。",
+      "summaryZh": "Claude Code v2.1.266 发布，主要修复 2.1.265 引入的回归问题。该问题影响 LLM-gateway 和代理配置：未公开的 `CLAUDE_CODE_USE_GATEWAY` 环境变量此前仅在同时设置 `ANTHROPIC_BASE_URL` 和 `ANTHROPIC_AUTH_TOKEN` 时才生效，但 2.1.265 中它开始单独强制启用 Cloud-gateway 登录，导致配合 API key、`apiKeyHelper` 或自定义认证头的配置每次请求都报错 \"Not signed in to the Cloud gateway\"。本次修复后，该变量单独设置时重新被忽略，用户无需修改任何配置。此版本无新增功能或破坏性变更，属紧急修复补丁。",
       "category": "github-release"
     },
     {
@@ -163,7 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-08T20:37:31.000Z",
-      "summaryZh": "## v2.1.265 版本更新摘要\n\n**新增功能：**\n- 通过Claude应用网关发送遥测数据时新增用户邮箱和用户组信息\n- `--plugin-dir` 现支持指向插件文件夹，自动加载含清单的子文件夹，并支持运行中动态增删\n- 工具结果保存至磁盘新增1GB上限，对话预览会提示文件截断情况\n\n**关键修复：**\n- 修复恢复前台子代理时工具列表和系统提示前缀变化导致的提示缓存失效问题\n- 修复工具运行中进程终止后恢复时最后提示被重写的问题\n- 修复 `/model opusplan[1m]` 报\"模型未找到\"错误\n- 修复语法高亮代码中Ruby、Erlang、Perl符号后字符缺失问题\n- 修复macOS/Linux上插件路径含反斜杠绕过符号链接检查的安全漏洞\n- 修复VS Code和SDK会话偶发需要重新登录的问题\n- 修复后台会话在空闲超时前被提前终止的问题\n- 修复Windows沙箱环境下文件操作全部被拒绝的问题\n\n**改进优化：**\n- 大型仓库的 `--worktree` 启动支持并行检出（需git 2.32+）\n- `/workflows` 代理详情现显示工具调用状态和子代理任务列表\n- 命令补全列表优化，支持Tab键展开\n- 远程MCP服务器认证流程优化，仅在真正认证时注册OAuth客户端\n- 长会话恢复速度提升\n\n**破坏性变更：**\n- 无重大破坏性变更，但工具结果磁盘存储上限可能影响超大数据处理场景",
+      "summaryZh": "**Claude Code v2.1.265 更新摘要**\n\n本次更新以修复为主，兼顾功能增强。\n\n**新功能**：telemetry 新增 user.email 与 user.groups 字段；`--plugin-dir` 支持指向插件文件夹，运行中可动态加载/移除子插件；工具结果落盘新增 1 GB 上限并提示截断；`--worktree` 在大仓库并行检出；`/workflows` 展示工具调用状态与子代理任务列表；斜杠命令支持列表匹配。\n\n**重要修复**：恢复前台子代理时工具列表与 system prompt 前缀被改动、破坏 prompt-cache 复用的问题；进程在工具运行中崩溃后的 resume 不再重写最后 prompt，并保留被中断的调用；`/model opusplan[1m]` 误报 \"Model not found\"；权限提示中 Ruby `?`、Erlang/Perl `$` 后字符丢失；插件路径含反斜杠绕过 symlink 检查；MCP 仅支持 legacy HTTP+SSE 时无法连接；非交互会话每轮重置工作目录；Windows AppContainer 下 Read/Write/Edit 全部被拒。\n\n**破坏性变更**：无。",
       "category": "github-release"
     }
   ]
