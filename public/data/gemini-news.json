@@ -1,83 +1,18 @@
 {
-  "lastUpdated": "2026-09-10T20:14:35.297Z",
+  "lastUpdated": "2026-09-11T20:12:28.495Z",
   "items": [
     {
-      "title": "Dreambeans: Daily stories, brewed just for you, now available to all accounts in the U.S.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-labs/dreambeans-expansion-september-2026/",
-      "description": "In June, Google Labs introduced Dreambeans, an experiment that creates personalized daily collections of stories. Now, Dreambeans is available to all accounts in the U.S…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dreambeans_social.max-600x600.format-webp.webp\">In June, Google Labs introduced Dreambeans, an experiment that creates personalized daily collections of stories. Now, Dreambeans is available to all accounts in the U.S…",
+      "title": "Three Google supported projects premiere during the 83rd Venice International Film Festival.",
+      "link": "https://blog.google/innovation-and-ai/technology/xr-ar/three-google-supported-projects-premiere-during-the-83rd-venice-international-film-festival/",
+      "description": "Google shares details on three projects that use technology to push the boundaries of human creativity that premiered during the 83rd Venice Film Festival.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/venice_film_fest_social.max-600x600.format-webp.webp\">Google shares details on three projects that use technology to push the boundaries of human creativity that premiered during the 83rd Venice Film Festival.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 18:00:00 +0000",
-      "titleZh": "Dreambeans: Daily stories, brewed just for you, now available to all accounts in the U.S.",
-      "descriptionZh": "Google Labs 于今年 6 月推出实验性产品 Dreambeans，目标是生成个性化的每日故事集合。如今，该实验已向美国所有 Google 账户开放，标志着它从早期测试阶段扩展到更大规模的用户验证。其背景是 Google Labs 对生成式 AI 消费级应用的持续探索：在信息过载和内容推荐同质化的环境下，Dreambeans 试图用 AI 将分散内容重新组织为用户每天可消费的“故事集”。\n\n从产品定位看，Dreambeans 的核心并非传统新闻聚合，而是个性化内容策展。用户可能通过 Google 账户参与，选择感兴趣的主题，系统每天生成与其偏好匹配的故事集合。其创新点在于把个性化推荐与生成式 AI 结合，将常见的“信息流”转化为更完整、叙事化的每日合集，从而提升发现感和阅读体验。技术层面，它很可能依赖大模型对多源内容进行理解、筛选、摘要或改写，再按用户兴趣动态编排，并通过用户反馈优化结果。作为 Google Labs 实验，它强调快速迭代和用户反馈，而非成熟产品。\n\n影响上，Dreambeans 代表了“AI 策展+个性化生成”的内容消费方向，可能影响新闻聚合、兴趣社区、教育娱乐和 AI 助手等场景。它可帮助用户低成本探索新主题，也可能带来准确性、偏见、版权、隐私和过滤气泡等挑战。不过，当前提供的英文博客仅为开头片段，未披露具体模型、数据来源、排序算法和隐私设计，因此无法对其技术原理做更详细摘要。"
-    },
-    {
-      "title": "3 ways to prep for your next big race with Search",
-      "link": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
-      "description": "Search can help runners get race-day ready with registration alerts, tailored training plans, and more.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Search_Race_Running_Tips.max-600x600.format-webp.webp\">Search can help runners get race-day ready with registration alerts, tailored training plans, and more.",
-      "author": "Peter Schottenfels",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 16:00:00 +0000",
-      "titleZh": "3 ways to prep for your next big race with Search",
-      "descriptionZh": "Google 搜索正在扩展到跑步备赛场景，帮助跑者从报名到比赛日更系统地做好准备。根据博客介绍，用户可通过搜索获得赛事注册提醒、个性化训练计划以及更多与比赛日相关的信息。其背景是跑步和马拉松参与度持续上升，但赛事报名窗口分散、训练计划专业门槛较高，跑者往往需要在多个平台之间切换。Google 搜索的切入点是利用其信息聚合与智能推荐能力，把赛事发现、报名时间提醒和训练安排整合到搜索体验中。\n\n从技术逻辑看，这类功能通常需要搜索系统理解“赛事报名”“马拉松训练计划”等查询意图，匹配结构化的赛事日历和训练内容，并通过通知机制在关键节点主动提醒用户；个性化训练计划则可能结合用户目标、水平、时间安排等信号进行推荐。其创新点在于把搜索从被动信息查询工具，转变为覆盖备赛全周期的主动助手，降低获取专业指导和赛事信息的门槛。\n\n应用上，跑者可以搜索并筛选比赛、设置报名开放提醒、获取分阶段训练计划、了解比赛日准备事项等。对用户而言，这能减少信息遗漏、提升备赛效率；对 Google 而言，则展示了搜索在健康、运动和生活方式场景中的进一步延伸。"
-    },
-    {
-      "title": "The Gemini app is now available for Windows",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-app-now-on-windows/",
-      "description": "We’re launching the Gemini app for Windows, the new desktop app built to work alongside your favorite tools and daily applications.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Gemini_for_Desktop_Thumbnail_20.max-600x600.format-webp.webp\">We’re launching the Gemini app for Windows, the new desktop app built to work alongside your favorite tools and daily applications.",
-      "author": "Erin Pettigrew",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 16:00:00 +0000",
-      "titleZh": "The Gemini app is now available for Windows",
-      "descriptionZh": "谷歌宣布正式推出 Windows 版 Gemini 应用，这是 Gemini 面向桌面端推出的新应用，核心定位是“与用户喜爱的工具和日常应用并肩工作”。背景上，生成式 AI 助手正从网页和移动端向桌面生产力场景延伸，Windows 作为全球主流工作平台，是 AI 助手触达用户日常任务的关键入口。此次推出意味着 Gemini 不再局限于浏览器标签页或手机 App，而是以桌面应用形态进入用户的工作流。\n\n技术原理与创新点方面，Windows 版 Gemini 预计基于 Gemini 多模态大模型，提供自然语言对话、内容生成、信息总结、代码辅助和多模态理解等能力。其创新重点在交付方式和场景融合：通过桌面应用常驻、快速调用，并与常用软件并行使用，降低用户切换工具的成本，让 AI 更接近“桌面协作层”，而非单纯问答机器人。这种形态有助于 AI 结合当前任务上下文，辅助跨应用操作，并逐步成为工作流级甚至操作系统级的智能助手。\n\n影响与应用场景方面，该应用可用于文档写作、邮件草拟、会议纪要、资料检索、数据分析、编程辅助、创意构思、学习辅导和日常规划等场景，提升个人与团队效率。对 Google 而言，这是把 Gemini 生态扩展到 Windows 的关键动作，也将与 Microsoft Copilot 等桌面 AI 助手形成更直接的竞争。对行业而言，桌面 AI 助手的普及会推动人机交互从点击菜单转向自然语言指令，并加速 AI 与办公软件、操作系统和云服务的融合。后续其具体功能、可用地区、企业级支持和系统集成深度值得关注。"
-    },
-    {
-      "title": "Switching password managers is easy and safe on Android",
-      "link": "https://blog.google/products-and-platforms/platforms/android/switch-password-managers/",
-      "description": "A new Android feature lets you securely transfer passwords and passkeys between password managers.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero_Image_4.max-600x600.format-webp.webp\">A new Android feature lets you securely transfer passwords and passkeys between password managers.",
-      "author": "Jean-Pierre Pralle",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 16:00:00 +0000",
-      "titleZh": "Switching password managers is easy and safe on Android",
-      "descriptionZh": "Google 宣布 Android 推出新功能，允许用户在不同密码管理器之间安全迁移已保存的密码和通行密钥（passkeys）。过去，密码和通行密钥通常被锁定在各自密码管理器内，用户更换管理器时需要手动导出、导入，流程繁琐且可能造成明文泄露；通行密钥因涉及私钥，迁移难度和安全性要求更高。新功能由 Android 系统层提供安全传输机制，用户明确授权并通过设备锁屏等身份验证后，凭据以加密形式从源密码管理器转移到目标密码管理器，避免被系统或其他应用获取。通行密钥基于 FIDO/WebAuthn 的公私钥机制，迁移的关键是安全转移私钥并使其绑定到新的密码管理器。该更新的意义在于降低密码管理器之间的切换门槛，减少供应商锁定，提升凭据可移植性和安全性，并推动无密码认证进一步普及。典型应用场景包括用户更换密码管理器、从系统自带密码管理器迁移到第三方、设备更换、企业统一管理登录凭据等。整体来看，这是 Android 在数字身份、密码管理和无密码登录生态方面的一项实用进展。"
-    },
-    {
-      "title": "Drive profitable growth with new data and measurement tools",
-      "link": "https://blog.google/products/ads-commerce/data-strength-updates/",
-      "description": "New capabilities across our measurement suite can help you make better, faster decisions that drive business growth.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Header_EnnLoZX.max-600x600.format-webp.webp\">New capabilities across our measurement suite can help you make better, faster decisions that drive business growth.",
-      "author": "Nipoon Malhotra",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 13:00:00 +0000",
-      "titleZh": "Drive profitable growth with new data and measurement tools",
-      "descriptionZh": "当前提供的素材只有博客头图和导语，未包含英文博客正文，因此无法在不虚构的前提下生成覆盖背景、技术原理、创新点、影响与应用场景的完整中文摘要。仅就现有信息而言，其核心内容是：谷歌宣布其测量套件新增多项能力，旨在帮助企业更快速、更精准地获取营销与业务测量洞察，从而优化决策并推动业务增长。该更新面向依赖数据分析、广告归因、跨渠道效果衡量和隐私合规测量的企业团队。若需完整摘要，需要补充英文博客全文，以便准确展开具体产品、技术机制、应用场景和行业影响。"
-    },
-    {
-      "title": "Exploring Creative Intelligence with London’s Southbank Centre",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/exploring-creative-intelligence-with-londons-southbank-centre/",
-      "description": "A new weekend explores how artists, digital innovation and AI are reshaping the world we live in.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Landscape.max-600x600.format-webp.webp\">A new weekend explores how artists, digital innovation and AI are reshaping the world we live in.",
-      "author": "Mark Ball",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 10 Sep 2026 11:00:00 +0000",
-      "titleZh": "Exploring Creative Intelligence with London’s Southbank Centre",
-      "descriptionZh": "这篇英文内容是一则活动或专题预告，原文仅有一句话，并配有一张来自 Google 官方博客发布平台的图片。它宣布推出一个新的“周末”企划或内容专题，主题是艺术家、数字创新与人工智能如何共同重塑我们生活的世界。由于原文没有提供主办方、日程、参与艺术家、项目形式或具体技术方案，其背景更接近文化科技类前瞻，而非技术白皮书或产品发布。\n\n在核心议题上，该企划把艺术创造力、数字工具与 AI 并置，重点不是孤立讲解某一算法，而是观察三者交汇带来的变化。所谓数字创新可能涵盖生成式 AI、机器学习、互动媒体、沉浸式影像、数字艺术平台等；艺术家的角色则可能是使用、质疑或重新定义这些工具，推动人机协作和新型审美表达。其创新点在于跨学科叙事：用艺术和公共文化讨论来呈现 AI 如何进入日常生活，而不仅停留在工程层面。\n\n技术影响和应用场景方面，这类主题通常关联创意产业、博物馆与展览、数字内容生产、教育、公共艺术和娱乐体验。AI 可以扩展创作手段、提升互动性和个性化体验，降低部分创作门槛；同时也会带来版权、作者身份、真实性与伦理等问题。总体看，原文信息非常有限，核心信息是：一项新的周末专题或活动将探讨艺术家、数字创新和 AI 如何共同塑造当代世界。"
+      "pubDate": "Fri, 11 Sep 2026 11:00:00 +0000",
+      "titleZh": "Three Google supported projects premiere during the 83rd Venice International Film Festival.",
+      "descriptionZh": "在第八十三届威尼斯电影节期间，Google 首映并分享了三个项目的细节。这些项目共同聚焦于利用技术推动人类创造力的边界。原文仅提供导语式信息，未披露三个项目的具体名称、创作团队、核心技术原理、创新机制、合作方以及后续应用场景，因此无法进一步展开其技术影响和行业意义。可确认的背景是，Google 选择威尼斯电影节这一国际电影与文化平台发布相关项目，显示其希望将技术探索与艺术、影像及创意表达结合，并借助电影节首映获得文化关注和行业讨论。总体来看，这是一则关于 Google 以技术项目参与创意前沿探索的简短摘要；若要形成完整的技术与影响分析，需要获取英文博客正文。"
     }
   ]
 }
