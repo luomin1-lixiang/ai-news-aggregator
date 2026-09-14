@@ -1,18 +1,44 @@
 {
-  "lastUpdated": "2026-09-11T20:12:28.495Z",
+  "lastUpdated": "2026-09-14T21:40:59.945Z",
   "items": [
     {
-      "title": "Three Google supported projects premiere during the 83rd Venice International Film Festival.",
-      "link": "https://blog.google/innovation-and-ai/technology/xr-ar/three-google-supported-projects-premiere-during-the-83rd-venice-international-film-festival/",
-      "description": "Google shares details on three projects that use technology to push the boundaries of human creativity that premiered during the 83rd Venice Film Festival.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/venice_film_fest_social.max-600x600.format-webp.webp\">Google shares details on three projects that use technology to push the boundaries of human creativity that premiered during the 83rd Venice Film Festival.",
+      "title": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/dialogues-christina-koch/",
+      "description": "Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Dialogues_Christina-Koch_social.max-600x600.format-webp.webp\">Christina Koch sits down with James Manyika, Google’s Senior Vice President of Research, Labs, Technology & Society.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 11 Sep 2026 11:00:00 +0000",
-      "titleZh": "Three Google supported projects premiere during the 83rd Venice International Film Festival.",
-      "descriptionZh": "在第八十三届威尼斯电影节期间，Google 首映并分享了三个项目的细节。这些项目共同聚焦于利用技术推动人类创造力的边界。原文仅提供导语式信息，未披露三个项目的具体名称、创作团队、核心技术原理、创新机制、合作方以及后续应用场景，因此无法进一步展开其技术影响和行业意义。可确认的背景是，Google 选择威尼斯电影节这一国际电影与文化平台发布相关项目，显示其希望将技术探索与艺术、影像及创意表达结合，并借助电影节首映获得文化关注和行业讨论。总体来看，这是一则关于 Google 以技术项目参与创意前沿探索的简短摘要；若要形成完整的技术与影响分析，需要获取英文博客正文。"
+      "pubDate": "Mon, 14 Sep 2026 19:00:00 +0000",
+      "titleZh": "Watch astronaut Christina Koch and Google’s James Manyika discuss space, technology, and discovery.",
+      "descriptionZh": "我目前只能看到一张图片和一句图注——Christina Koch 与 Google 研究、实验室、技术与社会高级副总裁 James Manyika 对谈——但没有看到博客正文。因此无法基于原文生成完整、准确的中文摘要。\n\n请把英文博客正文粘贴过来（或提供可访问的全文链接）。收到后我会按你的要求输出：背景与上下文、核心技术原理与创新点、技术影响与应用场景，并用专业但易懂的中文完整呈现。"
+    },
+    {
+      "title": "DevFest is back",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/devfest2026/",
+      "description": "DevFest 2026 is back and here’s how you can connect with one of the more than 800 global events to build, secure, and scale in the agentic AI era.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/DevFest.max-600x600.format-webp.webp\">DevFest 2026 is back and here’s how you can connect with one of the more than 800 global events to build, secure, and scale in the agentic AI era.",
+      "author": "Justyna Politanska-Pyszko",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 14 Sep 2026 16:00:00 +0000",
+      "titleZh": "DevFest回归了",
+      "descriptionZh": "这篇博文是一则简短预告，宣布 DevFest 2026 回归，并邀请开发者从全球 800 多场 DevFest 活动中选择参与。活动的核心主题是帮助开发者在“agentic AI 时代”实现 build、secure、scale——即构建、安全防护和规模化扩展。DevFest 通常由 Google 开发者社区（如 GDG）组织，是年度全球开发者活动，包含技术分享、工作坊和社区交流，旨在连接本地与全球开发者生态。\n\n从背景看，agentic AI（代理式 AI/自主智能体 AI）被视为生成式 AI 之后的重要演进方向：系统不再只是被动生成内容，而是能自主规划、调用工具或 API、记忆上下文并执行多步任务。因此其关键技术议题通常包括智能体架构、工具调用与编排、多智能体协作、权限与身份管理、安全护栏、评估与可观测性，以及成本、延迟和可靠性治理。不过，原文并未展开具体技术原理、议程或产品创新，只通过 build、secure、scale 三个关键词点明活动方向。\n\n对开发者和企业而言，DevFest 2026 提供了在全球 800 多场活动中学习 agentic AI 实践、获取工具与生态资源、建立社区连接的机会。其应用场景可能涵盖客户服务、工作流自动化、编程辅助、数据分析、企业知识管理等生产级落地。总体来看，这篇博文更像一个参与入口和主题定调：agentic AI 的构建、安全与规模化，是 2026 年开发者社区关注的重点。"
+    },
+    {
+      "title": "We’re exploring a potential data center in Lea County, New Mexico.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/lea-county-new-mexico/",
+      "description": "Google is exploring a new data center project in Lea County, New Mexico. While discussions are ongoing, we recognize residents are asking questions about data center dev…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/SocialShare_gradient.max-600x600.format-webp.webp\">Google is exploring a new data center project in Lea County, New Mexico. While discussions are ongoing, we recognize residents are asking questions about data center dev…",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 14 Sep 2026 14:00:00 +0000",
+      "titleZh": "We’re exploring a potential data center in Lea County, New Mexico.",
+      "descriptionZh": "Google 正在美国新墨西哥州利县（Lea County）探索一个新的数据中心项目。目前该项目仍处于讨论与评估阶段，尚未最终敲定。Google 表示，随着磋商持续，公司注意到当地居民对数据中心开发存在疑问，并认识到需要就项目可能带来的影响与社区进行沟通。数据中心是支撑 Google 搜索、Gmail、YouTube、Google Cloud 以及人工智能等服务的关键基础设施；如果项目推进，预计将用于扩展算力，满足云与 AI 业务增长带来的需求。此类项目通常涉及大规模电力消耗、冷却与用水、能效、土地使用、税收、就业和当地基础设施压力等议题，因此居民关切可能集中在资源使用、环境影响和社区收益上。Google 的表态意味着，透明沟通、环境与资源影响说明以及社区参与将是项目推进的重要环节。不过，所提供的博客内容仅为开头片段，未包含项目投资规模、技术架构、冷却或能效创新、清洁能源与水资源策略等具体信息，因此无法进一步总结其核心技术原理和创新点。完整摘要需依赖原文后续披露。"
     }
   ]
 }
