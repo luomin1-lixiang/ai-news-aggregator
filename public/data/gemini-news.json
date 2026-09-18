@@ -1,57 +1,57 @@
 {
-  "lastUpdated": "2026-09-17T20:44:13.621Z",
+  "lastUpdated": "2026-09-18T20:08:34.597Z",
   "items": [
     {
-      "title": "Making global data easier to explore",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/google-un-data-commons-platform/",
-      "description": "Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/data-commons.max-600x600.format-webp.webp\">Google and the UN system have launched the UN System Data Commons, a new open platform making global statistics accessible and easy to search.",
-      "author": "Prem Ramaswami",
+      "title": "Earn continuing education and college credits for AI educator training.",
+      "link": "https://blog.google/products-and-platforms/products/education/college-credit-ai-educator-series/",
+      "description": "Earn college or continuing education credits by taking the Google AI Educator Series courses.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GES_Badgeathon_ArticleHero_2784.max-600x600.format-webp_uuiGKMu.webp\">Earn college or continuing education credits by taking the Google AI Educator Series courses.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 17 Sep 2026 20:00:00 +0000",
-      "titleZh": "让全球数据更易于探索",
-      "descriptionZh": "Google 与联合国系统共同推出 UN System Data Commons，这是一个新的开放平台，目标是让全球统计数据更易获取、更易搜索。其背景是，联合国系统各机构长期产生大量权威统计与发展数据，但这些数据往往分散在不同机构、门户和格式中，跨机构检索、比较和复用存在较高门槛。该平台试图将联合国系统的全球统计资源汇聚到统一、开放的入口中，使用户不必分别访问多个数据库。其核心创新在于“开放”与“可搜索”：从名称和发布方看，它延续了 Google Data Commons 一类开放数据整合思路，可能通过标准化、关联化和统一搜索界面，把不同来源的统计指标转化为更易发现和使用的数据资源。影响方面，该平台有望提升全球统计数据的透明度、可访问性和互操作性，帮助研究人员、记者、政策制定者和公众更快找到权威数据。应用场景包括可持续发展目标监测、发展指标比较、政策研究、学术分析、新闻报道和公众知情等，从而促进基于证据的决策。不过，所给英文内容仅为导语，关于具体技术架构、数据覆盖范围、治理机制和上线功能等细节尚未展开。"
+      "pubDate": "Fri, 18 Sep 2026 16:00:00 +0000",
+      "titleZh": "Earn continuing education and college credits for AI educator training.",
+      "descriptionZh": "谷歌通过AI Educator Series课程，为教育工作者提供获取大学学分或继续教育学分的途径。教师和教育管理者在完成该系列课程后，不仅能提升人工智能教学应用能力，还可将培训成果转化为正式职业发展学分，用于续证、晋升或学历提升。该举措主要面向K-12教师、高校教师及学校管理者，旨在降低AI专业发展门槛，推动生成式AI等工具在课堂中的规范、有效落地。原文目前仅提供这一核心信息，课程结构、技术原理、合作院校、学分申请流程等细节未在现有素材中展开，因此无法进一步生成更完整的技术与影响分析。"
     },
     {
-      "title": "The new CC, an AI agent built for families",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-labs/cc-expanding-to-groups/",
-      "description": "Google Labs is expanding CC to groups, starting with families and households, so they can spend less time on logistics.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CC_hero.max-600x600.format-webp.webp\">Google Labs is expanding CC to groups, starting with families and households, so they can spend less time on logistics.",
-      "author": "Tom Shane",
+      "title": "New experts join Google’s AI & Economy team",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
+      "description": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI__Economy_team_hero.max-600x600.format-webp.webp\">We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
+      "author": "Scott Strand",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 17 Sep 2026 18:15:00 +0000",
-      "titleZh": "The new CC, an AI agent built for families",
-      "descriptionZh": "Google Labs 宣布将其实验性产品 CC 从个人场景扩展到群体场景，首批面向家庭和住户，目标是帮助用户减少在后勤事务上花费的时间。CC 是 Google Labs 推出的助手类产品，从此次扩展的定位来看，它很可能借助 AI 能力来协调多人任务与日程。此次更新意味着 CC 开始支持多用户协作：家庭成员可以共同使用 CC 来安排日程、分配家务、规划三餐、管理购物清单等，从而降低沟通和协调成本。这一举措体现了 Google Labs 在 AI 助手领域从个人效率工具向家庭协作场景的延伸，也反映了生成式 AI 融入日常生活的趋势。潜在应用包括家庭日程协调、家务分工、采购计划、活动安排等。由于原文仅提供了一句公告，未披露 CC 的具体技术架构、模型能力及多用户协作的实现方式，更详细的技术原理和创新点需参考官方后续信息。"
+      "pubDate": "Fri, 18 Sep 2026 14:00:00 +0000",
+      "titleZh": "New experts join Google’s AI & Economy team",
+      "descriptionZh": "谷歌正在扩展其“AI 与经济”团队，计划引入世界级学术顾问、研究员以及核心内部研究人员。这则英文内容本质上是一则团队扩充与人才招募公告，背景是谷歌继续加强对人工智能与经济交叉领域的研究投入和组织建设。但从现有原文看，它没有介绍具体研究项目、技术路线、模型方法或创新点，也没有展开说明相关技术将如何落地、影响哪些应用场景。因此，基于当前信息只能确认谷歌在AI与经济交叉方向上的团队扩张动向，无法进一步提炼核心技术原理或进行深入的技术影响分析。若要形成完整的技术博客摘要，需要补充更完整的原文内容。"
     },
     {
-      "title": "Drive with “Forgotten Island” on Waze.",
-      "link": "https://blog.google/waze/waze-forgotten-island/",
-      "description": "Ready to turn your daily commute into an epic island adventure? Waze is bringing your new navigation best friend to the passenger seat, just in time for the release of D…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/ForgottenIsland-Keyvisual_horiz.max-600x600.format-webp.webp\">Ready to turn your daily commute into an epic island adventure? Waze is bringing your new navigation best friend to the passenger seat, just in time for the release of D…",
-      "author": "Waze",
+      "title": "Co-creating the future of fashion with Google",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
+      "description": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_V2.max-600x600.format-webp.webp\">Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
+      "author": "Yeawon Choi",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 17 Sep 2026 11:28:00 +0000",
-      "titleZh": "Drive with “Forgotten Island” on Waze.",
-      "descriptionZh": "Waze 与《神偷奶爸4》（Despicable Me 4）合作，推出限时主题导航体验，旨在把日常通勤变成一场“遗忘岛”冒险。背景上，Waze 长期与影视、游戏等流行文化 IP 联动，通过个性化语音、车辆图标和地图主题提升驾驶趣味。此次合作中，Waze 将小黄人带入乘客座，用户可选择小黄人语音包作为导航播报，并将车辆图标和地图主题切换为电影中的“遗忘岛”风格，让导航过程充满电影角色和场景元素。用户可在 Waze 的“设置 > 语音与声音 > Waze 语音”中选择小黄人语音，再通过“我的 Waze > 车辆图标 / 地图主题”进行个性化设置。该体验配合电影上映限时上线，覆盖多个语言版本。其影响在于：一方面为电影宣发提供沉浸式移动场景，另一方面增强 Waze 用户粘性和品牌新鲜感，展示了导航应用从工具向娱乐化、个性化出行体验演进的趋势。应用场景包括日常通勤、公路旅行和家庭出行等，尤其适合希望让驾驶更有趣、更轻松的用户。"
+      "pubDate": "Fri, 18 Sep 2026 13:00:00 +0000",
+      "titleZh": "Co-creating the future of fashion with Google",
+      "descriptionZh": "这篇博客介绍了 Google 与时尚设计师 Jane Wade、Sergio Hudson 的合作：Google 团队与两位设计师并肩工作，为纽约时装周（NYFW）的筹备流程定制设计 Google Flow 工具。Google Flow 是 Google 面向创作者的 AI 影像/创意生成工具，核心能力在于借助生成式 AI 将文本、图像或参考素材快速转化为视频片段和视觉概念，降低专业内容制作门槛，并支持快速构思、分镜、风格探索与迭代。\n\n此次合作的创新点在于，并非简单让设计师试用通用 AI，而是把设计师在时装周准备中的真实需求、审美语言和工作流嵌入工具定制，使 AI 更贴合情绪板、造型叙事、秀场视觉和传播素材的制作。其应用场景包括时装周预热内容、秀场视觉预演、品牌短片、社交媒体短视频，以及广告、影视预演等更广泛的创意产业。\n\n它表明生成式 AI 正从通用内容生成走向与专业创作者协同定制的垂直工作流，帮助设计师在紧张的时装周周期中更快试验创意、减少制作成本，同时保留人的审美判断和品牌风格。由于提供的原文仅有一句核心信息，以上摘要主要基于该句所传达的合作信息及 Google Flow 的一般定位；原文若包含更多技术细节和案例，仍需进一步展开。"
     },
     {
-      "title": "Helping bring the world’s first large-scale, near-zero emissions steel plant online",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/google-stegra-green-steel/",
-      "description": "Google is partnering with Stegra to help bring their first-of-its-kind, near-zero emissions steel plant online.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GreenSteel.max-600x600.format-webp.webp\">Google is partnering with Stegra to help bring their first-of-its-kind, near-zero emissions steel plant online.",
-      "author": "Ben Townsend",
+      "title": "Build campaigns that drive high-converting, sales-ready leads.",
+      "link": "https://blog.google/products/ads-commerce/ads-decoded-podcast-data-strength/",
+      "description": "In this Ads Decoded episode, we break down data strength: What is it? How can you build it? And why do lead gen campaigns need it?",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S2E4_thumbnail.max-600x600.format-webp.webp\">In this Ads Decoded episode, we break down data strength: What is it? How can you build it? And why do lead gen campaigns need it?",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 17 Sep 2026 07:00:00 +0000",
-      "titleZh": "Helping bring the world’s first large-scale, near-zero emissions steel plant online",
-      "descriptionZh": "Google 正与 Stegra 合作，帮助其首个同类近零排放钢铁厂投入运营。钢铁行业是全球最难减排的工业部门之一，传统高炉依赖焦炭作为还原剂，会排放大量二氧化碳。Stegra 在瑞典建设绿色钢铁厂，其核心路线是用可再生电力电解水制取绿氢，再用绿氢直接还原铁（H-DR），以氢气替代焦炭，还原产物主要是水而非二氧化碳；随后通过电弧炉并使用可再生电力炼钢，从而形成趋近于零排放的生产链。其创新点在于把绿氢、直接还原铁和电弧炉整合到商业化规模，并借助数字化、AI 和云技术优化能源与生产流程。Google 与 Stegra 的合作目标明确为帮助该工厂上线；具体合作细节在提供的博客片段中未完全展开，但科技公司可通过云基础设施、数据分析、AI 优化以及低碳材料采购等方式参与。该项目若成功，将为钢铁脱碳提供可复制的范式，推动绿氢、可再生电力和绿色钢铁供应链发展。绿色钢铁可应用于汽车、建筑、机械、家电及数据中心等场景，帮助下游客户降低范围三排放，加速重工业从化石能源向清洁能源转型。"
+      "pubDate": "Fri, 18 Sep 2026 12:00:00 +0000",
+      "titleZh": "Build campaigns that drive high-converting, sales-ready leads.",
+      "descriptionZh": "本期《Ads Decoded》聚焦数字广告中的“数据强度（data strength）”，围绕三个核心问题展开：数据强度是什么、如何建立，以及线索生成（lead gen）广告活动为什么需要它。节目意在帮助广告主理解，在潜在客户获取场景中，数据的质量、覆盖度和可用性可能直接影响广告定向、优化与转化效果；因此，建立并持续强化数据强度，是提升线索生成广告活动表现的重要基础。不过，原始英文内容仅为节目导语，未提供具体定义、构建方法、技术原理、案例或应用细节，因此更深入的分析需参考该集完整内容。"
     }
   ]
 }
