@@ -1,57 +1,57 @@
 {
-  "lastUpdated": "2026-09-18T20:08:34.597Z",
+  "lastUpdated": "2026-09-21T21:23:01.843Z",
   "items": [
     {
-      "title": "Earn continuing education and college credits for AI educator training.",
-      "link": "https://blog.google/products-and-platforms/products/education/college-credit-ai-educator-series/",
-      "description": "Earn college or continuing education credits by taking the Google AI Educator Series courses.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/GES_Badgeathon_ArticleHero_2784.max-600x600.format-webp_uuiGKMu.webp\">Earn college or continuing education credits by taking the Google AI Educator Series courses.",
-      "author": "Google Blog",
+      "title": "Expanding free AI training for educators",
+      "link": "https://blog.google/products-and-platforms/products/education/digital-promise/",
+      "description": "At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/28525___EDNA_Blog_header_01.max-600x600.format-webp.webp\">At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A…",
+      "author": "Maggie Johnson",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 18 Sep 2026 16:00:00 +0000",
-      "titleZh": "Earn continuing education and college credits for AI educator training.",
-      "descriptionZh": "谷歌通过AI Educator Series课程，为教育工作者提供获取大学学分或继续教育学分的途径。教师和教育管理者在完成该系列课程后，不仅能提升人工智能教学应用能力，还可将培训成果转化为正式职业发展学分，用于续证、晋升或学历提升。该举措主要面向K-12教师、高校教师及学校管理者，旨在降低AI专业发展门槛，推动生成式AI等工具在课堂中的规范、有效落地。原文目前仅提供这一核心信息，课程结构、技术原理、合作院校、学分申请流程等细节未在现有素材中展开，因此无法进一步生成更完整的技术与影响分析。"
+      "pubDate": "Mon, 21 Sep 2026 16:00:00 +0000",
+      "titleZh": "Expanding free AI training for educators",
+      "descriptionZh": "Google.org 在纽约联合国大会期间宣布，将向教育非营利组织 Digital Promise 承诺 400 万美元，用于帮助教师和高校教职员工获得免费、实用的 AI 培训与资源。这一行动发生在生成式 AI 快速进入课堂、而一线教育者普遍缺乏系统 AI 培训的背景下，目标是缩小 AI 技能差距，让教师能够自信、负责任地把 AI 用于教学。\n\n项目的核心并非开发新的 AI 算法，而是通过公益资金、公私合作和开放教育资源，把 AI 素养培训规模化地带给教师和 faculty。其创新点在于以教育者为中心，强调免费、实践导向和公平可及，帮助教师从“了解 AI”走向“在课堂中有效使用 AI”。培训可能涉及 AI 基础、生成式 AI 教学应用、提示设计、伦理与安全、数据隐私等内容。\n\n应用场景包括教师专业发展、师范教育、备课与教学设计、个性化学习支持、评估反馈以及行政效率提升等。通过赋能教育者，项目希望间接提升学生的 AI 素养，推动 K-12 和高等教育中 AI 的负责任使用，并促进教育资源公平。由于所给英文博客仅到开篇句即被截断，具体课程结构、合作机制、覆盖规模和实施时间表需以原文后续内容为准。"
     },
     {
-      "title": "New experts join Google’s AI & Economy team",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/expanding-ai-economy-research-bench/",
-      "description": "We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI__Economy_team_hero.max-600x600.format-webp.webp\">We are expanding our AI & Economy team with world-class academic advisors, fellows, and core internal researchers.",
-      "author": "Scott Strand",
+      "title": "Googlebook’s built-in intelligence reinvents the way you use your laptop",
+      "link": "https://blog.google/products-and-platforms/devices/googlebook/googlebook-built-in-intelligence/",
+      "description": "With tools like a multimodal cursor, smart dictation, and more, Googlebook anticipates your needs to simplify your day.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/intelligence_hero.max-600x600.format-webp.webp\">With tools like a multimodal cursor, smart dictation, and more, Googlebook anticipates your needs to simplify your day.",
+      "author": "Alexander Kuscher",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 18 Sep 2026 14:00:00 +0000",
-      "titleZh": "New experts join Google’s AI & Economy team",
-      "descriptionZh": "谷歌正在扩展其“AI 与经济”团队，计划引入世界级学术顾问、研究员以及核心内部研究人员。这则英文内容本质上是一则团队扩充与人才招募公告，背景是谷歌继续加强对人工智能与经济交叉领域的研究投入和组织建设。但从现有原文看，它没有介绍具体研究项目、技术路线、模型方法或创新点，也没有展开说明相关技术将如何落地、影响哪些应用场景。因此，基于当前信息只能确认谷歌在AI与经济交叉方向上的团队扩张动向，无法进一步提炼核心技术原理或进行深入的技术影响分析。若要形成完整的技术博客摘要，需要补充更完整的原文内容。"
+      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
+      "titleZh": "Googlebook’s built-in intelligence reinvents the way you use your laptop",
+      "descriptionZh": "Googlebook 的这段介绍传达出以“主动智能”为核心的产品理念：它不再只是等待用户发出明确指令，而是通过多模态光标、智能听写等工具预判需求，让日常操作更简单。背景上，这延续了 Google 在 AI 助手、多模态交互和生产力工具上的方向，试图把传统“用户先操作、系统再响应”的模式，转变为“系统提前理解情境、主动提供帮助”的体验。\n\n在交互层面，多模态光标意味着光标不再只是单一鼠标指针，而可能融合触控、语音、手势或视觉指向等多种输入方式，让用户以更自然的方式选择、定位和操作内容；智能听写则把语音识别、文本生成与上下文理解结合起来，使口述内容更准确地转为可编辑文本，并减少手动整理。其创新点在于将多种输入模态统一到同一体验中，并加入需求预判，从而缩短任务路径。\n\n应用场景可覆盖办公写作、会议记录、学习笔记、内容创作、日程处理以及无障碍辅助等，目标是降低交互门槛和认知负担，提高日常效率。由于原文仅给出高度概括的宣传语，具体技术实现、隐私机制和产品细节尚待更多信息。"
     },
     {
-      "title": "Co-creating the future of fashion with Google",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/google-flow-fashion-week/",
-      "description": "Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_Header_V2.max-600x600.format-webp.webp\">Google worked side-by-side with designers Jane Wade and Sergio Hudson to custom-design Google Flow tools to prep for NYFW.",
-      "author": "Yeawon Choi",
+      "title": "Premium materials and striking design set Googlebook apart",
+      "link": "https://blog.google/products-and-platforms/devices/googlebook/first-look-googlebook/",
+      "description": "Discover a versatile collection of Googlebook devices featuring stunning displays, advanced processors, and premium design.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/30_Googlebook_lineup_video_ALT_.max-600x600.format-webp.webp\">Discover a versatile collection of Googlebook devices featuring stunning displays, advanced processors, and premium design.",
+      "author": "John Maletis",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 18 Sep 2026 13:00:00 +0000",
-      "titleZh": "Co-creating the future of fashion with Google",
-      "descriptionZh": "这篇博客介绍了 Google 与时尚设计师 Jane Wade、Sergio Hudson 的合作：Google 团队与两位设计师并肩工作，为纽约时装周（NYFW）的筹备流程定制设计 Google Flow 工具。Google Flow 是 Google 面向创作者的 AI 影像/创意生成工具，核心能力在于借助生成式 AI 将文本、图像或参考素材快速转化为视频片段和视觉概念，降低专业内容制作门槛，并支持快速构思、分镜、风格探索与迭代。\n\n此次合作的创新点在于，并非简单让设计师试用通用 AI，而是把设计师在时装周准备中的真实需求、审美语言和工作流嵌入工具定制，使 AI 更贴合情绪板、造型叙事、秀场视觉和传播素材的制作。其应用场景包括时装周预热内容、秀场视觉预演、品牌短片、社交媒体短视频，以及广告、影视预演等更广泛的创意产业。\n\n它表明生成式 AI 正从通用内容生成走向与专业创作者协同定制的垂直工作流，帮助设计师在紧张的时装周周期中更快试验创意、减少制作成本，同时保留人的审美判断和品牌风格。由于提供的原文仅有一句核心信息，以上摘要主要基于该句所传达的合作信息及 Google Flow 的一般定位；原文若包含更多技术细节和案例，仍需进一步展开。"
+      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
+      "titleZh": "Premium materials and striking design set Googlebook apart",
+      "descriptionZh": "Googlebook 设备系列被描述为一个多样化的产品组合，主打出色显示、先进处理器和高端设计。配图展示其产品阵容，表明这是一则面向消费市场的硬件宣传。其背景是 Google 试图通过多款设备覆盖不同用户需求，并在移动计算或笔记本形态中强化品牌存在感。\n\n核心卖点包括：高素质屏幕提升视觉体验；先进处理器保障多任务、办公与内容处理性能；高端材质和工业设计增强质感与便携性。创新点更多体现在产品矩阵与综合体验的整合，而非已披露的具体底层技术架构。若该系列落地，可能进一步丰富 Google 硬件生态，并加剧高端笔记本与移动计算设备市场竞争。应用场景可覆盖日常办公、影音娱乐、轻量创作、在线教育和移动生产力等。\n\n由于当前原文仅为简短宣传导语，未披露具体型号、芯片平台、屏幕规格、操作系统、售价和上市时间，因此更详细的技术原理与市场影响仍需以完整博客内容为准。"
     },
     {
-      "title": "Build campaigns that drive high-converting, sales-ready leads.",
-      "link": "https://blog.google/products/ads-commerce/ads-decoded-podcast-data-strength/",
-      "description": "In this Ads Decoded episode, we break down data strength: What is it? How can you build it? And why do lead gen campaigns need it?",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S2E4_thumbnail.max-600x600.format-webp.webp\">In this Ads Decoded episode, we break down data strength: What is it? How can you build it? And why do lead gen campaigns need it?",
-      "author": "Google Blog",
+      "title": "Googlebook: The laptop your Android phone has been waiting for",
+      "link": "https://blog.google/products-and-platforms/devices/googlebook/pre-order-googlebook/",
+      "description": "Googlebook pre-orders begin September 21, and they'll be on shelves October 4.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/googlebook_thumbnail.max-600x600.format-webp.webp\">Googlebook pre-orders begin September 21, and they'll be on shelves October 4.",
+      "author": "John Solomon",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 18 Sep 2026 12:00:00 +0000",
-      "titleZh": "Build campaigns that drive high-converting, sales-ready leads.",
-      "descriptionZh": "本期《Ads Decoded》聚焦数字广告中的“数据强度（data strength）”，围绕三个核心问题展开：数据强度是什么、如何建立，以及线索生成（lead gen）广告活动为什么需要它。节目意在帮助广告主理解，在潜在客户获取场景中，数据的质量、覆盖度和可用性可能直接影响广告定向、优化与转化效果；因此，建立并持续强化数据强度，是提升线索生成广告活动表现的重要基础。不过，原始英文内容仅为节目导语，未提供具体定义、构建方法、技术原理、案例或应用细节，因此更深入的分析需参考该集完整内容。"
+      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
+      "titleZh": "Googlebook: The laptop your Android phone has been waiting for",
+      "descriptionZh": "Googlebook 将于9月21日开放预购，10月4日正式上架。该信息来自谷歌的简短公告，仅涵盖预购与发售日期；原文未涉及产品背景、技术架构、创新功能、性能参数、售价、市场影响或应用场景，因此无法对技术原理与行业影响做进一步展开。"
     }
   ]
 }
