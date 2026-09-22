@@ -1,57 +1,31 @@
 {
-  "lastUpdated": "2026-09-21T21:23:01.843Z",
+  "lastUpdated": "2026-09-22T20:39:13.926Z",
   "items": [
     {
-      "title": "Expanding free AI training for educators",
-      "link": "https://blog.google/products-and-platforms/products/education/digital-promise/",
-      "description": "At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/28525___EDNA_Blog_header_01.max-600x600.format-webp.webp\">At the United Nations General Assembly in New York City, Google.org is committing $4 million to Digital Promise to help equip teachers and faculty with free, practical A…",
-      "author": "Maggie Johnson",
+      "title": "Investing in global talent and AI literacy",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/itu-ai-skills-training/",
+      "description": "Google is providing 100,000 scholarships to the International Telecommunication Union (ITU) through the AI Skills Coalition.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Hero.max-600x600.format-webp_kjXizmz.webp\">Google is providing 100,000 scholarships to the International Telecommunication Union (ITU) through the AI Skills Coalition.",
+      "author": "Lisa Gevelber",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 21 Sep 2026 16:00:00 +0000",
-      "titleZh": "Expanding free AI training for educators",
-      "descriptionZh": "Google.org 在纽约联合国大会期间宣布，将向教育非营利组织 Digital Promise 承诺 400 万美元，用于帮助教师和高校教职员工获得免费、实用的 AI 培训与资源。这一行动发生在生成式 AI 快速进入课堂、而一线教育者普遍缺乏系统 AI 培训的背景下，目标是缩小 AI 技能差距，让教师能够自信、负责任地把 AI 用于教学。\n\n项目的核心并非开发新的 AI 算法，而是通过公益资金、公私合作和开放教育资源，把 AI 素养培训规模化地带给教师和 faculty。其创新点在于以教育者为中心，强调免费、实践导向和公平可及，帮助教师从“了解 AI”走向“在课堂中有效使用 AI”。培训可能涉及 AI 基础、生成式 AI 教学应用、提示设计、伦理与安全、数据隐私等内容。\n\n应用场景包括教师专业发展、师范教育、备课与教学设计、个性化学习支持、评估反馈以及行政效率提升等。通过赋能教育者，项目希望间接提升学生的 AI 素养，推动 K-12 和高等教育中 AI 的负责任使用，并促进教育资源公平。由于所给英文博客仅到开篇句即被截断，具体课程结构、合作机制、覆盖规模和实施时间表需以原文后续内容为准。"
+      "pubDate": "Tue, 22 Sep 2026 16:00:00 +0000",
+      "titleZh": "Investing in global talent and AI literacy",
+      "descriptionZh": "谷歌宣布通过AI技能联盟（AI Skills Coalition）向国际电信联盟（ITU）提供10万份奖学金。该举措的背景是全球AI应用加速普及，但AI技能供给存在明显缺口：企业、公共部门和普通劳动者都需要基础AI素养，而优质培训资源在发展中国家、偏远地区和弱势群体中仍不均衡。ITU作为联合国负责信息通信技术的专门机构，具有全球政策协调和成员网络优势；AI技能联盟则扮演多方协作平台角色，连接政府、企业、教育机构和民间社会，以规模化方式推动AI技能普及。谷歌此次以奖学金形式参与，核心并非算法、模型或工程架构层面的技术突破，而是公私合作与资助机制上的创新：通过ITU和联盟渠道分发名额，降低学习成本，扩大AI课程和培训的可及性。其潜在影响包括帮助个人掌握AI工具使用、数据素养和负责任AI意识，支持中小企业、公共服务和政府部门提升AI应用能力，并推动数字包容和全球AI人才储备。应用场景可能覆盖在线课程、职业再培训、教师赋能、社区学习中心以及政策制定者能力建设等。需要说明的是，现有信息仅披露奖学金数量和合作渠道，未涉及课程内容、技术平台、选拔标准、地区分配、时间表或评估指标，因此无法进一步分析具体技术原理或更多创新细节。"
     },
     {
-      "title": "Googlebook’s built-in intelligence reinvents the way you use your laptop",
-      "link": "https://blog.google/products-and-platforms/devices/googlebook/googlebook-built-in-intelligence/",
-      "description": "With tools like a multimodal cursor, smart dictation, and more, Googlebook anticipates your needs to simplify your day.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/intelligence_hero.max-600x600.format-webp.webp\">With tools like a multimodal cursor, smart dictation, and more, Googlebook anticipates your needs to simplify your day.",
-      "author": "Alexander Kuscher",
+      "title": "Using AI to help local governments connect with constituents",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/sensemaking-ai/",
+      "description": "We’re supporting Jigsaw’s collaborative Sensemaking AI fund — and calling on leaders around the world to join us.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Jigsaw_x_Dotorg_Sensemaking_Blo.max-600x600.format-webp.webp\">We’re supporting Jigsaw’s collaborative Sensemaking AI fund — and calling on leaders around the world to join us.",
+      "author": "Omar Medina",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
-      "titleZh": "Googlebook’s built-in intelligence reinvents the way you use your laptop",
-      "descriptionZh": "Googlebook 的这段介绍传达出以“主动智能”为核心的产品理念：它不再只是等待用户发出明确指令，而是通过多模态光标、智能听写等工具预判需求，让日常操作更简单。背景上，这延续了 Google 在 AI 助手、多模态交互和生产力工具上的方向，试图把传统“用户先操作、系统再响应”的模式，转变为“系统提前理解情境、主动提供帮助”的体验。\n\n在交互层面，多模态光标意味着光标不再只是单一鼠标指针，而可能融合触控、语音、手势或视觉指向等多种输入方式，让用户以更自然的方式选择、定位和操作内容；智能听写则把语音识别、文本生成与上下文理解结合起来，使口述内容更准确地转为可编辑文本，并减少手动整理。其创新点在于将多种输入模态统一到同一体验中，并加入需求预判，从而缩短任务路径。\n\n应用场景可覆盖办公写作、会议记录、学习笔记、内容创作、日程处理以及无障碍辅助等，目标是降低交互门槛和认知负担，提高日常效率。由于原文仅给出高度概括的宣传语，具体技术实现、隐私机制和产品细节尚待更多信息。"
-    },
-    {
-      "title": "Premium materials and striking design set Googlebook apart",
-      "link": "https://blog.google/products-and-platforms/devices/googlebook/first-look-googlebook/",
-      "description": "Discover a versatile collection of Googlebook devices featuring stunning displays, advanced processors, and premium design.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/30_Googlebook_lineup_video_ALT_.max-600x600.format-webp.webp\">Discover a versatile collection of Googlebook devices featuring stunning displays, advanced processors, and premium design.",
-      "author": "John Maletis",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
-      "titleZh": "Premium materials and striking design set Googlebook apart",
-      "descriptionZh": "Googlebook 设备系列被描述为一个多样化的产品组合，主打出色显示、先进处理器和高端设计。配图展示其产品阵容，表明这是一则面向消费市场的硬件宣传。其背景是 Google 试图通过多款设备覆盖不同用户需求，并在移动计算或笔记本形态中强化品牌存在感。\n\n核心卖点包括：高素质屏幕提升视觉体验；先进处理器保障多任务、办公与内容处理性能；高端材质和工业设计增强质感与便携性。创新点更多体现在产品矩阵与综合体验的整合，而非已披露的具体底层技术架构。若该系列落地，可能进一步丰富 Google 硬件生态，并加剧高端笔记本与移动计算设备市场竞争。应用场景可覆盖日常办公、影音娱乐、轻量创作、在线教育和移动生产力等。\n\n由于当前原文仅为简短宣传导语，未披露具体型号、芯片平台、屏幕规格、操作系统、售价和上市时间，因此更详细的技术原理与市场影响仍需以完整博客内容为准。"
-    },
-    {
-      "title": "Googlebook: The laptop your Android phone has been waiting for",
-      "link": "https://blog.google/products-and-platforms/devices/googlebook/pre-order-googlebook/",
-      "description": "Googlebook pre-orders begin September 21, and they'll be on shelves October 4.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/googlebook_thumbnail.max-600x600.format-webp.webp\">Googlebook pre-orders begin September 21, and they'll be on shelves October 4.",
-      "author": "John Solomon",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Mon, 21 Sep 2026 13:00:00 +0000",
-      "titleZh": "Googlebook: The laptop your Android phone has been waiting for",
-      "descriptionZh": "Googlebook 将于9月21日开放预购，10月4日正式上架。该信息来自谷歌的简短公告，仅涵盖预购与发售日期；原文未涉及产品背景、技术架构、创新功能、性能参数、售价、市场影响或应用场景，因此无法对技术原理与行业影响做进一步展开。"
+      "pubDate": "Tue, 22 Sep 2026 14:00:00 +0000",
+      "titleZh": "Using AI to help local governments connect with constituents",
+      "descriptionZh": "当前提供的英文博客内容不完整，仅包含一张图片和一句导语，无法据此生成涵盖背景、核心技术原理、创新点、技术影响和应用场景的完整中文摘要。就已知信息而言：该文宣布支持 Jigsaw 发起的协作式“意义建构 AI”（Sensemaking AI）基金，并呼吁全球领导者共同加入，推动以 AI 辅助人类理解复杂信息、开展协作式意义建构。若需完整摘要，请提供博客正文或更多段落。"
     }
   ]
 }
