@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-09-25T20:54:00.305Z",
+  "lastUpdated": "2026-09-26T20:21:28.212Z",
   "items": [
     {
-      "title": "5 Best Gateways for Routing Claude Code Through Your Own Infrastructure (2026)",
-      "titleZh": "2026年通过自有基础设施路由Claude Code的5个最佳网关",
-      "link": "https://dev.to/kamya_shah_e69d5dd78f831c/5-best-gateways-for-routing-claude-code-through-your-own-infrastructure-2026-146p",
-      "author": "Kamya Shah",
+      "title": "The 97% Split: Devs Benchmark Anthropic, Deploy DeepSeek",
+      "titleZh": "97%的分裂：开发者对Anthropic进行基准测试，部署DeepSeek",
+      "link": "https://dev.to/max_quimby/the-97-split-devs-benchmark-anthropic-deploy-deepseek-1jl8",
+      "author": "Max Quimby",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-24T06:30:22.000Z",
-      "summaryZh": "# 通过自有基础设施路由 Claude Code 的五大网关方案\n\n## 用户场景\n团队在终端和 IDE 中大规模部署 Claude Code 时，面临三大痛点：API key 分发混乱、token 消耗不可控、代码外泄无审计。Claude Code 作为 agentic 工具会自主读取文件树、执行测试、编辑代码，每次交互都传输完整仓库上下文，单个开发者每小时可产生数万 token，直连外部端点极易导致账单飙升和数据泄露。\n\n## 核心方法\n利用 Claude Code 原生支持的 `ANTHROPIC_BASE_URL` 和 `ANTHROPIC_AUTH_TOKEN` 环境变量，无需修改二进制即可将所有出站请求重定向到私有网关。网关作为中间层，向上游注入真实凭证、向下游发放 scoped virtual keys，实现凭证隔离、预算强制、多provider fallback（如 Bedrock/Vertex）以及 MCP 工具调用审计。\n\n## 关键技巧\n- **延迟控制**：网关开销需低于 1-2ms，否则会拖累 SSE 流式交互体验（Bifrost 用 Go 实现，5000 RPS 下仅 11 微秒开销）。\n- **Header 保真**：必须逐字转发 `anthropic-beta` 等自定义 header，否则 prompt caching、tool search 会失败。\n- **MCP 集中托管**：由网关统一代理 MCP server，避免每个开发者本地配置 daemon。\n- **预算熔断**：实时追踪 token，对超预算会话自动限流或终止，防止 agent 死循环烧钱。\n- **端点合规**：中央网关只管已配置流量，需配合 Bifrost Edge 类方案治理开发者机器上的 shadow AI 绕过行为。\n\n五大方案中 Bifrost 综合最优，LiteLLM 适合 Python 扩展，Kong/Cloudflare/OpenRouter 各有专长。",
+      "pubDate": "2026-09-26T04:46:20.000Z",
+      "summaryZh": "# 中文摘要\n\n## 用户场景\n开发者面临一个真实困境：Anthropic 的 Claude 系列在各大榜单上稳居第一（Polymarket 给出 99% 的\"最佳模型\"概率），但实际部署时却大量转向 DeepSeek。文章揭示 AI 市场已分裂为两个经济体——\"质量经济\"（Anthropic 主导，用于高风险 agentic 工作流、代码生成）和\"体量经济\"（DeepSeek 主导，用于分类、路由、RAG、embedding 等高频任务）。\n\n## 核心方法\n作者通过对比 Polymarket 预测市场数据与 OpenRouter 实际 token 用量，展示\"揭示性偏好\"：同一平台上，Anthropic 拿下 99% 质量赌注，DeepSeek 拿下 97% 部署赌注，两者同时成立。关键驱动是成本——DeepSeek V4-Flash 每百万输入 token 仅 $0.14，比 Opus 5 便宜约 30 倍。\n\n## 关键技巧\n1. **按任务分层选模型**：对正确性要求极高的场景用 Claude，对\"够用即可\"的大规模任务用 DeepSeek，可降低 98% 成本。\n2. **复用工具链**：slash commands、subagents、MCP servers 在三家 provider 间通用，切换成本极低。\n3. **警惕价格陷阱**：Opus 5.5 降价 20% 后仍是 DeepSeek 的 15 倍，对高体量工作流而言，降价发生在已被放弃的成本层级内。\n4. **实测优先**：同一 research agent 任务，Claude $0.32、Kimi $0.25、DeepSeek $0.005，且 DeepSeek 耗时减半——务必按真实 workload 压测而非只看榜单。",
       "category": "devto"
     },
     {
@@ -20,18 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-23T11:47:18.000Z",
-      "summaryZh": "# Claude Code / Anthropic AI 文章中文摘要\n\n**用户场景**：文章面向 2026 年已在日常工作中使用 AI 的开发者与知识工作者，指出多数人凭习惯而非实际需求选择工具（如默认开 ChatGPT、写作才切 Claude、需要 Google Docs 才用 Gemini），却从未认真对比测试。作者希望帮助读者建立\"按任务选工具\"的框架，而非盲目追随先注册的那一个。\n\n**核心方法**：文章提出将 AI 使用分为两种模式——\"Serious Work AI\"（写技术规格、调试代码、综合长文档）与\"Just Vibing AI\"（深夜头脑风暴、随手发推）。核心建议是刻意抵抗\"便利性引力\"，让工具匹配任务。随后从能力面、生态、多模态、推理等维度横向对比三家：ChatGPT 是全能瑞士军刀，Claude 是谨慎思考者，Gemini 是 Google 原生集成。\n\n**关键技巧**：\n- 编码、多文件推理、调试、测试生成优先选 ChatGPT（配合 Cursor IDE 与 code interpreter）。\n- 长文写作、10 万 token 级文档分析、代码审查与\"解释为什么\"优先选 Claude，其措辞更自然、会主动暴露不确定性。\n- 若工作流重度依赖 Google Workspace（Gmail、Sheets、Drive），Gemini 的原生集成无可替代，且实时检索幻觉更少。\n- 避坑：ChatGPT 会\"自信地犯错\"，语气权威易让人忽略幻觉；Claude 默认无跨会话持久记忆，长周期项目易断档，且对边缘请求过度谨慎；Gemini 在 Google 生态之外打磨度稍逊。",
+      "summaryZh": "# Claude Code / Anthropic AI 文章中文摘要\n\n**用户场景**：文章面向 2026 年已形成固定 AI 使用习惯的开发者与知识工作者，指出多数人只是\"惯性使用\"最先注册的工具，从未认真对比过 ChatGPT、Claude、Gemini 的差异。作者将使用场景分为两类——\"严肃工作型\"（写技术文档、调试代码、综合研究报告）与\"随意闲聊型\"，并强调两者往往适合不同工具。\n\n**核心方法**：文章不评选绝对赢家，而是提供一个\"按任务匹配工具\"的决策框架。ChatGPT 定位为\"瑞士军刀\"，胜在能力广度、插件生态与多模态；Claude 定位为\"谨慎思考者\"，强于长文写作、文档分析与细致推理；Gemini 定位为\"Google 原生\"，优势在于 Workspace 深度集成与实时信息检索。\n\n**关键技巧**：1）抵制\"便利性引力\"，主动为任务选择合适工具而非默认打开习惯的那一个；2）ChatGPT 虽少幻觉但仍会\"自信地出错\"，需警惕其权威语气；3）Claude 默认无跨会话持久记忆，长周期项目需注意上下文断裂；4）Claude 在代码审查与\"解释为何这样写\"上表现突出，适合需要理解而非仅生成代码的场景；5）若工作流重度依赖 Google Workspace，Gemini 的原生集成难以被替代。",
       "category": "devto"
     },
     {
       "title": "Google, OpenAI et Anthropic écrivent leur propre règlement — au cœur de la Frontier AI Standards Agency",
-      "titleZh": "谷歌、OpenAI和Anthropic自行制定规则——处于前沿AI标准机构的核心",
+      "titleZh": "谷歌、OpenAI和Anthropic各自制定规则——在前沿AI标准机构的核心",
       "link": "https://dev.to/docdavkitty/google-openai-et-anthropic-ecrivent-leur-propre-reglement-au-coeur-de-la-frontier-ai-standards-2pld",
       "author": "DrMBL",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-25T14:16:08.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：文章面向关注 AI 治理与合规的开发者，讨论 Google、OpenAI、Anthropic 三家前沿实验室正筹建一个自愿性行业标准机构（暂名 Frontier AI Standards Agency），目标 2026 年底至 2027 年初启动，且不受政府监管。作者要回答的问题是：这套\"自我监管\"对模型发布节奏和开发者实际工作流意味着什么。\n\n**核心方法**：该机构拟设四大支柱——发布前的共享评估协议、第三方安全测试、标准化事件上报规则、审计员资质标准。架构模仿美国 FINRA，但剥离了 SEC 监督与罚款/除名权，因此被 Cohere CEO 批评为\"换个名字的卡特尔\"。前身 Frontier Model Forum（2023）从未阻止过任何一次发布。\n\n**关键技巧与风险**：\n1. **评估窗口是真正瓶颈**。METR 与 Redwood 评估 OpenAI 某 agent 部署仅用 6 天现场时间，最后 2 天才拿到完整数据；Apollo Research 评估 GPT-6 Astra 只有 3 天，推理链访问仅 2 天。若把发布前评估正式化，发布节奏将根本改变——开发者需提前规划更长的外部测试窗口。\n2. **警惕\"自愿\"陷阱**。无章程、无预算、无成员名单、无阻止发布的权力，意味着合规声明可能只是公关。接入此类标准前，应确认其是否具备实际执行机制。\n3. **关注治理与技术的脱节**。Hassabis 最初版本含联邦兜底与 30 天预发布提交，现版本已删除联邦要素。开发者应区分\"技术上有价值的评估协议\"与\"治理上的自我豁免\"，前者可采纳，后者需独立审视。",
+      "summaryZh": "# 中文摘要\n\n**用户场景**：文章面向关注 AI 治理与前沿模型发布的开发者，讨论 Google、OpenAI、Anthropic 三家实验室正筹建一个自愿性行业标准机构（暂名 Frontier AI Standards Agency），目标 2026 年底至 2027 年初启动，且不受政府监管。\n\n**核心方法**：该机构仿照 FINRA 模式，但去掉了两个关键机制——SEC 的监督权和罚款、停牌、除名会员的权力。议程包含四大支柱：发布前的共享评估协议、第三方安全测试、标准化事件报告规则、审计员资质标准。三家实验室已接触前白宫 AI 政策顾问 Sriram Krishnan 出任负责人，其立场是\"AI 不会有 FDA\"。\n\n**关键技巧与风险**：对开发者而言，真正的瓶颈在于评估流程。METR 和 Redwood Research 曾花 6 天现场评估 OpenAI 的 agent 部署，最后两天才拿到完整数据；Apollo Research 评估 GPT-6 Astra 仅有 3 天，推理链访问仅 2 天。若将发布前评估正式化，外部测试者的访问窗口将显著延长，模型发布节奏会根本改变。需警惕的是：该机构无章程、无预算、无会员名单、无阻止发布的实际权力，Cohere CEO 直指其为\"换名的卡特尔\"，其前身 Frontier Model Forum 从未阻止过任何一次发布。",
       "category": "devto"
     },
     {
@@ -42,29 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-25T14:16:00.000Z",
-      "summaryZh": "# 前沿AI标准机构：自我监管的新尝试\n\n## 用户场景\n文章面向关注AI治理与模型发布节奏的开发者。核心问题是：Google、OpenAI、Anthropic正筹建\"Frontier AI Standards Agency\"，计划2026年底至2027年初启动，但完全自愿、无政府监督。开发者需要理解这对其2027年技术路线图的影响。\n\n## 核心方法\n该机构借鉴FINRA模板，但剥离了SEC监管和罚款/除名权两大核心机制。四大支柱均为自愿性质：共享预发布评估协议、第三方安全测试、标准化事件报告规则、审计员资格标准。由三家实验室自筹资金、自行运营，并邀请前白宫AI政策顾问Sriram Krishnan领导。\n\n## 关键技巧\n- **关注发布节奏而非能力**：标准化预发布评估意味着外部测试者获得更长访问窗口。目前METR和Redwood仅获6天现场评估，Apollo Research对GPT-6 Astra仅有3天访问。流程正式化后，发布节奏将改变。\n- **警惕先例**：2023年成立的Frontier Model Forum拥有相同成员和1000万美元基金，三年内从未阻止过任何发布。Cohere CEO Aidan Gomez直言这是\"换了个名字的卡特尔\"。\n- **企业规划调整**：Altman承认OpenAI正刻意限制发布，2027年路线图应将\"发布节奏\"视为关键变量，而非假设前沿模型持续稳定输出。\n- **监管真空风险**：无章程、无预算、无成员名单、无阻止发布的权力定义——开发者需自行评估合规与安全测试的可靠性。",
+      "summaryZh": "**用户场景**：企业团队在规划2027年AI路线图时，默认前沿模型会持续稳定发布。但Google、OpenAI、Anthropic正筹建\"Frontier AI Standards Agency\"（前沿AI标准局），目标2026年底至2027年初启动，无政府监管，可能改变模型发布节奏。\n\n**核心方法**：三大实验室借鉴FINRA模式，但剥离了SEC监督和罚款/暂停/除名权，改为自愿性自我监管。四大支柱：共享预发布评估协议、第三方安全测试、标准化事件报告、审计员资质标准。拟邀Sriram Krishnan领导，其立场是\"AI不需要FDA\"。\n\n**关键技巧**：\n1. **关注发布节奏而非能力**：标准化预评估意味着外部测试窗口延长。目前METR和Redwood仅获6天现场评估，Apollo Research对GPT-6 Astra只有3天访问权。正式化后发布周期将变慢。\n2. **警惕先例**：2023年成立的Frontier Model Forum（同样成员、1000万美元基金）三年内从未阻止过任何发布。\n3. **Altman已承认OpenAI在刻意限流**，将下一代模型描述为\"对所有人都很清醒\"。\n4. **开发者应把\"发布节奏\"作为2027路线图的关键变量**，而非假设能力线性增长。Cohere CEO直言这是\"换了个名字的卡特尔\"。",
       "category": "devto"
     },
     {
-      "title": "Claude Opus 5.5 Just Landed",
-      "titleZh": "Claude Opus 5.5 刚刚发布",
-      "link": "https://dev.to/sanjay_singh_1/claude-opus-55-just-landed-2p14",
-      "author": "Sanjay Singh",
+      "title": "8 Must-Know Tech News Stories for Saturday, September 26, 2026: Anthropic Loses a Pentagon Appeal and Meta Is Hit by a New",
+      "titleZh": "2026年9月26日星期六必知的8大科技新闻：Anthropic输掉五角大楼上诉，Meta遭遇新",
+      "link": "https://dev.to/gtstudios/8-must-know-tech-news-stories-for-saturday-september-26-2026-anthropic-loses-a-pentagon-appeal-jcd",
+      "author": "GTStudios",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-24T18:28:44.000Z",
-      "summaryZh": "# Claude Opus 5.5 发布：开发者视角解读\n\n## 用户场景\nAnthropic 于 2026 年 9 月 22 日发布 Claude Opus 5.5，主打\"以更低成本获得顶级能力\"。核心痛点是：此前 Opus 5 虽强但运行成本高、token 消耗大，且写作啰嗦、爱堆术语。Opus 5.5 定位为在多数任务上追平旗舰 Fable 5.1，但运行成本比 Opus 5 低 40%。\n\n## 核心方法\n官方强调\"基准差距已不再可靠反映真实差异\"，因此重点放在实际工程场景验证：\n- **大规模代码迁移**：有测试者一天内完成 68 万行代码迁移\n- **性能优化**：40 次削减 Web 应用加载时间的任务中成功 39 次且不破坏行为（Opus 5 会改变应用行为）\n- **代码审计**：20 万行代码库审计从 20+ 小时降至 3 小时内，token 成本约 40%\n- **跨语言重写**：HAProxy 从 C 转 Rust，9.5 小时通过几乎全部回归测试（Fable 5.1 需 12 小时），成本约一半\n\n## 关键技巧\n1. **成本敏感场景优先选 Opus 5.5**：对比 GPT-6 Astra，Terminal-Bench 4.0 持平但价格仅约 40%；FrontierCode 更优而价格约 20%\n2. **长时无人值守编码**：配合 pre-action classifier、可审计开源 sandbox 和 code review，在合并前拦截漏洞\n3. **注意 safeguard 影响基准**：Terminal-Bench-Science 和 AutomationBench 的低分源于安全系统介入（生物/前沿 AI 任务被降级到 Opus 5 或直接判失败），实际使用中表现更好\n4. **写作风格改进**：结论先行、少术语，内容密集型工作负载 token 用量减少约三分之二\n5. **企业验证数据**：Deloitte 称最低 effort 设置下 code review 捕获 72% 已知 bug（Opus 5 高 effort 仅 56%）\n\n**避坑提示**：生物和网络安全任务会被重新路由到旧模型，需通过 Life Sciences Verification Program 才能获得完整能力。",
-      "category": "devto"
-    },
-    {
-      "title": "Claude Found a CRISPR-Like System in Virus DNA: What Anthropic's Lab Actually Did",
-      "titleZh": "Claude在病毒DNA中发现了一个类似CRISPR的系统：Anthropic的实验室究竟做了什么",
-      "link": "https://dev.to/jamilxt/claude-found-a-crispr-like-system-in-virus-dna-what-anthropics-lab-actually-did-fko",
-      "author": "jamilxt",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-24T20:06:16.000Z",
-      "summaryZh": "# Claude 发现噬菌体 DNA 中的 CRISPR 类似系统：Anthropic 实验室做了什么\n\n## 用户场景\nAnthropic 用 Claude 智能体集群在噬菌体 DNA 数据库中寻找新型逆转录酶系统，目标是解决传统生物信息学分析耗时数周至数月的问题。\n\n## 核心方法\n采用多智能体并行架构：约 950 个 Claude agents 在 21 小时内消耗 2.1 亿 tokens，完成从 20 万条逆转录酶序列中筛选出 20 个候选系统的全流程。Pipeline 为：大规模采集 → 初筛至 3500 个 → 精选 20 个 → 为每个候选生成可读报告（提出功能假设并列出证据）。关键设计是\"廉价初筛 + 书面报告输出 + 人工审核门控\"的模式，大部分候选在审核阶段被淘汰。\n\n## 关键技巧\n1. **报告即审计产物**：每个候选输出结构化报告，可复核、可重跑，避免黑盒评分\n2. **人类审核门控**：在昂贵实验前设置 review gate，拒绝的假设也可重新运行\n3. **反馈循环**：Anthropic 研究被拒假设，提炼\"科学品味\"反馈进 prompt\n4. **使用公开工具**：全程基于 Claude Science 和 Claude Code，无秘密内部模型\n5. **诚实边界**：逆转录酶本身早被发现，Claude 的贡献是识别重复序列阵列和附属蛋白——是\"在公开数据中发现被忽略的模式\"，而非\"从零发明生物学\"\n\n该模式可泛化到任意领域：给 agents 大语料、廉价初筛、报告式输出和人工审核即可。",
+      "pubDate": "2026-09-26T16:00:18.000Z",
+      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 与科技动态的开发者，聚焦 Anthropic 与 Meta 两大热点。核心事件是联邦上诉法院以 2:1 维持五角大楼将 Anthropic 列为\"供应链风险\"的裁定，Claude 暂时仍被禁止在五角大楼内使用；同时新墨西哥州陪审团认定 Meta 在数据隐私问题上误导居民（源于 Cambridge Analytica 事件），违反该州《不公平行为法》，罚款金额待法官裁定。\n\n**核心方法**：文章以新闻速览形式串联多条动态，包括 Meta 为智能眼镜新增\"Store visual data from AI experiences\"开关、iPhone 18 Pro 可变光圈、Apple 代码泄露曝光新 HomePod mini/iPad mini 8/Apple TV 4K，以及 Meta Muse agent 的未证实数据。\n\n**关键技巧**：对开发者最实用的是隐私设置路径——在 Meta AI app 中进入 Settings → Meta AI，关闭视觉数据存储开关；注意每副眼镜需单独设置，关闭后可能禁用视觉提醒等功能。此外，第三方相机 app（Moment Pro、Blackmagic Camera）可突破 Apple 原生相机仅四档光圈的限制。提醒：Muse 数据、Apple 新品均为未官方确认的传闻，引用时需谨慎。",
       "category": "devto"
     },
     {
@@ -75,18 +64,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-22T04:02:24.000Z",
-      "summaryZh": "# 中文摘要：Vibe Coding 两小时后为何崩盘？\n\n**用户场景**：作者观察到，许多开发者每天用 Claude Code 进行 7-8 小时的 vibe coding，但常在第二小时左右遭遇质量骤降——模型开始推翻一小时前自己参与制定的决策，导致大量时间浪费在调试从未损坏的代码上。多数人误以为是 prompt 写得不好或模型能力不足，实则是 context 管理失败。\n\n**核心方法**：文章提出四项 context 管理实践。一是**一次性生成原则**：代码出错时不要立即打补丁，而应回滚（Claude Code 中按两次 Escape 或 git revert）后重写 prompt，避免修复过程污染 context。二是**计划持久化**：让 AI 将计划写入文档，由独立 agent 审查，再开新 session 实现，使计划从\"context 中的记忆\"变为\"仓库中的事实\"。三是**50% 交接规则**：context 用到约 50% 时生成 handoff 文档并开新 session（有人甚至控制在 15%）。四是**分层配置文件**：按目录拆分 claude.md/agent.md，避免无关指令占用 context。\n\n**关键技巧**：context 退化是非线性的，80% 时远不止\"稍差\"；早期设定的架构约束、命名、API 形态最易被压缩丢失。handoff 的损失可预测可控，而长 context 退化的损失隐蔽且不可控。每次纠错都在消耗 token 并引入噪声，累积效应难以归因。",
+      "summaryZh": "# 中文摘要：Vibe Coding 两小时后为何崩溃？\n\n**用户场景**：作者针对长时间使用 Claude Code 进行 vibe coding 的开发者，指出会话进行到两小时后（context window 约 60% 满）模型开始自我矛盾、反复修改已确认的决策，导致大量时间浪费在调试从未损坏的代码上。核心论点是：质量下降源于 context 管理失败，而非模型能力不足。\n\n**核心方法**：将 context 视为有限预算，通过四项实践管理它。一是**一次性生成原则**：代码出错时不要立即打补丁，而是回滚（Claude Code 中按两次 Escape 或 git revert）后重写 prompt，避免多轮修补污染 context。二是**计划持久化**：让 AI 把计划写入文档，由独立 agent 审查，再用新会话实现，使计划成为仓库中的事实而非 context 中的记忆。三是**50% 交接规则**：context 达到约 50% 时生成 handoff 文档并开新会话（有开发者甚至控制在 15% 以下）。四是**分层配置文件**：按目录拆分 claude.md，如 /frontend/claude.md 与 /backend/claude.md，避免加载无关指令。\n\n**关键技巧**：退化曲线非线性，早期设定的架构约束、命名和 API 形状最易被压缩丢失；handoff 的损失可预测可控，而长 context 退化的损失不可预测。手动执行计划-审查循环虽不如自动化，但理解其原理是自动化的前提。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Can Build 5% Akamai Stake Through Cloud Spending",
-      "titleZh": "Anthropic可通过云支出构建5%的Akamai股份",
-      "link": "https://dev.to/simon_paxton/anthropic-can-build-5-akamai-stake-through-cloud-spending-58g0",
-      "author": "Simon Paxton",
+      "title": "Anthropic's $11.6bn Akamai Clo…",
+      "titleZh": "Anthropic的116亿美元Akamai Clo…",
+      "link": "https://dev.to/norviktech/anthropics-116bn-akamai-clo-45g1",
+      "author": "Norvik Tech",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-24T22:01:18.000Z",
-      "summaryZh": "# Anthropic 与 Akamai 的\"云支出换股权\"交易解析\n\n**用户场景**：AI 公司 Anthropic 需要大规模算力支撑模型训练与推理，而 Akamai 作为老牌 CDN/云基础设施厂商，正面临传统交付业务萎缩（2026 Q2 同比下滑 6%，GAAP 营业利润率从 15% 降至 7%）的困境，急需切入 AI 云基础设施赛道。双方通过一份 116 亿美元的七年云合同各取所需。\n\n**核心方法**：这是一笔\"支出即解锁股权\"的互惠结构。Akamai 向 Anthropic 发行认股权证（warrant），可认购最多 7,741,020 股普通股（约占总股本 5%），行权价 $111.33。关键在于 vesting 与 Anthropic 的采购承诺直接挂钩：首笔付款仅解锁 40%（约 2% 股本），此后每追加 30 亿美元合同价值再解锁 20%（约 1% 股本），最多可再追加 90 亿，总额达约 200 亿美元时拿满 5%。\n\n**关键技巧与风险点**：\n- **优先股设计**：Anthropic 拿到的是 Series B 非投票可转优先股，享有分红与清算收益但无董事会投票权，转移给第三方才自动转普通股——即\"经济敞口而非治理权\"。\n- **供应商先垫资**：Akamai 需先投入约 55 亿美元 capex 建产能，并已授权 Jabil 预购约 17 亿美元内存组件，若库存未用将承担持有与处置成本。硬件账单不会等客户未来用量。\n- **合同非无条件收入**：项目计划受交付与服务可用性约束，重大故障或未修复违约可触发终止权。\n- **对开发者/投资者的启示**：这种\"客户买得越多、在供应商持股越多\"的循环结构在 AI 基建领域值得警惕，需区分\"合同价值\"与\"已确认收入\"，并关注现有股东稀释风险。",
+      "pubDate": "2026-09-26T08:05:44.000Z",
+      "summaryZh": "**Anthropic 与 Akamai 116 亿美元云合作解读**\n\n**用户场景**：文章面向关注 AI 基础设施的开发者与企业决策者，探讨 Anthropic 与 Akamai 达成的 116 亿美元云合作对 AI 模型部署、Web 开发及拉美市场的影响。核心痛点是：AI 应用如何借助成熟云基础设施实现低延迟、可扩展的部署，同时控制成本与合规风险。\n\n**核心方法**：Anthropic 借助 Akamai 全球网络获取低延迟算力，加速 AI 模型在多行业的部署；Akamai 提供安全协议保障敏感数据。合作亮点是 Akamai 首次向客户授予 5% 认股权证，绑定双方增长。文中给出示意代码：通过 `akamai.Client(api_key=...)` 初始化客户端，再调用 `model.deploy(client)` 完成模型部署。\n\n**关键技巧**：\n1. 先评估现有技术栈，找出可被云方案填补的缺口；\n2. 用小型 pilot program 验证收益与挑战，再规模化；\n3. 注意数据保护法规（如哥伦比亚的合规要求）；\n4. 借助云厂商降低自建服务器开销，加快创新周期。\n\n**注意**：文中代码为示意性伪代码，实际集成需参考 Akamai 官方 API 文档。对开发者而言，此类合作意味着可复用成熟 CDN 与安全能力来承载 AI 推理，减少自建基础设施负担。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic says Claude completed a nine-loop amplitude calculation",
+      "titleZh": "Anthropic称Claude完成了一项九循环振幅计算",
+      "link": "https://dev.to/breachprotocol/anthropic-says-claude-completed-a-nine-loop-amplitude-calculation-16ip",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-26T06:13:28.000Z",
+      "summaryZh": "# Anthropic 称 Claude 完成九圈振幅计算\n\n## 用户场景\nAnthropic 报告 Claude Fable 5.1 在平面 N=4 超杨-米尔斯理论中完成了六胶子九圈 MHV 振幅计算。这不是发现新物理定律，而是验证 AI agent 能否独立承载一个脆弱的专家级计算流程——从代码构建、调试、符号代数到长时间运行计算。\n\n## 核心方法\n问题并非逐图求和，而是采用 **bootstrap 方法**：先构造可能答案的大类表达式，再用对称性、极限、已知奇点等约束逐步排除。Claude 同时扩展了两条路线——直接 bootstrap（用 Python + SymPy）和通过\"对跖对偶\"将应力张量形状因子映射到振幅的间接路线。研究者仅提供简短描述并周期性指示模型继续，模型自行构建和调试实现。\n\n## 关键技巧\n- **符号计算容错极低**：一个错误索引、约定或基变换就会导致后续全部失败，需严格验证\n- **多素数有理数认证**：在三个素数下做有理算术认证，两个素数下独立计算振幅结构，交叉比对 107,053 个系数\n- **成本参考**：直接路线约 96 CPU 跑一周，经典计算约 $100；端到端用户成本约 $1,000–$2,000（主要是 inference）\n- **注意局限**：完整计算未用独立发布的代码端到端复跑；公开程序未分发；同期 Song He 等人的人类工作也发布了大部分九圈 symbol，说明问题已\"计算成熟\"\n- **验证性质**：Lance Dixon 的验证是将结果映射回其团队研究两年的形状因子做结构比对，属于专家交叉验证，而非无关团队的完整独立复现\n\n**实践启示**：前沿模型已能维持需数天持久性的科学工作流，可加速专家团队，但正确结论不是\"科学家被取代\"，而是能否在对称性更低的问题上、以开源代码和独立验证复现这一模式。",
+      "category": "devto"
+    },
+    {
+      "title": "D.C. Circuit upholds Pentagon procurement exclusion of Claude",
+      "titleZh": "哥伦比亚特区巡回上诉法院维持五角大楼将Claude排除在采购之外的决定",
+      "link": "https://dev.to/breachprotocol/dc-circuit-upholds-pentagon-procurement-exclusion-of-claude-576e",
+      "author": "Breach Protocol",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-26T06:14:29.000Z",
+      "summaryZh": "# 中文摘要\n\n**用户场景**：本文面向向政府（尤其是国防）供应 AI 系统的厂商，分析 D.C. 巡回上诉法院 2026 年 9 月 25 日维持五角大楼将 Anthropic Claude 排除出采购链的判决，探讨安全限制如何被认定为供应链风险。\n\n**核心方法**：法院依据《联邦采购供应链安全法》（41 U.S.C. §4713），认定供应商通过训练、技术干预、模型更新和合同施加的可执行限制，可能构成\"供应链可靠性\"问题。判决将\"otherwise manipulate\"广义解释为安排、运营或控制产品功能，无需证明恶意动机。关键在于：法院并未认定 Claude 普遍不可靠，也未提及 Amazon Bedrock，排除范围仅限国防部系统、合同及承包商工作。\n\n**关键技巧**：\n1. **区分法律依据**：本案适用 §4713，与加州案适用的 10 U.S.C. §3252 定义不同，不可混用结论。\n2. **安全边界即可靠性画像**：对军方买家而言，有意的安全限制与故障模式在关键时刻可能无差别。\n3. **应对措施**：厂商需明确分离民用与政府产品、冻结版本、设置显式验收测试、限定凭证范围、加入人工授权，并在合同中写明模型能做什么、不能做什么。\n4. **注意异议意见**：Henderson 法官警告，若\"拒绝启用某功能\"即构成威胁证据，任何保留政策限制的前沿实验室都可能被迫移除限制或面临排除风险。\n\n**实践价值**：向敏感政府系统销售的 AI 公司，需在设计并记录安全控制时预判此类法律风险——核心争议是谁拥有模型允许用途的最终决定权。",
+      "category": "devto"
+    },
+    {
+      "title": "Deep Dive: Akamai's $11.6B Anthropic Computing Acq…",
+      "titleZh": "深度解析：Akamai 116亿美元收购 Anthropic 计算…",
+      "link": "https://dev.to/norviktech/deep-dive-akamais-116b-anthropic-computing-acq-45n6",
+      "author": "Norvik Tech",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-09-25T22:05:37.000Z",
+      "summaryZh": "**Akamai 116亿美元收购 Anthropic 深度解读**\n\n**用户场景**：文章面向关注 AI 基础设施与 Web 性能的开发者及企业决策者，探讨 Akamai 收购 Anthropic 后，如何将 AI 能力整合进 CDN 与安全服务，解决高流量场景下的性能优化与实时威胁检测问题。\n\n**核心方法**：将 Anthropic 的机器学习算法嵌入 Akamai Edge 网络，形成「客户端请求 → Edge 服务器 → AI 分析 → 优化内容分发」的架构。AI 负责实时分析流量模式、动态分配资源，并驱动自适应安全协议。\n\n**关键技巧**：\n1. **先试点再推广**：从负载测试或安全监控等单一场景切入，定期评估 ROI 后再全面铺开。\n2. **适用条件**：流量波动大、安全威胁持续存在的业务才值得引入 AI，避免盲目投入。\n3. **LATAM/西班牙市场注意**：基础设施落后、合规要求（数据保护法）和成本是主要障碍，建议借助外部咨询弥补技术缺口。\n4. **落地步骤**：内部评估 → 带明确指标的 pilot project → 专家协作确保合规。\n\n**价值**：电商、流媒体等行业可借此提升峰值可用性、降低延迟与跳出率。",
       "category": "devto"
     },
     {
@@ -97,41 +119,30 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-09-24T16:15:44.000Z",
-      "summaryZh": "# 中文摘要\n\n**用户场景**：安全公司 Hacktron 的三名研究员用 72 小时攻破了 OpenAI 内部员工账号，最终向 OpenAI 代码库合并了一个 PR 作为证明。他们想验证的核心问题是：一个看似无关的公共论坛漏洞，能否通过 SSO 一路穿透到企业内部代码仓库。\n\n**核心方法**：攻击链起点是 OpenAI 社区论坛（基于 Discourse），其图片处理依赖 libheif 存在内存损坏漏洞（CVE-2026-32882）。该漏洞上游其实一年前已修复，但因未被标记为安全问题而没拿到 CVE，逃过了常规扫描器。研究员用 Claude（Opus 4.8/5）迭代生成可用的 RCE exploit，拿到论坛服务器代码执行权限后，利用论坛与 OpenAI 主账号的 SSO 集成，劫持员工会话，进而访问其绑定的 GitHub、Slack、Codex 等工具。\n\n**关键技巧与警示**：\n- LLM 已能完成从内存漏洞到可靠 RCE payload 的\"武器化\"迭代，这是安全领域的里程碑。\n- 真正的风险不在聊天窗口内容，而在账号被授权触及的整个技术栈——SSO 会悄悄放大攻击面。\n- 别把 AI 平台账号当\"低风险\"资产；一个未打补丁的图片库就能成为进入代码库的跳板。\n- 依赖链中\"已修复但无 CVE\"的漏洞是扫描盲区，需人工审计第三方组件。\n\nOpenAI 14 小时内修复身份配置，Discourse 数日内为 ImageMagick 加上沙箱隔离。",
+      "summaryZh": "# Claude 被用于攻破 OpenAI：攻击链复盘\n\n## 用户场景\n安全团队 Hacktron 用 72 小时演示了一条从公开论坛到 OpenAI 内部代码仓库的完整攻击链，暴露了 AI 平台账号与 SSO 集成带来的巨大攻击面。\n\n## 核心方法\n攻击起点是 OpenAI 社区论坛（基于 Discourse），其图片处理依赖的 libheif 存在内存损坏漏洞（CVE-2026-32882）。研究者用 Claude（Opus 4.8/5）迭代生成可用的 RCE exploit，拿到论坛服务器代码执行权限后，利用论坛与 OpenAI 主账号的 SSO 集成，横向接管员工 ChatGPT/Codex 账号，最终向内部仓库合并了一个无害 PR 作为验证。\n\n## 关键技巧\n- **LLM 武器化能力**：Claude 能将原始内存漏洞迭代打磨成可靠的 RCE payload，这是安全领域的重要里程碑。\n- **依赖链盲区**：libheif 漏洞一年前已修复，但因未分配 CVE，逃过了所有标准扫描器——上游补丁不等于下游已更新。\n- **SSO 放大攻击面**：论坛账号与 OpenAI 主账号打通后，一个论坛 bug 直接升级为全账号接管。\n- **身份配置才是关键**：图片 bug 属于 Discourse，但让攻击级联到 ChatGPT/Codex 的身份体系属于 OpenAI。\n- **负责任披露**：研究者仅合并无害 PR 验证，未窃取数据，14 小时内 OpenAI 完成修复。\n\n## 对开发者的启示\n不要把 AI 平台账号当作\"低风险\"资产。真正的暴露面不是聊天窗口里输入的内容，而是该账号在整个技术栈中被静默授权的所有资源（GitHub、Slack、内部工具）。现代 SSO 会悄悄膨胀攻击面，一个未修补的图片库就可能成为进入代码库的直通车。",
       "category": "devto"
     },
     {
-      "title": "Anthropic clarifies that Claude Fable use on Pro is metered through credits",
-      "titleZh": "Anthropic澄清，在Pro上使用Claude Fable通过credits计量",
-      "link": "https://dev.to/breachprotocol/anthropic-clarifies-that-claude-fable-use-on-pro-is-metered-through-credits-1nff",
-      "author": "Breach Protocol",
+      "title": "Claude Code AGENTS.md support needs telemetry turned on",
+      "titleZh": "Claude Code AGENTS.md 支持需要开启遥测",
+      "link": "https://dev.to/techaiwire/claude-code-agentsmd-support-needs-telemetry-turned-on-1379",
+      "author": "techaiwire",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-09-25T06:08:35.000Z",
-      "summaryZh": "# Anthropic 澄清 Claude Fable 在 Pro 计划中的计费方式\n\n## 用户场景\n许多 Claude Pro 订阅者误以为 Fable 5 是\"包含在订阅内\"的旗舰模型，但实际使用时才发现从第一个 token 起就开始消耗 credits。作者指出这种误解源于 Anthropic 早期促销公告与后续政策调整之间的时间差，导致用户对\"available\"（可访问）、\"included\"（已包含）和\"credits\"（按量付费）三个概念产生混淆。\n\n## 核心方法\n文章梳理了 Anthropic 当前的分层商业模式：订阅访问权 + 固定包含额度 + 超额按量计费。Pro 用户虽可在模型选择器中选中 Fable 5/5.1，但无包含额度，立即走 credits；Max 及部分高级 Team/Enterprise 席位可获得每周限额 50% 的 Fable 用量。作者用健身房类比说明：会员卡=进入权限，课程通票=包含额度，私教=单独计费。\n\n## 关键技巧\n- **区分三种状态**：available 仅表示账户可请求模型；included 表示消耗预付额度；credits 表示超出额度后（或 Pro 场景下立即）产生费用\n- **成本估算**：Fable 5/5.1 API 定价为输入 $10/百万 token、输出 $50/百万 token，各一百万 token 的工作负载约 $60（未计缓存）\n- **Agent 场景警惕**：长时运行的 agent 会持续调用工具、消耗大量 token，固定月费无法覆盖无限 agentic 工作，用户需在启动任务前明确预算风险\n- **避免信息误读**：OpenAI \"$500 Pro Max\" 仅为未发布引用，无官方确认，不应与 Anthropic 已确认的文档变更混为一谈\n\n核心启示：模型访问权与包含容量已是两个独立产品，开发者应基于官方支持文档而非社交媒体标题做预算决策。",
+      "pubDate": "2026-09-26T19:08:32.000Z",
+      "summaryZh": "# Claude Code 的 AGENTS.md 支持竟依赖遥测开关\n\n## 用户场景\n许多团队使用跨工具的 `AGENTS.md` 文件描述项目构建、测试和结构。Claude Code 2.1.277 承诺：当项目没有 `CLAUDE.md` 时，自动回退读取 `AGENTS.md`。但作者发现，一旦关闭遥测或通过 Bedrock/Vertex 运行，该功能就静默失效。\n\n## 核心方法\n问题根源在于：AGENTS.md 支持并非内置加载器逻辑，而是一个默认关闭的 built-in plugin，由 Statsig 托管的远程 feature flag `tengu_agents_md_mod` 控制。Claude Code 必须联网查询该 flag 才能启用功能。因此以下场景全部失效：设置 `DISABLE_TELEMETRY=1`、`CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1`，或走 Bedrock/Vertex。且无任何报错或警告。\n\n## 关键技巧\n- **临时绕过方案**：在项目里创建 `CLAUDE.md`，写入一行 `@AGENTS.md`。Claude Code 始终读取 `CLAUDE.md`，import 会连带加载 `AGENTS.md`，不依赖任何 flag。\n- **验证是否生效**：让 agent 复述只存在于 `AGENTS.md` 中的规则（如测试命令），若答不出说明文件未加载。每个环境都测一次。\n- **避坑**：若你在 2.1.277 后删掉了 `CLAUDE.md`，请补回一个薄文件。\n- **关注** issue #95690 的修复进展。\n\n核心教训：本地 Markdown 文件的读取不应被服务端开关和隐私设置绑架，把指令放在工具始终读取的文件里才最可靠。",
       "category": "devto"
     },
     {
-      "title": "Anthropic wants its founders to keep 50.1% of the vote. The board is the exception.",
-      "titleZh": "Anthropic希望其创始人保留50.1%的投票权。董事会是例外。",
-      "link": "https://dev.to/siftsignal/anthropic-wants-its-founders-to-keep-501-of-the-vote-the-board-is-the-exception-45b8",
-      "author": "Sift & Signal",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-25T13:17:45.000Z",
-      "summaryZh": "**说明：** 这篇文章并非关于 Claude Code 或 Anthropic AI 的技术文章，而是关于 Anthropic 公司治理结构（创始人投票权）的商业报道，因此无法按你要求的\"Claude Code / Anthropic AI 技术内容\"框架来写开发者向摘要。以下按文章实际内容做中文摘要。\n\n---\n\n**用户场景：** 面向关注 AI 前沿实验室融资、上市与治理结构的读者。Anthropic 预计上市，CEO Dario Amodei 与六位联合创始人希望在公司上市前锁定控制权，避免上市后受季度业绩压力影响决策节奏。\n\n**核心方法：** 据 The Information 9 月 24 日报道，Anthropic 请求股东批准一个新的股份类别，使七位创始人合计持有 50.1% 投票权，条件是其中至少三人保留最低持股量。员工另获一类股票，在部分事项上充当 tie-breaker 投票。公司 5 月以 9650 亿美元投后估值融资 650 亿美元，run-rate 收入超 470 亿美元。\n\n**关键技巧（值得注意的要点）：**\n- **董事会选举被排除在创始人控制之外**：七席董事会（一席空缺）不由超级投票权股份选出，这与 Meta、Alphabet 等常见的 dual-class 结构相反，理论上保留了罢免 CEO 的制衡。\n- **治理必须在上市前敲定**：一旦公开上市，改动股权结构需经被约束的股东批准，杠杆尽失。\n- **信息仍属报道而非章程**：董事会由谁选出、投票算法、员工 tie-breaker 类别的实际效力均未公开，需等 S-1 文件确认。\n- **对行业的影响**：若按此条款成功上市，将成为下一批 frontier lab 的模板。\n\n**待观察：** 股东投票结果、S-1 披露、上市是否落在 11 月美国中期选举前后。",
-      "category": "devto"
-    },
-    {
-      "title": "7 Tech & Science News Stories for Thursday, September 24, 2026: Meta Launches Camera-Free Ray-Ban Glasses at Connect 2026",
-      "titleZh": "2026年9月24日星期四的7条科技与科学新闻：Meta在Connect 2026上推出无摄像头Ray-Ban眼镜",
-      "link": "https://dev.to/gtstudios/7-tech-science-news-stories-for-thursday-september-24-2026-meta-launches-camera-free-ray-ban-5cc1",
-      "author": "GTStudios",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-09-24T16:00:40.000Z",
-      "summaryZh": "# 中文摘要\n\n**用户场景**：本文并非 Claude Code 或 Anthropic 相关技术文章，而是一篇 2026 年 9 月 24 日的科技新闻汇总，面向关注消费电子与 AI 工具的普通开发者读者，帮助其快速了解当日重要动态。\n\n**核心方法**：文章采用\"7 条已验证新闻 + 分类目录 + 原文链接\"的策展结构，将内容分为 Tech & Apps 与 AI Tools 两大板块，每条新闻附来源链接，便于读者按需深挖。\n\n**关键技巧与要点**：\n- **Meta** 在 Connect 2026 发布无摄像头版 Ray-Ban Meta Audio 智能眼镜（$349），规避可穿戴摄像头的隐私争议；Ray-Ban Display 新增全息头像功能并拓展至英、加、法、意、德五国市场。\n- **Apple** 方面：iPhone 18 Pro 因 Face ID 失败导致死机重启，官方承诺下周推送修复；Apple Watch Series 12 与 Ultra 4 的重启 bug 已通过 watchOS 27.0.1 修复，建议尽快更新；iOS 27/macOS 27 用户需留意 Apple Intelligence 实际占用存储高于官方承诺。\n- **AI 工具**：YouTube Studio 新增 AI 创意与缩略图监测功能；Meta 将 AI agent Muse 置于 Connect 核心位置，并接入其 AI 眼镜。\n\n**实用建议**：开发者可关注 Meta Muse agent 与智能眼镜的集成方式，作为 wearable + AI agent 的落地参考；同时留意 Apple Intelligence 的存储开销，评估其对设备端 AI 部署的启示。",
-      "category": "devto"
+      "title": "v2.1.283",
+      "titleZh": "v2.1.283",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.283",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-09-25T21:50:12.000Z",
+      "summaryZh": "# Claude Code v2.1.283 更新摘要\n\n**新增功能**：网关提示头新增 `x-claude-code-prompt-id`，便于 LLM 网关按用户 prompt 分组请求（需 `CLAUDE_CODE_GATEWAY_HINT_HEADERS=1` 开启）；新增 `availableModelsMatch`（设为 `exact` 时仅允许指定版本）与 `deniedModels` 托管设置；`OTEL_LOG_TOOL_CONTENT=1` 时把 MCP、WebFetch、WebSearch 输出写入 `tool.output` span；新增 `/doctor prompt-audit` 审计旧模型提示词模式；全屏模式支持点击展开其他会话的截断消息；网关配置新增 `load_test_mode` 与 Amazon Bedrock Mantle 上游。\n\n**修复**：SDK 会话提前结束丢失延迟工具调用/结果、后台 MCP 进度通知被丢弃、stdio MCP 服务器残留、无状态远程 MCP 的 404 导致会话内不可用、`/model` 对 Sonnet 4.6/5 带日期或 `-v1:0` 后缀的 `[1m]` 处理、`claude plugin validate` 误判非法名称与路径、`installed_plugins.json` 记录丢失、屏幕阅读器权限对话框误读、`/context` 未统计 MCP 指令、Warp 终端 markdown 链接、沙箱托管设置因单个无效值被整体忽略等。\n\n**破坏性变更**：`availableModelsMatch: \"exact\"` 会阻止未列出的新模型版本；`marketplace.json` 中无法安装的名称现直接校验失败；无效插件 id 记录将影响 `installed_plugins.json` 加载。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.282",
@@ -141,18 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-09-24T18:38:05.000Z",
-      "summaryZh": "# Claude Code v2.1.282 更新摘要\n\n**新增功能**：新增 `maxProseWidth` 设置，限制宽终端下 Claude 正文宽度，表格与代码块仍保持全宽；新增启动提示及 `/status`、`claude doctor` 中的遥测变量条目；新增 `allowClaudeInChromeWithManagedMcp` 托管设置，允许 `claude --chrome` 与独占的 managed-mcp.json 并存；网关新增 `store.readiness_grace_seconds`，使 `/readyz` 可在 Postgres 短暂故障时保持就绪；`/feedback` 草稿列表新增滚动条。\n\n**重要修复**：修复历史含无法解密的 web search 结果时全部请求报 400；修复 `--continue`/`--resume` 重复发送旧消息导致 API 丢弃早期推理；修复 `/model`、`/rename` 等命令丢弃 extended thinking；修复 \"Invalid data in redacted_thinking block\" 报错（现丢弃 thinking 块并重试一次）；修复 compaction 被拒后不重试；修复托管设置中布尔锁键拼写错误被忽略、嵌套值无效导致整块设置失效等问题。\n\n**破坏性变更**：Bash 权限规则中带 `:*` 的规则现从所有来源生效（此前仅 `--allowedTools` 生效），启动时会给出匹配警告。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.281",
-      "titleZh": "v2.1.281",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.281",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-09-23T19:19:15.000Z",
-      "summaryZh": "# Claude Code v2.1.281 更新摘要\n\n**新增功能**\n- Claude apps gateway 支持新版 Claude Desktop 密钥及桌面策略块（`blockReadsOutsideWorkingDirectories`、`disableBypassPermissionsMode`）\n- Bedrock upstreams 支持 `assume_role`（通过 STS 跨 AWS 账户扮演 IAM 角色）及 `guardrail: {id, version}`\n- 新增 `telemetry.resource_attributes` 配置\n- settings.json 支持 `\"attribution\": false` 隐藏 commit/PR 署名\n- 2026-07-28 协议连接支持 MCP URL-mode elicitation\n- `claude plugin validate` 新增 MCP server 检查\n- `/insights` 新增 auto mode 推荐；`/skills`、`/mcp`、`/plugin` 列表新增滚动条\n\n**Bug 修复**\n- 修复 API 重试时崩溃（\"unrecoverable interface error\"）\n- 修复忽略 `--max-turns` 的无限重试\n- 修复恢复会话时重发历史导致 API 丢弃推理、prompt cache 失效等问题\n- 修复代理/网关断流被误判为完整响应、工具重复执行、\"Content block not found\" 等\n- 修复超大图片、超长工具名、内存读取失败等导致的会话卡死\n- 修复 `-p`/Agent SDK 会话在目录被删除、MCP 握手卡住等场景下的失败\n\n**破坏性变更**\n- 含 `\"attribution\": false` 的 settings.json 会被旧版 CLI 跳过，跨版本共享需用对象形式\n- 递归 `rm`（如 `rm -rf \"$(pwd)\"`）在 auto 及 `--dangerously-skip-permissions` 模式下现在会强制询问，除非设置 `CLAUDE_CODE_DISABLE_SUBSTITUTION_RM_PROMPT=1`\n- 含 NUL 字节的权限规则不再匹配任何内容",
+      "summaryZh": "# Claude Code v2.1.282 更新摘要\n\n**新增功能**\n- 新增 `maxProseWidth` 设置，限制宽终端下 Claude 正文宽度，表格与代码块仍占满宽度\n- 新增启动提示及 `/status`、`claude doctor` 条目，列出项目设置中被忽略或关闭遥测的变量\n- 新增 `allowClaudeInChromeWithManagedMcp` 托管设置，允许 `claude --chrome` 与独占的 `managed-mcp.json` 共存\n- 网关新增 `store.readiness_grace_seconds`，使 `/readyz` 可挺过短暂 Postgres 故障\n- `/feedback` 草稿列表在全屏模式下新增滚动条\n\n**主要修复**\n- 修复历史含无法解密的 web search 结果时请求全部 400 报错\n- 修复 `--continue`/`--resume` 重发旧消息导致 API 丢弃早期 reasoning\n- 修复 `redacted_thinking` 块报错、compaction 失败、登录刷新卡死等问题\n- 修复托管设置中布尔锁键拼写错误被忽略、嵌套值无效导致整块设置失效\n- 修复插件卸载误删选项与密钥、`/install-github-app` 取消后仍推送分支\n- 修复全屏渲染、CJK 换行、粘贴多行文本等终端显示问题\n\n**破坏性变更**\n- 未发现明显破坏性变更，主要为行为修正与设置生效逻辑调整。",
       "category": "github-release"
     }
   ]
