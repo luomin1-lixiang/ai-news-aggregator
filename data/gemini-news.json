@@ -1,70 +1,44 @@
 {
-  "lastUpdated": "2026-09-28T22:45:39.606Z",
+  "lastUpdated": "2026-09-29T21:38:24.459Z",
   "items": [
     {
-      "title": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "link": "https://blog.google/innovation-and-ai/technology/ai/winner-future-vision-xprize/",
-      "description": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/futurevisionxprize_social.max-600x600.format-webp.webp\">Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "author": "Google Blog",
+      "title": "Game on: Henry Cavill is putting Googlebook to the test",
+      "link": "https://blog.google/products-and-platforms/devices/googlebook/henry-cavill-googlebook-video-game/",
+      "description": "Henry Cavill is partnering with Googlebook to build a video game, coming this November.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Cavill.max-600x600.format-webp.webp\">Henry Cavill is partnering with Googlebook to build a video game, coming this November.",
+      "author": "Menaka Shroff",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 28 Sep 2026 19:00:00 +0000",
-      "titleZh": "Watch the winning trailer from the Future Vision XPRIZE, The Gifted.",
-      "descriptionZh": "该内容来自 Google 官方博客，核心是发布并推荐 Future Vision XPRIZE 的获奖预告片《The Gifted》。原文本身非常简短，仅包含一张社交分享图和一句“Watch the winning trailer from the Future Vision XPRIZE, The Gifted.”，并未展开竞赛规则、技术方案或影片情节。\n\n背景上，XPRIZE 是以高额奖金和全球竞赛机制推动重大挑战创新的组织；Future Vision XPRIZE 从名称和 XPRIZE 的一贯模式看，属于面向“未来愿景”的影像/叙事类竞赛，旨在用短片或预告片形式呈现对未来的积极想象，并激发公众对科技与社会可能性的讨论。《The Gifted》作为获奖预告片，代表评审对其中未来叙事与创意表达的认可。\n\n从影响与应用看，这类内容主要作用于科技传播、公众科普和品牌叙事：通过具有感染力的影像降低未来科技话题的理解门槛，吸引更广泛受众参与未来图景的构建。但就现有材料而言，无法进一步分析其核心技术原理、创新点或具体应用场景；若需完整技术摘要，需要补充博客正文、视频脚本或影片内容。"
+      "pubDate": "Tue, 29 Sep 2026 18:00:00 +0000",
+      "titleZh": "Game on: Henry Cavill is putting Googlebook to the test",
+      "descriptionZh": "亨利·卡维尔（Henry Cavill）已与 Googlebook 达成合作，将共同开发一款电子游戏，该游戏计划于今年11月推出。原文仅披露了这一合作消息、上线时间，并配有相关图片，未说明游戏名称、类型、登陆平台、玩法机制、开发团队、技术引擎或具体创新点。因此，目前无法进一步展开其核心技术原理、技术影响与应用场景分析。若该合作最终落地，这将成为知名演员深度参与游戏项目的又一案例，可能借助其个人影响力连接影视与游戏受众；后续需等待官方公布更多产品与技术细节。"
     },
     {
-      "title": "Google Arts & Culture turns 15 — and gives its app a makeover",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/new-arts-culture-app/",
-      "description": "Explore art and culture with visual-first conversation search, a redesigned home feed, AI experiments and 27 new city guides in the Google Arts & Culture app.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Banner_15yrs.max-600x600.format-webp.webp\">Explore art and culture with visual-first conversation search, a redesigned home feed, AI experiments and 27 new city guides in the Google Arts & Culture app.",
-      "author": "Amit Sood",
+      "title": "Experience two artists’ perspectives on philosophy, science, and AI",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/las-art-foundation-ai-residency/",
+      "description": "Artists Xin Liu and Eunjo Lee used Google AI to create new artworks with LAS Art Foundation and Google Arts & Culture Lab.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/LAS_x_Google_Arts__Culture_Titl.max-600x600.format-webp.webp\">Artists Xin Liu and Eunjo Lee used Google AI to create new artworks with LAS Art Foundation and Google Arts & Culture Lab.",
+      "author": "Freya Salway",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 28 Sep 2026 16:30:00 +0000",
-      "titleZh": "Google Arts & Culture turns 15 — and gives its app a makeover",
-      "descriptionZh": "谷歌艺术与文化应用（Google Arts & Culture）在15周年之际推出系列更新，旨在以更视觉化、互动化的方式连接用户与艺术文化。核心亮点包括：1）视觉优先的对话式搜索，融合计算机视觉与自然语言处理，用户可基于图片发起搜索，并通过对话逐步细化需求，查找艺术品、艺术家或文化景点；2）重新设计的首页信息流，强化视觉呈现与个性化推荐，提升内容发现效率；3）多项AI实验，借助生成式AI等技术提供沉浸式、可交互的文化体验；4）新增27个城市指南，汇集当地博物馆、地标、街头艺术等资源。这些更新降低了探索门槛，可应用于旅行规划、艺术教育、文化研究和休闲发现等场景，进一步强化了Google Arts & Culture作为数字文化门户的定位。"
+      "pubDate": "Tue, 29 Sep 2026 16:00:00 +0000",
+      "titleZh": "Experience two artists’ perspectives on philosophy, science, and AI",
+      "descriptionZh": "艺术家 Xin Liu（刘昕）和 Eunjo Lee 与 LAS Art Foundation、Google Arts & Culture Lab 合作，使用 Google AI 创作了新的艺术作品。该项目体现了人工智能在当代艺术创作中的应用，以及艺术家、艺术基金会与 Google 文化实验室之间的跨领域协作。由于提供的原文仅包含项目导语和配图说明，暂无关于作品主题、具体 AI 技术、展览时间与地点等更多细节，因此摘要仅能覆盖上述核心信息。"
     },
     {
-      "title": "See what 4 builders are making with Gemini 3.8 Flash",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-flash-developers/",
-      "description": "See what developers have built with Gemini 3.8 Flash, our most intelligent workhorse model, launched in early September.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Builders_Gemini_3.8_Flash.max-600x600.format-webp.webp\">See what developers have built with Gemini 3.8 Flash, our most intelligent workhorse model, launched in early September.",
-      "author": "Lindsey Lanquist",
+      "title": "Google is a technology partner for the launch of America.gov.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/public-policy/america-gov-google-public-sector/",
+      "description": "Google partners with America.gov to use Gemini to help 100 million people access federal services faster. See how we are modernizing public access.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/G_gray_hero.max-600x600.format-webp_n4n8cbz.webp\">Google partners with America.gov to use Gemini to help 100 million people access federal services faster. See how we are modernizing public access.",
+      "author": "Jim Kelly",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Mon, 28 Sep 2026 16:00:00 +0000",
-      "titleZh": "See what 4 builders are making with Gemini 3.8 Flash",
-      "descriptionZh": "Google 的这篇博文以“看看开发者用 Gemini 3.8 Flash 构建了什么”为主题，面向开发者社区展示基于该模型的实际项目。文中将 Gemini 3.8 Flash 称为 Google 最智能的“主力”模型，并说明其于九月初发布。由此可见，博客的核心信息是：Gemini 3.8 Flash 已进入开发者可用阶段，Google 希望通过开发者案例证明它既能提供较高智能水平，又能作为日常开发和生产工作流中的基础模型被广泛集成。其潜在应用场景可能包括开发者工具、智能助手、内容生成、代码辅助、自动化 Agent 及企业级 AI 应用等，但具体案例、技术架构、性能指标和创新细节并未在给出的英文片段中展开。因此，基于现有内容只能确认其发布定位与开发者生态导向，无法进一步总结完整的技术原理、创新点和行业影响。"
-    },
-    {
-      "title": "3 ways this grocer cooks for 200 guests with Gemini",
-      "link": "https://blog.google/products-and-platforms/products/gemini/edys-grocer-gemini/",
-      "description": "Edy Massih uses Gemini to transform regular recipes into massive catering spreads, automate grocery orders, and adapt menus for dietary restrictions.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Thumbnail_-_16x9.max-600x600.format-webp.webp\">Edy Massih uses Gemini to transform regular recipes into massive catering spreads, automate grocery orders, and adapt menus for dietary restrictions.",
-      "author": "Sarah Armstrong",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Mon, 28 Sep 2026 15:00:00 +0000",
-      "titleZh": "3 ways this grocer cooks for 200 guests with Gemini",
-      "descriptionZh": "这篇博客通过餐饮从业者 Edy Massih 的案例，展示了 Google Gemini 在餐饮承办场景中的实际应用。背景是，餐饮和宴会供应往往需要把普通菜谱快速放大为大规模出品方案，同时还要处理食材采购、菜单调整以及素食、过敏原、无麸质等特殊饮食需求，传统上这些工作高度依赖人工计算和经验判断。Gemini 的核心能力在于自然语言理解与生成：它可以读取常规菜谱，按人数或规模自动换算配料比例，生成对应的采购清单，并根据饮食限制自动替换或调整食材与菜品。其创新点在于把生成式 AI 从通用文本助手转变为嵌入具体业务流程的效率工具，减少重复核算和沟通成本。应用场景包括餐饮承办、活动供餐、餐厅菜单研发和家庭聚餐规划等。对小型餐饮企业而言，这类工具能够提升效率、降低出错率，并让个性化饮食服务更容易规模化。同时，AI 生成的配方和采购建议仍需人工审核，以保证口味、食品安全和成本可控。"
-    },
-    {
-      "title": "Introducing Vertical Video Unification with Display & Video 360.",
-      "link": "https://blog.google/products/marketingplatform/360/vertical-video-unification/",
-      "description": "Unify vertical video buys with Google Display & Video 360. See how Unilever boosted reach by 24% using Gemini-powered measurement. Get the details.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/01_Blog_-_Header.max-600x600.format-webp.webp\">Unify vertical video buys with Google Display & Video 360. See how Unilever boosted reach by 24% using Gemini-powered measurement. Get the details.",
-      "author": "Marta Martinez",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Mon, 28 Sep 2026 13:00:00 +0000",
-      "titleZh": "Introducing Vertical Video Unification with Display & Video 360.",
-      "descriptionZh": "谷歌最新博客介绍，广告主可通过 Google Display & Video 360 统一购买竖屏视频广告，并展示联合利华借助 Gemini 驱动的衡量方案将触达率提升 24%。背景是竖屏视频已成为用户消费主流，但广告主在 YouTube Shorts、社交平台及其他竖屏视频库存之间往往需要分散购买，导致触达重叠、频次控制和效果衡量复杂。DV360 作为程序化广告购买平台，将竖屏视频库存纳入统一购买流程，使品牌可以用一致的策略进行跨渠道投放、优化和预算分配。关于核心技术，博客导语指出创新在于 Gemini 驱动的衡量：即把 Google 的 Gemini 模型用于广告效果测量，帮助品牌更准确地评估跨平台竖屏视频投放的触达与增量效果，从而优化媒介决策。联合利华案例表明，该方案能带来 24% 的触达提升，说明 AI 驱动的衡量有助于品牌在竖屏视频场景中扩大覆盖并提升投放效率。该能力适用于快消、零售等需要大规模品牌触达的广告主，也反映了程序化视频购买与生成式 AI 衡量结合的趋势。不过，提供的材料仅为博客导语，未包含完整技术原理、实施细节和数据口径，需查阅原文以获取更完整信息。"
+      "pubDate": "Tue, 29 Sep 2026 14:15:00 +0000",
+      "titleZh": "Google is a technology partner for the launch of America.gov.",
+      "descriptionZh": "Google 宣布与 America.gov 合作，利用 Gemini 帮助约 1 亿人更快速地获取联邦服务，并推动公共访问方式的现代化。该合作的核心背景是：政府服务通常涉及复杂的信息查找、资格判断和办理流程，公众在访问联邦服务时面临效率与可及性挑战；Google 希望将 Gemini 的生成式 AI 能力引入这一场景，降低公众获取服务的门槛。原文目前主要披露合作目标与愿景，即通过 Gemini 提升联邦服务访问速度，覆盖规模达 1 亿人，但未详细说明 Gemini 的具体技术原理、模型能力边界、与 America.gov 的系统集成方式、隐私安全与合规机制等，因此无法对其技术创新点做深入拆解。从影响与应用场景看，这项合作指向 AI 在数字政务中的落地：可能用于联邦服务信息检索、流程指引、内容理解与多语言辅助等公众交互环节，从而改善服务体验。不过，具体服务范围、上线时间、评估指标与数据保护安排尚未在原文中展开。总体而言，这是一项以 Gemini 推动美国政府服务可及性和效率提升的合作公告，实际成效将取决于后续技术实现、隐私合规和规模化部署。"
     }
   ]
 }
