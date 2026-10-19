@@ -1,18 +1,70 @@
 {
-  "lastUpdated": "2026-10-16T20:14:23.892Z",
+  "lastUpdated": "2026-10-19T21:50:19.898Z",
   "items": [
     {
-      "title": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-notebook/three-tips-study-gemini-notebook/",
-      "description": "Master your exams with Google Gemini Notebook’s new 60-second video overviews and interactive quiz formats. Try these study tools at notebook.google.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/3_Gemini_Notebook_social.max-600x600.format-webp.webp\">Master your exams with Google Gemini Notebook’s new 60-second video overviews and interactive quiz formats. Try these study tools at notebook.google.",
-      "author": "Lisa Oguike",
+      "title": "Partnering to strengthen the grid and support local communities in Arkansas",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/arkansas-partnerships/",
+      "description": "Since we first announced plans to build in West Memphis, Arkansas, we’ve continued to work with community members.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Arkansas_Hero.max-600x600.format-webp.webp\">Since we first announced plans to build in West Memphis, Arkansas, we’ve continued to work with community members.",
+      "author": "News from Google Team",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 16 Oct 2026 16:00:00 +0000",
-      "titleZh": "We’re sharing 3 tips to study smarter with Gemini Notebook.",
-      "descriptionZh": "Google 在 Gemini Notebook 中推出面向考试复习的新学习工具，主打 60 秒视频概览和互动测验两种格式。Gemini Notebook 是 Google 的 AI 笔记与研究助手，可围绕用户上传或收集的资料进行理解、总结与问答。此次更新将 AI 生成能力进一步延伸到多模态学习场景：视频概览能把复杂材料压缩成约一分钟的短视频，便于快速回顾；互动测验则把资料转化为题目，让学习者通过主动回忆和自测巩固记忆。其创新点在于把“摘要—视频—测验”串成轻量复习闭环，降低制作学习材料的门槛，并提升备考效率。应用场景包括学生考试复习、课堂知识梳理、自学与培训等。技术层面，这类功能通常依托 Gemini 模型对资料的结构化理解与内容生成能力，先提取关键概念，再生成视频脚本、测验题目和反馈。用户可访问 notebook.google 体验这些工具。原文未披露更具体的模型版本与视频合成细节。"
+      "pubDate": "Mon, 19 Oct 2026 20:15:00 +0000",
+      "titleZh": "携手强化电网，支持阿肯色州当地社区",
+      "descriptionZh": "现有英文博客内容非常有限，仅包含一句：“Since we first announced plans to build in West Memphis, Arkansas, we’ve continued to work with community members.” 其核心信息是：谷歌自首次宣布在阿肯色州西孟菲斯（West Memphis）建设相关设施的计划以来，持续与当地社区成员保持合作。原文未说明建设项目的具体类型、技术架构、创新点、投资规模、时间表或社区合作细节，也未涉及可分析的技术影响与应用场景。因此，基于当前提供的文本无法生成覆盖背景、技术原理、创新点和应用场景的完整中文摘要；如需完整摘要，应补充英文博客全文。"
+    },
+    {
+      "title": "How to shape your slides and videos with Gemini Notebook",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-notebook/co-create-slides-videos/",
+      "description": "Gemini Notebook is giving more creative control in the creation of Slide Decks and Video Overviews.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/blog_hero_cocreation_2784x1566.max-600x600.format-webp.webp\">Gemini Notebook is giving more creative control in the creation of Slide Decks and Video Overviews.",
+      "author": "Viraj Doshi",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 19 Oct 2026 17:00:00 +0000",
+      "titleZh": "如何用 Gemini Notebook 塑造你的幻灯片和视频",
+      "descriptionZh": "谷歌近日宣布，其AI笔记工具Gemini Notebook在幻灯片和视频概览的创建方面提供了更强的创意控制能力。这一更新意味着用户在使用Gemini Notebook生成演示文稿或视频摘要时，将拥有更灵活、更精细的创作主导权，而非仅依赖AI自动生成固定格式的内容。该功能依托谷歌Gemini大模型的多模态生成能力，允许用户在AI辅助的基础上对输出结果进行个性化调整，从而更好地满足不同场景下的表达需求。从技术影响来看，这一改进降低了非专业用户制作高质量视觉内容门槛的同时，也为专业创作者保留了必要的控制空间，适用于教育课件制作、商业汇报、内容创作等多种应用场景。"
+    },
+    {
+      "title": "4 tips for styling outfits with Gemini",
+      "link": "https://blog.google/products-and-platforms/products/gemini/stylist-outfit-tips-gemini/",
+      "description": "Here’s how athlete stylist Sydney Bordonaro uses Gemini to build looks for clients — and how you can build your own, too.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/sydney_bodonaro_social_1.max-600x600.format-webp.webp\">Here’s how athlete stylist Sydney Bordonaro uses Gemini to build looks for clients — and how you can build your own, too.",
+      "author": "Sarah Armstrong",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 19 Oct 2026 16:00:00 +0000",
+      "titleZh": "4 tips for styling outfits with Gemini",
+      "descriptionZh": "这篇博客以运动员造型师 Sydney Bordonaro 为案例，介绍她如何借助 Gemini 为客户构建造型方案，并进一步说明普通读者如何自行构建类似造型。背景上，造型师需要综合客户偏好、场合需求、运动员公众形象和风格素材，生成既符合个人气质又适合具体场景的造型建议；Gemini 在其中作为生成式 AI 助手参与创意发散、方案组织和沟通表达。其创新点在于将 AI 从通用聊天工具落地到个人造型工作流，通过案例化使用方式展示可复用的造型构建方法。技术影响方面，这类应用有望降低创意探索和客户提案的时间成本，提高个性化造型效率，并让非专业用户也能获得结构化搭配思路。应用场景包括运动员与公众人物形象管理、品牌合作造型、个人衣橱搭配以及造型师客户提案等。需要说明的是，原文目前仅提供导语式介绍，未披露具体提示词、模型能力边界或完整工作流细节，因此核心技术原理无法进一步展开；读者需阅读全文了解 Bordonaro 的具体做法及自行构建造型的步骤。"
+    },
+    {
+      "title": "See the top style searches from people in big fashion capitals.",
+      "link": "https://blog.google/products-and-platforms/products/search/fashion-capital-style-searches/",
+      "description": "We took a look at Google Trends to see what people in seven major fashion capitals are searching for to give them that je ne sais quoi when it comes to their sartorial s…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/FashionTrends_social.max-600x600.format-webp.webp\">We took a look at Google Trends to see what people in seven major fashion capitals are searching for to give them that je ne sais quoi when it comes to their sartorial s…",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 19 Oct 2026 16:00:00 +0000",
+      "titleZh": "See the top style searches from people in big fashion capitals.",
+      "descriptionZh": "这篇博客围绕Google Trends在时尚领域的应用展开。文章开头指出，团队通过Google Trends观察七个主要时尚之都的用户搜索内容，以了解当地消费者在穿搭风格上的关注点，并为其提供更贴合地域品味的时尚灵感。就目前可见内容而言，文章的核心方法是以搜索趋势数据作为时尚偏好的观察窗口：Google Trends汇总并呈现不同地区的搜索热度和查询变化，从而反映公众对服饰、风格和潮流议题的兴趣。其创新点在于将搜索意图数据用于捕捉城市间的时尚差异，而非仅依赖传统秀场、媒体或零售数据。技术影响和应用场景包括时尚趋势研判、区域化选品与营销、内容策划以及消费者穿搭参考。由于提供的原文仅为开头片段，后续关于七大时尚之都的具体搜索发现和结论无法从现有材料中确认，因此以上摘要仅基于可见信息。"
+    },
+    {
+      "title": "We’re supporting nature restoration through sustainable farming in Brazil.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/brazil-silvopasture/",
+      "description": "Google is partnering with Working Trees to remove 270,000 tons of CO2 via silvopasture in Brazil. See how this project restores land and ranching.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Working_Trees_Silvopasture.max-600x600.format-webp.webp\">Google is partnering with Working Trees to remove 270,000 tons of CO2 via silvopasture in Brazil. See how this project restores land and ranching.",
+      "author": "Randy Spock",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 19 Oct 2026 12:00:00 +0000",
+      "titleZh": "我们正通过巴西的可持续农业支持自然修复",
+      "descriptionZh": "Google 与 Working Trees 达成合作，计划在巴西通过林牧复合系统（silvopasture）移除 270,000 吨二氧化碳。该项目的核心背景是牧场土地退化与可持续土地管理需求：传统放牧方式可能造成土壤退化和生态压力，而林牧复合系统通过在放牧土地上种植和保留树木，将林业与畜牧业结合，在维持牧场经营的同时增强土地恢复和碳汇能力。\n\n从技术原理看，林牧复合系统并非单一碳移除技术，而是一种土地管理方式：树木吸收并储存二氧化碳，植被和土壤管理可改善土壤健康，牧场生产与生态恢复由此形成协同。Google 与 Working Trees 的合作创新点在于以规模化碳移除项目推动这类基于自然的解决方案落地，并通过具体项目展示其恢复土地和牧场经营的效果。\n\n该项目的应用场景包括企业碳移除组合、退化牧场修复和可持续农业实践。其影响在于，如果项目按计划实施，既能帮助 Google 实现碳移除目标，也可为巴西牧场地区提供兼顾生态恢复与农业生产的示范模式。"
     }
   ]
 }
