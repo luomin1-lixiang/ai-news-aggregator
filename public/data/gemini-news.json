@@ -1,57 +1,57 @@
 {
-  "lastUpdated": "2026-10-20T21:00:46.982Z",
+  "lastUpdated": "2026-10-21T21:01:41.325Z",
   "items": [
     {
-      "title": "Get hands-free personalized help on the road with Gemini",
-      "link": "https://blog.google/products-and-platforms/platforms/android/android-auto-cars-with-google-built-in-gemini-personal-intelligence/",
-      "description": "Gemini is available in cars globally. With Personal Intelligence, get uniquely tailored help while keeping your eyes on the road.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/PersonalIntelligence_auto_hero.max-600x600.format-webp.webp\">Gemini is available in cars globally. With Personal Intelligence, get uniquely tailored help while keeping your eyes on the road.",
-      "author": "Karan Daryanani",
+      "title": "Recreating the lost studios of women sculptors with Prune Nourry",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/visionaries-petit-palais-art-basel-paris-prune-nourry/",
+      "description": "Google partnered with experts to recreate the workspaces of 19th-century sculptors, bringing their legacies back into focus.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Prune_Nourry_Hero.max-600x600.format-webp.webp\">Google partnered with experts to recreate the workspaces of 19th-century sculptors, bringing their legacies back into focus.",
+      "author": "Prune Nourry",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 20 Oct 2026 20:00:00 +0000",
-      "titleZh": "在路上通过 Gemini 获得免提个性化帮助",
-      "descriptionZh": "这段简短发布信息宣布，Gemini 已面向全球车载场景开放，并引入 Personal Intelligence 能力，为驾驶者提供个性化、情境适配的帮助，同时强调让驾驶者保持视线在道路上。其背景是生成式 AI 助手从手机和电脑进一步进入智能座舱，车载交互需要在便利性与驾驶安全之间取得平衡。原文披露的核心创新点在于将 Gemini 的个性化智能与车载环境结合：一方面根据用户需求提供定制化协助，另一方面通过减少对屏幕和手动操作的依赖，服务于安全驾驶这一首要目标。技术原理、模型架构、语音交互方式、隐私保护机制及具体功能边界原文未展开，因此不宜过度推断。从影响和应用看，这一发布意味着车载 AI 助手正从通用语音控制走向更个性化的智能服务，潜在场景包括驾驶过程中的信息获取、行程相关协助和车内服务交互等；其实际价值取决于个性化能力在真实道路环境中的可用性、时延、安全性以及全球市场适配程度。总体而言，该信息传递的产品方向是：让 Gemini 在全球汽车场景中提供更贴合个人需求的帮助，同时坚持驾驶安全优先。"
+      "pubDate": "Wed, 21 Oct 2026 14:00:00 +0000",
+      "titleZh": "Recreating the lost studios of women sculptors with Prune Nourry",
+      "descriptionZh": "Google 与艺术史、文物保护等领域专家合作，对19世纪雕塑家的工作空间进行数字化复现，使这些艺术家的创作环境与历史遗产重新进入公众视野。背景上，雕塑家工作室不仅是创作场所，也承载材料选择、工具使用、工艺流程和时代艺术生态等信息；随着时间推移，原址与实物难以完整保存，公众对其了解也相对有限。项目通过专家考证与数字重建、虚拟呈现相结合，在尊重历史准确性的基础上，将工作室转化为可访问、可展示的内容。其核心创新在于跨学科协作与文化遗产数字化传播：专业知识保障还原细节，Google的数字平台扩大传播范围。该项目的意义在于帮助公众理解19世纪雕塑创作过程与艺术家的工作方式，并可应用于在线展览、博物馆数字化、艺术教育、学术研究和文化旅游等场景，为文化遗产的保存、阐释与公众教育提供新范例。"
     },
     {
-      "title": "Ask a Scientist: How can AI help doctors spend more time on collaborative care?",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-clinical-study/",
-      "description": "AMIE, an AI system people can chat with before doctor’s appointments, securely gathers patient information, and saves doctors time.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AskAScientist_AMIE_Thumb_003_ss.max-600x600.format-webp.webp\">AMIE, an AI system people can chat with before doctor’s appointments, securely gathers patient information, and saves doctors time.",
-      "author": "Lindsey Lanquist",
+      "title": "New bidding and budgeting tools can transform your upcoming holiday ad strategy.",
+      "link": "https://blog.google/products/ads-commerce/holiday-shopping-bidding-budgeting/",
+      "description": "Get actionable insights on bidding and budgeting tools in the latest episode of Google's \"Ads Decoded\" podcast.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S2E6_thumbnail.max-600x600.format-webp.webp\">Get actionable insights on bidding and budgeting tools in the latest episode of Google's \"Ads Decoded\" podcast.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 20 Oct 2026 16:00:00 +0000",
-      "titleZh": "Ask a Scientist: How can AI help doctors spend more time on collaborative care?",
-      "descriptionZh": "AMIE（Articulate Medical Intelligence Explorer）是面向医疗问诊场景的对话式 AI 系统。博客介绍，患者可在正式就诊前先与 AMIE 聊天，由系统安全地收集症状、病史和相关健康信息，并在就诊时提供给医生参考，从而减少重复询问、节省医生时间，并让有限的门诊时间更多用于诊断和决策。\n\n背景上，传统门诊中医生往往需要在很短时间内完成病史采集、病情判断和沟通，患者也常因紧张或缺乏医学知识而难以准确描述问题。就诊前的信息收集如果依赖表单，容易不完整；如果由医生完成，又会占用宝贵时间。AMIE 的定位就是把一部分结构化、可追问的预问诊过程前置到预约前，用自然对话方式补齐关键信息。\n\n技术原理上，AMIE 基于大语言模型和医疗对话能力训练，重点不是通用聊天，而是模拟临床问诊：系统需要理解患者主诉，主动追问症状持续时间、严重程度、诱因、既往史、用药史等信息，并在多轮对话中澄清模糊或矛盾之处，最终形成可供医生快速阅读的结构化摘要。其创新点在于将临床推理、沟通策略和信息采集结合起来，通过模拟医患对话等方式提升问诊的连贯性和完整性，同时强调安全、隐私保护和医生可控。\n\n影响和应用场景方面，AMIE 有望减轻医生的文书和重复问诊负担，优化门诊流程，提升患者参与感和就医体验。可应用于预约前病史采集、初诊分诊、随访、远程医疗、基层医疗以及电子病历预填等场景。不过，这类系统仍需经过严格临床验证和监管评估，并需在医生监督下使用，以控制隐私、偏差、误判和过度依赖等风险。"
+      "pubDate": "Wed, 21 Oct 2026 13:00:00 +0000",
+      "titleZh": "新的竞价和预算工具可以改变你即将到来的假日广告策略。",
+      "descriptionZh": "Google 的“Ads Decoded”播客最新一期聚焦广告出价（bidding）与预算（budgeting）工具，旨在为广告主和营销人员提供可操作的洞察。原文信息较为简短，主要作为节目导览，介绍本期内容将围绕 Google Ads 中出价策略和预算管理工具展开，帮助听众理解如何更有效地分配广告预算、选择或调整出价方式，并据此优化广告投放效果。\n\n从背景看，出价与预算是数字广告投放中的核心环节：出价决定广告主愿意为点击、展示或转化支付多少，预算则限定campaign在特定周期内的花费上限。Google Ads 提供多种自动化出价策略和预算工具，广告主可依据营销目标、转化数据和竞争环境进行配置与优化。播客形式的价值在于把产品工具和实操经验转化为更易理解的建议，适合广告投放人员、增长团队和数字营销从业者参考。由于原文未展开具体技术原理或创新细节，摘要不宜过度推断；其核心影响和应用场景在于帮助营销人员提升预算使用效率、优化出价决策，并最终改善广告投放的ROI。"
     },
     {
-      "title": "New Gemini tools for small business owners",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/new-tools-small-business-owners/",
-      "description": "We’re announcing new tools for Gemini — including a dedicated business landing page — to help small business owners around the world.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/October_Gemini_VSB_hero.max-600x600.format-webp.webp\">We’re announcing new tools for Gemini — including a dedicated business landing page — to help small business owners around the world.",
-      "author": "Vishnu Sivaji",
+      "title": "Drive with “The Cat in the Hat” on Waze.",
+      "link": "https://blog.google/waze/waze-the-cat-in-the-hat/",
+      "description": "Ready to turn your daily commute into a high-octane joyride? Waze is bringing the connoisseur of happy chaos to your passenger seat for the arrival of The Cat in the Hat…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CatInTheHat-KeyVisual_Horizonta.max-600x600.format-webp.webp\">Ready to turn your daily commute into a high-octane joyride? Waze is bringing the connoisseur of happy chaos to your passenger seat for the arrival of The Cat in the Hat…",
+      "author": "Waze",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 20 Oct 2026 16:00:00 +0000",
-      "titleZh": "面向小企业主的全新 Gemini 工具",
-      "descriptionZh": "Google 通过官方博客宣布为 Gemini 推出新工具，并上线专门面向企业的业务落地页，目标是帮助全球小企业主更方便地了解和使用 Gemini。该公告的背景是生成式 AI 正加速进入中小企业场景，但小企业往往缺乏专门的技术团队和清晰的采用路径，因此需要更集中的产品入口和更低门槛的工具支持。\n\n从已提供的信息看，此次更新的核心创新主要体现在产品化和业务入口整合：通过专门的 business landing page 将 Gemini 的企业相关能力、资源和引导集中呈现，降低小企业主的认知与使用门槛。原文未披露具体模型架构、算法升级或各工具的详细技术实现，因此不能将其理解为底层技术突破，而应视为 Gemini 面向小企业市场的产品化推进。\n\n技术影响方面，这类更新有助于把生成式 AI 能力从通用聊天工具转化为更明确的企业应用入口，推动小企业将 AI 用于内容创作、客户沟通、办公自动化、营销素材生成和运营效率提升等潜在场景。应用场景上，小企业可借助 Gemini 工具减少重复性工作、快速生成业务文案、辅助客户服务与内部协作，并以更低成本尝试 AI 驱动的业务流程优化。总体而言，该公告释放的信号是 Gemini 正在加强面向小企业市场的产品包装和可及性，但具体功能范围、技术细节和实际效果仍需以原文后续披露为准。"
+      "pubDate": "Wed, 21 Oct 2026 11:39:00 +0000",
+      "titleZh": "Drive with “The Cat in the Hat” on Waze.",
+      "descriptionZh": "这篇英文博客是Waze与经典儿童文学角色“戴帽子的猫”（The Cat in the Hat）联动的预告，核心信息是将这一以“快乐混乱”著称的角色引入车内体验，让日常通勤从例行驾驶变成更具娱乐感的“高能欢乐旅程”。从上下文看，Waze作为导航应用，正通过IP合作强化其趣味化、情感化的出行体验：将角色元素带入乘客座和车内场景，使用户在导航过程中获得更轻松、更有话题性的陪伴感。\n\n原文目前仅提供营销导语，未展开具体功能、技术实现和活动细节，因此无法详细分析其核心技术原理。就可见内容而言，其创新点主要在于导航场景与经典文化IP的跨界融合，通过角色人格和娱乐叙事增强用户参与度与品牌记忆点。应用场景包括日常通勤、家庭出行和儿童友好型车内体验；技术影响则体现在导航应用从工具型服务向“出行娱乐平台”延伸，但实际效果仍取决于后续是否推出语音包、主题界面、活动路线等具体功能。总体而言，这是一则强调趣味出行体验的Waze品牌合作预告，技术细节和完整产品信息尚待原文后续内容补充。"
     },
     {
-      "title": "Expanding our defenses against financial scam ads",
-      "link": "https://blog.google/products/ads-commerce/financial-services-verification-united-states-canada/",
-      "description": "We’re introducing new safeguards in early 2027 to help protect people in the U.S. and Canada from financial scams.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/financial_protection_US__Canada.max-600x600.format-webp.webp\">We’re introducing new safeguards in early 2027 to help protect people in the U.S. and Canada from financial scams.",
-      "author": "Keerat Sharma",
+      "title": "Southeast Asia’s digital economy to hit $368 billion",
+      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
+      "description": "Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/e-Conomy_SEA_hero.max-600x600.format-webp.webp\">Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
+      "author": "Nitin Gajria",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 20 Oct 2026 15:00:00 +0000",
-      "titleZh": "加强对金融诈骗广告的防御",
-      "descriptionZh": "谷歌宣布将于2027年初推出新的保护措施，帮助美国和加拿大用户防范金融诈骗。该举措旨在应对日益猖獗的金融诈骗问题，为用户提供额外的安全保障。目前谷歌尚未披露具体的技术细节或实施方式。"
+      "pubDate": "Wed, 21 Oct 2026 04:00:00 +0000",
+      "titleZh": "东南亚数字经济规模将达3680亿美元",
+      "descriptionZh": "该文以e-Conomy SEA主题图为引，指出东南亚地区AI的广泛采用正成为数字经济增长的重要引擎。根据预测，该地区数字经济规模将在2026年达到3680亿美元，并在2035年增长至1万亿美元。背景上，这反映出AI普及与区域数字经济扩张之间的紧密关联：AI adoption不再只是技术趋势，而是被视作推动市场规模长期增长的关键动力。\n\n从技术原理和创新点看，原文仅给出宏观判断，未展开具体AI模型、算法架构或技术机制，因此其核心观点在于强调“广泛AI采用”对数字经济的整体拉动作用，而非某一项具体技术突破。影响和应用场景方面，这一趋势意味着AI将更深度渗透东南亚的消费互联网、企业数字化运营和公共服务等场景，带动投资、产业升级和数字经济规模扩张；但原文未提供细分行业数据或案例，具体应用路径仍需结合完整报告进一步分析。"
     }
   ]
 }
