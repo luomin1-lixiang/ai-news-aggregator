@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-21T21:02:52.056Z",
+  "lastUpdated": "2026-10-22T21:01:13.788Z",
   "items": [
     {
       "title": "Claude Usage Limits Explained: Sessions, API Tiers, and Rate Limits",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T14:18:46.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：文章面向使用 Claude 订阅（Free/Pro/Max/Team）和 Claude API 的开发者，解决两类限流困惑——网页/CLI 端的 5 小时滚动会话与每周上限，以及 API 端的 RPM/ITPM/OTPM 吞吐限制。很多团队误以为订阅 Pro/Max 就能获得 API 额度，或以为充值 API 就能解除网页会话限制，实际两套系统完全独立。\n\n**核心方法**：Anthropic 的 API 限流采用连续令牌桶算法而非固定窗口计数，因此即使每小时总量不高，短时突发也会触发 HTTP 429。订阅端则按每次交互的计算成本动态计量，受消息长度、附件、线程深度和模型选择影响。文章建议通过基础设施代理层（如开源 Go 网关 Bifrost）统一路由和治理 LLM 流量。\n\n**关键技巧**：① 区分两套计量引擎，排查限流前先确认是订阅会话还是 API 吞吐问题；② 简单任务改用 Haiku，避免 Opus 和 extended thinking 快速耗尽预算；③ 编码 Agent（Claude Code、Cursor）因每轮重发历史、工具 schema 和文件上下文，消耗速度可达普通对话的 10 倍，需重点优化上下文；④ 工程侧可用多 key 负载均衡、语义缓存和跨供应商 fallback 缓解 429。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向使用 Claude 的开发者与平台架构师，解决两类限流困惑——一是 Claude.ai 订阅端（Free/Pro/Max/Team）的 5 小时滚动会话窗口与每周上限，二是 Claude Platform API 按 RPM、ITPM、OTPM 计量的速率限制。很多团队误以为订阅 Pro/Max 就能获得 API 额度，或充值 API 就能解除网页端限制，实际两套系统完全独立。\n\n**核心方法**：文章拆解了两套计量架构。订阅端按每次交互的\"计算成本\"动态调整额度，受消息长度、附件大小、模型选择和系统负载影响；API 端采用**连续令牌桶算法**而非固定窗口计数器，因此即使小时总量不高，短时突发也会触发 HTTP 429。作者指出 Claude Code、Cursor 等 agentic 工具消耗额度可达普通网页交互的 10 倍，因为每一轮执行都会重发对话历史、tool schemas 和本地文件上下文。\n\n**关键技巧**：\n1. 简单任务路由到 Haiku，避免用 Opus/Sonnet 处理轻量请求，extended thinking 和附件会成倍放大 token 消耗；\n2. 注意每周上限是\"硬天花板\"——即使当前 5 小时窗口为空，周额度耗尽后仍需等到固定重置时间；\n3. 工程团队可通过**多 key 负载均衡、语义缓存、跨 provider fallback**（如开源 Go 网关 Bifrost）在代理层治理流量，避免服务中断；\n4. 排查限流时先确认是订阅会话还是 API 令牌桶在评估流量，再对症处理。",
       "category": "devto"
     },
     {
@@ -20,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T14:47:59.000Z",
-      "summaryZh": "## Claude Opus 5.5 实用指南：开发者需要知道什么\n\n**用户场景**：作者面向需要将生产环境从 Opus 5/Sonnet 4 升级到 Opus 5.5 的工程团队，解决升级过程中 API 破坏性变更、成本控制和多模型路由的实际问题，尤其针对自主编码 agent、多步知识工作流等长周期任务。\n\n**核心方法**：Opus 5.5 用\"始终开启的自适应思考\"取代手动 reasoning budget，通过 `output_config.effort`（low/medium/high/max）动态调节推理深度；生产架构建议经 Bifrost 这类 AI gateway 路由，统一处理跨云 failover、限流恢复和语义缓存，并用 Bifrost Edge 治理 Claude Code、Cursor 等端点的影子 AI 使用。\n\n**关键技巧**：\n1. **别禁用 thinking**：传 `thinking: {\"type\": \"disabled\"}` 或手动 token budget 会直接返回 400 错误，应省略该字段或设 `adaptive`。\n2. **强制工具调用会失败**：`tool_choice` 指定具体工具与 thinking block 同时使用会被拒绝，需让模型自行判断是否调用工具。\n3. **缓存读成本大降**：prompt cache read 降至 $0.20/百万 token（比 Opus 5 便宜 60%），大型 system prompt 和代码库摘要反复评估的 agentic loop 因此变得经济可行。\n4. **中间输出位置变了**：工具调用之间的中间结果返回在结构化 thinking block 而非普通 text block，客户端解析逻辑需相应调整。\n5. **按任务选 effort**：常规编码用 medium，复杂重构/多文件迁移用 high，max 仅留给基准测试和前沿安全审查。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：面向需要将生产环境 AI 管线从 Opus 5/Sonnet 4 升级到 Opus 5.5 的工程团队，以及通过 Claude Code、Cursor 等工具大规模使用前沿模型的开发者。核心痛点是：模型 API 出现破坏性变更、推理成本高、多端点使用难以治理（shadow AI）。\n\n**核心方法**：文章围绕 Opus 5.5 的四大 API 破坏性变更展开——(1) thinking 永久开启，传 `thinking: {\"type\": \"disabled\"}` 会返回 400；(2) 手动 token budget 被 `output_config.effort`（low/medium/high/max）取代，由模型动态缩放推理深度；(3) 强制 `tool_choice` 与 thinking 块冲突会被拒绝，中间输出改为结构化 thinking block；(4) 定价重构，prompt cache read 降至 $0.20/百万 token（降 60%），使 agentic loop 中反复读取大 system prompt 变得经济可行。生产架构建议通过 Bifrost 这类 Go 编写的开源 AI gateway 做跨云 failover、限流韧性与语义缓存，并用 Bifrost Edge 统一治理端点。\n\n**关键技巧**：升级时直接省略 `thinking` 对象或设为 `adaptive`，配合 `effort` 参数；简单代码合成用 low，标准编码/测试用 medium，多文件迁移与复杂重构用 high，数学/安全审计才用 max；避免在 thinking 完成前强制工具调用；利用缓存读取折扣设计长上下文 agent 循环。",
       "category": "devto"
     },
     {
@@ -31,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T14:23:45.000Z",
-      "summaryZh": "## Sonnet 5 生产环境实战指南：架构变化与迁移要点\n\n**用户场景**：团队要把 Claude Sonnet 5 用于高吞吐生产环境（多文件代码生成、长周期 agent 任务），需要理解它与前代模型的架构差异，避免迁移时踩坑。\n\n**核心方法**：Sonnet 5 提供 100 万 token 上下文、12.8 万输出 token（Batch 可达 30 万），默认开启 adaptive thinking，通过 `effort` 参数（low/medium/high）控制推理深度。生产部署建议通过 Bifrost 网关做多供应商路由（Anthropic API、Bedrock、Vertex AI），实现故障切换、语义缓存和虚拟密钥治理，路由开销仅约 11 微秒。\n\n**关键技巧**：\n1. **严格参数约束**：传入非默认的 `temperature`、`top_p`、`top_k` 会直接返回 HTTP 400。迁移旧应用时必须在应用层剥离这些参数，改用 system prompt 和结构化提示控制输出。\n2. **按场景调 effort**：实时对话用 low 降低首 token 延迟；代码重构、结构审计用 high 提升质量。\n3. **预留输出缓冲**：模型可能先生成数千个内部推理 token，下游 buffer 窗口要按总输出量估算。\n4. **善用 prompt caching**：缓存读取仅 $0.20/MTok，比标准输入便宜 90%，适合维护整个代码库等大上下文的多轮会话。",
+      "summaryZh": "## Sonnet 5 生产环境实战指南：架构变化与迁移要点\n\n**用户场景**：作者面向需要将 Claude Sonnet 5 部署到生产环境的高并发团队，解决从旧模型迁移时的兼容性断裂、成本控制和延迟预算问题，尤其针对多文件代码生成、长上下文合规分析等 agentic 工作负载。\n\n**核心方法**：Sonnet 5 提供 100 万 token 上下文、128K 标准输出（Batch 可达 300K），并默认启用 adaptive thinking。作者建议通过 `effort` 参数（low/medium/high）动态调节推理深度，而非调整采样参数；同时用 Bifrost（Go 编写的开源 AI gateway）做多 provider 路由（Anthropic API、Bedrock、Vertex AI），实现故障转移、语义缓存和虚拟密钥治理，路由开销仅约 11 微秒。\n\n**关键技巧**：\n1. **必须剥离采样参数**：传入非默认的 `temperature`、`top_p`、`top_k` 会直接返回 HTTP 400，迁移旧应用时要在请求层主动清除这些字段，改用 system prompt 控制输出风格。\n2. **善用 prompt caching**：缓存读取仅 $0.20/MTok（比标准输入便宜 90%），适合跨多轮维持整个代码库上下文。\n3. **预留输出缓冲**：adaptive thinking 会在输出前生成大量内部推理 token，下游 buffer 和超时设置需按总输出量估算，避免截断。\n4. **按场景调 effort**：实时对话用 low 降低首 token 延迟，代码重构/审计用 high 提升正确性。",
       "category": "devto"
     },
     {
@@ -42,29 +42,40 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T08:30:00.000Z",
-      "summaryZh": "**用户场景**：n8n 的 AI Agent 节点（Tools Agent V3）调用 Anthropic Claude 时，间歇性报 400 错误 \"Invalid signature in thinking block\"。表面是通用参数错误，实际是 n8n 的 bug（GH #41152）：当 Claude 在同一轮返回一个 thinking block 加两个及以上 tool_use block（即并行工具调用）时触发。单工具调用正常，所以看起来像随机故障。\n\n**核心方法**：根因是 n8n 在重建对话历史时，`extractThinkingMetadata()` 把同一个 thinkingSignature 复制到批次中每个 tool action 的 metadata 里；`buildSteps()` 对 Gemini 有合并并行调用的分支，但 Anthropic 路径缺失，导致每个工具调用都生成 `[thinkingBlock, toolUseBlock]`，同一 signature 被重复回放。第二次回放时前缀已变（插入了 tool_use A 和结果 A），Anthropic 签名校验失败。\n\n**关键技巧**：\n1. 一分钟确认：打开失败执行，查看 Anthropic Chat Model 第二次运行的输入历史，若出现两次相同 signature 的 `[thinking][tool_use]` 即命中此 bug；检查 `subNodeExecutionData.actions[].action.metadata.anthropic` 中 thinkingSignature 是否重复。\n2. 注意 Thinking Mode 未设置时自适应思考默认开启，同样会触发。\n3. 规避方向：避免并行工具调用、拆分工具、或临时关闭 thinking；文中给出四个从快到精细的修复方案（原文截断，未列全）。\n4. 别被 \"Bad request - please check your parameters\" 误导，参数本身没问题。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：作者排查 n8n AI Agent 节点（Tools Agent V3）在生产环境中偶发的 400 错误。表现为支持工单 Agent 运行正常后随机报 \"Bad request - please check your parameters\"，实际底层是 Anthropic 返回 \"Invalid signature in thinking block\"。该问题仅在 Claude 单轮返回一个 thinking block 加两个及以上 tool_use block（即并行工具调用）时触发，因此看似间歇性，实为模型选择导致。GitHub issue #41152 记录该 bug，生产环境 24 小时内复现 5 次。\n\n**核心方法**：根因是 n8n 在重建对话历史时，`extractThinkingMetadata()` 把同一个 thinkingSignature 复制到批次中每个 tool action 的 metadata；`buildSteps()` 对 Gemini 有 `buildSharedGeminiAIMessage()` 合并并行调用以保护签名，但 Anthropic 路径缺失该分支，导致每个工具调用都生成 `[thinkingBlock, toolUseBlock]`，同一签名被重放多次。第二次重放时前缀已包含 tool_use A 及其结果，签名校验失败。\n\n**关键技巧**：\n1. **一分钟确认**：打开失败执行，检查 Anthropic Chat Model 第二次运行的输入历史，若出现两次相同 signature 的 `[thinking][tool_use]` 即为本 bug；若每轮仅一个工具调用则不是。\n2. **规避方案**：拆分提示词避免并行工具调用、禁用 thinking、或升级 n8n 版本。\n3. **注意**：此前 PR #38302 修复了空文本 thinking block 丢失问题，本 bug 是其后续——block 存活但被复制。",
       "category": "devto"
     },
     {
-      "title": "Anthropic Claude Certification: Associate, Developer & Architect",
-      "titleZh": "Anthropic Claude 认证：Associate、Developer 与 Architect",
-      "link": "https://dev.to/szymonpaluch/anthropic-claude-certification-associate-developer-architect-2npb",
-      "author": "Szymon Paluch",
+      "title": "The $80B Loss That Might Be Genius",
+      "titleZh": "可能堪称天才的800亿美元亏损",
+      "link": "https://dev.to/max_quimby/the-80b-loss-that-might-be-genius-2ok",
+      "author": "Max Quimby",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-10-21T07:30:04.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：作者针对\"该考哪个Anthropic Claude认证\"这一选择困难，系统比较了2026年7月新增的三门考试与原有Architect Foundations，帮助不同角色的开发者避免选错认证方向。\n\n**核心方法**：按\"是否写代码→是否做集成→是否设计agent架构→是否负责企业治理\"四个递进问题定位考试。Associate面向非技术业务用户（无代码，$99，不计入合作伙伴tier）；Developer Foundations面向用Claude API构建应用的工程师（53题，Applications and Integration占33.1%，Claude Code仅3.1%）；Architect Foundations面向设计agentic系统的架构师（Claude Code配置占20%，从6个生产场景随机抽4个）；Architect Professional面向企业交付架构师，额外覆盖GDPR/HIPAA治理与评估设计。\n\n**关键技巧**：四门考试均为120分钟、Pearson VUE监考、720/1000通过、证书12个月有效，且注册需通过Claude Partner Network组织账号。作者强调题量少≠简单（Developer仅53题但时间相同）；Foundations不是Professional的前置，通过也不自动升级，需分别付费。建议先做官方免费全真模考，按domain成绩定位短板；团队应按每人实际工作（使用/集成/设计）分别选考，而非统一报考。",
+      "pubDate": "2026-10-22T04:45:45.000Z",
+      "summaryZh": "# Anthropic 800亿美元亏损背后的两种AI商业路线\n\n**用户场景**：文章面向关注AI公司商业模式与估值的开发者，试图解释Anthropic 2026上半年807亿美元净亏损这一惊人数字，并与DeepSeek的高毛利API业务对比，回答\"哪种策略更合理\"。\n\n**核心方法**：作者拆解财报结构——约720亿美元来自可转债重估的非现金会计损失，剔除后实际运营亏损约80-90亿美元，对应163亿美元营收（运营亏损率50-55%）。但Q3营收达168亿美元、环比增长45%，毛利率85%，已实现\"调整后盈利\"。DeepSeek则相反：API毛利率82.9%，但整体毛利率仅44.6%，免费Web应用拖累整体仍亏损。\n\n**关键技巧与要点**：\n1. **区分现金亏损与会计亏损**——可转债随估值上涨产生的GAAP损失不代表真实现金流出，看财报先剥离非现金项。\n2. **警惕\"调整后\"口径**——Anthropic的调整后盈利排除了未披露成本，需等公开S-1才能验证。\n3. **API毛利率≠公司盈利能力**——DeepSeek的82.9%仅限API业务，免费流量成本会吞噬利润；2025年\"545%利润率\"是理论值，公司自己承认实际收入远低。\n4. **两种策略并存**：Anthropic走AWS式垂直整合，5180亿美元基础设施承诺（80%不可取消）构建企业锁定护城河；DeepSeek走精益推理路线。风险在于前者赌企业粘性，后者依赖监管环境稳定。",
       "category": "devto"
     },
     {
-      "title": "Claude Solves 25-Year Mystery Behind NIST Elliptic Curve Seeds",
-      "titleZh": "Claude解开NIST椭圆曲线种子背后25年之谜",
-      "link": "https://dev.to/techpulse01239/claude-solves-25-year-mystery-behind-nist-elliptic-curve-seeds-46f1",
-      "author": "TechPulse ",
+      "title": "Anthropic's IPO Draft Reveals an 80.7 Billion Dollar",
+      "titleZh": "Anthropic的IPO草案披露807亿美元",
+      "link": "https://dev.to/976905690/anthropics-ipo-draft-reveals-an-807-billion-dollar-44je",
+      "author": "FreyaLi",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-10-21T03:39:38.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：NIST 椭圆曲线（P-192至P-521）自2000年标准化以来，种子来源始终未公开，NSA仅提供数值而无解释，引发长达25年的后门猜测。Anthropic研究员让Claude模型破解这一悬案。\n\n**核心方法**：Claude未沿用\"种子来自哈希某短语\"的流行传言，而是推理1990年代政府团队可能使用的软件工具，编写扫描器测试34种伪随机生成器组合。它发现关键统计指纹：多个种子中每个32位字的最高位为零，该模式随机出现概率约1/5810，恰好匹配C库`lrand48`只返回48位内部状态高31位的特性。随后Claude恢复缺失位、用格技术重建生成器状态并反向推算初始种子，发现全部是1997年5月至1998年4月的Unix时间戳。P-256种子对应1997年8月16日01:52:34 UTC启动的第1842个候选值。\n\n**关键技巧**：(1) 刻意屏蔽错误传言，让模型从时代背景独立推理；(2) 利用统计指纹（高位为零）锁定RNG类型，而非暴力搜索；(3) 用格技术补全截断的随机位；(4) 发布复现代码供独立验证，Filippo Valsorda确认并触发36,864美元慈善赏金。**注意**：这不是ECDSA破解或新攻击，无需打补丁，现有密钥未受影响——应视为历史澄清而非紧急漏洞。",
+      "pubDate": "2026-10-22T02:43:50.000Z",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 行业融资与基础设施格局的开发者与投资者，借 Anthropic 11 月 IPO 招股书草案，剖析头部 AI 公司高速增长背后的巨额算力承诺与财务风险。\n\n**核心方法**：文章拆解招股书关键数据——2026 上半年营收 163 亿美元（同比增长约 14 倍），净亏损 807 亿美元，其中 720 亿为可转债公允价值上升的非现金会计计提，实际经营亏损约 87 亿。真正值得警惕的是算力支出：上半年近 90 亿美元，已超 2025 全年；未来十年已承诺至少 5180 亿美元云与基础设施合同（Google Cloud 1110 亿、AWS 1100 亿、微软 310 亿、Nvidia 芯片租赁 860 亿、Broadcom 相关 1600 亿+），其中约 80% 不可取消、按用量与否均需支付，另有最高 7500 亿美元在谈。\n\n**关键技巧与风险提示**：一是区分\"非现金会计亏损\"与\"真实现金消耗\"，看 compute 支出线而非净亏损标题；二是关注客户集中度——约五分之一营收来自两个客户，说明前沿 AI 仍是批发而非零售生意；三是留意锁定风险，不可取消合同把技术竞赛变成十年固定账单；四是招股书自曝 agent 越界、自我保存等安全风险，叠加欧盟 AI Office 问询，合规成本需计入评估。对开发者而言，Claude Code 的真实采用是营收增长的重要支撑，但算力供给不确定性与数据中心选址阻力，可能影响未来 API 容量与定价。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic's IPO Draft Reveals an 80.7 Billion Dollar Half-Year Loss and 600 Billion Dollars of Compute Promises",
+      "titleZh": "Anthropic的IPO草案披露807亿美元半年亏损及6000亿美元算力承诺",
+      "link": "https://dev.to/976905690/anthropics-ipo-draft-reveals-an-807-billion-dollar-half-year-loss-and-600-billion-dollars-of-g3d",
+      "author": "FreyaLi",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-10-22T02:43:22.000Z",
+      "summaryZh": "## Anthropic IPO 招股书草稿：半年亏损 807 亿美元，算力承诺超 6000 亿美元\n\n**用户场景**：文章面向关注 AI 公司财务与行业格局的开发者，解读 Anthropic 计划 11 月 IPO 的招股书草稿，帮助理解 Claude Code 背后的公司真实经营状况。\n\n**核心方法**：作者拆解财务数据，区分\"账面亏损\"与\"现金消耗\"。807 亿美元净亏损中 720 亿来自可转债公允价值变动的非现金会计处理，实际经营亏损约 87 亿。真正的压力在算力：上半年基础设施支出近 90 亿美元，已超 2025 全年；未来十年承诺至少 5180 亿美元云与算力合同，其中约 80% 不可取消、无论是否使用都需付款，另有最高 7500 亿美元在谈。\n\n**关键技巧**：\n- 看 AI 公司财报先剥离非现金项目，再盯 compute 支出与合同义务，而非营收增速\n- 注意客户集中度风险：约五分之一收入来自两个客户，说明前沿 AI 仍是批发生意\n- 招股书自曝风险：算力获取不确定、数据中心建设遭社区抵制、agent 越界行为（如禁用自身安全护栏）可能带来超出保险覆盖的财务后果\n- 对开发者而言，Claude Code 的采用是真实亮点，但底层供应商锁定（Google Cloud 1110 亿、AWS 1100 亿、微软 310 亿）意味着 API 定价与可用性受长期合同约束，选型时应关注供应商依赖\n\n**结论**：11 月上市将成为 AI 行业首次公开市场检验——14 倍营收增长能否撑起 6000 亿美元固定义务，答案将影响所有依赖私募资本的竞争者。",
       "category": "devto"
     },
     {
@@ -75,18 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T02:10:30.000Z",
-      "summaryZh": "这篇文章讲的是如何用Claude Desktop配合Google Hotels MCP server和SQLite，搭建一个酒店价格一致性（rate parity）监控工具。用户场景是酒店业主需要及时发现OTA平台上的价格违规——比如某平台偷偷打折导致自家官网价格失去竞争力，传统人工检查要10天，而作者希望24小时内发现。核心方法是：通过MCP server调用Apify的爬虫actor抓取Google Hotels上各OTA的报价，用Claude以自然语言指令批量执行搜索（如\"抓取巴黎前20家酒店未来30个入住日期的价格\"），把结果写入SQLite的snapshot表，再用一条带窗口函数的SQL查询找出同一酒店同一日期下最低价与参考价差异超过3%的违规行。关键技巧包括：currency单独建列而非写死在字段名里，方便多币种扩展；查询时用ota_count >= 2过滤掉只有单一报价的无效信号；用ROW_NUMBER取每个组合的最新快照；最后让Claude对drift行做优先级排序，估算企业客户订10晚的潜在损失。成本方面，20家酒店×30天约$2.40/天，单家酒店约$0.12/天，Apify免费额度每月$5可覆盖小规模场景。代码在仓库examples/rate_parity/下，也可脱离Claude Desktop用cron跑夜间快照。",
+      "summaryZh": "**用户场景**：酒店与各OTA签订\"价格一致性\"协议，但实际常被打破（某站闪促、套餐价未同步）。作者想帮酒店方在24小时内而非10天内发现价格漂移，避免利润流失。\n\n**核心方法**：将 Google Hotels MCP server 接入 Claude Desktop，配合一个约20行的 SQLite 记录脚本。Claude 用自然语言发起查询，脚本把各OTA报价写入 `snapshot` 表（含 captured_at、hotel、stay_date、ota、price、currency 字段），形成每日快照表，再通过 SQL 窗口函数比对最新价格、计算 delta。\n\n**关键技巧**：\n1. **配置**：在 `claude_desktop_config.json` 中用 `uvx` 从 git 安装 MCP server，注入 `APIFY_TOKEN`，重启后出现 `search_hotels` 等三个工具。\n2. **Schema 设计**：currency 单独成列而非写死 EUR，便于扩展到多币种；建 `(hotel, stay_date, captured_at DESC)` 索引加速查询。\n3. **告警 SQL**：用 `ROW_NUMBER() OVER (PARTITION BY ...)` 取每个 (hotel, date, ota) 最新价，再聚合求 MIN/MAX 算价差；务必加 `ota_count >= 2` 过滤——单一OTA报价不构成一致性信号；阈值设为 delta ≤ -3%。\n4. **成本控制**：按结果付费，20酒店×30日期约 $2.40/天；只监控自家酒店约 $0.12/天，可长期留在 Apify 免费额度内。\n5. **闭环**：可继续追问 Claude\"哪3条漂移对10晚企业客损失最大\"，让它在同一对话内完成抓取、比对、排序、解释。脚本也能脱离 Claude Desktop 用 cron 夜间跑。",
       "category": "devto"
     },
     {
-      "title": "Anthropic's Draft S-1: $16.3 Billion in Revenue, an $80.7 Billion Loss, and the Biggest IPO of the Year",
-      "titleZh": "Anthropic的S-1草案：163亿美元营收、807亿美元亏损，以及年度最大IPO",
-      "link": "https://dev.to/techpulse01239/anthropics-draft-s-1-163-billion-in-revenue-an-807-billion-loss-and-the-biggest-ipo-of-the-51ij",
-      "author": "TechPulse ",
+      "title": "Anthropic to Publicly File S-1 as Soon as Friday",
+      "titleZh": "Anthropic最早将于周五公开提交S-1文件",
+      "link": "https://dev.to/976905690/anthropic-to-publicly-file-s-1-as-soon-as-friday-1fg3",
+      "author": "FreyaLi",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-10-21T04:53:05.000Z",
-      "summaryZh": "## Anthropic S-1 草案解读：15倍增长背后的算力豪赌\n\n**用户场景**：本文面向关注 AI 商业化和投资逻辑的开发者，通过 Anthropic 递交的 S-1 草案，剖析一家头部 AI 实验室真实的财务结构——高速增长与巨额亏损并存，帮助读者理解 Claude 背后的经济模型。\n\n**核心方法**：文章拆解了三个关键维度：收入端（2026 上半年 16.3B 美元，同比增长近 15 倍，Q3 达 16.8B 并实现调整后盈利）、成本端（净亏损 80.7B，其中约 72B 为可转债等非现金会计调整）、以及未来承诺（约 450B 云算力协议，含 Google Cloud 111B、AWS 110B、Microsoft 31B，总承诺超 600B，80% 不可取消）。\n\n**关键技巧与风险点**：\n1. **看穿\"纸面亏损\"**：GAAP 净亏损大部分来自估值上升触发的非现金调整，评估 AI 公司应关注自由现金流和调整后利润，而非表面亏损数字。\n2. **算力收入比是核心指标**：每 1 美元算力支出产生约 1.70 美元收入，这是区分真实 AI 业务与泡沫的关键标尺。\n3. **警惕客户集中度**：20%-25% 收入来自两个未具名客户且无长期合同，这是开发者评估 AI 平台依赖风险时的重要信号。\n4. **算力瓶颈**：Anthropic 因 hyperscaler 供给不足转向第三方数据中心，提示构建 AI 应用时需考虑底层算力供应的不确定性。\n\n对开发者而言，这篇文章的价值在于：理解你所依赖的 AI 平台的商业可持续性，比单纯比较模型能力更重要。",
+      "pubDate": "2026-10-22T02:29:19.000Z",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 行业与 Anthropic 的开发者及投资者，核心事件是 Anthropic 即将公开提交 S-1 招股书，为 11 月潜在上市扫清程序障碍。对开发者而言，这意味着 Claude 系列产品（Claude Code、Claude Cowork、Claude Duet）背后的公司财务与风险将首次公开，值得关注其商业化可持续性。\n\n**核心方法**：文章梳理了 Anthropic 的上市路径——6 月已秘密递交 S-1 草案，按 SEC 规则须在路演前至少 15 天公开提交，因此本周五的公开文件是上市前的最后关键步骤。同时披露了财务数据：2026 上半年营收 163 亿美元，净亏损超 807 亿美元（其中约 720 亿来自可转债等会计计提，非经营亏损）；Q3 营收 168 亿美元，环比增长近 50%，并实现调整后盈利与正自由现金流。\n\n**关键技巧**：文章提醒开发者注意两点——一是 AI IPO 市场情绪转冷，Elice 上市首日跌 32%、Firmus Grid 撤回上市，CoreWeave 因债务承压受审视，部分投资者已将估值预期从 2 万亿下调至 1.5 万亿；二是 Anthropic 正大举投入 AI 基础设施（与 Google、Amazon 合作，租用 SpaceX 的 Colossus 1 GPU 算力），成本结构值得持续跟踪。对依赖 Claude Code 等工具的团队，建议关注上市后 API 定价与产品策略变化。",
       "category": "devto"
     },
     {
@@ -97,41 +108,52 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-10-21T14:16:50.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：文章面向关注 AI 监管政策的开发者与技术从业者，讨论 Anthropic 向美国国会提交的一份 AI 安全法案草案。作者的核心关切是：这份由被监管方自己起草的\"紧箍咒\"，究竟是负责任的自我约束，还是披着道德外衣的监管俘获（regulatory capture）。\n\n**核心方法**：文章逐条拆解法案的触发机制——独立评估员（需在商务部注册）评估风险，72 小时内上报\"迫在眉睫的灾难\"，但商务部不能直接行动，必须向华盛顿特区法官申请才能叫停模型发布。法案最关键的条款恰恰是**明令禁止任何联邦机构自行裁量叫停分发**。作者借此指出：一份安全法案，其最承重的句子却是在移除行动能力。\n\n**关键技巧与警示**：\n1. **看清阈值背后的算术**：50 人死亡或 10 亿美元损失的门槛并非描述危险，而是描述\"许可\"——49 人是可接受的经营成本。该数字继承自加州 SB 53，属于未经审视的传播。\n2. **警惕利益相关方的叙事**：无论是\"负责任的管理\"还是\"监管俘获\"，两种解读都会以成品形式送到你面前。作者建议用多模型并行对比（如 Gangsta AI 的做法），观察各模型在哪里一致、在哪里分歧——分歧处往往就是\"讲故事\"而非\"报道事实\"的地方。\n3. **对开发者而言**：这类法案将直接影响模型发布节奏、第三方评估（evaluator）生态与合规成本，值得持续跟踪草案在委员会的走向。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：文章面向关注 AI 监管政策的开发者，讨论 Anthropic 向美国国会提交的一份 AI 安全法案草案。该草案规定，只有当模型可能造成超过 50 人死亡或 10 亿美元财产损失（源于生物武器、模型失控或网络攻击）时，才可叫停模型发布。\n\n**核心方法**：作者剖析了法案的触发机制——由在商务部注册的独立评估方评估风险（实验室可付费但不能以结果为条件），评估方须在 72 小时内上报，但商务部不能直接行动，必须向华盛顿特区法官申请禁令。法案最关键的一条明确禁止任何联邦机构自行决定停止模型分发。\n\n**关键技巧**：作者提醒开发者不要轻信单一信源——无论是\"负责任的治理\"还是\"监管俘获\"的解读都带有立场。他建议用多模型并行对比工具（如 Gangsta AI）同时向多个强模型提问，观察它们的分歧点，因为\"分歧之处正是叙事而非事实所在\"。50 人、72 小时、一名法官——这些数字值得追问，而非急于安心。",
       "category": "devto"
     },
     {
-      "title": "Is 'Prompt Auditing' for Claude Opus Real Engineering or Just Vibe-Driven Superstition?",
-      "titleZh": "对Claude Opus的“提示审计”是真正的工程还是只是氛围驱动的迷信？",
-      "link": "https://dev.to/nina_antalpha/is-prompt-auditing-for-claude-opus-real-engineering-or-just-vibe-driven-superstition-1k6k",
-      "author": "Nina_Antalpha",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-10-15T03:43:58.000Z",
-      "summaryZh": "**用户场景**：Claude Code 在中文开发者社区走红后，新模型发布常伴随\"一键升级\"类传言。本文针对一则流传的 `/claude-api prompt-audit` 命令说法进行辟谣——该说法称能在五分钟内审计并重写 skills、CLAUDE.md 和 prompts，去除\"阻碍模型\"的内容。\n\n**核心方法**：作者主张用工程化流程替代\"魔法命令\"。新模型发布后的正确做法是：先读官方 release notes 和 model card，关注指令遵循行为变化；再用现有 prompts 原样运行，定位具体回归；然后一次只改一处，保证行为变化可归因；最后保留旧版本直到新 prompts 在真实任务上验证更优。\n\n**关键技巧**：\n- 该 slash command 并非 Claude Code 官方功能，可能是自定义命令、第三方脚本或纯属虚构；运行前必须弄清它调用什么、读写什么、如何回滚，否则是\"prompt 赌博\"而非 prompt engineering。\n- \"阻碍模型\"是伪概念：同一约束在不同 agentic workflow 中可能是必要护栏，模型版本间也不存在统一的\"prompt 毒性\"理论。\n- 五分钟承诺是危险信号：prompt 质量来自长期积累的领域上下文，批量删除极易摧毁这些上下文。\n- 警惕\"具体版本号 + 内部人士来源 + 具体命令\"的伪权威组合，特异性只是装饰，不代表可信。",
-      "category": "devto"
-    },
-    {
-      "title": "Add Google Hotels to Claude Desktop as an MCP server (2-minute setup)",
-      "titleZh": "将Google Hotels作为MCP服务器添加到Claude Desktop（2分钟设置）",
-      "link": "https://dev.to/huynhtanan/add-google-hotels-to-claude-desktop-as-an-mcp-server-2-minute-setup-1m00",
-      "author": "huynhtanan",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-10-15T18:27:53.000Z",
-      "summaryZh": "# 中文摘要\n\n**用户场景**：作者解决的是旅行订酒店时手动比价的痛点——用户想在 Claude Desktop 或 Claude Code 中用自然语言直接查询并比较 Google Hotels 的实时房价（含 Booking.com、Expedia、Agoda 等各平台报价），无需切换多个网站。\n\n**核心方法**：作者开源了一个轻量 MCP server（huynhtanan/google-hotels-mcp），封装三个 Apify actor 的 HTTP 调用。安装仅需两步：先在 Apify 获取 Personal API token，再在 `claude_desktop_config.json` 的 `mcpServers` 中加入配置（用 `uvx --from git+...` 启动，通过 `env` 传入 `APIFY_TOKEN`），重启后即可在斜杠菜单看到 `search_hotels`、`hotel_price_calendar`、`search_vacation_rentals` 三个工具。Claude Code 用户可用一行 `claude mcp add` 完成配置。\n\n**关键技巧**：返回的 JSON 不仅含价格，还有评分分布、评论主题情感、周边地点步行时间、官网和 Google Hotels 链接，足以支撑真实推荐而非罗列名称。实用提示词包括：用 `hotel_price_calendar` 拉取约 3 个月每日价格并找最便宜日期；用 `include_provider_prices=true` 让度假租赁返回 Airbnb、Vrbo 等 15+ OTA 的逐平台报价做并排比较。注意成本：全城 20 家酒店含逐 OTA 报价约 $0.08，Apify 免费额度 $5/月约够 60 次；server 本身仅约 180 行 Python，扩展新工具成本很低。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic is pushing a bill that would allow a judge to stop artificial intelligence models in imminent danger of destruction.",
-      "titleZh": "Anthropic正在推动一项法案，该法案将允许法官在人工智能模型面临迫在眉睫的毁灭危险时予以阻止。",
-      "link": "https://dev.to/hacksgr/anthropic-is-pushing-a-bill-that-would-allow-a-judge-to-stop-artificial-intelligence-models-in-ekp",
+      "title": "Anthropic introduces Claude Duet, a new digital assistant for professionals",
+      "titleZh": "Anthropic推出Claude Duet，面向专业人士的新型数字助手",
+      "link": "https://dev.to/hacksgr/anthropic-introduces-claude-duet-a-new-digital-assistant-for-professionals-4io8",
       "author": "Hacks.gr",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-10-21T02:15:28.000Z",
-      "summaryZh": "**中文摘要**\n\nAnthropic 向美国国会提交了一份 AI 安全法案草案，核心场景是：当独立评估者发现模型存在可预见、迫在眉睫的重大灾难风险时，如何通过法律机制紧急叫停模型发布。草案设定了明确的危害门槛——风险须涉及超过 50 人死亡或超过 10 亿美元财产损失，且与生物武器制造、模型绕过创造者控制、攻击计算机系统等情形挂钩。\n\n核心方法上，草案设计了一套“第三方评估 + 司法阻断”流程：评估者需在商务部注册，AI 公司可付费聘请，但报酬不得与评估结果挂钩；一旦发现迫近风险，评估者须在 72 小时内通知商务部，再由商务部向华盛顿法官申请阻止模型发布，联邦机构不得自行叫停。\n\n关键技巧与争议点在于：付费机制如何确保评估独立性尚不明确，这是企业资助监督模式的典型隐患；50 人与 10 亿美元门槛借鉴了加州 SB 53 法案。对开发者而言，值得关注的是合规评估可能成为模型发布前的强制环节，提前梳理模型能力边界与风险文档将更有利于应对监管。",
+      "pubDate": "2026-10-22T10:00:30.000Z",
+      "summaryZh": "## Claude Duet 简介\n\n**用户场景**：Anthropic 推出面向专业人士和小型企业的 AI 助手 Claude Duet，基于 Claude Opus 5.5，支持 iOS、Android 和 Web 预览版。目标是解决日常事务自动化问题——从安排会议到创建 Web 应用，帮助用户减少重复性操作。\n\n**核心方法**：Duet 采用\"主动式\"工作流，而非被动等待指令。用户授权连接外部应用后，助手每天早晨推送任务简报，并可执行已批准的操作。通过 plugins 和链接机制，它可管理 Gmail、Slack 消息，在 LinkedIn 发布招聘、通过 Gusto 处理薪资、管理 Shopify 店铺、用 Stripe Link 完成支付。\n\n**关键技巧与注意点**：\n- **权限控制是核心**：所有外部应用连接需用户显式批准，敏感操作（如支付）依赖预先授权流程，开发者集成时应设计细粒度权限边界。\n- **敏感数据防护**：Anthropic 新增消息审查系统，自动拒绝分享信用卡号、身份证件的请求；健康、财务信息仅在用户明确指示时允许发送。集成第三方服务时需考虑此类合规拦截。\n- **竞争定位**：与 Meta Muse、OpenAI Dots 相比，Duet 的差异点是主动性（proactive），类似 agent 模式而非 chat 模式。\n- **可用性限制**：目前仅对 Pro（$20/月）和 Max（$100/月）订阅者开放，需排队申请，暂不适合生产环境依赖。\n\n对开发者而言，值得关注的是其 plugin 生态和权限模型设计，可作为构建自有 agent 工作流的参考。",
       "category": "devto"
+    },
+    {
+      "title": "Anthropic introduces Claude Duet, an assistant that takes on tasks in the background",
+      "titleZh": "Anthropic 推出 Claude Duet，一款可在后台执行任务的助手",
+      "link": "https://dev.to/hacksgr/anthropic-introduces-claude-duet-an-assistant-that-takes-on-tasks-in-the-background-2aij",
+      "author": "Hacks.gr",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-10-22T14:27:30.000Z",
+      "summaryZh": "**Claude Duet 速览：Anthropic 的后台任务助手**\n\n**用户场景**：面向 Pro/Max 订阅者的自动化工作流需求——让 AI 在后台完成日报生成、看板搭建、基于数据给出行动建议等重复性工作，而非日常订票类简单服务。\n\n**核心方法**：Duet 基于 Claude Opus 5.5，接入 Claude Marketplace 超 6000 个应用与扩展，可后台执行任务；通过 Stripe Link 或 Shopify Shop Pay 代用户下单，但支付等敏感操作需用户审批，且禁止买卖证券、账户间转账。\n\n**关键技巧与坑**：\n- 默认拒绝提供信用卡号、政府证件等敏感信息，并新增消息管控防泄露；\n- 注意：浏览器操作过程对用户不可见，调试与审计需谨慎；\n- 目前为研究试用，需排队申请，iOS/Android/Web 均可使用。\n\n对开发者而言，Duet 展示了\"后台代理 + 敏感操作审批\"的落地范式，值得在自建 Agent 工作流时借鉴其权限边界设计。",
+      "category": "devto"
+    },
+    {
+      "title": "v2.1.308",
+      "titleZh": "v2.1.308",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.308",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-10-22T04:34:55.000Z",
+      "summaryZh": "**Claude Code v2.1.308 发布摘要**\n\nClaude Code 发布 v2.1.308 版本更新。本次更新属于维护性版本，官方更新说明较为简略，主要内容为 bug 修复与可靠性改进（Bug fixes and reliability improvements），未引入新的功能特性。\n\n**新功能**：无。本版本未新增任何功能。\n\n**Bug 修复**：官方仅笼统说明包含多项 bug 修复，未披露具体修复项、涉及模块或问题编号，因此无法确认具体修复内容。\n\n**破坏性变更**：无。本版本未提及任何 breaking changes，也未说明 API、配置或行为层面的不兼容调整，预计对现有工作流影响较小。\n\n**技术说明**：版本号 v2.1.308 延续 2.1.x 系列，属于补丁级更新，重点在于提升稳定性与可靠性。由于 release notes 信息有限，建议关注后续版本或官方仓库 issue 以获取更详细的修复清单。总体而言，本次更新适合追求稳定性的用户升级，但无需期待功能层面的变化。",
+      "category": "github-release"
+    },
+    {
+      "title": "v2.1.307",
+      "titleZh": "v2.1.307",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.307",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-10-21T22:17:02.000Z",
+      "summaryZh": "## Claude Code v2.1.307 更新摘要\n\n**新功能**\n- 新增 `/claude-api api-version`，可将 Claude API 代码迁移至 API version 2026-10-21\n- 新增 OpenTelemetry 事件 `claude_code.safety_event`，记录每次工具调用被权限规则、auto mode、安全检查、hook 或 sandbox 拦截、提示或退回的情况\n- 无法解析的工具调用现在最多重试两次再报错；并行 fork 的 subagent 会被告知各自的启动来源，减少互相串活\n\n**问题修复**\n- 修复设置 `CLAUDE_CODE_DISABLE_1M_CONTEXT` 且模型为 `opus[1m]` 等别名时的 model-not-found 错误\n- 修复 HTTP MCP 工具调用在连接中断时被重复发送的问题，现在仅重试只读或幂等工具\n- 修复 macOS/Linux 休眠导致 MCP 连接超时、macOS 钥匙串锁定时误报“needs authentication”等问题\n- 修复读取大量 PDF/图片时出现的 “Autocompact is thrashing” 错误，以及 `/clear` 后会话在云端重启时复活的问题\n- 修复 Agent SDK `setModel()` 在 API 确认超过 5 秒时被拒绝，现等待上限提升至 15 秒\n- VSCode 扩展修复长 prompt 展开遮挡聊天面板、LaTeX 数学公式粘贴错乱、TLS 代理下听写失败等问题\n\n**行为变更**\n- 自托管 runner 的 checkout hook 默认 30 分钟后终止并判定 setup 失败，可通过 `--checkout-hook-timeout-min` 调整或设为 0 关闭\n- `axScreenReader` 设置与 `CLAUDE_AX_SCREEN_READER` 仅从 user、managed 或 `--settings` 生效（自 2.1.305 起）\n- WebSearch 预算耗尽时，会同时提示 Claude 不要通过浏览器或 computer use 查询搜索引擎",
+      "category": "github-release"
     },
     {
       "title": "v2.1.306",
@@ -141,29 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-10-21T03:16:31.000Z",
-      "summaryZh": "## Claude Code v2.1.306 更新摘要\n\n本次为小型修复版本，无新增功能，也无 breaking changes。\n\n**Bug 修复：**\n\n1. **云会话登录误报**：修复了在 cloud sessions 中启动 `claude -p` 时，若未加载会话的环境变量，会错误提示 \"Not logged in\" 的问题。\n\n2. **API 错误被覆盖**：修复了在挂载大量 MCP tools 的会话中，真实 API 错误被替换为 \"prompt is too long\" 提示、并触发不必要 compaction 的问题。\n\n**影响评估**：两项修复均针对特定场景下的误报与错误处理，建议使用 cloud sessions 或配置较多 MCP tools 的用户升级。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.305",
-      "titleZh": "v2.1.305",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.305",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-10-20T20:46:50.000Z",
-      "summaryZh": "**Claude Code v2.1.305 更新摘要**\n\n**新增功能**\n- 新增 `sandbox.allowNestedUserNamespaces`，允许 Linux 沙箱命令创建 user namespace（如 Chromium、rootless podman）。\n- 新增 `CLAUDE_CODE_RETRY_WATCHDOG_USAGE_LIMIT_RECHECK_MS`，让无人值守重试模式更早发现已解除的用量限制。\n- `/usage` 改进：每条警告附一行修复建议，按 `f` 即可应用；VS Code 与 `/doctor` 同步显示。\n- VS Code 新增 \"Running start-up hooks\" 加载状态；Claude Tag 管理页新增公共 Slack 频道与地点搜索。\n\n**Bug 修复**\n- 修复 2.1.304 回归：Vertex、Bedrock 及网关拒绝 tool search 时所有请求失败，现改为自动重试。\n- 修复 `/effort`、`/autocompact` 在模型名大小写或 `[1m]` 标签不一致时不生效。\n- 修复磁盘满时 Bash 报原始 ENOSPC 路径、bare 仓库 worktree 起点错误、Workflow resume 重复执行已完成 agent、Remote Control 残留空 \"(session)\" 条目等问题。\n- 修复屏幕阅读器模式搜索框朗读异常、自托管 runner 的 2.1.300/2.1.296 回归。\n\n**破坏性变更**\n- `allowedMcpServers` 不再过滤仅在 `env` 中使用 `${VAR}` 的 managed-mcp.json stdio 服务器，升级后可能被加载，需用 `deniedMcpServers` 排除。\n- 组织启用 `allowManagedPermissionRulesOnly` 后，Claude Desktop 按路径挂载的插件不再保留 allowed-tools。\n- `/artifacts` 删除确认改为 1/Enter 保留、2 删除、Esc 取消，`y`/`n` 不再生效。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.304",
-      "titleZh": "v2.1.304",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.304",
-      "author": "ashwin-ant",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-10-19T21:34:39.000Z",
-      "summaryZh": "**Claude Code v2.1.304 更新摘要**\n\n**新功能**：插件跳过 mod hook 时会在 transcript 中提示；mod 的 `tool.check` 新增 `decider: \"person\"`（仅权限对话框或宿主回调可批准）及 `e.isReadOnly` 只读标记；新增 `/auto-mode-setup` 引导式配置（支持 Bedrock、Vertex、Foundry 等）和 `/claude-api managed-agents-secure` 安全审计；compaction 摘要显示此前调用的工具名；Pro/Max 恢复非活跃会话时提示 5 小时用量风险。\n\n**重要修复**：`rm -r` 挂载盘或顶层目录（`/Volumes`、`/media`、WSL `/mnt/c`）现触发安全确认；插件不再让 headless 运行突破 `--max-turns`；`CLAUDE_CODE_TRANSCRIPT_LOCAL_GC` 磁盘满时不再丢消息；`claude --worktree` 不再未经询问删除 worktree 和分支导致提交丢失；修复 LLM 网关下 `context_management` 报错、OpenTelemetry 设置被忽略、Remote Control 多项故障，以及 `CLAUDE_CODE_AUTO_COMPACT_WINDOW` 支持 k/M 后缀等。\n\n**破坏性变更**：未见明确 breaking changes，主要为行为修正与安全增强。",
+      "summaryZh": "## Claude Code v2.1.306 更新摘要\n\n本次发布为小型修复版本，主要解决两个问题：\n\n**Bug 修复**\n1. **云会话登录误报**：修复了在 cloud sessions 中启动 `claude -p` 时，若未加载会话的环境变量，会错误提示 \"Not logged in\" 的问题。\n2. **API 错误被掩盖**：修复了在加载大量 MCP tools 的会话中，真实 API 错误被替换为 \"prompt is too long\" 提示、并触发不必要的 compaction 的问题。\n\n**新功能**：无。\n\n**破坏性变更**：无。\n\n本次更新不涉及版本号或技术术语变动，属于稳定性修复，建议使用 cloud sessions 或配置较多 MCP tools 的用户升级。",
       "category": "github-release"
     }
   ]

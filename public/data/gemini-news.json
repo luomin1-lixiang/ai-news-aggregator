@@ -1,57 +1,31 @@
 {
-  "lastUpdated": "2026-10-21T21:01:41.325Z",
+  "lastUpdated": "2026-10-22T20:59:32.491Z",
   "items": [
     {
-      "title": "Recreating the lost studios of women sculptors with Prune Nourry",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/visionaries-petit-palais-art-basel-paris-prune-nourry/",
-      "description": "Google partnered with experts to recreate the workspaces of 19th-century sculptors, bringing their legacies back into focus.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Prune_Nourry_Hero.max-600x600.format-webp.webp\">Google partnered with experts to recreate the workspaces of 19th-century sculptors, bringing their legacies back into focus.",
-      "author": "Prune Nourry",
+      "title": "Explore new ways to drive your best ROI with the first Google Marketing Platform Drop.",
+      "link": "https://blog.google/products/marketingplatform/360/google-marketing-platform-drop-october/",
+      "description": "Google Marketing Platform Drops, a new monthly series, delivers our latest news to help you get your best ROI across the full customer journey. We’ll cover everything fr…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/106-GMP_Drops___Design_Slide01_.max-600x600.format-webp_5aUmqwN.webp\">Google Marketing Platform Drops, a new monthly series, delivers our latest news to help you get your best ROI across the full customer journey. We’ll cover everything fr…",
+      "author": "Glenn Thrope",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Wed, 21 Oct 2026 14:00:00 +0000",
-      "titleZh": "Recreating the lost studios of women sculptors with Prune Nourry",
-      "descriptionZh": "Google 与艺术史、文物保护等领域专家合作，对19世纪雕塑家的工作空间进行数字化复现，使这些艺术家的创作环境与历史遗产重新进入公众视野。背景上，雕塑家工作室不仅是创作场所，也承载材料选择、工具使用、工艺流程和时代艺术生态等信息；随着时间推移，原址与实物难以完整保存，公众对其了解也相对有限。项目通过专家考证与数字重建、虚拟呈现相结合，在尊重历史准确性的基础上，将工作室转化为可访问、可展示的内容。其核心创新在于跨学科协作与文化遗产数字化传播：专业知识保障还原细节，Google的数字平台扩大传播范围。该项目的意义在于帮助公众理解19世纪雕塑创作过程与艺术家的工作方式，并可应用于在线展览、博物馆数字化、艺术教育、学术研究和文化旅游等场景，为文化遗产的保存、阐释与公众教育提供新范例。"
+      "pubDate": "Thu, 22 Oct 2026 13:00:00 +0000",
+      "titleZh": "Explore new ways to drive your best ROI with the first Google Marketing Platform Drop.",
+      "descriptionZh": "Google Marketing Platform 推出名为“Drops”的全新月度系列内容，旨在定期汇总并发布平台最新资讯，帮助营销人员在完整客户旅程中获得更优投资回报率（ROI）。该系列定位为面向营销从业者的月度信息更新渠道，强调从客户触达到转化、分析再到优化的端到端视角，而非仅关注单一渠道或单点投放。原文提到将覆盖“从……到……”的广泛内容，但具体范围在提供的文本中被截断，因此无法进一步确认其涵盖的产品更新、功能发布、最佳实践或案例研究等细节。就现有信息看，其创新点主要在于以月度系列形式整合 Google Marketing Platform 的新闻与洞察，突出全客户旅程 ROI 这一核心目标，便于营销人员持续跟进平台动态并应用于广告投放、数据分析、客户体验优化和营销效果衡量等场景。由于原文内容有限，摘要未涉及具体技术原理或更详细的应用案例。"
     },
     {
-      "title": "New bidding and budgeting tools can transform your upcoming holiday ad strategy.",
-      "link": "https://blog.google/products/ads-commerce/holiday-shopping-bidding-budgeting/",
-      "description": "Get actionable insights on bidding and budgeting tools in the latest episode of Google's \"Ads Decoded\" podcast.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/S2E6_thumbnail.max-600x600.format-webp.webp\">Get actionable insights on bidding and budgeting tools in the latest episode of Google's \"Ads Decoded\" podcast.",
+      "title": "We are working with Voltus to build a 1-gigawatt virtual power plant.",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virtual-power-plant-1-gigawatt/",
+      "description": "Google and Voltus are building a 1-gigawatt virtual power plant to boost grid reliability for 67 million people. See how this expansion works.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_x_Voltus_Final_Video_Thu.max-600x600.format-webp.webp\">Google and Voltus are building a 1-gigawatt virtual power plant to boost grid reliability for 67 million people. See how this expansion works.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Wed, 21 Oct 2026 13:00:00 +0000",
-      "titleZh": "新的竞价和预算工具可以改变你即将到来的假日广告策略。",
-      "descriptionZh": "Google 的“Ads Decoded”播客最新一期聚焦广告出价（bidding）与预算（budgeting）工具，旨在为广告主和营销人员提供可操作的洞察。原文信息较为简短，主要作为节目导览，介绍本期内容将围绕 Google Ads 中出价策略和预算管理工具展开，帮助听众理解如何更有效地分配广告预算、选择或调整出价方式，并据此优化广告投放效果。\n\n从背景看，出价与预算是数字广告投放中的核心环节：出价决定广告主愿意为点击、展示或转化支付多少，预算则限定campaign在特定周期内的花费上限。Google Ads 提供多种自动化出价策略和预算工具，广告主可依据营销目标、转化数据和竞争环境进行配置与优化。播客形式的价值在于把产品工具和实操经验转化为更易理解的建议，适合广告投放人员、增长团队和数字营销从业者参考。由于原文未展开具体技术原理或创新细节，摘要不宜过度推断；其核心影响和应用场景在于帮助营销人员提升预算使用效率、优化出价决策，并最终改善广告投放的ROI。"
-    },
-    {
-      "title": "Drive with “The Cat in the Hat” on Waze.",
-      "link": "https://blog.google/waze/waze-the-cat-in-the-hat/",
-      "description": "Ready to turn your daily commute into a high-octane joyride? Waze is bringing the connoisseur of happy chaos to your passenger seat for the arrival of The Cat in the Hat…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/CatInTheHat-KeyVisual_Horizonta.max-600x600.format-webp.webp\">Ready to turn your daily commute into a high-octane joyride? Waze is bringing the connoisseur of happy chaos to your passenger seat for the arrival of The Cat in the Hat…",
-      "author": "Waze",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Wed, 21 Oct 2026 11:39:00 +0000",
-      "titleZh": "Drive with “The Cat in the Hat” on Waze.",
-      "descriptionZh": "这篇英文博客是Waze与经典儿童文学角色“戴帽子的猫”（The Cat in the Hat）联动的预告，核心信息是将这一以“快乐混乱”著称的角色引入车内体验，让日常通勤从例行驾驶变成更具娱乐感的“高能欢乐旅程”。从上下文看，Waze作为导航应用，正通过IP合作强化其趣味化、情感化的出行体验：将角色元素带入乘客座和车内场景，使用户在导航过程中获得更轻松、更有话题性的陪伴感。\n\n原文目前仅提供营销导语，未展开具体功能、技术实现和活动细节，因此无法详细分析其核心技术原理。就可见内容而言，其创新点主要在于导航场景与经典文化IP的跨界融合，通过角色人格和娱乐叙事增强用户参与度与品牌记忆点。应用场景包括日常通勤、家庭出行和儿童友好型车内体验；技术影响则体现在导航应用从工具型服务向“出行娱乐平台”延伸，但实际效果仍取决于后续是否推出语音包、主题界面、活动路线等具体功能。总体而言，这是一则强调趣味出行体验的Waze品牌合作预告，技术细节和完整产品信息尚待原文后续内容补充。"
-    },
-    {
-      "title": "Southeast Asia’s digital economy to hit $368 billion",
-      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-asia/e-conomy-sea-report-2026/",
-      "description": "Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/e-Conomy_SEA_hero.max-600x600.format-webp.webp\">Widespread AI adoption is propelling Southeast Asia's digital economy to a projected $368 billion in 2026 and $1 trillion by 2035.",
-      "author": "Nitin Gajria",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Wed, 21 Oct 2026 04:00:00 +0000",
-      "titleZh": "东南亚数字经济规模将达3680亿美元",
-      "descriptionZh": "该文以e-Conomy SEA主题图为引，指出东南亚地区AI的广泛采用正成为数字经济增长的重要引擎。根据预测，该地区数字经济规模将在2026年达到3680亿美元，并在2035年增长至1万亿美元。背景上，这反映出AI普及与区域数字经济扩张之间的紧密关联：AI adoption不再只是技术趋势，而是被视作推动市场规模长期增长的关键动力。\n\n从技术原理和创新点看，原文仅给出宏观判断，未展开具体AI模型、算法架构或技术机制，因此其核心观点在于强调“广泛AI采用”对数字经济的整体拉动作用，而非某一项具体技术突破。影响和应用场景方面，这一趋势意味着AI将更深度渗透东南亚的消费互联网、企业数字化运营和公共服务等场景，带动投资、产业升级和数字经济规模扩张；但原文未提供细分行业数据或案例，具体应用路径仍需结合完整报告进一步分析。"
+      "pubDate": "Thu, 22 Oct 2026 11:30:00 +0000",
+      "titleZh": "我们正与Voltus合作建设一座1吉瓦的虚拟电厂。",
+      "descriptionZh": "Google与Voltus正在建设一座容量达1吉瓦的虚拟电厂，以提升覆盖6700万人的电网可靠性，并进一步说明该扩建项目如何运作。虚拟电厂并非新建传统发电机组，而是通过软件平台把分散的可调节负荷、分布式能源和储能等资源聚合起来，形成可统一调度、接近大型电厂规模的电力容量。其核心技术原理在于实时监测、通信与优化控制：当电网出现峰值压力或供应紧张时，平台可协调参与资源快速削峰、提供备用容量或参与需求响应，从而缓解输配电拥堵和供需失衡。该项目的创新点主要体现在规模化与用电侧灵活性上：1吉瓦的虚拟电厂容量已达到大型实体电厂量级，同时将大型科技企业及更广泛参与方的柔性用电能力纳入电网可靠性体系，为高电力需求场景提供新的系统资源。技术影响方面，这类虚拟电厂可减少对新建峰值电厂和化石燃料调峰机组的依赖，支持可再生能源并网消纳，并提升电网韧性与运行经济性。应用场景包括容量充裕性支持、需求响应、辅助服务、峰谷调节以及极端天气或突发故障下的应急支撑。总体来看，Google与Voltus的扩建项目展示了以软件聚合分布式灵活性资源、服务大规模用户电网可靠性的虚拟电厂路径。"
     }
   ]
 }
