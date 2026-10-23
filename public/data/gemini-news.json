@@ -1,31 +1,18 @@
 {
-  "lastUpdated": "2026-10-22T20:59:32.491Z",
+  "lastUpdated": "2026-10-23T20:46:51.132Z",
   "items": [
     {
-      "title": "Explore new ways to drive your best ROI with the first Google Marketing Platform Drop.",
-      "link": "https://blog.google/products/marketingplatform/360/google-marketing-platform-drop-october/",
-      "description": "Google Marketing Platform Drops, a new monthly series, delivers our latest news to help you get your best ROI across the full customer journey. We’ll cover everything fr…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/106-GMP_Drops___Design_Slide01_.max-600x600.format-webp_5aUmqwN.webp\">Google Marketing Platform Drops, a new monthly series, delivers our latest news to help you get your best ROI across the full customer journey. We’ll cover everything fr…",
-      "author": "Glenn Thrope",
+      "title": "See what 5 builders are making with Gemini 4 Argon",
+      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-builders/",
+      "description": "See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/5buildersArgon_Hero.max-600x600.format-webp.webp\">See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.",
+      "author": "Kimberly Fusaro",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 22 Oct 2026 13:00:00 +0000",
-      "titleZh": "Explore new ways to drive your best ROI with the first Google Marketing Platform Drop.",
-      "descriptionZh": "Google Marketing Platform 推出名为“Drops”的全新月度系列内容，旨在定期汇总并发布平台最新资讯，帮助营销人员在完整客户旅程中获得更优投资回报率（ROI）。该系列定位为面向营销从业者的月度信息更新渠道，强调从客户触达到转化、分析再到优化的端到端视角，而非仅关注单一渠道或单点投放。原文提到将覆盖“从……到……”的广泛内容，但具体范围在提供的文本中被截断，因此无法进一步确认其涵盖的产品更新、功能发布、最佳实践或案例研究等细节。就现有信息看，其创新点主要在于以月度系列形式整合 Google Marketing Platform 的新闻与洞察，突出全客户旅程 ROI 这一核心目标，便于营销人员持续跟进平台动态并应用于广告投放、数据分析、客户体验优化和营销效果衡量等场景。由于原文内容有限，摘要未涉及具体技术原理或更详细的应用案例。"
-    },
-    {
-      "title": "We are working with Voltus to build a 1-gigawatt virtual power plant.",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/virtual-power-plant-1-gigawatt/",
-      "description": "Google and Voltus are building a 1-gigawatt virtual power plant to boost grid reliability for 67 million people. See how this expansion works.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_x_Voltus_Final_Video_Thu.max-600x600.format-webp.webp\">Google and Voltus are building a 1-gigawatt virtual power plant to boost grid reliability for 67 million people. See how this expansion works.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 22 Oct 2026 11:30:00 +0000",
-      "titleZh": "我们正与Voltus合作建设一座1吉瓦的虚拟电厂。",
-      "descriptionZh": "Google与Voltus正在建设一座容量达1吉瓦的虚拟电厂，以提升覆盖6700万人的电网可靠性，并进一步说明该扩建项目如何运作。虚拟电厂并非新建传统发电机组，而是通过软件平台把分散的可调节负荷、分布式能源和储能等资源聚合起来，形成可统一调度、接近大型电厂规模的电力容量。其核心技术原理在于实时监测、通信与优化控制：当电网出现峰值压力或供应紧张时，平台可协调参与资源快速削峰、提供备用容量或参与需求响应，从而缓解输配电拥堵和供需失衡。该项目的创新点主要体现在规模化与用电侧灵活性上：1吉瓦的虚拟电厂容量已达到大型实体电厂量级，同时将大型科技企业及更广泛参与方的柔性用电能力纳入电网可靠性体系，为高电力需求场景提供新的系统资源。技术影响方面，这类虚拟电厂可减少对新建峰值电厂和化石燃料调峰机组的依赖，支持可再生能源并网消纳，并提升电网韧性与运行经济性。应用场景包括容量充裕性支持、需求响应、辅助服务、峰谷调节以及极端天气或突发故障下的应急支撑。总体来看，Google与Voltus的扩建项目展示了以软件聚合分布式灵活性资源、服务大规模用户电网可靠性的虚拟电厂路径。"
+      "pubDate": "Fri, 23 Oct 2026 16:00:00 +0000",
+      "titleZh": "See what 5 builders are making with Gemini 4 Argon",
+      "descriptionZh": "目前提供的原文仅为一句导语：“See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.”据此可概括为：文章以五位开发者的实践案例为主线，展示他们如何将 Gemini 4 Argon 应用于真实项目，并借此为读者下一次构建提供灵感。由于缺少正文内容，无法进一步展开背景上下文、核心技术原理、创新点、技术影响和具体应用场景；若补充完整英文博客，可生成更完整的中文摘要。"
     }
   ]
 }
