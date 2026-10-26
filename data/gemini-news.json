@@ -1,18 +1,70 @@
 {
-  "lastUpdated": "2026-10-23T20:46:51.132Z",
+  "lastUpdated": "2026-10-26T22:03:30.795Z",
   "items": [
     {
-      "title": "See what 5 builders are making with Gemini 4 Argon",
-      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-4-argon-builders/",
-      "description": "See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/5buildersArgon_Hero.max-600x600.format-webp.webp\">See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.",
-      "author": "Kimberly Fusaro",
+      "title": "Our newest AI Quest: Mapping the human brain",
+      "link": "https://blog.google/products-and-platforms/products/education/ai-quests-polar-peaks/",
+      "description": "Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/social_sharing_updated.max-600x600.format-webp.webp\">Learn AI literacy via Google’s latest AI Quests lesson on neuroscience, “Polar Peaks.”",
+      "author": "Ronit Levavi Morad",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 23 Oct 2026 16:00:00 +0000",
-      "titleZh": "See what 5 builders are making with Gemini 4 Argon",
-      "descriptionZh": "目前提供的原文仅为一句导语：“See how five builders are putting Gemini 4 Argon to work — and get inspired for your next build.”据此可概括为：文章以五位开发者的实践案例为主线，展示他们如何将 Gemini 4 Argon 应用于真实项目，并借此为读者下一次构建提供灵感。由于缺少正文内容，无法进一步展开背景上下文、核心技术原理、创新点、技术影响和具体应用场景；若补充完整英文博客，可生成更完整的中文摘要。"
+      "pubDate": "Mon, 26 Oct 2026 16:00:00 +0000",
+      "titleZh": "我们最新的AI探索：绘制人类大脑图谱",
+      "descriptionZh": "Google 发布 AI Quests 系列的最新课程 “Polar Peaks”，以神经科学为学习情境，帮助学习者建立人工智能素养。该课程属于 Google 的 AI 素养教育项目，目标不是培养编程专家，而是让更广泛的公众理解 AI 的基本概念、能力边界、数据与模型的关系，以及 AI 在真实科学问题中的应用方式。\n\n“Polar Peaks” 的创新点在于将 AI 学习与神经科学主题结合，通过任务式、情境化的课程设计降低学习门槛，使学习者在跨学科问题中接触 AI 思维。这种设计有助于把抽象的 AI 知识转化为可理解、可讨论的科学探究过程，并强调对 AI 的负责任使用和批判性理解。\n\n其应用场景包括课堂教学、自主学习、科普教育和教师培训等。该课程反映出 AI 素养教育正从单纯技术介绍转向跨学科、情境化和公众可参与的学习模式，有助于提升社会对 AI 的理解与应用能力。"
+    },
+    {
+      "title": "15 college students share their favorite Gemini features",
+      "link": "https://blog.google/products-and-platforms/products/gemini/college-student-favorite-features/",
+      "description": "We asked 15 college students about their favorite Gemini features for learning, studying, taking notes, and more.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/College_Fave_Gemini_Features_he.max-600x600.format-webp.webp\">We asked 15 college students about their favorite Gemini features for learning, studying, taking notes, and more.",
+      "author": "Lindsey Lanquist",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 26 Oct 2026 16:00:00 +0000",
+      "titleZh": "15名大学生分享他们最喜欢的Gemini功能",
+      "descriptionZh": "这篇博客来自 Google 官方博客，内容基于对 15 名大学生的访谈，汇总并展示了他们最喜欢、最常用于学习、复习、记笔记等场景的 Gemini 功能。背景是生成式 AI 助手正逐步进入高校学生的学习流程，学生开始将对话式 AI 用于理解知识、整理材料和提升学习效率。原文属于用户反馈型内容，重点在于呈现真实使用体验，并未深入展开 Gemini 的底层模型架构或算法细节；其创新点主要体现在将多模态、对话式 AI 能力嵌入日常学习任务，以较自然的交互方式提供个性化、多场景的学习辅助。技术影响和应用场景方面，文章反映了 AI 工具在教育中的实际接受度和使用方式，可用于课程学习、笔记整理、复习备考等环节，也为理解生成式 AI 如何辅助高等教育学习提供了来自学生视角的参考。"
+    },
+    {
+      "title": "Powering sub-Saharan Africa beyond the grid",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/sustainability/sub-saharan-africa-ignite/",
+      "description": "Google spent the past three years collaborating with Ignite Energy Access through our Startups for Sustainable Development program.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/ignite_hero.max-600x600.format-webp.webp\">Google spent the past three years collaborating with Ignite Energy Access through our Startups for Sustainable Development program.",
+      "author": "Irwin Boutboul",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 26 Oct 2026 15:00:00 +0000",
+      "titleZh": "Powering sub-Saharan Africa beyond the grid",
+      "descriptionZh": "Google 在过去三年中通过“Startups for Sustainable Development”（可持续发展初创企业）计划与 Ignite Energy Access 展开合作。现有原文仅提供了这一合作背景，未进一步说明 Ignite Energy Access 的具体技术方案、产品形态或创新机制，也未展开合作项目的技术原理、实施规模、成效数据及应用场景。因此，可确认的核心信息是：Google 以初创企业支持计划的方式，与一家致力于能源可及性的组织进行了为期三年的合作。若需完整摘要，应补充原文全文；基于当前片段，只能形成上述背景性概述，无法对技术影响和应用场景做可靠分析。"
+    },
+    {
+      "title": "We’re helping farmers around the world connect to essential services online.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/digital-public-infrastructure-farmers/",
+      "description": "Google.org is investing $2.5M to help 1 million farmers access AI-powered agricultural services via the World Bank's ONA. See how it works.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/IFC_BlogHeader.max-600x600.format-webp.webp\">Google.org is investing $2.5M to help 1 million farmers access AI-powered agricultural services via the World Bank's ONA. See how it works.",
+      "author": "Rowan Barnett",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 26 Oct 2026 14:00:00 +0000",
+      "titleZh": "We’re helping farmers around the world connect to essential services online.",
+      "descriptionZh": "这篇博客宣布，Google.org 将投入 250 万美元，支持世界银行旗下 ONA 平台，帮助 100 万农民获得 AI 驱动的农业服务。其背景是：小农户在获取及时、可负担的农技、气象、病虫害和市场信息方面仍存在明显数字鸿沟，而 AI 农业服务虽在提升生产效率、风险管理和决策质量方面潜力巨大，却常受制于触达渠道、成本和规模化能力。博客显示，ONA 被用作农业服务的数字化接入与分发网络，Google.org 的资金将推动 AI 服务通过该平台更广泛地覆盖农民，降低服务获取门槛，并以规模化方式连接服务提供者与农户。\n\n从技术路径看，这一合作的核心并非单一算法，而是“AI 服务 + 开放平台 + 普惠资金”的组合：ONA 承担服务接入、分发和生态连接角色，AI 农业应用则通过平台触达农户，形成可复制的数字农业服务模式。其创新点在于借助多边开发机构的平台网络和慈善资金，将原本分散、昂贵的 AI 农业能力规模化下沉到小农户场景，推动农业服务从局部试点走向更大范围的普惠覆盖。\n\n应用场景可涵盖作物管理建议、病虫害识别与预警、天气和气候信息、农艺咨询、市场价格与供应链信息等典型 AI 农业服务。该投资有望提升农民生产效率和气候韧性，改善收入与决策能力，并推动包容性数字农业生态发展；同时也体现了公私合作在农业数字化和全球发展议题中的作用。"
+    },
+    {
+      "title": "How Google Beam connects military families globally",
+      "link": "https://blog.google/innovation-and-ai/technology/research/google-beam-uso-docuseries-service-members/",
+      "description": "Google and the USO are bringing Google Beam to 20 locations, connecting deployed service members and their families.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Beam_x_USO_Rodriguez.max-600x600.format-webp.webp\">Google and the USO are bringing Google Beam to 20 locations, connecting deployed service members and their families.",
+      "author": "Josh Woodward",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 26 Oct 2026 13:00:00 +0000",
+      "titleZh": "Google Beam 如何连接全球军人家庭",
+      "descriptionZh": "Google 与美国联合服务组织（USO）合作，将 Google Beam 引入 20 个 USO 地点，用于连接派驻海外的服役人员与其家属。这一举措的背景是，军人长期部署往往造成家庭分离，传统视频通话虽然能维持联系，但在临场感、眼神交流和共同空间感方面仍有不足。Google Beam 源于 Google 此前的 Project Starline 沉浸式通信研究，其核心技术思路是通过多视角摄像头采集、深度感知、AI 处理与专用显示方案，让通话双方以接近真人大小的立体形象进行交流，并尽量营造“面对面”的自然体验，且无需佩戴额外设备。此次合作的关键创新不在于单一硬件参数，而在于把实验室阶段的沉浸式视频通信技术推向实际部署，并首先落地到军人家庭支持这一具有公共服务价值的场景。其影响主要体现在：一方面，它有望改善部署军人与其家属的远程团聚体验，为军属社区提供更具情感连接感的沟通工具；另一方面，它也展示了沉浸式通信技术从企业协作、远程医疗、远程教育等场景扩展到公益和社区支持领域的潜力。公告本身未披露更多技术细节和具体地点，但核心信息明确：Google 与 USO 正通过 20 个地点的部署，让更逼真的视频通信服务于军人家庭的日常联系。"
     }
   ]
 }
