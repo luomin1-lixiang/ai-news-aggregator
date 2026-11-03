@@ -1,44 +1,31 @@
 {
-  "lastUpdated": "2026-10-30T21:48:17.706Z",
+  "lastUpdated": "2026-11-03T00:10:54.685Z",
   "items": [
     {
-      "title": "Google Fitbit Edge: On shelves now",
-      "link": "https://blog.google/products-and-platforms/devices/fitbit/google-fitbit-edge-on-shelves-now/",
-      "description": "Shop the new Google Fitbit Edge featuring a bright, large display and physical side buttons for easy control. Upgrade your fitness tracker today.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Fitbit_Edge_thumb_OOMcorw.max-600x600.format-webp.webp\">Shop the new Google Fitbit Edge featuring a bright, large display and physical side buttons for easy control. Upgrade your fitness tracker today.",
-      "author": "Google Blog Team",
+      "title": "The latest AI news we announced in October 2026",
+      "link": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-october-2026/",
+      "description": "Here are Google’s latest AI updates from October 2026",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Oct_AI_Recap_social.max-600x600.format-webp.webp\">Here are Google’s latest AI updates from October 2026",
+      "author": "Blog Team",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 30 Oct 2026 20:15:00 +0000",
-      "titleZh": "Google Fitbit Edge：现已上架",
-      "descriptionZh": "这篇英文内容并非技术博客，而是一则 Google Fitbit Edge 健身追踪器的新品推广短文。原文背景是 Google 旗下 Fitbit 推出新款可穿戴设备 Fitbit Edge，并引导用户购买和升级现有健身追踪器。产品核心卖点集中在硬件交互设计：配备明亮的大尺寸显示屏，便于在运动或户外场景中清晰查看信息；同时保留或增加物理侧边按钮，以提升操作便利性，减少对触控的依赖，方便用户在跑步、健身等状态下快速控制设备。原文未披露传感器方案、健康监测算法、续航、价格或具体上市信息，因此无法展开更深入的技术原理分析。从产品创新角度看，其重点并非全新算法，而是通过大屏与物理按键的组合优化可穿戴设备的可读性和盲操作体验。应用场景主要包括日常健康追踪、运动记录和户外健身；技术影响上，这体现了运动型可穿戴设备对可靠交互、易用性和场景适应性的持续重视。总体而言，该文是面向消费者的简短产品推广信息，核心信息是 Fitbit Edge 以明亮大屏和物理侧键提升控制体验，并呼吁用户升级健身追踪器。"
+      "pubDate": "Mon, 02 Nov 2026 17:45:00 +0000",
+      "titleZh": "我们在2026年10月发布的最新AI新闻",
+      "descriptionZh": "该博客为谷歌2026年10月AI更新汇总，标题和配图表明其汇总了谷歌当月发布的最新人工智能进展，但原文未提供具体正文内容。因此，无法基于现有材料详细介绍各项更新的背景、核心技术原理与创新点，也难以分析其技术影响和具体应用场景。若补充完整的英文博客正文，可据此生成相应长度的中文摘要。"
     },
     {
-      "title": "We’ve received our first response from the Project Suncatcher prototype satellite.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-research/project-suncatcher-satellite-response/",
-      "description": "This week, we reached our \"Hello World\" milestone: the first-ever AI response from a data center class TPU in orbit.",
-      "content": "<img src=\"https://i.ytimg.com/vi_webp/epqzfAi16us/maxresdefault.webp\">This week, we reached our \"Hello World\" milestone: the first-ever AI response from a data center class TPU in orbit.",
-      "author": "Travis Beals",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Fri, 30 Oct 2026 17:00:00 +0000",
-      "titleZh": "We’ve received our first response from the Project Suncatcher prototype satellite.",
-      "descriptionZh": "本周，项目团队宣布实现“Hello World”里程碑：首次由部署在轨道上的数据中心级 TPU 产生 AI 响应。这一表述虽然简短，但标志着太空计算从“把卫星送上天、在地面做智能处理”进一步走向“在轨运行高性能 AI 算力并完成推理闭环”。其背景是，随着遥感、通信和科学探测卫星产生数据量快速增长，传统“星上采集—下行传输—地面处理”的模式面临带宽、时延和地面算力调度压力；若能在轨完成部分 AI 推理，可提升响应速度并降低数据传输成本。\n\n从技术原理看，数据中心级 TPU 是面向大规模 AI 负载的高性能加速器，通常对供电、散热和运行环境要求较高。将其部署在轨道并产生 AI 响应，意味着系统需在空间电源、热管理、辐射环境适应性、容错计算、星地通信链路和在轨任务调度等方面形成端到端验证：AI 模型在轨完成推理，响应结果再通过卫星链路返回。其创新点不在于单一算法，而在于首次验证“数据中心级 AI 加速器＋在轨推理＋星地回传”的完整链路，为后续太空数据中心和在轨智能计算提供了工程可行性信号。\n\n技术影响和应用场景包括：遥感卫星在轨实时识别云层、船舶、灾害和异常目标，减少原始数据下行；通信卫星自主优化资源调度；深空探测中降低对地面深空网的实时依赖；以及未来规模化“太空数据中心”的算力部署探索。需要指出，原文仅发布了里程碑声明，未披露具体模型、算力规模、轨道参数和响应时延等细节，后续技术指标仍待公布。"
-    },
-    {
-      "title": "See who has access to your Gmail inbox in 2 minutes.",
-      "link": "https://blog.google/innovation-and-ai/technology/safety-security/google-security-checkup/",
-      "description": "Run a quick Google Security Checkup and protect your email with three quick and easy steps.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Security-Checkup-Thumbnail_Phon.max-600x600.format-webp.webp\">Run a quick Google Security Checkup and protect your email with three quick and easy steps.",
+      "title": "Google Messages, Phone by Google, and Google Contacts get new, updated icons.",
+      "link": "https://blog.google/products-and-platforms/products/messages/updated-icons-messages-phone-contacts/",
+      "description": "Google is updating the icons for Messages, Phone, and Contacts with a sleeker, cohesive design. See the new look for your home screen.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Messages_Phone_by_Google.max-600x600.format-webp_58gh6qw.webp\">Google is updating the icons for Messages, Phone, and Contacts with a sleeker, cohesive design. See the new look for your home screen.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 30 Oct 2026 16:00:00 +0000",
-      "titleZh": "See who has access to your Gmail inbox in 2 minutes.",
-      "descriptionZh": "本文是 Google 安全建议的简短导语，呼吁用户运行 Google Security Checkup（安全体检），通过三个快速、简单的步骤保护电子邮件账户。其背景在于，电子邮箱通常是个人在线身份、账号找回和敏感通知的核心入口，一旦被攻破可能牵连其他服务。Security Checkup 的价值是集中检查账户安全状态并给出可操作建议，帮助用户降低账号被盗风险。原文仅提供导语，未展开三步的具体内容、技术实现、创新点以及应用场景，因此无法据此形成更完整的技术分析；若需完整摘要，应补充博客正文。"
+      "pubDate": "Mon, 02 Nov 2026 17:00:00 +0000",
+      "titleZh": "Google Messages, Phone by Google, and Google Contacts get new, updated icons.",
+      "descriptionZh": "Google 正在更新 Messages、Phone 和 Contacts 三款应用的图标，采用更简洁、更统一的设计语言。此次变化主要体现于主屏幕视觉呈现，让用户在桌面上看到的新图标更协调、更具一致性。原文未披露具体设计规范、技术实现或发布时间等细节，因此可判断这是一次品牌与界面视觉层面的更新，而非底层功能或技术架构变化。其影响主要在于提升 Google 应用套件的视觉一致性和辨识度，应用场景涉及 Android/Google 通信与联系人应用的日常桌面使用体验。"
     }
   ]
 }
