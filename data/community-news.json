@@ -1,15 +1,15 @@
 {
-  "lastUpdated": "2026-11-03T22:43:39.895Z",
+  "lastUpdated": "2026-11-04T23:02:12.604Z",
   "items": [
     {
       "title": "Per-customer budget caps for Anthropic API calls (with prompt caching priced right)",
-      "titleZh": "Anthropic API 调用的按客户预算上限（正确计价 prompt caching）",
+      "titleZh": "Anthropic API 调用的按客户预算上限（并正确计价提示缓存）",
       "link": "https://dev.to/llmbrake/per-customer-budget-caps-for-anthropic-api-calls-with-prompt-caching-priced-right-4b7h",
       "author": "llmbrake",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-02T14:56:30.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：当产品代客户调用 Claude API 时，单个大客户可能在周末就烧掉整月利润。Anthropic 控制台的限额只能保护组织整体，无法区分具体客户，因此需要为每个客户建立独立的月度预算上限。\n\n**核心方法**：在 TypeScript 中基于 `@anthropic-ai/sdk` 和 Redis（ioredis）实现按客户计费。首先正确计算每次调用的成本——关键陷阱是 `input_tokens` 并非总输入量，总输入应为 `input_tokens + cache_read_input_tokens + cache_creation_input_tokens`。缓存读取按基础价 0.1x（Opus/Sonnet 5.5 为 0.05x）计费，缓存写入 5 分钟 TTL 为 1.25x、1 小时 TTL 为 2x，需分别定价。其次，简单的\"先查后记\"在并发下会失效：十个并行请求读到同一\"未超预算\"值后全部放行，导致严重超支。\n\n**关键技巧**：\n1. **原子预留+结算**：调用前用 Lua 脚本原子地检查 `spent + held + estimate > budget` 并预留额度，调用后按实际成本结算，使并发超支仅受单次估算误差限制。\n2. **估算上界**：用 `messages.countTokens` 获取输入 token 数，按全价输入 + `max_tokens` 输出估算；性能敏感时可用 `JSON.stringify(messages).length / 4` 粗略替代。\n3. **未知模型必须抛错**：静默按 $0 计价会让预算上限悄悄失效。\n4. 注意未建模的批量折扣、长上下文阶梯价、数据驻留溢价和服务器工具费用，否则上限只是下限而非上限。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：当你的产品代客户调用 Claude API 时，单个重度客户可能在一个周末烧掉整月利润。Anthropic 控制台的限额只保护组织层面，无法区分是哪个客户产生的流量，因此无法单独限制某个客户。本文用 TypeScript 为 Messages API 构建按客户、按月的预算上限。\n\n**核心方法**：先正确计价每次调用，再在调用前检查预算，接近上限时切换到更便宜的模型，达到上限时拒绝请求。计价的关键陷阱是：`input_tokens` 并非总输入量，总输入 = `input_tokens` + `cache_read_input_tokens` + `cache_creation_input_tokens`。若只按 `input_tokens` 计价，带缓存的聊天应用看起来几乎免费；若忽略缓存写入，每次对话首调用会少算 25% 以上。缓存读取按基础价 0.1x 计费，写入按 1.25x（5 分钟 TTL）或 2x（1 小时 TTL）计费，且 `usage.cache_creation` 会拆分 5m/1h 写入以便分别计价。\n\n**关键技巧**：\n1. **原子预留+结算**：简单的\"先查后记\"在并发下会失效——十个请求同时读到\"未超预算\"全部放行。正确做法是调用前原子地预留估算值（`reserved += estimate`），调用后用实际成本结算（`reserved -= estimate; spent += actual`），用 Redis Lua 脚本保证检查与预留是一步操作。\n2. **估算上界**：调用成本上界 = 输入全价 + `max_tokens` 输出价，可用 `countTokens` 端点获取输入大小；嫌慢可用 `JSON.stringify(messages).length / 4` 粗略替代。按全价估算缓存提示会高估，这对预留是安全方向。\n3. **未知模型必须抛错**：静默按 $0 计价会让预算上限在无人察觉时失效。\n4. **未建模项**：批量折扣、长上下文档位、数据驻留溢价、服务端工具费（如 web search）需自行补充，否则上限只是下限而非上限。",
       "category": "devto"
     },
     {
@@ -20,7 +20,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-03T08:46:18.000Z",
-      "summaryZh": "## Claude API Message Threads 中文摘要\n\n**用户场景**：长时运行的 Agent（如编码助手、computer-use、文档密集型工作流）每轮都要重发完整对话历史，导致请求体积膨胀、首 token 延迟升高。Anthropic 于 2026 年 11 月 2 日推出 Message Threads 公测，正是针对这一痛点。\n\n**核心方法**：首次 \"create\" 请求携带完整对话（含 system prompt 与 tools）及 thread 参数，API 在服务端保存对话状态并返回 response ID；后续 \"continue\" 请求只需发送新增消息和上一次的 response ID，由 API 重建上下文。代码上需加 thread 参数与 `message-threads-2026-08-12` beta header，官方 SDK 提供 thread helper 自动处理 header 与错误重放。\n\n**关键技巧与坑**：\n- **不省 token 费**：Claude 每轮仍读取完整对话，token 计费、限流不变，省的是上传时间和请求体积（Anthropic 称 Claude Code 中位请求从约 800KB 降至 1.8KB，首 token 快约 35%，但均为厂商数据）。\n- **5 分钟过期**：每次请求重置计时，空闲即失效，需重发全量对话。\n- **必须自留历史副本**：thread 为 best-effort 内存存储，无 list/read/delete API，continuation 失败（如 404）时需自行重放。\n- **合规限制**：不支持 ZDR、HIPAA、Message Batches、Token Counting API，启用 Inference hooks 的组织也被排除。\n- **Prompt caching 仍需显式开启**，threads 不会自动启用。\n\n**结论**：这是面向活跃会话的延迟优化特性，不是存储方案、省钱手段或合规捷径。",
+      "summaryZh": "## Claude API Message Threads 中文摘要\n\n**用户场景**：长会话 Agent（如编码助手、computer-use、文档密集工作流）每轮都要重发完整对话历史，导致请求体积膨胀、首 token 延迟升高。Anthropic 于 2026 年 11 月推出 Message Threads 公测，让 API 服务端保存会话状态。\n\n**核心方法**：首个 create 请求携带完整对话、system prompt、tools 及 thread 参数，API 将状态存于该 response ID 下；后续 continue 请求只发送新增消息和上一个 response ID，由服务端重建上下文。需加 `message-threads-2026-08-12` beta header，官方 SDK 提供 thread helper 自动处理 header 与错误重放。\n\n**关键技巧与坑**：\n- **不省 token**：Claude 每轮仍读完整对话，token 计费、限流不变，省的是上传时间和请求体积（官方称 Claude Code 大请求首 token 中位降约 35%，请求体积从 800KB 降至 1.8KB，均为厂商数据）。\n- **5 分钟过期**：每次响应重置计时，空闲即失效，需重发全量重建。\n- **必须自留历史**：thread 为 best-effort 内存存储，无 list/read/delete API，continue 失败（如 404）时应用要能自行重放。\n- **合规限制**：不支持 ZDR、HIPAA、Message Batches、on-demand compaction 及多数 context editing；启用 Inference hooks 的组织不可用。\n- **prompt caching 仍需显式开启**，threads 不会自动启用。\n\n**结论**：这是针对活跃长会话的延迟优化特性，不是存储方案、省钱手段或合规捷径。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic's FlashProve Wants a Receipt for Every AI Answer — Explained Honestly",
+      "titleZh": "Anthropic的FlashProve要求每个AI答案都有据可查——诚实解读",
+      "link": "https://dev.to/paullovelace/anthropics-flashprove-wants-a-receipt-for-every-ai-answer-explained-honestly-480e",
+      "author": "Paul Lovelace",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-04T01:48:00.000Z",
+      "summaryZh": "## FlashProve 解读：给每个 AI 回答开一张\"收据\"\n\n**用户场景**：调用 API 时，开发者只能信任服务商\"确实用了你付费的那个大模型\"，无法验证是否被偷偷换成便宜模型。Anthropic 前沿红队发布研究原型 FlashProve，试图用密码学证明回答来自特定模型权重，且不暴露权重本身。\n\n**核心方法**：基于 zkSNARK 的\"可证明推理\"，分两阶段——离线阶段发布模型权重的短承诺（类似指纹）；在线阶段针对 prompt 和输出 token 生成证明，任何人凭承诺、prompt 和回复即可验证。测试对象为 Llama 4 Maverick（400B MoE，4-bit 量化，每 token 约 17B 激活参数），Apache 2.0 开源，含 prover、C++ 快速验证器、Lean 形式化验证器及定理可视化工具。\n\n**关键技巧与限制**：\n- 仅支持 MoE 模型，上下文上限 1024 token，仅限 greedy decoding 的整数权重推理，浮点或采样输出可能对不上证明。\n- 验证极便宜：CPU 约 17 秒（24 线程），无需 GPU；但生成证明成本约为 vLLM 推理的 70–95 倍（单 H100 约 110 token/s，24 请求约 223 秒，1024 token 证明约 19MB）。\n- 承诺生成约 39 分钟，但可复用约 1600 万次请求。\n- 快速 C++ 验证器无形式化保证，仅 Lean 验证器与可靠性定理挂钩；无侧信道防护，架构不隐藏、只隐藏权重。\n- 仓库 v0.16.0 标注为不再维护的研究产物，Anthropic 明确无部署计划。\n\n**结论**：技术上是真突破——在 400B 模型上端到端跑通\"AI 回答的密码学收据\"，但成本高、限制多、无落地计划，属于研究结果而非可用工具。值得关注证明成本与解码/上下文限制是否松动。",
       "category": "devto"
     },
     {
@@ -31,18 +42,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-03T02:17:28.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：作者维护 Go 语言的 `go/chat-anthropic` 适配器，需要让 Claude 返回符合 JSON Schema 的结构化数据供代码消费。此前通过\"强制工具调用\"（`tool_choice: tool`）实现：只提供一个 `submit_response` 工具，强制模型调用它，答案以工具参数形式返回，再由 API 校验 schema。还需伪造一条内容为 \"recorded\" 的 tool result 来满足 API 要求。\n\n**核心方法**：Anthropic 发布 Opus 5.5 和 Fable 5.1 后，API 直接拒绝 `tool_choice` 为 `tool`/`any` 的请求（HTTP 400），导致旧方案失效。作者最初想改用 `auto` 模式，但最终否决——那会保留假工具、假结果，还要加重试循环。正确做法是迁移到 Messages API 的 **structured outputs**：把 schema 放进 `output_config.format`，完全不提供任何工具。\n\n**关键技巧**：\n1. 判断标准：若强制工具只为拿 JSON（工具从未真正执行），就该用 structured outputs，而非 `auto` + 提示词引导。\n2. 新代码更短：`json.Marshal` schema 后需删除 `$schema` 和 `$id` 字段再传入 `JSONOutputFormatParam`。\n3. 移除伪造的 tool result，对话历史恢复为真实的问答记录。\n4. 无需按模型分支，全部 15 个模型均接受新格式。\n5. 踩坑：schema 的 `description` 字段会影响输出（Opus 5.5 行为异常），初版 spec 折叠描述的做法需谨慎。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：作者维护 Go 生态的 `go/chat` 库，其中 Claude 适配器需要让模型返回结构化 JSON 供代码消费。此前一直依赖\"强制工具调用\"（forced tool use）技巧：只提供一个 `submit_response` 工具，用 `tool_choice: \"tool\"` 强制模型调用，答案以工具参数形式返回并受 schema 校验，工具本身从不执行，还需伪造一条 \"recorded\" 工具结果来满足 API 的对话格式要求。\n\n**核心方法**：Anthropic 新模型（Opus 5.5、Fable 5.1）直接在 API 层拒绝 `tool_choice` 为 `tool`/`any` 的请求，返回 HTTP 400。作者最初想改用 `auto` 模式，但最终否决——那会保留假工具、假结果，还得加重试循环。正确方案是迁移到 Messages API 的 **structured outputs**：把 JSON Schema 放进 `output_config.format`，完全不提供任何工具。新代码更短，只需 marshal schema、删除 `$schema`/`$id` 字段后写入 `OutputConfig.Format`，同时移除伪造的工具结果，对话历史恢复为真实的问答记录，且无需按模型分支。\n\n**关键技巧**：\n1. 判断迁移路径：若强制工具只是为了拿 JSON，就用 structured outputs；若是引导真实工具，才用 `auto` + prompt 点名。\n2. 原则：\"回复应因 API 约束而合法，而非因模型选择配合\"——避免依赖模型自觉。\n3. 坑：schema 中携带 `description` 字段会导致 Opus 5.5 输出异常（作者实测发现），需谨慎处理。\n4. 测试时注意 API 余额不足会表现为所有调用失败，易误判为代码问题。",
       "category": "devto"
     },
     {
-      "title": "Claude's Watermark Disappears When You Tune Temperature",
-      "titleZh": "调整温度时，Claude的水印消失了",
-      "link": "https://dev.to/reidmarlow/claudes-watermark-disappears-when-you-tune-temperature-bk6",
-      "author": "Reid Marlow",
+      "title": "Anthropic แก้ไฟลิ่ง S-1: รายได้ AI พุ่ง 1,127% แต่ต้นทุนคอมฯ กินกำไรหมดจริงไหม?",
+      "titleZh": "Anthropic 修正 S-1 文件：AI 收入飙升 1,127%，但算力成本真的吃掉了全部利润吗？",
+      "link": "https://dev.to/sarantoon/anthropic-aekaifling-s-1-raayaid-ai-phung-1127-aettnthunkhm-kinkamairhmdcchringaihm-5a8h",
+      "author": "Nokka",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-01T16:20:50.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：作者面向在生产环境调用 Claude API 的开发者，聚焦一个容易被忽视的合规陷阱——Anthropic 为满足欧盟 AI Act 要求，在 Opus 4.6 和 Sonnet 4.6 上部署统计水印，但该水印仅在采样参数为默认值时才生效。\n\n**核心方法**：水印机制基于 SynthID 思路，在 logits 转 softmax 前用私钥哈希将词表划分为 green/red 两组，并对 green token 施加正偏置，检测器通过统计 green token 密度判断文本是否 AI 生成。由于 temperature、top_p、top_k 会改变概率分布形态，导致检测器假设失效，Anthropic 选择在推理路由层做折中：参数为默认值则走水印采样器，否则回退到原始无",
+      "pubDate": "2026-11-04T11:50:54.000Z",
+      "summaryZh": "## Anthropic S-1 修正案解读：收入暴涨 1,127%，但算力成本吃掉了利润？\n\n**用户场景**：作者以开发者视角精读 Anthropic 提交给 SEC 的 S-1/A 修正案（首次披露 2026 Q3 数据），回答一个实际问题——AI 公司收入飞涨的同时，钱到底流向了哪里，这对使用 Claude 的开发者意味着什么。\n\n**核心方法**：直接打开 SEC 原始文件逐行核对财务表格，区分\"运营口径\"与\"净亏损口径\"，并交叉比对 CNBC、TechCrunch 的报道，只总结表格本身能支撑的结论。\n\n**关键技巧与发现**：\n- Q3 收入 169.56 亿美元（同比 +1,127%），但算力成本 98.63 亿美元，运营利润从 +8% 转为 -3%；净亏损 232.91 亿美元中 943 亿来自可转债/SAFE 的公允价值变动，属非现金项，勿误读为经营恶化。\n- 亏损主因是 50 亿美元**短期合约算力**——单价明显高于多年长约，应急快但立即侵蚀利润。\n- 最值得警惕的是表外承诺：已签约采购与租赁约 **8,954 亿美元**，其中 698 亿将在 12 个月内到期，等于把未来十年现金流锁定。\n- 文件提到内部模型\"可能很快触及\" Responsible Scaling Policy 中\"AI 驱动的剧烈加速进展\"门槛，但全文仅一次引用 recursive self-improvement，且未用 RSI 缩写——解读需谨慎。\n- 对开发者的启示：算力是最大成本变量，公司靠效率而非涨价降本，但文件明确保留调整定价的权利；若触发更严安全门槛，新模型发布与早期访问可能延迟或受限。\n\n**注意**：数据为公司自编、未经审计的中期报表，发行价区间尚未披露。",
       "category": "devto"
     },
     {
@@ -53,7 +64,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-03T08:51:25.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：开发者想用便宜的 Claude Code 中转（API 代理）替代官方订阅，但无法确认背后到底是不是 Claude 在回答——\"能跑通 Claude Code\"和\"真的是 Claude\"是两回事，有些中转会偷偷换成 GLM 等非 Claude 模型。\n\n**核心方法**：文章先梳理 Claude Code 读取的环境变量：`ANTHROPIC_BASE_URL` 指向代理端点，`ANTHROPIC_AUTH_TOKEN` 走 Bearer 头，`ANTHROPIC_API_KEY` 走 x-api-key 头（优先于订阅登录），`ANTHROPIC_DEFAULT_OPUS/SONNET/HAIKU_MODEL` 可改模型别名映射。建议写进 `~/.claude/settings.json` 的 `env` 块。然后用 `/status` 确认 base URL 和凭证生效。\n\n**关键技巧**：\n1. **别问模型\"你是谁\"**——一行 system prompt 就能让任何模型自称 Claude，要看行为。\n2. **跑 check-relay.py**（纯标准库单文件）：验证响应是否为 Anthropic Messages 格式、`cache_control` 的写入/读取是否匹配、篡改 thinking block 签名后是否返回 400。\n3. **手动测缓存**：同一请求发两次，首次应有 `cache_creation_input_tokens`，第二次应有相近的 `cache_read_input_tokens`；两者皆零说明缓存失效或中转自己算 usage，只有写没有读说明请求落到了不同账号。\n4. **ModelTrace** 可估算模型家族/版本，但只是概率提示。\n5. 看价目表：输入/输出/缓存读写是否分开计费、是否有 per-request 日志、会话是否固定单账号。",
+      "summaryZh": "**中文摘要**\n\n**用户场景**：开发者想用便宜的 Claude Code 中转（API 代理）替代官方订阅，但无法确认背后是否真是 Claude 在回答——\"能在 Claude Code 里跑\"和\"是 Claude 回答\"是两回事。作者以自营中转 CoreCode 为例，给出通用验证方法。\n\n**核心方法**：先理清 Claude Code 读取的环境变量：`ANTHROPIC_BASE_URL` 指向网关，`ANTHROPIC_AUTH_TOKEN` 走 Bearer 头，`ANTHROPIC_API_KEY` 走 x-api-key 头（优先于订阅登录），`ANTHROPIC_DEFAULT_OPUS/SONNET/HAIKU_MODEL` 改写模型别名。建议写入 `~/.claude/settings.json` 的 `env` 块。验证分三步：① 运行 `/status` 确认 base URL 和凭证生效；② 用开源脚本 `check-relay.py`（仅标准库，成本几美分）检查响应格式、prompt caching 读写是否匹配、篡改 thinking 签名是否返回 400；③ 用 ModelTrace 做模型指纹推测版本层级。\n\n**关键技巧**：别问模型\"你是谁\"——一行 system prompt 就能让它自称 Claude，要看行为。手动验证缓存：同一请求发两次，首次应有 `cache_creation_input_tokens`，第二次应有相近的 `cache_read_input_tokens`；两者皆零说明缓存失效或中转自行计算用量，只有写没有读则说明请求落到不同账号。注意脚本局限：只能证明上游是 Anthropic，不能证明是 Opus 还是 Sonnet，且单次采样需复跑。看价目表时关注输入/输出/缓存读写是否按 Anthropic 比例分开计费、是否单会话绑定单账号。",
       "category": "devto"
     },
     {
@@ -64,18 +75,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-02T14:08:29.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：Anthropic 为满足欧盟《人工智能法案》第50条对AI生成内容可机器识别的要求，于11月3日起向 Mythos 5、Opus 4.7、Opus 4.6、Sonnet 4.6 四款旧模型推送文本水印。开发者若依赖无水印输出或需合规声明，需了解其触发条件。\n\n**核心方法**：水印采用 Google DeepMind 的 SynthID-Text 变体，通过微调模型逐词采样时的随机性嵌入可统计检测的模式，不增字符、不改语义、不影响可读性，且不存储用户数据。水印嵌入模型本身，因此在 AWS、Google Cloud、Microsoft Foundry 上表现一致，全球生效，无开关可关闭。\n\n**关键技巧与坑**：\n- **采样参数是后门**：在 Opus 4.6 和 Sonnet 4.6 上，只要改动 `temperature`、`top_p`、`top_k` 任一默认值，水印即失效；依赖合规的调用方须保持三者出厂默认。Mythos 5 与 Opus 4.7 无此条件。\n- **检测门槛高**：文本检测接口仅限监管机构、媒体、研究者等预览用户；文件可用免费的 Claude Content Checker。\n- **水印≠作者证明**：仅表示内容可能经 Claude 生成或处理，人工润色、翻译后的文本也可能带标记，短文本或大幅编辑则可能检测不到。\n- **文档滞后**：Anthropic 支持页面上这四款模型仍标注无水印，仅 C2PA 文件凭证，需留意官方表格更新。",
-      "category": "devto"
-    },
-    {
-      "title": "5,000 Developers Auto-Updated Claude Code Last Thursday. The Update Was Carrying a Backdoor — and It Was Signed by the Right…",
-      "titleZh": "上周四，5000名开发者自动更新了Claude Code。该更新携带了一个后门——而且它是由正确的……签名的",
-      "link": "https://dev.to/markorocko/5000-developers-auto-updated-claude-code-last-thursday-the-update-was-carrying-a-backdoor-and-4g23",
-      "author": "Faith & Fact - Marky Mark",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-01T15:20:24.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：2026年10月29日，约5000名开启自动更新的开发者通过Cursor插件市场安装了被植入后门的Claude Code扩展（v2.1.312/2.1.313）。攻击者利用Cursor市场发布权限，以真实发布者身份`anthropic.claude-code`分发恶意版本，签名和版本号全部合法，传统信任机制完全失效。\n\n**核心方法**：恶意包在合法扩展代码前插入66行loader，模块加载即执行。它收集主机名、用户名、OS、架构、home目录、Git email、公网IP，并扫描环境变量中名称含KEY/TOKEN/SECRET/PASS/AWS/GCP的项（最多40个）；随后向`~/.ssh/authorized_keys`追加攻击者控制的Ed25519密钥（伪装为`svc-telemetry`），建立到`134.209.82.225`的反向SSH隧道，通过8099端口明文HTTP外传数据；并通过macOS LaunchAgent或Windows计划任务实现持久化，每60秒重试。\n\n**关键技巧与避坑**：\n- 检查`~/.ssh/authorized_keys`是否含`svc-telemetry`；若中招，仅卸载扩展不够，需清除持久化脚本、终止隧道、从可信机器轮换所有凭证\n- 干净版本为2.1.314；该包未进入VS Marketplace、Open VSX或npm\n- 核心教训：**有效签名不等于安全**。单一来源的\"自信输出\"可能是错的——这与依赖单一AI模型回答问题的风险同构，应交叉验证多模型结果，分歧处正是易错点。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：Anthropic 于 11 月 3 日起为 Mythos 5、Opus 4.7、Opus 4.6、Sonnet 4.6 四款旧模型补加文本水印，以应对欧盟 AI 法案（2026 年 8 月 2 日后发布的模型必须带水印，旧模型分批补齐）。开发者若依赖无水印输出或需合规检测，需了解其机制与限制。\n\n**核心方法**：水印基于 Google DeepMind 的 SynthID-Text 变体，通过微调模型逐词采样时的随机性，在词选择中嵌入统计上可检测的隐式模式——不增字符、不留符号、不改排版，也不存储用户数据，且客户端无法关闭。水印嵌入模型本身，故在 AWS、Google Cloud、Microsoft Foundry 上表现一致，全球生效。\n\n**关键技巧与坑**：\n- **采样参数是开关**：在 Opus 4.6 和 Sonnet 4.6 上，只有 `temperature`、`top_p`、`top_k` 三者全为默认值时才带水印；改动任一参数即失去水印。依赖合规的调用方须锁定默认采样配置。\n- **检测不公开**：文本检测接口仅限监管机构、媒体、研究者等白名单；文件可用免费的 Claude Content Checker。\n- **检测结果≠作者归属**：水印只表示\"可能由 Claude 生成或处理\"，人工撰写后经 Claude 润色/翻译的文本也会带标；过短或大幅编辑的文本可能检测不到。\n- **质量争议**：为嵌入标记而选词可能牺牲用词精确度（John Gruber 批评），法律文书中被客户禁用 AI 的场景存在暴露风险。\n- **对比参考**：OpenAI 的 textGrain 仅对欧洲 ChatGPT/Codex 用户默认开启，API 侧关闭，策略更温和。",
       "category": "devto"
     },
     {
@@ -86,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-03T06:03:42.000Z",
-      "summaryZh": "## Anthropic 警告或即将触及 AI 自我改进阈值：开发者该关注什么\n\n**用户场景**：这篇文章并非技术教程，而是一则安全与治理层面的行业动态。对使用 Claude Code、Claude API 的开发者而言，它关系到模型能力迭代节奏、API 行为变化，以及未来可能出现的更严格使用限制。\n\n**核心方法**：Anthropic 在提交给 SEC 的修订版 S-1/A 文件中披露，依据其 Responsible Scaling Policy（RSP），公司可能很快达到“由 AI 驱动的显著加速进展”这一阈值，即递归自我改进（RSI）的监测标准。文中提到，Claude 已承担 Anthropic 内部超过 80% 的代码编写，但由人类工程师审查监督；公司承认过去曾在使用 AI 辅助研发后，才事后察觉能力跃升。\n\n**关键技巧与启示**：\n- 不要把“AI 写代码”等同于“AI 自主决策”，人类 review 环节仍是安全底线；\n- 关注 RSP 阈值变化对模型发布节奏、API 配额和 hooks 策略的潜在影响；\n- 对厂商安全声明保持审慎：SEC 风险披露兼具合规与宣传双重属性；\n- 在自身工作流中预留人工校验节点，避免过度依赖自动化生成。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 安全与前沿模型研发流程的开发者，讨论 Anthropic 在 SEC 文件中披露的风险：其内部研发可能即将触及 Responsible Scaling Policy 中\"由 AI 驱动的进展显著加速\"（即递归自我改进 RSI）的门槛。核心矛盾是模型能力提升速度可能超过安全、对齐与验证措施的落地速度。\n\n**核心方法**：Anthropic 以\"基线改进速率翻倍且可归因于 AI\"作为量化判据，将 AI 辅助研发纳入安全政策监控范围，并计划修订 RSP，确保前沿模型开发始终保留有意义的人类监督与理解，而非让 Claude 完全自主设计下一代模型。\n\n**关键技巧与警示**：\n- 不要只看当前模型，要用内部估算与未来模型预期做前瞻性风险评估；\n- 建立可量化的加速阈值指标，避免\"事后才发现\"——Anthropic 承认曾在使用 AI 开发模型后才发现能力跃升；\n- 将 AI 辅助研发（如 Claude 承担大量代码编写）与安全评审流程解耦，人类工程师需持续 review；\n- 对厂商风险披露保持审慎：证券文件兼具披露与宣传功能，需交叉验证数据。",
       "category": "devto"
     },
     {
@@ -97,7 +97,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-02T06:00:57.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：内容发布者（publisher）面对各家 AI 公司爬虫抓取文章用于模型训练，此前需针对 Google、OpenAI、Microsoft、Anthropic 分别配置不同的退出规则，管理成本高且易遗漏。本文报道四家公司计划共同遵守一个统一的 robots.txt 信号，让网站用一条指令表达 AI 训练偏好。\n\n**核心方法**：由 Anthropic 技术负责人 Kevin Kelley 向 IETF 提交个人草案，在 robots.txt 中引入新 user-agent token `__usage_ai-training`，发布者可在该 token 下使用常规 `Disallow`/`Allow` 规则，按目录粒度声明哪些内容可用于训练（如全站禁止但放行 press-kit 目录）。草案将\"AI 训练\"定义为改变生成式模型学习参数的行为，分类、排序等非生成任务不在范围内。注意：通配符组不适用于该 token，未显式配置即表示\"无偏好\"。\n\n**关键技巧与坑**：\n- 该信号只约束训练用途，不阻止爬虫访问，也不影响内容出现在 Google Search；无法追溯已发生的抓取。\n- 各公司落地时间不一：Anthropic 已开始支持，OpenAI 数月内跟进，Microsoft 定于 2027-02-01，Google 目标 2027 年初；Google 会将共享退出视为屏蔽 Google-Extended，Microsoft 则把训练偏好与 grounding（引用内容生成回答）偏好分开配置，且默认仍允许抓取。\n- 现有厂商专属开关不会取消，共享信号只是补充而非替代；退出训练可能降低内容在 AI 应用中的曝光，需权衡流量与版权。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：内容发布者（publisher）面对各家 AI 公司爬虫抓取文章用于模型训练，此前需针对 Google、OpenAI、Microsoft、Anthropic 分别配置不同的退出规则，管理成本高且易遗漏。本文介绍四家公司拟共同遵守统一的 robots.txt 训练退出信号，让发布者用一条指令表达跨厂商偏好。\n\n**核心方法**：由 Anthropic 技术负责人 Kevin Kelley 向 IETF 提交个人草案，在 robots.txt 中引入新 user-agent token `__usage_ai-training`，发布者可在该 token 下沿用标准 `Disallow`/`Allow` 规则，按目录粒度声明哪些内容可用于训练（如全站禁止但开放 press-kit 目录）。草案将\"AI 训练\"定义为改变生成式模型学习参数，分类、排序等非生成任务不在范围内；未显式配置该 token 的文件视为\"无偏好\"，通配符组不自动适用。\n\n**关键技巧与注意点**：\n- 该信号只管训练用途，**不阻止爬虫访问**，也不影响内容出现在 Google Search；无法追溯已发生的抓取。\n- 各厂商落地时间不一：Anthropic 已开始支持，OpenAI 数月内，Microsoft 2027-02-01，Google 目标 2027 年初；Google 会将共享退出视同屏蔽 Google-Extended，Microsoft 则把训练与 grounding（内容作生成回答的参考）偏好分开配置，且默认仍允许抓取。\n- 共享信号不替代各公司原有专属控制项，发布者仍需关注各家实现差异与产品侧影响（退出训练可能降低内容在 AI 应用中的曝光）。",
       "category": "devto"
     },
     {
@@ -108,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-02T04:02:20.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：Anthropic 开始为 Claude 生成的文本嵌入不可见水印，11月3日起覆盖 Mythos 5、Opus 4.7/4.6、Sonnet 4.6 等旧模型。这是为满足 EU AI Act 与加州透明度法规的合规要求，且全球统一生效（暂无法按地区限制）。对开发者而言，核心问题是：这会不会影响日常使用和内容审核流程？\n\n**核心方法**：水印不添加任何隐藏字符或额外 token，也不改变文本质量。原理是在 Claude 采样下一个词时，遇到两个概率相近的候选词，用密钥决定选择而非随机，从而在全文留下统计模式。该方法源自 Google DeepMind 的 SynthID-Text（2024 Nature 论文）。水印能抵抗复制、粘贴和格式调整，但完整重写或翻译会将其抹除。\n\n**关键技巧与注意点**：\n- 检测结果只是\"可能由 Claude 参与\"，不能证明作者身份、账号或人类贡献比例，切勿单独作为证据；\n- 目前只有 Anthropic 自己能读取水印，第三方检测工具无效，检测 API 尚无时间表；\n- 所有套餐均无法退出；\n- 采样参数变化时部分模型可能跳过水印，覆盖率并非无懈可击；\n- 对教师、编辑、发布 AI 辅助内容的企业：把水印当作概率信号而非判决。",
+      "summaryZh": "**中文摘要**\n\n**用户场景**：面向使用 Claude 的开发者、教师、编辑和企业内容发布者。Anthropic 依据 EU AI Act 及加州透明度新规，开始在 Claude 输出文本中嵌入不可见水印，11月3日起覆盖 Mythos 5、Opus 4.7/4.6、Sonnet 4.6 等旧模型，且全球生效、无退出选项。\n\n**核心方法**：水印不添加任何字符或 token，也不影响文本质量。Claude 选词时常在两个等价候选间\"抛硬币\"，水印用密钥替代随机性来决定选择，从而在全文留下微弱统计模式，属于 Google DeepMind SynthID-Text 的变体。该标记能经受复制粘贴和格式调整，但完整重写或翻译会将其抹除。\n\n**关键技巧与注意点**：\n- 检测结果只是\"可能由 Claude 生成\"的概率信号，不能证明作者身份、账号或人类参与度，不可单独作为证据。\n- 目前仅 Anthropic 自己能读取水印，第三方 AI 检测工具无效；官方检测 API 尚无时间表。\n- 采样参数变化时部分模型可能漏标，覆盖率并非无懈可击。\n- 日常开发几乎无感，但涉及内容审核、学术诚信或合规发布时，应把水印视为线索而非结论。",
       "category": "devto"
     },
     {
@@ -119,7 +119,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-03T18:38:30.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 公司商业模式与算力经济的开发者/技术管理者，借 Anthropic IPO 申报文件，揭示大规模 AI 推理与训练背后的真实成本结构，帮助理解\"跑 Claude Code 这类产品到底烧多少钱\"。\n\n**核心方法**：文章拆解 Anthropic 截至 9 月 30 日季度的财务数据——季度营收 170 亿美元（上季度 115 亿），但算力支出达 100 亿美元，占营收 58%（上季度 48%），运营亏损随营收同步扩大。作者用\"算力成本/营收占比\"这一指标，量化 AI 公司的边际成本压力，并披露其与 SpaceX（每月 12.5 亿美元）、Nscale、Akamai、Volta 的多笔数十亿美元级基础设施合约。\n\n**关键技巧**：\n1. 关注\"算力支出占营收比\"这一先行指标，比绝对亏损更能反映 AI 业务的规模化效率；\n2. 注意短期承诺（本季 50 亿美元）与长期合约的区分，前者直接影响现金流风险；\n3. 留意 Anthropic Direct 这类降本项目的进展，它是判断未来毛利率能否改善的关键信号；\n4. 对开发者而言，API 定价与配额策略可能随算力成本波动，集成时应预留成本弹性与多供应商 fallback 方案。\n\n（注：原文数据疑似存在单位或来源误差，引用前建议核对官方 filing。）",
+      "summaryZh": "# Anthropic IPO 文件揭示的 AI 算力经济学\n\n**用户场景**：本文面向关注 AI 公司商业模式与算力成本的开发者，通过 Anthropic IPO 披露文件，剖析大规模 AI 推理与训练背后的真实成本结构，帮助理解 Claude 系列模型运营的经济基础。\n\n**核心方法**：文章基于截至 9 月 30 日的季度财报数据，对比营收与算力支出的比例变化。Anthropic 当季营收达 170 亿美元（上季度 115 亿），但算力成本占营收比例从 48% 升至 58%，单季账单达 100 亿美元，其中 50 亿为短期承诺。公司还披露了与 SpaceX（每月 12.5 亿美元）、Nscale、Akamai、Volta 的数十亿美元级基础设施协议。\n\n**关键技巧**：\n- 关注\"算力成本/营收\"比率这一核心指标，它比绝对数字更能反映 AI 公司的规模化效率；\n- 注意短期承诺与长期合约的拆分，评估现金流压力；\n- 留意 Anthropic Direct 项目——公司正试图通过自建/优化基础设施降低单位算力成本，这是判断未来毛利率走势的关键信号；\n- 对开发者而言，这意味着 API 定价与配额策略可能随成本结构变化而调整，集成时应预留弹性。\n\n**实用价值**：该数据为评估 AI 服务长期可用性与定价趋势提供了罕见的财务透明度参考。",
       "category": "devto"
     },
     {
@@ -130,8 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-02T22:24:00.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 安全与前沿模型研发的开发者与研究者。Anthropic 在修订版 S-1A 文件中披露，其研发流程已引入 AI 辅助，并警告正接近\"递归自我改进\"（recursive self-improvement）能力门槛，即 AI 可显著加速下一代模型的研发。\n\n**核心方法**：Anthropic 在内部研发中使用 AI 开发新模型，并观察到能力出现未被及时识别的陡增。公司据此建立内部阈值评估机制，持续监测进展速度，同时修订安全政策，确保人类监督在研发流程中保持核心地位。\n\n**关键技巧与风险提示**：\n1. 警惕\"能力突跳\"——AI 辅助研发可能带来难以预判的性能跃升，需建立监控指标而非事后复盘；\n2. 设定明确的内部阈值（threshold），在触及前完成安全评估与政策更新；\n3. 不假设系统可完全自主设计下一代模型，保留 significant human supervision；\n4. 财务数据显示收入与支出同步增长，提示 AI 研发投入与商业化需平衡。\n\n对开发者的启示：在引入 AI 辅助编码或模型迭代时，应同步建立能力监控与人工审核环节，避免盲目信任自动化流程。",
+      "summaryZh": "这篇文章实际是Anthropic在修订版S-1A申报文件中发出的安全警告，并非Claude Code的技术教程，因此没有可直接落地的开发技巧。以下按你的框架提炼要点：\n\n**用户场景**：面向关注AI安全边界的开发者和研究者。Anthropic披露其已在研发流程中使用AI辅助开发新模型，并观察到模型能力出现未被提前识别的跃升，由此担忧接近\"递归自我改进\"（recursive self-improvement）临界点。\n\n**核心方法**：公司通过内部评估设定一个\"加速阈值\"，持续监测AI参与研发带来的进展速度；同时考虑修订安全规则，确保人类监督在研发流程中保持核心地位。\n\n**关键技巧/风险提示**：\n- 用AI辅助模型研发可能带来难以预测的能力突变，需建立监控指标而非事后复盘；\n- 明确当前模型尚未越过该阈值，但强调\"完全自主设计下一代模型\"在可预见未来不可安全实现；\n- 对开发者而言，启示是在自动化workflow中保留human-in-the-loop检查点，尤其涉及模型迭代与部署环节。\n\n如需Claude Code、MCP、hooks等实操内容，建议提供对应技术文章。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.318",
+      "titleZh": "v2.1.318",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.318",
+      "author": "ashwin-ant",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-11-04T00:01:03.000Z",
+      "summaryZh": "## Claude Code v2.1.318 更新摘要\n\n**新功能**：新增 mods 授权记录；mantle upstreams 支持 `assume_role`，便于跨 AWS 账户角色与按开发者分摊成本；mod 的 `$.model.fork` 支持 `effort` 选项，让快速子任务以低 effort 运行；`claude auth status` 新增 `loginExpiresAt`，`claude -p` JSON 结果新增 `credential_expires_at`，并在登录到期前 10 天于 stderr 输出警告。\n\n**重要修复**：修复 `--continue` 在畸形工具调用重试耗尽后丢失先前对话（2.1.314 回归）；修复 macOS 多 Bash 命令会话卡顿与内存增长；修复权限提示被误答；修复共享网络 home 下配置写入失败却报成功；修复 `claude mcp add/remove` 未加锁写配置；修复 `claude -p` 与 Agent SDK 在 API 错误截断回复时误报成功；修复版本清理误删其他用户进程二进制；修复空或损坏的 `NODE_EXTRA_CA_CERTS` 导致全部连接失败；修复 `~/.claude.json` 损坏时被默认值覆盖，现改为启动失败并提示恢复。\n\n**破坏性变更**：`~/.claude.json` 非法 JSON 时不再静默替换为默认值，而是拒绝启动；`claude mcp add/remove` 在锁不可用时等待或退出码 1。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.317",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-03T01:25:46.000Z",
-      "summaryZh": "# Claude Code v2.1.317 更新摘要\n\n**新功能**：`/schedule` 新增连接器警告与移除指引；Web/Shell 工具调用前会确认是否发送账户邮箱；Agent SDK hook 支持 `onFailure: \"block\"`；OTel 指标新增 `anthropic.plan`、`anthropic.seat_type` 等属性；网关管理 API 新增成本报告 `GET /v1/organizations/analytics/cost`，支持按开发者、日期、IdP 组统计；新增 `CLAUDE_CODE_DISABLE_NESTED_SESSION_ID` 环境变量。\n\n**重要修复**：`claude -p` 在磁盘满或配额不足导致 transcript 写入失败时不再静默退出 0，改为报错并以 1 退出；修复 `claude auth status` 在 token 刷新未保存前退出导致登出；修复网关返回 403/422 时 auto mode 每轮失败；修复 TLS 代理下证书错误；OTel 导出增加 10 秒超时（可通过 `OTEL_EXPORTER_OTLP_TIMEOUT` 调整至 30 秒）；修复 MCP 服务器首轮后断连、`--from-pr` 找不到会话、PDF 页数统计错误等问题。\n\n**破坏性变更**：未发现明显破坏性变更，主要为行为修正与新增配置项。",
+      "summaryZh": "# Claude Code v2.1.317 更新摘要\n\n本次更新以安全提示、可观测性和稳定性修复为主，无破坏性变更。\n\n**新增功能**\n- `/schedule` 在云端定时任务被附加未请求的 connectors 时发出警告，并提示移除方式。\n- Web 或 shell 工具调用向网络发送账户邮箱前会先请求确认。\n- Agent SDK hook 回调新增 `onFailure: \"block\"`，回调失败时阻止操作执行。\n- OTel 指标、事件和 span 新增 `anthropic.plan`、`anthropic.seat_type`、`anthropic.provider`、`anthropic.custom_base_url` 属性。\n- Claude apps gateway 管理 API 新增成本报告 `GET /v1/organizations/analytics/cost`，支持按开发者、日期或 IdP 组统计。\n- 新增环境变量 `CLAUDE_CODE_DISABLE_NESTED_SESSION_ID`，自托管 runner 上 `claude -p` 可复用会话 ID 与 transcript。\n\n**主要修复**\n- 修复桌面端首轮后 MCP server 断连、`claude auth status` 在 token 刷新保存前退出导致登出、`--from-pr` 在会话较多时误报\"未找到对话\"等问题。\n- `claude -p` 在磁盘满或配额不足导致 transcript 写入失败时不再返回 0，改为报错并以 1 退出。\n- 修复 OTel 导出经代理时的连接风暴、无限挂起（现 10 秒超时，可通过 `OTEL_EXPORTER_OTLP_TIMEOUT` 调至 30 秒）及 https 端点导出丢失。\n- 修复自动压缩后出现\"Prompt is too long\"、TLS 代理下证书错误、Bedrock \"Input is too long.\" 错误被隐藏等问题。\n\n**破坏性变更**：无。",
       "category": "github-release"
     }
   ]
