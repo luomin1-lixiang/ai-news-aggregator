@@ -1,44 +1,70 @@
 {
-  "lastUpdated": "2026-11-04T23:00:57.399Z",
+  "lastUpdated": "2026-11-05T23:02:04.810Z",
   "items": [
     {
-      "title": "Watch Henry Cavill build a video game on his Googlebook",
-      "link": "https://blog.google/products-and-platforms/devices/googlebook/henry-cavill-mustache-protocol-video-game/",
-      "description": "Henry Cavill built a video game on his Googlebook to help support men’s health.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/MP_EP1_HORIZONTAL.max-600x600.format-webp.webp\">Henry Cavill built a video game on his Googlebook to help support men’s health.",
-      "author": "Menaka Shroff (MK)",
+      "title": "Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost.",
+      "link": "https://blog.google/products-and-platforms/products/workspace/omni-1-2-flash-google-vids/",
+      "description": "Create longer AI videos in Google Vids with the new Omni 1.2 Flash model. Generate 15-second clips and consistent scenes for free. Try it now.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pics-blog-header-2784x1566.max-600x600.format-webp.webp\">Create longer AI videos in Google Vids with the new Omni 1.2 Flash model. Generate 15-second clips and consistent scenes for free. Try it now.",
+      "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Wed, 04 Nov 2026 18:00:00 +0000",
-      "titleZh": "Watch Henry Cavill build a video game on his Googlebook",
-      "descriptionZh": "这篇博客简短介绍了 Henry Cavill 利用 Googlebook 开发了一款电子游戏，以支持男性健康议题。文章的核心信息是名人借助游戏开发与科技设备参与健康公益倡导，将游戏作为提升男性健康关注度和推动公益传播的载体。原文未展开游戏类型、开发技术细节、Googlebook 的具体功能、合作机构以及实际应用效果，因此无法进一步分析其技术原理、创新点和更广泛影响；就现有信息看，其应用场景主要面向健康宣传、公益动员和公众教育。"
+      "pubDate": "Thu, 05 Nov 2026 20:00:00 +0000",
+      "titleZh": "Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost.",
+      "descriptionZh": "Google Vids 推出基于新模型 Omni 1.2 Flash 的 AI 视频生成能力，进一步降低 AI 视频创作门槛。此次更新的核心是支持生成更长的 AI 视频：用户可创建 15 秒的视频片段，并在多场景之间保持较好的一致性，同时该功能可免费使用。原文未披露 Omni 1.2 Flash 的具体技术架构和训练细节，但从产品能力看，其创新重点在于延长单次生成时长、提升场景连贯性，并将能力集成到 Google Vids 的视频创作流程中。应用层面，这一更新适合快速制作营销素材、培训视频、社交媒体内容和演示短片等，有助于减少传统视频制作的时间与成本，让更多用户以更低门槛完成 AI 辅助视频创作。"
     },
     {
-      "title": "We're sharing our framework for building safer and more helpful AI for health.",
-      "link": "https://blog.google/innovation-and-ai/technology/health/evaluating-health-ai-at-scale/",
-      "description": "Many of us have turned to AI with a health question or received care from a doctor who’s using it. The adoption of technology for health is accelerating and impacts bill…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Health_AI_Evals_inline.max-600x600.format-webp.webp\">Many of us have turned to AI with a health question or received care from a doctor who’s using it. The adoption of technology for health is accelerating and impacts bill…",
-      "author": "Dr Sarah Montgomery-Taylor",
+      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+      "description": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp\">Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
+      "author": "Anish Nangia",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Wed, 04 Nov 2026 14:00:00 +0000",
-      "titleZh": "We're sharing our framework for building safer and more helpful AI for health.",
-      "descriptionZh": "文章从公众日常向AI咨询健康问题、以及医生在诊疗中使用AI工具的现象切入，指出健康领域的技术采用正在加速，并会对医疗支出、服务可及性和诊疗质量产生广泛影响。在此背景下，文章引出“健康AI评估”（Health AI Evals）这一核心议题：当AI进入健康问答和临床辅助场景后，仅凭模型能力展示或单点测试不足以证明其可靠，需要建立系统化、透明且贴近真实临床需求的评估体系，衡量模型在安全性、有效性、公平性和临床相关性等维度的表现，并识别幻觉、偏差和不当健康建议等风险。\n\n这类评估的价值在于为模型开发者改进系统、医疗机构采购与部署、监管者制定规则以及公众建立信任提供共同依据；其应用场景覆盖健康信息问答、临床决策支持、医生工作流辅助等。文章的核心主张是，健康AI的规模化落地必须与严谨、可复现、贴近临床场景的评估同步推进。由于可见原文仅为开篇，具体评估框架、指标设计和实验结果仍需以全文后续内容为准。"
+      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
+      "titleZh": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
+      "descriptionZh": "谷歌发布了 Gemini Omni 1.2 Flash，在原有全能多模态模型的基础上重点升级视频能力。根据官方披露，新版本最核心的变化是原生支持 15 秒视频生成与编辑：模型可以直接产出连贯的视频片段，而不再依赖逐帧图像拼接，同时允许对已生成视频进行修改和再创作。官方还强调新版本在一致性方面有明显增强，即在镜头运动和时间推移过程中，角色、物体与场景能够保持稳定，减少闪烁、形变和主体漂移等视频生成中的常见问题。价格方面，该版本较此前下调 30%，显著降低了开发者和内容创作者的使用门槛。\n\n从技术定位看，“Omni” 指向统一的多模态框架，文本、图像、音频与视频在同一模型体系内处理，视频生成与编辑共享相近的语义表征，这通常有助于编辑指令与生成结果保持一致，使“先生成、再修改”的迭代流程更加自然。15 秒的原生时长虽然不算长，但已能覆盖短视频、社交内容、广告素材和产品演示等高频场景；编辑能力的加入则让创作者无需每次重新生成，而是可以针对局部进行调整，从而提升实际工作流效率。\n\n从行业影响来看，原生视频能力叠加 30% 的降价，可能进一步加剧 AI 视频生成领域的能力与价格竞争，推动视频生成从“演示可用”走向“生产可用”。典型应用包括短视频批量制作、营销素材快速迭代、影视与游戏前期预演、教育内容生产等。需要注意的是，15 秒的时长仍限制长叙事内容，复杂场景下的一致性与可控性也有待实际测试验证，因此其真正价值取决于生成质量、编辑精度与调用成本之间的综合平衡。"
     },
     {
-      "title": "Take a closer look at art with the Courtauld",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/arts-culture/the-art-of-looking/",
-      "description": "Examine art in new ways with The Art of Looking, a new project from Google Arts & Culture and the Courtauld Institute of Art.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/The_Courtauld_Gallery._Photo_Be.max-600x600.format-webp.webp\">Examine art in new ways with The Art of Looking, a new project from Google Arts & Culture and the Courtauld Institute of Art.",
-      "author": "Mark Hallett",
+      "title": "Investing in Wyoming’s infrastructure, energy and workforce",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/",
+      "description": "We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Wyoming_hero2.max-600x600.format-webp.webp\">We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State.",
+      "author": "Steve Walter",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Wed, 04 Nov 2026 10:00:00 +0000",
-      "titleZh": "Take a closer look at art with the Courtauld",
-      "descriptionZh": "Google Arts & Culture 与伦敦考陶尔德艺术学院（The Courtauld Institute of Art）合作推出新项目“The Art of Looking”，旨在让公众以新的方式审视艺术作品。配图展示的是考陶尔德美术馆，表明项目将围绕该机构的艺术收藏与研究资源展开。背景上，Google Arts & Culture 长期致力于艺术文化内容的数字化呈现与在线传播，考陶尔德艺术学院则是艺术史研究和公共教育的重要机构，双方合作具有将专业艺术史知识转化为大众数字体验的定位。\n\n从项目名称看，其核心创新点在于把“观看”本身作为内容主题，强调引导观众学习如何观察、理解和讨论艺术作品，而不仅是浏览高清图像或线上展览。不过，所给英文信息仅包含项目发布和合作方信息，未披露具体技术实现、交互功能、上线内容及策展方法，因此无法详细解释其技术原理。可确认的是，该项目属于数字文化艺术教育方向，可能依托 Google Arts & Culture 的在线平台呈现。\n\n影响与应用场景方面，此类项目有望降低艺术鉴赏门槛，拓展博物馆公共教育和线上艺术课程的形式，并为观众提供自主学习和深度观看的入口；对文化机构而言，也提供了以“观看方法论”组织数字内容的新思路。"
+      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
+      "titleZh": "投资怀俄明州的基础设施、能源和劳动力",
+      "descriptionZh": "谷歌官方博客宣布，将在美国怀俄明州（“牛仔之州”）建设其在该州的首个数据中心，投资规模达170亿美元。这是谷歌对怀俄明州的一项重大长期资本投入，也标志着其数据中心布局进一步扩展。原文信息非常简短，仅披露了“首个数据中心”和“170亿美元投资”两个核心事实，未说明具体选址、建设周期、算力规模、能效与冷却技术、供电方案、就业岗位数量及税收贡献等细节，因此博文本身并未展开核心技术原理或技术创新点。从数据中心的一般属性看，此类投资通常用于支撑云计算、搜索、广告、AI等大规模在线服务，并可能带动当地基础设施、能源和数字产业生态发展；但上述应用场景属于行业常规推断，原文并未明确说明。总体而言，该消息的核心是谷歌以170亿美元加码怀俄明州数据中心基础设施，具体技术架构和运营影响仍待后续披露。"
+    },
+    {
+      "title": "Transform a quick drawing into a live app with Gemini.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/turn-drawings-into-apps-gemini/",
+      "description": "Turn your sketches into functional apps using Gemini. Upload your drawings to the Canvas tool to generate and refine code instantly. Try it now.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Bring_your_paper_sketches_to_li.max-600x600.format-webp.webp\">Turn your sketches into functional apps using Gemini. Upload your drawings to the Canvas tool to generate and refine code instantly. Try it now.",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
+      "titleZh": "将快速草图变成Gemini驱动的实时应用。",
+      "descriptionZh": "该博客介绍了一项基于 Gemini 的新能力：用户可以将手绘草图上传至 Canvas 工具，由 Gemini 理解绘图内容并即时生成代码，再通过持续对话或编辑对代码进行精炼，从而把手绘想法转化为具备可用功能的应用。其核心创新在于把“纸面草图—代码生成—迭代优化”串联在同一工作流中，降低从创意到可运行原型的门槛，减少早期开发中对完整技术实现的依赖。技术上，这体现了多模态模型对视觉草图的语义理解与代码生成能力的结合，Canvas 则提供生成和精炼代码的操作环境。该能力适用于产品原型快速验证、设计沟通、编程教育和低门槛应用开发等场景，有助于加速想法验证与团队协作。原文鼓励用户直接上传绘图试用。"
+    },
+    {
+      "title": "Check out our free livestream during National Veterans Small Business Week.",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/national-veterans-small-business-week-2026/",
+      "description": "Join our November 2026 YouTube livestream for National Veterans Small Business Week. Master AI skills with Gemini and get 1:1 coaching. Register today.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Check_out_our_free_livestream_d.max-600x600.format-webp.webp\">Join our November 2026 YouTube livestream for National Veterans Small Business Week. Master AI skills with Gemini and get 1:1 coaching. Register today.",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Thu, 05 Nov 2026 14:00:00 +0000",
+      "titleZh": "在全国退伍军人小企业周期间观看我们的免费直播",
+      "descriptionZh": "该英文博客实际上是一则活动预告，而非技术深度文章。它宣布将围绕“National Veterans Small Business Week”（全国退伍军人小企业周）举办一场2026年11月的YouTube直播活动，主题是借助Gemini掌握AI技能，并获得一对一辅导，呼吁读者注册参加。\n\n从背景看，活动面向退伍军人小企业群体，旨在通过线上直播和个性化辅导降低AI技能学习门槛，帮助参与者提升AI素养并将其用于小企业经营。原文提到的核心技术要素仅为Gemini和1:1 coaching，未展开Gemini的模型架构、训练方法或具体技术创新，因此无法从原文详细解释技术原理和创新点。可分析的应用场景主要是AI技能培训、小企业数字化赋能和退伍军人创业支持；潜在影响在于以免费直播和一对一辅导形式推动AI工具普及，增强小企业主使用生成式AI的能力。原文未提供课程大纲、讲师信息、注册链接及直播具体时间等细节。"
     }
   ]
 }
