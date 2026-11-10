@@ -1,70 +1,44 @@
 {
-  "lastUpdated": "2026-11-05T23:02:04.810Z",
+  "lastUpdated": "2026-11-10T01:00:07.517Z",
   "items": [
     {
-      "title": "Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost.",
-      "link": "https://blog.google/products-and-platforms/products/workspace/omni-1-2-flash-google-vids/",
-      "description": "Create longer AI videos in Google Vids with the new Omni 1.2 Flash model. Generate 15-second clips and consistent scenes for free. Try it now.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/pics-blog-header-2784x1566.max-600x600.format-webp.webp\">Create longer AI videos in Google Vids with the new Omni 1.2 Flash model. Generate 15-second clips and consistent scenes for free. Try it now.",
+      "title": "Developers can now build with Google Maps Platform in AI Studio.",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/build-google-maps-platform-ai-studio/",
+      "description": "Developers can now build with Google Maps Platform in AI Studio.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/AI_Studio_blog_social.max-600x600.format-webp.webp\">Developers can now build with Google Maps Platform in AI Studio.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 05 Nov 2026 20:00:00 +0000",
-      "titleZh": "Generate longer AI videos with Omni 1.2 Flash in Google Vids at no cost.",
-      "descriptionZh": "Google Vids 推出基于新模型 Omni 1.2 Flash 的 AI 视频生成能力，进一步降低 AI 视频创作门槛。此次更新的核心是支持生成更长的 AI 视频：用户可创建 15 秒的视频片段，并在多场景之间保持较好的一致性，同时该功能可免费使用。原文未披露 Omni 1.2 Flash 的具体技术架构和训练细节，但从产品能力看，其创新重点在于延长单次生成时长、提升场景连贯性，并将能力集成到 Google Vids 的视频创作流程中。应用层面，这一更新适合快速制作营销素材、培训视频、社交媒体内容和演示短片等，有助于减少传统视频制作的时间与成本，让更多用户以更低门槛完成 AI 辅助视频创作。"
+      "pubDate": "Mon, 09 Nov 2026 17:00:00 +0000",
+      "titleZh": "Developers can now build with Google Maps Platform in AI Studio.",
+      "descriptionZh": "这篇博客目前仅给出了核心公告：开发者现在可以在 Google AI Studio 中使用 Google Maps Platform 进行应用构建。其背景是，AI 应用开发正越来越多地需要结合地理位置、路线规划、地点检索等空间能力，而 Google 将地图平台能力接入 AI Studio，意在让开发者在同一 AI 开发环境中完成从模型调用、提示词/应用原型设计到地图服务集成的流程。\n\n从技术层面看，原文未展开具体实现细节，但可确认的是 AI Studio 已支持与 Google Maps Platform 的集成，使开发者能够在构建生成式 AI 应用时调用地图平台服务。其创新点主要在于降低“AI + 地图”应用的开发门槛，减少在多个平台之间切换和配置的成本，加速原型验证与应用落地。\n\n该能力适用于智能出行、物流配送、本地生活推荐、旅游规划、房地产选址、地理数据分析等场景，也适合需要将自然语言交互与位置智能结合的 AI 应用。整体来看，这一更新强化了 AI Studio 作为开发者构建平台的能力，但原文信息非常有限，具体支持范围、接入方式和使用限制仍有待更完整的博客内容说明。"
     },
     {
-      "title": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
-      "description": "Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini-omni-1.2_FZLql41.max-600x600.format-webp.webp\">Gemini Omni 1.2 Flash brings native 15-second video generation and editing, stronger consistency, and 30% lower pricing.",
-      "author": "Anish Nangia",
+      "title": "Our newest TPUs: 8tx and 8i Max, built for the agentic era",
+      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/tpu-8i-max-and-8tx/",
+      "description": "We’ve expanded our eighth generation TPU portfolio with TPU 8tx and TPU 8i Max, marking four new TPU systems in a single year.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/TPU-8tx_and_8i-Max.max-600x600.format-webp.webp\">We’ve expanded our eighth generation TPU portfolio with TPU 8tx and TPU 8i Max, marking four new TPU systems in a single year.",
+      "author": "Amin Vahdat",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
-      "titleZh": "Gemini Omni 1.2 Flash: Fast and cost-effective with longer clips",
-      "descriptionZh": "谷歌发布了 Gemini Omni 1.2 Flash，在原有全能多模态模型的基础上重点升级视频能力。根据官方披露，新版本最核心的变化是原生支持 15 秒视频生成与编辑：模型可以直接产出连贯的视频片段，而不再依赖逐帧图像拼接，同时允许对已生成视频进行修改和再创作。官方还强调新版本在一致性方面有明显增强，即在镜头运动和时间推移过程中，角色、物体与场景能够保持稳定，减少闪烁、形变和主体漂移等视频生成中的常见问题。价格方面，该版本较此前下调 30%，显著降低了开发者和内容创作者的使用门槛。\n\n从技术定位看，“Omni” 指向统一的多模态框架，文本、图像、音频与视频在同一模型体系内处理，视频生成与编辑共享相近的语义表征，这通常有助于编辑指令与生成结果保持一致，使“先生成、再修改”的迭代流程更加自然。15 秒的原生时长虽然不算长，但已能覆盖短视频、社交内容、广告素材和产品演示等高频场景；编辑能力的加入则让创作者无需每次重新生成，而是可以针对局部进行调整，从而提升实际工作流效率。\n\n从行业影响来看，原生视频能力叠加 30% 的降价，可能进一步加剧 AI 视频生成领域的能力与价格竞争，推动视频生成从“演示可用”走向“生产可用”。典型应用包括短视频批量制作、营销素材快速迭代、影视与游戏前期预演、教育内容生产等。需要注意的是，15 秒的时长仍限制长叙事内容，复杂场景下的一致性与可控性也有待实际测试验证，因此其真正价值取决于生成质量、编辑精度与调用成本之间的综合平衡。"
+      "pubDate": "Mon, 09 Nov 2026 13:00:00 +0000",
+      "titleZh": "我们最新的 TPU：8tx 和 8",
+      "descriptionZh": "谷歌宣布扩展其第八代 TPU 产品组合，新增 TPU 8tx 和 TPU 8i Max，并称这标志着公司在一年内推出了四款新的 TPU 系统。原文属于简短的发布信息，背景是谷歌持续迭代第八代 TPU 产品线；其核心信息在于产品矩阵扩充和发布节奏加快。但原文未披露 TPU 8tx、TPU 8i Max 的具体技术原理、性能参数、架构创新、能效表现及适用场景，因此无法基于该文展开更详细的技术影响和应用分析。整体来看，该消息表明谷歌正在加快 TPU 系统更新频率，并进一步丰富第八代 TPU 的产品布局。"
     },
     {
-      "title": "Investing in Wyoming’s infrastructure, energy and workforce",
-      "link": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/global-network/wyoming-data-center/",
-      "description": "We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Wyoming_hero2.max-600x600.format-webp.webp\">We’re building our first data center in Wyoming, representing a $17 billion investment in the Cowboy State.",
-      "author": "Steve Walter",
+      "title": "Holiday 100: Your guide to this year’s top trending gifts",
+      "link": "https://blog.google/products-and-platforms/products/shopping/holiday-100-gift-guide-2026/",
+      "description": "Google’s Holiday 100 is here. Shop the gifts that are most popular this year and see the Search trends behind them.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog-cover_Holiday100_2026.max-600x600.format-webp.webp\">Google’s Holiday 100 is here. Shop the gifts that are most popular this year and see the Search trends behind them.",
+      "author": "Sagal Mohammed",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
-      "titleZh": "投资怀俄明州的基础设施、能源和劳动力",
-      "descriptionZh": "谷歌官方博客宣布，将在美国怀俄明州（“牛仔之州”）建设其在该州的首个数据中心，投资规模达170亿美元。这是谷歌对怀俄明州的一项重大长期资本投入，也标志着其数据中心布局进一步扩展。原文信息非常简短，仅披露了“首个数据中心”和“170亿美元投资”两个核心事实，未说明具体选址、建设周期、算力规模、能效与冷却技术、供电方案、就业岗位数量及税收贡献等细节，因此博文本身并未展开核心技术原理或技术创新点。从数据中心的一般属性看，此类投资通常用于支撑云计算、搜索、广告、AI等大规模在线服务，并可能带动当地基础设施、能源和数字产业生态发展；但上述应用场景属于行业常规推断，原文并未明确说明。总体而言，该消息的核心是谷歌以170亿美元加码怀俄明州数据中心基础设施，具体技术架构和运营影响仍待后续披露。"
-    },
-    {
-      "title": "Transform a quick drawing into a live app with Gemini.",
-      "link": "https://blog.google/innovation-and-ai/products/gemini-app/turn-drawings-into-apps-gemini/",
-      "description": "Turn your sketches into functional apps using Gemini. Upload your drawings to the Canvas tool to generate and refine code instantly. Try it now.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Bring_your_paper_sketches_to_li.max-600x600.format-webp.webp\">Turn your sketches into functional apps using Gemini. Upload your drawings to the Canvas tool to generate and refine code instantly. Try it now.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 05 Nov 2026 17:00:00 +0000",
-      "titleZh": "将快速草图变成Gemini驱动的实时应用。",
-      "descriptionZh": "该博客介绍了一项基于 Gemini 的新能力：用户可以将手绘草图上传至 Canvas 工具，由 Gemini 理解绘图内容并即时生成代码，再通过持续对话或编辑对代码进行精炼，从而把手绘想法转化为具备可用功能的应用。其核心创新在于把“纸面草图—代码生成—迭代优化”串联在同一工作流中，降低从创意到可运行原型的门槛，减少早期开发中对完整技术实现的依赖。技术上，这体现了多模态模型对视觉草图的语义理解与代码生成能力的结合，Canvas 则提供生成和精炼代码的操作环境。该能力适用于产品原型快速验证、设计沟通、编程教育和低门槛应用开发等场景，有助于加速想法验证与团队协作。原文鼓励用户直接上传绘图试用。"
-    },
-    {
-      "title": "Check out our free livestream during National Veterans Small Business Week.",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/grow-with-google/national-veterans-small-business-week-2026/",
-      "description": "Join our November 2026 YouTube livestream for National Veterans Small Business Week. Master AI skills with Gemini and get 1:1 coaching. Register today.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Check_out_our_free_livestream_d.max-600x600.format-webp.webp\">Join our November 2026 YouTube livestream for National Veterans Small Business Week. Master AI skills with Gemini and get 1:1 coaching. Register today.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Thu, 05 Nov 2026 14:00:00 +0000",
-      "titleZh": "在全国退伍军人小企业周期间观看我们的免费直播",
-      "descriptionZh": "该英文博客实际上是一则活动预告，而非技术深度文章。它宣布将围绕“National Veterans Small Business Week”（全国退伍军人小企业周）举办一场2026年11月的YouTube直播活动，主题是借助Gemini掌握AI技能，并获得一对一辅导，呼吁读者注册参加。\n\n从背景看，活动面向退伍军人小企业群体，旨在通过线上直播和个性化辅导降低AI技能学习门槛，帮助参与者提升AI素养并将其用于小企业经营。原文提到的核心技术要素仅为Gemini和1:1 coaching，未展开Gemini的模型架构、训练方法或具体技术创新，因此无法从原文详细解释技术原理和创新点。可分析的应用场景主要是AI技能培训、小企业数字化赋能和退伍军人创业支持；潜在影响在于以免费直播和一对一辅导形式推动AI工具普及，增强小企业主使用生成式AI的能力。原文未提供课程大纲、讲师信息、注册链接及直播具体时间等细节。"
+      "pubDate": "Mon, 09 Nov 2026 12:00:00 +0000",
+      "titleZh": "Holiday 100: Your guide to this year’s top trending gifts",
+      "descriptionZh": "Google 发布“Holiday 100”节日礼物榜单，背景是年末节日购物季中消费者面临海量商品选择、商家也希望把握消费趋势。该榜单汇总今年最受欢迎的节日礼物，并提供购买入口，同时展示这些热门商品背后的 Google 搜索趋势，帮助用户理解哪些礼物正在受到关注以及热度从何而来。\n\n从技术角度看，原文未展开具体算法或实现细节，核心思路是利用搜索趋势数据反映大众节日购物兴趣，并将热门搜索信号转化为可浏览、可购买的礼物清单。其价值在于把搜索行为数据与购物场景连接起来：对消费者而言，可借助趋势快速发现热门礼物；对零售商和营销人员而言，可观察节日消费偏好和需求变化。整体上，这是 Google 将搜索趋势应用于节日购物决策和商品发现的一个轻量级产品案例。"
     }
   ]
 }
