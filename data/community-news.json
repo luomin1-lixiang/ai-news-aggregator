@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-12T23:00:53.082Z",
+  "lastUpdated": "2026-11-13T23:02:26.689Z",
   "items": [
     {
       "title": "Anthropic's $1.4T IPO, Nvidia's Board Probe, and Apple's Leaked Server",
@@ -9,7 +9,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-11T10:03:16.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 行业动态的开发者，梳理 2026 年 11 月 11 日 AI 领域的重大事件——Anthropic 启动 IPO、纽约州 RAISE Act 开放注册、Nvidia 董事会因 CEO 丑闻启动内部调查，以及 Apple 未发布产品 Harbor 的泄露。\n\n**核心方法**：文章以\"五分钟速览\"加深度分述的结构，逐条拆解各事件的关键数据与法律影响。Anthropic 设定每股 70–78 美元发行区间，目标估值最高 1.4 万亿美元，七位联合创始人各售 3,378,378 股（中点约 2.5 亿美元/人），并通过 Class F 超级投票权股合计控制 51.1% 投票权。纽约 RAISE Act 要求年收入超 5 亿美元的前沿实验室在 2027 年 1 月 1 日前注册，公开安全框架、72 小时内报告重大事故、发布模型透明度报告，首违罚款 100 万美元、再违 300 万美元。Nvidia 股价两日跌 9.5%，董事会聘请 Wachtell 调查 CEO 黄仁勋与疑似间谍 Alice Huang 的婚外情事件。\n\n**关键技巧**：对开发者而言，值得关注的是 Apple 的 Harbor 应用——将 Mac 变为私有推理服务器，以及 Anthropic 新推出的 Claude Meetings、Whiteboards、Sheets（beta）和 Gemini 4 Carbon 的 agent swarm 预览。需警惕的坑：AI 数据中心债务风险（CoreWeave 2032 债券收益率超 16%）、各州 AI 安全法规碎片化带来的合规成本，以及企业治理中\"蜜罐\"式安全风险的不可预测性。",
+      "summaryZh": "# Anthropic $1.4T IPO、Nvidia 董事会调查与 Apple 泄露的服务器应用\n\n## 用户场景\n本文面向关注 AI 行业动态的开发者，梳理 2026 年 11 月 11 日 AI 领域的重大事件：Anthropic 启动 IPO、纽约州 RAISE Act 开放注册、Nvidia 因 CEO 丑闻股价大跌、Apple 秘密开发 Mac 推理服务器应用。\n\n## 核心方法\n文章采用\"五分钟速览 + 分线深挖\"的结构：先给出当日要闻摘要，再逐条展开。每条新闻都配有具体数据（IPO 定价区间、创始人套现金额、罚款额度）和关键时间节点（2027 年 1 月 1 日注册截止、11 月 18 日 Nvidia 向国会汇报）。\n\n## 关键技巧\n- **Anthropic IPO**：发行价 $70–78，估值最高 $1.4T；七位联合创始人各售 3,378,378 股，按中位价约套现 $2.5 亿；创始人通过 Class F 超级投票权股合计控制 51.1% 投票权，控制权不旁落。\n- **RAISE Act 合规**：年收入超 $5 亿的前沿实验室须在 2027 年前注册，公开安全框架、72 小时内报告重大事故、发布模型透明度报告，违规罚款 $100 万起、累犯 $300 万。\n- **Nvidia 治理风险**：董事会聘请 Wachtell 做内部调查，核心问题是 CEO 是否违法、违反公司政策或误导董事会——这是开发者观察企业治理的典型案例。\n- **Apple Harbor**：未发布的 Mac 应用可将 Mac 变为私有推理服务器，值得关注本地推理部署方向。\n\n## 实用价值\n对开发者而言，重点在于：前沿实验室合规成本上升将传导至 API 定价；本地私有推理（Harbor 类方案）可能成为降低依赖云 API 的新选择；Gemini 4 Carbon 定价 $2/百万 input tokens 可作为成本基准参考。",
       "category": "devto"
     },
     {
@@ -20,7 +20,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-12T06:36:43.000Z",
-      "summaryZh": "# Anthropic IPO 路演：安全承诺与 17.5 亿美元套现的碰撞\n\n**用户场景**：本文面向关注 AI 行业动态的开发者，聚焦 Anthropic 启动 IPO 路演这一事件——公司一边宣称 AI 有超 10% 概率导致人类灭绝，一边七位联合创始人各套现约 2.5 亿美元，总计 17.5 亿美元。\n\n**核心方法**：文章从招股书细节切入，拆解三个层面：财务面（前九月营收 332 亿美元、同比增长 1206%，但承诺算力支出高达 8954 亿美元，本质是资本密集的算力生意而非 SaaS）；治理面（创始人通过 Class F 超级投票权股保留 50.1% 控制权，Google、Nvidia 等七家伙伴认购 260 亿美元无投票权股票，换取供应链锁定）；政治面（中期选举中数据中心相关公投全面失利，AI 基建的政治许可结构崩塌，导致估值从传闻的 2 万亿下调至 1.1–1.4 万亿）。\n\n**关键技巧**：对开发者而言，值得关注的是 S-1 中\"closing the loop\"的递归自我改进机制——模型参与构建后续模型，被公司称为\"前沿 AI 最重要的结构性优势之一\"，同时又被列为灾难性风险来源。此外，Long-Term Benefit Trust 这一安全治理机构可被超级多数股东投票终止，即所谓\"kill switch\"，提示我们评估 AI 公司治理时，应穿透叙事看股权结构与合同条款，而非只看使命宣言。",
+      "summaryZh": "**用户场景**：文章面向关注 AI 公司治理与 IPO 的开发者/投资者，聚焦 Anthropic 上市路演中\"安全承诺\"与\"创始人套现\"之间的矛盾——一家公开宣称 AI 有超 10% 概率导致人类灭绝的公司，七位联合创始人却各套现约 2.5 亿美元，合计 17.5 亿美元。\n\n**核心方法**：作者用招股书数据拆解叙事：营收九个月同比增 1206% 至 332 亿美元、年化运行率约 810 亿，但对应 8954 亿美元算力承诺支出——本质是资本密集的算力生意，而非 SaaS 毛利模型。同时指出 Google、Nvidia、TSMC 等七家战略伙伴认购 260 亿美元无投票权 Class N 股票，用治理权换供应链锁定，IPO 更像算力采购协议。\n\n**关键技巧**：\n1. 关注\"中期折价\"：估值从传闻 2 万亿降至 1.3–1.4 万亿，买方甚至谈 1.1 万亿，源于数据中心公投全面失利带来的政治风险传导。\n2. 警惕治理\"kill switch\"：Long-Term Benefit Trust 可被超级多数股东投票终止，Class F 单股掌握 50.1% 投票权，安全使命可被华尔街否决。\n3. 读 S-1 要看风险因素与\"closing the loop\"递归自改进表述的张力，而非只看基准分数。",
       "category": "devto"
     },
     {
@@ -31,7 +31,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-12T05:33:39.000Z",
-      "summaryZh": "## 中文摘要\n\n本文讨论 Claude 模型选型：Fable 5.2 虽在 Artificial Analysis 榜单登顶（65 分，FrontierCode 2.0 达 49.1%），但 Anthropic 官方建议不要将其设为默认模型，核心矛盾在于\"榜单最强\"与\"日常主力\"的差异。\n\n**用户场景**：面向使用 Claude API、在 Claude Code 中写代码或为对话选型的开发者，解决\"该用哪个模型\"的实际决策问题。\n\n**核心方法**：作者提出按任务难度做路由（routing）而非固定默认。关键数据：Fable 5.2 定价 $8/$40 每百万 token，Opus 5.5 为 $4/$20，正好 2 倍差价；但 Fable 在 High effort 下约等于 Opus 在 Max effort 的效果，且每任务成本仅约一半——因为它推理更高效、用更少 token 解决问题。因此简单任务用 Fable 是纯浪费，难题用 Opus 反复重试反而更贵。\n\n**关键技巧**：\n- 默认用 Opus 5.5：任务明确、批量/agentic 流水线（2 倍成本会逐次累积）、需快速迭代、通用知识工作（AA-Briefcase Elo 上 Opus 1800 反超 Fable 1785）。\n- 升级到 Fable 5.2：Opus 已失败（一次成功比三次失败便宜）、开放式架构设计、错误代价高（安全审计、生产代码 review）、触及能力边界（FrontierCode 2.0、HLE、BenchCAD 2.1 中 83.5 vs 65.3）。\n- 一句话规则：若你打算用 Opus 跑 Max effort，不如直接换 Fable。",
+      "summaryZh": "## Fable 5.2 vs Opus 5.5：何时用哪个\n\n**用户场景**：作者面向使用 Claude API、在 Claude Code 中写代码、或为聊天选型的开发者，解决一个核心困惑——榜单第一的 Fable 5.2 为何不被 Anthropic 推荐为默认模型？答案是：模型选择不是\"选最强\"，而是按任务难度做路由决策。\n\n**核心方法**：作者提出基于\"任务难度 + 错误成本\"的决策树。默认用 Opus 5.5：任务规格明确、批量/agentic 流水线、需要快速迭代、通用知识工作（AA-Briefcase Elo 上 Opus 1800 反超 Fable 1785）。升级到 Fable 5.2 的四个信号：Opus 已失败、任务真正开放（架构设计、方案探索）、错误代价高（安全审计、生产代码 review）、触及能力前沿（FrontierCode 2.0、科学推理、硬件工程）。\n\n**关键技巧**：\n1. **按任务而非按 token 算成本**：Fable 单价 2 倍（$8/$40 vs $4/$20），但在难题上 High effort 约等于 Opus Max 效果、每任务成本仅一半；简单任务上则是纯浪费。\n2. **重试成本论证**：一次成功的 Fable 调用比三次失败的 Opus 尝试更便宜——先让 Opus 试，失败再升级。\n3. **批量流水线警惕 2 倍乘数复利**：100 次 Opus 调用 = 50 次 Fable 调用，规模化时决定产品是否可行。\n4. **一句话规则**：如果你打算用 Opus 5.5 跑 Max effort，不如直接换 Fable。",
       "category": "devto"
     },
     {
@@ -42,7 +42,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-11T04:43:21.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：文章聚焦 Claude Code 的一个安全漏洞——用户在授权 shell 命令时选择 \"Yes, and don't ask again\"，Claude Code 会把整条命令（含密码、密钥）作为永久 allow rule 写入 `.claude/settings.local.json`。Apiiro 在 1,994 个仓库中发现 2,539 个泄露密钥，主要影响共享仓库或公开仓库的开发者团队。\n\n**核心方法**：问题根源在于 Claude Code 的默认保护只把该文件加入用户本机的 global git excludes，而项目自身的 `.gitignore` 并不包含它，因此 clone、CI runner 和队友都得不到保护。受影响文件中 19% 连 Gitleaks 和 TruffleHog 都未检出，因为密码常以 `PGPASSWORD=`、`sshpass -p` 或请求头形式出现，不符合扫描器模式。文件中位存续时间达 217 天，相关 GitHub issue 被标记为 \"not planned\"。\n\n**关键技巧**：Apiiro 建议按优先级处理——先轮换所有曾出现在该文件及 git history 中的凭证（删除文件无法清除历史记录），再执行 `git rm --cached .claude/settings.local.json` 并写入项目 `.gitignore`，然后删除含明文密钥的 allow rule。日常应使用 `$VAR` 引用 secrets manager 提供的值，并授权 `Bash(npm run:*)` 这类模式而非字面命令。共享工作区的团队尤其要把该 `.gitignore` 条目加入项目模板并立即扫描存量仓库。",
+      "summaryZh": "**用户场景**：使用 Claude Code 的开发者（尤其是共享仓库、外包团队和全球能力中心）在批准 shell 命令时选择“Yes, and don't ask again”，导致含密码、密钥的完整命令被永久写入本地配置文件，进而泄露到公开仓库。\n\n**核心方法**：Apiiro 研究发现，该选项会把整条命令（包括 `PGPASSWORD=`、`sshpass -p`、`mysql -p` 后的明文密码及请求头中的凭据）保存为 allow rule 到 `.claude/settings.local.json`。Claude Code 默认只把该路径加入用户全局 git excludes，项目 `.gitignore` 并不覆盖，克隆、CI 和队友均无保护。共发现 103,617 个仓库中 104,185 份公开副本，1,122 份含真实密钥（数据库密码 379、Supabase service-role key 122、AWS key 23 等），叠加 git 历史、共享 `settings.json` 和 agent 聊天日志后达 2,539 个。文件中位存续 217 天，相关 GitHub issue 被标记为“not planned”。\n\n**关键技巧**：① 优先轮换所有曾出现在该文件及 git 历史中的凭据——删文件不等于清除历史；② 执行 `git rm --cached .claude/settings.local.json` 并把路径写入项目自身 `.gitignore`；③ 删除含明文密钥的 allow rule；④ 用 `$VAR` 引用 secrets manager 提供的值；⑤ 批准 `Bash(npm run:*)` 这类模式而非字面命令。注意 Gitleaks/TruffleHog 漏报约 19% 的文件，需人工审计。",
       "category": "devto"
     },
     {
@@ -53,7 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-11T18:12:51.000Z",
-      "summaryZh": "## Claude AI 是什么：Anthropic 助手解析\n\n**用户场景**：文章面向想了解 Claude 的开发者与知识工作者，解决\"该选哪个 AI 助手\"的困惑——尤其适合长文档处理、代码库理解和需要严谨输出的专业场景。\n\n**核心方法**：Anthropic 采用 Constitutional AI（宪法式 AI），给模型一套\"有帮助、诚实、无害\"的原则，让它自我批判和修订回答，而非仅依赖人类评分。实际效果是 Claude 更愿承认不确定性、语气克制、适合长任务。当前四档模型（Fable 5.2、Opus 5.5、Sonnet 5.5、Haiku 5.5）共享 100 万 token 上下文窗口，可一次容纳整个代码库或书稿。\n\n**关键技巧**：\n- **Projects**：把风格指南、旧文档、禁用词一次性载入工作区，后续对话自动继承上下文，免去每天重复粘贴指令。\n- **Research mode**：让 Claude 跨多源检索并返回带引用的结构化报告，适合市场调研或论文写作。\n- **Claude Code**：终端式编码 agent，直接在项目目录中完成真实编程任务，Pro 及以上套餐包含。\n- **注意用量**：计费按滚动 5 小时窗口加周上限，大模型长编码会话消耗极快，需盯住用量指示器，避免项目中途被限流。\n\n对开发者而言，Claude 的差异化价值在于\"细心阅读、细心写作\"的工具定位，而非追求炫技。",
+      "summaryZh": "## Claude AI 是什么：Anthropic 助手解析\n\n**用户场景**：文章面向想了解 Claude 的开发者与知识工作者，解决\"选哪个 AI 助手做长文档处理和编程\"的问题。作者强调 Claude 适合任务长、细节重要的专业场景，而非闲聊。\n\n**核心方法**：Anthropic 用 Constitutional AI 训练——给模型一套\"有帮助、诚实、无害\"的原则清单，让它自我批判和修订回答，而非仅靠人类打分。实际效果是 Claude 会承认不确定性、不过度承诺、语气克制。当前四档模型（Fable 5.2、Opus 5.5、Sonnet 5.5、Haiku 5.5）共享 100 万 token 上下文窗口，可一次容纳整个代码库或书稿。\n\n**关键技巧**：\n- **Projects**：把风格指南、旧文档、禁用词一次性载入工作区，之后每个对话自动继承上下文，省去反复粘贴指令。\n- **Research mode**：让 Claude 跨多源检索并返回带引用的结构化报告，适合市场调研或论文写作。\n- **Claude Code**：终端式编程 agent，直接在项目文件夹中执行真实编程任务，Pro 及以上套餐可用。\n- **注意用量陷阱**：Claude 按滚动 5 小时窗口计量并叠加周上限，大模型长时间编码消耗远快于闲聊，需盯住用量指示器，避免项目中途被限流。\n\n**定价**：Free $0、Pro $20/月、Max $100/月（约 5 倍 Pro）、Ultra $200/月（约 10 倍周用量，原 Max 20x）。",
       "category": "devto"
     },
     {
@@ -64,30 +64,41 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-11T10:02:13.000Z",
-      "summaryZh": "# Anthropic IPO 招股书解读：1040亿亏损背后的真相\n\n**用户场景**：文章面向关注 AI 公司商业模式与财务健康的开发者和投资者，剖析 Anthropic 上市招股书中容易被误读的关键数字。\n\n**核心方法**：作者拆解招股书三处细节——GAAP 净亏损、基础设施承诺、投资方与供应商的重叠关系，还原公司真实经营状况。\n\n**关键技巧与要点**：\n1. **区分会计亏损与经营亏损**：1040亿美元净亏损中，943亿来自股权工具公允价值变动（估值上升的会计后果），并非实际支出。实际经营亏损从52.2亿收窄至12.6亿，营收同比增长1206%，经营现金流由负转正。\n2. **关注基础设施承诺的期限结构**：约9009亿美元算力承诺，其中707亿一年内到期；现金储备1318亿可覆盖短期，但合同延伸至2045年，风险画像更接近 hyperscaler 而非普通软件公司。\n3. **警惕循环交易**：七家公司以 IPO 价格认购260亿美元股票，其中多家同时是 Anthropic 的算力供应商，投资与采购形成闭环，需评估潜在利益冲突。\n\n**实用价值**：读财报时先看 operating loss 和现金流，别被 headline net loss 吓到；评估 AI 公司要看长期资本承诺而非仅看营收增速。",
+      "summaryZh": "**用户场景**：文章面向关注 Anthropic IPO 的投资者与开发者，试图拆解其招股书中\"1040 亿美元净亏损\"与\"1.4 万亿美元估值\"背后的真实经营状况，避免被头条数字误导。\n\n**核心方法**：作者对比 2023–2026 年财务数据，区分 GAAP 净亏损与经营亏损。关键发现：9M 2026 营收 332 亿美元（同比 +1206%），经营亏损从 52.2 亿收窄至 12.6 亿，经营现金流由 -20.2 亿转为 +65.7 亿；而 1040 亿净亏损中 943 亿来自股权工具公允价值变动——即\"公司更值钱\"本身被计入费用，并非真实运营支出。\n\n**关键技巧**：\n1. 看财报先剥离非经营性项目，公允价值变动、股权激励常扭曲净利，经营亏损与现金流才是真实信号。\n2. 关注算力成本占营收比（172%→57%），这是 AI 公司规模化经济性的核心指标。\n3. 警惕基础设施承诺：Anthropic 签约约 9009 亿美元算力支出，合同延至 2045 年，商业模式已从\"租 GPU 的软件公司\"转向重资产 hyperscaler，风险结构完全不同。\n4. 注意循环交易：7 家公司以 IPO 价认购 260 亿美元股票，其中多家同时是算力供应商，投资与采购互相抬升估值，需评估利益冲突。",
       "category": "devto"
     },
     {
-      "title": "Claude Fable 5.2 nedir? Fiyat, limit, farklar",
-      "titleZh": "Claude Fable 5.2 是什么？价格、限制、差异",
-      "link": "https://dev.to/huseyinbozdemir/claude-fable-52-nedir-fiyat-limit-farklar-1m0e",
-      "author": "Hüseyin Bozdemir",
+      "title": "TypoPrompting: dominios falsos de IA con malware",
+      "titleZh": "TypoPrompting：带有恶意软件的虚假 AI 域名",
+      "link": "https://dev.to/henryramireztech/typoprompting-dominios-falsos-de-ia-con-malware-5bl8",
+      "author": "Henry Ramirez",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-10T20:14:26.000Z",
-      "summaryZh": "**用户场景**：作者面向通过 API 调用 Claude 的开发者，指出从 Fable 5.1 升级到 5.2 时，仅改模型名不够，有四处破坏性变更会导致现有代码报错。\n\n**核心方法**：文章梳理迁移要点：Fable 5.2 与 Mythos 5.2 实为同一模型，差别在安全分类器（Fable 有网络安全/生物领域拦截，被拒时返回 HTTP 200 + stop_reason: \"refusal\"，API 需自行配置重试降级）。定价降至输入 $8/输出 $40 每百万 token，Fast mode 翻倍但提速 2.5 倍。建议多数任务先用 Opus 5.5，不够再上 Fable。\n\n**关键技巧**：最隐蔽的坑是 thinking block 与 system、tools 及历史消息绑定，任何\"编辑历史\"操作（重写日期、裁剪工具结果、客户端摘要、增删 tools）都会触发 400：Invalid `signature` in `thinking` block。5.2 对所有账户强制此校验。此外，对话中途切回 Opus 会静默丢弃 thinking block；旧 computer_20251124 工具在 Bedrock 外报 400，需换 computer_toolset_20260801；Advisor 工具要求执行与咨询模型一致。临时方案是启用 beta 的 prefix_mismatch_behavior: \"drop_block\"。另注意 Fable 消耗限额更快，reset 仅返还 Fable 部分用量。",
+      "pubDate": "2026-11-13T18:15:42.000Z",
+      "summaryZh": "## TypoPrompting：仿冒 AI 域名的恶意软件陷阱\n\n**用户场景**：开发者日常手动输入 Claude、ChatGPT 等 AI 工具网址，一个按键失误（相邻键、字母颠倒、漏字）就可能落入仿冒域名。Island 追踪了 186 个仿冒 27 个 AI 品牌的域名，其中 ChatGPT 相关 25 个、Claude 18 个、DeepSeek 16 个，如 cloude.ai、chatlgpt.com、preplexity.ai 等，部分注册时间可追溯到 2023 年 7 月。\n\n**核心方法**：攻击者通过停放域名做流量分发，根据国家、操作系统、浏览器指纹定向投递三种载荷：一是伪造 Cloudflare 验证页，诱导用户打开 Windows\"运行\"框粘贴命令（ClickFix 手法），用 curl.exe 下载 PowerShell 脚本 W901.ps1，隐藏窗口并绕过执行策略；macOS 则伪装成 Terminal 更新；二是通过 deezyj.com 分发与微软商店字节级一致的 MSIX 包（Net Guard），内含隐藏浏览器控件，趁用户离开时篡改 Chrome 默认搜索引擎并安装任意扩展；三是通过 Chrome Web Store 扩展 Quick Search 静默劫持搜索到 find.flashysearches.com，同批 17 个扩展合计声称 97.2 万用户。\n\n**关键技巧**：防御核心是减少手输——为批准的 AI 工具配置托管书签或官方快捷方式；任何要求\"粘贴命令到运行框或终端\"的验证页一律视为钓鱼；商店有效签名不代表行为安全（Net Guard 即是反例）；定期审查浏览器默认搜索引擎与已装扩展，优先排查 11 月 3 日仍在架的 17 个扩展。",
       "category": "devto"
     },
     {
-      "title": "Claude Code's API billing depends on how often the cache expires",
-      "titleZh": "Claude Code 的 API 计费取决于缓存过期的频率",
-      "link": "https://news.ycombinator.com/item?id=50467233",
-      "author": "MaxBozhenko",
-      "source": "Hacker News",
-      "sourceType": "hackernews",
-      "pubDate": "2026-11-12T14:02:38.000Z",
-      "summaryZh": "**讨论主题**：Hystax CTO 分享在 Claude Code 中测试开源工具 Kompressor 的经验，核心发现是：Claude Code 的 API 计费主要受 prompt cache 过期影响，而非工具输出冗余。\n\n**核心观点**：Claude Code 的请求几乎都由长缓存前缀加少量新内容组成，缓存读取约占总计费 token 的 92–95%，单价约 $0.20/百万 token；而 5 分钟缓存写入单价 $5，是读取的 25 倍。当 agent 执行 build、训练等长任务导致缓存过期时，前缀需重新写入缓存。在 89 个任务的测试中，缓存过期发生 33 次，重写约 92.7 万 token，约占全额计费量的三分之一。因此，压缩缓存前缀反而可能使缓存失效，得不偿失。\n\n**实用价值**：作者给出三条策略：只压缩未缓存的新内容，已缓存部分保持字节不变；工具运行期间每 4.5 分钟用 `max_tokens: 1` 发一次请求“保温”，防止 5 分钟缓存过期；首次超过 5 分钟暂停后改用 1 小时缓存。在 Terminal-Bench 2.1 上，单次成本从 $35.35 降至 $28.30（-20%），缓存过期损失从 92.7 万 token 降至 1.3 万，长等待任务成本降幅达 34%。注意：任务成功率差异仅来自 89 个任务中的 4 个，样本有限。",
-      "category": "hackernews"
+      "title": "Claude Managed Agents en servidores propios ya es beta",
+      "titleZh": "Claude Managed Agents 在自己的服务器上已是 beta 版",
+      "link": "https://dev.to/henryramireztech/claude-managed-agents-en-servidores-propios-ya-es-beta-1ief",
+      "author": "Henry Ramirez",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-13T11:17:50.000Z",
+      "summaryZh": "## Claude Managed Agents 自托管 Beta 解读\n\n**用户场景**：银行、医院等数据合规严格的企业，希望使用 Claude 智能体自动修复构建、测试版本、分类告警，但此前控制平面仍在 Anthropic 服务器上，导致无法通过内部安全审查。11月12日开放的私有 Beta 允许将整套服务迁至企业自有云或数据中心。\n\n**核心方法**：自托管架构由三部分组成——`cma-server`（提供 API、运行 agent 循环、存储 agent/会话/历史）、PostgreSQL 16+ 数据库（否则重启即丢数据）、worker（在客户沙箱内执行工具）。模型本身不迁移：每次调用由服务器将累积对话及工具结果发送至企业选定的推理提供商（Anthropic、Bedrock、Google、Microsoft Foundry 或自建网关），并携带 session/agent/environment 标识符。开发者沿用托管版相同接口，现有代码无需重写。\n\n**关键技巧**：\n- **脑手分离**：agent 循环、会话历史、密钥保险库均在沙箱之外，沙箱仅在工具需要时启动，因为 agent 生成的代码本质是未经人工审查的代码。\n- **凭据不入沙箱**：MCP 工具和兼容 API 调用由外部代理注入凭据，自托管模式下企业用自己的 secret manager 保管。\n- **网络白名单**：每个沙箱配置允许主机列表并阻断其他出站，修构建场景建议仅放行代码服务器和包仓库。\n- **全链路可观测**：记录每次工具调用及结果，通过 OpenTelemetry 导出到现有监控。\n- **注意运维成本**：版本升级、数据库打补丁、防火墙均需自行负责；官方文档列有仅托管版才有的功能，迁移前需逐项核对。Beta 仅限受邀企业，无公开定价，单机可用 Docker Compose 起步，后续部署走 Kubernetes。",
+      "category": "devto"
+    },
+    {
+      "title": "Bloomberg: Orders for Anthropic shares are six times the number of shares available",
+      "titleZh": "彭博社：Anthropic股票的订单量是可用股票数量的六倍",
+      "link": "https://dev.to/hacksgr/bloomberg-orders-for-anthropic-shares-are-six-times-the-number-of-shares-available-5906",
+      "author": "Hacks.gr",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-13T07:02:25.000Z",
+      "summaryZh": "这篇文章实际并非技术教程，而是一则关于 Anthropic IPO 的财经新闻，因此无法按“用户场景/核心方法/关键技巧”的技术框架总结。以下为面向开发者的要点提炼：\n\n**事件概要**：据 Bloomberg 报道，Anthropic（Claude 模型开发商）IPO 认购订单约为可售股份的 6 倍，超额认购明显。公司拟通过 IPO 募资至多 644 亿美元，另通过并行私募配售募资 260 亿美元，合计规模将超过 SpaceX，成为史上最大 IPO。目标估值约 1.4 万亿美元（完全稀释口径），低于部分投资者预期。Nvidia 同意在私募中认购约 100 亿美元，Anthropic 视其为战略伙伴，并已承诺数百亿美元芯片采购协议。承销由 Goldman Sachs 和 Morgan Stanley 牵头，另有 20 家银行参与，股票预计以代码 ANT 在 Nasdaq Global Select Market 交易。截至 10 月 31 日年化收入 810 亿美元（基于 28 天用量与订阅费年化，非全年实际收入），较 9 月底增加 100 亿。CEO Dario Amodei 将与 JPMorgan CEO Jamie Dimon 同台路演。\n\n**对开发者的实际意义**：若关注 Claude API 与 Claude Code 的长期可用性、定价稳定性和算力供给，此次巨额募资与 Nvidia 深度绑定意味着模型推理基础设施投入会继续加码，短期内 API 服务能力和模型迭代节奏大概率不受影响；但估值与收入口径（年化而非确认收入）需谨慎解读。文中关于 Nvidia CEO 变动及“间谍”传闻的部分来源单一、缺乏可靠佐证，建议不作为判断依据。",
+      "category": "devto"
     },
     {
       "title": "Claude Fable 5.2 vs Opus 5.5: which one should you actually use?",
@@ -97,29 +108,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-12T10:03:38.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：Anthropic 于2026年11月发布 Claude Fable 5.2，开发者普遍困惑是否应从 Opus 5.5 迁移。作者针对日常编码、bug 修复、写作、数据分析等场景，给出选型建议。\n\n**核心方法**：作者主张\"Opus 5.5 做日常主力，Fable 5.2 攻坚\"的分层策略。两者上下文窗口（1M）、最大输出（128K）、缓存读取价格（$0.20）完全相同，Fable 并非\"更大\"，而是在长链路、多步骤任务上更强。价格上 Fable 为 $8/$40，恰是 Opus（$4/$20）的两倍。基准测试显示任务越长越复杂，Fable 领先越明显（如 FrontierSWE v2 69.9% vs 62.3%，Remote Labor Index 41.3% vs 21.3%），但短任务上 Opus 反而略优。\n\n**关键技巧**：\n1. **升级路径**：先在 Opus 5.5 默认 effort 下尝试，效果不佳则依次调高到 high、xhigh，仍不行再针对单个任务切到 Fable，完成后切回。\n2. **成本意识**：按每日20个中等任务估算，月成本 $651 vs $1,267，常规工作用 Fable 纯属浪费；追求速度时 Opus fast mode 与 Fable 常速同价，更划算。\n3. **Claude Code 切换**：需 2.1.321+ 版本，用 `/model fable` 切换；在 picker 中按 `s` 仅对当前会话生效，避免误将昂贵模型设为默认。\n4. **API 陷阱**：Fable 的 thinking 始终开启，传 `thinking: {type: \"disabled\"}` 或 `budget_tokens` 会返回 400，应改用 effort 参数；强制工具选择（`tool_choice` 设为 any 或指定工具）同样报 400，需用 auto 并在 prompt 中说明工具。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：Anthropic 于2026年11月9日发布 Claude Fable 5.2，开发者面临是否从 Opus 5.5 迁移的抉择。作者针对日常编码、bug 修复、写作、数据分析等场景，给出成本与性能的权衡建议。\n\n**核心方法**：作者主张以 Opus 5.5 作为\"日常主力\"（$4/$20 每百万 token），仅在处理大型多文件改动、长时间自主运行的 agent 任务、以及 Opus 反复出错的难题时切换到 Fable 5.2（$8/$40，价格恰好翻倍）。两者上下文窗口（1M）、最大输出（128K）、缓存读取价格均相同，Fable 并非\"更大\"，而是在长链路多步任务上更强——FrontierSWE v2 达 69.9% vs 62.3%，Remote Labor Index 41.3% vs 21.3%，但 AA-Briefcase Elo 上 Opus 反而领先。\n\n**关键技巧**：\n1. **升级路径**：先用 Opus 默认 effort，效果不佳则依次调至 high、xhigh，仍不行再针对单个任务切 Fable，难题解决后切回。\n2. **成本量化**：以 500K 输入（含 400K 缓存）+ 50K 输出为例，单任务 $1.48 vs $2.88，每月 440 个任务差距达 $651 vs $1,267，常规工作用 Fable 纯属浪费。\n3. **Claude Code 切换**：需 2.1.321+ 版本，`/model fable` 切换，`/model opus` 切回；在 picker 中按 `s` 仅对当前会话生效，避免误留在高价模型上。\n4. **API 陷阱**：thinking 恒开启，传 `thinking: {type: \"disabled\"}` 或 `budget_tokens` 会返回 400，应改用 effort 参数；强制工具选择已移除，`tool_choice` 设为 `any` 或指定工具均报 400，需用 `auto` 并在 prompt 中说明用哪个工具。\n5. **速度需求**：Opus 5.5 fast 模式价格等于 Fable 常规速度，追求速度时 Opus fast 更划算。",
       "category": "devto"
     },
     {
-      "title": "Claude will participate in video calls and create shared designs and sheets",
-      "titleZh": "Claude将参与视频通话并创建共享设计和表格",
-      "link": "https://dev.to/hacksgr/claude-will-participate-in-video-calls-and-create-shared-designs-and-sheets-2b2a",
+      "title": "Anthropic prepares for IPO, but investors from China and Hong Kong stay out",
+      "titleZh": "Anthropic筹备IPO，但来自中国和香港的投资者被排除在外",
+      "link": "https://dev.to/hacksgr/anthropic-prepares-for-ipo-but-investors-from-china-and-hong-kong-stay-out-938",
       "author": "Hacks.gr",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-10T18:23:18.000Z",
-      "summaryZh": "## 中文摘要\n\nAnthropic 正在测试 Claude 的企业协作能力，核心场景是让 AI 从\"对话助手\"变成\"会议与文档的主动参与者\"。\n\n**用户场景**：团队在 Google Meet 开会时，需要有人记录、排期、查数据、整理产出。Claude Meetings 以可见成员身份加入视频会议，跟随讨论节奏，可起草计划、在白板上生成时间线、在聊天中回应，并检索已连接的工作应用（如去年财务数据）。会后笔记、任务分配等材料自动汇总到 claude.ai。\n\n**核心方法**：Claude 通过连接企业数据源（数据仓库、CRM）和第三方应用（Adobe、Atlassian、HubSpot 可直接在 Claude 内打开完整应用）来获取上下文；Claude Whiteboards 支持多人同时编辑同一白板，讨论推进时内容实时填充，完成后可一键转为文档或演示文稿；Claude Sheets 支持多标签、公式、格式化和菜单操作，Claude 能直接改单元格并逐项说明改动。\n\n**关键技巧与注意点**：Claude 会主动告知参会者自己在场，并向其会话发送通知；涉及外部嘉宾的会议需管理员批准，外部嘉宾加入时 Claude 自动退出——这是企业合规的关键设计。目前仅支持 Google Meet，Team 和 Enterprise 套餐处于测试阶段，Whiteboards 和 Sheets 已在订阅计划中开放试用（Web、桌面、移动端）。对开发者而言，值得关注的是\"AI 作为会议参与者\"这一交互范式，以及通过 MCP 类连接器打通企业系统的落地路径。",
-      "category": "devto"
-    },
-    {
-      "title": "PSI says Fable 5.2 helped solve 18-year-old question about quantum computers",
-      "titleZh": "PSI称Fable 5.2帮助解决了关于量子计算机的18年难题",
-      "link": "https://dev.to/hacksgr/psi-says-fable-52-helped-solve-18-year-old-question-about-quantum-computers-f0b",
-      "author": "Hacks.gr",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-10T19:40:21.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 辅助科研的开发者与研究者，讲述初创公司 PSI 的技术成员 David Turturean 借助 Anthropic 早期访问版模型 Fable 5.2，攻破悬置 18 年的量子计算理论难题——Aaronson–Ambainis 猜想。该猜想关乎量子计算机能否在特定难题上实现指数级加速。\n\n**核心方法**：PSI 构建的是\"AI 模型 + 专用工具 + 记忆系统 + 仿真基础设施\"的组合研究系统，而非单纯调用模型。关键流程是：模型产出证明后，将其转换为 Lean 可机器校验的形式，再交由领域顶尖研究者审阅、解释与验证。作者强调，数学与计算机科学因结果可形式化、可用代码检验，是 AI 最先落地的领域；物理与生命科学因需实验验证，难度更高。\n\n**关键技巧**：(1) 用 Lean 等 proof assistant 对 AI 输出做形式化校验，是降低幻觉风险的核心手段；(2) 结果先内部封存，待模型正式发布后再同步给同行，兼顾保密与可复现；(3) 注意结论边界——该证明只排除量子优势的一条可能路径，并非全部，避免过度解读；(4) 连猜想提出者 Aaronson 都坦言\"未完全理解但相信正确\"，说明人类审阅仍是必要环节。对开发者而言，可复用的是\"生成—形式化验证—专家复核\"这一闭环，而非模型本身。",
+      "pubDate": "2026-11-13T17:25:25.000Z",
+      "summaryZh": "# 中文摘要\n\n**用户场景**：本文面向关注 AI 行业资本动态的开发者与投资者，聚焦 Anthropic 启动 IPO（纳斯达克代码 ANT，11 月 18 日定价）这一事件，核心问题是：在美中 AI 竞争与出口管制背景下，中国大陆和香港机构投资者被明确排除在认购之外，部分投资者试图寻找间接参与路径。\n\n**核心方法**：文章梳理了排除机制与规避尝试。排除依据部分来自美国《国际武器贸易条例》（ITAR），与 SpaceX IPO 时要求承销商不接受中国大陆及香港订单的做法类似。尽管承销银行未正式禁止客户下单，但多数拒绝接单，认为难以获得配售。部分投资者转而通过英属维尔京群岛信托、SPV 或 swap 协议间接参与，成败取决于 Anthropic 的决定。\n\n**关键技巧与风险提示**：\n- 关注招股书中披露的美国政府审查风险，Anthropic 已限制中国大陆和香港用户访问其产品；\n- 认购仅限美国、澳大利亚、加拿大、日本、瑞士、英国及欧洲经济区等指定司法辖区；\n- 间接路径（信托、SPV、swap）存在合规与执行不确定性，不宜视为稳妥方案；\n- 市场需求达发行量的六倍，配售竞争激烈。\n\n对开发者而言，此事件提示：使用 Claude API 及 Claude Code 等产品时，需留意地区访问限制与合规风险，企业应提前评估供应链与工具链的地缘政治暴露。",
       "category": "devto"
     },
     {
@@ -130,8 +130,19 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-10T15:23:49.000Z",
-      "summaryZh": "这篇文章面向开发者和写作者，讨论如何在 Claude Fable 5.2 与 Mythos 5.2 之间做模型选型。\n\n**用户场景**：作者针对一个常见痛点——团队在接入 AI 时往往随手选一个模型，结果在结构化任务上输出不稳定，或在创意任务上文字生硬。文章试图给出按任务目标选型的判断依据。\n\n**核心方法**：作者把两个模型定位为“结构能力”与“创意适配”的分工。Fable 5.2 偏重逻辑一致性、指令遵循和可预测输出，适合内部业务自动化、客服工单分类与处理、结构化数据处理与报表；Mythos 5.2 偏重语气、细微差别和叙事灵活性，适合长文创意写作、营销文案和品牌故事。选型原则是：需要严格输出格式或可预测逻辑链时用 Fable 5.2；需要情感共鸣或表达多样性时用 Mythos 5.2。\n\n**关键技巧**：客服场景优先选 Fable 5.2，因其遵循运营规范的稳定性更高；不要用 Fable 5.2 做高创意需求写作，容易显得僵硬。实操上建议按任务而非按项目统一选型，必要时在同一工作流中分段调用两个模型。需注意，文中未给出具体 API 参数、hooks 或 MCP 配置示例，模型命名也需以官方文档核实，避免照搬。",
+      "summaryZh": "**中文摘要**\n\n本文面向开发者与内容创作者，讨论如何在 Claude Fable 5.2 与 Mythos 5.2 之间做模型选型。用户场景是：在 AI 内容生成与自动化工作流中，团队常面临\"技术精确性\"与\"创意表现力\"难以兼顾的问题，需要按任务目标选择合适模型。\n\n核心方法是按\"结构能力 vs 创意适配\"划分用途：Fable 5.2 侧重运营效率，擅长逻辑一致性、复杂指令遵循和严格输出格式，适合内部业务自动化、客服工单分类与结构化数据处理；Mythos 5.2 侧重语气、细节与叙事灵活性，适合长文创作、营销文案和品牌故事。\n\n关键技巧：需要固定输出格式或可预测逻辑链的应用选 Fable 5.2；需要情感共鸣和多样表达的内容选 Mythos 5.2；客服场景优先 Fable 5.2 以保证遵循运营规范；用 Fable 5.2 写创意内容可能显得过于刻板。需注意，文中未涉及 Claude Code、MCP、hooks 或 API 集成等具体开发细节，模型命名也缺乏官方来源佐证，实际选型前建议以官方文档和基准测试为准，避免仅凭对比文章做架构决策。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.325",
+      "titleZh": "v2.1.325",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.325",
+      "author": "claude-code-publisher[bot]",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-11-13T20:40:01.000Z",
+      "summaryZh": "**Claude Code v2.1.325 更新摘要**\n\n本次更新以修复为主，无重大破坏性变更。\n\n**新功能**：VS Code 等集成终端新增 spinner 提示，Claude 读取或编辑 Jupyter notebook 后提示重跑单元格；组织策略拦截请求时，错误信息下新增继续操作指引（`/rewind` 修改消息或 `/clear`）；沙箱内 `git checkout`、`git stash` 无法更新 `.claude` 等受保护文件时，向 Claude 添加说明。\n\n**安全修复**：修复 zstd 压缩响应解码中的安全问题；`claude -p` 终端文本输出不再传递非样式控制序列。\n\n**主要 Bug 修复**：修复 `opusplan`/`haiku` 设置下子代理模型被错误切换、第三方网关与 Foundry 每轮报上下文长度错误而不压缩、恢复会话丢失近期对话、`sonnet[1m]` 设置被改写为 API 拒绝的 model id、后台会话误用 shell 中的 API key 计费、Bedrock token 计数绕过 `allowedProviders`、`/stats` 活跃天数多算一天、`/voice` 与 `/model` 误报状态、`claude purge` 无终端时静默挂起、`applyFlagSettings()` 单值无效导致丢弃全部设置等问题。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.323",
@@ -141,18 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-12T22:12:13.000Z",
-      "summaryZh": "**Claude Code v2.1.323 更新摘要**\n\n**新功能**：新增实验性 Code Mode，Claude 可编写 JavaScript 调用工具（需手动开启）；plugin.json 支持 engines[\"claude-code\"] 版本约束；`claude plugin validate` 增加 TypeScript hooks 类型检查（--strict 可失败）及 mod 引擎 $ 名词校验；支持 CLAUDE_CODE_AUTO_MODE_MODEL 托管设置；模型额度不足时弹出选项菜单；长时 hooks 每 30 秒发送心跳；Artifact 支持 .docx 上传；新增 /diff 关闭提示、Bash 变量通配符启动警告、插件语言服务器启动失败警告、Perforce 模式提示；新增 CLAUDE_CODE_DISABLE_AGENT_PROGRESS_SUMMARIES、CLAUDE_CODE_RESUME_HINT_COMMAND 环境变量及 install --json 的 unsetOptionCount 字段。\n\n**修复**：/compact 重复执行误删未回复消息；恢复会话消息错接；大文件编辑后内存峰值；设置文件被覆盖或删除失效；插件命令导致 Console 登出；/proc 文件及设备管道 OOM；配置保存失败导致启动失败；非流式请求错误恢复；worktree 退出目录错误；组合键误触；ps 进程堆积；子代理转录分离；命名 Anthropic 配置下会话切换登录、后台会话凭据残留、MCP 工具 TOKEN_EXPIRED、过期登录误报余额不足等多项认证问题；macOS 钥匙串慢导致登录失效；Claude Desktop 403 令牌重试。\n\n**破坏性变更**：超出声明版本范围的插件将不再安装、更新或加载。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.322",
-      "titleZh": "v2.1.322",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.322",
-      "author": "claude-code-publisher[bot]",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-11-10T02:29:43.000Z",
-      "summaryZh": "**Claude Code v2.1.322 发布摘要**\n\n本次更新新增一项功能：在 Vertex 平台的 global、us 和 eu 三个区域支持 fast mode（快速模式）。当 Vertex 拒绝该模式请求时，系统会自动回退到标准速度，确保服务连续性。\n\n**新功能**\n- Vertex 平台支持 fast mode，覆盖 global、us、eu 区域，并具备自动回退机制。\n\n**Bug 修复**\n- 本次更新未提及。\n\n**破坏性变更**\n- 无。\n\n总体而言，这是一个小版本迭代，主要针对 Vertex 用户优化响应速度，且回退设计降低了启用风险。",
+      "summaryZh": "**Claude Code v2.1.323 更新摘要**\n\n**新功能**\n- 新增实验性 Code Mode（需手动开启），Claude 可编写 JavaScript 调用工具\n- `plugin.json` 支持 `engines[\"claude-code\"]` 版本约束，插件安装/更新自动选择兼容版本\n- `claude plugin validate` 新增 TypeScript hooks 类型检查（`--strict` 下失败）及 mod 引擎钩子 `$` 名词校验\n- 模型额度不足时弹出选项菜单（停止/切换用量积分/升级）\n- `claude -p` 与 SDK 会话中 hooks 长时间运行时每 30 秒发送心跳，防止宿主判定挂起\n- Artifact 工具支持 `.docx` 上传；新增 `CLAUDE_CODE_RESUME_HINT_COMMAND`、`CLAUDE_CODE_DISABLE_AGENT_PROGRESS_SUMMARIES` 等环境变量\n- 新增多项启动警告（Bash 通配变量、语言服务器启动失败、Perforce 模式等）\n\n**Bug 修复**\n- 修复 `/compact` 重复执行或接在 `/context` 后误摘要未回复消息\n- 修复恢复会话时新消息被拼接到旧中断消息\n- 修复大文件修改后内存峰值、`/proc` 文件导致 Edit/Bash 内存溢出\n- 修复设置保存覆盖手动编辑、插件命令导致 Console 登出\n- 修复 worktree 退出后目录错误、后台会话跨账户串号、macOS 钥匙串慢导致登录失效等\n\n**破坏性变更**\n- 超出声明版本范围的插件将不再安装、更新或加载",
       "category": "github-release"
     }
   ]
