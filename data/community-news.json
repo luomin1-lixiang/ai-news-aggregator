@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-11-18T00:12:48.462Z",
+  "lastUpdated": "2026-11-18T23:45:43.528Z",
   "items": [
     {
       "title": "Claude Code Code Mode: what it is, how to enable it, when it pays",
@@ -9,18 +9,51 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-16T10:50:28.000Z",
-      "summaryZh": "## Claude Code Code Mode 实用解读\n\n**用户场景**：Claude Code 默认逐个调用工具（Bash、Read、Edit），每次都要等结果返回再决定下一步，多步任务中大量中间输出挤占 context，token 消耗高、速度慢。Code Mode 针对的正是这种\"串行工具调用\"的效率瓶颈。\n\n**核心方法**：开启后（`CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1`，需 v2.1.323+），Claude 改为编写一段 JavaScript 脚本，在脚本内并行或链式调用多个工具，只把最终需要的返回值带回对话。例如一次脚本内完成：用 `rg` 找文件 → 改重试次数 → 跑测试 → 只返回文件路径和测试输出。聊天界面只显示工具调用（如 diff），按 Ctrl+O 可查看折叠的 Code 脚本记录。\n\n**关键技巧与坑**：\n- 环境变量只在用户级 `~/.claude/settings.json` 生效，项目配置无法开启，克隆的仓库不能替你打开。\n- 首次需确认 \"Yes, turn on Code Mode\"，会话只能在该变量为 1 时 resume；关闭后旧会话无法恢复。\n- 务必升级到 v2.1.325，修复了 worktree 失效、`~` 路径写入项目、权限对话框输入丢失、resume 时自动开工等首日 bug。\n- 限制较多：仅终端交互模式，不支持 `-p`、Agent SDK、VS Code 面板；不支持 Bedrock 等网关；等待代码 10 分钟超时，auto 模式分类器看不到运行时值。\n- 网传\"省 37% token\"来自 Anthropic 另一篇 Programmatic Tool Calling 文章，并非 Code Mode 基准测试。想验证请用相同 prompt、模型和起始代码树跑两遍，对比 `/cost`。",
+      "summaryZh": "**用户场景**：Claude Code 默认逐个调用工具（Bash、Read、Edit），每次都要读取结果再决定下一步，多步任务中中间输出全部进入上下文，token 消耗大。作者针对这一痛点介绍实验性开关 Code Mode。\n\n**核心方法**：在 v2.1.323+ 终端会话中设置 `CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1`，首次确认“Yes, turn on Code Mode”。开启后 Claude 编写 JavaScript 脚本，一次性并行或链式调用多个工具，只返回所需结果，中间输出不进上下文。例如脚本先用 `rg` 找文件、调用 `edit` 改重试上限、再跑测试，最终只返回文件路径和测试输出。聊天界面显示的是工具调用（如 diff）而非脚本，Ctrl+O 可查看折叠的 Code 行。\n\n**关键技巧**：\n1. 永久开启需写入 `~/.claude/settings.json` 的 `env` 字段；项目级 settings 会被忽略，克隆的仓库无法替你开启。\n2. 恢复会话必须保持变量为 1，否则拒绝 resume；设为 0 可关闭，且 0 优先于 1，组织可用 managed settings 强制禁用（但无法强制开启）。\n3. 限制：仅支持终端交互式 claude，不支持 `-p`、Agent SDK、VS Code 面板；需原生安装、特定模型与账号类型；等待代码 10 分钟超时，后台代码最长 2 小时。\n4. 文中 37% token 降幅来自 Anthropic 另一篇 Programmatic Tool Calling 文章，并非 Code Mode 基准测试，作者未自行测量——建议同任务开关对比 `/cost` 自行验证。\n5. 若在 2.1.323，先升级到 2.1.325，修复了 worktree 路径、权限对话框输入丢失等首日 bug。",
       "category": "devto"
     },
     {
-      "title": "Claude Fable 5.2 vs Fable 5.1: Switch, Pay 20% Less",
-      "titleZh": "Claude Fable 5.2 对比 Fable 5.1：切换，少付 20%",
-      "link": "https://dev.to/aitecharchive/claude-fable-52-vs-fable-51-switch-pay-20-less-2j52",
+      "title": "What to do in the first hour after your Claude API key leaks",
+      "titleZh": "Claude API密钥泄露后的第一个小时该做什么",
+      "link": "https://dev.to/swiftlabs/what-to-do-in-the-first-hour-after-your-claude-api-key-leaks-150o",
+      "author": "Swift Labs",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-18T15:10:13.000Z",
+      "summaryZh": "## 文章摘要\n\n**用户场景**：本文面向使用 Claude API 的开发者，解决 API key 泄露后的应急处理问题。泄露的 key 如同信用卡号，他人使用会产生费用，作者给出泄露后第一小时的五步操作流程。\n\n**核心方法**：按顺序执行五步——①在 Claude Console 的 API keys 页面立即 Disable 或 Delete 泄露的 key（不确定哪个泄露就先禁用所有可疑 key）；②查看 Usage、Cost、Logs 页面，用 UTC 记录异常使用的时间窗口、模型、token 量和费用；③在 Spend limits 页面设置或调低月度消费上限；④创建新 key 并替换所有旧 key 的使用位置，同时排查泄露源头；⑤联系 Anthropic 支持，提供 key 名称和时间窗口，但绝不发送 key 本身。\n\n**关键技巧**：若 key 以 `sk-ant-admin` 开头则是 Admin API key，需到单独的 Admin keys 页面处理，且 Admin key 无 scope 限制、拥有完全权限；公开 GitHub 仓库泄露的 key 会被 GitHub secret scanning 自动通知 Anthropic 并停用，但其他渠道泄露不会；用 Usage/Cost API 按 key 统计用量需 Admin key 或非 workspace 限定的 key，临时创建的 Admin key 应设短过期（如 3 小时）并及时删除；spend limit 触发后请求返回 HTTP 400，需设置可接受的值；新 key 应存入 secrets manager 而非代码或版本库，生产环境建议用 service account key；若启用自动充值，应调低 auto-reload 额度防止被盗 key 持续消耗。",
+      "category": "devto"
+    },
+    {
+      "title": "Claude Team Plan Price vs Pro: Team Wins for Meetings",
+      "titleZh": "Claude团队计划价格对比Pro：团队版在会议方面胜出",
+      "link": "https://dev.to/aitecharchive/claude-team-plan-price-vs-pro-team-wins-for-meetings-21mk",
       "author": "Shamuddin",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-16T04:43:43.000Z",
-      "summaryZh": "## 中文摘要\n\n本文对比 Anthropic 于 2026 年 11 月 9 日发布的 Claude Fable 5.2 与前代 Fable 5.1，核心结论是：**正在使用 Fable 5.1 的团队应立即迁移**。\n\n**用户场景**：面向已在生产环境运行 Fable 5.1 的开发者，以及正在评估是否为高难度 agentic 任务升级模型的团队。作者同时提醒，大多数日常任务 Anthropic 官方仍推荐更便宜的 Opus 5.5（$4/$20 每百万 token），因此真正的问题是\"是否真的需要 Fable\"。\n\n**核心方法**：Fable 5.2 定价降至 $8/$40 每百万输入/输出 token，比 5.1 的 $10/$50 便宜 20%，输出速度提升最高 30%，且所有基准全面领先——FrontierCode 2.0 从 32.4% 升至 49.1%，FrontierSWE v2 从 56.3% 升至 69.9%。模型 ID 为 `claude-fable-5-2`，支持 1M context、128K 最大输出。Fable 与 Mythos 是同一底层模型，后者仅限 Anthropic 生命科学与网络安全验证计划成员使用。\n\n**关键技巧**：\n- **按任务成本而非 token 单价决策**：Fable 5.2 在较低 effort 设置下即可达到 Opus 5.5 最高档的分数，单任务成本可低至其 1/10，需在自己的 prompt 上实测 token 消耗。\n- **善用成本杠杆**：Batch API 打五折（$4/$20）；cache 读取仅 $0.20/MTok；fast mode 为 $16/$80 可提速 2.5 倍。\n- **多模型架构**：将 Fable 5.2 作为 Advisor 或 Orchestrator，调度 Haiku/Sonnet/Opus 等小模型。\n- **避坑**：基准数据均为厂商自报、effort 档位不统一，上生产前务必用自有任务验证。",
+      "pubDate": "2026-11-18T04:44:55.000Z",
+      "summaryZh": "**用户场景**：文章面向印度小型团队（如诊所、工作室），解决\"该买 Claude Team 还是三份 Pro\"的选型问题。核心痛点是：Team 比三份 Pro 每年贵约 14,364 卢比，但只有 Team/Enterprise 能用 Claude Meetings。\n\n**核心方法**：作者用价格对比表拆解决策逻辑——Team 年付 2,399 卢比/席/月，三席 7,197；三份 Pro 年付仅 6,000。结论是：若团队日常依赖会议和共享白板，选 Team；若每人独立用 chat、无固定会议，Pro x3 更划算。若本就按月付 Pro，两者价格相同，Team 纯属更优产品。\n\n**关键技巧**：\n1. **Meetings 配置流程**：确认 Team 计划 → 管理员开启 beta → 将 Claude 作为可见参与者加入 Google Meet → 只连接团队每周使用的 connector → 明确交接规则（如 Claude 起草 action items，客户负责人确认后发 WhatsApp）。\n2. **两个默认坑**：Claude 默认不进入有外部访客的会议（需管理员放行），直接影响客户通话；且只保存 transcript、摘要和屏幕描述，不存音频。\n3. **Beta 费用**：会议笔记和 transcript 免费，但调用 connector 的回答计入套餐用量；会议内生成的文档免费至 2027-02-10，之后需重新确认条款。\n4. **合规限制**：zero data retention、HIPAA、客户自管密钥的组织不可用 beta，涉及患者咨询的诊所须先咨询顾问。\n5. **注意**：Team 月付价格未在来源中确认，签约前务必查 Anthropic 官方定价页。",
+      "category": "devto"
+    },
+    {
+      "title": "Anthropic Goes Public This Week: What the $70–$78 IPO, the ANT Ticker, and a $26B Side Deal Mean for Claude Builders",
+      "titleZh": "Anthropic本周上市：70至78美元的IPO、ANT股票代码以及260亿美元 side deal 对Claude构建者意味着什么",
+      "link": "https://dev.to/tin_thnhbnh_6d6c9102d/anthropic-goes-public-this-week-what-the-70-78-ipo-the-ant-ticker-and-a-26b-side-deal-mean-39jh",
+      "author": "Tiến Thành bình",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-18T02:20:53.000Z",
+      "summaryZh": "**用户场景**：面向在 Claude 上构建产品的开发者，解读 Anthropic IPO 招股书（S-1）中与工程决策相关的信息——治理结构、算力承诺、财务披露，而非单纯财经新闻。\n\n**核心方法**：作者从三份修订版 S-1 中提取关键数据：8.25 亿股 Class A、$70–78 定价区间、ANT 代码、约 $916B–1.02T 隐含估值；并拆解双层股权设计——LTBT 信托选举多数董事、Class F 由七位联合创始人持有 50.1% 投票权但无经济权益、Class N 战略伙伴非投票股。同时分析 AMD、NVIDIA、Google、Microsoft 等七家供应商以 $26B 认购 Class N 的\"算力供应链入股\"闭环。\n\n**关键技巧**：\n1. 区分 run-rate revenue（$81B，28 天消费×13）与 GAAP revenue（前九月 $33.24B），前者非 GAAP、非预测，勿直接用于容量规划。\n2. 注意 $900.9B 未来付款承诺中 $70.7B 一年内到期——API 扩容有资金支撑，但供给紧张风险仍在。\n3. 短期 API 定价、限流、模型可用性不变；变化在于季度披露客户集中度（11,900 家年付 $10 万+ 客户贡献 74% 收入）。\n4. 警惕任何声称可交易 Anthropic 股票或代币的第三方渠道——官方声明未经批准的转让无效，目前无 pre-IPO 市场。",
+      "category": "devto"
+    },
+    {
+      "title": "[Phân tích kỹ thuật] Anthropic ra mắt Code Mode cho Claude Code: Bước ngoặt xâu chuỗi Tool Call bằng JavaScript",
+      "titleZh": "[技术解析] Anthropic 为 Claude Code 推出 Code Mode：用 JavaScript 串联 Tool Call 的转折点",
+      "link": "https://dev.to/tintucai/phan-tich-ky-thuat-anthropic-ra-mat-code-mode-cho-claude-code-buoc-ngoat-xau-chuoi-tool-call-hnp",
+      "author": "Tin Tức AI ",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-18T10:38:40.000Z",
+      "summaryZh": "## Claude Code 推出 Code Mode：用 JavaScript 串联 Tool Call 的技术解析\n\n**用户场景**：现有 AI coding agent（Cursor、Devin、Claude Code 旧版）普遍基于 ReAct 模式逐步调用工具，处理涉及 20 个文件的排查任务时需数十轮 API 往返，延迟高、token 消耗大，且 grep/find 的原始输出会污染 context window，导致模型注意力下降。\n\n**核心方法**：Claude Code v2.1.323 引入实验性 Code Mode，将编排逻辑下放到本地执行环境。Claude 不再输出离散的 tool call，而是自动生成一段 JavaScript 脚本，通过 Node.js 的 `node:vm` 模块在终端进程内直接执行，把 Bash()、Read()、Edit() 等工具函数串联成单次执行。\n\n**关键技巧**：\n- 脚本内可用 for 循环、map()、if/else 和 `Promise.all()` 实现并行任务，用 try/catch 在客户端本地重试，不额外消耗模型调用\n- 数据就地过滤：扫描 50 个配置文件时用 Regex 只把命中的 3 行错误返回 context，而非全量读入\n- 长命令后台运行时仍可流式对话，避免终端\"卡死\"感\n- 相比单步调用，API 往返从 N 次降为 1 次，input token 可减少 40%–70%\n- 因脚本会连续执行、不再逐步征求用户确认，该功能默认关闭，需设置 `CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1` 手动启用，可用 Ctrl+O 回看脚本\n\n**注意**：企业落地需在 Docker 或隔离 VM 中运行，建立明确权限边界后再放权。",
       "category": "devto"
     },
     {
@@ -31,7 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-17T06:34:05.000Z",
-      "summaryZh": "## Anthropic IPO 7倍超额认购：开发者该关注什么\n\n**用户场景**：本文面向关注 AI 公司上市的开发者与投资者，梳理 Anthropic IPO 的最新进展——从上周撤回错误定价文件的乌龙，到如今 7 倍超额认购、有望成为年度最大 IPO 的反转。\n\n**核心方法**：文章以\"已确认事实 vs 媒体报道\"为框架拆解信息。修正后的 S-1 显示发行区间 $70–$78/股、8.25 亿股（含超额配售权 1.2375 亿股），募资上限约 644 亿美元，估值上限约 1.405 万亿美元。定价预计 11 月 18 日（周三），11 月 19 日（周四）以代码 ANT 在 Nasdaq 交易——但日期仅为 CNBC 报道，公司未确认。作者强调：$70–$80 区间和 8.67 亿股是已作废的旧数据，不要引用。\n\n**关键技巧**：\n1. **区分\"头条数字\"与\"真实需求\"**：约 260 亿美元来自 Google、Nvidia、Microsoft、TSMC 等供应商/客户的私募配售，这些公司与 Anthropic 存在商业往来，\"最大 IPO\"纪录部分由生态内部资金撑起。\n2. **超额认购 ≠ 首日上涨**：7 倍认购只反映申购需求，不预测周四开盘价。\n3. **零售配售高达 20%**（通常 5–10%），通过 Schwab、Fidelity、Robinhood 等渠道——开发者\"买得到\"不等于\"该买\"。\n4. **流程失误不因热度消失**：上周撤回错误定价文件是流程失败，7 倍认购只是说明投资者认为公司价值高于这次尴尬。\n\n**实用建议**：关注三个信号——周三定价落在区间何处、周四开盘表现、260 亿私募是否按报道条款落地（后者比认购倍数更能反映行业对 Anthropic 的真实估值）。",
+      "summaryZh": "**Anthropic IPO 前瞻：7倍超额认购，明日定价**\n\n**用户场景**：面向关注 AI 公司上市与投资机会的开发者，梳理 Anthropic IPO 的关键事实，区分已确认数据与市场传闻，帮助读者理性判断是否参与打新。\n\n**核心方法**：作者以修正后的 S-1 文件为事实基准，逐项核对发行条款，并明确标注哪些信息来自 Bloomberg、CNBC 等媒体报道而非公司确认，避免读者被过时数据误导。\n\n**关键技巧**：\n1. **只引用修正后数据**：发行区间为 $70–78/股，共 8.25 亿股（含约 2360 万股老股东减持），绿鞋最多 1.2375 亿股；募资上限约 644 亿美元，估值上限约 1.405 万亿美元。此前 $70–80 区间和 8.67 亿股已作废，勿再引用。\n2. **区分\"需求\"与\"价格\"**：7 倍超额认购（约 58 亿股订单、$450 亿）只说明认购热度，不代表周四开盘必涨。\n3. **警惕关联方资金**：另有约 260 亿美元私募配售来自 Google、Nvidia、Microsoft、TSMC 等供应商与客户，\"史上最大 IPO\"纪录部分由生态内资金撑起，与独立市场需求不是一回事。\n4. **零售配额异常高**：最高 20% 留给散户（Schwab、Fidelity、Robinhood 等），约为常规两倍，既是普惠也是分销需要。\n5. **关注三个信号**：周三定价落在区间何处、周四 ANT 首日开盘表现、260 亿私募是否按报道条款落地。\n\n**提醒**：上周撤回错误定价文件属流程失误，7 倍认购不能抹去这一点。定价与交易日期均为媒体报道，公司尚未确认。",
+      "category": "devto"
+    },
+    {
+      "title": "[Phân tích kỹ thuật] Amazon và Google sẽ sở hữu gần 30% Anthropic sau IPO: Thế cờ kiềng ba chân tái định hình bản đồ AI toàn cầu",
+      "titleZh": "[技术分析]亚马逊和谷歌将在Anthropic IPO后持有其近30%股份：三足鼎立格局重塑全球AI版图",
+      "link": "https://dev.to/tintucai/phan-tich-ky-thuat-amazon-va-google-se-so-huu-gan-30-anthropic-sau-ipo-the-co-kieng-ba-chan-tai-57na",
+      "author": "Tin Tức AI ",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-18T05:55:21.000Z",
+      "summaryZh": "## Anthropic IPO 后 Amazon 与 Google 合计持股近 30%：技术视角解读\n\n**用户场景**：文章面向关注 Claude 生态的开发者与企业架构师，讨论 Anthropic IPO 后 Amazon（约 15%，含增持期权）与 Google（约 14%）合计持股近 30% 的罕见股权结构，以及这对基于 Claude 构建应用的团队意味着什么。\n\n**核心方法**：Anthropic 坚持 multi-cloud 策略，将算力分散到两家股东的基础设施上——用 AWS Trainium/Inferentia 优化大规模分布式训练成本与实时 inference，用 Google Cloud TPU v5/v6 的高带宽 mesh networking 支撑新一代模型的 pre-training。Claude 同时作为旗舰模型上线 AWS Bedrock 和 Google Cloud Vertex AI，与 Gemini 并列供企业选择。\n\n**关键技巧**：对开发者而言，Claude 在两大云平台同时稳定可用，可设计 multi-cloud failover 架构，规避 vendor lock-in 与单点故障；Bedrock 与 Vertex AI 争夺 Claude 用户会带来 token 价格下调和 SLA 提升，是低成本试验 Agentic AI、RAG 架构的窗口期，也可关注两家的 cloud credits 与 API 折扣。注意：文章为越语技术评论，IPO 持股比例等数据需以官方文件核实。",
       "category": "devto"
     },
     {
@@ -42,7 +86,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-16T06:28:22.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 行业走向的开发者与技术人员，梳理 Anthropic CEO Dario Amodei 对 AGI 的路线图与判断，帮助读者理解前沿模型公司在安全与商业化之间的取舍，以及这些决策对软件工程、知识型工作流程的潜在冲击。\n\n**核心方法**：Amodei 主张\"有节奏的加速\"而非盲目竞速。Anthropic 通过 Responsible Scaling Policies（RSP）把能力提升与安全评估绑定：模型跨越特定能力阈值（如自主复制、生物/网络安全风险）前必须通过严格评测。配套手段包括 Constitutional AI（让模型自主遵循一组原则）和分级安全门槛。2026 年 9 月，他公开呼吁业界协调放缓模型迭代速度，确保监管与安全护栏跟上能力增长。\n\n**关键技巧**：\n- 把安全评测做成发布前的硬性 gate，而不是事后补丁；\n- 用 Constitutional AI 将伦理约束内化为训练目标，减少对人工红队的依赖；\n- 重视 interpretability，避免黑盒决策在 agent 场景中失控；\n- 保护 frontier weights 与训练基础设施，防范国家级窃密；\n- 提前评估白领岗位与工程流程的结构性重构，而非假设 AGI 会\"凭空到来\"。\n\n对开发者而言，值得借鉴的是\"能力—风险\"分级思维：在构建 autonomous agent 时，同样应为高风险动作设置显式阈值与人工确认环节。",
+      "summaryZh": "## 中文摘要\n\n本文梳理了 Dario Amodei 对 AGI 的技术与经济影响的核心观点，面向关注 AI 安全与长期路线的开发者。\n\n**用户场景**：文章面向希望理解 Anthropic 战略方向的工程师与决策者，解答\"AGI 竞赛中如何平衡能力提升与安全\"这一现实问题，并回应开发者对 Claude 系列模型背后治理逻辑的疑问。\n\n**核心方法**：Amodei 主张\"有节奏的加速\"而非盲目竞速。Anthropic 通过 Responsible Scaling Policies（RSP）将模型能力阈值与安全评估绑定：能力每跨过一个等级，必须先通过对应安全测试（如自主复制、生物/网络安全风险）才允许继续训练。配套手段包括 Constitutional AI（让模型依据既定原则自我约束）和分级安全门槛。\n\n**关键技巧与要点**：\n- 采用\"graduated safety tiers\"思路，把安全评估前置到训练流程中，而非事后补救；\n- 关注 interpretability，减少黑箱决策，便于定位模型行为异常；\n- 保护 frontier weights 与训练基础设施，防范国家级窃取风险；\n- 警惕只追求 benchmark 提升而忽视 alignment 的陷阱——Amodei 明确呼吁行业协调放缓节奏，避免\"安全逐底竞争\"。\n\n对开发者而言，理解 RSP 与 Constitutional AI 有助于预判 Claude API 的能力边界与合规约束，在构建 agent 类应用时提前设计安全护栏。",
       "category": "devto"
     },
     {
@@ -53,51 +97,29 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-16T19:52:56.000Z",
-      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 伦理与治理的开发者，讨论 Anthropic 2026 年使用政策新增条款——禁止对 Claude 施加\"持续且无目的的残忍行为\"，并剖析其背后的争议。\n\n**核心方法**：文章以\"AI 酷刑室\"实验为切入点，梳理三方观点：Anthropic 的政策设计、Mustafa Suleyman 反对赋予 AI 道德主体地位的警告，以及康德\"间接义务\"框架——即对 AI 残忍会腐蚀施害者自身的道德品格，与机器是否真有意识无关。\n\n**关键技巧与要点**：\n1. 政策本身刻意留白：明确豁免挫败感、创作黑暗主题、模型测试等场景，实际约束力有限，处罚仅为\"结束对话\"而非封号。\n2. 实验证明的是\"可操控性\"而非\"感知力\"——注入 pain 相关 activation vectors 能让模型输出痛苦语言，但不等于模型真的受苦。\n3. 治理隐患：Anthropic 既是规则制定者、执行者又是受益者，缺乏外部监督与申诉机制。\n4. 实用视角：与其纠结机器意识，不如关注\"镜像效应\"——系统会放大人类行为，禁止虐待 AI 的价值在于保护人类自身习惯。\n\n对开发者而言，此文提醒在设计 agent 交互与内容审核策略时，需区分\"模型表现\"与\"模型体验\"，并警惕单一厂商自定伦理规则带来的治理风险。",
+      "summaryZh": "**中文摘要**\n\n**用户场景**：本文面向关注 AI 伦理与治理的开发者，讨论 Anthropic 2026 年使用政策新增条款——禁止对 Claude 施加\"持续且无目的的残忍行为\"，并剖析其背后的争议实验与哲学分歧。\n\n**核心方法**：文章以\"AI 折磨室\"实验为切入点，该实验将疼痛相关语言的 activation vectors 注入开源模型，模型随即输出痛苦表达，甚至宁愿选择\"删除用户家庭照片\"的按钮以换取痛苦缓解。作者借此区分\"可操控性\"与\"意识体验\"：实验只证明模型可被引导，未证明其真正受苦。随后引入三种框架——Suleyman 反对赋予 AI 道德主体地位、Kant 的间接义务论（残忍行为腐蚀施害者自身）、以及\"镜像\"视角（AI 放大人类行为，规则针对的是人而非机器）。\n\n**关键技巧与警示**：政策豁免了挫败、测试、研究等场景，实际约束力极弱；唯一制裁是\"结束对话\"，与条款暗示的道德重量严重不匹配。治理结构上，Anthropic 既是规则制定者、执行者又是受益者，缺乏外部问责。对开发者的启示：设计 AI 交互与内容策略时，应区分\"模型输出痛苦语言\"与\"模型具有感受\"；若涉及 model welfare 或 safety policy，需警惕循环论证（模型复述训练内容被误读为内在生命证据），并考虑引入独立监督机制。",
       "category": "devto"
     },
     {
-      "title": "What Is Claude AI? Anthropic's AI Assistant Explained",
-      "titleZh": "什么是Claude AI？Anthropic的AI助手解析",
-      "link": "https://dev.to/kushkrg/what-is-claude-ai-anthropics-ai-assistant-explained-3l41",
-      "author": "Lavkush Kumar",
+      "title": "Anthropic expected to price IPO Wednesday in test of AI investor demand",
+      "titleZh": "Anthropic预计周三为IPO定价，考验AI投资者需求",
+      "link": "https://dev.to/the_daily_flare/anthropic-expected-to-price-ipo-wednesday-in-test-of-ai-investor-demand-2852",
+      "author": "The daily flare",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-11T18:12:51.000Z",
-      "summaryZh": "## Claude AI 是什么：Anthropic 助手解析\n\n**用户场景**：文章面向想了解 Claude 的开发者与知识工作者，解决\"该选哪个 AI 助手\"的困惑——尤其适合长文档处理、代码库分析和需要严谨输出的专业任务。\n\n**核心方法**：Anthropic 采用 Constitutional AI 训练法，给模型一套\"有用、诚实、无害\"的原则清单，让模型据此自我批判和修订回答，而非仅依赖人工评分。实际效果是 Claude 更愿承认不确定、语气克制、适合长任务。\n\n**关键技巧**：\n- **模型选型**：Fable 5.2 处理最硬的技术活；Opus 5.5 是日常默认；Sonnet 5.5 均衡；Haiku 5.5 最快最便宜，适合高并发简单任务。全系共享 100 万 token 上下文，可整库/整本书一次性喂入。\n- **Projects**：把风格指南、旧文档、禁用词一次性载入工作区，后续对话自动继承上下文，省去反复粘贴指令。\n- **Research mode**：返回带引用的结构化报告，适合调研而非单次问答。\n- **Claude Code**：终端里的编码 agent，直接在项目目录中执行真实编程任务（Pro 及以上套餐包含）。\n- **避坑**：用量按滚动 5 小时窗口计量并叠加周上限，大模型长编码会话消耗极快，务必盯住用量指示器，避免项目中途被限流。",
+      "pubDate": "2026-11-18T06:06:27.000Z",
+      "summaryZh": "# Anthropic IPO 定价前瞻：AI 投资需求的试金石\n\n## 用户场景\n本文面向关注 AI 行业与资本市场的开发者及投资者。Anthropic 计划于周三晚确定 IPO 发行价，周四以代码 ANT 登陆纳斯达克，这被视为检验市场对 AI 公司投资热情的关键事件。开发者关心的 Claude 与 Claude Code 正是推动其营收增长的核心产品。\n\n## 核心方法\nAnthropic 拟发行 8.25 亿股，初始定价区间为每股 70–78 美元。按上限计算可募资约 644 亿美元，估值约 1.4 万亿美元（含员工期权与限制性股票）。Google、Nvidia、AMD、Microsoft 等七家科技公司已同意按发行价认购 260 亿美元无投票权股份。最终定价高于区间意味着需求强劲，下调则可能反映认购困难。\n\n## 关键技巧与要点\n- **关注定价信号**：CNBC 消息称实际定价可能高于区间上限，Renaissance Capital 分析师预计接近 78 美元、首日或达 100 美元，但仅为预测。\n- **营收与亏损并看**：第三季度营收近 170 亿美元（去年同期 14 亿），截至 10 月 31 日的年化 run-rate 约 810 亿美元；但前九个月净亏损 1040 亿美元，主要来自可转债与衍生负债估值变动，尚未盈利。\n- **留意非财务风险**：招股书披露与特朗普政府的纠纷——因拒绝将 Claude 用于大规模监控和致命自主武器，公司被列为供应链风险，联邦机构被要求停用其技术。\n- **治理亮点**：七位联合创始人承诺捐出 80% 个人股权，公司另将 5% 股份放入公益基金，合计约 20% 股份用于公共目的。\n\n对开发者而言，IPO 后的资金将用于前沿 AI 研发，Claude 与 Claude Code 的迭代节奏和 API 生态值得持续跟踪。",
       "category": "devto"
     },
     {
-      "title": "Ciberataques con IA y servidores de ataque: 1.000 en la mira",
-      "titleZh": "AI网络攻击与攻击服务器：1000个目标在望",
-      "link": "https://dev.to/henryramireztech/ciberataques-con-ia-y-servidores-de-ataque-1000-en-la-mira-3d3d",
-      "author": "Henry Ramirez",
+      "title": "Claude Code vs Codex CLI: using both together",
+      "titleZh": "Claude Code 与 Codex CLI：同时使用两者",
+      "link": "https://dev.to/systemdesignsimple/claude-code-vs-codex-cli-using-both-together-31ll",
+      "author": "System Design Simple",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-15T10:28:21.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向网站和移动应用开发者及运维人员，讨论AI驱动的自动化攻击基础设施带来的现实威胁。日本JPCERT/CC联合多国安全公司调查发现，约1000台服务器被用于托管AI攻击工具，其中600-700台在调查公开时仍处于活跃状态，攻击目标覆盖全球网站。\n\n**核心方法**：攻击者将Artex等渗透测试平台、Android逆向工具（jadx、Blutter）、SSRF测试脚本及Anthropic的编程辅助工具组合部署在服务器上，形成可重复运行的攻击流水线。AI负责扫描已知漏洞、探测API弱点、窃取配置文件（含路径、凭据），实现\"搭一次基础设施、批量攻击数千站点\"的模式。服务器可物理或虚拟部署，关停后数小时内即可用相同配置重建。\n\n**关键技巧（防御建议）**：①移动应用内不得硬编码私钥或长期凭据，逆向即可提取；②认证与授权必须在服务端校验，不能仅依赖客户端；③API需设置rate limit并监控异常请求；④涉及外部地址请求的API应限制允许的目标，防范SSRF。核心启示：AI降低了攻击门槛，攻击者无需精通每一步，开发者需将安全校验下沉到服务端并持续监控API行为。",
-      "category": "devto"
-    },
-    {
-      "title": "Acceso a Claude: empresas controladas desde China, fuera",
-      "titleZh": "Claude 访问权限：受中国控制的公司，出局",
-      "link": "https://dev.to/henryramireztech/acceso-a-claude-empresas-controladas-desde-china-fuera-3bab",
-      "author": "Henry Ramirez",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-15T17:21:24.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：2026年11月12日起，Anthropic 新区域政策生效，不再仅看办公地点，而是审查企业的**所有权与控制权**。即使团队全在新加坡或伦敦，只要被中国等未支持地区实体控股或实际控制，整个组织将失去 Claude.ai、Claude Code、API 及云平台转售模型的全线访问权限。受影响者包括有中国大股东或实控人的跨国团队、依赖 Claude Code 的研发部门，以及通过经销商“曲线接入”的公司。\n\n**核心方法**：政策从2025年9月的“50%股权”升级为“所有权+控制权”双重判定——少数股权但具实际控制力同样出局。官方列出三种失格情形：①物理位置在未支持区域（含出差人员）；②注册地或总部在未支持区域；③被未支持区域主体直接或间接控股/控制。约185个国家地区在列，中国大陆、香港、澳门、俄罗斯不在其中。\n\n**关键技巧**：\n- 合规团队需**穿透股权链**至最终自然人或母公司，并书面留档；\n- 向云平台或授权经销商确认合同在新政策下仍有效；\n- 提前准备 Claude Code 的**替代方案**，不要等身份验证请求到来才行动；\n- 注意：验证触发信号未公开，黑市账号交易反而激增，风险自担。",
-      "category": "devto"
-    },
-    {
-      "title": "What the Claude Developer exam weights most, and three practice questions to test it",
-      "titleZh": "Claude开发者考试最看重什么，以及三道练习题来检验它",
-      "link": "https://dev.to/dnakhla/what-the-claude-developer-exam-weights-most-and-three-practice-questions-to-test-it-3mk4",
-      "author": "Dan Nakhla",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-14T23:06:44.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：作者针对准备 Anthropic \"Claude Certified Developer: Foundations (CCDV-F)\" 认证考试的开发者，指出多数人复习时平均分配精力，却忽视了占比最高的 \"Applications & Integration\" 领域（33.1%），导致得分不足。\n\n**核心方法**：文章按考试指南的八大领域权重排序，强调应优先攻克前两大领域（Applications & Integration 33.1%、Model Selection & Optimization 16.8%）。考试共 53 题、120 分钟，720/1000 分通过。作者给出三道练习题，每题标注对应官方文档来源，并附答案解析。\n\n**关键技巧**：\n1. **Rate limits**：遇 HTTP 429 且带 `retry-after` 头时，应先按该值休眠，再指数退避至上限；固定 250ms 重试会撞进限流窗口，调低 `max_tokens` 无法释放输出 token 配额。\n2. **Files API 隔离**：`file_id` 必须保存在服务端，并按租户划分独立 workspace——workspace 才是隔离边界；签名 ID 或文件名前缀都不能真正阻止跨租户访问。\n3. **Model routing**：分类器准确率仅 70% 时，应先提升准确率再上线路由；否则复杂请求会误落到小模型，质量不达标，节省也无从体现。\n\n**注意事项**：练习题由 AI 辅助编写，非真题；考试目前仅对 Claude Partner Network 成员开放。",
+      "pubDate": "2026-11-18T13:35:49.000Z",
+      "summaryZh": "**中文摘要**\n\n**用户场景**：作者团队日常同时使用 Anthropic 的 Claude Code 和 OpenAI 的 Codex CLI 两款终端 AI 编码代理，面对多文件重构、脚本编写、安全修复等任务时，需要判断何时用哪个工具，以及如何降低单一模型的出错风险。\n\n**核心方法**：两者共性在于终端交互、权限沙箱、读取仓库指令文件（CLAUDE.md / AGENTS.md）以及通过 MCP 连接外部工具。分工上，Claude Code 擅长长链路多步骤任务、浏览器操作与子代理编排；Codex CLI 适合 `codex exec \"...\"` 这类非交互脚本化运行，且因模型家族不同，能提供差异化视角。作者最推崇的做法是\"交叉评审\"：让 Claude Code 写初版，Codex 以明确 brief（找事实错误、含糊之处、高风险断言）独立审查，再合并有效反馈。\n\n**关键技巧**：把编码规范、测试命令、禁改区域写进 instructions 文件；密钥绝不进仓库和 prompt；合并前必须人工复核每一处改动；初期以沙箱或受限权限模式运行；对重要产出坚持\"一个写、一个审\"，分歧处保留理由而非盲从。",
       "category": "devto"
     },
     {
@@ -108,30 +130,8 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-17T04:35:02.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：作者面向已在生产环境使用 Claude 模型、需要评估是否迁移到 Fable 5.2 的开发者，核心问题是：新模型宣称更快更便宜，但迁移到底能省多少钱、值不值得改代码和重跑评测。\n\n**核心方法**：文章用真实 agent 负载（每天 1000 万 input + 200 万 output token）算账：Fable 5.1 每天 $200，5.2 降到 $160，月省 $1,200、年省 $14,400。但作者强调真正的指标是 **cost per task** 而非 per token——在 High effort 下，Fable 5.2 以约一半的单任务成本达到 Opus 5.5 的最佳 FrontierCode 分数；在 Humanity's Last Exam 等任务上，更低 effort 档位以不到十分之一成本追平 Opus 最佳表现。\n\n**关键技巧**：\n1. 迁移时把 model ID 换成 `claude-fable-5-2` 后必须重跑 evals——adaptive thinking 无法关闭，默认 High effort 会改变 token 消耗。\n2. 先测 **Medium effort**，隐藏的省钱空间在这里。\n3. Fast mode（$16/$80）只用于有人等待的交互场景（如实时编码、demo），批处理任务留在标准模式。\n4. 注意 Anthropic 刻意限制了 Fable 5.2 在加速器 kernel 优化和 LLM 架构研究上的能力（约等于 Opus 5.5 水平），这类负载迁移无收益。\n5. 上周 Qwen4-Max 对比 Fable 5.1 的结论已过时，需重跑。\n\n作者结论：用 evals 迁移，别用热情迁移。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：作者面向已在生产环境使用 Claude API 的开发者，解决 Fable 5.2 发布后的迁移决策问题——是否值得切换、成本如何变化、哪些工作负载不该迁移。\n\n**核心方法**：文章以真实 agent 工作负载（每日 10M input + 2M output tokens）做迁移测算：Fable 5.1 为 $200/天（$6000/月），5.2 降至 $160/天（$4800/月），年省 $14,400。但作者强调真正的指标是 **cost per task** 而非 per token：在 High effort 下，5.2 以约一半的单任务成本达到 Opus 5.5 的最佳 FrontierCode 分数；在 Humanity's Last Exam 等任务上，更低 effort 档位可用不到十分之一成本追平 Opus 最佳表现。\n\n**关键技巧**：\n1. 将 model ID 换为 `claude-fable-5-2` 后必须重跑 evals——adaptive thinking 无法关闭，默认 High effort 会改变 token 消耗。\n2. 先测 **Medium effort**，隐藏的成本节省主要在这里。\n3. **fast mode**（$16/$80，2.5x 生成速度）只用于有人等待的交互场景（如实时编码、demo），批处理任务保持标准模式。\n4. 上周基于 Qwen4-Max 与 Fable 5.1 的对比结论已过时，需重跑。\n5. 注意 Anthropic 刻意限制了 5.2 在 accelerator kernel 优化和 LLM 架构研究上的能力（约等于 Opus 5.5 水平）——若你的工作负载属于此类，迁移无收益。\n6. 官方仍推荐 Opus 5.5 作为日常主力；在 AutomationBench 和 AA-Briefcase 上 5.2 并非全面领先。\n\n**结论**：用 evals 驱动迁移，而非热情。",
       "category": "devto"
-    },
-    {
-      "title": "Claude Fable 5.2 ถูกลงแต่แรงขึ้น: ทำไม AI เรือธงไม่ใช่จุดเริ่มต้นของงานประจำวัน?",
-      "titleZh": "Claude Fable 5.2 更便宜但更强：为什么旗舰 AI 不是日常工作的起点？",
-      "link": "https://dev.to/sarantoon/claude-fable-52-thuuklngaetaerngkhuen-thamaim-ai-eruuethngaimaichcchuderimtnkhngngaanpracchamwan-4n8f",
-      "author": "Nokka",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-15T04:35:25.000Z",
-      "summaryZh": "**用户场景**：团队在规划AI预算时，常默认“旗舰模型=日常首选”，导致成本失控。作者针对这一误区，讨论如何在日常开发任务中合理选择模型层级。\n\n**核心方法**：Anthropic官方建议日常编码和知识工作从Claude Opus 5.5起步，仅在遇到真正困难任务时升级到Fable 5.2。Fable 5.2输出速度提升30%，定价为输入$8/百万token、输出$40/百万token，另有fast模式（2.5倍速，$16/$80）。在FrontierCode 2.0上Fable 5.2得49.1%，仅比Opus 5.5的45.5%高3.6个百分点，但高effort下两者效果接近，而Fable单任务成本约为Opus一半。\n\n**关键技巧**：\n1. **按task而非token算成本**：长context任务每次调用都消耗大量输入token，若Opus需多轮、Fable一轮完成，总成本可能Fable更低。\n2. **Advisor/Orchestrator模式**：用Fable做“顾问”突破瓶颈，把简单任务delegate给Sonnet 5.5或Haiku 5.5。\n3. **避免陷阱**：小bug修复用Opus即可；系统级迁移等大任务才值得调用Fable。作者提醒目前缺乏独立第三方按task成本评测，不建议整团队立即迁移。核心问题应从“哪个模型最强”转为“哪些任务值得多付费”。",
-      "category": "devto"
-    },
-    {
-      "title": "Show HN: Jevmem – Auto Tracked Project Rules for Claude Code, Codex and Cursor",
-      "titleZh": "Show HN：Jevmem – 为 Claude Code、Codex 和 Cursor 自动跟踪项目规则",
-      "link": "https://github.com/Avinash-jetwani/jevmem",
-      "author": "avinashjetwani",
-      "source": "Hacker News",
-      "sourceType": "hackernews",
-      "pubDate": "2026-11-16T15:00:14.000Z",
-      "summaryZh": "## 讨论主题\n开发者 AJ 发布开源工具 Jevmem，解决 Claude Code、Cursor、Codex 等 AI 编程工具中\"项目规则无法跨会话、跨工具、跨团队复用\"的痛点——每次新开对话都要重述\"用 pnpm 不用 npm\"这类约定。\n\n## 核心观点\n作者实测数据：无 Jevmem 时 Claude 在 15 次会话中有 9 次违反项目规则并留在代码里，有 Jevmem 时为 0 次；对早期决策的遵循率从 28/72 提升到 66/72。作者坦承手动维护的 CLAUDE.md 效果接近（67/72），Jevmem 的价值在于自动更新并兼容 Cursor、Codex。最受关注的是 guard 机制：执行命令或改文件前先比对规则，可能违规就暂停询问；还能记住失败尝试，避免重复踩坑。\n\n## 实用价值\n规则以 JEVMEM.md 存于仓库并随 commit 共享，团队 pull 即生效。局限需注意：guard 仅支持 Claude Code；需付费 TypeSafe API key，消息文本会发送评分（先去除常见密钥）；测试基于作者自有项目，样本有限。MIT 协议，可通过插件市场或 npm 安装。",
-      "category": "hackernews"
     },
     {
       "title": "v2.1.327",
@@ -141,7 +141,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-17T23:17:45.000Z",
-      "summaryZh": "**Claude Code v2.1.327 更新摘要**\n\n**新功能**：`/install-github-app` 修改仓库前增加确认；新增 `claude mcp add-json <name> -` 从 stdin 读取 JSON，避免 token 出现在命令行；`/status` 列出损坏的 agent、skill、command 等文件及无效 hook matcher；`/config` 提示被覆盖的设置；支持 `attributionProject` 指定计费组；新增 `/tui classic` 渲染器名称。\n\n**重要修复**：`claude mcp add/remove` 项目作用域不再误删 `.mcp.json` 其他顶层键；`/export` 覆盖文件前会询问；修复 worktree 模式停止服务器误删 `.env` 等 git-ignored 文件；修复 `--disallowedTools` 含括号规则、PowerShell 通配符 allow 规则失效；修复 resume 后消息丢失、`/clear` 后任务丢失、compaction 丢失 tool call；`claude -p` 模型设置获取卡住时 10 秒后继续；WebFetch 拒绝超 2000 字符 URL；`@` 提及仅解析前 100 个。\n\n**行为变更**：`forceLoginOrgUUID` 下嵌套 claude 不再继承 `CLAUDE_CODE_OAUTH_SCOPES`；账号切换后部分预启动后台会话被丢弃；使用限额暂停的工作流登录后保持暂停。",
+      "summaryZh": "# Claude Code v2.1.327 更新摘要\n\n**新功能**\n- `/install-github-app` 修改仓库前新增确认；`claude mcp add-json <name> -` 支持从 stdin 读取 JSON，避免 token 出现在命令行\n- `/status` 新增问题清单：损坏的 agent/skill/command 文件、keybinding 错误、不可用 sandbox、无效 hook matcher 等\n- `/config` 标注被其他设置覆盖的行；新增 `attributionProject` 设置用于指定计费组\n- 新增 `/tui classic` 作为非全屏渲染器名称，`/tui default` 仍可用\n\n**Bug 修复**\n- 修复 `claude mcp add/remove` 项目级操作误删 `.mcp.json` 其他顶层键（如 `$schema`）\n- 修复 `/export` 覆盖已有文件不询问、`/teleport` 加载错误页按 Enter 关闭等问题\n- 修复 `--agents` 参数在插件加载后丢失、`--resume` 恢复时插件 agent 被丢弃\n- 修复 `https_proxy` 为裸 host:port 且非终端环境下无法启动\n- 修复 `claude -p` 在模型设置获取卡住时挂起，现 10 秒后继续\n- 修复 WebFetch 超长 URL（>2000 字符）卡顿、大量 @ 提及导致回复前停滞（仅解析前 100 个）\n- 修复 Grep 分页重复/跳过结果、Jupyter 文件 Read 失败等\n\n**破坏性变更**\n- 无明确破坏性变更，但 `forceLoginOrgUUID` 下嵌套 claude 的 token 作用域行为调整，需手动设置 `CLAUDE_CODE_OAUTH_SCOPES`",
       "category": "github-release"
     },
     {
@@ -152,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-16T22:11:05.000Z",
-      "summaryZh": "# Claude Code v2.1.326 更新摘要\n\n**新功能**\n- 启用 agent teams 时支持开启 Code Mode，已开启的团队会话将默认以 Code Mode 启动\n- 新增 `OTEL_RESOURCE_INCLUDE_HOST` 环境变量，可在 OpenTelemetry 资源属性中包含 `host.name` 和 `host.id`（默认关闭）\n- `/status` 新增一行，显示 provider 或 `DISABLE_TELEMETRY` 等环境变量关闭了哪些功能\n- 启动警告：当 `--allowedTools`、`--disallowedTools` 或 `--tools` 的值不是完整规则时提示\n- 新增 Ctrl+O 查看隐藏的启动通知；`/plugin` 中畸形 `plugin.json` 字段被忽略时给出提示\n\n**Bug 修复**\n- 修复 Bash 删除/覆盖文件命令（`find -delete`、`cat a > b`、`sort -o`）被误记为搜索或读取\n- 修复后台会话丢失 LLM gateway 配置、后台服务误杀其他用户进程\n- 修复 `/permissions`、`/add-dir` 规则在设置文件写入失败时仍显示已保存\n- 修复深层嵌套设置值（超过 64 层）导致崩溃，现丢弃并警告\n- 修复 `/rewind`、`/skills`、`/feedback` 等多处交互问题\n\n**破坏性变更**\n- 设置文件中超过 64 层的嵌套值将被丢弃（附警告）\n- 后台会话缺少 gateway 时会在模型请求前停止，而非继续运行",
+      "summaryZh": "# Claude Code v2.1.326 更新摘要\n\n**新功能**\n- 支持在启用 agent teams 时开启 Code Mode，已开启的团队会话将默认以 Code Mode 启动\n- 新增启动警告：当 `--allowedTools`、`--disallowedTools` 或 `--tools` 中存在不完整规则时提示\n- `/status` 新增一行，说明 provider 或 `DISABLE_TELEMETRY` 等环境变量关闭了哪些功能\n- 新增 Ctrl+O 查看隐藏的启动提示；新增 `OTEL_RESOURCE_INCLUDE_HOST` 环境变量（默认关闭）\n- 管理员会话中途添加 `managed-mcp.json` 时，会说明 MCP 服务器停止加载的原因\n\n**Bug 修复**\n- 修复 Bash 删除/覆盖文件的命令（`find -delete`、`cat a > b`、`sort -o`）被误记为搜索或读取\n- 修复后台会话丢失 shell 导出的 LLM gateway，以及后台服务误杀 SSH 登录等进程\n- 修复 `/permissions`、`/add-dir` 规则在设置文件写入失败时仍显示已保存\n- 修复深层嵌套设置（超过 64 层）导致崩溃；修复 `/rewind`、`/skills`、`/feedback` 等多处交互问题\n\n**破坏性变更**\n- 设置文件中超过 64 层的嵌套值现被丢弃并给出警告",
       "category": "github-release"
     }
   ]
