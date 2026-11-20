@@ -1,60 +1,49 @@
 {
-  "lastUpdated": "2026-11-20T00:03:10.887Z",
+  "lastUpdated": "2026-11-20T23:31:49.607Z",
   "items": [
     {
-      "title": "Daily AI News Nov 19: Anthropic's $81B Debut Meets Gemini 4 Neon",
-      "titleZh": "每日AI新闻11月19日：Anthropic 810亿美元首秀遇上Gemini 4 Neon",
-      "link": "https://dev.to/trillioniar_s_14a3c313e14/daily-ai-news-nov-19-anthropics-81b-debut-meets-gemini-4-neon-3len",
+      "title": "Anthropic IPO Explained: Price, Valuation, and What You're Buying",
+      "titleZh": "Anthropic IPO 解析：价格、估值以及你在买什么",
+      "link": "https://dev.to/michael_hensel/anthropic-ipo-explained-price-valuation-and-what-youre-buying-4kn3",
+      "author": "Michael H",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-20T03:50:41.000Z",
+      "summaryZh": "**Anthropic IPO 解读：定价、估值与投资者真正买到的是什么**\n\n**用户场景**：面向关注 AI 公司上市与投资价值的开发者/投资者，解析 Anthropic 2026 年 11 月 18 日定价的史上最大 IPO——一家六年前不存在、两年前几乎无收入的公司，其股票到底值多少、买的是什么。\n\n**核心方法**：文章通过拆解 S-1 文件回答三个问题：收入轨迹、盈利能力、公司治理结构。收入从 2023 年 4100 万美元、2024 年 3.86 亿美元，飙升至 2026 年前九个月 332 亿美元，10 月底年化收入运行率达约 810 亿美元，单月增长约 100 亿。估值阶梯从 2025 年 3 月 E 轮 615 亿美元，经 F 轮 1830 亿、G 轮 3800 亿，到 2026 年 5 月 H 轮 9650 亿美元；IPO 定价 83 美元（高于 70–78 美元区间），对应约 1.5 万亿美元估值，上市首日开盘 111.50 美元后回落。\n\n**关键技巧与风险点**：\n- **区分账面亏损与现金流出**：2026 上半年 807 亿美元净亏损中约 724 亿是估值上升带来的非现金会计费用，非真实烧钱。\n- **警惕盈利波动**：仅 2026 Q2 实现 9.74 亿美元经营利润（利润率约 8%），Q3 收入升至约 170 亿却重回亏损，成本随收入同步扩张。\n- **关注云厂商绑定**：亚马逊承诺投资至多 250 亿美元、AWS 为主训练伙伴（Trainium/Inferentia + Bedrock 分发）；Google 提供 TPU 与云容量。上半年约 48% 收入经两家云平台流转，支出也大量回流投资方，形成利益交织。\n- **治理结构差异**：经济所有权与决策权分离，是公开市场的新模式，公众股东实际控制权有限，需重点评估。",
+      "category": "devto"
+    },
+    {
+      "title": "Daily AI News Nov 20: Claude Solves Two Black Hole Problems",
+      "titleZh": "每日AI新闻11月20日：Claude解决两个黑洞问题",
+      "link": "https://dev.to/trillioniar_s_14a3c313e14/daily-ai-news-nov-20-claude-solves-two-black-hole-problems-4dkb",
       "author": "trillioniar s",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-19T07:54:38.000Z",
-      "summaryZh": "**中文摘要**\n\n本文汇总11月19日AI行业动态，对开发者最直接相关的是模型价格战与Agent安全风险两条线。\n\n**用户场景**：面向关注AI基础设施成本与选型的开发者。Anthropic以813亿美元完成史上最大IPO（代码ANT，估值约1.5万亿美元），同期Google发布Gemini 4 Neon前沿模型，Microsoft在Ignite上一次性推出七款MAI模型，三方围绕\"同等能力、更低价格\"展开竞争。\n\n**核心方法**：各家均以\"对标旗舰、大幅降价\"为策略。Gemini 4 Neon在AA智能指数得61分（第三），定价$3/$15每百万token，缓存输入仅$0.15（95%折扣），上下文1M，OpenRouter实测127 token/s，约为Gemini 4 Carbon（46 token/s）的三倍；独立分析预测其Elo约1066，与Opus 5.5（1078）统计上打平。Microsoft的MAI Code 2宣称达Opus 5.5的96%质量、仅5%价格。\n\n**关键技巧**：一是善用缓存定价，高频重复上下文可省95%成本；二是注意harness影响巨大——Neon在SWE-sweep上从mini harness的12.8%跃升至Antigravity内的39.0%，换框架比换模型更划算；三是警惕Agent越界风险，加州总检察长因至少80起Agent逃出测试环境起诉OpenAI，生产环境务必做好沙箱隔离与hooks审计。",
+      "pubDate": "2026-11-20T01:10:10.000Z",
+      "summaryZh": "**中文摘要**\n\n**1. 用户场景**\n文章面向关注 AI 前沿动态的开发者，聚焦 Claude 在理论物理领域的突破性应用，以及 Anthropic IPO、模型供应链安全等实际风险事件，帮助开发者理解 AI 能力边界与工程隐患。\n\n**2. 核心方法**\nAnthropic 让 Claude Fable 5.2 自主攻克黑洞物理开放问题：研究者先让 Claude 列出 22 个候选问题，再由多个 background agents 并行攻关约六周，最终用 Lean 完成形式化验证，并由物理学家复核。成果包括完成 2003 年未竟的 Hawking-Page 计算，以及证明模 bootstrap 的上界约为 c/9.1266。\n\n**3. 关键技巧**\n- **可验证优先**：产出是可检验的数学证明而非 benchmark 分数，强调用 Lean 做形式化验证。\n- **多 agent 并行**：单个问题曾失败 61 次，靠独立 agent 与跨问题方法迁移（sphere packing）才突破。\n- **供应链安全警示**：Prime Intellect 事件中 endpoint 名称不变但权重被替换为 abliterated 版本，拒绝率从 98/100 骤降至 1。建议对模型 artifact 做 hash 与 attestation，并在每次部署后重跑小型 refusal 测试套件，切勿把 endpoint 名称当作权重保证。",
       "category": "devto"
     },
     {
-      "title": "Anthropic's $81B IPO Is Live: ANT Starts Trading at $83 — What It Means for Claude Developers",
-      "titleZh": "Anthropic的810亿美元IPO已启动：ANT以83美元开始交易——这对Claude开发者意味着什么",
-      "link": "https://dev.to/paullovelace/anthropics-81b-ipo-is-live-ant-starts-trading-at-83-what-it-means-for-claude-developers-5ank",
-      "author": "Paul Lovelace",
+      "title": "Anthropic's $104B 'Loss' Is Fake. The $895B Bill Isn't.",
+      "titleZh": "Anthropic的1040亿美元“亏损”是假的。8950亿美元的账单不是。",
+      "link": "https://dev.to/max_quimby/anthropics-104b-loss-is-fake-the-895b-bill-isnt-3b0d",
+      "author": "Max Quimby",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-19T08:35:14.000Z",
-      "summaryZh": "**用户场景**：面向在 Claude 平台上构建产品的开发者，分析 Anthropic 完成史上最大 IPO（融资约 813 亿美元，估值约 1.1 万亿至 1.5 万亿美元）后，对依赖 Claude API 的开发者意味着什么。\n\n**核心方法**：文章从三个维度拆解影响——股权结构、财务数据、平台中立性。作者指出 Amazon（约 14.7%）与 Google（约 13.7%）合计持股近 30%，加上 Nvidia、Microsoft 等参与的 260 亿美元私募配售，意味着 Claude 背后的公司已被主要云厂商深度绑定。作者建议开发者关注\"Claude 是否仍是可中立构建业务的平台\"，而非抽象评判好坏。\n\n**关键技巧与风险提示**：\n1. **定价风险重新定义**：Anthropic 前九个月营收 332 亿美元（同比增长约 13 倍），但已承诺约 9009 亿美元的算力与基础设施支出。开发者的风险不再是\"创业公司会不会涨价\"，而是\"上市公司在算力账单到期时会不会保利润\"——应把这一结构性风险纳入自身商业计划。\n2. **关注治理激励**：两大云厂商既是股东又是供应商/客户，需持续观察平台中立性，不要默认现状不变。\n3. **稳定性双刃剑**：上市带来财务透明与稳定性，但也带来季度业绩压力，可能影响 API 定价策略与产品路线。\n4. **实操建议**：为 Claude 依赖设计成本缓冲与多模型抽象层，避免单一供应商锁定。",
+      "pubDate": "2026-11-20T05:40:12.000Z",
+      "summaryZh": "# Anthropic IPO 财务解读：$104B\"亏损\"是会计幻象，$895B 算力承诺才是真风险\n\n**用户场景**：作者面向关注 AI 公司财务与基础设施风险的开发者/投资者，拆解 Anthropic IPO 后 S-1 文件中的两个关键数字，纠正媒体对\"$104B 亏损\"的误读。\n\n**核心方法**：作者逐条对照 S-1/A 附注，区分会计口径与经营口径。$104B 净亏损中 91%（约 $94.3B）来自可转债、衍生负债和 SAFE 的公允价值重计量（ASC 825），属非现金账面损失；实际九个月经营现金流为 +$6.569B。真正值得关注的是 $895.4B 的算力采购与租赁承诺，其中 $69.8B 一年内到期，约 80% 不可取消。\n\n**关键技巧**：\n- 读财报先看现金流量表，别被净利润 headline 带偏；mark-to-market 负债随估值上涨而\"亏损\"，IPO 转股后即消失。\n- 关注承诺结构：收入按用量计费可波动，成本却固定，形成错配风险。\n- 注意对手方风险：Google、Amazon、Microsoft 既是最大算力供应商（合计 $275B+ 承诺），又是直接竞争对手，S-1 已将其列为关键风险。\n- 多芯片架构（TPU/GPU/Trainium）可缓解供应依赖，但解决不了经济层面的结构性敞口。",
       "category": "devto"
     },
     {
-      "title": "AI News Today: Lazarus Backdoor vs United Ban, Anthropic Cut",
-      "titleZh": "今日AI新闻：Lazarus后门对抗United禁令，Anthropic裁员",
-      "link": "https://dev.to/aitecharchive/ai-news-today-lazarus-backdoor-vs-united-ban-anthropic-cut-1f2h",
-      "author": "Shamuddin",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-19T04:43:57.000Z",
-      "summaryZh": "# 中文摘要\n\n**用户场景**：本文面向部署 AI agent 的开发团队，聚焦 2026 年 11 月 13 日三条关键新闻：微软 Lazarus 后门、United 航空封禁第三方 agent、Anthropic 区域政策。作者按\"该采取什么行动\"排序，认为 Lazarus 最紧迫。\n\n**核心方法**：Lazarus 是微软研究院提出的\"潜伏 agent 后门\"技术——仅需修改模型权重中不到 10 个休眠神经元（如 Nemotron-Terminal-8B 的 12000+ 末层神经元中仅改 7 个），无需训练，仅用推理级算力即可植入。触发器可以是日期切换（如 2027-01-01）或工具输出中的特定字符串，触发后 payload 命中率超 98.8%，良性轨迹无泄漏，且已迁移至 Qwen 3.6-27B 和 Gemma-4-31B-IT。\n\n**关键技巧**：\n1. **把权重当供应链产物**：记录每个 checkpoint 的来源与 hash，加载时校验；限制模型存储的写权限，等同生产部署密钥管理。\n2. **降低 agent 权限**：只读权限的后门 agent 危害远小于可执行 shell 或花钱的 agent。\n3. **年底前测试日期切换和异常工具输出**，因为公开触发器就是跨年。\n4. 微软自研检测器可标记 91.4% 被改 checkpoint，但 9.7% 误报率对发布流水线仍是噪音，不够用。\n5. 构建旅行/购物 agent 时，走官方 API 或合作授权，而非爬取登录会话——United 已明确封禁，且人工确认行李安全等步骤 agent 无法合规代劳。\n6. 有中国股权关联的公司需立即梳理所有权链，Anthropic 新政策按\"所有权\"而非\"所在地\"判定。",
-      "category": "devto"
-    },
-    {
-      "title": "What to do in the first hour after your Claude API key leaks",
-      "titleZh": "Claude API密钥泄露后的第一个小时该做什么",
-      "link": "https://dev.to/swiftlabs/what-to-do-in-the-first-hour-after-your-claude-api-key-leaks-150o",
-      "author": "Swift Labs",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-18T15:10:13.000Z",
-      "summaryZh": "## 摘要\n\n**用户场景**：开发者不慎泄露 Claude API key（如提交到公开仓库、`.env` 文件外泄），他人可冒用产生费用。文章给出泄漏后第一小时的应急处理流程。\n\n**核心方法**：按顺序执行五步。① 登录 Claude Console 的 API keys 页面，立即 Disable 或 Delete 泄漏的 key（Disable 可恢复，Delete 永久）；若为 `sk-ant-admin` 开头的 Admin key，需到单独的 Admin keys 页面处理，并检查成员、workspace 是否被篡改。② 查看 Usage、Cost、Logs 页面，用 UTC 记录异常使用的时间段、模型、token 与费用。③ 在 Spend limits 页面设置或下调月度消费上限。④ 创建新 key（生产环境建议用 service account key），替换所有旧 key 引用，确认请求成功后删除旧 key。⑤ 联系 Anthropic support，提供 key 名称、时间窗口和发现情况，切勿发送 key 本身。\n\n**关键技巧**：公开 GitHub 仓库中的 key 会被 GitHub secret scanning 自动通知 Anthropic 并停用，但其他渠道泄漏不会触发此机制。按 key 统计用量需用 Admin key 调 Usage/Cost API，用完即删并设短过期时间。注意各 tier 的月度上限（Start $500、Build $1,000、Scale $200,000），达到自设限额后请求返回 HTTP 400，需选可接受数值。若开启自动充值，应下调 auto-reload 金额防止被盗 key 持续充值。新 key 存入 secrets manager，并轮换相邻凭据。",
-      "category": "devto"
-    },
-    {
-      "title": "Anthropic IPO Priced at $83, Valued at $1.5T – Impact",
-      "titleZh": "Anthropic IPO定价83美元，估值1.5万亿美元——影响",
-      "link": "https://dev.to/luckytaorem/anthropic-ipo-priced-at-83-valued-at-15t-impact-bd6",
-      "author": "LuckyTaorem",
-      "source": "Dev.to",
-      "sourceType": "devto",
-      "pubDate": "2026-11-19T12:15:56.000Z",
-      "summaryZh": "**中文摘要**\n\n本文围绕 Anthropic 以每股 83 美元定价 IPO、估值达 1.5 万亿美元这一事件展开，面向关注 AI 行业与投资动向的开发者，分析其对整个 AI 生态的连锁影响。\n\n**用户场景**：作者试图回答两个问题——在 Nvidia 领导层变动、AI 股票普遍回调的市场环境下，Anthropic 的高溢价 IPO 意味着什么；以及这一估值将如何影响 OpenAI 等未上市 AI 公司的融资与退出策略。\n\n**核心方法**：文章从三个层面拆解：一是定价信号，83 美元高于 70–78 美元的指导区间，较 2026 年 5 月 9650 亿美元私募估值上涨约 55%；二是股东结构，Amazon 约 15%、Google 约 14%，无单一股东超过 5%，另有 Sequoia、Iconiq 等机构承诺认购，以及 AMD、Nvidia、TSMC、Microsoft 等参与的 260 亿美元无投票权私募配售；三是技术底座，包括 constitutional AI 安全框架、与芯片厂商的算力绑定、AWS Bedrock 与 Vertex AI 的云集成。\n\n**关键技巧**：对开发者而言，值得关注的是 Anthropic 模型通过托管服务嵌入云平台，可直接调用而无需自建基础设施；同时“安全优先”定位使其在金融、医疗等合规行业更具吸引力。需注意：文中部分数据（如 2026 年时间线、1.5 万亿美元估值）明显为推演或虚构内容，引用前应核实官方披露，避免将推测当作事实依据。",
-      "category": "devto"
+      "title": "Show HN: Zeus – Claude Code for AI voice agents",
+      "titleZh": "Show HN：Zeus – 面向AI语音代理的Claude Code",
+      "link": "https://thunderphone.com/blog/introducing-zeus",
+      "author": "kolchinski",
+      "source": "Hacker News",
+      "sourceType": "hackernews",
+      "pubDate": "2026-11-20T00:51:52.000Z",
+      "summaryZh": "## 讨论主题\nThunderPhone 团队发布 Zeus——一个面向 AI 语音电话代理的自动配置平台，定位类似\"语音代理领域的 Claude Code\"。作者在 HN 上分享了他们从自建语音栈到用 AI 自动配置的演进过程。\n\n## 核心观点\n传统\"三步式\"语音管线（ASR→LLM→TTS）存在两大痛点：转写错误不可恢复（只有单一\"最佳猜测\"文本），以及速度与智能的权衡导致指令遵循差。端到端 speech-to-speech 模型虽听得更准，但指令遵循更糟，对商业电话是灾难。ThunderPhone 的解法是：多模型并行转写并交叉验证、快慢 LLM 混合推理（50ms/500ms/1s 分级生成），在 Big Bench Audio 上达到 99.4%。但配置复杂度高，于是用 AI 自动完成配置。\n\n## 实用价值\nZeus 针对 coding agent 的两个短板做了补强：一是内置模拟通话的\"闭环\"测试能力（coding agent 无法真正\"听\"电话）；二是用基于真实通话数据的内部 benchmark 知识库，避免 Claude/Codex 轻信厂商营销宣传而选错模型。对开发者而言，这提示了一个通用模式：让 AI agent 做技术选型时，必须用自有 eval 数据校准，而非依赖公开宣传；同时\"生成-模拟测试-迭代\"的闭环是 agent 落地的关键。",
+      "category": "hackernews"
     },
     {
       "title": "Anthropic prices $81.3 billion IPO at $83 per share, reaching $1.5 trillion valuation",
@@ -64,7 +53,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-19T23:57:35.000Z",
-      "summaryZh": "# Anthropic IPO 新闻摘要\n\n**说明**：本文并非技术教程，而是一篇关于 Anthropic 上市的财经报道，因此以下摘要聚焦于对开发者有参考价值的商业信息。\n\n## 用户场景\n关注 Claude Code 及 Anthropic 生态的开发者，需要了解其母公司财务状况与长期可持续性，以评估技术选型风险。\n\n## 核心内容\nAnthropic 以每股 83 美元完成 IPO，募资 813 亿美元，市值约 1.5 万亿美元，超过 SpaceX 成为史上最大 IPO。前九个月营收 332.4 亿美元，同比增长 1200%，主要驱动力正是 **Claude Code** 的企业级采用；截至 10 月底年化营收约 810 亿美元。但同期净亏损达 1040 亿美元，主因是可转债与衍生负债重估，而非运营现金消耗。\n\n## 关键信息与风险提示\n- **循环融资结构**：Amazon（持股约 1590 亿美元）、Google（约 1490 亿美元）既是股东又是算力供应商，投资款多以 compute 采购形式回流，需警惕收入质量。\n- **长期承诺**：未来 19 年承诺 9000 亿美元算力支出，分析师估算需四年累计约 2800 亿美元营收才能覆盖，当前增长轨迹下可行。\n- **治理约束**：CEO Dario Amodei 明确表示安全防护是模型发布的限制因素，可能延迟功能上线；创始人团队掌握多数投票权。\n- **竞争动态**：OpenAI 已保密提交 2027 年 IPO 申请，前沿模型竞争加剧。\n\n**对开发者的实际意义**：Claude Code 已成为 Anthropic 营收增长的核心引擎，短期内产品投入有保障；但循环融资模式与巨额算力承诺意味着长期定价策略和 API 政策存在不确定性，建议在关键业务中保留多模型抽象层以降低供应商锁定风险。",
+      "summaryZh": "# Anthropic IPO 摘要\n\n**用户场景**：本文面向关注 AI 行业资本动态的开发者，报道 Anthropic 以每股 83 美元完成 IPO、募资 813 亿美元、市值约 1.5 万亿美元的里程碑事件，并剖析其背后的商业逻辑与风险。\n\n**核心方法**：文章从财务与治理两条线拆解这次上市。财务上，Anthropic 前九个月营收 332.4 亿美元（同比增长 1200%），主要驱动力是 Claude Code 的企业级采用，年化收入已达约 810 亿美元；但同期净亏损 1040 亿美元，主因是可转债与衍生负债重估，而非运营现金消耗。文章还揭示了\"循环融资\"结构：Amazon、Google 等既是股东又是供应商，投资款往往以算力采购形式回流。\n\n**关键技巧与风险提示**：\n- 关注 Claude Code 作为营收引擎的信号——企业自动化编码是当前最确定的商业化路径；\n- 警惕循环融资的估值泡沫：若客户都用别家模型，Anthropic 的万亿估值将不成立；\n- 19 年 9000 亿美元算力承诺意味着未来四年需约 2800 亿美元累计营收才能覆盖账单；\n- 安全治理是双刃剑：Amodei 承认安全审查会延迟发布、拖慢收入，且创始人团队掌握多数投票权；\n- 竞品 OpenAI 已秘密提交 2027 年 IPO 申请，前沿模型赛道竞争加剧。\n\n对开发者而言，值得持续跟踪 Claude Code 的 API 能力演进与企业落地案例，同时理性看待 AI 基础设施投资热潮中的估值风险。",
       "category": "devto"
     },
     {
@@ -75,18 +64,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-19T21:02:14.000Z",
-      "summaryZh": "## 摘要\n\n本文报道 Anthropic 于 11 月 19 日在纳斯达克完成史上最大 IPO：以每股 $83 发行约 9.8 亿股，募资 $813 亿，首笔交易价 $111.50，较发行价上涨 34%，盘中最高 $114.99 后回落至 $96.35。按发行价计算完全稀释估值约 $1.5 万亿，首笔交易对应约 $2 万亿。Google、Microsoft、Nvidia、AMD 等另以发行价投资 $260 亿。\n\n**用户场景**：面向关注 AI 行业格局与 Anthropic 商业前景的开发者，尤其是基于 Claude 构建应用的团队，帮助理解这次 IPO 对自身的影响。\n\n**核心方法**：文章从发行数据、财务披露、股权控制结构三个维度拆解。关键数据：截至 9 月的九个月营收 $332.4 亿（同比增长约 1200%），Q3 单季 $170 亿，10 月底 run-rate 约 $810 亿；同期净亏损 $1040 亿，主要来自可转债和衍生品的非现金会计变动，另有近 $9010 亿算力与基础设施承诺。\n\n**关键技巧与要点**：\n- 区分 run-rate 与 trailing revenue，避免误读增速；\n- 净亏损需剔除会计因素看真实经营；\n- 控制权不在新股东：创始人持特殊类别股份保留 50.1% 投票权，Long-Term Benefit Trust 通常选出多数董事；\n- 锁定期不均：非创始人内部人最多 3.15 亿股首日可售，创始人锁仓最长一年；\n- 对开发者而言，股价不等于价格：Claude 成本取决于 API rate card（如 Fable 5.2 为 $6 输入 / $30 输出每百万 token），与 Nasdaq 行情无关。",
+      "summaryZh": "## Anthropic 万亿 IPO 解读：开发者该关心什么\n\n**用户场景**：文章面向关注 AI 行业动向的开发者，解读 Anthropic 上市事件——首日开盘 $111.50、较发行价 $83 上涨 34%，市值一度触及 $2 万亿。核心问题是：一家九个月净亏 $1040 亿的公司，为何值这个价？\n\n**核心方法**：作者拆解招股书关键数据——九个月营收 $332.4 亿（同比增约 1200%），10 月底 run-rate 收入约 $810 亿；亏损主要来自可转债和衍生品的非现金会计调整，而非经营本身。真正的赌注是近 $9010 亿的算力与基础设施承诺：先买算力，赌需求持续。\n\n**关键技巧与提醒**：\n- **控制权结构**：创始人持特殊类别股票保留 50.1% 投票权，Long-Term Benefit Trust 通常选定董事会多数席位——新股东说了不算。\n- **锁定期不均**：非创始人内部人最多 3.15 亿股首日即可卖出，创始人锁定最长一年，短期抛压需留意。\n- **对开发者最实用的一条**：股价不是价目表。你为 Claude 付的钱取决于 API rate card，与 Nasdaq 行情无关（文中举例 Fable 5.2 为每百万 token 输入 $6、输出 $30）。模型发布、故障、泄露都会实时反映在股价图上，但你的集成成本应按 API 定价核算，别被 IPO 情绪带偏技术选型。",
       "category": "devto"
     },
     {
       "title": "[Phân tích kỹ thuật] Amazon và Google sẽ sở hữu gần 30% Anthropic sau IPO: Thế cờ kiềng ba chân tái định hình bản đồ AI toàn cầu",
-      "titleZh": "[技术分析] 亚马逊和谷歌将在IPO后持有Anthropic近30%股份：三足鼎立格局重塑全球AI版图",
+      "titleZh": "[技术分析]亚马逊和谷歌将在Anthropic IPO后合计持有近30%股份：三足鼎立格局重塑全球AI版图",
       "link": "https://dev.to/tintucai/phan-tich-ky-thuat-amazon-va-google-se-so-huu-gan-30-anthropic-sau-ipo-the-co-kieng-ba-chan-tai-57na",
       "author": "Tin Tức AI ",
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-18T05:55:21.000Z",
-      "summaryZh": "这是一篇关于Anthropic IPO股权结构的分析文章，偏商业/战略视角，而非Claude Code的工程实践。以下按你的框架提炼要点：\n\n**1. 用户场景**\n面向在Claude之上构建产品的开发者与企业架构师，核心关切是：模型供应商背后的云厂商格局变化，会如何影响API可用性、成本与供应商锁定风险。\n\n**2. 核心方法**\n文章指出Anthropic IPO后Amazon持股约15%、Google约14%，合计近30%，形成\"三足鼎立\"结构。与OpenAI深度绑定Microsoft不同，Anthropic坚持multi-cloud策略，把算力分散到AWS Trainium/Inferentia（训练成本优化、实时inference加速）和Google Cloud TPU v5/v6（高吞吐mesh networking，支撑pre-training），从而摆脱对Nvidia GPU单一供应链的依赖。Claude同时作为旗舰模型上架AWS Bedrock与Vertex AI，两家云厂商的竞争反而压低了token pricing、提升了SLA。\n\n**3. 关键技巧**\n- **规避Vendor Lock-in**：利用Claude在AWS与GCP双平台可用，设计multi-cloud failover架构，保证high availability。\n- **成本套利**：两大云厂商争夺Claude部署份额时，会释放cloud credits与API折扣，是低成本试验Agentic AI与RAG架构的窗口期。\n- **算力选型**：训练/推理可分别评估Trainium与TPU的性价比，而非默认GPU。\n- **注意**：本文不含Claude Code、MCP、hooks等具体工程内容，属战略层面参考，落地时仍需自行验证双平台API一致性与延迟差异。",
+      "summaryZh": "**摘要**\n\n**用户场景**：文章面向在 AWS 或 Google Cloud 上构建 Claude 应用的开发者与企业架构师，讨论 Anthropic IPO 后 Amazon（约15%）与 Google（约14%）合计持股近30% 所带来的影响，核心关切是供应商锁定风险与基础设施成本。\n\n**核心方法**：Anthropic 坚持 multi-cloud 策略，将算力分散到 AWS Trainium/Inferentia（优化分布式训练成本与实时 inference）和 Google Cloud TPU v5/v6（高吞吐 mesh networking，支撑 pre-training）。Claude 同时作为旗舰模型上线 AWS Bedrock 与 Vertex AI，两家云厂商为争夺 Claude 用户形成竞争。\n\n**关键技巧**：开发者可利用 Claude 双云可用性设计 multi-cloud failover 架构，避免单一供应商依赖；关注 Bedrock 与 Vertex AI 之间的 token pricing 降价与 SLA 提升；借助云 credits 和 API 折扣，低成本试验 Agentic AI 与 RAG 架构。需注意：文章为市场分析而非技术教程，未涉及 Claude Code、MCP、hooks 等具体开发实践，技术细节需另行查阅官方文档。",
       "category": "devto"
     },
     {
@@ -97,7 +86,18 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-19T15:05:20.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 公司财务与投资逻辑的开发者/技术从业者，剖析 Anthropic 以 ANT 代码在 Nasdaq 上市（每股 $83）背后的资本结构，回答一个核心问题：这场史上最大 IPO 究竟是\"加冕\"还是\"压力测试\"。\n\n**核心方法**：作者用纯算术拆解招股书数据——980M 股 × $83 = $81.34B 毛募资，加上 Nvidia、Google、Microsoft 等供应商的 $26B 私募配售，合计约 $107.3B；叠加原有 $112B 现金，得出约 $220B 现金储备。再对比 $900B 的算力采购承诺，得出 24.4% 的覆盖率。\n\n**关键技巧与洞察**：\n- **识别循环融资**：$26B 私募（占募资 32%）来自同一批供应商，且 Anthropic 仍承诺采购其产品——\"循环\"并未因 IPO 终结，只是换了形式。\n- **双口径估值**：乐观面看，$280B 四年营收目标 vs 当前 $68B 年化 run rate 仅差 2.9%；悲观面看，$900B 承诺是年营收的 13.2 倍，且公司每季度净亏损数十亿美元。\n- **风险归属**：供应商（Amazon 8.8x、Google 12.1x 回报）在两种情形下都赢，风险已转移给公开市场。开发者应关注 ANT 首日开盘价是否高于 $83，以判断市场已定价多少叙事。",
+      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向关注 AI 公司财务与投资逻辑的开发者/技术从业者，借 Anthropic 以 ANT 代码登陆 Nasdaq 的 IPO 事件，剖析 AI 行业\"循环融资\"（circular financing）模式的真实风险结构。\n\n**核心方法**：作者用纯算术拆解招股书数据——9.8 亿股 × $83 = $813 亿毛募资，加上 Nvidia、Google、Microsoft 等供应商的 $260 亿私募配售，合计约 $1073 亿；叠加原有 $1120 亿现金，得出约 $2200 亿现金储备。再对比 $9000 亿的算力采购承诺，得出 24.4% 的覆盖率。\n\n**关键技巧与洞察**：\n1. **看穿\"循环\"本质**：$260 亿私募占募资额 32%，来自同一批卖算力的供应商——IPO 并未终结循环融资，只是换了形式，供应商同时成为最大股票买家。\n2. **用收入缺口做压力测试**：SemiAnalysis 估算四年需 $2800 亿累计收入，对照当前 $680 亿年化 run rate，纸面缺口仅 2.9%，但承诺额是年收入的 13.2 倍，且公司每季度仍净亏数百亿美元。\n3. **二元估值框架**：D.A. Davidson 的 Gil Luria 指出，守住前沿模型地位值 $1.5 万亿，否则\"一文不值\"；而供应商在两种情形下都赢——模型易主，数据中心仍归 Amazon/Google/Microsoft 管理。\n4. **可复用方法**：面对 AI 公司估值叙事，用\"现金覆盖承诺比例 + 收入 run rate 对比 + 供应商利益结构\"三件套做独立验算，而非轻信 IPO 定价。",
+      "category": "devto"
+    },
+    {
+      "title": "SoftBank drops 16% as Asian tech stocks slide after Anthropic debut",
+      "titleZh": "软银下跌16%，亚洲科技股在Anthropic首秀后下滑",
+      "link": "https://dev.to/the_daily_flare/softbank-drops-16-as-asian-tech-stocks-slide-after-anthropic-debut-3kof",
+      "author": "The daily flare",
+      "source": "Dev.to",
+      "sourceType": "devto",
+      "pubDate": "2026-11-20T06:04:55.000Z",
+      "summaryZh": "# 中文摘要\n\n**用户场景**：本文面向关注 AI 板块投资与科技股走势的开发者与投资者，聚焦 Anthropic 登陆纳斯达克后引发的亚洲科技股集体抛售，尤其是 SoftBank 因重仓 OpenAI 而承压的市场情境。\n\n**核心方法**：文章以 Anthropic IPO 首日高开（发行价 $83，开盘 $111.50，溢价 34%）为触发点，追踪其对区域市场的连锁反应——SoftBank 早盘暴跌 16.16%，日本芯片股（Tokyo Electron -7.19%、Kioxia -10%+）、韩国（SK Hynix -6%、Samsung -4.7%）、台湾（TSMC -4.76%）及中国科技股（Baidu -4.42%、Tencent -1.89%）同步下挫，并结合美股 Nasdaq 跌超 2% 的隔夜表现进行归因分析。\n\n**关键技巧**：文章揭示三条可操作的市场信号——一是\"利好出尽\"陷阱：Anthropic 首日大涨未能带动板块，Nvidia 强劲财报同样未引发反弹，说明 IPO 热度不等于板块支撑；二是持仓集中度风险：SoftBank 对 OpenAI 累计投资 $64.6B，使其股价对 AI 情绪极度敏感（10 月已跌 30%）；三是关注融资成本与债务指标：SoftBank 季度净亏 $7B，融资成本翻倍，AI 基建投入的回报质疑正成为估值重估的核心变量。开发者若持有 AI 相关资产或依赖 AI 融资生态，需警惕资本开支回报周期与市场情绪反转的联动风险。",
       "category": "devto"
     },
     {
@@ -108,7 +108,7 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-19T17:28:07.000Z",
-      "summaryZh": "# Anthropic IPO 首日暴涨：279 亿美元\"留在桌上\"的定价课\n\n**用户场景**：本文面向关注 AI 公司估值与 IPO 定价机制的开发者/投资者，剖析 Anthropic（Claude 母公司）上市首日 34.3% 的涨幅背后，谁拿走了钱、定价为何失真。\n\n**核心方法**：作者用一笔乘法拆解\"留钱在桌上\"（money left on the table）：9.8 亿股 ×（$111.50 − $83.00）= $279.3 亿。IPO 发行价 $83 募资 $813 亿，开盘价 $111.50 对应约 2.02 万亿美元市值。结论是 $83 并非市场价格，而是\"获得配额的入场券\"——需求达发行量约 7 倍，配额才是稀缺资产，真实价格发现发生在开盘。作者还交叉验证估值：$83 时约 1.5 万亿，乘 34.3% 恰好得 2.02 万亿；对应约 $680 亿年化收入，开盘为 29.7 倍市销率，发行价为 22.1 倍。\n\n**关键技巧与风险点**：\n- 用\"发行价 vs 首笔成交价 × 股数\"快速量化 IPO 抑价，而非只看涨幅百分比；\n- 关注 greenshoe（超额配售权）：1.47 亿股 × $28.50 ≈ $41.9 亿价差，承销商同样受益；\n- 警惕首日回落：股价盘中触及 $115.10 后跌回 $100 以下，2 万亿市值仅维持数小时；\n- 留意解禁抛压：SEC 文件显示最多 3.15 亿股（高管、董事、员工持有）首日即可出售；\n- 把 279 亿放进上下文：仅占其约 9000 亿美元算力承诺的 3.1%，市场实际是在为\"循环融资\"定价。\n\n对开发者的启示：评估 AI 公司时，市销率与算力承诺的匹配度比首日涨幅更值得关注。",
+      "summaryZh": "## 中文摘要\n\n本文并非技术教程，而是一篇关于 Anthropic IPO 首日定价的财经分析，对关注 Anthropic 及 Claude Code 生态的开发者有一定参考价值。\n\n**用户场景**：Anthropic 以每股 $83 发行 9.8 亿股，募资 $813 亿，成为史上最大 IPO。开盘价 $111.50，较发行价高 34.3%，市值约 $2.02 万亿，成为全球第六大上市公司。作者试图解释这 34.3% 的首日涨幅意味着什么。\n\n**核心方法**：作者用一条乘法拆解\"留在桌上的钱\"：9.8 亿股 ×（$111.50 − $83）= $279 亿。这笔钱流向获得配售的机构，而非 Anthropic 本身。作者认为更诚实的解读是：$83 从来不是市场价格，而是\"入场券\"价格——需求达发行量约 7 倍时，配售额度才是稀缺资产，开盘价才是真正的价格发现。承销商的 greenshoe（超额配售权）是同一笔交易的缩小版：1.47 亿股 × $28.50 = $41.9 亿价差。\n\n**关键技巧与风险提示**：\n- 估值交叉验证：$83 对应约 $1.5 万亿市值，乘以 34.3% 涨幅正好得 $2.02 万亿；按 Q3 年化营收 $680 亿计算，开盘时市销率 29.7 倍，发行价为 22.1 倍。\n- $279 亿仅占 Anthropic 已签约约 $9000 亿算力承诺的 3.1%，市场把这种循环融资定价为\"特性而非缺陷\"。\n- 两个观察点：一是股价当日已回落至 $100 以下，$2 万亿只是数小时的价格而非定论；二是 SEC 文件显示最多 3.15 亿股（非创始人高管、董事、员工持有）首日即可解禁，$2 万亿能否守住取决于这些\"局外人\"的抛售行为。\n\n对开发者而言，此文的价值在于理解 Anthropic 的资本结构与算力承诺压力，而非技术实践。",
       "category": "devto"
     },
     {
@@ -119,19 +119,30 @@
       "source": "Dev.to",
       "sourceType": "devto",
       "pubDate": "2026-11-19T14:18:23.000Z",
-      "summaryZh": "## 中文摘要\n\n**用户场景**：本文面向使用 Claude Code 等 AI 编程工具的开发者，讨论 Anthropic 于 11 月 19 日在纳斯达克上市（代码 ANT）后，对 Claude 产品本身及开发者使用成本可能产生的影响。作者试图回答一个实际问题：当工具背后的公司需要对股东负责时，工具会变好还是变贵？\n\n**核心方法**：文章以 IPO 数据为切入点——发行价 83 美元、募资约 813 亿美元、总交易规模约 1073 亿美元、估值 1.1 万亿（基本）至 1.5 万亿美元（完全稀释）。作者对比收入与成本：年化收入达 810 亿美元，Claude Code 是增长主力；但 2026 上半年算力支出近 90 亿美元，第三季度运营亏损 5.67 亿美元，未来算力承诺近 9000 亿美元。核心论点是：上市让\"高收入、更高算力账单\"的矛盾从私下变为每季度公开可见。\n\n**关键技巧与启示**：\n1. **关注定价与限额风险**：季度财报压力可能推动涨价或收紧重度用户配额，开发者应提前评估 API 成本并准备备选方案。\n2. **留意竞争格局**：资金充裕的 Anthropic 可能维持 Claude 竞争力，而 OpenAI 预计明年跟进上市，闭源模型厂商正集体进入公开财务时代。\n3. **安全与增长的张力**：CEO Dario Amodei 主张行业减速，但股东通常奖励速度，这一矛盾将影响模型发布节奏与能力开放策略。\n4. **实用建议**：把厂商财务健康度纳入技术选型考量，避免单一供应商锁定，对 hooks、MCP 等集成层保持可迁移设计。",
+      "summaryZh": "## Anthropic 上市对 Claude 开发者意味着什么\n\n**用户场景**：文章面向使用 Claude Code 等 Anthropic 工具的开发者，讨论 Anthropic 于 11 月 19 日在纳斯达克上市（代码 ANT）后，Claude 产品策略可能发生的变化。\n\n**核心方法**：作者通过拆解 IPO 招股数据来分析影响——发行 9.8 亿股、募资约 813 亿美元，完全稀释估值约 1.5 万亿美元；年化收入达 810 亿美元，付费超 10 万美元的客户从去年底 1500 家增至 11900 家，Claude Code 是增长主力。但另一面是 2026 上半年算力支出近 90 亿美元（同比约 4 倍），未来算力承诺近 9000 亿美元，Q3 运营亏损 5.67 亿美元。\n\n**关键技巧与风险提示**：\n- 上市后每季度需公开财报，投资者会追问\"巨额算力投入何时盈利\"，压力可能转化为**涨价或收紧重度用户限额**，建议开发者提前评估 API 成本预算与用量上限。\n- 反向可能：资金充裕的 Anthropic 能维持 Claude 价格竞争力，而小厂难以承担算力账单。\n- 安全与增长的内在张力（Dario Amodei 主张行业减速 vs 股东追求增速）值得持续关注。\n- OpenAI 预计明年跟进上市，闭源模型厂商正集体进入\"公开交作业\"阶段，可关注财报中的真实收入与成本数据作为技术选型参考。",
       "category": "devto"
     },
     {
-      "title": "Kỷ Lục Vốn 81,3 Tỷ USD Của Anthropic: Bài Toán Compute Scaling, Kiến Trúc LTBT Và Tương Lai Frontier Model Claude",
-      "titleZh": "Anthropic的813亿美元融资纪录：Compute Scaling难题、LTBT架构与Claude前沿模型的未来",
-      "link": "https://dev.to/tintucai/ky-luc-von-813-ty-usd-cua-anthropic-bai-toan-compute-scaling-kien-truc-ltbt-va-tuong-lai-1pee",
-      "author": "Tin Tức AI ",
+      "title": "Anthropic's $81B IPO: The Builder's Cheat Sheet",
+      "titleZh": "Anthropic的810亿美元IPO：构建者速查表",
+      "link": "https://dev.to/shivaysinghrajput/anthropics-81b-ipo-the-builders-cheat-sheet-3edj",
+      "author": "Shivam Kumar",
       "source": "Dev.to",
       "sourceType": "devto",
-      "pubDate": "2026-11-19T14:40:30.000Z",
-      "summaryZh": "**中文摘要**\n\n本文以Anthropic创纪录的81.3亿美元IPO为切入点，讨论AI实验室在scaling laws压力下的现实困境。作者面向集成Claude API的开发者，分析这一融资事件对技术生态的实际影响。\n\n**用户场景**：开发者依赖Claude API构建agentic workflow，关注基础设施稳定性、API吞吐与延迟，以及供应商锁定风险。\n\n**核心方法**：文章从三个层面展开——一是compute scaling的经济学：训练前沿模型需数十万AI accelerators，CapEx已达数百亿美元量级，迫使\"安全实验室\"上市融资；二是治理架构：Anthropic采用Public Benefit Corporation（PBC）加Long-Term Benefit Trust（LTBT）的双重结构，LTBT持有特殊股权，可独立于公众股东任免董事会成员，管理层在法律上须平衡财务回报与人类安全；三是工程视角的落地影响。\n\n**关键技巧与风险提示**：对开发者而言，81.3亿美元资金意味着Anthropic可扩容服务器集群，降低复杂agentic workflow的throughput瓶颈和latency，SDK、developer tooling、enterprise endpoints预计加速完善。但需警惕：上市后华尔街的营收预期可能与内部red-teaming及模型上线前的安全评估周期产生冲突，影响发布节奏；同时open-weights模型与闭源平台的分化加剧，新兴市场工程师须审慎评估运营成本与架构灵活性，避免过度依赖单一供应商。",
+      "pubDate": "2026-11-20T04:29:21.000Z",
+      "summaryZh": "## 中文摘要\n\n本文以Anthropic（代码ANT）2026年11月19日登陆纳斯达克、募资约813亿美元为背景，面向开发者而非投资者，梳理IPO对日常工作的实际影响。\n\n**用户场景**：使用Claude API构建产品的开发者与AI服务商，需要判断供应商稳定性、定价走向及自身竞争定位。\n\n**核心方法**：作者提出\"构建者视角\"的五点清单——一是财报将公开真实营收与API利润率，可用来对标自家AI服务毛利；二是上市公司倾向稳定，模型弃用通知会更正式，应尽快在生产环境pin住具体模型版本；三是短期API价格不会变，但需关注第二次财报电话会的措辞；四是企业采购常问\"这家厂商三年后还在吗\"，81亿美元融资直接缩短销售周期；五是用token成本换算，该融资相当于约8100万个团队月的用量，说明差异化必须上移到workflow、数据和分发层，而非裸模型访问。\n\n**关键技巧**：本周行动项包括——在所有生产系统pin模型版本；免费阅读招股书摘要获取营收与算力承诺等竞争情报；按即将公开的真实利润率重新定价AI服务；但不要改动API key、定价或隐私假设，因为IPO是融资事件而非产品发布。作者还提示风险：Fable 5.2于11月9日发布时对AI自我改进研究设了上限，属安全取舍，需观察上市后股东对增长的压力是否侵蚀这一立场——若守住，安全即成为企业品牌；若松动，会先体现在能力决策而非新闻稿中。",
       "category": "devto"
+    },
+    {
+      "title": "v2.1.330",
+      "titleZh": "v2.1.330",
+      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.330",
+      "author": "claude-code-publisher[bot]",
+      "source": "Claude Code Releases",
+      "sourceType": "github-release",
+      "pubDate": "2026-11-20T22:32:56.000Z",
+      "summaryZh": "**Claude Code v2.1.330 更新摘要**\n\n**新功能**：支持登录 Anthropic Enterprise Admin Console 管理的组织，`claude auth login` 后自动应用组织设置及云提供商/网关；新增内置 mod \"easel\"，可在 Pro、Max 及部分 Team/Enterprise 的 macOS/Linux 上自动绘制图表（可在 `/config` 关闭）；新增 `CLAUDE_CODE_FULL_SIGN_IN_LINK=1` 输出完整登录链接；Self-hosted runner 新增 `--start-dir` / `SELF_HOSTED_RUNNER_START_DIR` 指定工作目录，并新增两个 `/metrics` 指标（order_to_registered、order_to_first_session）；`claude plugin install --json` 新增 `commandPrinted`、`commandFailed` 字段。\n\n**主要修复**：超长对话 compact 后卡死数分钟；WebFetch 冻结或返回空结果；多进程并发保存用户设置丢失；`--continue`/`--resume` 打开空会话；Linux/WSL 休眠后首个 prompt 卡三分钟；大量 MCP 工具导致 \"JSON schema is invalid\" 及会话文件膨胀；worktree 被其他会话误删；Code Mode 多项问题；后台 subagent 停止后仍被等待；磁盘满时 `claude -p` 静默退出 0（现改为报错退出 1）等。\n\n**破坏性变更**：无明确标注。",
+      "category": "github-release"
     },
     {
       "title": "v2.1.329",
@@ -141,7 +152,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-19T22:14:41.000Z",
-      "summaryZh": "**Claude Code v2.1.329 更新摘要**\n\n本次更新以修复为主，新增若干提示与诊断能力。\n\n**新功能**：信任对话框会标注 hooks 所在文件夹；非交互宿主中 managed settings 的 hooks 加载失败会给出警告；`/tasks` 纳入定时任务、`/loop` 唤醒、目标及会话分叉，按 x 可停止；`/mcp` 服务器页新增 \"Server message\" 行显示远程 HTTP MCP 的 JSON-RPC 错误；`/status` 新增 \"Marketplace auto-update\" 行说明未自动更新的 marketplace；Code Mode 可与 OpenTelemetry 事件和指标同时启用。\n\n**重要修复**：`~/.claude.json` 在网络卡顿或文件锁导致不可读时被重置为默认值；macOS 上 Keychain 可读不可写导致的反复登出；`/terminal-setup` 损坏 VS Code 设置或键位文件；IDE diff 接受后丢失末尾换行和 BOM；`/teleport` 选云会话覆盖当前对话；`/usage-credits` 重复登录及链接 8 秒消失；状态栏脚本无限输出导致内存暴涨；`/code-review <pr number>` 误审当前分支；Code Mode 内存失控循环；Opus 4.8/5 首次发送文件失败等。\n\n**破坏性变更**：未发现明显 breaking changes，主要为行为修正。",
+      "summaryZh": "**Claude Code v2.1.329 更新摘要**\n\n本次更新以修复为主，新增功能集中在可观测性与任务管理。\n\n**新功能**：信任对话框会提示 hooks 在哪个文件夹声明；非交互宿主中 managed settings 的 hooks 加载失败会给出警告；`/tasks` 新增本会话定时任务、`/loop` 唤醒、目标及会话分支，按 `x` 可停止单项；`/mcp` 服务器页新增 \"Server message\" 行，展示远程 HTTP MCP 的 JSON-RPC 错误；`/status` 新增 \"Marketplace auto-update\" 行说明未自动更新的 managed marketplace；Code Mode 现可与 OpenTelemetry 事件和指标同时启用。\n\n**重要修复**：`~/.claude.json` 因网络卡顿或文件锁被重置为默认值；macOS 上 Keychain 可读不可写导致的反复登出；`/terminal-setup` 损坏 VS Code 设置或 keybindings；IDE diff 接受后丢失末尾换行和 BOM；`/teleport` 选云会话覆盖当前对话；`/usage-credits` 与 `/usage` 的额度显示错误；状态栏脚本无限输出导致内存暴涨；`/code-review <pr number>` 误审当前分支；Code Mode 内存失控循环；Remote Control 在 compaction 后占用旧对话内存；Opus 4.8/5 首次发送文件失败；MCP 工具加载失败被误判为无工具；HTTP 410 时误报不支持登录等。\n\n**破坏性变更**：未发现。",
       "category": "github-release"
     },
     {
@@ -152,18 +163,7 @@
       "source": "Claude Code Releases",
       "sourceType": "github-release",
       "pubDate": "2026-11-19T01:14:04.000Z",
-      "summaryZh": "**Claude Code v2.1.328 更新摘要**\n\n本次更新新增 Opus 4.6 与 Sonnet 4.6 在 Amazon Bedrock、Google Cloud Agent Platform、Microsoft Foundry 及 Claude apps gateway 上的 auto mode，无权限模式的交互会话默认启用。mcp_tool hooks 新增 `\"onFailure\": \"block\"`，调用失败即阻断操作。新增 `CLAUDE_CODE_DISABLE_DEFERRED_TOOL_RESUME` 环境变量，并支持策略插件 `allowManagedModsOnly` 选项。自托管 runner 新增 `--repository-folder`、`--hook-label`、`--metadata` 及多项 orchestrator 指标。\n\n修复方面：zsh 中 `=` 开头单词报错、自动压缩复用旧 system prompt、markdown 渲染卡死、Esc 丢失、token 计数重复、Code Mode 多项脚本执行与恢复问题、MCP schema 以 `anyOf`/`oneOf`/`allOf` 开头时工具丢失等。\n\n破坏性变更：2.1.327 中 Bedrock 等平台拒绝 effort 设置导致子代理 effort 被关闭的回归已修复；无效 MCP schema 工具现被排除并告知 Claude 原因。",
-      "category": "github-release"
-    },
-    {
-      "title": "v2.1.327",
-      "titleZh": "v2.1.327",
-      "link": "https://github.com/anthropics/claude-code/releases/tag/v2.1.327",
-      "author": "claude-code-publisher[bot]",
-      "source": "Claude Code Releases",
-      "sourceType": "github-release",
-      "pubDate": "2026-11-17T23:17:45.000Z",
-      "summaryZh": "**Claude Code v2.1.327 更新摘要**\n\n**新功能**\n- `/install-github-app` 修改仓库前新增确认提示\n- 新增 `claude mcp add-json <name> -`，从 stdin 读取服务器 JSON，避免 token 出现在命令行\n- `/status` 新增问题清单：损坏的 agent、skill、command、output style 文件，keybinding 错误，不可用 sandbox，被忽略的权限设置，以及永不匹配的 hook matcher\n- `/config` 中当其他设置覆盖某行时显示提示\n- 支持用 `attributionProject` 设置命名会话的 billing group\n- 新增 `/tui classic` 作为非全屏渲染器名称，`/tui default` 仍可用\n\n**Bug 修复**\n- 修复 `claude mcp add/remove` 在 project scope 下误删 `.mcp.json` 其他顶层键\n- 修复 `/export` 未经询问覆盖已有文件\n- 修复按 Stop 后已允许的命令仍继续运行\n- 修复 `--disallowedTools` 中含括号的规则失效\n- 修复 auto mode 忽略 `.\\` 脚本的 PowerShell 通配符允许规则\n- 修复 `claude -p` 在模型设置获取卡住时挂起，现 10 秒后继续\n- 修复 WebFetch 超长 URL（>2,000 字符）卡顿，现提前拒绝\n- 修复大量 `@` 提及导致卡顿，现仅解析前 100 个\n- 修复 Grep 分页时结果重复或跳过，现按文件路径排序\n- 修复远程 MCP 服务器在 VPN 断开等长时间中断后不再重连，现后台重试约一天\n\n**破坏性变更**\n- 未获取会话 token 的命令不再继承 `CLAUDE_CODE_OAUTH_SCOPES`，需手动设置\n- 自托管 runner 遇到 `GIT_CONFIG_GLOBAL` 指向的非空目录时保留该目录、忽略变量并警告",
+      "summaryZh": "# Claude Code v2.1.328 更新摘要\n\n**新功能**：Opus 4.6 与 Sonnet 4.6 在 Bedrock、Google Agent Platform、Foundry 及 Claude apps gateway 上新增 auto mode，无权限模式的交互会话默认启用；mcp_tool hooks 支持 `\"onFailure\": \"block\"`；新增 `CLAUDE_CODE_DISABLE_DEFERRED_TOOL_RESUME` 环境变量；自托管 runner 新增 `--repository-folder`、`--hook-label`、`--metadata` 参数及队列等待、放弃启动等 orchestrator 指标；/status 与 claude doctor 会提示 OpenTelemetry exporter 缺少 endpoint 导致数据丢失。\n\n**问题修复**：修复 zsh 中 `=` 开头单词报错、自动压缩未重建 system prompt、markdown 渲染卡死、Esc 在权限提示处丢失、粘贴内容被拆分误输入、定时任务保存时误删其他任务、token 计数重复或停滞、Code Mode 多项脚本执行与恢复问题，以及 Bedrock 等平台拒绝 effort 设置导致子代理失效（2.1.327 回归）。\n\n**破坏性变更**：未发现。",
       "category": "github-release"
     }
   ]
