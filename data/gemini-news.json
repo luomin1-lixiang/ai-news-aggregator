@@ -1,31 +1,70 @@
 {
-  "lastUpdated": "2026-11-20T23:30:06.595Z",
+  "lastUpdated": "2026-11-24T03:36:08.948Z",
   "items": [
     {
-      "title": "Get your year-end tasks done with new Connected Apps.",
-      "link": "https://blog.google/products-and-platforms/products/search/connected-apps-holiday-errands/",
-      "description": "Google Connected Apps simplify your year-end tasks. Manage groceries, credit scores, and home services directly in Search. Get the details for November 2026.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Connected_apps_-_Social_share_a.max-600x600.format-webp.webp\">Google Connected Apps simplify your year-end tasks. Manage groceries, credit scores, and home services directly in Search. Get the details for November 2026.",
+      "title": "See what 6 builders are making with Gemini 4 Hydrogen",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-hydrogen-builders/",
+      "description": "See six projects builders created with Gemini 4 Hydrogen, from rainy sci-fi skies and pixelated koi ponds to an interactive moth.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/6_Builders_Hydrogen_herosocial_.max-600x600.format-webp.webp\">See six projects builders created with Gemini 4 Hydrogen, from rainy sci-fi skies and pixelated koi ponds to an interactive moth.",
+      "author": "Molly McHugh-Johnson",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 23 Nov 2026 18:00:00 +0000",
+      "titleZh": "See what 6 builders are making with Gemini 4 Hydrogen",
+      "descriptionZh": "这篇博客的可见导语展示的是 Google 围绕 Gemini 4 Hydrogen 组织的一组开发者创意案例：六位/六个项目作者借助该模型完成了从“雨天科幻天空”到“像素风锦鲤池”，再到“可互动飞蛾”的多样化作品。原文的重点并非发布新的模型论文或技术规格，而是通过案例说明生成式 AI 正在进入创意编程和互动体验开发流程。背景上，这延续了 Gemini 系列将多模态理解与生成能力开放给开发者的方向：开发者不再只把模型当作文本助手，而是把它嵌入视觉素材生成、场景构建、交互逻辑设计和代码原型等环节。\n\n从案例类型看，核心技术逻辑可以概括为“自然语言创意→AI 辅助生成→开发者编排与运行”。例如，“雨天科幻天空”可能涉及氛围描述、光影与纹理生成；“像素锦鲤池”涉及像素艺术风格控制、动画循环和池塘交互；“互动飞蛾”则更强调行为逻辑、输入响应和实时交互。其创新点不在于单一算法突破，而在于展示 Gemini 4 Hydrogen 作为创意开发工具的组合能力：降低从想法到可玩原型的门槛，支持多种视觉风格和交互形态，并让非传统游戏/艺术开发者也能快速试验。技术影响上，这类案例说明生成式 AI 正在推动创意编程民主化，缩短美术、前端、游戏原型和数字艺术装置的开发周期。应用场景可覆盖独立游戏快速原型、互动数字艺术、教育中的创意编程、品牌沉浸式体验以及 Web 交互实验。总体而言，博客通过六个风格差异明显的项目，强调 Gemini 4 Hydrogen 在“创意表达+交互实现”上的开发潜力，而非提供具体性能指标或技术架构细节。"
+    },
+    {
+      "title": "Here are 4 things you didn’t know you could do with Gemini Canvas.",
+      "link": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-canvas-tasks/",
+      "description": "Boost productivity with Google Gemini Canvas. Build web apps, create custom study tools, and refine writing side-by-side. Try it in your next chat.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/02_hero_video_poster.max-600x600.format-webp.webp\">Boost productivity with Google Gemini Canvas. Build web apps, create custom study tools, and refine writing side-by-side. Try it in your next chat.",
       "author": "Google Blog",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 20 Nov 2026 18:00:00 +0000",
-      "titleZh": "使用全新 Connected Apps 完成年终任务",
-      "descriptionZh": "这篇博客是一则简短的产品动态，介绍 Google 推出 Connected Apps（关联应用）以帮助用户简化年末事务。根据原文，用户可以直接在 Google 搜索中管理杂货采购、信用评分和家庭服务等事项，无需在多个应用之间频繁切换；更多细节将在 2026 年 11 月公布。\n\n从技术思路看，Connected Apps 体现了 Google 将搜索从信息检索入口扩展为跨应用任务管理入口的方向：通过 Google 生态与第三方应用和服务的连接，把原本分散在不同应用中的管理能力聚合到搜索结果页中。其创新点主要在于减少应用切换、降低日常事务的操作成本，并让搜索承担更多“直接办事”的功能。应用场景包括年末节假日采购、信用状况查看、家庭维修或服务预约等。该模式有望提升跨应用事务处理效率，但也依赖用户授权、数据隐私保护以及第三方服务的接入范围。原文未展开具体实现机制和完整功能细节。"
+      "pubDate": "Mon, 23 Nov 2026 18:00:00 +0000",
+      "titleZh": "Here are 4 things you didn’t know you could do with Gemini Canvas.",
+      "descriptionZh": "Google Gemini Canvas 是 Google 推出的面向生产力提升的聊天侧边工作区功能。根据原文，它允许用户在 Gemini 对话中并排构建 Web 应用、创建自定义学习工具以及精炼写作，并可直接在下一次聊天中试用。其核心创新在于将对话交互与创作、编辑和构建界面并排整合，减少工具切换，让用户更连贯地完成从构思到产出的任务。应用场景包括快速搭建 Web 应用原型、制作个性化学习辅助工具和进行写作润色等。原文内容较简短，主要传达了该功能的核心定位、主要用途与试用入口。"
     },
     {
-      "title": "How Watch Duty is using Gemini to get wildfire alerts out faster",
-      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/watch-duty-gemini-tool/",
-      "description": "Watch Duty uses Gemini to turn noisy fire radio into text, spotting wildfire dispatches in under 30 seconds so alerts go out faster.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Watch_Duty_Hero_Higher_Res.max-600x600.format-webp.webp\">Watch Duty uses Gemini to turn noisy fire radio into text, spotting wildfire dispatches in under 30 seconds so alerts go out faster.",
-      "author": "Eve Andersson",
+      "title": "A more tailored Google Search that’s uniquely yours",
+      "link": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+      "description": "Get more helpful Search responses by securely opting in to connect Google Wallet, Drive, and the Gemini app to Personal Intelligence in AI Mode.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Blog_pContext_Drive_1118.max-600x600.format-webp.webp\">Get more helpful Search responses by securely opting in to connect Google Wallet, Drive, and the Gemini app to Personal Intelligence in AI Mode.",
+      "author": "Robby Stein",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Fri, 20 Nov 2026 17:00:00 +0000",
-      "titleZh": "Watch Duty 如何利用 Gemini 更快发布野火警报",
-      "descriptionZh": "Watch Duty 是一项面向野火预警和应急信息发布的服务，其目标是在野火发生时尽快把关键调度信息转化为公众警报。传统上，消防无线电通信往往充满噪声、语速快且术语密集，依赖人工监听和转写会带来延迟。为此，Watch Duty 使用 Gemini 将嘈杂的消防无线电音频实时转写为文本，并自动识别其中与野火调度相关的信息。\n\n该方案的核心创新在于低延迟的端到端处理：系统能够在 30 秒内发现野火调度线索，减少人工监听环节，从而更快触发警报。技术上，它把非结构化的语音通信转化为可检索、可分发的文本事件，提升了应急信息处理效率。其应用场景包括野火早期发现、公共安全警报、应急调度辅助和灾害态势感知。整体来看，这一方案利用 AI 语音转写降低预警延迟，让社区和应急人员更早获得野火信息。"
+      "pubDate": "Mon, 23 Nov 2026 17:00:00 +0000",
+      "titleZh": "更贴合你的 Google 搜索，专属于你",
+      "descriptionZh": "Google 在 AI Mode 中推出 Personal Intelligence 功能，用户可通过安全的选择加入方式，将 Google Wallet、Drive 和 Gemini 应用连接至该功能，从而在 Search 中获得更有帮助的个性化回复。"
+    },
+    {
+      "title": "Organize and share your holiday memories with these five updates in Google Photos.",
+      "link": "https://blog.google/products-and-platforms/products/photos/google-photo-tools-holiday-season-2026/",
+      "description": "Organize holiday memories with five new Google Photos updates. Use Gemini for video tasks and filter shared albums by people. Try these features today.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/original_images/video_6262_wagtailvideo-cdfg3q0i_thumb.jpg\">Organize holiday memories with five new Google Photos updates. Use Gemini for video tasks and filter shared albums by people. Try these features today.",
+      "author": "Google Blog",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 23 Nov 2026 17:00:00 +0000",
+      "titleZh": "Organize and share your holiday memories with these five updates in Google Photos.",
+      "descriptionZh": "Google 博客介绍了 Google Photos 的五项新更新，目标是帮助用户在节假日照片和视频大量增加时更方便地整理回忆。原文提到的核心功能包括：利用 Gemini 支持视频相关任务，以及在共享相册中按人物进行筛选。背景在于，假期拍摄内容多、来源杂，传统按时间或相册整理的方式难以快速定位特定人物或完成视频处理。创新点主要体现在将 Gemini 的 AI 能力引入照片/视频工作流，并把“人物”作为共享相册的组织维度，提升查找和整理效率。技术影响上，这类更新可降低视频任务的操作门槛，增强家庭共享场景下内容的可发现性；应用场景包括假期回忆整理、家庭共享相册筛选、视频任务辅助处理等。博客鼓励用户立即尝试这些功能。"
+    },
+    {
+      "title": "Introducing file slicing controls in the Gemini API",
+      "link": "https://blog.google/innovation-and-ai/technology/developers-tools/file-slicing-controls/",
+      "description": "New file slicing controls and native Office file support in the Gemini API let agents inspect targeted slices across Google AI Studio and Vertex AI while paying only for…",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Introducing-File-Slicing-Contro.max-600x600.format-webp.webp\">New file slicing controls and native Office file support in the Gemini API let agents inspect targeted slices across Google AI Studio and Vertex AI while paying only for…",
+      "author": "Rohan Doshi",
+      "source": "Google Blog",
+      "sourceType": "gemini",
+      "category": "gemini-blog",
+      "pubDate": "Mon, 23 Nov 2026 16:12:00 +0000",
+      "titleZh": "在 Gemini API 中引入文件切片控制功能",
+      "descriptionZh": "博客介绍了 Gemini API 在文件处理能力上的两项更新：文件切片控制（file slicing controls）与原生 Office 文件支持。其背景是，AI agent 在处理大型文档、混合格式资料和企业办公文件时，往往需要读取大量无关内容，既增加上下文窗口压力，也抬高调用成本。新能力让开发者可以在 Google AI Studio 和 Vertex AI 中构建 agent，使其直接检查文件中与任务最相关的目标切片，而不是把整个文件一次性送入模型。\n\n核心技术思路是：Gemini API 允许对文件进行更细粒度的切片控制，agent 可围绕具体问题定位并检查特定片段；同时，API 原生支持 Office 文件，减少先转换格式再处理的环节，简化文档输入工作流并保留办公文档中的结构信息。博客片段还强调，计费将只针对实际使用的内容/切片，而非无差别处理整个文件，从而在文档密集型场景中优化成本。其创新点在于把“大文件处理”从整文件读取转向按需、定向的上下文注入，并将格式支持与成本控制结合到 agent 工作流中。\n\n这一更新对文档分析类 agent 具有直接影响，例如合同审阅、财务报表分析、企业知识库问答、项目文档检索、办公自动化与跨文档信息抽取等场景。开发者可以在 AI Studio 中快速实验，在 Vertex AI 中部署到生产工作流；通过只检查相关切片和原生读取 Office 文件，减少预处理工程、降低 token 消耗，并提升 agent 在大型企业文档环境中的可扩展性与实用性。"
     }
   ]
 }
