@@ -1,70 +1,18 @@
 {
-  "lastUpdated": "2026-11-25T01:45:03.822Z",
+  "lastUpdated": "2026-11-27T01:16:24.452Z",
   "items": [
     {
-      "title": "We’re launching Humanity’s First Exam and a Kaggle hackathon to test LLM reliability.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/humanitys-first-exam/",
-      "description": "Google launches Humanity’s First Exam to test LLM reliability across 544 prompts.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Neon_Sign.max-600x600.format-webp.webp\">Google launches Humanity’s First Exam to test LLM reliability across 544 prompts.",
-      "author": "Oran Kelly",
+      "title": "15 years of investing in Colombia’s talent and future",
+      "link": "https://blog.google/company-news/outreach-and-initiatives/google-org/15-years-investing-colombia-talent-future/",
+      "description": "Google marks 15 years in Colombia with over $1M in Google.org funding for AI education, small businesses, rural youth, and disaster relief.",
+      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/resized_Doodle.max-600x600.format-webp.webp\">Google marks 15 years in Colombia with over $1M in Google.org funding for AI education, small businesses, rural youth, and disaster relief.",
+      "author": "Edgardo Frias",
       "source": "Google Blog",
       "sourceType": "gemini",
       "category": "gemini-blog",
-      "pubDate": "Tue, 24 Nov 2026 19:30:00 +0000",
-      "titleZh": "We’re launching Humanity’s First Exam and a Kaggle hackathon to test LLM reliability.",
-      "descriptionZh": "目前可获取的内容仅包括标题和一句提要，无法据此还原博客全文，因此不能可靠生成包含背景、技术原理、创新点、影响与应用场景的完整中文摘要。已能确认的信息是：Google 推出名为“Humanity’s First Exam”的评测，旨在通过 544 个提示词测试大语言模型（LLM）的可靠性。若需完整摘要，请提供英文博客正文或原文链接；收到后可按要求输出专业、易懂且长度自然确定的中文摘要。"
-    },
-    {
-      "title": "How Gemini is changing the game for Golden State's organization and fans.",
-      "link": "https://blog.google/products-and-platforms/products/gemini/gemini-golden-state/",
-      "description": "Google Gemini partners with Golden State to power fan experiences and business operations for the Warriors, Valkyries, and Chase Center. See the news.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Google_Gemini_1.max-600x600.format-webp.webp\">Google Gemini partners with Golden State to power fan experiences and business operations for the Warriors, Valkyries, and Chase Center. See the news.",
-      "author": "Google Blog",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 24 Nov 2026 16:00:00 +0000",
-      "titleZh": "Gemini如何",
-      "descriptionZh": "谷歌Gemini宣布与金州勇士相关方达成合作，将为勇士队、瓦尔基里队以及大通中心提供支持，重点覆盖球迷体验与业务运营两大方向。该合作意味着生成式AI正进一步进入职业体育的日常场景：一方面可通过更智能的交互和内容服务提升观赛体验与粉丝参与度，另一方面可借助AI辅助球队和场馆在数据分析、流程优化及运营决策等方面提效。原文仅披露合作范围，尚未展开具体技术架构、落地功能与成效指标；但其应用对象涵盖NBA、WNBA球队及大型场馆运营，显示出AI在体育娱乐产业的商业化与运营升级潜力。"
-    },
-    {
-      "title": "See what 5 builders are making with Gemini 4 Neon",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-neon-builders/",
-      "description": "See five projects builders created with Gemini 4 Neon, from a glowing 3D Earth and Three.js butterflies to an interactive black hole.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/5_Builders_Neon_herosocial.max-600x600.format-webp.webp\">See five projects builders created with Gemini 4 Neon, from a glowing 3D Earth and Three.js butterflies to an interactive black hole.",
-      "author": "Zahra Thompson",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 24 Nov 2026 16:00:00 +0000",
-      "titleZh": "See what 5 builders are making with Gemini 4 Neon",
-      "descriptionZh": "这篇博客以导语形式展示了五位开发者使用 Gemini 4 Neon 创建的五个项目，包括发光的三维地球、基于 Three.js 的蝴蝶效果以及可交互的黑洞等。其背景是开发者借助生成式 AI 与实时 3D/WebGL 技术进行创意编程和交互式可视化原型开发；创新点主要体现在将 AI 能力与 Three.js 等前端图形技术结合，用于快速构建具有视觉表现力和交互性的 3D 场景。由于原文仅提供导语，未展开 Gemini 4 Neon 的具体技术机制和项目实现细节，无法进一步确认其模型能力、工作流和创新原理。从应用场景看，这类项目可用于创意编程、教育可视化、交互式网页体验和快速原型设计，体现 AI 降低 3D 内容创作与交互开发门槛的潜力。"
-    },
-    {
-      "title": "Independent filmmakers in India bring big-screen stories to life with Google Flow.",
-      "link": "https://blog.google/innovation-and-ai/models-and-research/google-labs/women-in-film-india-google-flow/",
-      "description": "Indian filmmakers use Google Flow to create original short films. Watch five winning stories from the WIF India Filmathon. See the films now.",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/resized_WIF_x_Google_Flow.max-600x600.format-webp.webp\">Indian filmmakers use Google Flow to create original short films. Watch five winning stories from the WIF India Filmathon. See the films now.",
-      "author": "Prashant Paulose",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 24 Nov 2026 14:00:00 +0000",
-      "titleZh": "印度独立电影人",
-      "descriptionZh": "这篇短文介绍印度电影人借助 Google Flow 创作原创短片，并邀请读者观看 WIF India Filmathon 的五部获奖故事。活动以短片创作为核心，展示了创作者如何利用 Google Flow 完成从创意到成片的作品呈现；获奖影片则提供了具体应用案例，体现该类创作工具在独立短片制作、电影人才展示和赛事型内容生产中的价值。原文篇幅较短，未展开 Google Flow 的具体技术原理与创新细节，重点在于活动成果发布和获奖作品导览。"
-    },
-    {
-      "title": "We’re expanding our London home in King's Cross.",
-      "link": "https://blog.google/company-news/inside-google/around-the-globe/google-europe/united-kingdom/expanding-london-home-kings-cross/",
-      "description": "In 2016, we arrived in King’s Cross as founding residents of the Knowledge Quarter. Today, we’re announcing our plan to purchase 6 Pancras Square.Alongside Central Saint…",
-      "content": "<img src=\"https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Untitled_-_23_November_2026_at_.max-600x600.format-webp_kp5WWPC.webp\">In 2016, we arrived in King’s Cross as founding residents of the Knowledge Quarter. Today, we’re announcing our plan to purchase 6 Pancras Square.Alongside Central Saint…",
-      "author": "Kate Alessi",
-      "source": "Google Blog",
-      "sourceType": "gemini",
-      "category": "gemini-blog",
-      "pubDate": "Tue, 24 Nov 2026 08:00:00 +0000",
-      "titleZh": "We’re expanding our London home in King's Cross.",
-      "descriptionZh": "谷歌宣布计划购买位于伦敦国王十字区潘克拉斯广场6号的物业，这是其在Knowledge Quarter长期布局的最新举措。2016年，谷歌作为创始成员入驻该知识园区。"
+      "pubDate": "Thu, 26 Nov 2026 18:00:00 +0000",
+      "titleZh": "投资哥伦比亚人才与未来的15年",
+      "descriptionZh": "Google 在哥伦比亚运营 15 周年之际，宣布通过 Google.org 提供超过 100 万美元资助，重点支持 AI 教育、小企业、农村青年和灾害救援。这篇简短博文仅给出项目方向，未展开具体技术方案，因此无法详细解释底层 AI 原理或项目创新点；从上下文看，资助将把 AI 能力用于教育普及、小企业数字化与经营能力提升、农村青年技能发展，以及灾害响应和恢复等场景。其技术影响主要体现在推动 AI 教育资源向更多群体覆盖、降低小企业和农村社区使用数字工具的门槛，并通过公益资金支持灾害救援中的技术应用。整体来看，这是 Google 在拉美市场长期投入与公益资助结合的案例，强调 AI 技术在社会影响领域的应用，而非发布新的技术产品。"
     }
   ]
 }
